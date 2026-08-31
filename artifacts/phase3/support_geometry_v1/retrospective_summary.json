@@ -1,0 +1,33 @@
+{
+  "status": "T1_RETROSPECTIVE_COMPLETE",
+  "task": "P3-T1",
+  "config_sha256": "1372659b73e3ce49351ea4aae561274f90667a9dca92d2deaddb96be59eb7ec6",
+  "geometry_layer": "pooled_embedding",
+  "n_arm_rows": 272169,
+  "n_pair_rows": 121293,
+  "n_models": 9,
+  "n_matches": 10,
+  "grouping_key": "source_match_id",
+  "predictor_families": [
+    "spectral",
+    "rayleigh",
+    "support",
+    "residual",
+    "metadata",
+    "baseline",
+    "diagonal_geometry",
+    "full_geometry",
+    "off_diagonal_geometry",
+    "baseline_plus_full_geometry",
+    "baseline_plus_diagonal_geometry",
+    "baseline_plus_off_diagonal_geometry"
+  ],
+  "metrics_path": "artifacts/phase3/support_geometry_v1/prediction_metrics.parquet",
+  "bootstrap_path": "artifacts/phase3/support_geometry_v1/match_bootstrap_comparisons.parquet",
+  "bootstrap_unit": "source_match_id_mean",
+  "runtime": {
+    "wall_seconds": 203.50071764737368,
+    "peak_rss_mib": 788.265625
+  },
+  "interpretation_status": "NOT_YET_ROUTED"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "T1_RETROSPECTIVE_COMPLETE",
+  "checkpoint": "P3-T1",
+  "run_id": "p3_support_geometry_v1",
+  "summary_sha256": "32a5f78ef26055a3bf4ec48daf4acafa128f52209fc196803a90856891fcf4a5",
+  "input_p2_response_manifest_sha256": "2d74ef8641ac297737e6b4139539c8c5a64dfc9cde11c72517ad9382a2c6672f",
+  "input_p2_matching_manifest_sha256": "19e6681d4fd13ae21fc12b19f3f186f310e05eb9ae3c79f26a301b349024e367"
+}
