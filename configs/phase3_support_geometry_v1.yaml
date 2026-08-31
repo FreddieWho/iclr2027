@@ -1,0 +1,250 @@
+version: 1
+run_id: p3_support_geometry_v1
+phase: P3_CAUSAL_MECHANISM
+study_mode: exploratory_discovery
+hypothesis_status: post_p2_mechanistic_follow_up
+status_at_document_migration: DOCUMENT_MIGRATION_COMPLETE_T0_NOT_RUN
+current_route: mixed_or_graph_specific
+
+# This lock records the frozen P2 surface. It is not permission to rewrite or
+# rerun P2. P2 reports and artifacts remain read-only.
+provenance:
+  git_head_at_document_migration: f44be1e9526796a76b58ca2bd44dc562ab7841a3
+  canonical_inputs:
+    samples_npz:
+      path: artifacts/phase1/canonical_samples.npz
+      sha256: caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11
+      n_samples: 250
+      shapes:
+        positions: [250, 20, 2]
+        raw_positions: [250, 20, 2]
+        centered_positions: [250, 20, 2]
+        adjacency: [250, 20, 20]
+        eigenvalues: [250, 20]
+        eigenvectors: [250, 20, 20]
+        team_slots: [250, 20]
+        node_mask: [250, 20]
+    samples_jsonl:
+      path: artifacts/phase1/canonical_samples.jsonl
+      sha256: 69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6
+    p1_model_manifest:
+      path: artifacts/phase1/point_mainline/model_manifest.json
+      sha256: 8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc
+    p1_embedding_manifest:
+      path: artifacts/phase1/point_mainline/embedding_manifest.parquet
+      sha256: b8d710dd805c28c5d9fe3333d72f0ed5ba19208a92322c9363dec9f7acc35b0f
+  p2_authoritative_root: artifacts/phase2/p2_fracture_continuity_v1
+  p2_manifests:
+    matching:
+      path: artifacts/phase2/p2_fracture_continuity_v1/matching/matching_manifest.json
+      sha256: 19e6681d4fd13ae21fc12b19f3f186f310e05eb9ae3c79f26a301b349024e367
+    response:
+      path: artifacts/phase2/p2_fracture_continuity_v1/response/response_manifest.json
+      sha256: 2d74ef8641ac297737e6b4139539c8c5a64dfc9cde11c72517ad9382a2c6672f
+    statistics:
+      path: artifacts/phase2/p2_fracture_continuity_v1/statistics/statistics_manifest.json
+      sha256: a3cc3a4302b68b34ea5ae4af4c9c51016687874564f3a5ad73af185ef183ab0d
+    diagnosis_summary:
+      path: artifacts/phase2/p2_heterogeneity_diagnosis_v1/diagnosis_summary.json
+      sha256: 15ba2d9f133987fa6676f49f33c3cdd924bd2e5c3134c7b9bfb2aaf79b3b8e6e
+  p2_configs:
+    rigid_formal_v2:
+      path: configs/phase2_rigid_formal_v2.yaml
+      sha256: dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745
+    fracture_continuity_v1:
+      path: configs/phase2_fracture_continuity_v1.yaml
+      sha256: dbfa2a821b7b6f25b52e81c4813c67069847c23be47964c1b8058a374e3a597b
+  source_locks:
+    p1_model_factory:
+      path: scripts/run_phase1_pipeline.py
+      sha256: 5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4
+    p2_point_adapter:
+      path: scripts/p2_point_model_adapter.py
+      sha256: 595eb734e952e0db6a3044226b1290b6eeea6318249e21193569d00ee5c04727
+    p2_response_runner:
+      path: scripts/run_phase2_fracture_formal.py
+      sha256: bf38f3034b92a7dfdbc657225242b81f9d667436eca7ee3c44a7e66f878d1204
+    p2_statistics:
+      path: scripts/p2_fracture_statistics.py
+      sha256: 86429c6c465e7758dceacd55c6ababbc0cfe04810eaed79c07748b9f49e98734
+    p3_implementation:
+      path: scripts/p3_support_geometry.py
+      sha256: NOT_CREATED_AT_DOCUMENT_MIGRATION
+
+environment:
+  python_executable: /opt/anaconda3/bin/python
+  python: 3.11.5
+  packages:
+    numpy: 1.26.4
+    pandas: 2.3.3
+    scipy: 1.13.1
+    torch: 2.11.0
+    pyarrow: 22.0.0
+    pyyaml: 6.0.1
+    scikit_learn: 1.5.1
+  dtype: float32
+  default_device: cpu
+  temporary_directory: task_specific_runtime_tmpdir
+  note: Do not use the drifted repository .venv for provenance-locked runs.
+
+frozen_assets:
+  n_samples: 250
+  model_count: 9
+  model_ids:
+    - deepsets_ae_seed11
+    - gat_ae_seed11
+    - phase_gat_seed11
+    - deepsets_ae_seed23
+    - gat_ae_seed23
+    - phase_gat_seed23
+    - deepsets_ae_seed47
+    - gat_ae_seed47
+    - phase_gat_seed47
+  checkpoint_sha256:
+    deepsets_ae_seed11: 3f0a3b7d73bf929979c294266e88657230ce1c66067edcaaf8788530534b71ba
+    gat_ae_seed11: 4ac3b4cde3a5aab56a535546ab8069e40362b3bbf555b83760a7d03cd0bbaae5
+    phase_gat_seed11: 76551d04374b79e0f2b61f8bc9cbf2a81ef4b394beaddf41a36b231600e1e7d5
+    deepsets_ae_seed23: 7272345ada2e9a8e86d5679b4739650e2e4f2d8927ebd0154e153b036ab2f929
+    gat_ae_seed23: ee18f7496a8759b543ec6be785e01099900731c2b854c1c282aa9ed0775c3648
+    phase_gat_seed23: a2dab7ae9861ef69e04ad2d6789d84716330b567565ce049c2397c0bc0dcc0ce
+    deepsets_ae_seed47: 4f44ee0c5aeca83f865eacdf1b3c5585f941bbe755389a1b66b41d41da380b70
+    gat_ae_seed47: 57706cb684a830255352b61e678b51e11d99629d9d067b990f4a2470b01d9fe0
+    phase_gat_seed47: 40ee6a331ec8d43f343f86cfc27e95486cfd5bdd311b4c06ff5f1dc4a8915de7
+  checkpoint_mutation_policy: fail_closed
+  p2_artifact_mutation_policy: fail_closed
+  external_data_policy: no_new_data
+  bioinf_index_policy: out_of_scope_and_untouched
+
+geometry:
+  object: normalized_embedding
+  normalization: l2
+  distance: cosine_distance
+  local_metric: G_f_equals_J_transpose_J
+  q_definition: half_norm_J_delta_squared
+  derivative: autograd_jacobian_and_jvp
+  full_jacobian: true
+  jvp_smoke: true
+  finite_difference: centered
+  finite_difference_steps: [0.0001, 0.0005]
+  tangent_epsilons: [0.0001, 0.0005, 0.001]
+  p2_response_epsilons: [0.25, 0.5]
+  nonlinear_extension:
+    enabled: false
+    name: integrated_jacobian_path_energy
+    points: 3
+    condition: only_if_small_epsilon_wins_and_residual_is_path_nonlinear
+
+layers:
+  requested:
+    - input_node
+    - message_passing_1
+    - message_passing_2
+    - pooling_pre
+    - pooled_embedding
+  comparison_rule: normalized_output_or_matched_direction_scale
+  projection_head: not_used_in_p2_embedding
+  graph_policy: reuse_p2_baseline_fixed_weighted_knn4
+
+t1_prediction:
+  response_targets:
+    - raw_representation_response
+    - anchor_control_pair_effect
+    - pair_effect_direction
+    - match_level_aggregate_direction_and_magnitude
+  predictor_families:
+    - spectral_power
+    - rayleigh_quotient
+    - support_size
+    - role_graph_architecture_epsilon
+    - frequency_residual
+    - topology_residual
+    - low_degree_linear_combination
+    - diagonal_geometry
+    - full_geometry
+    - off_diagonal_geometry
+  model_complexity: low_degree_linear_or_rank_preserving
+  grouped_cv: leave_one_source_match_out
+  grouping_key: source_match_id
+  bootstrap_unit: source_match_id
+  no_large_learned_predictor: true
+  report_metrics: [spearman, mae, r2, direction_accuracy, calibration]
+
+t2_prospective:
+  response_blind: true
+  same_assets_only: true
+  operator: p2_fracture_endpoint_reallocation_v1
+  energy_range: [0.25, 0.5]
+  new_intervention_seed: 20260901
+  freeze_before_response: [formula, layer, metrics, statistical_unit, failure_analysis]
+  no_response_based_selection: true
+
+t3_localization:
+  blocks:
+    - full
+    - diagonal_only
+    - off_diagonal
+    - team_within
+    - team_between
+    - support_inside
+    - support_outside
+    - graph_edge
+    - graph_non_edge
+  role_use: descriptive_stratification_only
+  directional_jacobian_rank: normalized_singular_value_threshold_reported_not_selected
+
+t4_causal_switch:
+  selection: evidence_selected_single_switch
+  status: not_selected_until_t3
+  matched_capacity: required
+  seeds_required: 3
+  possible_routes: [pooling_accessibility, interaction_coupling, constraint_placement]
+  full_causal_matrix: optional_after_minimal_mechanism_gate
+
+t5_task_alignment:
+  task_definitions_locked_before_method_results: true
+  required:
+    - perturbation_localization
+    - one_existing_non_intervention_label_task
+  intervention_label_as_main_task: forbidden
+  preferred_existing_tasks: [phase_or_deployment_label, natural_pair_ranking, intrinsic_formation_retrieval, context_prediction]
+
+prospective:
+  manifest_path: artifacts/phase3/support_geometry_prospective_v1/intervention_manifest.json
+  response_path: artifacts/phase3/support_geometry_prospective_v1/
+  design_checksum_required_before_response: true
+
+artifacts:
+  t0: artifacts/phase3/support_geometry_v1/
+  prospective: artifacts/phase3/support_geometry_prospective_v1/
+  causal_switch: artifacts/phase3/selected_causal_switch_v1/
+  overwrite_policy: versioned_directory_only
+  required_files:
+    - execution_contract.yaml
+    - source_input_provenance.json
+    - manifest.json
+    - receipt.json
+    - SHA256SUMS
+    - summary.json
+    - match_level_results.parquet
+    - condition_level_results.parquet
+    - figure_data
+    - known_limitations.md
+
+gates:
+  p4_amr_fixed:
+    all_required:
+      - full_geometry_beats_best_frequency_residual_baseline_retrospective
+      - full_geometry_beats_best_frequency_residual_baseline_prospective
+      - interpretable_layer_or_block_mechanism
+      - one_matched_causal_switch_changes_geometry_response_and_objective_task
+      - stability_in_two_architectures_or_explicit_family
+      - no_leakage_role_oracle_or_capacity_artifact
+  conditional_support:
+    diagonal_only: node_or_support_sensitivity_anisotropy_only
+    single_architecture: architecture_limited_claim
+    retrospective_only: descriptive_anatomy_no_amr
+    response_only: representation_shaping_no_repair
+  unsupported:
+    stop: true
+    preserve_p2_claim: mixed_or_graph_specific
+    do_not_train_amr: true

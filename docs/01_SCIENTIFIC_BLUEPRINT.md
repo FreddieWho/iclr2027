@@ -22,6 +22,42 @@
 
 而不是单独的 operator。
 
+## 2.4 P2 证据如何修正问题
+
+P2 rigid formal v2、独立 fracture continuity 和 P2-H1 异质性诊断均已完成。P2 的冻结事实是：exact-spectrum 对照说明普通谱功率不能解释全部表示响应；fracture 在部分条件下跨比赛稳定，但方向和幅度依赖 architecture、graph、role 和 energy；当前结果是 representation response，不是下游任务性能。36 个条件中有 20 个总体正向、16 个总体负向，LOMO 同号比例中位数为 1.0，但 seed 方向完全一致的条件为 83.3%。
+
+因此，`mixed_or_graph_specific` 不是把 P2 降级为“没有效应”，而是把一维平均问题升级为条件化机制问题。历史候选“统一中频凹陷”和“角色联盟普遍更特殊”不再作为默认事实；它们保留为待检验或已收缩的历史假设。当前中心问题变为：
+
+> 在总能量、谱功率或位移向量 multiset 受控时，频率、支持分配和跨构件耦合如何共同决定表示响应？
+
+Action-Mode Spectrum 仍是总体的边缘汇总。P3 将其机制化为：
+
+\[
+H_f(b,S,\tau;\varepsilon)=
+\mathbb E\left[
+\frac{d(f(X\oplus\delta),f(X))}{\varepsilon}
+\mid \delta\in b,\operatorname{support}(\delta)=S,\tau
+\right].
+\]
+
+对归一化表示 \(\hat z(X)=z(X)/\|z(X)\|_2\)，定义
+
+\[
+J_f(X)=\frac{\partial \hat z(X)}{\partial\operatorname{vec}(X)},
+\qquad G_f(X)=J_f(X)^\top J_f(X).
+\]
+
+小扰动下：
+
+\[
+1-\cos(z(X),z(X+\delta))
+\approx \frac12\delta^\top G_f(X)\delta.
+\]
+
+当每个节点为二维坐标时，\(G_f\) 由 \(2\times2\) block 构成：对角 block 表示节点自身敏感度，非对角 block 表示跨节点共同或相对变化的耦合。P2 fracture 保持非零位移向量 multiset、支持大小和合法性条件，只改变向量被分配到哪些端点，因此是检验这些 block 的天然仪器。图频率只约束图基底中的功率，不能唯一决定支持落在哪些 block 上。
+
+P3 是 `P3_CAUSAL_MECHANISM` 内的 post-P2 mechanistic follow-up，不新增阶段节点，也不先训练 AMR。强成功版本必须依次具备“预测—定位—因果开关—任务意义”；未满足时按条件支持或不支持收缩 claim。
+
 ## 2. 形式化对象
 
 ### 2.1 多构件状态与关系图
@@ -184,6 +220,24 @@ d(f(X),f(X+\delta_{semantic})),
 
 AMR 在相同全局鲁棒性水平下，提高语义模式可访问性和自然任务性能，并优于 CAP、普通关系池化和 canonicalization 基线。
 
+## 4.1 P2 后的假设状态
+
+下表保留 H1–H9 的原始含义，同时标出 P2 后的证据状态。`supported` 仅指当前范围内的部分证据，不等于普遍因果结论。
+
+| 原假设 | P2 后状态 | 当前解释和下一检验 |
+|---|---|---|
+| H1 Matched-energy reversal | `mixed` | exact-spectrum 下存在空间组织响应差异，但统一 common-over-semantic 排序反转未建立；改检验 support-conditioned geometry 是否预测 pair effect。 |
+| H2 Mid-frequency notch | `not tested` | P2 没有给出稳定的统一 notch；“统一中频盲区”降为历史候选。 |
+| H3 Semantic coalition effect | `mixed` | exact-spectrum 组织差异较稳定，但 role-defined fracture 相对 topology/frequency control 依赖 architecture、graph、role 和 matching residual。 |
+| H4 Augmentation-spectrum predictability | `not tested` | 需要 P3 之后、且不与 P2 response 混用的训练机制证据。 |
+| H5 Constraint-type causality | `not tested` | 只有在 P3 选择出明确机制量后，才允许测试一个约束开关。 |
+| H6 Pooling/interaction mechanism | `reformulated` | 不再先验宣称 unary 或 interaction 是根因；由 layer-wise block 证据选择 pooling 或 interaction 路由。 |
+| H7 Scale is not a cure | `not tested` | 当前没有尺度轴的机制或任务证据。 |
+| H8 Cross-domain prediction | `not tested` | 书法不用于选择体育机制；仅在体育端预测冻结后另行验证。 |
+| H9 AMR improves the frontier | `not tested` | AMR 训练尚未启动；P4 只能由 P3 gate 触发。 |
+
+这些状态保留失败、混合和未测试假设，不把工程完成写成科学支持。
+
 ## 5. 两个域为什么不是拼盘
 
 ### 5.1 体育：受控仪器域
@@ -282,6 +336,25 @@ AMR 在相同全局鲁棒性水平下，提高语义模式可访问性和自然�
 - 若体育与书法的对应关系较弱，可降低跨域主张，探索更合适的映射或把书法作为独立检验域。
 
 若只得到单调频率偏置，可以把研究方向调整为“多构件表示中的关系频谱偏置”，而不必保留组织性或中频盲区表述。
+
+### 10.1 P3 最小机制路线
+
+P3 不默认执行原先的 augmentation × pooling × constraint 全矩阵。任务编号属于本阶段内部施工协议：
+
+1. `P3-T0`：在同输入、同权重、`eval()`、无 dropout、固定 dtype/device 下，复现 P2 baseline embedding，并暴露输入节点编码、message passing 后、pooling 前和 pooled embedding；验证 normalized-embedding JVP、有限差分和二阶近似。
+2. `P3-T1`：以 \(q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2\) 预测 raw response、anchor-control pair effect、方向和 match 聚合；与频率、Rayleigh、support size、role/graph、residual、diagonal-only 等低自由度基线比较，按 match 分组交叉验证。
+3. `P3-T2`：冻结公式、层、指标和统计单位后，用同一 250 samples、9 models、新 seed/合法 support reallocation 生成 response-blind prospective set；失败时收缩机制 claim。
+4. `P3-T3`：分解 diagonal/off-diagonal、team 内外、support 内外、edge/non-edge，并按 layer-wise 定位信息形成或丢失的位置；不直接比较不可比层的绝对 Frobenius norm。
+5. `P3-T4`：只选择一个由 T3 证据支持的 causal switch（pooling accessibility、interaction coupling 或 constraint placement 三者之一），完成 matched-capacity、3 seeds 或明确稳定性分析。
+6. `P3-T5`：先做 perturbation localization，再选择一个已有且非 intervention-label 的客观任务，冻结任务定义后检验 geometry-task alignment。
+
+P3 的工作假设如下，均不得提前写成结论：
+
+- `P3-G1`：\(q_f\) 跨 match 预测 fracture response 或 pair effect，并优于非几何基线；
+- `P3-G2`：diagonal 与 off-diagonal 贡献解释部分 role × architecture 差异；若 off-diagonal 没有额外解释力，收缩为节点敏感度各向异性；
+- `P3-G3`：异质性在节点编码、message passing、pooling 前后中的一个可定位层形成、丢失或被放大；
+- `P3-G4`：一个 matched-capacity 开关按预测改变 geometry、fracture response 和至少一个客观任务指标；
+- `P3-G5`：geometry 与任务语义越对齐，结构任务越好，而不是单纯把 response 推大。
 
 ## 11. 项目边界
 

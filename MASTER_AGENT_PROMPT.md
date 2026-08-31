@@ -13,7 +13,9 @@
 
 ## 核心科学问题
 
-多构件系统中，同一几何算子作用于不同构件联盟时，表征的敏感度是否与任务语义对齐？现代表征是否在等能量条件下错误优先响应共同模式，或在有意义的子群协同频段形成盲区？这些规律是否能由增强/聚合机制解释并由 AMR 控制？
+P2 已确认：在严格控制总能量、逐模态功率或非零位移向量 multiset 后，端点支持的重分配仍可改变表示响应，但方向依赖 architecture、graph、role 和 energy。P3 的问题因此改为：频率、支持分配和跨构件耦合如何共同决定表示响应；这种 support-conditioned local geometry 能否跨比赛预测、在网络层级定位，并由一个最小因果开关改变且连接到客观任务？
+
+Action-Mode Spectrum 继续作为总体边缘汇总；P3 的机制对象是归一化 embedding 的局部 Jacobian 和 \(G_f=J_f^\top J_f\)，不是另一套项目叙事。
 
 ## 数据角色
 
@@ -37,11 +39,11 @@ CAP 作为 baseline；优先实现 AMR-Fixed，再根据实验结果探索 AMR-L
 
 ## 第一优先级
 
-1. 建立数据与 intervention schema；
-2. 完成等能量 Action-Mode Probe；
-3. 观察并解释初始作用谱；
-4. 用同频语义联盟 vs 随机联盟判断组织效应是否超出频率；
-5. 根据前述结果决定 AMR、机制或邻近问题的探索重点。
+1. 冻结 P2 结果、输入、9 个模型 checkpoint 和唯一权威输出路径；
+2. 完成 P3-T0：原始 embedding parity、归一化 embedding、JVP/有限差分、二阶近似和层接口；
+3. 在不改写 P2 的条件下完成局部几何预测、grouped CV 和 match-level bootstrap；
+4. 仅在 prospective 和 layer-wise 证据支持后选择一个因果开关，再建立任务—几何联系；
+5. P3 gate 满足前不得直接训练 AMR；P4 只从 P3 机制推出 AMR-Fixed。
 
 ## 探索纪律
 
@@ -66,21 +68,8 @@ CAP 作为 baseline；优先实现 AMR-Fixed，再根据实验结果探索 AMR-L
 
 ## 当前启动动作
 
-依次执行：
+P2 已结束。当前只允许按 `configs/phase3_support_geometry_v1.yaml` 执行 `P3-T0` 的 CPU smoke：复用 P1 的 `build_torch_models()` 和 P2 adapter，检查 250 个 canonical samples、9 个冻结模型的 baseline parity，暴露节点编码、两次 message passing、pooling 前节点表征和 pooled embedding，并验证 JVP/有限差分。不得重新运行 P2、读取 response 来选择 prospective 干预、或先训练 AMR。
 
-```bash
-bash scripts/bootstrap_env.sh
-bash scripts/download_public_data.sh --core
-python scripts/verify_data.py --manifest configs/data_manifest.yaml
-bash scripts/run_phase0_smoke.sh
-```
-
-随后检查失败信息并修复最小阻塞。完成初始 smoke 后，先生成：
-
-1. 一场 SkillCorner 比赛的 canonical samples；
-2. 6 个频段的等能量干预；
-3. semantic/random matched coalition；
-4. 一个 DeepSets 和一个冻结视觉 backbone 的 spectrum；
-5. 初版探索性现象报告。
+P3 的唯一权威报告是 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`；施工协议见 `docs/05_AGENT_EXECUTION_MANUAL.md`，机器可读路线见 `configs/experiment_matrix.yaml`。书法结果继续保持 exploratory，不用于选择体育端机制；本项目不访问、修改或重建任何生信数据/index。
 
 不要写论文正文。当前交付是可运行研究系统、真实结果、Figure 数据和决策报告。

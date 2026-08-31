@@ -50,6 +50,54 @@ causal_matrix:
   sampling:
     - natural
     - spectral_whitened
+  route: optional_after_minimal_mechanism_gate
+
+p3_support_conditioned_geometry:
+  phase: P3_CAUSAL_MECHANISM
+  status: document_locked_t0_not_run
+  hypothesis_type: post_p2_mechanistic_follow_up
+  fixed_assets:
+    samples: 250
+    models: 9
+    match_grouped_unit: true
+    p2_response_blind_prospective_generation: true
+  t0_interface_provenance:
+    - baseline_embedding_parity
+    - normalized_embedding
+    - node_encoder_and_message_passing_outputs
+    - pooling_pre_and_pooled_outputs
+    - autograd_jvp
+    - finite_difference_and_second_order_smoke
+    - checkpoint_and_input_immutability
+  t1_prediction:
+    target: [raw_representation_response, anchor_control_pair_effect, pair_direction, match_aggregate]
+    predictors:
+      - spectral_power
+      - rayleigh_quotient
+      - support_size
+      - role_graph_architecture_epsilon
+      - frequency_residual
+      - topology_residual
+      - diagonal_geometry
+      - full_geometry
+      - off_diagonal_geometry
+    grouped_cv: leave_one_match_out_or_explicit_grouped_cv
+    bootstrap_unit: source_match_id
+  t2_prospective:
+    response_blind: true
+    same_assets_only: true
+    new_intervention_seed: 20260901
+    freeze_before_generation: [formula, layer, metrics, statistical_unit, failure_analysis]
+  t3_localization:
+    block_decomposition: [full, diagonal_only, off_diagonal, team_within, team_between, support_inside, support_outside, graph_edge, graph_non_edge]
+    layers: [input_node, message_passing_1, message_passing_2, pooling_pre, pooled_embedding]
+  t4_causal_switch:
+    selection: evidence_selected_single_switch
+    status: not_selected_until_t3
+    full_causal_matrix: optional_after_minimal_mechanism_gate
+  t5_task_alignment:
+    tasks: [perturbation_localization, one_existing_non_intervention_label_task]
+    intervention_label_as_main_task: forbidden
 
 metrics:
   diagnostic:
@@ -86,10 +134,10 @@ exploration_checkpoints:
       - "semantic, connected-random, arbitrary-random and phase-randomized comparisons"
       - "effect sizes, group-bootstrap intervals and sensitivity to graph construction"
   C3:
-    question: "Which augmentation, pooling or constraint mechanisms alter the observed pattern?"
+    question: "Can support-conditioned local geometry predict, localize and mechanistically alter the P2 heterogeneity?"
     evidence_to_collect:
-      - "augmentation-spectrum, unary/relational and invariance/equivariance comparisons"
-      - "layer-wise response, accessibility and alternative explanations"
+      - "normalized embedding Jacobian, full/diagonal/off-diagonal geometry and match-grouped prediction"
+      - "prospective intervention validation, layer-wise localization, one selected causal switch and task-geometry alignment"
   C4:
     question: "What method designs improve the useful robustness-structure trade-off?"
     evidence_to_collect:

@@ -190,11 +190,86 @@ SCG 在多个图构造、多个比赛和至少两类模型中稳定非零，或�
 
 综合效应量、group-bootstrap 区间、图构造敏感性和模型差异，判断组织效应是否值得继续深入；可以根据结果增加或调整匹配方案。
 
-## 6. Phase 3：因果机制矩阵
+## 6. Phase 3：因果机制
 
-不先大规模巡检模型，而做匹配容量的受控矩阵。
+P2 已收口为 mixed_or_graph_specific。P3 在同一阶段编号内采用证据自适应的最小机制路线，不默认运行 augmentation × pooling × constraint 全矩阵，也不直接训练 AMR。P3-T0–P3-T5 是本阶段任务编号，不是新阶段节点。
 
-### 6.1 因子
+### 6.1 P3-T0：接口、provenance 与数值等价
+
+输入固定为 P1 的 250 个 canonical samples、9 个冻结点集模型、原始 baseline adjacency 和 P2 的 response-blind intervention 接口。必须：
+
+- 通过 P1 唯一的 build_torch_models() 恢复 checkpoint，使用 eval()、无 dropout、固定 dtype/device；
+- 复现 P2/P1 baseline embedding；
+- 暴露输入/初始节点编码、每个 message-passing block 后、pooling 前节点表征和 pooled embedding；
+- 对 normalized embedding 计算 autograd JVP，并验证中心有限差分；
+- 在小 epsilon 下检查 \(1-\cos\mathrel{\approx}\frac12\|J\delta\|_2^2\) 的误差收敛；
+- 验证 checkpoint、P2 输入文件和 P2 artifact 不被修改。
+
+T0 只产生工程 parity 和 smoke 证据，不产生机制结论。
+
+### 6.2 P3-T1：冻结局部几何预测
+
+主估计量为：
+
+\[
+q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2.
+\]
+
+对每个 anchor/control pair 计算 \(\Delta q\)，至少预测单臂 raw representation response、anchor-control raw pair effect、pair-effect 方向，以及 match-level 聚合的方向和大小。
+
+必须并列比较 spectral power/band power、Rayleigh quotient、support size、role/graph/architecture/epsilon、frequency residual、topology residual、简单线性模型、diagonal-only geometry、full geometry 和 off-diagonal contribution。禁止用大型可学习预测器拟合 P2 response。
+
+评估按 match 分组，使用 leave-one-match-out 或明确 grouped CV；超参数只能在训练 match 内选择。报告 Spearman、MAE、\(R^2\)、方向准确率和 calibration，并以 match-level bootstrap 比较 full geometry 与最佳非几何基线。seed 只在 architecture 内分层，不能伪造比赛重复。
+
+先检验 tangent metric。只有小 epsilon 明显优于大 epsilon，且残差有清楚路径非线性时，才允许在同一机制内增加预先固定的 3 点 integrated-Jacobian/path-energy 估计。
+
+### 6.3 P3-T2：prospective 同资产验证
+
+在 T1 后冻结公式、层、指标、统计单位、失败分析和允许的有限扩展；随后只用相同 250 个样本、相同 9 个模型、相同 operator、主 epsilon 范围和新的 intervention seed/合法 support reallocation 生成 response-blind prospective set。设计文件、seed、manifest 和 checksum 必须在读取新 response 前锁定。
+
+禁止新增数据域、新训练模型、查看 response 后选 support 或 layer、用 prospective response 调阈值，以及只保留预测正确的 intervention。prospective 失败时降低机制 claim，不补数据直到成功。
+
+### 6.4 P3-T3：block 分解与 layer-wise 定位
+
+至少报告 full、diagonal-only、off-diagonal，以及 team 内/间、support 内/外、graph edge/non-edge 的贡献。回答是哪些节点更敏感，还是哪些节点之间被耦合，并比较 DeepSets、GAT-small 和 Phase-GAT 的架构差异。role 只作描述性分层。
+
+对可比层报告 response prediction、diagonal/off-diagonal contribution、directional Jacobian rank、mode/support accessibility 和任务相关信息：
+
+1. 输入/初始节点 embedding；
+2. 每个 interaction/message-passing block 后；
+3. pooling 前节点或 token 表征；
+4. pooled embedding；
+5. 若 P2 使用，projection head 后。
+
+不同维度层不直接比较绝对 Frobenius norm；使用规范化指标、matched directions 或明确的可比尺度。若 off-diagonal 没有额外解释力，收缩为节点敏感度各向异性；若信息只在 pooling 前存在，才考虑 pooling accessibility 路由。
+
+### 6.5 P3-T4：只选择一个因果开关
+
+根据 T3 只选择一条最小路线：
+
+- pooling accessibility：pooling 前有信息、pooling 后丢失或反号时，对比 unary mean/sum 与 matched-capacity relational pairwise pooling；
+- interaction coupling：差异在 message passing 中形成时，对比无跨节点交互与一个最小的局部/relational interaction；
+- constraint placement：结构信息存在但 pooled objective 压低时，对比 pooled-only 与 node-level mode-preserving/recoverability objective。
+
+不并行扫描完整矩阵。因果开关必须同时满足：机制量按预测改变、prospective response 按预测改变、至少一个客观任务指标改善、没有通过牺牲 global context/robustness 获得虚假提升，并完成 matched capacity 与 3 seeds 或明确稳定性分析。只改变 response 而任务无收益时，称为表示塑形，不称为修复。
+
+### 6.6 P3-T5：任务意义
+
+任务定义和 pair 规则必须在查看方法结果前冻结。至少完成 controlled perturbation localization，以及一个已有且非 intervention-label 的客观任务，优先使用已有 phase/deployment 标签、自然 pair ranking，或 intrinsic formation retrieval/context prediction。
+
+定义 \(S_\tau(X,\delta)=\Delta\ell_\tau(X,X\oplus\delta)\) 或等价的 oracle 几何/排序变化，检验 \(q_f\) 与 \(S_\tau\) 的排序、校准和 alignment；在相同 context robustness 下评价结构任务 Pareto。表示 response 大小本身没有正确方向。
+### P3 路由
+
+- full geometry 在 retrospective 和 prospective 均胜过最佳频率/residual 基线，且 layer/block 与一个因果开关、任务指标闭合：允许进入 P4 AMR-Fixed；
+- 只有 diagonal 有效：限定为节点/支持敏感度各向异性；
+- 仅一个 architecture 有效：限定为该架构；
+- retrospective 有效而 prospective 失败：只保留描述性解剖，不进入 AMR；
+- response 可控而任务无收益：保留 probe/机制分析，不称方法修复；
+- geometry 和 integrated metric 均不能预测：停止当前机制复杂度，不直接进入 AMR，保留 P2 条件异质性结论。
+
+### 6.7 历史候选因子矩阵（不作为默认施工路径）
+
+以下矩阵保留为 P3 的 optional_after_minimal_mechanism_gate 扩展，只有 T0–T5 的证据支持后才可取其中一个最小对照；不再是当前默认路线。
 
 | 因子 | 条件 |
 |---|---|
@@ -213,7 +288,7 @@ SCG 在多个图构造、多个比赛和至少两类模型中稳定非零，或�
 
 随后只加最必要的 constraint-type 对照。
 
-### 6.2 机制预测
+### 6.8 历史机制预测（待检验）
 
 - independent part invariance 会扩大低敏感度子空间；
 - unary pooling 更难保留相对 phase；
@@ -221,7 +296,7 @@ SCG 在多个图构造、多个比赛和至少两类模型中稳定非零，或�
 - 把中频加入 invariance 会加深凹陷；
 - 把同一中频加入 equivariance 会填平凹陷。
 
-### 6.3 Layer-wise anatomy
+### 6.9 Layer-wise 补充指标
 
 每层报告：
 
@@ -388,27 +463,26 @@ SCG 在多个图构造、多个比赛和至少两类模型中稳定非零，或�
 
 ### Figure 3：核心规律
 
-候选二选一：
+不再预设统一中频凹陷。核心图优先展示 observed vs geometry-predicted pair effect，并同时给出频率、Rayleigh/residual 与 support-conditioned geometry 基线；若只有特定 architecture、graph 或 role 条件成立，按条件分面展示，不合并成统一同号结论。主图宜包含同频随机对照，以便区分组织效应与 oversmoothing。
 
-1. 中频凹陷跨模型/层出现；
-2. 若无凹陷，则展示更强的同频语义联盟效应。
-
-主图宜包含同频随机对照，以便区分组织效应与 oversmoothing。
+- Panel A：observed pair effect 与 full/diagonal-only/off-diagonal geometry prediction；
+- Panel B：geometry 相对于 frequency/residual baseline 的 match-level 增量；
+- Panel C：失败条件、方向反转和 epsilon 敏感性。
 
 ### Figure 4：因果开关
 
-- 增强谱能量 vs 表示响应；
-- 中频 invariance 加深凹陷；
-- 中频 equivariance 填平/移动凹陷；
-- unary 与 relational pooling 的差异。
+- 只展示一个由 T3 证据选择的开关；
+- 预测的 block/layer 变化 → 实际操作 → geometry、prospective response 与任务指标；
+- 若路由未通过 gate，展示失败链而不是补画完整 causal matrix。
 
-最好形成“预测—操作—响应”的三列，而不是消融大表。
+最好形成“预测—操作—几何—任务”的四列，而不是消融大表。
 
 ### Figure 5：AMR 方法
 
 - context channel；
 - graph spectral filter bank；
 - task-conditioned gates；
+- frequency × support/relationship-conditioned fixed routing；
 - invariant/equivariant branches；
 - learned gate heatmap，展示不同任务/域的模式指纹。
 

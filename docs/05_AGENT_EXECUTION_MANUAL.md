@@ -34,29 +34,26 @@
 - natural pairs；
 - sports task labels。
 
-#### W2 — Intervention and Spectrum
+#### W2 — Intervention and Prospective Validation
 
-- equal-energy generator；
-- exact mode/band sampler；
-- semantic/random matched coalitions；
-- H(k)、ERRR、SCG、notch metrics；
-- artifact and validity tests。
+- 复用 P2 的合法 operator 与 exact-spectrum/matched-support 接口；
+- 在 T1 公式和 layer 冻结后生成 response-blind prospective reallocations；
+- 保存 intervention manifest、seed、support 合法性、checksum 和独立 receipt；
+- 不查看 response 后筛选 support，不补数据直到预测成功。
 
-#### W3 — Baseline Audit
+#### W3 — Local Geometry and Layer Diagnostics
 
-- coordinate baselines；
-- frozen image encoders；
-- canonicalization/frame baselines；
-- layer-wise feature extraction；
-- model predictions and exploratory comparisons。
+- normalized-embedding Jacobian/JVP 与有限差分 parity；
+- full、diagonal-only、off-diagonal、team/edge/support block 分解；
+- 输入、message-passing、pooling 前和 pooled 层 hooks；
+- 低自由度频率/residual/support 基线、match-grouped prediction 与失败分析。
 
-#### W4 — AMR Method
+#### W4 — Gate-conditional AMR Method
 
-- CAP baseline；
-- AMR-Fixed；
-- AMR-Learned；
-- method unit tests；
-- capacity matching。
+- 在 P3 gate 通过前不训练 AMR；
+- 只实现证据选出的一个 matched-capacity causal switch；
+- 通过后实现 AMR-Fixed，再由任务证据决定是否进入 AMR-Learned；
+- 保持 CAP、canonicalization、relational pooling 等强基线和容量记录。
 
 #### W5 — Calligraphy
 
@@ -69,8 +66,8 @@
 #### W6 — Reproducibility and Figures
 
 - experiment registry；
-- confidence intervals；
-- figure data contracts；
+- match-level CV、bootstrap 和 confidence intervals；
+- manifest/receipt/checksum 与 figure data contracts；
 - table/figure generation；
 - license and source ledger。
 
@@ -298,16 +295,20 @@ W1 提供 semantic coalitions；W2 生成 matched random controls；W3 复测模
 
 ## Phase 3 — Mechanism
 
-W3/W4 做 causal matrix；W2 做 layer-wise spectrum。
+P2 已收口为 `mixed_or_graph_specific`。P3 不增加阶段节点，任务编号为 T0–T5，且采用证据自适应的最小路线。
 
-输出：
+### P3 worker contract
 
-- augmentation spectrum；
-- unary vs relational；
-- invariance vs equivariance；
-- notch movement。
+| 任务 | owner | 输入 | 输出 | 必须测试/manifest | 停止条件 |
+|---|---|---|---|---|---|
+| T0 接口与 parity | W3 | 250 canonical samples、9 个冻结 checkpoint、P1 factory、P2 adapter | normalized embedding、层接口、JVP smoke、parity summary | forward parity、JVP/finite difference、二阶近似、checkpoint hash | parity 或 autograd 不闭合则停在 T0 |
+| T1 局部几何预测 | W3/W6 | T0 锁定层、P2 response 和 matching manifest | 单臂 q、pair Δq、低自由度基线、grouped CV、figure tables | match split 无泄漏、bootstrap、summary/table 一致 | geometry 不优于基线时不引入大预测器 |
+| T2 prospective | W2/W6 | T1 冻结公式、层、指标和新 seed | response-blind intervention manifest、独立 response receipt、prospective report | 生成器不读 response、seed/hash/draw 可复现 | 失败则降低 mechanism claim，不补选干预 |
+| T3 block/layer | W3 | T0/T1 输出和可比层 | block 分解、layer-wise 定位、失败条件 | 恒等式、permutation/order、维度归一化 | off-diagonal 无额外信息则收缩为 diagonal claim |
+| T4 单一 causal switch | W4 | T3 选择的一条 route | matched-capacity 3-seed switch 结果 | 机制量、prospective response、任务、robustness 同时记录 | 未满足四项最低证据则不进入 AMR |
+| T5 任务意义 | W1/W4/W6 | 预先冻结的任务定义、已有标签或自然 pair | localization、客观任务、geometry-task alignment | pair/match 隔离、非 intervention-label、Pareto | 只有 response 改变而任务无收益时称表示塑形 |
 
-将“机制”写入 claim ledger 时，注明证据等级、替代解释和当前局限。
+所有任务使用 `artifacts/phase3/` 下不可覆盖的版本化目录，并在主报告和 claim ledger 中区分事实、解释、未测试和失败条件。完整 augmentation × pooling × constraint 矩阵仅为 gate 后 optional extension。
 
 ## Phase 4 — AMR
 

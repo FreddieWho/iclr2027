@@ -711,3 +711,16 @@ H1 只复用 `p2_fracture_continuity_v1` 的冻结 statistics，不重新训练�
 H1 得到 36 个条件，其中 20 个总体正向、16 个负向；LOMO 同号比例中位数为 1.0，但模型 seed 方向完全一致的条件为 83.3%。frequency residual 绝对相关系数中位数/最大值为 0.0316/0.1315，topology residual 为 0.0479/0.3484。结果说明部分方向跨比赛稳定，但不能支持统一的 endpoint-organization 因果机制；当前科学路由仍为 `mixed_or_graph_specific`。
 
 因此暂不启动 P3 causal-mechanism matrix、AMR 训练或中国书法复现。若后续进入 P3，应只检验一个由 H1 结果支持的最小机制，而不是扩大模型或数据范围。完整记录见 `reports/P2_HETEROGENEITY_DIAGNOSIS.md`。
+## QA-2026-09-01-023：为什么 mixed_or_graph_specific 不是 P2 的简单降级？
+
+### 问题
+
+P2 的异质性是否意味着 Action-Mode Spectrum 失败，或者应直接改跑完整机制矩阵和 AMR？
+
+### 回答
+
+不是。P2 的 exact-spectrum 结果已经说明普通谱功率不能唯一决定表示响应；fracture 在保留非零位移向量 multiset 时只改变端点支持，仍在部分条件产生跨比赛稳定但依赖 architecture、graph、role 和 energy 的方向差异。因此 mixed_or_graph_specific 是对一维边缘汇总的机制定位，而不是把 20 个正向条件改写成统一正效应。Action-Mode Spectrum 继续保留为跨 support/relationship 条件的边缘测量。
+
+P3 采用 support-conditioned local geometry，因为归一化 embedding 的局部 Jacobian 给出 \(G_f=J_f^\top J_f\)，可分解为节点自身敏感度和跨节点耦合；它能直接对应 fracture 的 support reallocation。当前 P3-G1–G5 都是 post-P2 工作假设，必须经过 match-grouped retrospective、response-blind prospective、layer/block 定位、一个证据选择的 causal switch 和客观任务联系，不能从 P2 response 后验宣称机制。
+
+不直接跑完整矩阵或 AMR 的原因是：大矩阵会混合多个解释，AMR 会先于机制证据形成后验调参；当前唯一下一步是 T0 接口、parity、JVP/有限差分和 provenance smoke。若 geometry 不能预测，保留 P2 的 mixed_or_graph_specific；若只能改变 response 而任务不改善，称表示塑形，不称方法修复。

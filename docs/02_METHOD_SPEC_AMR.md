@@ -18,6 +18,10 @@
 - 通过谱白化采样，避免训练信号只覆盖容易的模式；
 - 在显式图和隐式 token 图上使用同一原则。
 
+### 1.1 P2 后的方法边界
+
+P2 已冻结为 \`mixed_or_graph_specific\` 的 representation-response 结果。AMR 不从 P2 的方向或响应大小后验调门，也不把 role 当作跨域方法的必要输入。P3 先判断 support-conditioned local geometry 是否能预测、定位并干预该异质性；只有 P3 gate 满足后，才允许实现 M1。因果开关未成立时，AMR 保持 \`NOT_STARTED\`，不以方法训练替代机制证据。
+
 ## 2. 方法输入与接口
 
 ### 2.1 显式结构输入
@@ -139,6 +143,36 @@ r_b^{rel}=\operatorname{Pool}_{(i,j)\in E}
 
 用来检验 unary aggregation 是否是根因。
 
+## 4.3 Normalized-embedding local geometry
+
+设任一可比较层的输出为 \(z_f(X)\)，先定义
+
+\[
+\hat z_f(X)=\frac{z_f(X)}{\|z_f(X)\|_2},
+\qquad
+J_f(X)=\frac{\partial\hat z_f(X)}{\partial\operatorname{vec}(X)},
+\qquad G_f(X)=J_f(X)^\top J_f(X).
+\]
+
+P3 的主预测量不是直接拟合 P2 response，而是
+
+\[
+q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2
+ =\frac12\delta^\top G_f(X)\delta.
+\]
+
+在小扰动、无 dropout 的局部近似下，\(q_f\) 预测归一化表示余弦距离。若输入有 \(N\) 个二维节点，\(G_f\) 由 \(2\times2\) block 组成：
+
+\[
+\delta^\top G_f\delta
+=\sum_i\delta_i^\top G_{ii}\delta_i
++2\sum_{i<j}\delta_i^\top G_{ij}\delta_j.
+\]
+
+其中 \(G_{ii}\) 是节点自身敏感度，\(G_{ij}\) 是跨节点耦合。P3 必须同时报告 full、diagonal-only 和 off-diagonal contribution，并按 team 内外、support 内外、graph edge/non-edge 做描述性分解。若 off-diagonal 没有超出 diagonal 的解释力，方法叙述收缩为节点敏感度各向异性。
+
+工程上优先使用 JVP 计算 \(J_f\delta\)，只在小规模诊断或内存允许时形成 full \(G_f\)；不得为了存储完整 Jacobian 改变模型或 checkpoint。必须验证 autograd JVP 与中心有限差分，并检查二阶近似在小 \(\varepsilon\) 下按预期收敛。
+
 ## 5. 干预与谱白化采样
 
 ### 5.1 等能量要求
@@ -192,6 +226,16 @@ r_b^{rel}=\operatorname{Pool}_{(i,j)\in E}
 \]
 
 产生，其中 \(e_\tau\) 是任务 embedding，\(s_x\) 是样本级统计。第一版可只使用任务 embedding；不要一开始引入复杂超网络。
+
+P3 将上式升级为固定、可审计的 factorized route：频段 × 支持尺度/关系描述共同决定路由条件。支持/关系描述应来自 response-blind 的图和干预元数据，例如 support fraction、induced density、cut/edge summary 或 P3 证明的机制量；不能从 P2 response 学门：
+
+\[
+\alpha_{\tau,b,S}=\sigma(g_\omega(e_\tau,s_S,b)),
+\]
+
+其中 \(s_S\) 是支持/关系统计。M1 不学习该门，而固定使用 P3 证据支持的频段 × 支持/关系路由；M2 才允许在冻结机制和任务定义后从任务 embedding 与样本关系统计学习路由。
+
+静态足球 role 只能作为诊断分层或 intervention-supervised 信息，不能成为推理时通用 AMR 的硬编码真值输入。若某任务确实有已知 role 标签，必须单独报告 role-oracle 与无 role 版本，不能把前者写成跨域方法必要条件。
 
 ### 6.2 为什么采用 task-conditioned
 
@@ -312,20 +356,20 @@ c_b=P_b(L)\delta.
 
 ### M1：AMR-Fixed — 优先实现
 
-- 使用谱频段；
-- 谱白化采样；
-- 显式 context/mode 双通道；
-- 固定规则门，例如 formation identity 中 DC invariant、其余等变；
-- 多任务时使用人工定义的不同门。
+- 只有在 P3-T1–T5 的机制 gate 至少条件支持后实现；
+- 保留谱频段、谱白化采样和显式 context/mode 双通道；
+- 使用由 P3 证据支持的固定“频段 × 支持/关系”路由，不把所有中频预设为应修复对象；
+- 固定的 invariant/equivariant/recoverability 分配必须在查看 AMR 结果前写入配置；
+- 不使用静态 role 作为通用推理输入，并与 CAP、centering、canonicalization、relational pooling 做 matched-capacity 比较。
 
-它已明显超出单一相对预测头。
+M1 的最低目标是证明固定机制路由改善 robustness–structure Pareto；它不是把所有 SCG 推成正值。
 
 ### M2：AMR-Learned — 目标主方法
 
-- 从任务 embedding 学习 \(\alpha_{\tau,b}\)；
-- 允许任务自动选择频段边界；
-- 展示足球、篮球、书法任务得到不同门形状；
-- 门成为“任务的作用模式指纹”。
+- 只有 M1 和 P3 任务联系成立后才启动；
+- 在固定频段与支持/关系特征接口上，从任务 embedding 和样本关系统计学习 \(\alpha_{\tau,b,S}\)；
+- 不用 P2 response 作为目标或阈值选择器；
+- 以任务语义敏感度、结构可访问性和 context robustness 的 Pareto 改善评价，而不是以 response 变大评价。
 
 ### M3：AMR-Implicit — 条件性扩展
 
@@ -382,6 +426,12 @@ CAP 预测单个相对干预；AMR：
 ### 10.5 相比 GNN oversmoothing 修复
 
 AMR 不以提升节点区分度为最终目标，而以输入作用模式到表示响应的传递函数为目标；同频语义联盟对照用于证明其不只是频率低通。
+
+### 10.6 相比普通 Jacobian regularization、relational pooling 与 graph spectral routing
+
+- 普通 Jacobian regularization 通常约束输入敏感度的总量、平滑性或不变性；AMR 把归一化 embedding 的局部 metric 作为诊断和路由依据，并按任务、频段和 support/relationship 条件分配 invariant、equivariant 或 recoverability 目标。
+- relational pooling 只说明关系项可被聚合；AMR 先用 \(G_{ii}/G_{ij}\) 和 layer-wise 证据判断关系信息在哪里形成、丢失或被放大，再选择是否使用关系池化，不能预先把关系池化写成机制结论。
+- graph spectral routing 可能只按图频率分配通道；AMR 的必要条件是 support-conditioned/factorized routing，并保留独立 context channel，同时接受“只有 diagonal 或特定 architecture 有效”的收缩结果。
 
 ## 11. 机制型理论目标
 

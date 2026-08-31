@@ -1,0 +1,25 @@
+- date: 2026-09-01
+  phase: P3_CAUSAL_MECHANISM
+  task: document_migration
+  status: complete
+  hypothesis: mixed_or_graph_specific_P2_can_be_explained_by_support_conditioned_local_geometry
+  evidence: P2_H1_frozen
+  changed_files:
+    - README.md
+    - MASTER_AGENT_PROMPT.md
+    - docs/01_SCIENTIFIC_BLUEPRINT.md
+    - docs/02_METHOD_SPEC_AMR.md
+    - docs/03_EXPERIMENTS_CHECKPOINTS_AND_FIGURES.md
+    - docs/05_AGENT_EXECUTION_MANUAL.md
+    - configs/project.yaml
+    - configs/experiment_matrix.yaml
+    - PROJECT_PACKAGE_CONSOLIDATED.md
+    - QA.md
+    - STATUS.md
+    - DECISIONS.md
+    - CLAIM_LEDGER.md
+    - configs/phase3_support_geometry_v1.yaml
+  result: design_locked_t0_not_run
+  next_action: P3-T0
+  no_new_data: true
+  bioinf_index_touched: false

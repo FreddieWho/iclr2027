@@ -7,6 +7,11 @@ project:
   full_deadline_aoe: 2026-09-25
   main_page_limit: 9
   created: 2026-08-18
+  active_phase: P3_CAUSAL_MECHANISM
+  current_checkpoint: P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE
+  current_route: mixed_or_graph_specific
+  current_phase_status: P3_DOCUMENT_MIGRATION_COMPLETE_T0_NOT_RUN
+  current_next_action: P3-T0_interface_provenance_and_numerical_equivalence_smoke
 
 scientific_core:
   primary_domain: football_tracking
@@ -38,19 +43,22 @@ schedule:
     start: 2026-08-23
     end: 2026-08-26
   - phase: P3_CAUSAL_MECHANISM
-    start: 2026-08-26
-    end: 2026-08-31
+    start: 2026-09-01
+    end: 2026-09-08
+    status: active
+    description: support-conditioned local geometry prediction, prospective validation, layer-wise localization, one evidence-selected causal switch, and task-geometry alignment
   - phase: P4_AMR_METHOD
-    start: 2026-08-31
-    end: 2026-09-07
+    start: 2026-09-08
+    end: 2026-09-14
+    entry_gate: P3_strong_or_conditionally_supported_route_only
   - phase: P5_CALLIGRAPHY_PREDICTION
-    start: 2026-09-05
-    end: 2026-09-11
+    start: 2026-09-12
+    end: 2026-09-17
   - phase: P6_EVIDENCE_CONSOLIDATION
-    start: 2026-09-11
-    end: 2026-09-16
+    start: 2026-09-17
+    end: 2026-09-18
   - phase: P7_ABSTRACT_FIGURE_SELECTION
-    start: 2026-09-16
+    start: 2026-09-18
     end: 2026-09-18
   - phase: P8_REPRODUCIBILITY_SUBMISSION
     start: 2026-09-18
