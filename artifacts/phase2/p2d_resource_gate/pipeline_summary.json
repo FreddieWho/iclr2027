@@ -1,0 +1,9 @@
+{
+  "status": "RESOURCE_GATE_CPU_SUFFICIENT_FORMAL_NOT_RUN",
+  "checkpoint": "P2-D_PRE_RUN_GATE",
+  "compute_decision": "LOCAL_CPU_SUFFICIENT_GPU_NOT_JUSTIFIED",
+  "formal_run": "NOT_RUN",
+  "scientific_interpretation": "NOT_RUN",
+  "scientific_gate": "REQUIRES_EXPLORATORY_ANALYSIS_DECISION",
+  "next_decision": "Choose the first formal multi-model analysis scope and match-level aggregation before expanding computation."
+}

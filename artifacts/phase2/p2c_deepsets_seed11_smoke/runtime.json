@@ -1,0 +1,7 @@
+{
+  "wall_seconds": 13.80099518597126,
+  "peak_rss_mib": 978.78515625,
+  "batch_size": 128,
+  "n_response_rows": 5040,
+  "rows_per_second": 365.1894148920968
+}

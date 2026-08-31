@@ -1,0 +1,48 @@
+{
+  "status": "FRACTURE_STATISTICS_COMPLETE",
+  "checkpoint": "P2-FC-E",
+  "run_id": "p2_fracture_continuity_v1",
+  "config_sha256": "dbfa2a821b7b6f25b52e81c4813c67069847c23be47964c1b8058a374e3a597b",
+  "matching_manifest_sha256": "19e6681d4fd13ae21fc12b19f3f186f310e05eb9ae3c79f26a301b349024e367",
+  "response_manifest_sha256": "2d74ef8641ac297737e6b4139539c8c5a64dfc9cde11c72517ad9382a2c6672f",
+  "receipt_sha256": "46da5c055bd25132831bf31cf3d7a10da7a8a03e5bd23ac01cc22b31f5299ddf",
+  "n_pair_rows": 121293,
+  "n_summary_rows": 36,
+  "outputs": {
+    "pairs": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/fracture_pair_effects.parquet",
+      "bytes": 2513751,
+      "sha256": "a1242052392b592ce9cb8b4d029720b4ebee73913621087789e5e83c089157bf"
+    },
+    "unit": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/source_unit_effects.parquet",
+      "bytes": 631803,
+      "sha256": "d66561abbd71b894c8bf34d8adb6436cffed7bcdd5c2c82f8a63a84e23ceb69c"
+    },
+    "model_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/model_match_effects.parquet",
+      "bytes": 28506,
+      "sha256": "4a306517f67c7ea41490fb05f236279a9c1c5ada684838f0e74922e9cddb7db5"
+    },
+    "architecture_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/architecture_match_effects.parquet",
+      "bytes": 15492,
+      "sha256": "7894554f15b2afbdbb2ca1dc01ccd1bd0b60e7539ec99a48b9fa8d585df420ba"
+    },
+    "summary": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/fracture_summary.parquet",
+      "bytes": 12511,
+      "sha256": "d9c2d22ac3c14f66dc99f1ed89325a100cd556df0cb19ecc8b129151789c623d"
+    },
+    "loo": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/leave_one_match_out.parquet",
+      "bytes": 8169,
+      "sha256": "818481c93d3b94791f632241175eac229eb7fc1a467b61c5b1becdec25229283"
+    },
+    "residual": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/residual_association.parquet",
+      "bytes": 7559,
+      "sha256": "ae63956ebeb76acca8ea7b8e89f0eae5ef74368c7116630e5f37391e59922b16"
+    }
+  }
+}

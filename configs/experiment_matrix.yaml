@@ -1,0 +1,102 @@
+version: 1
+
+model_families:
+  coordinate:
+    - deepsets
+    - set_transformer_small
+    - gat_small
+  frozen_image:
+    - dinov2_vits14
+    - openclip_vit_b32
+    - mae_vit_base
+  geometry_baselines:
+    - centering
+    - procrustes
+    - fixed_canonicalization
+    - learned_canonicalization
+  method:
+    - cap
+    - amr_fixed
+    - amr_learned
+
+intervention_axes:
+  operators:
+    football: [translation]
+    basketball: [translation]
+    calligraphy: [translation, rotation]
+  energies: [0.25, 0.5, 1.0, 2.0]
+  spectral_bands: 6
+  support_sweep_fraction: [1.0, 0.75, 0.5, 0.25, 0.1]
+  controls:
+    - semantic_coalition
+    - connected_random_subset
+    - arbitrary_random_subset
+    - frequency_matched_phase_randomized
+
+causal_matrix:
+  augmentation_coupling:
+    - global_coupled
+    - subgroup_coupled
+    - node_independent
+  constraint_type:
+    - none
+    - invariance
+    - equivariance
+  aggregation:
+    - unary_mean
+    - cls
+    - relational_pairwise
+    - graph_attention
+  sampling:
+    - natural
+    - spectral_whitened
+
+metrics:
+  diagnostic:
+    - structural_transfer_function
+    - equal_energy_reversal_rate
+    - semantic_coalition_gap
+    - notch_depth
+    - notch_position
+    - directional_jacobian_rank
+    - mode_accessibility_linear
+  task:
+    - intrinsic_retrieval
+    - context_prediction
+    - perturbation_localization
+    - natural_pair_ranking
+    - calligraphy_structure_matching
+  reporting:
+    - group_bootstrap_ci
+    - effect_size
+    - parameters
+    - runtime
+
+default_seeds: [11, 23, 47]
+
+exploration_checkpoints:
+  C1:
+    question: "What matched-energy action-mode patterns appear in the available representations?"
+    evidence_to_collect:
+      - "ERRR, transfer curves, uncertainty and model-family differences"
+      - "candidate monotonic or non-monotonic patterns, including null results"
+  C2:
+    question: "Does organization add information beyond graph frequency?"
+    evidence_to_collect:
+      - "semantic, connected-random, arbitrary-random and phase-randomized comparisons"
+      - "effect sizes, group-bootstrap intervals and sensitivity to graph construction"
+  C3:
+    question: "Which augmentation, pooling or constraint mechanisms alter the observed pattern?"
+    evidence_to_collect:
+      - "augmentation-spectrum, unary/relational and invariance/equivariance comparisons"
+      - "layer-wise response, accessibility and alternative explanations"
+  C4:
+    question: "What method designs improve the useful robustness-structure trade-off?"
+    evidence_to_collect:
+      - "CAP, canonicalization, relational pooling, AMR-Fixed and AMR-Learned comparisons"
+      - "task performance, accessibility, capacity, runtime and failure cases"
+  C5:
+    question: "Which action-mode relationships, if any, transfer from sports to calligraphy?"
+    evidence_to_collect:
+      - "multiple band and mapping versions, with the exploration history retained"
+      - "objective structure matching, perturbation localization and cross-domain failure cases"

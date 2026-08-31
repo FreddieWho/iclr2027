@@ -1,0 +1,26 @@
+[
+  {
+    "model_id": "deepsets_ae_seed11",
+    "family": "deepsets_ae",
+    "seed": 11,
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/calligraphy_pilot/smoke/models/deepsets_ae_seed11.pt",
+    "latent_dim": 128,
+    "input_dim": 9,
+    "train_characters": 16,
+    "epochs": 2,
+    "final_train_reconstruction_mse": 0.16058921813964844,
+    "status": "complete"
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "family": "gat_ae",
+    "seed": 11,
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/calligraphy_pilot/smoke/models/gat_ae_seed11.pt",
+    "latent_dim": 128,
+    "input_dim": 9,
+    "train_characters": 16,
+    "epochs": 2,
+    "final_train_reconstruction_mse": 0.1602327972650528,
+    "status": "complete"
+  }
+]

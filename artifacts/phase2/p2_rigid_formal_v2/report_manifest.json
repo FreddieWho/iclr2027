@@ -1,0 +1,48 @@
+{
+  "status": "P2_RIGID_C2_COMPLETE",
+  "scientific_interpretation": "mixed_or_graph_specific",
+  "fracture": "NOT_RUN_SEPARATE_OPERATOR",
+  "final_report": {
+    "path": "reports/EXPLORATION_CHECKPOINT_2.md",
+    "sha256": "e8b6546c3183376c65e85e34e6e3c09f7607c10db351caca006eb73824ee80fa"
+  },
+  "claim_ledger": {
+    "path": "reports/P2_CLAIM_LEDGER.md",
+    "sha256": "5d788d910e811dd685621db1dfe4d3c31baf47a6acc9da740882ccab488f473c"
+  },
+  "qa": {
+    "path": "QA.md",
+    "sha256": "7a3550dfeb43a4947838ff36c628f6da386441c6e547590021f3e3040b68082f"
+  },
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "statistics_manifest_sha256": "ad74d969aaf77131bbd395dfa65abc84e096e7d55b410bb74edb09ac9360274a",
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "figures": [
+    {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/figures/scg_primary_energy_0.25.png",
+      "sha256": "9ca5c068b2baaf5b690a5d6507797a2717743c5f7889e259cf3206f2b6c7dd88",
+      "bytes": 90033
+    },
+    {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/figures/scg_primary_energy_0.5.png",
+      "sha256": "219b73c056d6dd72bd3e8c936bf7d17895d8310d4a32131fa0254109bbc0e3ca",
+      "bytes": 84710
+    },
+    {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/figures/match_effect_forest.png",
+      "sha256": "9234ae633b5bb6afb046842d63b1e2f7b991566d08a23ab19a8804c13c5a7319",
+      "bytes": 97663
+    },
+    {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/figures/matching_coverage.png",
+      "sha256": "98fd0b9f2f23a7d851bfe6a3c28927ede15d3ad9a4f570a8cd0a8f2c7a24fc29",
+      "bytes": 55786
+    }
+  ],
+  "report_draft": {
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/report_draft.md",
+    "sha256": "38288b7645e6969ffbe7d5a0400715614a9fefb5b11c5cd5182d54a0eb99324e",
+    "bytes": 6874
+  }
+}

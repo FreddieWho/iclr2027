@@ -1,0 +1,29 @@
+phase: P2_NOVELTY_DISCRIMINATOR
+version: p2_v1
+study_mode: exploratory_discovery
+source_phase: artifacts/phase1
+data_domain: football_tracking_point_set
+energies: [0.25, 0.5, 1.0, 2.0]
+directions:
+  - [1.0, 0.0]
+  - [-1.0, 0.0]
+  - [0.0, 1.0]
+  - [0.0, -1.0]
+graphs:
+  - knn4
+  - delaunay
+n_bands: 6
+controls:
+  - arbitrary_same_team
+  - topology_frequency_matched
+  - spectrum_exact_sign_randomized
+same_team_max_overlap_fraction: 0.5
+matching:
+  rq_normalized_caliper: 0.05
+  band_power_l1_caliper: 0.20
+  topology_score_density_scale: 0.10
+  topology_score_cut_scale: 1.0
+  require_same_component_count: true
+smoke:
+  max_samples: 3
+  output_dir: artifacts/phase2/smoke_matching

@@ -1,0 +1,25 @@
+{
+  "phase": "P1_PHENOMENON",
+  "checkpoint": "C1",
+  "study_mode": "exploratory_discovery",
+  "data_domain": "football_tracking_only",
+  "mainline_modality": "coordinate_point_set",
+  "model_families": [
+    "coordinate",
+    "task_trained"
+  ],
+  "model_ids": [
+    "deepsets_ae_seed11",
+    "deepsets_ae_seed23",
+    "deepsets_ae_seed47",
+    "gat_ae_seed11",
+    "gat_ae_seed23",
+    "gat_ae_seed47",
+    "phase_gat_seed11",
+    "phase_gat_seed23",
+    "phase_gat_seed47"
+  ],
+  "visual_policy": "deferred_auxiliary",
+  "source_run": "artifacts/phase1/execution_contract.json",
+  "derivation": "deterministic filter and re-aggregation; no new model inference"
+}

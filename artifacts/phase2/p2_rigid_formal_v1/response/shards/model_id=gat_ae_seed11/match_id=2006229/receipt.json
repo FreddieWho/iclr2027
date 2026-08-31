@@ -1,0 +1,35 @@
+{
+  "stage": "response",
+  "shard_id": "model=gat_ae_seed11:match=2006229",
+  "model_id": "gat_ae_seed11",
+  "architecture": "GAT-small-AE",
+  "model_seed": 11,
+  "match_id": "2006229",
+  "formal_config_sha256": "1fc570bc2c1ebf32c1030b7deda43c8e02cc533e85e5b847f0d77d685e9042d1",
+  "matching_manifest_sha256": "6f7effcfb922e77ba095a9c33ada0486e4b876ab348ed0c07a43bd1374fb0b4c",
+  "matching_receipt_sha256": "8da5e581df0f9179aef1c2ce55b78a07c20513e5b922f4fdd7e3a18f01e296fe",
+  "matching_arms_sha256": "0adfdc18d7cc878071b1515f8839f919c20d58ed9b2265c08be7d7c69d45f03a",
+  "checkpoint_sha256": "4ac3b4cde3a5aab56a535546ab8069e40362b3bbf555b83760a7d03cd0bbaae5",
+  "baseline_embedding_sha256": "d26cd38dcd19b8d8bba55e6df66a24825ce3a1beab3cd686d0a677c816a90a99",
+  "status": "completed",
+  "outputs": {
+    "response": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/response/shards/model_id=gat_ae_seed11/match_id=2006229/response.parquet",
+      "sha256": "888987ab33c82d3c02cdfad70cb4028bf6ac9520677a9076542aa0dce4adcd6b",
+      "bytes": 808317
+    }
+  },
+  "runtime": {
+    "wall_seconds": 2.593391388654709,
+    "peak_rss_mib": 959.234375,
+    "n_response_rows": 13980,
+    "n_matched_sets": 4466,
+    "validation": {
+      "status": "pass",
+      "errors": [],
+      "n_valid_matching_arms": 13980,
+      "n_response_rows": 13980,
+      "all_finite": true
+    }
+  }
+}

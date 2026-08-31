@@ -1,0 +1,26 @@
+[
+  {
+    "sample_id": "sc_1886347_0000",
+    "graph_id": "knn4",
+    "status": "valid",
+    "reason": null
+  },
+  {
+    "sample_id": "sc_1886347_0000",
+    "graph_id": "delaunay",
+    "status": "valid",
+    "reason": null
+  },
+  {
+    "sample_id": "sc_1886347_0024",
+    "graph_id": "knn4",
+    "status": "valid",
+    "reason": null
+  },
+  {
+    "sample_id": "sc_1886347_0024",
+    "graph_id": "delaunay",
+    "status": "valid",
+    "reason": null
+  }
+]

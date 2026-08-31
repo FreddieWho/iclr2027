@@ -1,0 +1,53 @@
+{
+  "stage": "statistics",
+  "status": "complete",
+  "config_sha256": "87ff4b6ae47c476da4337d9ad8da27a410e5e3714fa68db290c2d388666e0aa7",
+  "matching_manifest_sha256": "a39eaab033c8cad049988df916411b7df4ce3afd702c2173c5d7c8a346518b50",
+  "response_manifest_sha256": "5b7f98a71d6576980db22202d3aff3d172a10eb64e193a3387ce1018c6639eea",
+  "n_pair_rows": 121293,
+  "n_source_unit_rows": 74808,
+  "n_model_match_rows": 1080,
+  "n_architecture_match_rows": 360,
+  "n_summary_rows": 36,
+  "outputs": {
+    "pairs": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/fracture_pair_effects.parquet",
+      "bytes": 2166855,
+      "sha256": "21a6998a4ada6826d494f00c8b6441eca3749b21c286cf65c9f777cacf883362"
+    },
+    "unit": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/source_unit_effects.parquet",
+      "bytes": 428002,
+      "sha256": "b7fdb6d467690e2daff5feff7fc71ac9b901f9a2a7c1b0791138387aeeab8300"
+    },
+    "model_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/model_match_effects.parquet",
+      "bytes": 26278,
+      "sha256": "7af9bc58604bd17b2c5291b96c802fc328fb80ab0f3ab2ce6faccecabcec1676"
+    },
+    "architecture_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/architecture_match_effects.parquet",
+      "bytes": 13331,
+      "sha256": "f937c9a004c570cd7e9bd23cb11f208c3e505850016f392516c5d6127dd13ff8"
+    },
+    "summary": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/fracture_summary.parquet",
+      "bytes": 12291,
+      "sha256": "f48e548ff881bdc60631f61b166dbec90aea58764b67d31e589f66d6fa793a3c"
+    },
+    "loo": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/leave_one_match_out.parquet",
+      "bytes": 8169,
+      "sha256": "818481c93d3b94791f632241175eac229eb7fc1a467b61c5b1becdec25229283"
+    },
+    "residual": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/residual_association.parquet",
+      "bytes": 6322,
+      "sha256": "14cb9afc5e405a5c50da23caee0c8c7e4c45c8f0f8cf32783c6cbf2f7956e850"
+    }
+  },
+  "runtime": {
+    "wall_seconds": 0.0,
+    "peak_rss_mib": 1046.56640625
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "stage": "matching",
+  "shard_id": "match=1899585",
+  "match_id": "1899585",
+  "formal_config_sha256": "1fc570bc2c1ebf32c1030b7deda43c8e02cc533e85e5b847f0d77d685e9042d1",
+  "parent_matching_config_sha256": "dae1fe98bf8be27824f2269a6f8bfea20bfd09f946aa13ffc287ecc0666b2b1f",
+  "canonical_npz_sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11",
+  "canonical_jsonl_sha256": "69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6",
+  "sample_ids_sha256": "790be4b352e426288ffcafc901d5652ba0be6f4986c147f991b49bc1c2397edc",
+  "planned_sets": 4000,
+  "planned_arm_slots": 16000,
+  "canary": false,
+  "status": "completed",
+  "outputs": {
+    "arms": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/matching/shards/match_id=1899585/matched_set_manifest.parquet",
+      "sha256": "8e68d7bea1f65111a74212c84309321fc4d417c022c9366798bc7e7b3dc1e404",
+      "bytes": 2757981
+    },
+    "sets": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/matching/shards/match_id=1899585/matched_set_summary.parquet",
+      "sha256": "5eeb228cd85269d2488248b9ef145bb00f018073c415be392edfb5f2c697e2ce",
+      "bytes": 38629
+    },
+    "candidate_geometry": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/matching/shards/match_id=1899585/candidate_geometry.parquet",
+      "sha256": "9d84159d51283dc1ac57ced44a73d4145ac873b602976796901c2d9fb1be976e",
+      "bytes": 2561554
+    },
+    "candidate_feasibility": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/matching/shards/match_id=1899585/candidate_feasibility.parquet",
+      "sha256": "8fe05cc9dda2fbcc97fe279e68da0641fad9455485a0fde0e83d1fe476f4c699",
+      "bytes": 2678648
+    },
+    "graph_manifest": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/matching/shards/match_id=1899585/graph_manifest.json",
+      "sha256": "7c4dc76ea3ba4e9ebd95ebacfc1ef610420651326c34bb3b5dfa34f2b5f586b0",
+      "bytes": 6327
+    },
+    "validation": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/matching/shards/match_id=1899585/matching_validation.json",
+      "sha256": "8439c8c7f3d37fab4d21c96f9475b9e057ef9c08a05bf724d7abc97b29ecd678",
+      "bytes": 474
+    }
+  },
+  "runtime": {
+    "wall_seconds": 105.16734994202852,
+    "peak_rss_mib": 897.05078125,
+    "n_samples": 25,
+    "n_sets": 4000,
+    "n_arms": 16000,
+    "n_complete_sets": 1855
+  }
+}

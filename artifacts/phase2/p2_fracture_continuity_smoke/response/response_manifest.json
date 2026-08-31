@@ -1,0 +1,37 @@
+{
+  "status": "FRACTURE_RESPONSE_COMPLETE",
+  "checkpoint": "P2-FC-C",
+  "run_id": "p2_fracture_continuity_v1",
+  "config_sha256": "11ba5c5bb0332439142fcabd33a8c9f57010973e151f2da0a38d35982991c73d",
+  "matching_manifest_sha256": "ec725e73d1ea01778250eed10bb22ff603a180b38a36c3e33733d4f483a9b45e",
+  "n_models": 1,
+  "n_shards": 1,
+  "n_response_rows": 266,
+  "baseline_parity": [
+    {
+      "status": "PASS",
+      "model_id": "deepsets_ae_seed11",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    }
+  ],
+  "shards": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase2/p2_fracture_continuity_smoke/response/shards/model_id=deepsets_ae_seed11/match_id=1886347/response.parquet",
+      "response_sha256": "9f88412c2008650f9639aa8869107537a98fff47f4b77c6088a3dbce60d3f33b",
+      "receipt_path": "artifacts/phase2/p2_fracture_continuity_smoke/response/shards/model_id=deepsets_ae_seed11/match_id=1886347/receipt.json",
+      "receipt_sha256": "e202d056fab933362363a44c75fbca7fc02fe85a8ccfca99308889ba73dd01cf",
+      "n_response_rows": 266
+    }
+  ],
+  "wall_seconds": 11.912588953971863
+}

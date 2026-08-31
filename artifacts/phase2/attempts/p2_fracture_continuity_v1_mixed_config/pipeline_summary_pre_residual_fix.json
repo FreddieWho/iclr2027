@@ -1,0 +1,9 @@
+{
+  "status": "P2_FC_REPORT_READY_FOR_REVIEW",
+  "run_id": "p2_fracture_continuity_v1",
+  "checkpoint": "P2-FC-E",
+  "last_completed_stage": "report",
+  "stage_rank": 4,
+  "smoke": false,
+  "bioinformatics_isolation": true
+}

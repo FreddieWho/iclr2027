@@ -1,0 +1,20 @@
+{
+  "status": "WIRING_ONLY_NOT_SCIENTIFIC",
+  "checkpoint": "P2-FC-E",
+  "run_id": "p2_fracture_continuity_v1",
+  "config_sha256": "005ee0991b7226acc5dd457a0aad3c2c55c788617fbe3b7f85d771f885f0a97d",
+  "statistics_manifest_sha256": "2489f976feca0c4186675b2e379f39e12083544eeddb7a46214852d93d2afde0",
+  "scientific_interpretation": "WIRING_ONLY_NOT_SCIENTIFIC",
+  "report_draft": {
+    "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/report_draft.md",
+    "bytes": 5123,
+    "sha256": "5cb0f11b0c1de10ebbe23e22c987c09113740380a24d41add6c62cce27041c36"
+  },
+  "figures": [
+    {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/figures/fracture_effect_forest.png",
+      "bytes": 105839,
+      "sha256": "7aa7bfaacea49842d5f0e02c18e86d3a954680c004a57c5006fe093e1c56c716"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "phase": "P2_MATCHING_ONLY",
+  "checkpoint": "P2-B",
+  "study_mode": "exploratory_discovery",
+  "data_domain": "football_tracking_point_set",
+  "model_inference": "NOT_RUN",
+  "scientific_claim": "NOT_RUN",
+  "candidate_diagnostics": "RUN_RESPONSE_BLIND",
+  "configuration_path": "configs/phase2_matching_v2.yaml",
+  "configuration_sha256": "82786275061c006c87262465db28aca22397fbf76f4340e43da17a64a325ab31",
+  "configuration": {
+    "phase": "P2_NOVELTY_DISCRIMINATOR",
+    "version": "p2_matching_v2_diagnostic",
+    "study_mode": "exploratory_discovery",
+    "source_phase": "artifacts/phase1",
+    "data_domain": "football_tracking_point_set",
+    "execution_target": "local_cpu",
+    "energies": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "directions": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0
+      ]
+    ],
+    "graphs": [
+      "knn4",
+      "delaunay"
+    ],
+    "n_bands": 6,
+    "controls": [
+      "arbitrary_same_team",
+      "topology_frequency_matched",
+      "spectrum_exact_sign_randomized"
+    ],
+    "same_team_max_overlap_fraction": 0.5,
+    "candidate_reuse_policy": "allowed_recorded",
+    "exact_spectrum_max_attempts": 32,
+    "selection": {
+      "samples_per_match": 2
+    },
+    "matching": {
+      "rq_normalized_caliper": 0.05,
+      "band_power_l1_caliper": 0.2,
+      "frequency_reference_rq": 0.05,
+      "frequency_reference_band": 0.2,
+      "topology_score_density_scale": 0.1,
+      "topology_score_cut_scale": 1.0,
+      "require_same_component_count": true
+    },
+    "diagnostics": {
+      "response_blind": true,
+      "coverage_levels": [
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.0,
+        3.0
+      ]
+    },
+    "smoke": {
+      "output_dir": "artifacts/phase2/matching_v2_stratified_smoke"
+    }
+  },
+  "n_samples": 20,
+  "sample_ids": [
+    "sc_1886347_0000",
+    "sc_1886347_0024",
+    "sc_1899585_0000",
+    "sc_1899585_0024",
+    "sc_1925299_0000",
+    "sc_1925299_0024",
+    "sc_1953632_0000",
+    "sc_1953632_0024",
+    "sc_1996435_0000",
+    "sc_1996435_0024",
+    "sc_2006229_0000",
+    "sc_2006229_0024",
+    "sc_2011166_0000",
+    "sc_2011166_0024",
+    "sc_2013725_0000",
+    "sc_2013725_0024",
+    "sc_2015213_0000",
+    "sc_2015213_0024",
+    "sc_2017461_0000",
+    "sc_2017461_0024"
+  ],
+  "source_artifacts": {
+    "canonical_samples_npz": {
+      "path": "artifacts/phase1/canonical_samples.npz",
+      "sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11"
+    },
+    "canonical_samples_jsonl": {
+      "path": "artifacts/phase1/canonical_samples.jsonl",
+      "sha256": "69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6"
+    }
+  },
+  "bioinformatics_isolation": "No bioinformatics index or data was read, updated, or rebuilt."
+}

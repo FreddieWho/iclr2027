@@ -1,0 +1,14 @@
+{
+  "status": "P2_RIGID_C2_COMPLETE",
+  "last_completed_stage": "report",
+  "requested_stage": "report",
+  "fracture": "NOT_RUN_SEPARATE_OPERATOR",
+  "scientific_interpretation": "mixed_or_graph_specific",
+  "authoritative_run": "p2_rigid_formal_v2",
+  "matching_checkpoint": "FORMAL_MATCHING_READY",
+  "response_checkpoint": "RIGID_RESPONSE_COMPLETE",
+  "statistics_checkpoint": "RIGID_STATISTICS_COMPLETE",
+  "fracture_scope": "NOT_RUN_SEPARATE_OPERATOR",
+  "operational_warning": "After completion, do not run a partial-stage --resume because this v2 runner may rewrite only the top-level pipeline summary; core manifests and receipts remain immutable and the final checksum manifest detects drift.",
+  "bioinformatics_isolation": "No bioinformatics index or data was read, updated, or rebuilt."
+}

@@ -1,0 +1,289 @@
+{
+  "status": "pilot_complete",
+  "output_dir": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830",
+  "report": "/home/vipuser/iclr2027/reports/CALLIGRAPHY_PILOT_REPORT.md",
+  "samples": {
+    "n": 800,
+    "splits": {
+      "train": 560,
+      "dev": 120,
+      "heldout": 120
+    }
+  },
+  "interventions": {
+    "status": "pass",
+    "errors": [],
+    "n_rows": 182753,
+    "n_valid": 180495,
+    "n_invalid": 2258,
+    "n_identity": 800,
+    "max_energy_error": 7.009730573770412e-10,
+    "streamed": true,
+    "chunk_size": 128
+  },
+  "models": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "family": "deepsets_ae",
+      "seed": 11,
+      "path": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830/models/deepsets_ae_seed11.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 560,
+      "epochs": 25,
+      "final_train_reconstruction_mse": 4.406877461795895e-05,
+      "train_device": "cuda",
+      "train_amp": true,
+      "status": "complete"
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "family": "deepsets_ae",
+      "seed": 23,
+      "path": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830/models/deepsets_ae_seed23.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 560,
+      "epochs": 25,
+      "final_train_reconstruction_mse": 7.157102123268747e-05,
+      "train_device": "cuda",
+      "train_amp": true,
+      "status": "complete"
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "family": "deepsets_ae",
+      "seed": 47,
+      "path": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830/models/deepsets_ae_seed47.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 560,
+      "epochs": 25,
+      "final_train_reconstruction_mse": 6.4222490254906e-05,
+      "train_device": "cuda",
+      "train_amp": true,
+      "status": "complete"
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "family": "gat_ae",
+      "seed": 11,
+      "path": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830/models/gat_ae_seed11.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 560,
+      "epochs": 25,
+      "final_train_reconstruction_mse": 9.940948283266542e-05,
+      "train_device": "cuda",
+      "train_amp": true,
+      "status": "complete"
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "family": "gat_ae",
+      "seed": 23,
+      "path": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830/models/gat_ae_seed23.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 560,
+      "epochs": 25,
+      "final_train_reconstruction_mse": 0.00013459190553736074,
+      "train_device": "cuda",
+      "train_amp": true,
+      "status": "complete"
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "family": "gat_ae",
+      "seed": 47,
+      "path": "/home/vipuser/codex-jobs/calligraphy-3080-formal-oomfix-20260830/models/gat_ae_seed47.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 560,
+      "epochs": 25,
+      "final_train_reconstruction_mse": 7.943821786154461e-05,
+      "train_device": "cuda",
+      "train_amp": true,
+      "status": "complete"
+    }
+  ],
+  "response_rows": 1082970,
+  "errr": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "n_pairs": 9132,
+      "errr_common_gt_semantic": 0.4080157687253614,
+      "mean_common_minus_semantic": -0.00024153483084767813
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "n_pairs": 9132,
+      "errr_common_gt_semantic": 0.25295663600525625,
+      "mean_common_minus_semantic": -0.00394354362081144
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "n_pairs": 9132,
+      "errr_common_gt_semantic": 0.4666009636443276,
+      "mean_common_minus_semantic": 0.0006911561417318666
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "n_pairs": 9132,
+      "errr_common_gt_semantic": 0.8010293473499781,
+      "mean_common_minus_semantic": 0.008151591495869439
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "n_pairs": 9132,
+      "errr_common_gt_semantic": 0.4629872974156811,
+      "mean_common_minus_semantic": -7.125023274619502e-05
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "n_pairs": 9132,
+      "errr_common_gt_semantic": 0.5772010512483574,
+      "mean_common_minus_semantic": 0.0025710741856853673
+    }
+  ],
+  "mode_accessibility": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "split": "heldout",
+      "n_rows": 7300,
+      "mode_rank_response_correlation": 0.4305199804906827
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "split": "dev",
+      "n_rows": 7250,
+      "mode_rank_response_correlation": 0.42121530217851616
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "split": "train",
+      "n_rows": 32835,
+      "mode_rank_response_correlation": 0.405181021317373
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "split": "heldout",
+      "n_rows": 7300,
+      "mode_rank_response_correlation": 0.47504867410598
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "split": "dev",
+      "n_rows": 7250,
+      "mode_rank_response_correlation": 0.44442114545607436
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "split": "train",
+      "n_rows": 32835,
+      "mode_rank_response_correlation": 0.44471181735370846
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "split": "heldout",
+      "n_rows": 7300,
+      "mode_rank_response_correlation": 0.47823058224888354
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "split": "dev",
+      "n_rows": 7250,
+      "mode_rank_response_correlation": 0.49339547292012104
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "split": "train",
+      "n_rows": 32835,
+      "mode_rank_response_correlation": 0.4751688299880326
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "split": "heldout",
+      "n_rows": 7300,
+      "mode_rank_response_correlation": 0.08544788730169929
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "split": "dev",
+      "n_rows": 7250,
+      "mode_rank_response_correlation": 0.0609190000145188
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "split": "train",
+      "n_rows": 32835,
+      "mode_rank_response_correlation": 0.05902387997936511
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "split": "heldout",
+      "n_rows": 7300,
+      "mode_rank_response_correlation": 0.029974055679763245
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "split": "dev",
+      "n_rows": 7250,
+      "mode_rank_response_correlation": 0.00954824216378705
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "split": "train",
+      "n_rows": 32835,
+      "mode_rank_response_correlation": 0.017807819222399893
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "split": "heldout",
+      "n_rows": 7300,
+      "mode_rank_response_correlation": -0.030875070834906624
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "split": "dev",
+      "n_rows": 7250,
+      "mode_rank_response_correlation": -0.0570454034812668
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "split": "train",
+      "n_rows": 32835,
+      "mode_rank_response_correlation": -0.06428668958177795
+    }
+  ],
+  "resnet18": {
+    "model_id": "resnet18",
+    "status": "not_run_missing_local_checkpoint",
+    "scientific_evidence": false
+  },
+  "runtime": {
+    "requested_device": "cuda",
+    "resolved_device": "cuda",
+    "amp_requested": "on",
+    "amp_enabled": true,
+    "gpu_profile": "none",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 3080",
+    "gpu_total_memory_bytes": 10488315904,
+    "cuda_capability": "8.6"
+  },
+  "batch_size": 256,
+  "train_batch_size": 16,
+  "optimization": {
+    "group_by_node_count": true,
+    "inference_mode": true,
+    "cuda_amp": true,
+    "batch_size": 256,
+    "train_batch_size": 16,
+    "stream_interventions": true,
+    "intervention_chunk_size": 128
+  },
+  "elapsed_seconds": 929.9087905883789,
+  "formal_estimate_seconds_from_linear_extrapolation": null,
+  "formal_run_started": true
+}

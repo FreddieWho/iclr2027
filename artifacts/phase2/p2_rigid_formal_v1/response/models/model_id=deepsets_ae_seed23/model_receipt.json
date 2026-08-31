@@ -1,0 +1,22 @@
+{
+  "model_id": "deepsets_ae_seed23",
+  "family": "coordinate",
+  "architecture": "DeepSets-AE",
+  "latent_dim": 128,
+  "pooling": "team_mean",
+  "graph": null,
+  "device": "cpu",
+  "batch_size": 128,
+  "eval_mode": true,
+  "inference_mode": true,
+  "weights_only": true,
+  "p1_factory_path": "scripts/run_phase1_pipeline.py",
+  "p1_factory_sha256": "5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4",
+  "model_manifest_path": "artifacts/phase1/point_mainline/model_manifest.json",
+  "model_manifest_sha256": "8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc",
+  "checkpoint_path": "artifacts/phase1/models/deepsets_ae_seed23.pt",
+  "checkpoint_sha256": "7272345ada2e9a8e86d5679b4739650e2e4f2d8927ebd0154e153b036ab2f929",
+  "torch_version": "2.11.0+cu130",
+  "baseline_embedding_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase1/embeddings/deepsets_ae_seed23_baseline.npy",
+  "baseline_embedding_sha256": "dd3810a36203a44ffe073df4a76a682e3882717b37e048378acb4db8401e6c1d"
+}

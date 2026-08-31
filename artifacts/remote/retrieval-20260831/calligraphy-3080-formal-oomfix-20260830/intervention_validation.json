@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "errors": [],
+  "n_rows": 182753,
+  "n_valid": 180495,
+  "n_invalid": 2258,
+  "n_identity": 800,
+  "max_energy_error": 7.009730573770412e-10,
+  "streamed": true,
+  "chunk_size": 128
+}

@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "errors": [],
+  "n_response_rows": 5040,
+  "n_matched_sets": 1260,
+  "n_source_samples": 20,
+  "energies": [
+    0.25,
+    0.5
+  ],
+  "models": [
+    "deepsets_ae_seed11"
+  ],
+  "all_finite": true,
+  "scientific_interpretation": "NOT_RUN"
+}

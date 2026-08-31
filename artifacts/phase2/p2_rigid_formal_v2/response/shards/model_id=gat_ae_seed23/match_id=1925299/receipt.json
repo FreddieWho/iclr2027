@@ -1,0 +1,38 @@
+{
+  "stage": "response",
+  "shard_id": "model=gat_ae_seed23:match=1925299",
+  "model_id": "gat_ae_seed23",
+  "architecture": "GAT-small-AE",
+  "model_seed": 23,
+  "match_id": "1925299",
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "matching_manifest_sha256": "d69b6eb2b7c36c39701f1d58362b5ef649919ea13ac8df2596bb3675d9b11ad1",
+  "matching_receipt_sha256": "ea4ccf7a7e973e4f7bddefffb0abd18f8b96f473ce3e18e4104c9e70ffdb9436",
+  "matching_arms_sha256": "967904a02d4441cc6aa65e02d7144f92957f01bbadb8b39d132c9232a7d9cb90",
+  "checkpoint_sha256": "ee18f7496a8759b543ec6be785e01099900731c2b854c1c282aa9ed0775c3648",
+  "baseline_embedding_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase1/embeddings/gat_ae_seed23_baseline.npy",
+  "baseline_embedding_sha256": "48bdcdd266476e6ade9712e463b655ac95042ba5f5b87c62339a357a6d1b2ef0",
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "status": "completed",
+  "outputs": {
+    "response": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1925299/response.parquet",
+      "sha256": "dbfe1f13fc66e5e57e99f0ef85b7733e473fdc357986dc29d8202f5b4c8bdaaa",
+      "bytes": 819983
+    }
+  },
+  "runtime": {
+    "wall_seconds": 2.469773642718792,
+    "peak_rss_mib": 970.96875,
+    "n_response_rows": 14118,
+    "n_matched_sets": 4478,
+    "validation": {
+      "status": "pass",
+      "errors": [],
+      "n_valid_matching_arms": 14118,
+      "n_response_rows": 14118,
+      "all_finite": true
+    }
+  }
+}

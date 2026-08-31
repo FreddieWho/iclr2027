@@ -1,0 +1,42 @@
+{
+  "run_type": "pilot",
+  "elapsed_seconds": 929.9087905883789,
+  "n_chars": 800,
+  "epochs": 25,
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "runtime": {
+    "requested_device": "cuda",
+    "resolved_device": "cuda",
+    "amp_requested": "on",
+    "amp_enabled": true,
+    "gpu_profile": "none",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 3080",
+    "gpu_total_memory_bytes": 10488315904,
+    "cuda_capability": "8.6"
+  },
+  "batch_size": 256,
+  "train_batch_size": 16,
+  "optimization": {
+    "group_by_node_count": true,
+    "inference_mode": true,
+    "cuda_amp": true,
+    "batch_size": 256,
+    "train_batch_size": 16,
+    "stream_interventions": true,
+    "intervention_chunk_size": 128
+  },
+  "intervention_rows": 182753,
+  "response_rows": 1082970,
+  "formal_estimate_seconds_from_linear_extrapolation": null,
+  "formal_estimate_is_not_a_commitment": true,
+  "resnet_status": {
+    "model_id": "resnet18",
+    "status": "not_run_missing_local_checkpoint",
+    "scientific_evidence": false
+  }
+}

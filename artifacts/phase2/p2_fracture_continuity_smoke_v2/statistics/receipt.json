@@ -1,0 +1,53 @@
+{
+  "stage": "statistics",
+  "status": "complete",
+  "config_sha256": "005ee0991b7226acc5dd457a0aad3c2c55c788617fbe3b7f85d771f885f0a97d",
+  "matching_manifest_sha256": "5d5c3de939567f164515ffe2c296cc50a660752157b90b904099fa842c112e32",
+  "response_manifest_sha256": "4d6ebfc3329e591b570a3bd0539ef226616865e29ad00dd7abd85b0674898b9e",
+  "n_pair_rows": 124,
+  "n_source_unit_rows": 72,
+  "n_model_match_rows": 12,
+  "n_architecture_match_rows": 12,
+  "n_summary_rows": 12,
+  "outputs": {
+    "pairs": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/fracture_pair_effects.parquet",
+      "bytes": 21600,
+      "sha256": "5f9feea5975a1effbceca888971d1728e2cafc71d69257faf1cc55419116026e"
+    },
+    "unit": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/source_unit_effects.parquet",
+      "bytes": 9877,
+      "sha256": "dfdd003ab66ff5c4043f73ef09a48dee35710e457ce0a12c4999bdfa11903249"
+    },
+    "model_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/model_match_effects.parquet",
+      "bytes": 8432,
+      "sha256": "07b2677697f04fdd109263208ff89a9843fdc1ef4d1c4055aa3d1563f5fc89fa"
+    },
+    "architecture_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/architecture_match_effects.parquet",
+      "bytes": 6712,
+      "sha256": "df40d4abd1f6f1f8f8852c48866d7dd73653aa2faa17e2ec16ed600ce7687bf9"
+    },
+    "summary": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/fracture_summary.parquet",
+      "bytes": 10509,
+      "sha256": "ffe76643783f3e80851a4bcc129dc30bf8d0f3671a080b8bed6de39d5189a784"
+    },
+    "loo": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/leave_one_match_out.parquet",
+      "bytes": 4607,
+      "sha256": "5965d3aba739cf4593692a6bc1adbd1e57050b6a7770ee50ecdeabe1be24622d"
+    },
+    "residual": {
+      "path": "artifacts/phase2/p2_fracture_continuity_smoke_v2/statistics/residual_association.parquet",
+      "bytes": 6098,
+      "sha256": "fbde7bea885b6e1552ebd8373dbc0eeb5404131a9fbc8a56c512a4dc01b8480e"
+    }
+  },
+  "runtime": {
+    "wall_seconds": 0.0,
+    "peak_rss_mib": 174.99609375
+  }
+}

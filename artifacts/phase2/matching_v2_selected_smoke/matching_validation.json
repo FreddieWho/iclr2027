@@ -1,0 +1,20 @@
+{
+  "status": "incomplete",
+  "errors": [],
+  "incomplete_reasons": [
+    "one or more matched sets contain an invalid or unmatched arm"
+  ],
+  "n_rows": 14592,
+  "n_sets": 3648,
+  "n_complete_sets": 1790,
+  "n_incomplete_sets": 1858,
+  "n_valid_rows": 10839,
+  "n_invalid_rows": 3753,
+  "max_energy_error": 1.3322676295501878e-14,
+  "max_exact_modal_power_error": 0.0,
+  "n_graph_invalid": 0,
+  "core_model_inference": "NOT_RUN",
+  "scientific_interpretation": "NOT_RUN",
+  "n_candidate_geometry_rows": 24340,
+  "n_candidate_feasibility_rows": 389440
+}

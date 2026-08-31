@@ -1,0 +1,161 @@
+{
+  "status": "MATCHING_EXECUTION_COMPLETE_WITH_EXPLICIT_UNMATCHED",
+  "checkpoint": "FORMAL_MATCHING_READY",
+  "run_id": "p2_rigid_formal_v2",
+  "formal_config_path": "configs/phase2_rigid_formal_v2.yaml",
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "parent_matching_config": {
+    "path": "configs/phase2_matching_v2_selected.yaml",
+    "sha256": "dae1fe98bf8be27824f2269a6f8bfea20bfd09f946aa13ffc287ecc0666b2b1f"
+  },
+  "source_hashes": {
+    "canonical_npz_sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11",
+    "canonical_jsonl_sha256": "69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6"
+  },
+  "source_code": {
+    "formal_runner": {
+      "path": "scripts/run_phase2_rigid_formal.py",
+      "sha256": "0d1e3b0a98bdc3b0bdb823a57a3f96bc02ebc74ce211883714358c61e3a3cda8"
+    },
+    "matching_pipeline": {
+      "path": "scripts/run_phase2_pipeline.py",
+      "sha256": "2f6a32f765b3c5111531fbbe1a5c7f47271ef3b14fc2eba853e87e2ce8c88497"
+    },
+    "matched_controls": {
+      "path": "scripts/p2_matched_controls.py",
+      "sha256": "3943476861e905dadd8646948d606987fe8c6dc9c8a2ae79978b4eb8f6ab7bd5"
+    },
+    "matching_diagnostics": {
+      "path": "scripts/p2_matching_diagnostics.py",
+      "sha256": "e90fd1233dc1d8bafebf5f502e6471bb9ee252629e30e2da86ad5c7f589a634a"
+    },
+    "point_model_adapter": {
+      "path": "scripts/p2_point_model_adapter.py",
+      "sha256": "595eb734e952e0db6a3044226b1290b6eeea6318249e21193569d00ee5c04727"
+    },
+    "p2_statistics": {
+      "path": "scripts/p2_statistics.py",
+      "sha256": "895492b14218b3b9514103a88aa15fe0d60513b49b69bfe74a7a10476cd46339"
+    },
+    "p1_model_factory": {
+      "path": "scripts/run_phase1_pipeline.py",
+      "sha256": "5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4"
+    },
+    "requirements_core": {
+      "path": "requirements-core.txt",
+      "sha256": "cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d"
+    },
+    "requirements_models": {
+      "path": "requirements-models.txt",
+      "sha256": "d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277"
+    }
+  },
+  "environment_lock": {
+    "python": "3.11.5",
+    "packages": {
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.13.1",
+      "torch": "2.11.0",
+      "pyarrow": "22.0.0",
+      "PyYAML": "6.0.1"
+    },
+    "requirements": {
+      "requirements-core.txt": "cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d",
+      "requirements-models.txt": "d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277"
+    }
+  },
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "n_samples": 250,
+  "n_matches": 10,
+  "n_sets": 45600,
+  "n_arms": 182400,
+  "n_complete_sets": 21389,
+  "shards": [
+    {
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/receipt.json",
+      "receipt_sha256": "2386fe857c1eee3023e403592e98079bd7d875d60f263a2f1e4ac6ea6a53d813",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2153
+    },
+    {
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1899585/receipt.json",
+      "receipt_sha256": "32acc92d5f8a0782a047e14e9152c932cdabeed047f12d550ebb851daf1b38b2",
+      "n_sets": 4000,
+      "n_arms": 16000,
+      "n_complete_sets": 1855
+    },
+    {
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1925299/receipt.json",
+      "receipt_sha256": "ea4ccf7a7e973e4f7bddefffb0abd18f8b96f473ce3e18e4104c9e70ffdb9436",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2396
+    },
+    {
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1953632/receipt.json",
+      "receipt_sha256": "08a6c8766a09c072b8ae70ae3a45824e6b56f1b176c97f4eebfa05dce0e090db",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2086
+    },
+    {
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1996435/receipt.json",
+      "receipt_sha256": "9d09e0aa5303aedf5e677559d5d7f3f049d067b9f0659dfa6458c14e2c20d291",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2285
+    },
+    {
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=2006229/receipt.json",
+      "receipt_sha256": "1ec180bfb35e0ba8f155aef2d80a712107de4da3310f72d6bcdf42a984c8ae8b",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2339
+    },
+    {
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=2011166/receipt.json",
+      "receipt_sha256": "814d0e345b66bed54fe9370d43e3251713f3da23202726fa426843e21c251bf0",
+      "n_sets": 4000,
+      "n_arms": 16000,
+      "n_complete_sets": 1980
+    },
+    {
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=2013725/receipt.json",
+      "receipt_sha256": "23fc25491de44e23ba26f537c5d09a6835d550d8fddff3e2316a7994d8ad67e3",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2091
+    },
+    {
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=2015213/receipt.json",
+      "receipt_sha256": "ab751ab627e0869a804aab3eff793d47915ff95b6f791afa4e9b25fa43ecfdfd",
+      "n_sets": 4000,
+      "n_arms": 16000,
+      "n_complete_sets": 1965
+    },
+    {
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=2017461/receipt.json",
+      "receipt_sha256": "5d0aa78ccfb31a2809221e243913528d929ff158a356d9ead9b855800f307b55",
+      "n_sets": 4800,
+      "n_arms": 19200,
+      "n_complete_sets": 2239
+    }
+  ],
+  "matching_manifest_hash_basis": "666b1a9d77d5a2f3fd55dfe66e1c4b1b9b37b602f671a4b8d9d268ccf85c0d24",
+  "model_inference": "NOT_RUN_IN_MATCHING_STAGE",
+  "bioinformatics_isolation": "No bioinformatics index or data was read, updated, or rebuilt.",
+  "wall_seconds": 101.96754188090563
+}

@@ -1,0 +1,307 @@
+{
+  "graphs": [
+    {
+      "sample_id": "sc_2006229_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0001",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0001",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0002",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0002",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0003",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0003",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0004",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0004",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0005",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0005",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0006",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0006",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0007",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0007",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0008",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0008",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0009",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0009",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0010",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0010",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0011",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0011",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0012",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0012",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0013",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0013",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0014",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0014",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0015",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0015",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0016",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0016",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0017",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0017",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0018",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0018",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0019",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0019",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0020",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0020",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0021",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0021",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0022",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0022",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0023",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0023",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    }
+  ],
+  "n_samples": 25,
+  "n_rows": 19200,
+  "n_sets": 4800
+}

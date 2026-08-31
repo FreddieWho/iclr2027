@@ -1,0 +1,7 @@
+model_id,split,n_rows,mode_rank_response_correlation
+deepsets_ae_seed11,heldout,236,0.48063784070800925
+deepsets_ae_seed11,dev,221,0.47472059014780776
+deepsets_ae_seed11,train,864,0.39189621169274497
+gat_ae_seed11,heldout,236,0.5104327068882478
+gat_ae_seed11,dev,221,0.4549887961488972
+gat_ae_seed11,train,864,0.3318596466362585

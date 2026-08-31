@@ -1,0 +1,56 @@
+{
+  "stage": "matching",
+  "shard_id": "match=1886347",
+  "match_id": "1886347",
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "parent_matching_config_sha256": "dae1fe98bf8be27824f2269a6f8bfea20bfd09f946aa13ffc287ecc0666b2b1f",
+  "canonical_npz_sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11",
+  "canonical_jsonl_sha256": "69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6",
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "sample_ids_sha256": "aba736a8dca5a383938c2fac6e9437780581c7a75bdc0fa714e710400bccef34",
+  "planned_sets": 4800,
+  "planned_arm_slots": 19200,
+  "canary": true,
+  "status": "completed",
+  "outputs": {
+    "arms": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/matched_set_manifest.parquet",
+      "sha256": "204a3aa432a17546450e345b6c29967503c9fcddf1d3f78da0e9be5dc81b77f8",
+      "bytes": 3312351
+    },
+    "sets": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/matched_set_summary.parquet",
+      "sha256": "e7d03ec9afce177b8b975321878eac4b241bda279b13de4b68c77c7537e4fd51",
+      "bytes": 45527
+    },
+    "candidate_geometry": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/candidate_geometry.parquet",
+      "sha256": "f1c1fb3ce3fc29ad31dc4ff0fdc7c902ce6474cc2c467d169fd8588636ec8dde",
+      "bytes": 2994873
+    },
+    "candidate_feasibility": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/candidate_feasibility.parquet",
+      "sha256": "9c070db17b717c00f82bb06743ba6ba9506d5339383e3ce21327f2d382974801",
+      "bytes": 3891837
+    },
+    "graph_manifest": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/graph_manifest.json",
+      "sha256": "d9f680cc3ac966c1798e1a7ce1ab2f154f509f9fe737e9c9b03359d732c26959",
+      "bytes": 6327
+    },
+    "validation": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/matching/shards/match_id=1886347/matching_validation.json",
+      "sha256": "44d4ffd2e1f4fa6b93431cbd609e3f847d265236e4aa1e8dff0e5db094e5cc97",
+      "bytes": 474
+    }
+  },
+  "runtime": {
+    "wall_seconds": 98.99670953303576,
+    "peak_rss_mib": 764.69921875,
+    "n_samples": 25,
+    "n_sets": 4800,
+    "n_arms": 19200,
+    "n_complete_sets": 2153
+  }
+}

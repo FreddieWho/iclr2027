@@ -1,0 +1,95 @@
+{
+  "status": "RIGID_STATISTICS_COMPLETE",
+  "checkpoint": "RIGID_RESULTS_READY_FOR_REPORT",
+  "run_id": "p2_rigid_formal_v2",
+  "estimand": "normalized_scg=(semantic_response-control_response)/epsilon",
+  "raw_sensitivity": "raw_scg=semantic_response-control_response",
+  "controls_pooled": false,
+  "architectures_pooled": false,
+  "model_seeds_are_independent_matches": false,
+  "support_modes": [
+    "common_four",
+    "pairwise",
+    "strict_band_l1_020"
+  ],
+  "energy_roles": {
+    "primary_energies": [
+      0.25,
+      0.5
+    ],
+    "exploratory_energies": [
+      1.0
+    ],
+    "pressure_test_energies": [
+      2.0
+    ],
+    "strict_band_power_l1": 0.2,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260831,
+    "bootstrap_unit": "source_match_id"
+  },
+  "source_code": {
+    "formal_runner": {
+      "path": "scripts/run_phase2_rigid_formal.py",
+      "sha256": "0d1e3b0a98bdc3b0bdb823a57a3f96bc02ebc74ce211883714358c61e3a3cda8"
+    },
+    "matching_pipeline": {
+      "path": "scripts/run_phase2_pipeline.py",
+      "sha256": "2f6a32f765b3c5111531fbbe1a5c7f47271ef3b14fc2eba853e87e2ce8c88497"
+    },
+    "matched_controls": {
+      "path": "scripts/p2_matched_controls.py",
+      "sha256": "3943476861e905dadd8646948d606987fe8c6dc9c8a2ae79978b4eb8f6ab7bd5"
+    },
+    "matching_diagnostics": {
+      "path": "scripts/p2_matching_diagnostics.py",
+      "sha256": "e90fd1233dc1d8bafebf5f502e6471bb9ee252629e30e2da86ad5c7f589a634a"
+    },
+    "point_model_adapter": {
+      "path": "scripts/p2_point_model_adapter.py",
+      "sha256": "595eb734e952e0db6a3044226b1290b6eeea6318249e21193569d00ee5c04727"
+    },
+    "p2_statistics": {
+      "path": "scripts/p2_statistics.py",
+      "sha256": "895492b14218b3b9514103a88aa15fe0d60513b49b69bfe74a7a10476cd46339"
+    },
+    "p1_model_factory": {
+      "path": "scripts/run_phase1_pipeline.py",
+      "sha256": "5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4"
+    },
+    "requirements_core": {
+      "path": "requirements-core.txt",
+      "sha256": "cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d"
+    },
+    "requirements_models": {
+      "path": "requirements-models.txt",
+      "sha256": "d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277"
+    }
+  },
+  "environment_lock": {
+    "python": "3.11.5",
+    "packages": {
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.13.1",
+      "torch": "2.11.0",
+      "pyarrow": "22.0.0",
+      "PyYAML": "6.0.1"
+    },
+    "requirements": {
+      "requirements-core.txt": "cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d",
+      "requirements-models.txt": "d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277"
+    }
+  },
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "receipt_sha256": "cc958aae2d1335b4268e3f06dd5955c4d27ef9e3a950d416122d9f4b6b5e82ca",
+  "runtime": {
+    "wall_seconds": 552.1333922222257,
+    "peak_rss_mib": 437.52734375,
+    "n_pair_rows": 1596348,
+    "n_model_match_rows": 24786,
+    "n_architecture_match_rows": 8262,
+    "n_summary_rows": 861
+  }
+}

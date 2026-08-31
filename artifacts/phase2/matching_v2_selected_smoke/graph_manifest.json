@@ -1,0 +1,247 @@
+{
+  "graphs": [
+    {
+      "sample_id": "sc_1886347_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1886347_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1886347_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1886347_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1899585_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1899585_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1899585_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1899585_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1925299_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1925299_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1925299_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1925299_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1953632_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1953632_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1953632_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1953632_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1996435_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1996435_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1996435_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_1996435_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2006229_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2011166_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2011166_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2011166_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2011166_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2013725_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2013725_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2013725_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2013725_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2015213_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2015213_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2015213_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2015213_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2017461_0000",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2017461_0000",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2017461_0024",
+      "graph_id": "knn4",
+      "status": "valid",
+      "reason": null
+    },
+    {
+      "sample_id": "sc_2017461_0024",
+      "graph_id": "delaunay",
+      "status": "valid",
+      "reason": null
+    }
+  ],
+  "n_samples": 20,
+  "n_rows": 14592,
+  "n_sets": 3648
+}

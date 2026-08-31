@@ -1,0 +1,22 @@
+{
+  "stage": "response",
+  "shard_id": "model=deepsets_ae_seed47:match=1886347",
+  "status": "complete",
+  "config_sha256": "005ee0991b7226acc5dd457a0aad3c2c55c788617fbe3b7f85d771f885f0a97d",
+  "matching_manifest_sha256": "a39eaab033c8cad049988df916411b7df4ce3afd702c2173c5d7c8a346518b50",
+  "matching_arms_sha256": "4e9548c9daf1961580b3eef4b74c33896c76c95232106cd3ca6cb2313a80ec33",
+  "model_id": "deepsets_ae_seed47",
+  "checkpoint_sha256": "4f44ee0c5aeca83f865eacdf1b3c5585f941bbe755389a1b66b41d41da380b70",
+  "n_response_rows": 3230,
+  "outputs": {
+    "response": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1886347/response.parquet",
+      "bytes": 591490,
+      "sha256": "6b8e9a749b25467af3ed98b80d2a6d199772d28b9ed7db7cea619cd5e472307a"
+    }
+  },
+  "runtime": {
+    "wall_seconds": 36.088695123791695,
+    "peak_rss_mib": 1177.5078125
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "root": "/home/huyudi/012_conference/iclr2027/data/raw",
+  "required_failures": 0,
+  "datasets": [
+    {
+      "dataset": "skillcorner",
+      "required": true,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/sports/skillcorner",
+      "markers": {
+        "data/matches.json": true
+      },
+      "source": "https://github.com/SkillCorner/opendata"
+    },
+    {
+      "dataset": "metrica",
+      "required": false,
+      "present": false,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/sports/metrica",
+      "markers": {
+        "Sample_Game_1": false
+      },
+      "source": "https://github.com/metrica-sports/sample-data"
+    },
+    {
+      "dataset": "trackid3x3_repo",
+      "required": false,
+      "present": false,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/sports/trackid3x3_repo",
+      "markers": {
+        "README.md": false
+      },
+      "source": "https://github.com/open-starlab/TrackID3x3"
+    },
+    {
+      "dataset": "makemeahanzi",
+      "required": true,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/calligraphy/makemeahanzi",
+      "markers": {
+        "dictionary.txt": true,
+        "graphics.txt": true
+      },
+      "source": "https://github.com/skishore/makemeahanzi"
+    },
+    {
+      "dataset": "mccd_repo",
+      "required": false,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/calligraphy/MCCD_repo",
+      "markers": {
+        "README.md": true
+      },
+      "source": "https://github.com/SCUT-DLVCLab/MCCD"
+    },
+    {
+      "dataset": "zhuojg_repo",
+      "required": false,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/calligraphy/zhuojg_repo",
+      "markers": {
+        "dataset-pytorch.py": true
+      },
+      "source": "https://github.com/zhuojg/chinese-calligraphy-dataset"
+    },
+    {
+      "dataset": "kirosc",
+      "required": false,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/calligraphy/kirosc",
+      "markers": {
+        "data-jpg.7z": true
+      },
+      "source": "https://github.com/kirosc/chinese-calligraphy-dataset"
+    },
+    {
+      "dataset": "ccse_repo",
+      "required": false,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/calligraphy/CCSE_repo",
+      "markers": {
+        "README.md": true
+      },
+      "source": "https://github.com/lizhaoliu-Lec/CCSE"
+    },
+    {
+      "dataset": "mathwriting_excerpt",
+      "required": false,
+      "present": true,
+      "path": "/home/huyudi/012_conference/iclr2027/data/raw/mathwriting",
+      "markers": {
+        "mathwriting-2024-excerpt.tgz": true
+      },
+      "source": "https://storage.googleapis.com/mathwriting_data/mathwriting-2024-excerpt.tgz"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+phase: P2_RIGID_FORMAL
+version: p2_rigid_formal_v2_provenance_locked
+run_id: p2_rigid_formal_v2
+study_mode: exploratory_discovery
+data_domain: football_tracking_point_set
+execution_target: local_cpu
+parent_matching_config:
+  path: configs/phase2_matching_v2_selected.yaml
+  sha256: dae1fe98bf8be27824f2269a6f8bfea20bfd09f946aa13ffc287ecc0666b2b1f
+source_code:
+  formal_runner:
+    path: scripts/run_phase2_rigid_formal.py
+    sha256: 0d1e3b0a98bdc3b0bdb823a57a3f96bc02ebc74ce211883714358c61e3a3cda8
+  matching_pipeline:
+    path: scripts/run_phase2_pipeline.py
+    sha256: 2f6a32f765b3c5111531fbbe1a5c7f47271ef3b14fc2eba853e87e2ce8c88497
+  matched_controls:
+    path: scripts/p2_matched_controls.py
+    sha256: 3943476861e905dadd8646948d606987fe8c6dc9c8a2ae79978b4eb8f6ab7bd5
+  matching_diagnostics:
+    path: scripts/p2_matching_diagnostics.py
+    sha256: e90fd1233dc1d8bafebf5f502e6471bb9ee252629e30e2da86ad5c7f589a634a
+  point_model_adapter:
+    path: scripts/p2_point_model_adapter.py
+    sha256: 595eb734e952e0db6a3044226b1290b6eeea6318249e21193569d00ee5c04727
+  p2_statistics:
+    path: scripts/p2_statistics.py
+    sha256: 895492b14218b3b9514103a88aa15fe0d60513b49b69bfe74a7a10476cd46339
+  p1_model_factory:
+    path: scripts/run_phase1_pipeline.py
+    sha256: 5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4
+  requirements_core:
+    path: requirements-core.txt
+    sha256: cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d
+  requirements_models:
+    path: requirements-models.txt
+    sha256: d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277
+environment_lock:
+  python: 3.11.5
+  packages:
+    numpy: 1.26.4
+    pandas: 2.3.3
+    scipy: 1.13.1
+    torch: 2.11.0
+    pyarrow: 22.0.0
+    PyYAML: 6.0.1
+  requirements:
+    requirements-core.txt: cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d
+    requirements-models.txt: d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277
+selection:
+  mode: all_canonical_samples
+  canary_match: lexicographically_first
+expected:
+  samples: 250
+  matches: 10
+  samples_per_match: 25
+  matched_sets: 45600
+  arm_slots: 182400
+models:
+  - deepsets_ae_seed11
+  - deepsets_ae_seed23
+  - deepsets_ae_seed47
+  - gat_ae_seed11
+  - gat_ae_seed23
+  - gat_ae_seed47
+  - phase_gat_seed11
+  - phase_gat_seed23
+  - phase_gat_seed47
+runtime:
+  batch_size: 128
+  matching_shard: match_id
+  response_shard: model_id_x_match_id
+  max_concurrent_matching_shards: 1
+  max_concurrent_response_shards: 1
+  max_torch_threads: 4
+statistics:
+  primary_energies: [0.25, 0.5]
+  exploratory_energies: [1.0]
+  pressure_test_energies: [2.0]
+  strict_band_power_l1: 0.20
+  bootstrap_replicates: 10000
+  bootstrap_seed: 20260831
+  bootstrap_unit: source_match_id
+status_contract:
+  matching_complete: MATCHING_EXECUTION_COMPLETE_WITH_EXPLICIT_UNMATCHED
+  response_complete: RIGID_RESPONSE_COMPLETE
+  phase_complete: P2_RIGID_C2_COMPLETE
+  fracture: NOT_RUN_SEPARATE_OPERATOR
+bioinformatics_isolation: true

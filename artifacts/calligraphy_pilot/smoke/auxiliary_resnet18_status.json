@@ -1,0 +1,6 @@
+{
+  "model_id": "resnet18",
+  "status": "blocked",
+  "reason": "ModuleNotFoundError(\"No module named 'torchvision'\")",
+  "scientific_evidence": false
+}

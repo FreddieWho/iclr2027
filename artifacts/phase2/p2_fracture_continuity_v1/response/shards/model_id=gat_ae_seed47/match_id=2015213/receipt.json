@@ -1,0 +1,22 @@
+{
+  "stage": "response",
+  "shard_id": "model=gat_ae_seed47:match=2015213",
+  "status": "complete",
+  "config_sha256": "dbfa2a821b7b6f25b52e81c4813c67069847c23be47964c1b8058a374e3a597b",
+  "matching_manifest_sha256": "19e6681d4fd13ae21fc12b19f3f186f310e05eb9ae3c79f26a301b349024e367",
+  "matching_arms_sha256": "0114796bff385d02b3ce116ef5e6cc372aed104dd698bfb4566a2b83c7e76329",
+  "model_id": "gat_ae_seed47",
+  "checkpoint_sha256": "57706cb684a830255352b61e678b51e11d99629d9d067b990f4a2470b01d9fe0",
+  "n_response_rows": 2644,
+  "outputs": {
+    "response": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/response/shards/model_id=gat_ae_seed47/match_id=2015213/response.parquet",
+      "bytes": 504491,
+      "sha256": "12ddbfdd5b670ea62d461f16e846897941254c39e8a87afa9a8a025084b45043"
+    }
+  },
+  "runtime": {
+    "wall_seconds": 34.963572196662426,
+    "peak_rss_mib": 1260.09765625
+  }
+}

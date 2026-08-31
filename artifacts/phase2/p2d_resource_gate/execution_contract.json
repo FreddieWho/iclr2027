@@ -1,0 +1,9 @@
+{
+  "phase": "P2_RESOURCE_GATE",
+  "checkpoint": "P2-D_PRE_RUN_GATE",
+  "study_mode": "exploratory_discovery",
+  "execution_target": "local_cpu",
+  "formal_run": "NOT_RUN",
+  "benchmark_rows": 512,
+  "bioinformatics_isolation": "No bioinformatics index or data was read, updated, or rebuilt."
+}

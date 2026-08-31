@@ -1,0 +1,81 @@
+version: 1
+root: data/raw
+
+datasets:
+  skillcorner:
+    priority: P0
+    required: true
+    path: sports/skillcorner
+    markers:
+      - data/matches.json
+    source: https://github.com/SkillCorner/opendata
+    license_note: MIT repository; cite SkillCorner and recheck data terms
+
+  metrica:
+    priority: P1
+    required: false
+    path: sports/metrica
+    markers:
+      - Sample_Game_1
+    source: https://github.com/metrica-sports/sample-data
+
+  trackid3x3_repo:
+    priority: P2
+    required: false
+    path: sports/trackid3x3_repo
+    markers:
+      - README.md
+    source: https://github.com/open-starlab/TrackID3x3
+
+  makemeahanzi:
+    priority: P0
+    required: true
+    path: calligraphy/makemeahanzi
+    markers:
+      - dictionary.txt
+      - graphics.txt
+    source: https://github.com/skishore/makemeahanzi
+    license_note: mixed source licenses; preserve COPYING/APL/LGPL
+
+  mccd_repo:
+    priority: P1
+    required: false
+    path: calligraphy/MCCD_repo
+    markers:
+      - README.md
+    source: https://github.com/SCUT-DLVCLab/MCCD
+    license_note: data requires application; CC BY-NC-ND 4.0 non-commercial
+
+  zhuojg_repo:
+    priority: P0
+    required: false
+    path: calligraphy/zhuojg_repo
+    markers:
+      - dataset-pytorch.py
+    source: https://github.com/zhuojg/chinese-calligraphy-dataset
+
+  kirosc:
+    priority: P0
+    required: false
+    path: calligraphy/kirosc
+    markers:
+      - data-jpg.7z
+    source: https://github.com/kirosc/chinese-calligraphy-dataset
+    license_note: GPL-3.0
+
+  ccse_repo:
+    priority: P1
+    required: false
+    path: calligraphy/CCSE_repo
+    markers:
+      - README.md
+    source: https://github.com/lizhaoliu-Lec/CCSE
+
+  mathwriting_excerpt:
+    priority: fallback
+    required: false
+    path: mathwriting
+    markers:
+      - mathwriting-2024-excerpt.tgz
+    source: https://storage.googleapis.com/mathwriting_data/mathwriting-2024-excerpt.tgz
+    license_note: CC BY-NC-SA 4.0

@@ -1,0 +1,38 @@
+{
+  "stage": "response",
+  "shard_id": "model=phase_gat_seed47:match=2006229",
+  "model_id": "phase_gat_seed47",
+  "architecture": "Phase-GAT",
+  "model_seed": 47,
+  "match_id": "2006229",
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "matching_manifest_sha256": "d69b6eb2b7c36c39701f1d58362b5ef649919ea13ac8df2596bb3675d9b11ad1",
+  "matching_receipt_sha256": "1ec180bfb35e0ba8f155aef2d80a712107de4da3310f72d6bcdf42a984c8ae8b",
+  "matching_arms_sha256": "0adfdc18d7cc878071b1515f8839f919c20d58ed9b2265c08be7d7c69d45f03a",
+  "checkpoint_sha256": "40ee6a331ec8d43f343f86cfc27e95486cfd5bdd311b4c06ff5f1dc4a8915de7",
+  "baseline_embedding_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase1/embeddings/phase_gat_seed47_baseline.npy",
+  "baseline_embedding_sha256": "ecf1ab87c73f926641149eab9f2150bc4505582eb2b96b6bfe862d14465aaa95",
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "status": "completed",
+  "outputs": {
+    "response": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2006229/response.parquet",
+      "sha256": "c63ae1d3c648b5616820227b281595842d41c2e88aae2dea2338fe41b729bbfd",
+      "bytes": 803834
+    }
+  },
+  "runtime": {
+    "wall_seconds": 2.559571862220764,
+    "peak_rss_mib": 1018.2109375,
+    "n_response_rows": 13980,
+    "n_matched_sets": 4466,
+    "validation": {
+      "status": "pass",
+      "errors": [],
+      "n_valid_matching_arms": 13980,
+      "n_response_rows": 13980,
+      "all_finite": true
+    }
+  }
+}

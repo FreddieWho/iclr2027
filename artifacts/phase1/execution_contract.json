@@ -1,0 +1,50 @@
+{
+  "phase": "P1_PHENOMENON",
+  "checkpoint": "C1",
+  "study_mode": "exploratory_discovery",
+  "data_domain": "football_tracking_only",
+  "match_ids": [
+    "1886347",
+    "1899585",
+    "1925299",
+    "1953632",
+    "1996435",
+    "2006229",
+    "2011166",
+    "2013725",
+    "2015213",
+    "2017461"
+  ],
+  "match_split": {
+    "1886347": "train",
+    "1899585": "train",
+    "1925299": "train",
+    "1953632": "train",
+    "1996435": "train",
+    "2006229": "train",
+    "2011166": "dev",
+    "2013725": "dev",
+    "2015213": "heldout",
+    "2017461": "heldout"
+  },
+  "n_samples_per_match": 25,
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "energies": [
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "primary_energy": 1.0,
+  "n_bands": 6,
+  "exact_mode_policy": "seed-11-primary-energy-only-for-accessibility",
+  "visual_policy": "deterministic_minimap_raster; baseline/intervention pairs only for visual_stride observations; exact modes excluded from visual branch",
+  "visual_stride": 10,
+  "skip_vision": false,
+  "graph_policy": "baseline_fixed_weighted_knn4",
+  "preprocessing_fit_split": "train_matches_only"
+}

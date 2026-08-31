@@ -1,0 +1,42 @@
+phase: P2_NOVELTY_DISCRIMINATOR
+version: p2_matching_v2_selected_exploratory
+study_mode: exploratory_discovery
+source_phase: artifacts/phase1
+data_domain: football_tracking_point_set
+execution_target: local_cpu
+selection_basis:
+  source_diagnostic: artifacts/phase2/matching_v2_stratified_smoke
+  rule: response_blind_coverage_balance
+  note: Keep Rayleigh at 0.05 and expand band-power L1 from 0.20 to 0.30; no model output was used.
+energies: [0.25, 0.5, 1.0, 2.0]
+directions:
+  - [1.0, 0.0]
+  - [-1.0, 0.0]
+  - [0.0, 1.0]
+  - [0.0, -1.0]
+graphs:
+  - knn4
+  - delaunay
+n_bands: 6
+controls:
+  - arbitrary_same_team
+  - topology_frequency_matched
+  - spectrum_exact_sign_randomized
+same_team_max_overlap_fraction: 0.5
+candidate_reuse_policy: allowed_recorded
+exact_spectrum_max_attempts: 32
+selection:
+  samples_per_match: 2
+matching:
+  rq_normalized_caliper: 0.05
+  band_power_l1_caliper: 0.30
+  frequency_reference_rq: 0.05
+  frequency_reference_band: 0.20
+  topology_score_density_scale: 0.10
+  topology_score_cut_scale: 1.0
+  require_same_component_count: true
+diagnostics:
+  response_blind: true
+  coverage_levels: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0]
+smoke:
+  output_dir: artifacts/phase2/matching_v2_selected_smoke

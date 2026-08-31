@@ -1,0 +1,94 @@
+phase: P2_FRACTURE_CONTINUITY
+version: p2_fracture_continuity_v1_provenance_locked
+run_id: p2_fracture_continuity_v1
+study_mode: exploratory_discovery
+data_domain: football_tracking_point_set
+execution_target: local_cpu
+source_code:
+  fracture_controls:
+    path: scripts/p2_fracture_controls.py
+    sha256: b35fc328c4ba36a92b0545ba22f3aba88716164904d503bb3ec8d883746384a8
+  fracture_statistics:
+    path: scripts/p2_fracture_statistics.py
+    sha256: 86429c6c465e7758dceacd55c6ababbc0cfe04810eaed79c07748b9f49e98734
+  fracture_runner:
+    path: scripts/run_phase2_fracture_formal.py
+    sha256: bf38f3034b92a7dfdbc657225242b81f9d667436eca7ee3c44a7e66f878d1204
+  phase2_pipeline:
+    path: scripts/run_phase2_pipeline.py
+    sha256: 2f6a32f765b3c5111531fbbe1a5c7f47271ef3b14fc2eba853e87e2ce8c88497
+  point_model_adapter:
+    path: scripts/p2_point_model_adapter.py
+    sha256: 595eb734e952e0db6a3044226b1290b6eeea6318249e21193569d00ee5c04727
+  p1_model_factory:
+    path: scripts/run_phase1_pipeline.py
+    sha256: 5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4
+  p2_matched_controls:
+    path: scripts/p2_matched_controls.py
+    sha256: 3943476861e905dadd8646948d606987fe8c6dc9c8a2ae79978b4eb8f6ab7bd5
+  requirements_core:
+    path: requirements-core.txt
+    sha256: cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d
+  requirements_models:
+    path: requirements-models.txt
+    sha256: d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277
+input_files:
+  canonical_samples_npz:
+    path: artifacts/phase1/canonical_samples.npz
+    sha256: caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11
+  canonical_samples_jsonl:
+    path: artifacts/phase1/canonical_samples.jsonl
+    sha256: 69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6
+  point_model_manifest:
+    path: artifacts/phase1/point_mainline/model_manifest.json
+    sha256: 8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc
+  point_embedding_manifest:
+    path: artifacts/phase1/point_mainline/embedding_manifest.parquet
+    sha256: b8d710dd805c28c5d9fe3333d72f0ed5ba19208a92322c9363dec9f7acc35b0f
+environment_lock:
+  python: 3.11.5
+  packages:
+    numpy: 1.26.4
+    pandas: 2.3.3
+    scipy: 1.13.1
+    torch: 2.11.0
+    pyarrow: 22.0.0
+    PyYAML: 6.0.1
+fracture:
+  operator_id: p2_fracture_endpoint_reallocation_v1
+  seed_root: 2026083101
+  draws: [11, 23, 47]
+  energies: [0.25, 0.5]
+  graphs: [knn4, delaunay]
+  n_bands: 6
+  density_scale: 0.10
+  cut_scale: 1.0
+  require_same_component_count: true
+models:
+  - deepsets_ae_seed11
+  - deepsets_ae_seed23
+  - deepsets_ae_seed47
+  - gat_ae_seed11
+  - gat_ae_seed23
+  - gat_ae_seed47
+  - phase_gat_seed11
+  - phase_gat_seed23
+  - phase_gat_seed47
+runtime:
+  batch_size: 128
+  matching_shard: match_id
+  response_shard: model_id_x_match_id
+  max_concurrent_shards: 1
+statistics:
+  bootstrap_replicates: 10000
+  bootstrap_seed: 2026083102
+  bootstrap_unit: source_match_id
+smoke:
+  match_ids: ["1886347"]
+  samples_per_match: 2
+status_contract:
+  matching_complete: FRACTURE_MATCHING_COMPLETE_WITH_EXPLICIT_UNMATCHED
+  response_complete: FRACTURE_RESPONSE_COMPLETE
+  statistics_complete: FRACTURE_STATISTICS_COMPLETE
+  phase_complete: P2_FRACTURE_C2_COMPLETE
+bioinformatics_isolation: true

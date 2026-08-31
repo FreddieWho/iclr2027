@@ -1,0 +1,9 @@
+{
+  "status": "FRACTURE_RESPONSE_COMPLETE",
+  "run_id": "p2_fracture_continuity_v1",
+  "checkpoint": "P2-FC-C",
+  "last_completed_stage": "response",
+  "stage_rank": 2,
+  "smoke": true,
+  "bioinformatics_isolation": true
+}

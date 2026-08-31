@@ -1,0 +1,9 @@
+torch>=2.4
+torchvision>=0.19
+timm>=1.0
+transformers>=4.44
+open_clip_torch>=2.26
+accelerate>=0.33
+lightning>=2.4
+einops>=0.8
+safetensors>=0.4

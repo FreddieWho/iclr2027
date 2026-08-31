@@ -1,0 +1,20 @@
+{
+  "status": "P2_FRACTURE_C2_COMPLETE",
+  "checkpoint": "P2_FRACTURE_C2_COMPLETE",
+  "run_id": "p2_fracture_continuity_v1",
+  "config_sha256": "dbfa2a821b7b6f25b52e81c4813c67069847c23be47964c1b8058a374e3a597b",
+  "statistics_manifest_sha256": "a3cc3a4302b68b34ea5ae4af4c9c51016687874564f3a5ad73af185ef183ab0d",
+  "scientific_interpretation": "mixed_or_graph_specific",
+  "report_draft": {
+    "path": "artifacts/phase2/p2_fracture_continuity_v1/report.md",
+    "bytes": 14429,
+    "sha256": "b5358fe55dc70bc7835cee78ffdabe5260366894dfd8f0ba2b980fb82990344b"
+  },
+  "figures": [
+    {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/figures/fracture_effect_forest.png",
+      "bytes": 258827,
+      "sha256": "e7e477cf75dc699011febd0f5ffa7949bfccd33f836a8430c91c7657c347d8ae"
+    }
+  ]
+}

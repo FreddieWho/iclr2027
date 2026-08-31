@@ -1,0 +1,37 @@
+{
+  "run_type": "smoke",
+  "elapsed_seconds": 88.11836433410645,
+  "n_chars": 24,
+  "epochs": 2,
+  "seeds": [
+    11
+  ],
+  "runtime": {
+    "requested_device": "cpu",
+    "resolved_device": "cpu",
+    "amp_requested": "off",
+    "amp_enabled": false,
+    "gpu_profile": "none",
+    "cuda_available": false,
+    "gpu_name": null
+  },
+  "batch_size": 64,
+  "train_batch_size": 16,
+  "optimization": {
+    "group_by_node_count": true,
+    "inference_mode": true,
+    "cuda_amp": false,
+    "batch_size": 64,
+    "train_batch_size": 16
+  },
+  "intervention_rows": 2689,
+  "response_rows": 5318,
+  "formal_estimate_seconds_from_linear_extrapolation": 110147.95541763306,
+  "formal_estimate_is_not_a_commitment": true,
+  "resnet_status": {
+    "model_id": "resnet18",
+    "status": "blocked",
+    "reason": "ModuleNotFoundError(\"No module named 'torchvision'\")",
+    "scientific_evidence": false
+  }
+}

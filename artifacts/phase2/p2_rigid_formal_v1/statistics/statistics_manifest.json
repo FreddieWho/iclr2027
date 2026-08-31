@@ -1,0 +1,40 @@
+{
+  "status": "RIGID_STATISTICS_COMPLETE",
+  "checkpoint": "RIGID_RESULTS_READY_FOR_REPORT",
+  "run_id": "p2_rigid_formal_v1",
+  "estimand": "normalized_scg=(semantic_response-control_response)/epsilon",
+  "raw_sensitivity": "raw_scg=semantic_response-control_response",
+  "controls_pooled": false,
+  "architectures_pooled": false,
+  "model_seeds_are_independent_matches": false,
+  "support_modes": [
+    "common_four",
+    "pairwise",
+    "strict_band_l1_020"
+  ],
+  "energy_roles": {
+    "primary_energies": [
+      0.25,
+      0.5
+    ],
+    "exploratory_energies": [
+      1.0
+    ],
+    "pressure_test_energies": [
+      2.0
+    ],
+    "strict_band_power_l1": 0.2,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260831,
+    "bootstrap_unit": "source_match_id"
+  },
+  "receipt_sha256": "f770f28aba210dfe93f39e914510ff9aba72a36d927bb8eaed4a067ff76a092c",
+  "runtime": {
+    "wall_seconds": 716.5022597908974,
+    "peak_rss_mib": 444.58203125,
+    "n_pair_rows": 1596348,
+    "n_model_match_rows": 24786,
+    "n_architecture_match_rows": 8262,
+    "n_summary_rows": 861
+  }
+}

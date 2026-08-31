@@ -1,0 +1,18 @@
+{
+  "phase": "P2_RESPONSE_WIRING_SMOKE",
+  "checkpoint": "P2-C",
+  "study_mode": "exploratory_discovery",
+  "data_domain": "football_tracking_point_set",
+  "model_id": "deepsets_ae_seed11",
+  "energies": [
+    0.25,
+    0.5
+  ],
+  "n_selected_sets": 1260,
+  "n_selected_arms": 5040,
+  "training": "NOT_RUN",
+  "model_comparison": "NOT_RUN",
+  "scientific_interpretation": "NOT_RUN",
+  "matcher_response_separation": "Matcher was selected before and without model outputs.",
+  "bioinformatics_isolation": "No bioinformatics index or data was read, updated, or rebuilt."
+}

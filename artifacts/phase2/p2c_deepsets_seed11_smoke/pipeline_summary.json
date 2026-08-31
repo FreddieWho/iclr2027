@@ -1,0 +1,23 @@
+{
+  "status": "WIRING_ONLY_NOT_SCIENTIFIC",
+  "checkpoint": "P2-C",
+  "response_validation": {
+    "status": "pass",
+    "errors": [],
+    "n_response_rows": 5040,
+    "n_matched_sets": 1260,
+    "n_source_samples": 20,
+    "energies": [
+      0.25,
+      0.5
+    ],
+    "models": [
+      "deepsets_ae_seed11"
+    ],
+    "all_finite": true,
+    "scientific_interpretation": "NOT_RUN"
+  },
+  "scientific_interpretation": "NOT_RUN",
+  "p2_completion": "NOT_CLAIMED",
+  "next_stage": "P2-D resource/scientific gate; formal multi-model response remains NOT_RUN."
+}

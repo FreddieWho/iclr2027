@@ -1,0 +1,79 @@
+{
+  "phase": "P2_MATCHING_ONLY",
+  "checkpoint": "P2-B",
+  "study_mode": "exploratory_discovery",
+  "data_domain": "football_tracking_point_set",
+  "model_inference": "NOT_RUN",
+  "scientific_claim": "NOT_RUN",
+  "configuration_path": "configs/phase2.yaml",
+  "configuration": {
+    "phase": "P2_NOVELTY_DISCRIMINATOR",
+    "version": "p2_v1",
+    "study_mode": "exploratory_discovery",
+    "source_phase": "artifacts/phase1",
+    "data_domain": "football_tracking_point_set",
+    "energies": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "directions": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        -1.0
+      ]
+    ],
+    "graphs": [
+      "knn4",
+      "delaunay"
+    ],
+    "n_bands": 6,
+    "controls": [
+      "arbitrary_same_team",
+      "topology_frequency_matched",
+      "spectrum_exact_sign_randomized"
+    ],
+    "same_team_max_overlap_fraction": 0.5,
+    "matching": {
+      "rq_normalized_caliper": 0.05,
+      "band_power_l1_caliper": 0.2,
+      "topology_score_density_scale": 0.1,
+      "topology_score_cut_scale": 1.0,
+      "require_same_component_count": true
+    },
+    "smoke": {
+      "max_samples": 3,
+      "output_dir": "artifacts/phase2/smoke_matching"
+    }
+  },
+  "n_samples": 3,
+  "sample_ids": [
+    "sc_1886347_0000",
+    "sc_1886347_0001",
+    "sc_1886347_0002"
+  ],
+  "source_artifacts": {
+    "canonical_samples_npz": {
+      "path": "artifacts/phase1/canonical_samples.npz",
+      "sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11"
+    },
+    "canonical_samples_jsonl": {
+      "path": "artifacts/phase1/canonical_samples.jsonl",
+      "sha256": "69aff2f897c083fd90f6c055352a6d2a026a0e524509c6970d78fe7138d09fe6"
+    }
+  },
+  "bioinformatics_isolation": "No bioinformatics index or data was read, updated, or rebuilt."
+}

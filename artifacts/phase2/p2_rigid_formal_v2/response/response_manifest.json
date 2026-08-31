@@ -1,0 +1,1178 @@
+{
+  "status": "RIGID_RESPONSE_COMPLETE",
+  "checkpoint": "RIGID_RESPONSE_COMPLETE",
+  "run_id": "p2_rigid_formal_v2",
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "matching_manifest_sha256": "d69b6eb2b7c36c39701f1d58362b5ef649919ea13ac8df2596bb3675d9b11ad1",
+  "source_code": {
+    "formal_runner": {
+      "path": "scripts/run_phase2_rigid_formal.py",
+      "sha256": "0d1e3b0a98bdc3b0bdb823a57a3f96bc02ebc74ce211883714358c61e3a3cda8"
+    },
+    "matching_pipeline": {
+      "path": "scripts/run_phase2_pipeline.py",
+      "sha256": "2f6a32f765b3c5111531fbbe1a5c7f47271ef3b14fc2eba853e87e2ce8c88497"
+    },
+    "matched_controls": {
+      "path": "scripts/p2_matched_controls.py",
+      "sha256": "3943476861e905dadd8646948d606987fe8c6dc9c8a2ae79978b4eb8f6ab7bd5"
+    },
+    "matching_diagnostics": {
+      "path": "scripts/p2_matching_diagnostics.py",
+      "sha256": "e90fd1233dc1d8bafebf5f502e6471bb9ee252629e30e2da86ad5c7f589a634a"
+    },
+    "point_model_adapter": {
+      "path": "scripts/p2_point_model_adapter.py",
+      "sha256": "595eb734e952e0db6a3044226b1290b6eeea6318249e21193569d00ee5c04727"
+    },
+    "p2_statistics": {
+      "path": "scripts/p2_statistics.py",
+      "sha256": "895492b14218b3b9514103a88aa15fe0d60513b49b69bfe74a7a10476cd46339"
+    },
+    "p1_model_factory": {
+      "path": "scripts/run_phase1_pipeline.py",
+      "sha256": "5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4"
+    },
+    "requirements_core": {
+      "path": "requirements-core.txt",
+      "sha256": "cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d"
+    },
+    "requirements_models": {
+      "path": "requirements-models.txt",
+      "sha256": "d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277"
+    }
+  },
+  "environment_lock": {
+    "python": "3.11.5",
+    "packages": {
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.13.1",
+      "torch": "2.11.0",
+      "pyarrow": "22.0.0",
+      "PyYAML": "6.0.1"
+    },
+    "requirements": {
+      "requirements-core.txt": "cc17e4cad0a66c6012234c1e71521c1e04e3e4bed21b0ba1fe9015f75baec86d",
+      "requirements-models.txt": "d0de923c4f7eaf0c976933d2b75469ff82cecc65f8d09ac1b4b5c9db7b9d8277"
+    }
+  },
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "n_models": 9,
+  "n_shards": 90,
+  "n_response_rows": 1184742,
+  "baseline_parity": [
+    {
+      "status": "PASS",
+      "model_id": "deepsets_ae_seed11",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "deepsets_ae_seed23",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "deepsets_ae_seed47",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "gat_ae_seed11",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "gat_ae_seed23",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "gat_ae_seed47",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "phase_gat_seed11",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "phase_gat_seed23",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "status": "PASS",
+      "model_id": "phase_gat_seed47",
+      "n_samples_checked": 250,
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06
+    }
+  ],
+  "shards": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1886347/receipt.json",
+      "receipt_sha256": "bbb61c40f01261aa10d879de87b9c8deb7f03ffe0876b9f518a89875fad3f396",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1886347/response.parquet",
+      "response_sha256": "7603ada0343c2149952216fcb71d9b5101fa8166eaf881b9ee86886e047357b4",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1899585/receipt.json",
+      "receipt_sha256": "6b94a3e211b6fd9f8d7fa13755eb17850298f061c2a4035e833d52fb4f107f5b",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1899585/response.parquet",
+      "response_sha256": "383296ec9de0c209178411ed2559105ba152ae817359c9abc1e69f220dd70b43",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1925299/receipt.json",
+      "receipt_sha256": "17af484ccec4ca81b5942c68f3651cb584538569a41bfb184d291c9b34efac10",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1925299/response.parquet",
+      "response_sha256": "0e2b79bb953c10807069760681d859fe7b1ba7aeba7dd2177fd193701793293c",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1953632/receipt.json",
+      "receipt_sha256": "452564bfafdadf5a028ae6d8c83861cc20b92a20a328c735780ed48fc69dc1c3",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1953632/response.parquet",
+      "response_sha256": "52523a6e867bfd9fb8e6fcad8fd020e0752533046b0f69ad551692f799cf7c83",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1996435/receipt.json",
+      "receipt_sha256": "73a3658402839865353718866082626b68dbd9a5d86356fe47d02b1eaf34ca66",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=1996435/response.parquet",
+      "response_sha256": "798b04f945daee3c941818e3c6edc75185435900f4579f4849257b42693e2403",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2006229/receipt.json",
+      "receipt_sha256": "f39b923ce4b21ae43c6c640ee1da7b291e13f2f9c0309660107116477c0e7214",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2006229/response.parquet",
+      "response_sha256": "87155dcb000f2f3210e70fc326e4aebce0a235a37310ecbe2bee563d6893a8d0",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2011166/receipt.json",
+      "receipt_sha256": "7c35a0f1439369063e9c0cd1ed58f364bdd7cf66c4c67a431a6440763083f7e6",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2011166/response.parquet",
+      "response_sha256": "c06a80284b2d978811b9ad2d61a04b91911bca703fcacb611f4dfca789a4a222",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2013725/receipt.json",
+      "receipt_sha256": "ccb9707f7c931902452bf759245250c73877ea53905fe45a6dd4af39982bee8b",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2013725/response.parquet",
+      "response_sha256": "7a14de8a7852068b17369b2802ad9a6ef8866d0c234ddd2db8ac6c00f36b3fa1",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2015213/receipt.json",
+      "receipt_sha256": "666bc3756a6f5336b6c3e9606a9589a9cc226c98583e68e4f9ff62ed026eba86",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2015213/response.parquet",
+      "response_sha256": "c659467e10d21b4ea9eeb6312ad7c3e32e31b692fd1337bc54c261a3905130ab",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "model_seed": 11,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2017461/receipt.json",
+      "receipt_sha256": "a576c86a65c226f39092d3dd0bcbd7e58374bedc9d983a3897ea3b2541580443",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2017461/response.parquet",
+      "response_sha256": "616680bddd3a95b12557af871993def7625a629266d8f363fc4921e031c78ca4",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1886347/receipt.json",
+      "receipt_sha256": "ec65acde1e3fea53164bebcccd700b19ed1270a9b1d4392891a1d20644d53e00",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1886347/response.parquet",
+      "response_sha256": "bd1b211e998177c865be349b3ef416b1cdbe50d77adff71ab49ddd5ca26518cd",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1899585/receipt.json",
+      "receipt_sha256": "dffe8f9cd3006036460cd59919b4519308b5c9a088f89744b165057f829a71f8",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1899585/response.parquet",
+      "response_sha256": "cb3ea220179adc1968b40210b4f2dca23506e2c60c1749a7b15702d729502b87",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1925299/receipt.json",
+      "receipt_sha256": "0352f3f7297e6c558b9b44bfec1171068b8f4a353913fd3c147383f5c8a2a7d0",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1925299/response.parquet",
+      "response_sha256": "08fa0cfea879adb30e260a3acec72fd1ede66b9ce6280b9fe4faf14442318222",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1953632/receipt.json",
+      "receipt_sha256": "6aa32359a91178eb66f7e3f1112f404b70fe708403240b2967cf95b47a4727c7",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1953632/response.parquet",
+      "response_sha256": "18e89f681770cb008966562c864d43392d87347ba8776ff38a230522932e8c7c",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1996435/receipt.json",
+      "receipt_sha256": "32d02e2c4d0d6ee96cc8572e3a511c833a3372e62fd4fdb633511d88f0c900b4",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=1996435/response.parquet",
+      "response_sha256": "d955cfc6a55461783d430c61b65c0a18f22cbe0b7c3c94ba016a8be960b4b946",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2006229/receipt.json",
+      "receipt_sha256": "49472a3fcb05ecff9a33985291117982f35daa5d79f9bd7f1229e59c69a89509",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2006229/response.parquet",
+      "response_sha256": "2976c9c544ed48784200825905030663557c15df234424b8307ce4eceeb4eb78",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2011166/receipt.json",
+      "receipt_sha256": "53070abe11c09fb59310342a9cf388431343445609630d8051fdd10b709db8a2",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2011166/response.parquet",
+      "response_sha256": "34e6f1ffe21d0666e76d8c2337204146a926d9bf80c2117daf95b53475ed7504",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2013725/receipt.json",
+      "receipt_sha256": "af7ee2535a6ad669bcaf5afde734526a28651cd1d4465b64b47fbea17ce3fa00",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2013725/response.parquet",
+      "response_sha256": "f86e802953e155e4f49b77e9df1295d3b750cb311258e70066579e822eba30f9",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2015213/receipt.json",
+      "receipt_sha256": "3751f917f90560eb398a0ef5dae78c59222dc7b586117dabcb0417bfba0a65f9",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2015213/response.parquet",
+      "response_sha256": "0a2bcda65cf7ebf5c1c0c4180b01c6f06ab2b5420f82d9cc5982177c55c99ec1",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "model_seed": 23,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2017461/receipt.json",
+      "receipt_sha256": "3d2d99fd85c52b6b1408cdd077e226f3aebe4e776e57f06a665eee6514549165",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed23/match_id=2017461/response.parquet",
+      "response_sha256": "6c8ea65d0a4f19c135d023cda73ad0d8f09dc37aa20134951b45f0747a550671",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1886347/receipt.json",
+      "receipt_sha256": "ae45a9ed127de46be43af5bc3d41310edd46ef744e730a65cc740b39e18b11c2",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1886347/response.parquet",
+      "response_sha256": "8593ef16c25b0d7508607be82ea0f27001a851c90d01938f9cc50783f73abf71",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1899585/receipt.json",
+      "receipt_sha256": "14c8d1bb23fd30f0e9d2c09ca2abc7ac95d2912d1643b44ffbba965c346d5e20",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1899585/response.parquet",
+      "response_sha256": "7c7cb7ae4d9aa2dfe4d58d04129f902a28ca731f152e601d6eda5865920b7718",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1925299/receipt.json",
+      "receipt_sha256": "87cd279ab113d3eb5d0b8539be950ce546c55f9e9687a463d2e060b1b0a9f1be",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1925299/response.parquet",
+      "response_sha256": "a9a69169a34213027b7e436c546022c462c0d22980ed5180d3898d851439a0ee",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1953632/receipt.json",
+      "receipt_sha256": "57fb79cdb08e80842b60bf0b04577175c8cd8a57677183521dc9dbe164a73cc9",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1953632/response.parquet",
+      "response_sha256": "c4a17df4d9eb274b821cd03b08e2fa43db131ac02452be3d9b7424c7022cc927",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1996435/receipt.json",
+      "receipt_sha256": "c726e918d395f19e3e01f3288d7f08c5157e0e8de8a7fb14d55dfd58069f1cd2",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=1996435/response.parquet",
+      "response_sha256": "36edae0d8a1548d6e5fbe40f47df0aad0e8c65b509277dbce40d08f0b157d654",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2006229/receipt.json",
+      "receipt_sha256": "d51f9d9090cbdd585c8cfcea0b725dc5dc42f995210746a87c50705122ef653d",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2006229/response.parquet",
+      "response_sha256": "5e71375932b9fdcdbb3afc5f00f7b052dcd4a83d9d6863ce42731d371a2ed73a",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2011166/receipt.json",
+      "receipt_sha256": "8f5374ce54d0aeb3333db9ad730b366b8330ffab1c0b1387232ef836e4c9e712",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2011166/response.parquet",
+      "response_sha256": "642644d3e4dbd173e0add063410249d08beb6c8521bd10192a98be577851005e",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2013725/receipt.json",
+      "receipt_sha256": "66b3a1e2cdae5f495e6109a110566a4e33dfa30574be1ceb19e00e72ac000a64",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2013725/response.parquet",
+      "response_sha256": "881529bb2fd9210510be276f91a14a4ae59a317eb59c6a3e709c971559617036",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2015213/receipt.json",
+      "receipt_sha256": "524eed8ce7d0e84bd59f6f72560fc9aeebfde539b082559e89c4666bbefbd078",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2015213/response.parquet",
+      "response_sha256": "dd18a4c1ff53d8669856817ca6378ff794c4c4fa9b3a97ce22e443d4ec0982e3",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "model_seed": 47,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2017461/receipt.json",
+      "receipt_sha256": "ee65111e6226092bd4ec987418e68c895db30f30d31e83ca77243c3ee19a9ffa",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed47/match_id=2017461/response.parquet",
+      "response_sha256": "7217dad639a574675c135034a878637993e6528ea5f3b017f7e2f03506de0d65",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1886347/receipt.json",
+      "receipt_sha256": "bda1884ee6cf1308f0bf4679a95648d96912ade028a527e5724cd596a31a14bd",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1886347/response.parquet",
+      "response_sha256": "445c12f4ea3da36643b05103aafd7667beadba00c8a719c15d06af0875745159",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1899585/receipt.json",
+      "receipt_sha256": "5f7baf82204db7d70af4bce3cfda1106531955c285278c105ef243c471cf1632",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1899585/response.parquet",
+      "response_sha256": "21c97991c5c92e8cf6ef8743dbab8b64fd9951ee6e43e1b92a47db75fa96987b",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1925299/receipt.json",
+      "receipt_sha256": "465a94ee3e34a2ae0c6d8bbd5bc6bb679f41647b31b17d9b29464dc9281c19fd",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1925299/response.parquet",
+      "response_sha256": "f4c99af5eca7bd673bbeba078e873abee302f44bd4b1ff0415dd359eee576adb",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1953632/receipt.json",
+      "receipt_sha256": "213d70622c9665e5bbeaf346b3adef756a026ee18a9a97292baad494a05805dd",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1953632/response.parquet",
+      "response_sha256": "60a59f5c0c65661587e6d72c5ab24c01269fe5e8483f3f0f962549410effb9c0",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1996435/receipt.json",
+      "receipt_sha256": "eac48401e855ffbd01bff10b4a44a52f337d30d89b5c7ceb5daed1944ba6cc5b",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=1996435/response.parquet",
+      "response_sha256": "31de37bb7d99437664cc467f728e2c3f99f58ae72d1cc2814260e852cbf65891",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2006229/receipt.json",
+      "receipt_sha256": "0f825fa0a7dc39d7324ee86479414766a2ffdac0144969f96e1f54ec7e22efb7",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2006229/response.parquet",
+      "response_sha256": "888987ab33c82d3c02cdfad70cb4028bf6ac9520677a9076542aa0dce4adcd6b",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2011166/receipt.json",
+      "receipt_sha256": "829b836b3c2c0059c98bee020aff5ea0806142325bea943fcc416568f8629433",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2011166/response.parquet",
+      "response_sha256": "d9f8bee693dfdbb4d23bfcbd19e7ffc1179b9fe211633ec29da1f66a82ea64af",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2013725/receipt.json",
+      "receipt_sha256": "009c24e9c1624e2a4a2942a8bf556978795487ff462875f8b3d4b6892bdee55f",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2013725/response.parquet",
+      "response_sha256": "f45ec6a0ab4bef85269d0e927fe1ca7986cd9a59212d8f97c92641fabfef7910",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2015213/receipt.json",
+      "receipt_sha256": "99b0d9c385e6948ee9ad40a8e04817f9cd6156e576611e5ec43187fc8c0e74f1",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2015213/response.parquet",
+      "response_sha256": "18817d647b9d897de5cd8888fdae6dc88ce32689acab450e3ff7e5b663b66a4b",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "model_seed": 11,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2017461/receipt.json",
+      "receipt_sha256": "556cd1598930207aa8263718af29dccbaa98b7a3b3a2501915818632603a2753",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed11/match_id=2017461/response.parquet",
+      "response_sha256": "b702f93c2431286936371ed6b215853b2679b6563c603af0b121f86945f2e37f",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1886347/receipt.json",
+      "receipt_sha256": "60e6dcb1ca8a115ead07bc5433cae671e80df7b714b2bdab52e0a9915ca9634e",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1886347/response.parquet",
+      "response_sha256": "830bba518f8245bb55f777f99644c8c53032e189d04cf349eb2d5eb3b145d2d9",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1899585/receipt.json",
+      "receipt_sha256": "e716850d9789e38e6c874c87529cb6e7eff4ac94e92cb1b4cafbc48faf8c7e1e",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1899585/response.parquet",
+      "response_sha256": "83ca12c1f859b2cc25b75ed0ad00a3732db2f0d6a6052f3c2535456e50087a7d",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1925299/receipt.json",
+      "receipt_sha256": "520ad9883f3ec4286b6d1dd6c77484d2aabb4dccf2e049b3e9c981d50ef14616",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1925299/response.parquet",
+      "response_sha256": "dbfe1f13fc66e5e57e99f0ef85b7733e473fdc357986dc29d8202f5b4c8bdaaa",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1953632/receipt.json",
+      "receipt_sha256": "1de0928ccf50a76e9096581829e754ee0bb1c9c71c268b07b9bdc78c3a44529a",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1953632/response.parquet",
+      "response_sha256": "9e448231245c0e1c725f328cd12b4572c7a92e751a59d2c9a6d4bf6f2dc107f4",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1996435/receipt.json",
+      "receipt_sha256": "2553b112f1e774b53f276f1a00269639728009f3f16c7cca0cc2104f3233e034",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=1996435/response.parquet",
+      "response_sha256": "4e3867ae928bf1e46058d962d1fa8bc65edc6748c29a3268c3068ffd2f84e657",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2006229/receipt.json",
+      "receipt_sha256": "55096ac4971f49959107e0ca0cc76abef759d8862a20e12b7e48aea3b75936bb",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2006229/response.parquet",
+      "response_sha256": "b6caf318e8085e254f06411b1abf6ac5cea99dc72bc198dd6d9295c9498904a3",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2011166/receipt.json",
+      "receipt_sha256": "3e15736f472746eb9ab614771076c953e28218bf830259a38cd5fc7622aff638",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2011166/response.parquet",
+      "response_sha256": "500b66badb9199410f4c03ae59e9511c89262e848002951e7acbd66f0871656f",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2013725/receipt.json",
+      "receipt_sha256": "3a96fae100e7edf42c26a188bb6190703c1a9f29b342499e18b59b23258c9518",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2013725/response.parquet",
+      "response_sha256": "dfa0d07e49164c6e81274a89931d3fd67d2d67f5d7e80e8f75dc8c1f0f917fa2",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2015213/receipt.json",
+      "receipt_sha256": "18afddaa5e4709a664bf7bec896360bad416a9305bb9b84f4d71cc6ae0eadde2",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2015213/response.parquet",
+      "response_sha256": "cc0e125d33d8815c5194ce4684fabc40cd143f23cbf2b46ebe0667f8a5724551",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "model_seed": 23,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2017461/receipt.json",
+      "receipt_sha256": "c50ea179a783a38e873df9858c524d94ab3ad61671bdec099192256427ac0e7d",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed23/match_id=2017461/response.parquet",
+      "response_sha256": "78cb1a29f222d0a99df483594eb1a2a9c76e9255f059682bafe24276a5123cfa",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1886347/receipt.json",
+      "receipt_sha256": "6536ab62c9b795a2a6c826db8d9de518284641ec1aab3ab5c5988b40a07ea7e0",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1886347/response.parquet",
+      "response_sha256": "3736718112b816f5f2539e0b06f2f008a94e80eb92e8a23e3660a48b7539bcfd",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1899585/receipt.json",
+      "receipt_sha256": "baaadaf78b081a81a3e0632c96747c832e902e127bc826745d6eccd338d1dd59",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1899585/response.parquet",
+      "response_sha256": "69f5452bdf2c940b736e52b7ed7c16a4c3fb336710201a0ea31f08a7b0571a69",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1925299/receipt.json",
+      "receipt_sha256": "90ec57bb696a990f63c3ba6e04fa01fdb3099ff08353d5ec8f3bfb56184c3a15",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1925299/response.parquet",
+      "response_sha256": "d44f9f50520d7a864d6276b3f340d0f16c77711d062ba0370790b5bb09cd80b8",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1953632/receipt.json",
+      "receipt_sha256": "c50cd894cd19b2ac3a1d715bb6e6a27fe2fae45849d4244ddf72caa786c7cbe3",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1953632/response.parquet",
+      "response_sha256": "4d536ba08fc04f09d890a41d619140960718bf9df671d8ca76bde43cb1321300",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1996435/receipt.json",
+      "receipt_sha256": "5ca0e5a8e2e4a9a684955070d8f855484c70be13bb36ffa8757ac7339b4b554e",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=1996435/response.parquet",
+      "response_sha256": "92b81463f0ead8a608c37ad521b48f9e2c4ac898d29b2fbc1b9882eaa19f8951",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2006229/receipt.json",
+      "receipt_sha256": "ea889064ab62c1c6aa9ca2efe318bb2e01720a6ccc333f55260a4c6a30eee459",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2006229/response.parquet",
+      "response_sha256": "45172070709069930dae0ec7e21e30afc507248ce12812e5ff5aa235b6e35bd1",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2011166/receipt.json",
+      "receipt_sha256": "b07f4567104bd7b38b485c75391268f73b66c453c2054d344c0d02ec0da8bba1",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2011166/response.parquet",
+      "response_sha256": "b514c0b8a419d95a9772a865e9ea5da767dc10952709cb1f927d18d3e11d47f3",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2013725/receipt.json",
+      "receipt_sha256": "b8ac3191b35e1e563238d36522125c3a41266e1637dd709f0e5b96b9427c0f85",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2013725/response.parquet",
+      "response_sha256": "efddeac255c4c3aa7ffb236b37ca9307efb22878a115891f2e0df646ccd1f447",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2015213/receipt.json",
+      "receipt_sha256": "6c96687b7124295e4e4297ebbaa5228fbe8dab03fb707fb08e5c0001b1009564",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2015213/response.parquet",
+      "response_sha256": "939bac9d476cfeef744ac4d21a7553f376cd4bc4bc129f6bc3aab1c64e8da9c6",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "model_seed": 47,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2017461/receipt.json",
+      "receipt_sha256": "b30143e5ca8252c43df60d9830f537b2ebb0ee864d7ecbc0aa4affbf4db58ad6",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=gat_ae_seed47/match_id=2017461/response.parquet",
+      "response_sha256": "7fc794677e16fcc0910a7a1cf404c9394cf87dd8bb8e02d36c5ca18b15575d1a",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1886347/receipt.json",
+      "receipt_sha256": "4c9da06d6f48ec2dba96e7e3527949d500b61aeec56436589adc1213289a7a86",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1886347/response.parquet",
+      "response_sha256": "3ed83482a0395b355b19245e7543081bd85849193e5f851aeaa44cdd52a34d9a",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1899585/receipt.json",
+      "receipt_sha256": "70155bd69c287a9aa6e188a1abab96f7de155ff4da31f6be95e5ddaaeac91df0",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1899585/response.parquet",
+      "response_sha256": "7e7189d20f21151daaf40a45c77e1313df1cbc77cc4dad44d2a036a1991d708f",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1925299/receipt.json",
+      "receipt_sha256": "990889bb67ba8213dd8b92a53f59de85ba9070d6d9c8d319ec14b08acf5a18fb",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1925299/response.parquet",
+      "response_sha256": "8fc59ec0fe7e99233bb27c4ed34187fd2b4aba0951baa039aa81d65b682281e8",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1953632/receipt.json",
+      "receipt_sha256": "d488accb912c20798b13ee25a8d016208e75bb97939c5457499cacaf6ec8502c",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1953632/response.parquet",
+      "response_sha256": "32c935ea565e66ebbae7414f81eafad66dcbe207b89027549d3aa7fff4254918",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1996435/receipt.json",
+      "receipt_sha256": "ffaa6e4f6f3b6bae2d3c9699a1baf2cc362ec8ba68c9ae5c25ddc5156390eec2",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=1996435/response.parquet",
+      "response_sha256": "d69d40fbebe0cfb6b8fec8a99f25e4c384e8114ee714b6c2dfdf50e28b9e4c4e",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2006229/receipt.json",
+      "receipt_sha256": "4e0f084b313e1f071c4b4c996e4f6bdd02c32414fcdcdcb6964c27be2f722696",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2006229/response.parquet",
+      "response_sha256": "736293deaca433b1cebf9b70c9a7d0523705d26c22217531180e0f7274807d1b",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2011166/receipt.json",
+      "receipt_sha256": "9a7f5c1e2ccca81b5524d358932bb2657398062f9937e571cfaecd36048ac60b",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2011166/response.parquet",
+      "response_sha256": "3a4b9460899ff1ca48786785529ab9c3b5bf91749825ef1c464e68e080e0aa71",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2013725/receipt.json",
+      "receipt_sha256": "a3423f72dab58dc7580e548a30da4605a242c3b87dccfd3c08423ea3518fc9ef",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2013725/response.parquet",
+      "response_sha256": "51ea4a4e4a89a91e10cdb658e73d045aed5a9ae00507e84768cc6e2f1de35353",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2015213/receipt.json",
+      "receipt_sha256": "4a138a5af3e12cef38ffd79704b77dfb721ae8a48c26183828df718f57e548ac",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2015213/response.parquet",
+      "response_sha256": "e86d2bc85888edb0c489994f79d38bcc1ab4798e73c743b445b6461a173a454d",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "model_seed": 11,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2017461/receipt.json",
+      "receipt_sha256": "2c4fb3a68695ee7851ca2f92813da4b97bfd0d8c3cee46acca34f84a49e3f795",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed11/match_id=2017461/response.parquet",
+      "response_sha256": "4817120689d91f49bc72bd1689f62ff73889d13d05457a6c7ff949d0f6dede8a",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1886347/receipt.json",
+      "receipt_sha256": "21087c70af0caddf057ec264a4d895057bedf3ef39f74ecc18bac2e6669d145f",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1886347/response.parquet",
+      "response_sha256": "f5524b847e4132c38b38e1995ccb1885ec3596d4f20ad49ab68b224768f1d042",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1899585/receipt.json",
+      "receipt_sha256": "f6209e7c7fb582cfffe91475de118e784bd9243cd61c43348c1fa93dfd782f37",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1899585/response.parquet",
+      "response_sha256": "8e64b8c43eb637b449e0ff8254009a4062aacbf0098dd83178512a07fbc047a3",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1925299/receipt.json",
+      "receipt_sha256": "7bee0baa70fdeee002afd2b47c9beff56e71be91a3ad94abb19f3c1da8aaad5c",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1925299/response.parquet",
+      "response_sha256": "76a95b46ff134a2e37a921bb3dbe31b17e9dc894cf3890710367d8ea6efd1ec9",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1953632/receipt.json",
+      "receipt_sha256": "b7806f4c52b84df0e09455ef1e9054c0c0bc0732b4109deb522a130215ff1ec2",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1953632/response.parquet",
+      "response_sha256": "6a0cfe713209f2c3508b8a3ed0e28bd7d30a91af65dbcc22afab7add8e7d7f87",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1996435/receipt.json",
+      "receipt_sha256": "ea1b3f70f2c0932874836611a55856a41f9f86ee2d9ae19eb2a7397f926cfa66",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=1996435/response.parquet",
+      "response_sha256": "3f5521397d7aca6d03420921ad0e18477ab31f80a18eec887f7c10f76b14bd1d",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2006229/receipt.json",
+      "receipt_sha256": "07a1045068dfd3d4488839600d963ef31b75bb66cc67510a332bf2b2a8d2ee61",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2006229/response.parquet",
+      "response_sha256": "d2c78c7eef884c066373ac09fc534e91fc6e553541fb5e6b454ae9722fa0cf89",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2011166/receipt.json",
+      "receipt_sha256": "fd2fe712a7f741b93ca37b773f574ba6d20ee606372fcdf55c823414c55eb385",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2011166/response.parquet",
+      "response_sha256": "96639895f9ca818df8ee0d999142b073fdf9e946e6b9198d7ea98ce447d038aa",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2013725/receipt.json",
+      "receipt_sha256": "4276956a413eaa9487c41d2802e6b8f5b8c8a4f02e013fbae32d95de5e4b5481",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2013725/response.parquet",
+      "response_sha256": "a093b8cb15050e29efb22ff79cd434c8c4db67e528ab813cec988ffe4cdfa745",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2015213/receipt.json",
+      "receipt_sha256": "94ba10097f1d6140f54da4a18f218b7108e48e3662e9e2e29691f97d4b8a8781",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2015213/response.parquet",
+      "response_sha256": "af1c07cbdaaab48b6fd445e2d5a65d867d2d78cc3f1e678823808055f8062516",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "model_seed": 23,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2017461/receipt.json",
+      "receipt_sha256": "794e221c39dae10d810c5cc7f662b33676c2d56ad7e9abd1c482a1d82b13bb34",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed23/match_id=2017461/response.parquet",
+      "response_sha256": "d4562120f1beaeb70def23ddafaf8edc835645141f10a6fcd319700727beacda",
+      "n_response_rows": 13810
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "1886347",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1886347/receipt.json",
+      "receipt_sha256": "1d4524cedf31c9d85665930f18f01f69ad6b39e491fa4eff033e52531574835f",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1886347/response.parquet",
+      "response_sha256": "621490d9b22a7c2eff17bd4b2264d0fc33e12fed16db59b2732968f9a1b69b52",
+      "n_response_rows": 13706
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "1899585",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1899585/receipt.json",
+      "receipt_sha256": "7ae8b24337a7687ec33a2f8c38cacde123cdc06573f8f4cd5e44e53bc1ffd288",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1899585/response.parquet",
+      "response_sha256": "4c3869a98b34d9036293f77a166184d354c4371c2af769c3eca26facf2c4bef2",
+      "n_response_rows": 11335
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "1925299",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1925299/receipt.json",
+      "receipt_sha256": "28068956c948c615970d888fc75fa251a815e5221a98d0aacfe1fe989dddda6f",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1925299/response.parquet",
+      "response_sha256": "535604eed1f54e1b453a7bb8a1cf30e3b4895207b80db9d9d1888f9e136518c0",
+      "n_response_rows": 14118
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "1953632",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1953632/receipt.json",
+      "receipt_sha256": "3447ac05e44914917fc6e7c0c85cc55e0d1b11d9ff62add775cd731672c795b6",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1953632/response.parquet",
+      "response_sha256": "8b0b6d4afb6889e93f02ad46a0dffa14d1b41a25e5f9b5d2dfdef85404f463e8",
+      "n_response_rows": 13673
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "1996435",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1996435/receipt.json",
+      "receipt_sha256": "a0446bc473002a26d3b390e331cf6bb7298e6728efeb78d00407e3800f70b8db",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=1996435/response.parquet",
+      "response_sha256": "a2acef77e6fd838eefc96be52bd7f9f8ba0082c5e25d349086b1b973b229e26d",
+      "n_response_rows": 13919
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "2006229",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2006229/receipt.json",
+      "receipt_sha256": "6c03c8d260d01473b28fd4e235441544ddb28c4051c24ab844d411307ff0c893",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2006229/response.parquet",
+      "response_sha256": "c63ae1d3c648b5616820227b281595842d41c2e88aae2dea2338fe41b729bbfd",
+      "n_response_rows": 13980
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "2011166",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2011166/receipt.json",
+      "receipt_sha256": "15a25a3badea744fabb9ef4caf36ce27eb6a7db44f53fa2a84c3c218702ec0fb",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2011166/response.parquet",
+      "response_sha256": "6d2009f7a491f3ab809bd9affd636f85e464b234a7c6dbbb2cb17e13117ddf04",
+      "n_response_rows": 11701
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "2013725",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2013725/receipt.json",
+      "receipt_sha256": "9559004d929738e66901d803d4633e8cccecda959279260e85ed18a80c5b8df9",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2013725/response.parquet",
+      "response_sha256": "6abcc19f6cae85d4b489ffb43f525468030c1b1149302e4aed1e0e4487f50b5d",
+      "n_response_rows": 13634
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "2015213",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2015213/receipt.json",
+      "receipt_sha256": "875bf18fbe89f0c173e59a32aab3f60ad53cd07039429bdd427c4544c571fd80",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2015213/response.parquet",
+      "response_sha256": "0af9266aa0aa5cb8642bd30936476629c443563525e5b6fb8c12c7c3cd494979",
+      "n_response_rows": 11762
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "model_seed": 47,
+      "match_id": "2017461",
+      "receipt_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2017461/receipt.json",
+      "receipt_sha256": "2a4f23bee91628872dcd01fb61d1ebfe426dd12d2ce1eff224fb94de066cc77c",
+      "response_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=phase_gat_seed47/match_id=2017461/response.parquet",
+      "response_sha256": "9c262bacb52b506dcc00499abb3628214ae4f3fd6a409e02208042c1fc529b58",
+      "n_response_rows": 13810
+    }
+  ],
+  "training": "NOT_RUN_FROZEN_MODEL_INFERENCE_ONLY",
+  "wall_seconds": 204.24115093797445
+}

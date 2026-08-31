@@ -1,0 +1,19 @@
+{
+  "run_type": "smoke",
+  "elapsed_seconds": 148.7557578086853,
+  "n_chars": 24,
+  "epochs": 2,
+  "seeds": [
+    11
+  ],
+  "intervention_rows": 2689,
+  "response_rows": 5318,
+  "formal_estimate_seconds_from_linear_extrapolation": 185944.69726085663,
+  "formal_estimate_is_not_a_commitment": true,
+  "resnet_status": {
+    "model_id": "resnet18",
+    "status": "blocked",
+    "reason": "ModuleNotFoundError(\"No module named 'torchvision'\")",
+    "scientific_evidence": false
+  }
+}

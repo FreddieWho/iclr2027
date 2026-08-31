@@ -1,0 +1,132 @@
+{
+  "status": "smoke_only",
+  "output_dir": "/home/huyudi/012_conference/iclr2027/artifacts/calligraphy_pilot/optimized_smoke",
+  "report": "/home/huyudi/012_conference/iclr2027/reports/CALLIGRAPHY_PILOT_SMOKE_REPORT.md",
+  "samples": {
+    "n": 24,
+    "splits": {
+      "train": 16,
+      "dev": 4,
+      "heldout": 4
+    }
+  },
+  "interventions": {
+    "status": "pass",
+    "errors": [],
+    "n_rows": 2689,
+    "n_valid": 2659,
+    "n_invalid": 30,
+    "n_identity": 24,
+    "max_energy_error": 5.215815557235715e-10
+  },
+  "models": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "family": "deepsets_ae",
+      "seed": 11,
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/calligraphy_pilot/optimized_smoke/models/deepsets_ae_seed11.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 16,
+      "epochs": 2,
+      "final_train_reconstruction_mse": 0.16058921813964844,
+      "train_device": "cpu",
+      "train_amp": false,
+      "status": "complete"
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "family": "gat_ae",
+      "seed": 11,
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/calligraphy_pilot/optimized_smoke/models/gat_ae_seed11.pt",
+      "latent_dim": 128,
+      "input_dim": 9,
+      "train_characters": 16,
+      "epochs": 2,
+      "final_train_reconstruction_mse": 0.1602327972650528,
+      "train_device": "cpu",
+      "train_amp": false,
+      "status": "complete"
+    }
+  ],
+  "response_rows": 5318,
+  "errr": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "n_pairs": 91,
+      "errr_common_gt_semantic": 0.6923076923076923,
+      "mean_common_minus_semantic": 0.0007029315373594207
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "n_pairs": 91,
+      "errr_common_gt_semantic": 0.9230769230769231,
+      "mean_common_minus_semantic": 0.0013628114804185435
+    }
+  ],
+  "mode_accessibility": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "split": "heldout",
+      "n_rows": 236,
+      "mode_rank_response_correlation": 0.48063784070800925
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "split": "dev",
+      "n_rows": 221,
+      "mode_rank_response_correlation": 0.47472059014780776
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "split": "train",
+      "n_rows": 864,
+      "mode_rank_response_correlation": 0.39189621169274497
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "split": "heldout",
+      "n_rows": 236,
+      "mode_rank_response_correlation": 0.5104327068882478
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "split": "dev",
+      "n_rows": 221,
+      "mode_rank_response_correlation": 0.4549887961488972
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "split": "train",
+      "n_rows": 864,
+      "mode_rank_response_correlation": 0.3318596466362585
+    }
+  ],
+  "resnet18": {
+    "model_id": "resnet18",
+    "status": "blocked",
+    "reason": "ModuleNotFoundError(\"No module named 'torchvision'\")",
+    "scientific_evidence": false
+  },
+  "runtime": {
+    "requested_device": "cpu",
+    "resolved_device": "cpu",
+    "amp_requested": "off",
+    "amp_enabled": false,
+    "gpu_profile": "none",
+    "cuda_available": false,
+    "gpu_name": null
+  },
+  "batch_size": 64,
+  "train_batch_size": 16,
+  "optimization": {
+    "group_by_node_count": true,
+    "inference_mode": true,
+    "cuda_amp": false,
+    "batch_size": 64,
+    "train_batch_size": 16
+  },
+  "elapsed_seconds": 88.11836433410645,
+  "formal_estimate_seconds_from_linear_extrapolation": 110147.95541763306,
+  "formal_run_started": false
+}

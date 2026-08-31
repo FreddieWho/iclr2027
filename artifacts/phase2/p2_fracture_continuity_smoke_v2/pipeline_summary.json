@@ -1,0 +1,9 @@
+{
+  "status": "WIRING_ONLY_NOT_SCIENTIFIC",
+  "run_id": "p2_fracture_continuity_v1",
+  "checkpoint": "P2-FC-E",
+  "last_completed_stage": "report",
+  "stage_rank": 4,
+  "smoke": true,
+  "bioinformatics_isolation": true
+}

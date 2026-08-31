@@ -1,0 +1,39 @@
+experiment_id: REPLACE_ME
+scientific_question: ""
+hypothesis: H1
+status: exploring
+owner: ""
+created_at: ""
+code_commit: ""
+
+dataset:
+  name: ""
+  version: ""
+  split: ""
+  unit_of_independence: match_or_character
+
+model:
+  name: ""
+  checkpoint: ""
+  frozen: true
+  parameter_count: null
+
+intervention:
+  operator: translation
+  energy: 1.0
+  energy_metric: total_l2
+  band_definition: six_equal_mode_count_p0
+  support_matching: true
+  perceptual_matching: false
+
+metrics: []
+seeds: [11, 23, 47]
+working_expectation: ""
+exploration_updates: []
+
+results:
+  status: pending
+  artifact_paths: []
+  summary: ""
+  confidence_intervals: {}
+  exploration_notes: []

@@ -1,0 +1,5 @@
+{
+  "model_id": "resnet18",
+  "status": "not_run_missing_local_checkpoint",
+  "scientific_evidence": false
+}

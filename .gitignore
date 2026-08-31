@@ -1,0 +1,24 @@
+# Local environments and caches
+.venv/
+.cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+**/.ipynb_checkpoints/
+
+# External/raw datasets are obtained according to docs/04_DATA_AND_ENVIRONMENT_GUIDE.md
+data/raw/
+
+# Generated large numerical tensors/response tables are kept with their checksums,
+# summaries and reports, but are not copied into the source repository.
+artifacts/**/*.parquet
+artifacts/**/*.npy
+artifacts/**/*.npz
+artifacts/**/*.pt
+artifacts/**/*.pth
+
+# Local agent/tool state
+.codex/
+.agents/
+.understand-anything/

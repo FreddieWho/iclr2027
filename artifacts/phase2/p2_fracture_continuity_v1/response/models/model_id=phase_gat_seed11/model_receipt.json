@@ -1,0 +1,20 @@
+{
+  "model_id": "phase_gat_seed11",
+  "family": "task_trained",
+  "architecture": "Phase-GAT",
+  "latent_dim": 128,
+  "pooling": "team_mean",
+  "graph": "baseline_fixed_weighted_knn4",
+  "device": "cpu",
+  "batch_size": 128,
+  "eval_mode": true,
+  "inference_mode": true,
+  "weights_only": true,
+  "p1_factory_path": "scripts/run_phase1_pipeline.py",
+  "p1_factory_sha256": "5264ac963555e3d180e24d71754289849b7180ccfd90ff016b7deb6627cf81a4",
+  "model_manifest_path": "artifacts/phase1/point_mainline/model_manifest.json",
+  "model_manifest_sha256": "8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc",
+  "checkpoint_path": "artifacts/phase1/models/phase_gat_seed11.pt",
+  "checkpoint_sha256": "76551d04374b79e0f2b61f8bc9cbf2a81ef4b394beaddf41a36b231600e1e7d5",
+  "torch_version": "2.11.0+cu130"
+}

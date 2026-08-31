@@ -1,0 +1,11 @@
+{
+  "status": "UNVERIFIED_CODE_PROVENANCE",
+  "reason": "v1 receipts did not bind the executing code version and downstream stages did not enforce the complete upstream hash chain",
+  "scientific_use": "DO_NOT_CITE",
+  "authoritative_replacement": "artifacts/phase2/p2_rigid_formal_v2",
+  "numerical_equivalence_check": {
+    "matching_core_parquets_equal": "40/40",
+    "response_parquets_equal": "90/90",
+    "statistics_core_and_pair_parquets_equal": "97/97"
+  }
+}

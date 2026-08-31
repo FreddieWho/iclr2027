@@ -1,0 +1,48 @@
+{
+  "status": "smoke_only",
+  "output_dir": "/home/huyudi/012_conference/iclr2027/artifacts/calligraphy_pilot/smoke",
+  "report": "/home/huyudi/012_conference/iclr2027/reports/CALLIGRAPHY_PILOT_SMOKE_REPORT.md",
+  "samples": {
+    "n": 24,
+    "splits": {
+      "train": 16,
+      "dev": 4,
+      "heldout": 4
+    }
+  },
+  "interventions": {
+    "status": "pass",
+    "n_rows": 2689,
+    "n_valid": 2659,
+    "n_invalid": 30,
+    "n_identity": 24,
+    "max_energy_error": 5.215815557235715e-10
+  },
+  "mainline_models": [
+    "deepsets_ae_seed11",
+    "gat_ae_seed11"
+  ],
+  "response_rows": 5318,
+  "errr": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "n_pairs": 91,
+      "errr_common_gt_semantic": 0.6923076923076923,
+      "mean_common_minus_semantic": 0.000702931
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "n_pairs": 91,
+      "errr_common_gt_semantic": 0.9230769230769231,
+      "mean_common_minus_semantic": 0.00136281
+    }
+  ],
+  "resnet18": {
+    "status": "blocked",
+    "reason": "torchvision is not installed",
+    "scientific_evidence": false
+  },
+  "elapsed_seconds": 148.7557578086853,
+  "formal_estimate_seconds_from_linear_extrapolation": 185944.69726085663,
+  "formal_run_started": false
+}

@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "errors": [],
+  "n_rows": 42500,
+  "n_valid": 39328,
+  "n_invalid": 3172,
+  "n_identity": 250,
+  "max_energy_error": 8.881784197001252e-16
+}

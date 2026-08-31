@@ -1,0 +1,28 @@
+{
+  "stage": "matching",
+  "shard_id": "match=1886347",
+  "status": "complete",
+  "config_sha256": "005ee0991b7226acc5dd457a0aad3c2c55c788617fbe3b7f85d771f885f0a97d",
+  "operator_id": "p2_fracture_endpoint_reallocation_v1",
+  "n_samples": 25,
+  "n_sets": 1800,
+  "n_complete_sets": 1457,
+  "n_arms": 3600,
+  "n_valid_arms": 3230,
+  "outputs": {
+    "arms": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/matching/shards/match_id=1886347/arms.parquet",
+      "bytes": 573737,
+      "sha256": "4e9548c9daf1961580b3eef4b74c33896c76c95232106cd3ca6cb2313a80ec33"
+    },
+    "diagnostics": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/matching/shards/match_id=1886347/diagnostics.parquet",
+      "bytes": 64756,
+      "sha256": "0e2e33927b68f6d93c8d6d6a3c4ce9f8c147552e07947249c4ea24d7fe2335ad"
+    }
+  },
+  "runtime": {
+    "wall_seconds": 316.5423512533307,
+    "peak_rss_mib": 192.40234375
+  }
+}

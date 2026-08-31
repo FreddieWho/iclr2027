@@ -1,0 +1,50 @@
+{
+  "phase": "CALLIGRAPHY_CONTROLLED_REPLICATION",
+  "checkpoint": "P1_HANZI_PILOT",
+  "study_mode": "exploratory_discovery",
+  "data_domain": "chinese_calligraphy_vector_controlled",
+  "data_source": "Make Me a Hanzi dictionary.txt + graphics.txt",
+  "data_root": "data/raw/calligraphy/makemeahanzi",
+  "n_chars": 24,
+  "split": {
+    "train": 0.7,
+    "dev": 0.15,
+    "heldout": 0.15
+  },
+  "character_level_isolation": true,
+  "stroke_representation": {
+    "object": "ordered_stroke_polyline",
+    "nodes_per_stroke": 5,
+    "sampling": "endpoints plus three equal_arc interior points",
+    "direction": "ordered point features: tangent, arc_position, start/end flags, curvature, stroke_order"
+  },
+  "component_definition": "top_level_IDS_component_from_dictionary_matches; structural annotation, not etymological semantics",
+  "graph": {
+    "edges": "within_stroke_chain plus cross_stroke_geometric_knn plus connectivity edges",
+    "laplacian": "symmetric_normalized",
+    "graph_fixed_under_intervention": true
+  },
+  "mainline_models": [
+    "deepsets_ae",
+    "gat_ae"
+  ],
+  "seeds": [
+    11
+  ],
+  "epochs": 2,
+  "energies": [
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "primary_energy": 0.25,
+  "n_spectral_bands": 6,
+  "full_spectrum": "all_nonzero_laplacian_modes",
+  "common_operator_is_separate_from_laplacian_zero_mode": true,
+  "auxiliary_model": "resnet18",
+  "auxiliary_policy": "local_pretrained_checkpoint_only; untrained_smoke_is_not_evidence",
+  "natural_image_data": false,
+  "bioinformatics_isolation": true,
+  "core_computation_status": "smoke_only"
+}

@@ -1,0 +1,35 @@
+{
+  "stage": "response",
+  "shard_id": "model=deepsets_ae_seed11:match=1899585",
+  "model_id": "deepsets_ae_seed11",
+  "architecture": "DeepSets-AE",
+  "model_seed": 11,
+  "match_id": "1899585",
+  "formal_config_sha256": "1fc570bc2c1ebf32c1030b7deda43c8e02cc533e85e5b847f0d77d685e9042d1",
+  "matching_manifest_sha256": "6f7effcfb922e77ba095a9c33ada0486e4b876ab348ed0c07a43bd1374fb0b4c",
+  "matching_receipt_sha256": "8412982ff55795fb871947d6f60c54057b2a334d1332eb1aaeef32d14fd5ff0a",
+  "matching_arms_sha256": "8e68d7bea1f65111a74212c84309321fc4d417c022c9366798bc7e7b3dc1e404",
+  "checkpoint_sha256": "3f0a3b7d73bf929979c294266e88657230ce1c66067edcaaf8788530534b71ba",
+  "baseline_embedding_sha256": "db981855277da3665237d2f897004bc49b368366112eb597c801c47337f48e45",
+  "status": "completed",
+  "outputs": {
+    "response": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1899585/response.parquet",
+      "sha256": "383296ec9de0c209178411ed2559105ba152ae817359c9abc1e69f220dd70b43",
+      "bytes": 691903
+    }
+  },
+  "runtime": {
+    "wall_seconds": 1.676280289888382,
+    "peak_rss_mib": 914.6640625,
+    "n_response_rows": 11335,
+    "n_matched_sets": 3642,
+    "validation": {
+      "status": "pass",
+      "errors": [],
+      "n_valid_matching_arms": 11335,
+      "n_response_rows": 11335,
+      "all_finite": true
+    }
+  }
+}

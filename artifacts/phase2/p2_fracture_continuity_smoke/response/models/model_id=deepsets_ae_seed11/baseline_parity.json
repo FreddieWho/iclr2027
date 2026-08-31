@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "model_id": "deepsets_ae_seed11",
+  "n_samples_checked": 250,
+  "shape": [
+    250,
+    128
+  ],
+  "max_abs_difference": 0.0,
+  "mean_abs_difference": 0.0,
+  "absolute_tolerance": 5e-07,
+  "relative_tolerance": 1e-06
+}

@@ -1,0 +1,38 @@
+{
+  "stage": "response",
+  "shard_id": "model=deepsets_ae_seed11:match=2013725",
+  "model_id": "deepsets_ae_seed11",
+  "architecture": "DeepSets-AE",
+  "model_seed": 11,
+  "match_id": "2013725",
+  "formal_config_sha256": "dce80cace7b86c2cda6aa5050fe8801c09eaa75fe943b1c9f1d339e66bcc9745",
+  "matching_manifest_sha256": "d69b6eb2b7c36c39701f1d58362b5ef649919ea13ac8df2596bb3675d9b11ad1",
+  "matching_receipt_sha256": "23fc25491de44e23ba26f537c5d09a6835d550d8fddff3e2316a7994d8ad67e3",
+  "matching_arms_sha256": "a28bfa5f0e4850d1ba5253091b0141cbc57015a45488a659d517befa3291c178",
+  "checkpoint_sha256": "3f0a3b7d73bf929979c294266e88657230ce1c66067edcaaf8788530534b71ba",
+  "baseline_embedding_path": "/home/huyudi/012_conference/iclr2027/artifacts/phase1/embeddings/deepsets_ae_seed11_baseline.npy",
+  "baseline_embedding_sha256": "db981855277da3665237d2f897004bc49b368366112eb597c801c47337f48e45",
+  "source_code_manifest_sha256": "ab3d7711f85c143bfdea98b9554ef8a2d21b87d675de4ef07baf119794c56ab7",
+  "environment_lock_sha256": "730f236ce72ad9b078333f08c41b826dc9b006c19d08701fcc2a5c97838dd423",
+  "status": "completed",
+  "outputs": {
+    "response": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/response/shards/model_id=deepsets_ae_seed11/match_id=2013725/response.parquet",
+      "sha256": "7a14de8a7852068b17369b2802ad9a6ef8866d0c234ddd2db8ac6c00f36b3fa1",
+      "bytes": 794315
+    }
+  },
+  "runtime": {
+    "wall_seconds": 1.9792410656809807,
+    "peak_rss_mib": 945.7265625,
+    "n_response_rows": 13634,
+    "n_matched_sets": 4441,
+    "validation": {
+      "status": "pass",
+      "errors": [],
+      "n_valid_matching_arms": 13634,
+      "n_response_rows": 13634,
+      "all_finite": true
+    }
+  }
+}

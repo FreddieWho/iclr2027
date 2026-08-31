@@ -1,0 +1,69 @@
+project:
+  name: action-mode-spectrum
+  working_title: "Who Moved Together? Action-Mode Spectra in Structured Representations"
+  study_mode: exploratory_discovery
+  target: ICLR 2027
+  abstract_deadline_aoe: 2026-09-18
+  full_deadline_aoe: 2026-09-25
+  main_page_limit: 9
+  created: 2026-08-18
+
+scientific_core:
+  primary_domain: football_tracking
+  replication_domain: basketball_tracking
+  cross_domain: chinese_calligraphy
+  fallback_domain: handwritten_math
+  central_measurement: structural_transfer_function
+  primary_method: AMR-Learned
+  minimum_method: AMR-Fixed
+  baseline_method: CAP
+
+research_principles:
+  equal_energy_interventions: true
+  same_frequency_semantic_random_control: true
+  no_aesthetic_scalar_as_primary_label: true
+  no_3d_or_tracking_model_development: true
+  call_known_parts_intervention_supervised: true
+  iterative_hypotheses_and_bands: true
+  record_exploration_versions: true
+
+schedule:
+  - phase: P0_BOOTSTRAP
+    start: 2026-08-18
+    end: 2026-08-20
+  - phase: P1_PHENOMENON
+    start: 2026-08-20
+    end: 2026-08-23
+  - phase: P2_NOVELTY_DISCRIMINATOR
+    start: 2026-08-23
+    end: 2026-08-26
+  - phase: P3_CAUSAL_MECHANISM
+    start: 2026-08-26
+    end: 2026-08-31
+  - phase: P4_AMR_METHOD
+    start: 2026-08-31
+    end: 2026-09-07
+  - phase: P5_CALLIGRAPHY_PREDICTION
+    start: 2026-09-05
+    end: 2026-09-11
+  - phase: P6_EVIDENCE_CONSOLIDATION
+    start: 2026-09-11
+    end: 2026-09-16
+  - phase: P7_ABSTRACT_FIGURE_SELECTION
+    start: 2026-09-16
+    end: 2026-09-18
+  - phase: P8_REPRODUCIBILITY_SUBMISSION
+    start: 2026-09-18
+    end: 2026-09-25
+
+exploration:
+  hypotheses_are_iterable: true
+  band_definitions_are_iterable: true
+  model_and_data_scope_are_iterable: true
+  checkpoint_reports: recommended
+  candidate_next_actions:
+    - continue
+    - expand
+    - pivot
+    - pause
+    - stop

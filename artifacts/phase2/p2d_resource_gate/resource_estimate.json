@@ -1,0 +1,31 @@
+{
+  "basis": "20-sample low-energy complete-set density plus bounded seed11 architecture throughput",
+  "source_samples": 20,
+  "source_sets": 1260,
+  "target_samples": 250,
+  "architectures": 3,
+  "seeds_per_architecture": 3,
+  "projected_models": 9,
+  "projected_sets": 15750,
+  "projected_rows_per_model": 63000,
+  "projected_total_response_rows": 567000,
+  "projected_inference_seconds": 121.29397282842547,
+  "projected_model_load_seconds": 18.774990923702717,
+  "projected_total_seconds": 140.06896375212818,
+  "projected_total_minutes": 2.3344827292021364,
+  "projected_conservative_seconds": 140.06896375212818,
+  "projected_conservative_minutes": 2.3344827292021364,
+  "projected_response_bytes": 12873600,
+  "projected_response_mib": 12.2772216796875,
+  "observed_peak_rss_mib": 978.78515625,
+  "execution_strategy": "sequential_models_local_cpu",
+  "compute_decision": "LOCAL_CPU_SUFFICIENT_GPU_NOT_JUSTIFIED",
+  "formal_run": "NOT_RUN",
+  "risk_notes": [
+    "The set-count projection assumes the 20-sample complete-set density generalizes to all 250 samples.",
+    "Throughput uses one seed per architecture; other seeds should have similar shapes but were not benchmarked.",
+    "Full 250-sample matching cost is not included in the response-inference projection.",
+    "The conservative runtime floor multiplies the complete P2-C end-to-end wall time by nine models.",
+    "Sequential model execution is required; multiplying peak RAM by nine would be incorrect."
+  ]
+}

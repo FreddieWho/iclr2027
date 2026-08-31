@@ -1,0 +1,11 @@
+match_id,split
+1886347,train
+1899585,train
+1925299,train
+1953632,train
+1996435,train
+2006229,train
+2011166,dev
+2013725,dev
+2015213,heldout
+2017461,heldout

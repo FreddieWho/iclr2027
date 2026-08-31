@@ -1,0 +1,632 @@
+[
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=1886347/paired_effects.parquet",
+    "sha256": "d80677149f5e602e197400ebed93c4a6ef1da1084b74e0b755508a74e448ca3c",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=1899585/paired_effects.parquet",
+    "sha256": "55dd2ae4a0332cc10bf223c72a688052c1bf0cd77289f0d0db074eb2840f74b0",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=1925299/paired_effects.parquet",
+    "sha256": "cb41408ba42c0e7d16e13e00b63827aa4769e8f53a98c5637470a032fefd6efb",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=1953632/paired_effects.parquet",
+    "sha256": "d3edb893364d11c6adc4a1fd463157ca3bcfd111d30419ade47859a60c54c86b",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=1996435/paired_effects.parquet",
+    "sha256": "f6b5fdd58f28f4323824d3c1b62d9ca6378b8314602a128ffa5330f8e86ddd47",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=2006229/paired_effects.parquet",
+    "sha256": "6fd11a3c9e24aa90002b702cc24aed2eb2af2e62b01628d488acbeecfc27db6d",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=2011166/paired_effects.parquet",
+    "sha256": "dce2983cdfd6da63d8339a3f4f0f476ff07f8f6010b8fecd9197b1890cd3977a",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=2013725/paired_effects.parquet",
+    "sha256": "90a82cbd47ac7c93f937069165068ddf6b1cc59bffc5cd28f75e1b9dcd677b0f",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=2015213/paired_effects.parquet",
+    "sha256": "aca4ff9076c290d4d54bdf84a6c242070b3d26a1105ef8f300ce298edea19690",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "deepsets_ae_seed11",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed11/match_id=2017461/paired_effects.parquet",
+    "sha256": "bb7ea3a30e093043a7f776d906ca5b942ccb5d045cf5be91db18f2d938796964",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=1886347/paired_effects.parquet",
+    "sha256": "32bbd3dd90a9ba4cd17bed523108fccb0eb2e2bb6583485b32ced4ba5be01102",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=1899585/paired_effects.parquet",
+    "sha256": "f381783b36227dc6b4cdbc708761aa75731ef4b99e8b224bef82fd1d03f48ff5",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=1925299/paired_effects.parquet",
+    "sha256": "d4fa379561e387485c6709dd863bf2d071a9b32803ef8e103444636d6b2ee1a7",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=1953632/paired_effects.parquet",
+    "sha256": "2d5e63bceba7714d43b5aec0bfa6be30f330c575de6f742623721484968357e0",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=1996435/paired_effects.parquet",
+    "sha256": "b128cec09bec0ec710240ecf03001fe17ba5c98fe676a1395f9a5151bc5edd79",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=2006229/paired_effects.parquet",
+    "sha256": "21424c92d241b894a3ef49e7cefdd122c4d85a7e826ca83be3f67f1362b975e8",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=2011166/paired_effects.parquet",
+    "sha256": "e85e9a6d8669376852139f427e502d87b84e0bc6a7c7913fb22dc37e9ae05ab8",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=2013725/paired_effects.parquet",
+    "sha256": "585cbc44f9dd16f91c424c6ac195a1500d3b25aea4467fafefd91d435413ea83",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=2015213/paired_effects.parquet",
+    "sha256": "4ef4f8ce6b7d96a86fda1366186fb59d75a55be351f282c3e6566d484f931376",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "deepsets_ae_seed23",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed23/match_id=2017461/paired_effects.parquet",
+    "sha256": "a73df5ecf9a40aae2892e8793978c18ab47b116e5c3983f5810204ea2e8e950a",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=1886347/paired_effects.parquet",
+    "sha256": "ae6d6bc5e2e95eb16a1158d030498b8598e67fb897973f840dc69d23c41d896e",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=1899585/paired_effects.parquet",
+    "sha256": "f37d38ea0a06884ce802790869c32a4d41931bb8425af67e8398f19778ef4507",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=1925299/paired_effects.parquet",
+    "sha256": "63763c3b2831e41cbbaa7142841467c9ba62f5833b666463049d41302fe86f1c",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=1953632/paired_effects.parquet",
+    "sha256": "f234043d3f4e096db6392c1da0234c60692b90e82944906143aaaea0782dc696",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=1996435/paired_effects.parquet",
+    "sha256": "8076078a2de143db311616741caa4db2f23de949dc2d74d50c483d2fd49987d9",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=2006229/paired_effects.parquet",
+    "sha256": "27d6fadcb0d4b90f520ec763182a3790532da709ddd09904db871c5f967fd42d",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=2011166/paired_effects.parquet",
+    "sha256": "23bbad51165074c60c3539037fa4c23ec743fe9d9ea127fafde914f28d3072c6",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=2013725/paired_effects.parquet",
+    "sha256": "ebea474399cdde3808315a67fd7294e60cc587423c28334a886f944158e9ef4a",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=2015213/paired_effects.parquet",
+    "sha256": "21deaa5b84cb33191fb6fb347e3239a833e74b321d219e919bfbf4676d5163f3",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "deepsets_ae_seed47",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=deepsets_ae_seed47/match_id=2017461/paired_effects.parquet",
+    "sha256": "b6efc18634ec080dfda3c4cf2e8f211b0f075a7b0a17b408da7bff5f684933f4",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=1886347/paired_effects.parquet",
+    "sha256": "ae598a33f5005c44688e41f4b784ac8afd8c1203319029569a373c9b78756db2",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=1899585/paired_effects.parquet",
+    "sha256": "6fdcf38a5e3d57b95d4d1610d0f6891b680d78148c15ebd3063b7bb6b506d7da",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=1925299/paired_effects.parquet",
+    "sha256": "efcb38d6b741a3de249bc9ea13bccecb1d28838edda64e7ae98af60ddb2dc71a",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=1953632/paired_effects.parquet",
+    "sha256": "44394bb145f6843d2434790c94344f4ac5508fe0435922cb08639a914d561cec",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=1996435/paired_effects.parquet",
+    "sha256": "c0ba6673672173977b6d7b8c357d4b888161d1068584a35026ecfbd474f33e59",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=2006229/paired_effects.parquet",
+    "sha256": "22cca5b10155f2507524c4e50f14e193db31dd54a73776e90bf14c01199b0ece",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=2011166/paired_effects.parquet",
+    "sha256": "adbf5c7d35d4f544244f7522ee2ccb97dec420b2cd7f8ecb8d35561a997d0a31",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=2013725/paired_effects.parquet",
+    "sha256": "f8b5baaa2fa1c820dbb67daa15f0388d4ac9aa2c3bba221a81687e7da0f87037",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=2015213/paired_effects.parquet",
+    "sha256": "84dd68d8f10fc2edcb55915f94bc205146544c6197e5ece2475408f1c49e3ac8",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "gat_ae_seed11",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed11/match_id=2017461/paired_effects.parquet",
+    "sha256": "1ae263031a8b7a2a6b926305883ce4c4cb2228f2f5cd63992179800729f0e25e",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=1886347/paired_effects.parquet",
+    "sha256": "2bcde382a8a1a8e9264c11e78e5773891cab900d1e9c7befb1f764cf4c0ac98f",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=1899585/paired_effects.parquet",
+    "sha256": "0b18a56b329063be9ebe6ed93960b26e3c333a630cfb7ca85e9c267d4f55b7b7",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=1925299/paired_effects.parquet",
+    "sha256": "dac43d9f47c8b642b463e0cfc2ff65bb41e3f28971b513f346fbe3e487aebcf6",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=1953632/paired_effects.parquet",
+    "sha256": "437e871c48e77005d4fba21fa94a5dbdf73591f308312aa7b702d12302db2bf6",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=1996435/paired_effects.parquet",
+    "sha256": "be35ec3cdc1393e181960e197c9b1bf8396d46d69c7d6e2cc0f6b143d5d2f5d0",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=2006229/paired_effects.parquet",
+    "sha256": "5731fa12e59fc3f1be0a8bd67cbff02ca8cd43f53ca046cb89f768d90607646f",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=2011166/paired_effects.parquet",
+    "sha256": "b24fe76012249bd340d4a9649a19e433cfc7dac786afd149c7f3f58653335829",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=2013725/paired_effects.parquet",
+    "sha256": "70259881abde7c4f35de623aea59d546e15e37ca9861caf988d89430bf840a35",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=2015213/paired_effects.parquet",
+    "sha256": "29145755cbe5affa0da3f18c8bceb37f65b29a66184c9a5593f2dd40cae07965",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "gat_ae_seed23",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed23/match_id=2017461/paired_effects.parquet",
+    "sha256": "01a4ba5caf4ef0d6d3a8fa7bcfae79caa018b7c0f99c103e4715eec0261df1af",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=1886347/paired_effects.parquet",
+    "sha256": "2dc2770481ce19d136ee3b16ea81e159ad36951dcdb3878e91d55fedfe916dca",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=1899585/paired_effects.parquet",
+    "sha256": "61844928012dedf61198fb7dc4b85a52f85d9c1a769978ff3c9d502f0da49293",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=1925299/paired_effects.parquet",
+    "sha256": "feada107f64909bb5854a8451d1f99a6664df0a9186e3aead1921dcb400ce583",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=1953632/paired_effects.parquet",
+    "sha256": "278a6754b55bb36b95014561c8a4680817c94ff87085fdb2018b699b25408ae5",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=1996435/paired_effects.parquet",
+    "sha256": "e9fb92931b85b34032af3d6a03aaad0fa7672322c020ad63050209f28ea30723",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=2006229/paired_effects.parquet",
+    "sha256": "534074eaa5e95f059131f895a497a1a202052a02752d0fb1107078fb31bdb5af",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=2011166/paired_effects.parquet",
+    "sha256": "c03564d6824107c3e6c2d06447eca64c81dbff0f5b759af36b9f225e1d33abad",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=2013725/paired_effects.parquet",
+    "sha256": "e5c841b1aab40f08239243b86ecedf8fb2c72f71bac1ab1f8dc5305602c71b4d",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=2015213/paired_effects.parquet",
+    "sha256": "23efb48f729fccf0d8338951469a91f439d78c305924e31952b702275da33327",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "gat_ae_seed47",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=gat_ae_seed47/match_id=2017461/paired_effects.parquet",
+    "sha256": "f42bc7705f9b98ecb47bb04a0198fe712459a0288b27b0f9b50bfe92abcaae2b",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=1886347/paired_effects.parquet",
+    "sha256": "5c1c387906182b0f7814a4c8237f563a16eda01d51eb500d1b75af872ea220a6",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=1899585/paired_effects.parquet",
+    "sha256": "918a9c01ed471353235e756276dfe2ad58b148eb7cf0a35229fb1b0c802da2b3",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=1925299/paired_effects.parquet",
+    "sha256": "cf8e00cbbfbdf014e4cbdc28a61496e7e7d9a578cbaf2ff29b1ae545312d9fdc",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=1953632/paired_effects.parquet",
+    "sha256": "467a2ffb691f0afcb56b2d9eecd058d35f42c7e8127aa9838231d947cb9174a4",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=1996435/paired_effects.parquet",
+    "sha256": "86e79984b039f768b330e000a85124d49eda28f7216ce569a07d632734563c6d",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=2006229/paired_effects.parquet",
+    "sha256": "7509745f2e6054ce835658ac5fc1e90047f1bb2e0f9efc76237a5418f9743b64",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=2011166/paired_effects.parquet",
+    "sha256": "b28272ce3f24696be8755be58898404144d1536edffcaf76aeea5a00dce7cfbf",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=2013725/paired_effects.parquet",
+    "sha256": "ddb2a8e32b34ccf080a073d2992f6911cca19890ac6dec9bd951f9e627c20eef",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=2015213/paired_effects.parquet",
+    "sha256": "69cff212cc7cd572ad18ca1435a565fcbce2db2aecfc7b775633550bfdad68ec",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "phase_gat_seed11",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed11/match_id=2017461/paired_effects.parquet",
+    "sha256": "84bd7b32e70d64feb4edd23dc96cf759f84ad733422c770c98017c69be644797",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=1886347/paired_effects.parquet",
+    "sha256": "aa046ce256d811a9cf1104bbe318721a2d4ad213bb3fcf40c282a00a94e3b08f",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=1899585/paired_effects.parquet",
+    "sha256": "d2bea072dc55c7b09f028b4d922db0ec86d6b6a92ebe790095e72d4260fedd28",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=1925299/paired_effects.parquet",
+    "sha256": "bf34995e0814c51ce3161711ce8a55ee669899ffaf1548ac9093bc42a2d85b9e",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=1953632/paired_effects.parquet",
+    "sha256": "cb1111a59a5dadc9a033c1654a926ca4a785f52b3d2caaa1da6a25d278125869",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=1996435/paired_effects.parquet",
+    "sha256": "2ddd8a19757455d1e56c21e5c0a0a32097a6cbd478b1a1772a3941a688fc58bd",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=2006229/paired_effects.parquet",
+    "sha256": "2bc47ed376d7fae510f34518432dc25a981b3bc162e203808b9c8333753497de",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=2011166/paired_effects.parquet",
+    "sha256": "58f3fe523212734fbbaf7658df1ca76e76b664e0603764dea83214db1d99c7e8",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=2013725/paired_effects.parquet",
+    "sha256": "6f4495f93c6ddc0d228e493058a290bcf083810e1769210785a06dc3250fbf3f",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=2015213/paired_effects.parquet",
+    "sha256": "b9a90f1c20e7e88060f00a6f260985f77306503234d49e94a8639d8db44c97c2",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "phase_gat_seed23",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed23/match_id=2017461/paired_effects.parquet",
+    "sha256": "e5d248b8dbe2b9ba5cac1330e0daad059f22c8d75acb086e474df4d8b59a27b9",
+    "n_rows": 18684
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "1886347",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=1886347/paired_effects.parquet",
+    "sha256": "75b14b62f9c8611075d41965b6f2592ad78286df278fdb526329ff0025a8b91c",
+    "n_rows": 18101
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "1899585",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=1899585/paired_effects.parquet",
+    "sha256": "6c2b32ad12336f7a5c6381e9b3e800ff2902ecfa69e07c2062b71567bb0b6b8d",
+    "n_rows": 15392
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "1925299",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=1925299/paired_effects.parquet",
+    "sha256": "0d37bcd3f9b5f4697e96fdc48957dd9487d5516c4d9b95ca1940d9d0562c688c",
+    "n_rows": 19433
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "1953632",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=1953632/paired_effects.parquet",
+    "sha256": "7f55df540ab8ca35d88e0e9920d1dffac5d2c223d9f8b340169e96fe6960d0bd",
+    "n_rows": 17607
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "1996435",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=1996435/paired_effects.parquet",
+    "sha256": "624228d2a009120ee1ce49024baf4b3e0c3508d06e4dc010625aa20aa1fdd410",
+    "n_rows": 18843
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "2006229",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=2006229/paired_effects.parquet",
+    "sha256": "6fbdf3b8cd75e97fc161386758d87fbe49058d5939bacf255f15b0b69ca5e076",
+    "n_rows": 19094
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "2011166",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=2011166/paired_effects.parquet",
+    "sha256": "913e4fc4713737719ea44e5155f9f231bad81526cba909a6a21f196466154aff",
+    "n_rows": 16259
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "2013725",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=2013725/paired_effects.parquet",
+    "sha256": "2354b9754df50b8ed6630e17c346cb64e25095c5404989b8d7c1c451f9da95c2",
+    "n_rows": 17785
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "2015213",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=2015213/paired_effects.parquet",
+    "sha256": "c63a7c95d0dcddbc3905362e75ed81d0523e3198c6b620a31366d58512941c76",
+    "n_rows": 16174
+  },
+  {
+    "model_id": "phase_gat_seed47",
+    "match_id": "2017461",
+    "path": "/home/huyudi/012_conference/iclr2027/artifacts/phase2/p2_rigid_formal_v2/statistics/paired_shards/model_id=phase_gat_seed47/match_id=2017461/paired_effects.parquet",
+    "sha256": "37832355929518d91fead7d9344381226972391151cba69ceb4bfaaaf91b5cde",
+    "n_rows": 18684
+  }
+]

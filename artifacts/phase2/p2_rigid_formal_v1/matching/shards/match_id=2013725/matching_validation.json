@@ -1,0 +1,18 @@
+{
+  "status": "incomplete",
+  "errors": [],
+  "incomplete_reasons": [
+    "one or more matched sets contain an invalid or unmatched arm"
+  ],
+  "n_rows": 19200,
+  "n_sets": 4800,
+  "n_complete_sets": 2091,
+  "n_incomplete_sets": 2709,
+  "n_valid_rows": 13634,
+  "n_invalid_rows": 5566,
+  "max_energy_error": 1.199040866595169e-14,
+  "max_exact_modal_power_error": 0.0,
+  "n_graph_invalid": 0,
+  "core_model_inference": "NOT_RUN",
+  "scientific_interpretation": "NOT_RUN"
+}
