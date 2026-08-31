@@ -1,0 +1,3 @@
+T0 is an interface and numerical-equivalence smoke only. It does not establish a geometry mechanism, prospective validity, a causal switch, or task improvement. DeepSets has no message-passing layers; its layerwise interface therefore reports input_node, pooling_pre, and pooled_embedding only.
+
+T1/T3 extend this directory with retrospective prediction and layer/block anatomy. The prediction summaries are grouped over 10 source matches and are not independent-match inference; match-bootstrap intervals are correspondingly limited. Prospective evidence and causal-switch evidence live in separate versioned directories. Full geometry is a local tangent predictor, not a proof that the network's finite-perturbation response is globally quadratic.

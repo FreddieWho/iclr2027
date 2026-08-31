@@ -1,0 +1,536 @@
+{
+  "status": "T0_COMPLETE",
+  "task": "P3-T0",
+  "config_sha256": "831d972bdecce9422be3856de6402612d9a562d411f5aeb3f732f2c966412f3a",
+  "n_samples": 250,
+  "n_models": 9,
+  "model_ids": [
+    "deepsets_ae_seed11",
+    "deepsets_ae_seed23",
+    "deepsets_ae_seed47",
+    "gat_ae_seed11",
+    "gat_ae_seed23",
+    "gat_ae_seed47",
+    "phase_gat_seed11",
+    "phase_gat_seed23",
+    "phase_gat_seed47"
+  ],
+  "checkpoint_sha256": {
+    "deepsets_ae_seed11": "3f0a3b7d73bf929979c294266e88657230ce1c66067edcaaf8788530534b71ba",
+    "deepsets_ae_seed23": "7272345ada2e9a8e86d5679b4739650e2e4f2d8927ebd0154e153b036ab2f929",
+    "deepsets_ae_seed47": "4f44ee0c5aeca83f865eacdf1b3c5585f941bbe755389a1b66b41d41da380b70",
+    "gat_ae_seed11": "4ac3b4cde3a5aab56a535546ab8069e40362b3bbf555b83760a7d03cd0bbaae5",
+    "gat_ae_seed23": "ee18f7496a8759b543ec6be785e01099900731c2b854c1c282aa9ed0775c3648",
+    "gat_ae_seed47": "57706cb684a830255352b61e678b51e11d99629d9d067b990f4a2470b01d9fe0",
+    "phase_gat_seed11": "76551d04374b79e0f2b61f8bc9cbf2a81ef4b394beaddf41a36b231600e1e7d5",
+    "phase_gat_seed23": "a2dab7ae9861ef69e04ad2d6789d84716330b567565ce049c2397c0bc0dcc0ce",
+    "phase_gat_seed47": "40ee6a331ec8d43f343f86cfc27e95486cfd5bdd311b4c06ff5f1dc4a8915de7"
+  },
+  "baseline_parity": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "architecture": "DeepSets-AE",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "architecture": "DeepSets-AE",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "architecture": "DeepSets-AE",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "architecture": "GAT-small-AE",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "message_passing_1",
+        "message_passing_2",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "architecture": "GAT-small-AE",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "message_passing_1",
+        "message_passing_2",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "architecture": "GAT-small-AE",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "message_passing_1",
+        "message_passing_2",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "architecture": "Phase-GAT",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "message_passing_1",
+        "message_passing_2",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "architecture": "Phase-GAT",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "message_passing_1",
+        "message_passing_2",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "architecture": "Phase-GAT",
+      "status": "PASS",
+      "shape": [
+        250,
+        128
+      ],
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0,
+      "absolute_tolerance": 5e-07,
+      "relative_tolerance": 1e-06,
+      "available_layers": [
+        "input_node",
+        "message_passing_1",
+        "message_passing_2",
+        "pooling_pre",
+        "pooled_embedding"
+      ]
+    }
+  ],
+  "tangent_checks": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "jvp_matrix_relative_error": 2.0925989474562812e-07,
+      "jvp_output_norm": 1.0,
+      "finite_difference_relative_error_h0.0001": 0.005356647074222565,
+      "finite_difference_relative_error_h0.0005": 0.0010893407743424177
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "jvp_matrix_relative_error": 2.2748079686607525e-07,
+      "jvp_output_norm": 1.0,
+      "finite_difference_relative_error_h0.0001": 0.010590276680886745,
+      "finite_difference_relative_error_h0.0005": 0.0018690541619434953
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "jvp_matrix_relative_error": 2.0861376981429203e-07,
+      "jvp_output_norm": 0.9999998807907104,
+      "finite_difference_relative_error_h0.0001": 0.014610321260988712,
+      "finite_difference_relative_error_h0.0005": 0.003192456904798746
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "jvp_matrix_relative_error": 1.8006832647188276e-07,
+      "jvp_output_norm": 1.0,
+      "finite_difference_relative_error_h0.0001": 0.0021497956477105618,
+      "finite_difference_relative_error_h0.0005": 0.0004547226126305759
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_1",
+      "jvp_matrix_relative_error": 2.3568220797187678e-07,
+      "jvp_output_norm": 1.0000001192092896,
+      "finite_difference_relative_error_h0.0001": 0.00793428998440504,
+      "finite_difference_relative_error_h0.0005": 0.0014896768843755126
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_2",
+      "jvp_matrix_relative_error": 2.5020179350576655e-07,
+      "jvp_output_norm": 1.0,
+      "finite_difference_relative_error_h0.0001": 0.009743674658238888,
+      "finite_difference_relative_error_h0.0005": 0.002479847986251116
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "jvp_matrix_relative_error": 2.459249515140982e-07,
+      "jvp_output_norm": 1.0,
+      "finite_difference_relative_error_h0.0001": 0.011891646310687065,
+      "finite_difference_relative_error_h0.0005": 0.0022057166788727045
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "jvp_matrix_relative_error": 1.7949409425455087e-07,
+      "jvp_output_norm": 1.0,
+      "finite_difference_relative_error_h0.0001": 0.011420243419706821,
+      "finite_difference_relative_error_h0.0005": 0.0018370593897998333
+    }
+  ],
+  "second_order_checks": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.508092123403415e-10,
+      "absolute_error": 1.508092123403415e-10,
+      "relative_error": 150809.2123403415
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 3.770230794231111e-09,
+      "absolute_error": 3.770230794231111e-09,
+      "relative_error": 3770230.7942311107
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "epsilon": 0.001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.5080923176924443e-08,
+      "absolute_error": 1.5080923176924443e-08,
+      "relative_error": 15080923.176924443
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.659565193601331e-11,
+      "absolute_error": 1.659565193601331e-11,
+      "relative_error": 16595.65193601331
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 4.1489134350314316e-10,
+      "absolute_error": 4.1489134350314316e-10,
+      "relative_error": 414891.3435031431
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "epsilon": 0.001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.6595653740125726e-09,
+      "absolute_error": 1.6595653740125726e-09,
+      "relative_error": 1659565.3740125725
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": 1.7881393432617188e-07,
+      "tangent_q": 1.3292688998134405e-11,
+      "absolute_error": 1.7880064163717374e-07,
+      "relative_error": 0.9999256618951525
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 2.384185791015625e-07,
+      "tangent_q": 3.3231728480132006e-10,
+      "absolute_error": 2.3808626181676118e-07,
+      "relative_error": 0.9986061602830887
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "epsilon": 0.001,
+      "actual_cosine_distance": 1.7881393432617188e-07,
+      "tangent_q": 1.3292691392052802e-09,
+      "absolute_error": 1.774846651869666e-07,
+      "relative_error": 0.992566188176473
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.0877454492685956e-10,
+      "absolute_error": 1.0877454492685956e-10,
+      "relative_error": 108774.54492685955
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 2.719364067260699e-09,
+      "absolute_error": 2.719364067260699e-09,
+      "relative_error": 2719364.067260699
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "input_node",
+      "epsilon": 0.001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.0877456269042796e-08,
+      "absolute_error": 1.0877456269042796e-08,
+      "relative_error": 10877456.269042796
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_1",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": -1.1920928955078125e-07,
+      "tangent_q": 7.667673440625578e-11,
+      "absolute_error": 1.192859662851875e-07,
+      "relative_error": 1.0006432110676542
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_1",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.9169186238343627e-09,
+      "absolute_error": 1.9169186238343627e-09,
+      "relative_error": 1916918.6238343625
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_1",
+      "epsilon": 0.001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 7.667674495337451e-09,
+      "absolute_error": 7.667674495337451e-09,
+      "relative_error": 7667674.49533745
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_2",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": 5.960464477539063e-08,
+      "tangent_q": 5.631035221442815e-11,
+      "absolute_error": 5.95483344231762e-08,
+      "relative_error": 0.9990552690578625
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_2",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 1.1920928955078125e-07,
+      "tangent_q": 1.4077590204664148e-09,
+      "absolute_error": 1.1780153053031484e-07,
+      "relative_error": 0.9881908614188433
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "message_passing_2",
+      "epsilon": 0.001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 5.631036081865659e-09,
+      "absolute_error": 5.631036081865659e-09,
+      "relative_error": 5631036.081865659
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 1.3593555968360871e-11,
+      "absolute_error": 1.3593555968360871e-11,
+      "relative_error": 13593.55596836087
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 3.3983893477085303e-10,
+      "absolute_error": 3.3983893477085303e-10,
+      "relative_error": 339838.934770853
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooling_pre",
+      "epsilon": 0.001,
+      "actual_cosine_distance": -1.1920928955078125e-07,
+      "tangent_q": 1.3593557390834121e-09,
+      "absolute_error": 1.2056864528986466e-07,
+      "relative_error": 1.011403102427721
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "epsilon": 0.0001,
+      "actual_cosine_distance": -1.1920928955078125e-07,
+      "tangent_q": 2.2394964355187952e-11,
+      "absolute_error": 1.1923168451513644e-07,
+      "relative_error": 1.0001878625771496
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "epsilon": 0.0005,
+      "actual_cosine_distance": 0.0,
+      "tangent_q": 5.598742025547665e-10,
+      "absolute_error": 5.598742025547665e-10,
+      "relative_error": 559874.2025547664
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "sample_index": 0,
+      "layer": "pooled_embedding",
+      "epsilon": 0.001,
+      "actual_cosine_distance": -2.384185791015625e-07,
+      "tangent_q": 2.239496810219066e-09,
+      "absolute_error": 2.4065807591178157e-07,
+      "relative_error": 1.009393130429089
+    }
+  ],
+  "frozen_input_hashes_before": {
+    "samples_npz": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11",
+    "p1_manifest": "8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc"
+  },
+  "frozen_input_hashes_after": {
+    "samples_npz": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11",
+    "p1_manifest": "8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc"
+  },
+  "torch": "2.11.0+cu130",
+  "dtype": "float32",
+  "device": "cpu",
+  "runtime": {
+    "wall_seconds": 14.298500768840313,
+    "peak_rss_mib": 1090.67578125
+  }
+}

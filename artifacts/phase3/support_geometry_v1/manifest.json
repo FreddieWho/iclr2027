@@ -1,0 +1,16 @@
+{
+  "artifact": "support_geometry_v1",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "tasks": ["P3-T0", "P3-T1", "P3-T3"],
+  "status": "complete_with_conditional_mechanism_claim",
+  "inputs": {
+    "n_samples": 250,
+    "n_models": 9,
+    "n_source_matches": 10,
+    "p2_root": "artifacts/phase2/p2_fracture_continuity_v1"
+  },
+  "grouping_unit": "source_match_id",
+  "source_code": "scripts/p3_support_geometry.py",
+  "checksums": ["t0_SHA256SUMS", "retrospective_SHA256SUMS", "layerwise_SHA256SUMS"],
+  "known_limitations": "known_limitations.md"
+}

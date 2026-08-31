@@ -1,0 +1,21 @@
+version: 1
+artifact: support_geometry_v1
+phase: P3_CAUSAL_MECHANISM
+tasks: [P3-T0, P3-T1, P3-T3]
+status: complete_with_conditional_mechanism_claim
+inputs:
+  samples: 250 canonical samples
+  models: 9 frozen point-set models
+  p2_root: artifacts/phase2/p2_fracture_continuity_v1
+formula: q = 0.5 * ||J_normalized_embedding(X) delta||_2^2
+grouping_unit: source_match_id
+split: leave_one_source_match_out
+no_large_learned_predictor: true
+immutable_inputs: true
+overwrite_policy: versioned_directory_only
+source_code: scripts/p3_support_geometry.py
+summary_files:
+  - t0_summary.json
+  - retrospective_summary.json
+  - layerwise_summary.json
+  - retrospective_SHA256SUMS

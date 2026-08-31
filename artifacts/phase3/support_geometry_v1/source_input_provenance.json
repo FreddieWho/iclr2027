@@ -1,0 +1,33 @@
+{
+  "config": {
+    "path": "configs/phase3_support_geometry_v1.yaml",
+    "bytes": 9318,
+    "sha256": "831d972bdecce9422be3856de6402612d9a562d411f5aeb3f732f2c966412f3a"
+  },
+  "canonical_samples": {
+    "path": "artifacts/phase1/canonical_samples.npz",
+    "bytes": 1099830,
+    "sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11"
+  },
+  "model_manifest": {
+    "path": "artifacts/phase1/point_mainline/model_manifest.json",
+    "bytes": 4008,
+    "sha256": "8ae837bb0aa026ebe5cdd9cd8eaebd2425b45ac49852f1f016d25b49fba230bc"
+  },
+  "p2_authoritative_root": "artifacts/phase2/p2_fracture_continuity_v1",
+  "p2_matching_manifest": {
+    "path": "artifacts/phase2/p2_fracture_continuity_v1/matching/matching_manifest.json",
+    "bytes": 8208,
+    "sha256": "19e6681d4fd13ae21fc12b19f3f186f310e05eb9ae3c79f26a301b349024e367"
+  },
+  "p2_response_manifest": {
+    "path": "artifacts/phase2/p2_fracture_continuity_v1/response/response_manifest.json",
+    "bytes": 55196,
+    "sha256": "2d74ef8641ac297737e6b4139539c8c5a64dfc9cde11c72517ad9382a2c6672f"
+  },
+  "p2_statistics_manifest": {
+    "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/statistics_manifest.json",
+    "bytes": 2165,
+    "sha256": "a3cc3a4302b68b34ea5ae4af4c9c51016687874564f3a5ad73af185ef183ab0d"
+  }
+}

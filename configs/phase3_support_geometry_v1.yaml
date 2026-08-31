@@ -4,6 +4,7 @@ phase: P3_CAUSAL_MECHANISM
 study_mode: exploratory_discovery
 hypothesis_status: post_p2_mechanistic_follow_up
 status_at_document_migration: DOCUMENT_MIGRATION_COMPLETE_T0_NOT_RUN
+current_status: T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET
 current_route: mixed_or_graph_specific
 
 # This lock records the frozen P2 surface. It is not permission to rewrite or
@@ -69,7 +70,16 @@ provenance:
       sha256: 86429c6c465e7758dceacd55c6ababbc0cfe04810eaed79c07748b9f49e98734
     p3_implementation:
       path: scripts/p3_support_geometry.py
-      sha256: NOT_CREATED_AT_DOCUMENT_MIGRATION
+      sha256: 66e5e9cd3353870eb4499ad4cb86951964cee8b7a3f92dbf88da862d3aa9431f
+    p3_causal_switch:
+      path: scripts/p3_causal_switch.py
+      sha256: d50dcc947562333c0c860d33a6055d417da78d02d88ce5ced4a5ba1bf9220514
+    p3_task_localization:
+      path: scripts/p3_task_localization.py
+      sha256: b2237ef189f2e04ac42474da405bd64dc9a6caf54289eee5bdcb547e8f9c0b8f
+    p3_node_localization:
+      path: scripts/p3_node_localization.py
+      sha256: 456d16814c52137abdcb51af39e1d28e926df744e913699f6ac2bd0fb92ca574
 
 environment:
   python_executable: /opt/anaconda3/bin/python
@@ -123,6 +133,7 @@ geometry:
   q_definition: half_norm_J_delta_squared
   derivative: autograd_jacobian_and_jvp
   full_jacobian: true
+  jacobian_vectorize: true
   jvp_smoke: true
   finite_difference: centered
   finite_difference_steps: [0.0001, 0.0005]
@@ -175,6 +186,7 @@ t2_prospective:
   operator: p2_fracture_endpoint_reallocation_v1
   energy_range: [0.25, 0.5]
   new_intervention_seed: 20260901
+  draws: [20260901]
   freeze_before_response: [formula, layer, metrics, statistical_unit, failure_analysis]
   no_response_based_selection: true
 
@@ -191,12 +203,19 @@ t3_localization:
     - graph_non_edge
   role_use: descriptive_stratification_only
   directional_jacobian_rank: normalized_singular_value_threshold_reported_not_selected
+  layerwise_sample_selection: first_five_per_source_match_in_canonical_order
+  layerwise_sample_count: 50
 
 t4_causal_switch:
   selection: evidence_selected_single_switch
-  status: not_selected_until_t3
+  status: selected_after_t3
+  selected_route: pooling_accessibility
+  selected_architecture_family: Phase-GAT
+  predicted_change: relational_pairwise_pooling_changes_off_diagonal_and_pooled_geometry
   matched_capacity: required
   seeds_required: 3
+  training_epochs: 80
+  learning_rate: 0.001
   possible_routes: [pooling_accessibility, interaction_coupling, constraint_placement]
   full_causal_matrix: optional_after_minimal_mechanism_gate
 
@@ -205,6 +224,18 @@ t5_task_alignment:
   required:
     - perturbation_localization
     - one_existing_non_intervention_label_task
+  selected_objective_task: phase_label_classification
+  support_region_localization:
+    status: complete
+    score: q_support_inside_divided_by_q_full
+    uniform_baseline: support_size_divided_by_20
+    aggregation_unit: source_match_id
+    response_blind_geometry_only: true
+    output: artifacts/phase3/selected_causal_switch_v1/node_sensitivity_localization_v2_summary.parquet
+    source_code: scripts/p3_node_localization.py
+  label_source: artifacts/phase1/canonical_samples.jsonl
+  evaluation_split: heldout
+  phase_label_coverage_is_reported: true
   intervention_label_as_main_task: forbidden
   preferred_existing_tasks: [phase_or_deployment_label, natural_pair_ranking, intrinsic_formation_retrieval, context_prediction]
 
@@ -248,3 +279,42 @@ gates:
     stop: true
     preserve_p2_claim: mixed_or_graph_specific
     do_not_train_amr: true
+
+final_evidence:
+  status: T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET
+  t0: artifacts/phase3/support_geometry_v1/t0_summary.json
+  t1: artifacts/phase3/support_geometry_v1/retrospective_summary.json
+  t1_prediction_lock: artifacts/phase3/support_geometry_v1/t1_prediction_lock.json
+  t2: artifacts/phase3/support_geometry_prospective_v1/prospective_summary.json
+  t2_intervention_manifest: artifacts/phase3/support_geometry_prospective_v1/intervention_manifest.json
+  t3: artifacts/phase3/support_geometry_v1/layerwise_summary.json
+  t4_t5: artifacts/phase3/selected_causal_switch_v1/switch_summary.json
+  t4_t5_seed_resolved: artifacts/phase3/selected_causal_switch_v1/switch_seed_summary.parquet
+  t5_localization: artifacts/phase3/selected_causal_switch_v1/node_sensitivity_localization_v2_summary.parquet
+  report: reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md
+  retrospective_mean_spearman:
+    baseline: 0.122168
+    diagonal_geometry: 0.652802
+    full_geometry: 0.846615
+    off_diagonal_geometry: 0.388596
+  prospective_mean_spearman:
+    baseline: 0.129401
+    diagonal_geometry: 0.658042
+    full_geometry: 0.852641
+    off_diagonal_geometry: 0.381533
+  causal_switch:
+    route: pooling_accessibility
+    family: Phase-GAT
+    seeds: [11, 23, 47]
+    matched_parameter_count: 149639
+    response_shaping: supported
+    objective_task_gain: not_stable
+    context_robustness_tradeoff: worsened
+    p4_gate: not_met
+  task_alignment:
+    support_localization: weak_no_material_enrichment
+    relational_pairwise_mean_topk_recall: 0.154576
+    team_mean_mean_topk_recall: 0.148714
+    uniform_support_baseline: 0.145802
+    phase_label_task_gain: not_stable
+  next_action: freeze_p3_claims_and_stop_mechanism_complexity
