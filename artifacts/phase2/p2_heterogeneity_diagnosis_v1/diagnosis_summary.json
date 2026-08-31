@@ -1,0 +1,78 @@
+{
+  "status": "P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE",
+  "checkpoint": "P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE",
+  "scientific_route_retained": "mixed_or_graph_specific",
+  "interpretation_scope": "descriptive_reanalysis_of_frozen_P2_fracture_outputs",
+  "no_threshold_or_p_value_gate": true,
+  "input_rows": {
+    "conditions": 36,
+    "residual_strata": 108
+  },
+  "condition_direction": {
+    "positive": 20,
+    "negative": 16,
+    "zero": 0
+  },
+  "lomo_sign_retention": {
+    "min": 0.8,
+    "median": 1.0,
+    "max": 1.0,
+    "fraction_exactly_one": 0.8333333333333334
+  },
+  "seed_direction": {
+    "unanimous_fraction": 0.8333333333333334,
+    "range_median": 3.9101376751886806e-05,
+    "range_max": 0.00042300223808940595
+  },
+  "residual_association": {
+    "raw_frequency_abs_corr_median": 0.03156427324369609,
+    "raw_frequency_abs_corr_max": 0.13150025185333225,
+    "raw_topology_abs_corr_median": 0.047893434158499795,
+    "raw_topology_abs_corr_max": 0.34840526988467435
+  },
+  "residual_adjustment": {
+    "n_full_rank_strata": 108,
+    "raw_median_abs_shift": 1.4638773529563155e-06,
+    "raw_max_abs_shift": 5.0726240044686346e-05,
+    "normalized_median_abs_shift": 4.58907081984419e-06,
+    "normalized_max_abs_shift": 0.00010145248008937269
+  },
+  "factor_summary": [
+    {
+      "factor": "architecture",
+      "n_backgrounds": 12,
+      "mean_range_normalized_scg": 0.00010561866756140804,
+      "median_range_normalized_scg": 9.270871660666899e-05,
+      "max_range_normalized_scg": 0.0002624396272954971,
+      "n_pairwise_contrasts": 36,
+      "mean_abs_contrast_normalized_scg": 7.041244504093869e-05
+    },
+    {
+      "factor": "epsilon",
+      "n_backgrounds": 18,
+      "mean_range_normalized_scg": 3.089586593099759e-05,
+      "median_range_normalized_scg": 1.96354556850091e-05,
+      "max_range_normalized_scg": 9.990255309312869e-05,
+      "n_pairwise_contrasts": 18,
+      "mean_abs_contrast_normalized_scg": 3.089586593099759e-05
+    },
+    {
+      "factor": "graph_id",
+      "n_backgrounds": 18,
+      "mean_range_normalized_scg": 2.5042982718489878e-05,
+      "median_range_normalized_scg": 1.374056340561252e-05,
+      "max_range_normalized_scg": 8.798572100334614e-05,
+      "n_pairwise_contrasts": 18,
+      "mean_abs_contrast_normalized_scg": 2.5042982718489878e-05
+    },
+    {
+      "factor": "role_group",
+      "n_backgrounds": 12,
+      "mean_range_normalized_scg": 0.00012712681488239691,
+      "median_range_normalized_scg": 0.00012898448682624735,
+      "max_range_normalized_scg": 0.00025274244438083327,
+      "n_pairwise_contrasts": 36,
+      "mean_abs_contrast_normalized_scg": 8.475120992159794e-05
+    }
+  ]
+}

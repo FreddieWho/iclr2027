@@ -39,7 +39,7 @@
 8. `QA.md`：模型架构、技术路线和科学问题的持续问答记录。
 9. `reports/p0-overview.html`：快速查看 P0 原始样本、干预和 embedding。
 
-当前执行状态（2026-08-31）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2 已在全部 250 个样本和 9 个冻结点集模型上闭合，状态为 `P2_RIGID_C2_COMPLETE`。当前探索性解释为 `mixed_or_graph_specific`：exact-spectrum 对照支持空间组织/谱相位敏感性，但 topology-frequency、严格频段子集、模型架构和角色分层并不一致。v1 标记为 `UNVERIFIED_CODE_PROVENANCE`，fracture continuity 仍为 `NOT_RUN_SEPARATE_OPERATOR`。详见 `reports/EXPLORATION_CHECKPOINT_2.md`。
+当前执行状态（2026-09-01）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2 已在全部 250 个样本和 9 个冻结点集模型上闭合，状态为 `P2_RIGID_C2_COMPLETE`；独立 fracture continuity 已闭合，状态为 `P2_FRACTURE_C2_COMPLETE`；基于冻结结果的 P2-H1 有界异质性诊断也已闭合，状态为 `P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE`。当前探索性解释仍为 `mixed_or_graph_specific`：部分角色和架构的方向具有跨比赛稳定性，但幅度和方向依赖模型、图结构和角色，且部分条件仍与 topology residual 相关。v1 标记为 `UNVERIFIED_CODE_PROVENANCE`；P3 causal-mechanism matrix 尚未启动。详见 `reports/EXPLORATION_CHECKPOINT_2_FRACTURE.md` 和 `reports/P2_HETEROGENEITY_DIAGNOSIS.md`。
 
 ## 3. 一键准备
 

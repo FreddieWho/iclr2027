@@ -1,0 +1,12 @@
+{
+  "status": "P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE",
+  "checkpoint": "P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE",
+  "source_run": "p2_fracture_continuity_v1",
+  "scientific_route_retained": "mixed_or_graph_specific",
+  "n_conditions": 36,
+  "n_factor_contrasts": 108,
+  "n_residual_strata": 108,
+  "n_residual_adjustment_strata": 108,
+  "model_inference_run": false,
+  "bioinformatics_isolation": true
+}

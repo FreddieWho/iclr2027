@@ -1,10 +1,14 @@
 # P2 匹配优化与下一步实施计划
 
 日期：2026-08-31  
-当前状态：实施已完成；matcher=`MATCHER_VERSION_SELECTED`，P2-C=`WIRING_ONLY_NOT_SCIENTIFIC`，正式 P2=`NOT_RUN`  
+当前状态（历史实施前记录）：matcher=`MATCHER_VERSION_SELECTED`，P2-C=`WIRING_ONLY_NOT_SCIENTIFIC`，当时正式 P2=`NOT_RUN`
 适用范围：P2 matching revision、P2-C 单模型 wiring smoke、P2-D 运行前资源门
 
 > 2026-08-31 执行结果见 `docs/09_PHASE2_IMPLEMENTATION_RESULTS.md`。本文件保留实施前的设计依据与验收边界。
+>
+> 2026-09-01：fracture continuity 已闭合，随后完成 P2-H1 有界异质性诊断；当前状态见
+> `reports/EXPLORATION_CHECKPOINT_2_FRACTURE.md` 和
+> `reports/P2_HETEROGENEITY_DIAGNOSIS.md`。
 
 ## 1. 目标与边界
 

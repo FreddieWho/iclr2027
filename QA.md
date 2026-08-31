@@ -695,3 +695,19 @@ baseline parity 是检查“同一个原始阵型经过当前接线后，是否�
 ### 完整方案
 
 - `docs/10_P2_FRACTURE_CONTINUITY_PLAN.md`
+
+## QA-2026-09-01-022：P2 fracture 完成后下一步是什么？
+
+### 问题
+
+fracture continuity 已经完成且结果为 `mixed_or_graph_specific`，是否应直接进入 P3？
+
+### 回答
+
+不直接进入 P3。当前建议任务仍属于 **P2_NOVELTY_DISCRIMINATOR**，任务性质是 fracture 正式分支后的 **P2-H1 有界异质性诊断**。
+
+H1 只复用 `p2_fracture_continuity_v1` 的冻结 statistics，不重新训练或推理模型，按架构、probe graph、角色和能量整理 match-level 与 leave-one-match-out 结果，并同时检查频率和拓扑 matching residual 的敏感性。它的 checkpoint 是 `P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE`。
+
+H1 得到 36 个条件，其中 20 个总体正向、16 个负向；LOMO 同号比例中位数为 1.0，但模型 seed 方向完全一致的条件为 83.3%。frequency residual 绝对相关系数中位数/最大值为 0.0316/0.1315，topology residual 为 0.0479/0.3484。结果说明部分方向跨比赛稳定，但不能支持统一的 endpoint-organization 因果机制；当前科学路由仍为 `mixed_or_graph_specific`。
+
+因此暂不启动 P3 causal-mechanism matrix、AMR 训练或中国书法复现。若后续进入 P3，应只检验一个由 H1 结果支持的最小机制，而不是扩大模型或数据范围。完整记录见 `reports/P2_HETEROGENEITY_DIAGNOSIS.md`。

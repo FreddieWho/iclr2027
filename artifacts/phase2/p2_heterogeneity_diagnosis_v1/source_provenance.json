@@ -1,0 +1,33 @@
+{
+  "source_run": "p2_fracture_continuity_v1",
+  "stats_dir": "artifacts/phase2/p2_fracture_continuity_v1/statistics",
+  "inputs": {
+    "architecture_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/architecture_match_effects.parquet",
+      "sha256": "7894554f15b2afbdbb2ca1dc01ccd1bd0b60e7539ec99a48b9fa8d585df420ba",
+      "bytes": 15492
+    },
+    "model_match": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/model_match_effects.parquet",
+      "sha256": "4a306517f67c7ea41490fb05f236279a9c1c5ada684838f0e74922e9cddb7db5",
+      "bytes": 28506
+    },
+    "leave_one_out": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/leave_one_match_out.parquet",
+      "sha256": "818481c93d3b94791f632241175eac229eb7fc1a467b61c5b1becdec25229283",
+      "bytes": 8169
+    },
+    "pairs": {
+      "path": "artifacts/phase2/p2_fracture_continuity_v1/statistics/fracture_pair_effects.parquet",
+      "sha256": "a1242052392b592ce9cb8b4d029720b4ebee73913621087789e5e83c089157bf",
+      "bytes": 2513751
+    }
+  },
+  "rows": {
+    "architecture_match": 360,
+    "model_match": 1080,
+    "leave_one_out": 360,
+    "pairs": 121293
+  },
+  "bioinformatics_isolation": true
+}

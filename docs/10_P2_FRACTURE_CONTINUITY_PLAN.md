@@ -196,3 +196,16 @@ P1 的 `semantic_coalition` 是有效线索，但不作为本次正式 anchor �
 - GPU：预计无明显收益，smoke 证明模型推理成为主要瓶颈前不租用。
 
 以上时间是工程估算，不是运行承诺。正式计算前必须重新报告实测 smoke、预计剩余时间和资源选择。
+
+## 12. P2-H1 后续诊断
+
+2026-09-01 已基于冻结的 fracture statistics 完成有界异质性诊断，状态为
+`P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE`。该诊断只重用已有的
+match-level、model-match、LOMO 和 pair-effect 表，新增架构/图/角色/能量因素对比、
+频率与拓扑 residual 敏感性及简单 residual adjustment；没有重新运行模型。
+
+H1 仍保留 `mixed_or_graph_specific` 路由：部分条件具有跨比赛方向稳定性，但 seed、
+架构、图和角色并不完全一致，且个别条件与 topology residual 有中等相关。因此不直接
+进入 P3 causal-mechanism matrix；后续如进入 P3，应先定义一个由 H1 结果支持的最小机制，
+而不是扩大模型或数据范围。详细结果见
+`reports/P2_HETEROGENEITY_DIAGNOSIS.md`。

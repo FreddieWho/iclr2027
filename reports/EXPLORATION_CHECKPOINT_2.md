@@ -1,3 +1,5 @@
+> 历史 checkpoint 说明：本文件记录 P2 rigid formal v2 闭合时的状态。fracture continuity 已由独立 operator 完成，P2-H1 异质性诊断也已完成；当前状态以 `reports/EXPLORATION_CHECKPOINT_2_FRACTURE.md` 和 `reports/P2_HETEROGENEITY_DIAGNOSIS.md` 为准。
+
 # Exploration Checkpoint 2：刚性联盟干预是否超出普通频率偏置
 
 日期：2026-08-31  

@@ -3,6 +3,10 @@
 日期：2026-08-31  
 适用范围：P2 rigid formal v1；探索性发现，不含 fracture 或书法复现
 
+> 本 ledger 保留 rigid formal lane 的历史 claim 状态；fracture continuity 及其 P2-H1
+> 异质性诊断使用独立证据链。当前状态以
+> `EXPLORATION_CHECKPOINT_2_FRACTURE.md` 和 `P2_HETEROGENEITY_DIAGNOSIS.md` 为准。
+
 | Claim | 状态 | 直接证据 | 仍存在的替代解释或边界 |
 |---|---|---|---|
 | v2 正式证据链绑定当前代码和环境 | `SUPPORTED_ENGINEERING` | source/environment lock；四段 recursive chain validator；独立 tester/reviewer | 完成后禁止部分-stage resume；最终 manifest 用于检测顶层 summary 漂移 |
