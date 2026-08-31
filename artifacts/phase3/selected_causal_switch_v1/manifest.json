@@ -1,0 +1,14 @@
+{
+  "artifact": "selected_causal_switch_v1",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "tasks": ["P3-T4", "P3-T5"],
+  "status": "response_shaping_only_p4_gate_not_met",
+  "route": "pooling_accessibility",
+  "architecture_family": "Phase-GAT",
+  "variants": ["team_mean", "relational_pairwise"],
+  "seeds": [11, 23, 47],
+  "matched_parameter_count": 149639,
+  "localization_summary": "node_sensitivity_localization_v2_summary.parquet",
+  "checksums": ["SHA256SUMS", "summary_repair_SHA256SUMS"],
+  "known_limitations": "known_limitations.md"
+}

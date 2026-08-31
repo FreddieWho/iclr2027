@@ -8,10 +8,10 @@ project:
   main_page_limit: 9
   created: 2026-08-18
   active_phase: P3_CAUSAL_MECHANISM
-  current_checkpoint: P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE
+  current_checkpoint: P3_T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY
   current_route: mixed_or_graph_specific
-  current_phase_status: P3_DOCUMENT_MIGRATION_COMPLETE_T0_NOT_RUN
-  current_next_action: P3-T0_interface_provenance_and_numerical_equivalence_smoke
+  current_phase_status: P3_T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET
+  current_next_action: freeze_p3_claims_and_stop_mechanism_complexity
 
 scientific_core:
   primary_domain: football_tracking
@@ -51,6 +51,7 @@ schedule:
     start: 2026-09-08
     end: 2026-09-14
     entry_gate: P3_strong_or_conditionally_supported_route_only
+    status: blocked_by_p3_gate
   - phase: P5_CALLIGRAPHY_PREDICTION
     start: 2026-09-12
     end: 2026-09-17

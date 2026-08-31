@@ -39,10 +39,16 @@
 - 重写：原来一维/平均的 P3 机制问题重写为 frequency + support + relationship + task 的条件化几何预测；M1 变为 gate 后的 AMR-Fixed，M2 不先行。
 - 工作假设：P3-G1–G5 全部仍为 WORKING_HYPOTHESIS；书法路线仍为 exploratory，不用于选择体育端机制。
 
-## 当前状态矛盾审计
+## 当前状态矛盾审计（文档迁移时快照）
 
 canonical source docs、README、MASTER prompt、两个 machine-readable config、STATUS、DECISIONS 和 claim ledger 的当前入口均一致：P2 已冻结，当前为 P3_CAUSAL_MECHANISM，下一步为 T0，AMR 被 P3 gate 阻塞。consolidated package 中的旧 Phase 3/旧 bootstrap 文字没有被删除；同步 addendum 将其标为历史并规定 source docs/config 优先，故不存在未标示的 current-state 冲突。P2 reports、P2 artifacts、P2 manifest/checksum 和历史 claim 未修改。
 
 ## 迁移边界
 
 本报告是方案迁移验收，不是 P3 科学结果。T0 之前没有 geometry、prospective、causal switch 或任务性能结论；正式代码和计算从 Commit 2 开始。
+
+## 结果回写后的同步复核（2026-09-01）
+
+文档迁移后实际完成了 P3-T0–T5，但没有把迁移报告中的历史 `T0_NOT_RUN` 叙述当作当前状态。当前状态已在 README、MASTER prompt、四个 canonical docs、两个机器配置、PROJECT_PACKAGE_CONSOLIDATED、QA、STATUS、DECISIONS、CLAIM_LEDGER 和主 P3 报告中同步为：`T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET`。P3 结果和失败边界只写入 `artifacts/phase3/` 与 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`；本报告保留原始迁移验收事实，不覆盖 P2 历史，也不承担结果报告职责。
+
+当前同步审计未发现未标记的 current-state 冲突：旧合并正文继续明确标为历史；P4 状态为 blocked；AMR 未实现。

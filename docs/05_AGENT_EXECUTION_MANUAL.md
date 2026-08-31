@@ -480,3 +480,7 @@ NEXT
 ## 14. 总控探索决策
 
 总控根据证据决定继续、扩展、改变假设、pivot、暂停或停止，并记录理由、共享资产和放弃的解释。停止某条路线不等于项目失败；它只是把资源转向更有信息量的探索。
+
+## 15. P3 执行收口（2026-09-01）
+
+T0–T5 的实际 receipt、manifest、checksum 和结果已写入 `artifacts/phase3/`。T1/T2 支持局部几何预测，T3 支持条件性 layer/block anatomy，T4/T5 的唯一开关只支持 representation shaping。由于客观任务与 context robustness gate 未闭合，W4 不得继续实现 AMR-Fixed 或完整 causal matrix；W6 的当前职责是保存 Figure source contract、claim ledger 和失败边界。下一动作是冻结 P3 状态，不是重新分派机制实验。

@@ -1,0 +1,22 @@
+{
+  "status": "SUMMARY_PROVENANCE_REPAIRED",
+  "config_sha256": "9808b0d855a56ce443ea0a25a5b4e5c13ac9a9c8a51830703b591c0535b32d84",
+  "source_pair_geometry_sha256": "e99c46d915ed99a3dc382251820e04308135b55ab35c2a968e679a8d8d05493a",
+  "outputs": {
+    "response_by_seed": {
+      "path": "artifacts/phase3/selected_causal_switch_v1/switch_response_by_seed.parquet",
+      "bytes": 9653,
+      "sha256": "b8cd31ade49327b2074c77a1d1e4ae421b41a696324b709fac92b0cd88ba5061"
+    },
+    "context_by_seed": {
+      "path": "artifacts/phase3/selected_causal_switch_v1/switch_context_robustness_by_seed.parquet",
+      "bytes": 4758,
+      "sha256": "9adddaffe82398cce1347cd5c9e10bf1c81e0bf08631e1189f7807759912a119"
+    },
+    "seed_summary": {
+      "path": "artifacts/phase3/selected_causal_switch_v1/switch_seed_summary.parquet",
+      "bytes": 13197,
+      "sha256": "fd00ed61dba83e7efbd52d5848db95a51dfd122c2389bcfd69d07558e669e171"
+    }
+  }
+}

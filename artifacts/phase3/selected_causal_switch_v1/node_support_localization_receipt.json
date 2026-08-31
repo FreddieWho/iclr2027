@@ -1,0 +1,27 @@
+{
+  "config_sha256": "fc0dc3b11424401c58dda45ae74031be9b8d3d2336941718d6f5421de9443f93",
+  "definition": "nodewise q mass on declared displaced support divided by q_full, compared with support_size / 20",
+  "does_not_train_predictor": true,
+  "grouping_unit": "source_match_id",
+  "input_path": "artifacts/phase3/selected_causal_switch_v1/switch_arm_geometry.parquet",
+  "input_sha256": "996dfe29bae1ddc0d585e207d80e13c0a0b50e997a19048dd8d2634c4a0347e8",
+  "max_q_full_parity_abs_error": 8.859168926234062e-09,
+  "mean_q_full_parity_abs_error": 3.901478933512626e-11,
+  "n_complete_arms": 53700,
+  "n_group_rows": 60,
+  "n_models": 6,
+  "output_sha256": {
+    "node_support_localization.parquet": "52a90aab2da16956a008e56b96be3ca21d2c24989732e353da391f0d15cf6673",
+    "node_support_localization_summary.json": "6d83169135dde9b094feb53f903a24801b1b161f911dd3bbeddb97a821a0c7a3",
+    "node_support_localization_summary.parquet": "8b4f92c232f8b0b53e0f6e20eab4af53d751cfaaaeca9260721b83cb36f206f8"
+  },
+  "response_blind": true,
+  "response_columns_read": [],
+  "rows_path": "artifacts/phase3/selected_causal_switch_v1/node_support_localization.parquet",
+  "source_code": "scripts/p3_node_localization.py",
+  "source_code_sha256": "e84239949cb9040fa8c1597598def18ca772d5ca21521f22c8ee803ae5704104",
+  "status": "T5_SUPPORT_REGION_LOCALIZATION_COMPLETE",
+  "summary_path": "artifacts/phase3/selected_causal_switch_v1/node_support_localization_summary.parquet",
+  "task": "P3-T5",
+  "uses_controlled_intervention_support": true
+}

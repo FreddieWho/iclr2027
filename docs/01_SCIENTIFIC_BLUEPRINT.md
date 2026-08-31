@@ -365,3 +365,13 @@ P3 的工作假设如下，均不得提前写成结论：
 - 不声称书法审美有单一客观标尺。
 - 不把已知构件支持描述为无监督发现。
 - 不把 VLM 关系盲作为已证实的因果后果，只作为可选影响力桥梁。
+
+## 12. P3 证据回写与当前科学边界（2026-09-01）
+
+P3-T0–T5 已完成。冻结的 normalized-embedding local geometry 在当前 250 samples、10 个 source matches 和 9 个冻结模型上，对 P2 fracture pair effect 的 retrospective mean Spearman 为 `0.8466`，同资产 response-blind prospective draw 为 `0.8526`；频率/residual baseline 分别为 `0.1222` 和 `0.1294`。这使 P3-G1 获得条件性支持，但不构成新比赛或新数据域泛化。
+
+T3 表明 diagonal sensitivity 是主要贡献，off-diagonal coupling 提供额外但 architecture/layer-dependent 的信息：GAT/Phase-GAT 的非对角贡献在 message passing 中形成，DeepSets 的非对角贡献主要在 pooling 后出现。该结果支持局部几何解剖，不支持统一的 endpoint、role 或关系因果理论。P3-G2/G3 以 `SUPPORTED_CONDITIONALLY` 记录。
+
+依据 T3 只执行一个 Phase-GAT pooling-accessibility switch。`relational_pairwise` 在 3 个 seed 上均改变 off-diagonal/full geometry 比例和 prospective response，但 context response 均增加，heldout macro-F1 均值略降；nodewise support localization 也只略高于 uniform baseline。因此 P3-G4 只能写为 `RESPONSE_SHAPING_ONLY`，P3-G5 不支持作为方法修复；P4 AMR gate 未满足。
+
+Action-Mode Spectrum 不被撤回：它是 support、relationship 和 task 条件化响应的边缘汇总，允许条件效应异号。统一中频盲区仍只是历史候选。下一步是冻结该边界并停止当前机制复杂度，不启动 AMR；完整证据见 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md` 和 `artifacts/phase3/`。

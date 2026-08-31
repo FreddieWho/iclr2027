@@ -23,3 +23,46 @@
   next_action: P3-T0
   no_new_data: true
   bioinf_index_touched: false
+
+- date: 2026-09-01
+  phase: P3_CAUSAL_MECHANISM
+  task: P3-T0
+  status: complete
+  evidence: artifacts/phase3/support_geometry_v1/t0_summary.json
+  result: baseline_parity_9_of_9_jvp_and_finite_difference_smoke_passed
+  claim_boundary: engineering_equivalence_only
+
+- date: 2026-09-01
+  phase: P3_CAUSAL_MECHANISM
+  task: P3-T1
+  status: complete
+  evidence: artifacts/phase3/support_geometry_v1/retrospective_summary.json
+  result: full_geometry_mean_spearman_0.8466_vs_baseline_0.1222
+  grouping_unit: source_match_id
+  n_source_matches: 10
+
+- date: 2026-09-01
+  phase: P3_CAUSAL_MECHANISM
+  task: P3-T2
+  status: complete
+  evidence: artifacts/phase3/support_geometry_prospective_v1/prospective_summary.json
+  result: response_blind_same_asset_full_geometry_mean_spearman_0.8526_vs_baseline_0.1294
+  prospective_seed: 20260901
+  response_selection: forbidden_and_not_used
+
+- date: 2026-09-01
+  phase: P3_CAUSAL_MECHANISM
+  task: P3-T3
+  status: complete
+  evidence: artifacts/phase3/support_geometry_v1/layerwise_summary.json
+  result: diagonal_dominant_off_diagonal_architecture_and_layer_dependent
+  selected_route: pooling_accessibility
+
+- date: 2026-09-01
+  phase: P3_CAUSAL_MECHANISM
+  task: P3-T4-T5
+  status: complete_response_shaping_only
+  evidence: artifacts/phase3/selected_causal_switch_v1/switch_seed_summary.parquet
+  result: geometry_and_response_changed_but_localization_near_uniform_macro_f1_and_context_robustness_gate_failed
+  p4_route: blocked_by_p3_gate
+  next_action: freeze_p3_claims_and_stop_mechanism_complexity

@@ -491,3 +491,7 @@ AMR-Learned 至少满足：
 5. 体育和书法共享同一实现原则，而不是两个专用模型拼接。
 
 若 M2 未超过 M1，仍可保留 AMR-Fixed 作为方法，并相应收缩“自动发现边界”的表述。
+
+## 14. P3 实际 gate 状态（2026-09-01）
+
+P3 的 local geometry prediction 和 layer/block anatomy 获得条件性支持，但唯一的 pooling-accessibility 开关只改变了表示 geometry/response：3 个 seed 的 heldout macro-F1 没有稳定改善，且 normalized context response 均上升。因此本轮不实现或宣称 AMR-Fixed，不启动 M2，不扩大 causal matrix。上述 AMR 规格仍是 P4 的条件性设计；若未来重新申请 P4，必须重新通过 geometry、prospective、机制、任务和 robustness 全部 gate，路由不得从 P2 response 后验调参。

@@ -34,3 +34,25 @@
 - 日期：2026-09-01
 - 结果：canonical source docs、README、MASTER prompt 和机器配置已切换到 P3；PROJECT_PACKAGE_CONSOLIDATED.md 的旧正文保留为历史合并内容，并以文件顶部新增的 P3 synchronization addendum 明确当前状态和优先级。P2 reports/artifacts 未改动。
 - 备注：在生成新的正式 P3 结果后，必须再次同步 consolidated package 和 claim ledger；不得用 addendum 改写 P2 历史。
+
+## D-20260901-P3-006：prospective 设计与结果边界
+- 决定：T2 只保留一个在查看 response 前锁定的同资产新 draw（seed 20260901）；不因早期运行成本而补选或筛选干预。
+- 结果：250 samples、10 matches、5,700 intervention sets 中 4,475 组完整，9 个冻结模型产生 90,432 arm rows 和 40,275 pair rows；response-blind generation、公式、层和指标均未在 response 后改变。
+- 影响：T2 支持同资产 prospective 外推，但不等同于新比赛/新数据域验证。
+
+## D-20260901-P3-007：T3 证据选择的唯一开关
+- 决定：依据 layer/block 结果只选择 `pooling_accessibility`，限于 Phase-GAT；比较无新增参数的 `team_mean` 与 `relational_pairwise` pooling，3 seeds、matched capacity。
+- 原因：DeepSets 的 off-diagonal 主要在 pooling 后出现，GAT/Phase-GAT 的 off-diagonal 在 message passing 中形成并在 pooling 保留；pooled/pooling-pre geometry 的预测力最高。
+- 受影响路径：T4/T5；完整 augmentation × pooling × constraint matrix 仍不运行。
+
+## D-20260901-P3-008：P3 gate 路由
+- 决定：将 P3 标记为 `T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET`，不创建 Commit 5 的 AMR/机制成功版本，不进入 P4。
+- 事实：relational pooling 三 seed 均提高 off-diagonal/full 比例和 geometry-response Spearman，但三 seed context response 均上升；heldout accuracy 均值从 0.3542 升至 0.3854，macro-F1 均值从 0.1861 降至 0.1839，未满足客观任务与 robustness 条件。
+- 解释边界：结果支持“可按预测塑造表示几何”，不支持“修复表示”或 AMR-Fixed 已有明确任务目标。
+- 受影响文件：README.md、MASTER_AGENT_PROMPT.md、docs/01_SCIENTIFIC_BLUEPRINT.md、docs/02_METHOD_SPEC_AMR.md、docs/03_EXPERIMENTS_CHECKPOINTS_AND_FIGURES.md、docs/05_AGENT_EXECUTION_MANUAL.md、configs/project.yaml、configs/experiment_matrix.yaml、PROJECT_PACKAGE_CONSOLIDATED.md、QA.md、STATUS.md、CLAIM_LEDGER.md、reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md。
+
+## D-20260901-P3-009：T5 support localization 的实际边界
+- 决定：补做不读取 response 的 nodewise Jacobian-sensitivity top-k localization；同时保留早期 support-mass sanity 表但不把它作为科学结果。
+- 结果：6 个 switch checkpoint、53,700 个 complete arms、60 个 match-group rows；relational pairwise mean top-k recall 0.1546，team mean 0.1487，uniform support-size baseline 0.1458；q-full 重算最大绝对误差 `8.9e-9`。
+- 解释边界：定位增益接近 uniform，不能支撑有用 localization task 或 geometry-task repair；P3-G5 仍不支持，P4 继续 blocked。
+- 证据：`artifacts/phase3/selected_causal_switch_v1/node_sensitivity_localization_v2_summary.parquet`。

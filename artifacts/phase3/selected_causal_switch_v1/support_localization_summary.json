@@ -1,0 +1,17 @@
+{
+  "config_sha256": "6617798a66d24222c317b13db548a2b94cb34c04ee35e727ebd79f7a7a1ecadc",
+  "definition": "q_support_inside / q_full versus uniform support_size / 20",
+  "does_not_train_predictor": true,
+  "grouping_unit": "source_match_id",
+  "input_path": "artifacts/phase3/selected_causal_switch_v1/switch_arm_geometry.parquet",
+  "input_sha256": "996dfe29bae1ddc0d585e207d80e13c0a0b50e997a19048dd8d2634c4a0347e8",
+  "n_complete_arms": 53700,
+  "n_group_rows": 60,
+  "n_input_rows": 60288,
+  "response_blind": true,
+  "rows_path": "artifacts/phase3/selected_causal_switch_v1/support_localization.parquet",
+  "status": "T5_SUPPORT_REGION_LOCALIZATION_COMPLETE",
+  "summary_path": "artifacts/phase3/selected_causal_switch_v1/support_localization_summary.parquet",
+  "task": "P3-T5",
+  "uses_controlled_intervention_support": true
+}

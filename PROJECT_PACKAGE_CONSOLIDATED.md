@@ -8,10 +8,10 @@
 
 - P2 rigid formal v2、independent fracture continuity、P2-H1 heterogeneity diagnosis 已完成并冻结。
 - 当前 route 为 mixed_or_graph_specific；P2 是 representation response，不是下游任务性能。P2 reports、manifest、checksum、artifacts 和历史 claim 只读。
-- 当前 active phase 为既有 P3_CAUSAL_MECHANISM，不增加 P2.5/P3a/P3b；当前唯一下一步为 P3-T0 interface/provenance/numerical-equivalence CPU smoke。
+- 当前 active phase 为既有 P3_CAUSAL_MECHANISM，不增加 P2.5/P3a/P3b；P3-T0–T5 已完成工程施工，当前停止点为 response shaping only，P4 gate 未满足。
 - P3 的一句话目标是用 support-conditioned local geometry 预测、定位并干预 P2 异质性。机制对象为归一化 embedding 的局部 Jacobian 和 G_f=J_f^T J_f；Action-Mode Spectrum 保留为条件化对象的边缘汇总。
 - P3 顺序固定为 T0 接口 → T1 retrospective grouped prediction → T2 response-blind prospective → T3 layer/block localization → T4 一个 evidence-selected causal switch → T5 objective task alignment。完整 causal matrix 仅为 gate 后 optional extension；P4 AMR 在 gate 前不运行。
-- 当前 P3 结果为 NOT_RUN。入口配置为 configs/phase3_support_geometry_v1.yaml，主报告为 reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md，迁移验收为 reports/P3_DOCUMENT_MIGRATION.md。
+- 当前 P3 结果为：full local geometry 在 retrospective/prospective 同资产评估中优于频率/residual 基线，T3 选择了 Phase-GAT pooling-accessibility 开关；nodewise support localization 仅接近 uniform，客观任务 macro-F1 未改善且 context robustness 变差，因此不进入 P4、不训练 AMR。入口配置为 `configs/phase3_support_geometry_v1.yaml`，主报告为 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`，迁移验收为 `reports/P3_DOCUMENT_MIGRATION.md`。
 - 本轮不新增数据，不访问、修改或重建 infra/bioinf-data-index/；书法结果保持 exploratory，不用于选择体育端机制。
 
 下方旧 Phase 3、旧 bootstrap 和旧 QA 片段保留作历史上下文，不代表当前启动动作；如与上列状态或独立 canonical docs 冲突，以本节、source docs 和 configs 为准。

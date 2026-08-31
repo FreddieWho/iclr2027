@@ -1,0 +1,17 @@
+version: 1
+artifact: selected_causal_switch_v1
+phase: P3_CAUSAL_MECHANISM
+tasks: [P3-T4, P3-T5]
+route: pooling_accessibility
+architecture_family: Phase-GAT
+variants: [team_mean, relational_pairwise]
+seeds: [11, 23, 47]
+matched_capacity: true
+parameter_count: 149639
+training_epochs: 80
+learning_rate: 0.001
+tasks: [heldout_phase_label_classification, node_sensitivity_support_localization]
+task_gate: not_met
+localization_definition: top-k node Jacobian sensitivity recall at k=support_size versus k/20
+interpretation: representation_shaping_only
+source_code: scripts/p3_causal_switch.py

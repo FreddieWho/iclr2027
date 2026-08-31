@@ -560,3 +560,12 @@ q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2.
 若开关增强即可控制，重点转为增强谱与不变性边界；AMR 作为 constraint-type routing。
 
 这些方向共用数据、探针、图和大部分代码，可按探索结果灵活切换。
+
+## 12. P3 实际结果与 Figure source contract（2026-09-01）
+
+P3-T0–T5 已执行完毕；当前结论为 response shaping only，P4 gate 未满足。retrospective full-vs-baseline mean Spearman 为 `0.8466` vs `0.1222`，prospective 为 `0.8526` vs `0.1294`，统计单位为 `source_match_id`。
+
+- Figure 3 使用 `artifacts/phase3/support_geometry_v1/pair_predictions.parquet`、`prediction_metrics.parquet` 和 `match_bootstrap_comparisons.parquet`，并分开显示 `artifacts/phase3/support_geometry_prospective_v1/prospective_pair_predictions.parquet` 与 prospective metrics。
+- Figure 4 使用 `layerwise_block_summary.parquet`、`layerwise_prediction_metrics.parquet` 和 `layerwise_jacobian_rank.parquet`，使用规范化/匹配方向指标，不比较不同维度层的原始 Frobenius norm。
+- Figure 5 使用 `selected_causal_switch_v1/switch_seed_summary.parquet`、`switch_task_metrics.parquet`、`switch_context_robustness_by_seed.parquet` 和 `node_sensitivity_localization_v2_summary.parquet`，必须同时画出 response shaping 与 task/robustness failure boundary。
+- 本轮 Figure 只支持“预测—定位—response shaping”链，不能标为任务修复或 AMR 成功图。完整 causal matrix 由于 gate 失败不启动。

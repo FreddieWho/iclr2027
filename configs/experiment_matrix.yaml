@@ -54,7 +54,7 @@ causal_matrix:
 
 p3_support_conditioned_geometry:
   phase: P3_CAUSAL_MECHANISM
-  status: document_locked_t0_not_run
+  status: t0_t5_complete_response_shaping_only_p4_gate_not_met
   hypothesis_type: post_p2_mechanistic_follow_up
   fixed_assets:
     samples: 250
@@ -93,11 +93,13 @@ p3_support_conditioned_geometry:
     layers: [input_node, message_passing_1, message_passing_2, pooling_pre, pooled_embedding]
   t4_causal_switch:
     selection: evidence_selected_single_switch
-    status: not_selected_until_t3
+    status: pooling_accessibility_executed_response_shaping_only
+    task_gate: not_met
     full_causal_matrix: optional_after_minimal_mechanism_gate
   t5_task_alignment:
     tasks: [perturbation_localization, one_existing_non_intervention_label_task]
     intervention_label_as_main_task: forbidden
+    status: no_stable_objective_task_gain_and_context_robustness_tradeoff_worsened
 
 metrics:
   diagnostic:

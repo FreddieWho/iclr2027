@@ -1,0 +1,38 @@
+{
+  "status": "T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "date": "2026-09-01",
+  "p2_freeze_head": "f44be1e9526796a76b58ca2bd44dc562ab7841a3",
+  "document_migration_commit": "10d0711",
+  "current_config": {
+    "path": "configs/phase3_support_geometry_v1.yaml",
+    "sha256": "e2842cea410a6fc2170d3fb750f81f2a03b64b9d510975c2f438a2eed8f6243b"
+  },
+  "run_time_config_snapshots": {
+    "T0": "831d972bdecce9422be3856de6402612d9a562d411f5aeb3f732f2c966412f3a",
+    "T1": "1372659b73e3ce49351ea4aae561274f90667a9dca92d2deaddb96be59eb7ec6",
+    "T2": "994e5459b4a26134bdb3d2ad3a33d95f2b0b895d9e75ce8398cd5a057e16513a",
+    "T3": "0e7084278d566140c08fb7efba3f6c9813686009c9aa129cf4e0ceb1f09cf96f",
+    "T4_T5_summary_repair": "9808b0d855a56ce443ea0a25a5b4e5c13ac9a9c8a51830703b591c0535b32d84",
+    "T5_node_localization": "86e591887e2c0d6de4f94ec93d1819fa8953936790db6d0b0c95b90ed8e70c16"
+  },
+  "source_sha256": {
+    "scripts/p3_support_geometry.py": "66e5e9cd3353870eb4499ad4cb86951964cee8b7a3f92dbf88da862d3aa9431f",
+    "scripts/p3_causal_switch.py": "d50dcc947562333c0c860d33a6055d417da78d02d88ce5ced4a5ba1bf9220514",
+    "scripts/p3_node_localization.py": "456d16814c52137abdcb51af39e1d28e926df744e913699f6ac2bd0fb92ca574"
+  },
+  "fixed_assets": {
+    "n_samples": 250,
+    "n_source_matches": 10,
+    "n_frozen_models": 9,
+    "p2_root": "artifacts/phase2/p2_fracture_continuity_v1",
+    "new_data": false,
+    "bioinf_index_touched": false
+  },
+  "task_artifacts": {
+    "T0_T1_T3": "artifacts/phase3/support_geometry_v1",
+    "T2": "artifacts/phase3/support_geometry_prospective_v1",
+    "T4_T5": "artifacts/phase3/selected_causal_switch_v1"
+  },
+  "provenance_note": "Run summaries preserve their run-time config snapshots. The current config was later synchronized with final evidence and gate status; no P2 output was overwritten or relabeled."
+}

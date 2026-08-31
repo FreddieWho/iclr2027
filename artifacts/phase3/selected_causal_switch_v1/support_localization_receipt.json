@@ -1,0 +1,24 @@
+{
+  "config_sha256": "6617798a66d24222c317b13db548a2b94cb34c04ee35e727ebd79f7a7a1ecadc",
+  "definition": "q_support_inside / q_full versus uniform support_size / 20",
+  "does_not_train_predictor": true,
+  "grouping_unit": "source_match_id",
+  "input_path": "artifacts/phase3/selected_causal_switch_v1/switch_arm_geometry.parquet",
+  "input_sha256": "996dfe29bae1ddc0d585e207d80e13c0a0b50e997a19048dd8d2634c4a0347e8",
+  "n_complete_arms": 53700,
+  "n_group_rows": 60,
+  "n_input_rows": 60288,
+  "output_sha256": {
+    "support_localization.parquet": "3ba6cc4337ed4f84750f5dd8da0fec06c1c4edba75e1296ca840d5d91d7453b7",
+    "support_localization_summary.json": "12b040da5c34566d6e19f60fb6e320931ab115053fa9c35ceef41ed6d650991b",
+    "support_localization_summary.parquet": "3998f71e49adf178cb6381f314acc63a2c46bf0da7204027c2b40b9d42b7f2a3"
+  },
+  "response_blind": true,
+  "rows_path": "artifacts/phase3/selected_causal_switch_v1/support_localization.parquet",
+  "source_code": "scripts/p3_task_localization.py",
+  "source_code_sha256": "b2237ef189f2e04ac42474da405bd64dc9a6caf54289eee5bdcb547e8f9c0b8f",
+  "status": "T5_SUPPORT_REGION_LOCALIZATION_COMPLETE",
+  "summary_path": "artifacts/phase3/selected_causal_switch_v1/support_localization_summary.parquet",
+  "task": "P3-T5",
+  "uses_controlled_intervention_support": true
+}

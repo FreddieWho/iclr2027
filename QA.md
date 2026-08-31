@@ -724,3 +724,11 @@ P2 的异质性是否意味着 Action-Mode Spectrum 失败，或者应直接改�
 P3 采用 support-conditioned local geometry，因为归一化 embedding 的局部 Jacobian 给出 \(G_f=J_f^\top J_f\)，可分解为节点自身敏感度和跨节点耦合；它能直接对应 fracture 的 support reallocation。当前 P3-G1–G5 都是 post-P2 工作假设，必须经过 match-grouped retrospective、response-blind prospective、layer/block 定位、一个证据选择的 causal switch 和客观任务联系，不能从 P2 response 后验宣称机制。
 
 不直接跑完整矩阵或 AMR 的原因是：大矩阵会混合多个解释，AMR 会先于机制证据形成后验调参；当前唯一下一步是 T0 接口、parity、JVP/有限差分和 provenance smoke。若 geometry 不能预测，保留 P2 的 mixed_or_graph_specific；若只能改变 response 而任务不改善，称表示塑形，不称方法修复。
+
+## QA-2026-09-01-024：P3 实际结果是否支持进入 P4？
+
+### 回答
+
+局部几何在当前 250 samples、10 个 source matches 和 9 个冻结模型上，对 P2 fracture pair effect 的 retrospective mean Spearman 为 0.8466，response-blind 同资产 prospective 为 0.8526；频率/residual baseline 分别为 0.1222 和 0.1294。T3 显示 diagonal sensitivity 为主，off-diagonal 信息按架构在 message passing 或 pooling 中形成/保留。T4 选择的 Phase-GAT pooling-accessibility 开关在 3 个 matched-capacity seeds 上改变 geometry 和 response；T5 nodewise support localization 仅为 0.1546/0.1487，对应 uniform baseline 0.1458。context response 三 seed 均上升，heldout macro-F1 均值略降。因此结果是 representation shaping，不是任务修复；P4 gate 未满足，不启动 AMR 或完整 causal matrix。
+
+这不是把 `mixed_or_graph_specific` 改写成统一效应：Action-Mode Spectrum 仍是条件化 response 的边缘汇总，P2 的异号条件和 role/architecture/graph 依赖仍保留。完整证据见 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`、`artifacts/phase3/` 和 `CLAIM_LEDGER.md`。

@@ -68,7 +68,7 @@ CAP 作为 baseline；优先实现 AMR-Fixed，再根据实验结果探索 AMR-L
 
 ## 当前启动动作
 
-P2 已结束。当前只允许按 `configs/phase3_support_geometry_v1.yaml` 执行 `P3-T0` 的 CPU smoke：复用 P1 的 `build_torch_models()` 和 P2 adapter，检查 250 个 canonical samples、9 个冻结模型的 baseline parity，暴露节点编码、两次 message passing、pooling 前节点表征和 pooled embedding，并验证 JVP/有限差分。不得重新运行 P2、读取 response 来选择 prospective 干预、或先训练 AMR。
+P2 已结束，P3-T0–T5 已按 `configs/phase3_support_geometry_v1.yaml` 完成。当前只允许进行证据归档、canonical docs 同步和 claim 收缩：局部几何的 retrospective/prospective 预测与 layer/block 定位保留；Phase-GAT 的 pooling-accessibility 开关只被解释为表示塑形，因为客观任务 macro-F1 没有稳定改善且 context robustness 下降。不得重新运行 P2、继续扩大 causal matrix、用 response 结果重选 prospective 干预，或直接训练 AMR。P4 只有在完整 gate 再次满足时才可启动；本轮 gate 未满足。
 
 P3 的唯一权威报告是 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`；施工协议见 `docs/05_AGENT_EXECUTION_MANUAL.md`，机器可读路线见 `configs/experiment_matrix.yaml`。书法结果继续保持 exploratory，不用于选择体育端机制；本项目不访问、修改或重建任何生信数据/index。
 
