@@ -1,0 +1,144 @@
+{
+  "status": "PROSPECTIVE_INTERVENTIONS_GENERATED_RESPONSE_BLIND",
+  "checkpoint": "P3-T2-DESIGN",
+  "run_id": "p3_support_geometry_v1",
+  "config_sha256": "994e5459b4a26134bdb3d2ad3a33d95f2b0b895d9e75ce8398cd5a057e16513a",
+  "t1_prediction_lock_sha256": "957bb434f41b6f3db3ae7a589b577fcb5465941e1c7b54b6bfe295fae80d194b",
+  "p2_operator_id": "p2_fracture_endpoint_reallocation_v1",
+  "new_intervention_seed": 20260901,
+  "response_blind": true,
+  "response_paths_read": [],
+  "same_assets": true,
+  "n_samples": 250,
+  "n_matches": 10,
+  "n_sets": 5700,
+  "n_complete_sets": 4475,
+  "n_arms": 11400,
+  "n_valid_arms": 10048,
+  "shards": [
+    {
+      "match_id": "1886347",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1886347/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1886347/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 502,
+      "n_arms": 1200,
+      "n_valid_arms": 1100,
+      "arms_sha256": "07d58f12eadca5e0f052bbfb876a201469b429eb1ce5c06ad799dd1327e07214",
+      "diagnostics_sha256": "8c7821fdc2abbe4b86ba26276c226a4f6eafcdb84f0a8212be16e91bdd776942"
+    },
+    {
+      "match_id": "1899585",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1899585/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1899585/diagnostics.parquet",
+      "n_sets": 500,
+      "n_complete_sets": 336,
+      "n_arms": 1000,
+      "n_valid_arms": 799,
+      "arms_sha256": "40682db9b5686ad6e1900b518f764dd2b7832937e7dfbc2ac441946b2b7440ca",
+      "diagnostics_sha256": "6cbdaa1a715eb6b922830cab123d136a27ecf14bc40350a555c323c0179e90ba"
+    },
+    {
+      "match_id": "1925299",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1925299/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1925299/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 520,
+      "n_arms": 1200,
+      "n_valid_arms": 1118,
+      "arms_sha256": "49f8d64d74f5e8dacab199393daef1c15922d82876bbac3a611e3bcf24b59552",
+      "diagnostics_sha256": "7c18cb34cda4c760fa19df958e7a55fd27d095310b2d73921223feb1a16d2526"
+    },
+    {
+      "match_id": "1953632",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1953632/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1953632/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 453,
+      "n_arms": 1200,
+      "n_valid_arms": 1036,
+      "arms_sha256": "60bb5102c6d74707c6e0797e308cba15054e71e24abe57ceb81888b73547bc14",
+      "diagnostics_sha256": "2c1cd6b675dae61a82076e355aa8ee5455e166f1e2c8e9a974f39c4052f8f2df"
+    },
+    {
+      "match_id": "1996435",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1996435/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=1996435/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 518,
+      "n_arms": 1200,
+      "n_valid_arms": 1114,
+      "arms_sha256": "d5ff2d7b844c752739e5baaa09f742b55a3b9a7073f41712dc5b7a9894f40f73",
+      "diagnostics_sha256": "e5928f46ae837b4c92bbfb48728ce84ce2fe2a51d51e252c17086dbc194ccc26"
+    },
+    {
+      "match_id": "2006229",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2006229/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2006229/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 451,
+      "n_arms": 1200,
+      "n_valid_arms": 1036,
+      "arms_sha256": "aac5f5e9c9377af404f427b5c01e353bc2d356e967c65a8c86b4fcfef69a4d8b",
+      "diagnostics_sha256": "375053db279c0803d5e65228cb3b3ab03ca5659c576ed29c3b24fc167b6cdd92"
+    },
+    {
+      "match_id": "2011166",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2011166/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2011166/diagnostics.parquet",
+      "n_sets": 500,
+      "n_complete_sets": 382,
+      "n_arms": 1000,
+      "n_valid_arms": 873,
+      "arms_sha256": "4f1c43071d48beec59d985502d66b81dcc02e50b782fe793264ef015156769b2",
+      "diagnostics_sha256": "36306d111a25d570d2293d7ffd02ef6dce9f88a1aa5185735a4c1c062b8226f1"
+    },
+    {
+      "match_id": "2013725",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2013725/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2013725/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 419,
+      "n_arms": 1200,
+      "n_valid_arms": 999,
+      "arms_sha256": "29097812653c5ca6d87d1973919fc37d60c434a10f2d04f4e6a76bdb76eab0a4",
+      "diagnostics_sha256": "1ba728695df31cca6f98d9de0f8164114ad05ccf4ca4bbac156e3b9ffd3f35b5"
+    },
+    {
+      "match_id": "2015213",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2015213/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2015213/diagnostics.parquet",
+      "n_sets": 500,
+      "n_complete_sets": 398,
+      "n_arms": 1000,
+      "n_valid_arms": 886,
+      "arms_sha256": "7fd1dc66be8255d5451e4056cea664dbf266f30cd5f5ca99be65b5f98aa3ff63",
+      "diagnostics_sha256": "5bcc33a60c4bd4ceef9193f8f84cfbb3bd9fa6575487603801b1a082495eb29a"
+    },
+    {
+      "match_id": "2017461",
+      "arms_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2017461/arms.parquet",
+      "diagnostics_path": "artifacts/phase3/support_geometry_prospective_v1/matching/shards/match_id=2017461/diagnostics.parquet",
+      "n_sets": 600,
+      "n_complete_sets": 496,
+      "n_arms": 1200,
+      "n_valid_arms": 1087,
+      "arms_sha256": "22d285c1b777c1d836db3ca4160ec4203e6f1dc68f4e9a2e97cb6ed35e2685ec",
+      "diagnostics_sha256": "8cefa2e216274fa74be2ad0b87a7b19a54554a29bde1afca3deeadf81aa7881f"
+    }
+  ],
+  "source_p2_config": {
+    "path": "configs/phase2_fracture_continuity_v1.yaml",
+    "bytes": 3281,
+    "sha256": "dbfa2a821b7b6f25b52e81c4813c67069847c23be47964c1b8058a374e3a597b"
+  },
+  "source_p2_generator": {
+    "path": "scripts/run_phase2_fracture_formal.py",
+    "bytes": 44747,
+    "sha256": "bf38f3034b92a7dfdbc657225242b81f9d667436eca7ee3c44a7e66f878d1204"
+  },
+  "runtime": {
+    "wall_seconds": 289.20500545948744,
+    "peak_rss_mib": 182.55078125
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "artifact": "support_geometry_prospective_v1",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task": "P3-T2",
+  "status": "complete_response_blind_generation_and_evaluation",
+  "response_blind_generation": true,
+  "response_paths_read_during_generation": [],
+  "n_samples": 250,
+  "n_source_matches": 10,
+  "n_models": 9,
+  "intervention_seed": 20260901,
+  "complete_intervention_sets": 4475,
+  "grouping_unit": "source_match_id",
+  "prediction_lock": "../support_geometry_v1/t1_prediction_lock.json",
+  "checksums": ["SHA256SUMS", "prospective_SHA256SUMS"],
+  "known_limitations": "known_limitations.md"
+}

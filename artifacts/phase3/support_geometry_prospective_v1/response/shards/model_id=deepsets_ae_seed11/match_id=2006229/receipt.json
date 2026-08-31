@@ -1,0 +1,10 @@
+{
+  "status": "PROSPECTIVE_RESPONSE_COMPLETE",
+  "model_id": "deepsets_ae_seed11",
+  "match_id": "2006229",
+  "response_blind_at_generation": true,
+  "input_intervention_manifest_sha256": "ee16159c64929f874ef50d0d2f3be87769a79d569d80a635ff2eb5e36c64fb6a",
+  "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2006229/response.parquet",
+  "response_sha256": "dd2b554efcfcd473b99da3670e955f3ff5db12e39fec2fab7daa6c48cbcff6f5",
+  "n_response_rows": 1036
+}

@@ -1,0 +1,828 @@
+{
+  "status": "PROSPECTIVE_RESPONSE_COMPLETE",
+  "checkpoint": "P3-T2-RESPONSE",
+  "run_id": "p3_support_geometry_v1",
+  "config_sha256": "994e5459b4a26134bdb3d2ad3a33d95f2b0b895d9e75ce8398cd5a057e16513a",
+  "intervention_manifest_sha256": "ee16159c64929f874ef50d0d2f3be87769a79d569d80a635ff2eb5e36c64fb6a",
+  "response_blind_at_generation": true,
+  "n_models": 9,
+  "n_shards": 90,
+  "n_response_rows": 90432,
+  "baseline_parity": "PASS",
+  "shards": [
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1886347/receipt.json",
+      "response_sha256": "d1a5dbe6d4d04fe22c0d8077abd1b8f1445041a4a39668d1a496990082a3f2b4",
+      "receipt_sha256": "adba82df31f39b745cd269efb1597c8b478668b6b87bdaabb681095deb975586",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1899585/receipt.json",
+      "response_sha256": "01af40c248b3f72643495570b5b49c9b07f1034d1068f3562d38edae4bcdbc7e",
+      "receipt_sha256": "0acedb3a1c3029539c6e8f916e3b56af60ee6322df3f2f120d8bdd4f777c3e4a",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1925299/receipt.json",
+      "response_sha256": "e84dea7fdd91c805b6f7d192db35e9bb6a63d871ee18fa111d2db089af9e648a",
+      "receipt_sha256": "6cf13079268bca14e40eacecc9f7a1b6066c23bb62ef61eaad66d029f5446950",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1953632/receipt.json",
+      "response_sha256": "5af5be4e5693d810914fb1c2c2b68fa16ecf3d67c2414afee4878177dc8a2418",
+      "receipt_sha256": "74e92bc8b806d2d762edd5709d65141cbd96a457d2f2f9c681b3e07f4c10ddbe",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=1996435/receipt.json",
+      "response_sha256": "c851fed30426a0f0aed7661f6f03eba1c91d1baa7652be7af6cbbe112d568abd",
+      "receipt_sha256": "1ccd862b2c24c2b26ed21fe7be47a024a5f6fd5f880030d93d261dd0a3933533",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2006229/receipt.json",
+      "response_sha256": "dd2b554efcfcd473b99da3670e955f3ff5db12e39fec2fab7daa6c48cbcff6f5",
+      "receipt_sha256": "c2717fa47afad89f39666268515f7a6027929a028d673e8cd4ab48edfacd347e",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2011166/receipt.json",
+      "response_sha256": "b378bca357b76ef57138d86bd99fa322c6941f7877a43772ca6501be5cfef882",
+      "receipt_sha256": "149650647eb02651973201d0f69a101b7688dcb07ec8bf1063984698e4b49526",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2013725/receipt.json",
+      "response_sha256": "58f2a7c2232e1f6f15026a5f94f74583f8b9dc1b419bb6f5ef85de06d038b73f",
+      "receipt_sha256": "8b61f59d02f3c4074f339b9058502a6344165f7c01944cedac793e65ac5de590",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2015213/receipt.json",
+      "response_sha256": "86c9b9a790aea0d187623381db59e2608a6adbc2bc1cbf1048593ed89f5ab181",
+      "receipt_sha256": "5138c3eef26e92ae8f1d1c2dd87bd4080640d09ce498cdab54d066ae6965c650",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "deepsets_ae_seed11",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed11/match_id=2017461/receipt.json",
+      "response_sha256": "5cd1765dad53cca051573c62e01ade8bce841a3862713f47caa68a68eb522410",
+      "receipt_sha256": "9bc86aeff42871d77a5943ddda6121d41d48252334f25cd821d1a54c3d7e1248",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1886347/receipt.json",
+      "response_sha256": "3f4353288c1f91fd5e34d4487cf3d52975b4092c5fba3fd62e70603b76a0d928",
+      "receipt_sha256": "e5628f3fe2a79ebdb1f2346696cf55d2d388c51e646786755e7076696b07871e",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1899585/receipt.json",
+      "response_sha256": "b8240c9789f619199ea96f903a73ad98f2001628d690f1864fcfe92b3e154d49",
+      "receipt_sha256": "c2d81ec06dca9fe330456e8e0d8288fe8cef7c80168698b3d2818461bfae5fce",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1925299/receipt.json",
+      "response_sha256": "7c7e549eff3b2e031df876293f99be0af52fa7113fc079d5676464781a257043",
+      "receipt_sha256": "e9694840803d79fc7aa6a717001fd9a2101ffb91dcf7c911acb3aa5c6fefb5d1",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1953632/receipt.json",
+      "response_sha256": "a316ad0a1355b73c29d13cb27d4b8ddb386e1bcfe1d97a5de19a02c233c50385",
+      "receipt_sha256": "5bd41554c44d1560e5b6772cfb6e2c39650190b7a97aa46786dbea5abf100460",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=1996435/receipt.json",
+      "response_sha256": "04d37ad61024fe60adadaf1d344a3a44c5a9c60c009134a2f1ec4a9337d3a674",
+      "receipt_sha256": "16e2d1ce3298b3e3734ab6414b863710f28d8c982ef4ec420b2f59c558d49a57",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2006229/receipt.json",
+      "response_sha256": "b0bc1794101ee446978c814965a824e933b687d3b17534ed6ef4265ce0d49119",
+      "receipt_sha256": "285d594f69df89d5a10ba759add265b47da6d3984c43855e3c498ad9b2e882fb",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2011166/receipt.json",
+      "response_sha256": "c1946c93e24e9acba6dcdbd6191e10fe28b31b014770391d3a2a54aff5b110ac",
+      "receipt_sha256": "bf8c97f6858515ad73dac7fe62e520dee7fdf2b8b6182f3aa86a3b23924556f1",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2013725/receipt.json",
+      "response_sha256": "ff41b17c8e04a967359b0bbddbeea0afa3897bd6a3da7c09bbe677688f8f7e1e",
+      "receipt_sha256": "e53bba9bbf3c632e883b91198bddef5b2910b5d7ee4a30f6eb9e94e8dfc002ab",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2015213/receipt.json",
+      "response_sha256": "0a8921700cd69562d9affe6e64709228459e6df583570b9ab9474e9966237bb8",
+      "receipt_sha256": "49a0e3bef716c4fd8dd24d81ec28ee591a82dc683b94affbf6a9b90b764116a8",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "deepsets_ae_seed23",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed23/match_id=2017461/receipt.json",
+      "response_sha256": "fabefbf411b73a741cc432fb50b2502b733daa77e56d010d1a5f02276585a998",
+      "receipt_sha256": "95112624127e284a11bac45eb5b5710d0a0ce19a5e45c81c649636542a3ab074",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1886347/receipt.json",
+      "response_sha256": "a1f4079e241d48f18e400be5fbcf5aba192fbbe03af719e3f83eed261647c65c",
+      "receipt_sha256": "d34cd146609c4f21cafc1208c1a1ffd56004f742f541efbe491563d4e93af954",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1899585/receipt.json",
+      "response_sha256": "273a0893c9043505d3c089717ce05f337f0010dbe091ff72ac05b8e3790a3335",
+      "receipt_sha256": "2f0c2c8624116116576066ce3022fc9512548e09eeb78edddc4b6a88c14f4b87",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1925299/receipt.json",
+      "response_sha256": "0b1a9f99d4d7f686b2ef76225db3c085c100b3a54f0baec10a4691b50c3dcac8",
+      "receipt_sha256": "9618e6e3758bf10c170581a418f6ec551cebdd2c14f38ea066cf0ae4f6fad981",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1953632/receipt.json",
+      "response_sha256": "30af4f73be453096a932b5b23b5287d4fef0e019e76cdce4d3d40afe4a347bf8",
+      "receipt_sha256": "bf4f3ddcef29043149a846285aec6057543d9926af39ccede5c8196f5f431fe3",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=1996435/receipt.json",
+      "response_sha256": "2cd745716275a60a2667f37024dd8a49a40a4444bc6283695fd055b1f041fcb3",
+      "receipt_sha256": "bba10705168d9ff54652e35a5f2b12b263a56f65f9ac747142c15c7086885928",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2006229/receipt.json",
+      "response_sha256": "fcfa2711f7d667dd6a8e85fbcd39c46bc058815ed26328a89707bcaae6a860bb",
+      "receipt_sha256": "c70bbc6bb4dc1a2694d8a8f33f41a256fc780a83eac818aa5f93d570c0612c4f",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2011166/receipt.json",
+      "response_sha256": "f4a1b3a81e315e4c233e7076f41ba0bd0cf7cce1555e6de1aba66e8dbf858d4a",
+      "receipt_sha256": "93d2e7ec9669cb8be050e3eba3be6c14d33206ae7d3777be330adad42ed5410a",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2013725/receipt.json",
+      "response_sha256": "3f7246aadaa680fbd31e9a37850c0900840e8030ffde4ac58047bc5fbedd14fe",
+      "receipt_sha256": "5f18a7f3e84c706623179b53fcc4ed8ecb6ce22dce9740f27d8a30209a4c228d",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2015213/receipt.json",
+      "response_sha256": "fcbb8aaa0c4ccff1fa91c2488495c59933f2f778059964b53c960180d4c40fab",
+      "receipt_sha256": "79365fad8e014f43c0c69dc3be4bad66f39325c84500f4750b149e9eb0fa826b",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "deepsets_ae_seed47",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=deepsets_ae_seed47/match_id=2017461/receipt.json",
+      "response_sha256": "3b9640c7f25ccd85843bd3691e51fba4e7462b249c4ff83cb057d62dc8909a85",
+      "receipt_sha256": "dd17dc0aa6d52aae833ee30a3eb7250daae97af98661114c3a88c1b0da8cd313",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1886347/receipt.json",
+      "response_sha256": "e6744c814cf11234502da2cdc3f2ab3e3d16326bdaa0ddf7c8d17d14696c3a77",
+      "receipt_sha256": "40276100f38b2ca553175b4677b19e07585ceea11c6f9cbd7b73790c4c3ba581",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1899585/receipt.json",
+      "response_sha256": "ec7646bc5b1301f8ee446f5870c516855c3a8a0db907c0ba42624348449c3884",
+      "receipt_sha256": "be9ef43643e34f3d7ed889388830e36d8ff3cb7eff5f0d73cce7e8ed7d7b6f5e",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1925299/receipt.json",
+      "response_sha256": "734b716af33de5181f85574727a0351f0f25e13fcd531c225e947b79ce325e41",
+      "receipt_sha256": "ee65825eb8d71b0869f5e7d726a2c1ba7921e26b0f0d4ca6cd0060da5616968e",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1953632/receipt.json",
+      "response_sha256": "50472e38875443c20163221bdf4072d786a54d633ae929067f744c973b28e578",
+      "receipt_sha256": "170366a0cbfbfb50e8b9db4453b27f7c247cb9be948a75ed9802dbacc3216801",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=1996435/receipt.json",
+      "response_sha256": "bdb4b13203873a0093aea52ce68a40b685292ea7929ef10f7f623982fdcdad08",
+      "receipt_sha256": "a199a21ed4810c4638f8470e6cb7aa7fe08a4a606f9b5b1d273ca87da98c64e6",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2006229/receipt.json",
+      "response_sha256": "895f6e1a96f551cec1096036026334354a1af214f0c3fd665bad0040f8836f88",
+      "receipt_sha256": "30a6ac6e4d2d9fc08d3a106edd70b56e46c557871389eda5d378c9978a634c70",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2011166/receipt.json",
+      "response_sha256": "d393a0028c27d427f0a0f5a3c166cf95ce06f51346df27a8bdd91f381b004ab5",
+      "receipt_sha256": "11d9860509b090a6583410a5f1a3a5597a23f4c6fbd72b8ca09e4ecd189b5bac",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2013725/receipt.json",
+      "response_sha256": "fa9d80cd7e8dab6b7640087ba79e884f27361b9af7537690e9d91d371b277f77",
+      "receipt_sha256": "774c651a26b22a410587219179b60c0c9fbb1730c9073f30a84c1f6611becd11",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2015213/receipt.json",
+      "response_sha256": "e1c9441cc80b7d0eceb5ba5c4fbff86f033548a2365f08c658c929acb98fa38e",
+      "receipt_sha256": "9553e3c1f0dabe56f1ed89e5fc692a99afa5b68f9fce35e1dddcddb68b6b09df",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "gat_ae_seed11",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed11/match_id=2017461/receipt.json",
+      "response_sha256": "f13babb9d0ab0cee39c8192d0b8757dbf1b080e18ee2810b3ce7f0d3b84e777f",
+      "receipt_sha256": "e44d7c65dbe3506d24723de2221104de74c6d208aaccf8df6c50fb3e8a198524",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1886347/receipt.json",
+      "response_sha256": "8dafb0a773a48a7f29d1819890d41e5fb10fdc4db922c3b5785d9fc108780723",
+      "receipt_sha256": "342fb20bf9963be280b93a0a59dff2c1aef9de5b6e966782e3ecbe5a515067fb",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1899585/receipt.json",
+      "response_sha256": "8176e3ad6cb25cd93823c23bbb55252e1a86bc0b902c495bd6553af18bac8370",
+      "receipt_sha256": "2356f5df549ef66e9817fbf33bdfa36e0b49a803bd80302be181bf7ee0f2a7b4",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1925299/receipt.json",
+      "response_sha256": "62dc096d3a73c4eaae4e66039c3f6081eac987449d88b049a326da8e91ed97b1",
+      "receipt_sha256": "5c69ba7d6820797f6ed4124363ee6f056115d47d3df8a0db121e561b49ac42f9",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1953632/receipt.json",
+      "response_sha256": "65a24ea6090dea9f6ce4a82c4512efce6d75fad100660f3c630aa83859ee6ae4",
+      "receipt_sha256": "5dcb793f28ae226ffe48609c9f30aa9c1d4b4080049f6759f542a709dcea0ddd",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=1996435/receipt.json",
+      "response_sha256": "9d41d730af5a0158c74f862a1927eb4184e020cb57bd95030a2ae308f472cfde",
+      "receipt_sha256": "84775a6b6511032d0144a1fcc095039d300da70e72e052176c4d7a7fd420f69b",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2006229/receipt.json",
+      "response_sha256": "23dba9f49b3822028459880a4991d2a2500ddc38531ccaa41314e1faf1709e35",
+      "receipt_sha256": "02b0c306f6d77bb1a6c95dcd6255b4ac1c16f7dd8730425c8b01b71f132f0009",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2011166/receipt.json",
+      "response_sha256": "0cbaf9ed1a186c9dff787c2bed4a4875139b98d1be0b45a4f62e971abb2c9b90",
+      "receipt_sha256": "5f8fca7ad62ccb1546c7b128ff48f961a1a374efd6f0f4b3e515af0f12541f96",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2013725/receipt.json",
+      "response_sha256": "00007b49055b4ff595ad819bcf87ba90046f3880ff3c9cd13dd470a812f2f1d2",
+      "receipt_sha256": "621ec0380487f89b215764dd7054c4687759e7c5db5b5b9081c5a62e2ad5a699",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2015213/receipt.json",
+      "response_sha256": "48233face2749acf767feecf9cd127948929081029ef8ae7a9232391d1dc5e5b",
+      "receipt_sha256": "4ed648aec530c0dcb31397df113dfba8212f43326315632ea0eaa55e3f727bf8",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "gat_ae_seed23",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed23/match_id=2017461/receipt.json",
+      "response_sha256": "21e2695ccb48541d9f5cbd5977ed225d170d10bbf6f3793c72fe0ee6384906c2",
+      "receipt_sha256": "897d055c44b79ce35338b9b225be918ac4cf7d2aa0bd7eda95f2249aa9f6443c",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1886347/receipt.json",
+      "response_sha256": "e76269861579e9c04290141aea8c8d194ec4fd16d70355604a3379882fa57816",
+      "receipt_sha256": "0d420f27d16ceb9488d671edfa60708a3f4d6ba2818ded21cfd8b5fa5678db29",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1899585/receipt.json",
+      "response_sha256": "6e22dd516c8cab845442bd6a6c4ab980905bd5249d10d44c7975596234b934b6",
+      "receipt_sha256": "20bfdb4d352f6e7a5146048e89678f4df055241ecc934b245ee1343a9b44b100",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1925299/receipt.json",
+      "response_sha256": "9f6aedc9c3a3fe3477b2b1b5960c19d4059b6d0ccf2acd807bee4f99bf9dbb42",
+      "receipt_sha256": "cc8dfaa343c19f4140d8fea19f01c3e517bf54f558cb993d6edcfc93ecd7581c",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1953632/receipt.json",
+      "response_sha256": "21579030eb8fa061b51206d57b0ac84b3c3047e4e0f7005bccf6547c99ad9758",
+      "receipt_sha256": "57a37b21ba62763ac32c69d031775053c64e4df295d15d2f19836de07b5e1925",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=1996435/receipt.json",
+      "response_sha256": "fa035b8eaf9d397a1e44a0f85758beefe09415335a05a64e1f3caa1dfa43b3b5",
+      "receipt_sha256": "0a02ad057ed14e26ab54a40ff9839579af62710ba464d997fc783448a91f0812",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2006229/receipt.json",
+      "response_sha256": "9574a4f65cd92869634de67697ce8152ac26ae5aeb2422f00cab054c8a013894",
+      "receipt_sha256": "c5aaadc92a8cc42e5fd05b86e9110909c4c3161d0a777739e489c7a023db83cd",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2011166/receipt.json",
+      "response_sha256": "47ccbcc1d68f1d64bd08cdaccf950f49d10206314f4e32c2082bf52b5e01ea06",
+      "receipt_sha256": "025f5a063e649de31977289cfa2c7b6e8945c4dfa62540c3e21405c6637a85e5",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2013725/receipt.json",
+      "response_sha256": "899e57e4825a1f57a94ca397588529c913498adb649a34477e746cb1a0f91647",
+      "receipt_sha256": "22947d0ac395ac0de73eefb66397799fb0a10c900d755016c9eaccfde26cfdbd",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2015213/receipt.json",
+      "response_sha256": "b7f589eabc70fe86ee345c465a8c13d41cf31a1a4df000e117dc2a06d178df8e",
+      "receipt_sha256": "cd9debedcdb96a9d6a47739a8dfbcb0fb5cccd4810cae309aa75c4663e845ec7",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "gat_ae_seed47",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=gat_ae_seed47/match_id=2017461/receipt.json",
+      "response_sha256": "11936d94e53665cb99951d1635408b8f10c6bd55f2a4c4925092a2ca8da37249",
+      "receipt_sha256": "52a2426c539d255f765bf066ec41d8e13859a907af98cddde09c65874df58343",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1886347/receipt.json",
+      "response_sha256": "70d600cb391b8e84e9ee72d56d18359795eb95b82fa8d1038b92055090320be9",
+      "receipt_sha256": "1529f0530ea1f065000238075c7399223055b495c8781df3e1e9d3b7e0cd6f0d",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1899585/receipt.json",
+      "response_sha256": "e34bb191a3bea3418ed98aca548f58319711d35e02bbe8869facbe1e32cac9da",
+      "receipt_sha256": "5c3340d3d44d90e9c10585da509c6a5560faeef53a0c2b5abb5b9e7f83f3f84c",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1925299/receipt.json",
+      "response_sha256": "49c68ec06c138a2c634398c59df9e238e246af27f5f976477c9379ec8cb2508b",
+      "receipt_sha256": "160a3b36baebed6b0c7ae482d23e839055c505fa34b4e7c5e114baa123fd87ce",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1953632/receipt.json",
+      "response_sha256": "b6fce213037c4d129dd36c0a899c0a55731fb4e329b8cbe3c23eea7bbeeb3602",
+      "receipt_sha256": "4adc5d766aca7a0b92e14add8b4483322c4435f34713f6f3015d148a105e2e28",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=1996435/receipt.json",
+      "response_sha256": "40bdcd5790c72759b413d73f14f5706755d7cd5ffe969872d8a877ecf44ba814",
+      "receipt_sha256": "bf2b1e462859352bbb610b132dd7c35b9996d31c833fd09373e5fdef65a8600a",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2006229/receipt.json",
+      "response_sha256": "4916e64f913ec164e49f7be40fb63ee6495a358499e367fbc353d7ba4de06288",
+      "receipt_sha256": "c46df9d1fa4c3bb2b556b0ab1e32325dac90d1a9e217c0c984f41a629def2e55",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2011166/receipt.json",
+      "response_sha256": "afa9b1e4844cf96ed4270b635936cbd66cf38f6903cce5533704ff816ed30905",
+      "receipt_sha256": "6a097e8a086b7aef3dd857de527109e3af925ecc3caff209351e0af4ae839014",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2013725/receipt.json",
+      "response_sha256": "b0295cd47399fd9a21353d41769373057daee845585e8a8443b677f5d7b09e1e",
+      "receipt_sha256": "090d922c4e46c941e4c5c136dda09b48cc4128059459cf56b312c6fbb1c8c975",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2015213/receipt.json",
+      "response_sha256": "8dfa8e452117f1a55c0a8ca353092a4dc35b1bcb2ffc6601b869f36817237872",
+      "receipt_sha256": "0a5e5d37b3989c60cf9e25a87039e984a599ac005fc2e7aac4d382c06d0839ad",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "phase_gat_seed11",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed11/match_id=2017461/receipt.json",
+      "response_sha256": "bc47e46a7e1cdb28dcf88d2007d2a162f1e0140c2d468e93177ecbf13f90ba4b",
+      "receipt_sha256": "88c4dee1eab5805be0b6c802c1bb99ef976e875d143ffb71e1195f881afdb1f7",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1886347/receipt.json",
+      "response_sha256": "a1074da426db58bcf453a2e6d5cc19b44274c2963e212209fce3ea89acd6a436",
+      "receipt_sha256": "97bcaf4c870d6e3c5662d25f5fa3ef8fc678fa3176b2c5e76983dedc04360f6f",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1899585/receipt.json",
+      "response_sha256": "e347e5ec10adc9bf26d51b18df3821d4269804fa9c71ce7e4577f0817540632e",
+      "receipt_sha256": "12fb433b6cb7a253cd557e3119fbdef8cdff7f0c253447525332465cb5aa61ce",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1925299/receipt.json",
+      "response_sha256": "edd7362065165e36e3d2e8e2a33a166a96ef459f8d6489e45e713e2f089a3522",
+      "receipt_sha256": "b6e965c86d7122807a9aef2256fb9aac7c227ffd5dad2493b143c4f2ed2a008f",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1953632/receipt.json",
+      "response_sha256": "ae24d9176b2a233f9685c4c0c55190911e80921013def4e5a00bc816fa279940",
+      "receipt_sha256": "b93edde3e21d93c489f64e9bb70f72da0192a148f5020e7e91e4207f571c21ff",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=1996435/receipt.json",
+      "response_sha256": "2c52049d6710ada7cd30cf7c768ff7f938223690b6251647b464b0533a1460d4",
+      "receipt_sha256": "536967eb2c39b9833330c0ee12a26d861488d26d9b054380c606e743c8599e09",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2006229/receipt.json",
+      "response_sha256": "cec1599e1d0562313f77f38228e67d7d9de48667552f3bf6f040f650397b40e3",
+      "receipt_sha256": "40c2f5efd90d7c595b47077f12a2a300d54abe034f0d5b7c9ecfdb4a2d2e4c2b",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2011166/receipt.json",
+      "response_sha256": "8ab0810de3b214a877990bcf978be160e7ee0660c0a9e2580e52f244ccc42d21",
+      "receipt_sha256": "d9caf371fa78aa84c1114ec217df81720cc560a4b0c8724fef7b61cee40f61e1",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2013725/receipt.json",
+      "response_sha256": "e9e64c33e4dc13d20cb10dac4bd12cd3a74d6574ac8ff9ec5194ab19c86ef840",
+      "receipt_sha256": "291149c2d25284ebf2560034d9b8a37e6f5d12b6d5844af8ad5cef23c205b708",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2015213/receipt.json",
+      "response_sha256": "dcab44c212991a83d41a26ec12333e8eb1eee38e0bf6be0b91f3d48fd3ebb01e",
+      "receipt_sha256": "0a52475bedb7c069ef5b89798bcdd2859cc314cef0390a3ab650905dc88631ed",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "phase_gat_seed23",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed23/match_id=2017461/receipt.json",
+      "response_sha256": "8ba5ea38906e4c90a0c17580dee1f2e08c8acbed51a1639dd197621c1ba1f710",
+      "receipt_sha256": "dc96564501611979cacf8e5cadf210f133e84b28510787218c756e5b917d1d1a",
+      "n_response_rows": 1087
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "1886347",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1886347/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1886347/receipt.json",
+      "response_sha256": "e4d963b53f6237858492fb1f727f92896163511bcc260e69fff0e29958b4ffbc",
+      "receipt_sha256": "ff3dd55f57d6d42cf45c93d84c584efb0c0d457466ad49fd4c927978549e09ac",
+      "n_response_rows": 1100
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "1899585",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1899585/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1899585/receipt.json",
+      "response_sha256": "542d8982b23ed01d3e29164f921af6decc6241da03beef2a8e4506d9c31e1c86",
+      "receipt_sha256": "9e7bd5eb16a58a0d97d102220e73685d832b7938f2671b6e77129786a046a2b8",
+      "n_response_rows": 799
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "1925299",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1925299/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1925299/receipt.json",
+      "response_sha256": "576423fb72bd096f97eee41d5e326e636339e79465d2b0530d380063e3d22a16",
+      "receipt_sha256": "049bc399d3bbc65db33dc975ac2366d11efa1b1cbfd076c6e768a4629bb2f616",
+      "n_response_rows": 1118
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "1953632",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1953632/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1953632/receipt.json",
+      "response_sha256": "be566fbd8f1dedad64522fe9ec6ce049488b58a49f8575383b4a468488d15771",
+      "receipt_sha256": "cd5327d6ecfb888834187c3b49e5e5eab3722cf7e0e11d89d38c7413176c1369",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "1996435",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1996435/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=1996435/receipt.json",
+      "response_sha256": "02ab23ce966d1223236fe253d99015ee0941745307d69a02c5f276cf197dd2c4",
+      "receipt_sha256": "8d690dae4ee1cd66765f75486c71ddbd978c313f002682e0d7f922a9d7d80c54",
+      "n_response_rows": 1114
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "2006229",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2006229/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2006229/receipt.json",
+      "response_sha256": "71ad8736e369ca25803ac72d3709016690fff8945e2077a60dbbf256f276c3aa",
+      "receipt_sha256": "797e9d9ceb0670c0077bca39d734af0d087547582c6b51f298ddabf6cc015349",
+      "n_response_rows": 1036
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "2011166",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2011166/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2011166/receipt.json",
+      "response_sha256": "f8072536807840310852a5395d11600ef67d5c7eff2adccd0043f791c06a3185",
+      "receipt_sha256": "f75302c990d86acdfa66758bcfbcd79d493c20a426e20a8d370f9d40d461040e",
+      "n_response_rows": 873
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "2013725",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2013725/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2013725/receipt.json",
+      "response_sha256": "b7aa7cbc4e1e5ca4670f5812cc90f08688cf0a6fb5174c35368da6e0b581f064",
+      "receipt_sha256": "3af5c519602ad79a643a443f7f816591d7815ccce7c906d331c9366378b6279f",
+      "n_response_rows": 999
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "2015213",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2015213/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2015213/receipt.json",
+      "response_sha256": "ab6c6d2959ab0c63091f7342af5c32695aef408aec4288658995b5c16f1e6320",
+      "receipt_sha256": "7d8516e5400561093066b5c04371877170922d37ca38b889840dc1e660fbe1aa",
+      "n_response_rows": 886
+    },
+    {
+      "model_id": "phase_gat_seed47",
+      "match_id": "2017461",
+      "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2017461/response.parquet",
+      "receipt_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2017461/receipt.json",
+      "response_sha256": "8bafadc788c47025d5793d8c9e68802ed5c6e2d1c18963dad5b5d051fb8b0168",
+      "receipt_sha256": "c8e75fd195de2f388330d1db8fb1e3c3fb373ce9ff7fe52056438c03148b8c4e",
+      "n_response_rows": 1087
+    }
+  ],
+  "runtime": {
+    "wall_seconds": 12.660247221589088,
+    "peak_rss_mib": 1208.92578125
+  }
+}

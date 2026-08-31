@@ -1,0 +1,10 @@
+{
+  "status": "PROSPECTIVE_RESPONSE_COMPLETE",
+  "model_id": "phase_gat_seed47",
+  "match_id": "2013725",
+  "response_blind_at_generation": true,
+  "input_intervention_manifest_sha256": "ee16159c64929f874ef50d0d2f3be87769a79d569d80a635ff2eb5e36c64fb6a",
+  "response_path": "artifacts/phase3/support_geometry_prospective_v1/response/shards/model_id=phase_gat_seed47/match_id=2013725/response.parquet",
+  "response_sha256": "b7aa7cbc4e1e5ca4670f5812cc90f08688cf0a6fb5174c35368da6e0b581f064",
+  "n_response_rows": 999
+}

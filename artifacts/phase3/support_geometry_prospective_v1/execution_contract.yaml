@@ -1,0 +1,8 @@
+{
+  "task": "P3-T2 prospective intervention generation",
+  "response_blind": true,
+  "design_locked_before_response": true,
+  "new_intervention_seed": 20260901,
+  "operator": "p2_fracture_endpoint_reallocation_v1",
+  "response_paths_read": []
+}

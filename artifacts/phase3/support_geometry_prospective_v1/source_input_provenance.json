@@ -1,0 +1,27 @@
+{
+  "p3_config": {
+    "path": "configs/phase3_support_geometry_v1.yaml",
+    "bytes": 9365,
+    "sha256": "994e5459b4a26134bdb3d2ad3a33d95f2b0b895d9e75ce8398cd5a057e16513a"
+  },
+  "t1_prediction_lock": {
+    "path": "artifacts/phase3/support_geometry_v1/t1_prediction_lock.json",
+    "bytes": 26908,
+    "sha256": "957bb434f41b6f3db3ae7a589b577fcb5465941e1c7b54b6bfe295fae80d194b"
+  },
+  "canonical_samples": {
+    "path": "artifacts/phase1/canonical_samples.npz",
+    "bytes": 1099830,
+    "sha256": "caf4f8e607a77c9624f247006a48031d282b1e01c12dbef18215e616f4273e11"
+  },
+  "p2_config": {
+    "path": "configs/phase2_fracture_continuity_v1.yaml",
+    "bytes": 3281,
+    "sha256": "dbfa2a821b7b6f25b52e81c4813c67069847c23be47964c1b8058a374e3a597b"
+  },
+  "p2_generator": {
+    "path": "scripts/run_phase2_fracture_formal.py",
+    "bytes": 44747,
+    "sha256": "bf38f3034b92a7dfdbc657225242b81f9d667436eca7ee3c44a7e66f878d1204"
+  }
+}
