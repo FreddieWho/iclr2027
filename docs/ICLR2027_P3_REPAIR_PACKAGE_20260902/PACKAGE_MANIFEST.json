@@ -1,0 +1,57 @@
+{
+  "package": "ICLR2027_P3_REPAIR_PACKAGE_20260902",
+  "created": "2026-09-02",
+  "purpose": "P3 task-semantic repair, data expansion, agent prompts, and third-party review",
+  "files": [
+    {
+      "path": "01_DATASET_ACQUISITION_AND_SPLIT_PLAN.md",
+      "bytes": 18967,
+      "sha256": "79a342be8b891f30263230426a67a4a428df7516044497c4d6323e8b732961f1"
+    },
+    {
+      "path": "02_EXISTING_PLAN_UPDATE_INSTRUCTIONS.md",
+      "bytes": 11681,
+      "sha256": "75cca8c50627c62c01b0ca5f151c1cd08970cd16f996a55b57ed4d9d8e2dccc1"
+    },
+    {
+      "path": "03_MAINLINE_RESEARCH_AGENT_PROMPT.md",
+      "bytes": 12843,
+      "sha256": "fa2dae734abe8f9ae885da6812fd1d4fc6104e63e04da20407c2ad42dfbb52a4"
+    },
+    {
+      "path": "04_AUTORESEARCH_TASK_REPAIR_PROMPT.md",
+      "bytes": 6887,
+      "sha256": "38821d38471bfd4ccae30bc36223f885729ca7665033d5e349d168f625d9550f"
+    },
+    {
+      "path": "05_AUTORESEARCH_DYNAMIC_SUPPORT_PROMPT.md",
+      "bytes": 3968,
+      "sha256": "fbf228c50fab399d4d12626825f5f500350196d616ef2e5fdc9d4f630a8e5ad0"
+    },
+    {
+      "path": "06_CURRENT_STATUS_AND_REVISED_ROUTE_REVIEW_REPORT.md",
+      "bytes": 28632,
+      "sha256": "51adb75394cf70d6d4b4b108a319f4223e5e86ac6dccbc76d8acb825a2aa4295"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4904,
+      "sha256": "95b88c7ef0a53eca77630716cfcbe172941619e00f522ea313afd212ffc697ed"
+    },
+    {
+      "path": "configs/dataset_acquisition_manifest_v2.yaml",
+      "bytes": 5441,
+      "sha256": "f11657ee5cdeb52e5f80cfbc201edba494c05843fe7c62a74efd747577ab1a2e"
+    },
+    {
+      "path": "scripts/download_priority_datasets.sh",
+      "bytes": 7394,
+      "sha256": "a59d6c9075dd6785d59441d23fd8416ac5b295f15594af445f65e8e0e85e987d"
+    },
+    {
+      "path": "templates/candidate_lock.schema.json",
+      "bytes": 2557,
+      "sha256": "4380ba76308480984167b30c81a5e15c4ba2c6a3f4e3883be8f0b5d9144fb554"
+    }
+  ]
+}

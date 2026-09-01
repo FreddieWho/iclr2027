@@ -1,5 +1,16 @@
-version: 1
+version: 2
 root: data/raw
+
+policy:
+  primary_statistical_unit: source_match_id
+  frame_level_independence_forbidden: true
+  event_level_independence_forbidden: true
+  legacy_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
+  legacy_heldout_allowed_use: exploratory_audit_only
+  final_test_requires_candidate_lock: true
+  gated_data_access_not_assumed: true
+  p2_artifacts_read_only: true
+  calligraphy_cannot_select_sports_mechanism: true
 
 datasets:
   skillcorner:
@@ -79,3 +90,59 @@ datasets:
       - mathwriting-2024-excerpt.tgz
     source: https://storage.googleapis.com/mathwriting_data/mathwriting-2024-excerpt.tgz
     license_note: CC BY-NC-SA 4.0
+
+  sngar_tracking:
+    priority: A0
+    required: false
+    path: sports/sngar_tracking
+    markers:
+      - README.md
+      - MANIFEST.sha256
+    source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
+    access: gated_huggingface
+    status: access_not_assumed
+    split_policy: train_valid_development_only_until_candidate_lock
+    test_policy: test_requires_candidate_lock
+    license_note: respect gated access terms; do not redistribute raw data
+
+  skillcorner_open:
+    priority: A1
+    required: false
+    path: sports/skillcorner
+    markers:
+      - data/matches.json
+    source: https://github.com/SkillCorner/opendata
+    status: existing_historical_asset
+    final_confirmation_allowed: false
+    license_note: historical exploratory/dynamic-support rule development only
+
+  idsse:
+    priority: B0
+    required: false
+    path: sports/idsse
+    markers:
+      - figshare_metadata.json
+    source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
+    access: open_figshare
+    status: not_downloaded_by_this_package
+    split_policy: external_confirmatory_only_after_candidate_lock
+    license_note: CC BY 4.0; preserve download receipt and source checksums
+
+  soccertrack_v2_smoke:
+    priority: B1
+    required: false
+    path: sports/soccertrack_v2_smoke
+    markers: []
+    source: https://huggingface.co/datasets/atomscott/soccertrack-v2
+    access: gated_huggingface
+    status: parser_smoke_only
+
+  soccertrack_v2:
+    priority: B1
+    required: false
+    path: sports/soccertrack_v2
+    markers: []
+    source: https://huggingface.co/datasets/atomscott/soccertrack-v2
+    access: gated_huggingface
+    status: candidate_lock_required
+    split_policy: acquisition_shift_confirmation_only

@@ -1,0 +1,199 @@
+version: 2
+created: 2026-09-02
+project: action-mode-spectrum
+policy:
+  primary_statistical_unit: source_match_id
+  frame_level_independence_forbidden: true
+  event_level_independence_forbidden: true
+  old_skillcorner_role: exploratory_historical
+  legacy_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
+  final_test_requires_candidate_lock: true
+  p2_artifacts_read_only: true
+  calligraphy_cannot_select_sports_mechanism: true
+
+sports:
+  sngar_tracking:
+    priority: A0
+    role: development_and_hidden_same_source_test
+    source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
+    access: gated_huggingface
+    format: parquet_plus_json_annotations
+    approximate_size_gb: 3.0
+    native_rate_hz: 29.97
+    matches:
+      train: 45
+      valid: 9
+      test: 10
+    split_policy:
+      train: model_training_and_task_construction
+      valid: candidate_selection_only
+      test: download_and_run_once_after_candidate_lock
+    time_column: videoTimeMs
+    integrity: MANIFEST.sha256
+    status: access_not_assumed
+
+  skillcorner_open:
+    priority: A1
+    role: historical_exploration_and_dynamic_support_rule_development
+    source: https://github.com/SkillCorner/opendata
+    access: open_git
+    matches: 10
+    files:
+      - match.json
+      - tracking_extrapolated.jsonl
+      - dynamic_events.csv
+      - phases_of_play.csv
+    dynamic_support_fields:
+      - pressing_chain
+      - pressing_chain_index
+      - simultaneous_defensive_engagement_same_target
+      - associated_off_ball_run_event_id
+      - n_simultaneous_runs
+      - passing_option
+      - n_simultaneous_passing_options
+      - push_defensive_line
+      - break_defensive_line
+    final_confirmation_allowed: false
+    status: existing_historical_asset
+
+  idsse:
+    priority: B0
+    role: external_provider_and_league_confirmation
+    source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
+    article_id: 28196177
+    access: open_figshare
+    license: CC-BY-4.0
+    format: xml_match_event_position
+    approximate_size_gb: 2.45
+    native_rate_hz: 25
+    matches: 7
+    split_policy: external_confirmatory_only
+    status: not_downloaded_by_this_package
+
+  soccertrack_v2:
+    priority: B1
+    role: acquisition_shift_confirmation
+    source: https://huggingface.co/datasets/atomscott/soccertrack-v2
+    repo: https://github.com/AtomScott/SoccerTrack-v2
+    access: gated_huggingface
+    license: CC-BY-4.0
+    format: gsr_bas_mot_video
+    matches: 10
+    smoke_matches: [117092, 117093]
+    final_policy: smoke_matches_excluded_from_final_acquisition_shift
+    status: access_not_assumed
+
+  soccernet_gar:
+    priority: C0
+    role: event_window_task_prototype_only
+    source: https://huggingface.co/datasets/OpenSportsLab/SoccerNet-GAR
+    access: gated_huggingface
+    license: CC-BY-NC-4.0
+    independent_from_sngar: false
+    status: optional
+
+  wyscout_events:
+    priority: C1
+    role: event_label_pretraining_or_schema_fallback
+    source: https://figshare.com/collections/Soccer_match_event_dataset/4415000/5
+    access: open_figshare
+    continuous_tracking: false
+    status: optional
+
+  statsbomb_open:
+    priority: C1
+    role: sparse_spatial_event_fallback
+    source: https://github.com/statsbomb/open-data
+    access: open_git
+    continuous_tracking: false
+    status: optional
+
+  metrica_sample:
+    priority: C2
+    role: parser_smoke_only
+    source: https://github.com/metrica-sports/sample-data
+    access: open_git
+    status: optional
+
+calligraphy:
+  makemeahanzi:
+    priority: D0
+    role: controlled_vector_intervention
+    source: https://github.com/skishore/makemeahanzi
+    access: open_git
+    status: existing_asset
+
+  hcsu:
+    priority: D1
+    role: natural_author_style_structure_confirmation
+    source: https://huggingface.co/datasets/Tongji209/HCSU
+    repo: https://github.com/209-Tongji/HCSU
+    access: open_or_platform_dependent
+    license: CC-BY-NC-4.0
+    current_public_rows_approx: 7414
+    total_documented_images: 39307
+    final_policy: sports_prediction_lock_before_use
+    status: not_downloaded_by_this_package
+
+  mccd:
+    priority: D2
+    role: large_scale_multiattribute_backup
+    source: https://github.com/SCUT-DLVCLab/MCCD
+    access: application_required
+    license: CC-BY-NC-ND-4.0
+    images_approx: 330000
+    characters: 7765
+    styles: 10
+    dynasties: 15
+    calligraphers: 142
+    status: apply_now_nonblocking
+
+required_new_records:
+  canonical_match:
+    - dataset_id
+    - source_match_id
+    - provider
+    - competition
+    - pitch_length
+    - pitch_width
+    - native_fps
+    - time_axis
+    - source_revision
+    - source_checksums
+  canonical_frame:
+    - dataset_id
+    - source_match_id
+    - timestamp_ms
+    - period
+    - player_ids
+    - team_slots
+    - roles
+    - positions_meters
+    - positions_normalized
+    - velocities
+    - node_mask
+    - ball_position
+    - adjacency
+    - context_labels
+    - event_labels
+    - support_metadata
+  dynamic_support_record:
+    - dataset_id
+    - source_match_id
+    - event_id
+    - anchor_time_ms
+    - support_rule_version
+    - support_type
+    - player_ids
+    - node_indices
+    - actor_id
+    - team_id
+    - temporal_window
+    - source_columns
+    - confidence_level
+    - support_size
+    - graph_density
+    - graph_cut
+    - velocity_alignment
+    - manual_audit_status
+    - source_checksum

@@ -64,3 +64,38 @@
 - 结果：lexicographic 排序首位 `centered_team_mean` dev 0.3702>0.3392 且 context~0，但 geom 0.728<0.738 且 heldout 0.139<0.186；单轴 `relational_pairwise` context 上升；`centered_relational` 虽满足三阈值（dev 0.352、context~0、geom 0.746、heldout 0.189）但为 2 轴组合且 dev/heldout 均由单 seed 驱动（seed 11 dev +0.052、seed 47 heldout 0.300），不满足“不能只由单个 seed 驱动”与“一次一轴”门槛。
 - 判定：`表示塑形成功，但 task repair 未支持。 / NOT SUPPORTED`，保留 `team_mean` incumbent，不扩大矩阵、不新增数据/模型动物园、不改 P2 冻结资产、不启动 P4 AMR。
 - 证据：`artifacts/phase3/candidate_search_v1/`（`ranking.csv`、`task_*.parquet`、`context_*.parquet`、`comparison_vs_team_mean.json`、`manifest.json`、`SHA256SUMS`）、`reports/P3_CANDIDATE_SEARCH_REPORT.md`、`scripts/p3_candidate_search.py` sha256 `102d7afe8`。
+
+## D-20260902-P3-011：旧 heldout 暴露降级
+
+- 日期：2026-09-02
+- 决定：旧 candidate search 虽未将 heldout 显式放入排序公式，但在候选循环中计算、打印和保存了 heldout；其状态固定为 `EXPOSED_DURING_CANDIDATE_SEARCH`。
+- 允许用途：`exploratory_audit_only`。
+- 禁止用途：final confirmation、candidate selection、超参数/layer/epsilon/architecture/support 选择和早停。
+- 影响：SNGAR test、IDSSE external-confirmatory 和 SoccerTrack final matches 必须在 candidate lock 后再读取。
+
+## D-20260902-P3-012：拆分 context 与 intrinsic 任务语义
+
+- 日期：2026-09-02
+- 决定：context task 允许使用 absolute deployment/field position；intrinsic task 以 centered input 为主，并要求 global translation robustness；两者不再共用单一 global-response gate。
+- 原因：旧 T5 同时要求模型记住绝对部署位置且对绝对位置变化不敏感，形成语义冲突。
+- 影响：新增 fixed dual-channel sanity；旧 task gate 结论保留为 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`。
+
+## D-20260902-P3-013：数据扩展与冻结 split
+
+- 日期：2026-09-02
+- 决定：SNGAR train/valid 作为开发数据，SNGAR test 作为 candidate-lock 后一次性同源确认；IDSSE 作为外部 provider/league confirmation；SkillCorner 仅作历史/dynamic-support 规则开发；SoccerTrack 先做 parser smoke。
+- 原因：扩大独立比赛并恢复真正未暴露的确认集，不能以同一比赛更多帧代替独立样本。
+- 影响：数据访问状态按 `configs/dataset_acquisition_manifest_v2.yaml` 和 `configs/data_manifest.yaml` 记录，不把 gated 数据写成已下载。
+
+## D-20260902-P3-014：P3-T5R 有界优化
+
+- 日期：2026-09-02
+- 决定：在既有 `P3_CAUSAL_MECHANISM` 内授权 `P3-T5R0`–`P3-T5R6`；最多两轮 autoresearch，每轮最多六个候选，一次只改一个主要机制轴；P4 继续 blocked。
+- 原因：先修正 task semantics、split 和 test firewall，再判断固定双通道是否有可迁移的任务—鲁棒性 Pareto。
+- 影响：不新增 Phase，不扩大完整 causal matrix，不先实现 AMR。
+
+## D-20260902-P3-015：动态 support 状态
+
+- 日期：2026-09-02
+- 决定：static role universal effect 仍为 `NOT_SUPPORTED`；dynamic semantic support 作为 response-blind、可人工审计的新 operationalization，属于非阻塞子任务。
+- 影响：dynamic support 不能反向选择主 task-repair 候选；规则、匹配和人工审计必须先于 response 计算冻结。

@@ -494,4 +494,18 @@ AMR-Learned 至少满足：
 
 ## 14. P3 实际 gate 状态（2026-09-01）
 
-P3 的 local geometry prediction 和 layer/block anatomy 获得条件性支持，但唯一的 pooling-accessibility 开关只改变了表示 geometry/response：3 个 seed 的 heldout macro-F1 没有稳定改善，且 normalized context response 均上升。因此本轮不实现或宣称 AMR-Fixed，不启动 M2，不扩大 causal matrix。上述 AMR 规格仍是 P4 的条件性设计；若未来重新申请 P4，必须重新通过 geometry、prospective、机制、任务和 robustness 全部 gate，路由不得从 P2 response 后验调参。
+P3 的 local geometry prediction 和 layer/block anatomy 获得条件性支持，但唯一的 pooling-accessibility 开关只改变了表示 geometry/response：3 个 seed 的 heldout macro-F1 没有稳定改善，且 normalized context response 均上升。因此旧 task gate 的结论仍是 response shaping only，不实现或宣称 AMR-Fixed，不启动 M2，不扩大 causal matrix。2026-09-02 起，补丁包在同一 P3 内授权 T5R，以分离 context/intrinsic task 并建立正确的 candidate-lock 证据；T5R 没有结果前 AMR 仍保持 `NOT_STARTED`。
+
+## 15. P3-T5R 前置模型：固定双通道（2026-09-02）
+
+在 AMR-Fixed 之前，新增一个最小 protocol-corrective 检验，不把它称为 AMR：
+
+```text
+shared encoder E
+raw positions:       X           -> Pool -> z_ctx  -> context head
+globally centered:   X - mean(X) -> Pool -> z_mode -> intrinsic head
+```
+
+`z_ctx` 允许保留 absolute deployment information；`z_mode` 要求对 global translation 这一 nuisance 稳健，同时保留内部构型与 support/relationship 信息。context head 只读 `z_ctx`，intrinsic head 只读 `z_mode`，cross-readout 仅用于检查泄漏。
+
+P3-T5R 的任务是修正评价语义，不是把所有 context response 压到零。固定双通道必须先与 raw single-channel、centered single-channel、relational pooling 和 raw-coordinate/Procrustes baseline 比较；只有 context noninferiority、intrinsic task signal、mode robustness 和 geometry relation 同时出现稳定信号，才允许 bounded autoresearch。candidate lock、SNGAR test 和 IDSSE external confirmation 全部完成前，AMR-Fixed 保持 `NOT_STARTED`。

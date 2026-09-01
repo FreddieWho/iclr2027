@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "P3 Task-Semantic Candidate Lock",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "created_at",
+    "git_commit",
+    "data",
+    "candidate",
+    "training",
+    "tasks",
+    "metrics",
+    "statistics",
+    "valid_results",
+    "test_firewall_declaration",
+    "checksums"
+  ],
+  "properties": {
+    "status": {"const": "CANDIDATE_LOCKED_BEFORE_TEST"},
+    "created_at": {"type": "string"},
+    "git_commit": {"type": "string", "minLength": 40, "maxLength": 40},
+    "data": {
+      "type": "object",
+      "required": ["train_matches", "valid_matches", "test_matches", "dataset_revision", "manifest_sha256"],
+      "properties": {
+        "train_matches": {"type": "array", "items": {"type": "string"}},
+        "valid_matches": {"type": "array", "items": {"type": "string"}},
+        "test_matches": {"type": "array", "items": {"type": "string"}},
+        "dataset_revision": {"type": "string"},
+        "manifest_sha256": {"type": "string"}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "required": ["candidate_id", "parent_id", "mechanism_axis", "config_path", "config_sha256", "parameter_count"],
+      "properties": {
+        "candidate_id": {"type": "string"},
+        "parent_id": {"type": "string"},
+        "mechanism_axis": {"type": "string"},
+        "config_path": {"type": "string"},
+        "config_sha256": {"type": "string"},
+        "parameter_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "training": {
+      "type": "object",
+      "required": ["seeds", "epochs", "optimizer", "learning_rate", "checkpoint_sha256"],
+      "properties": {
+        "seeds": {"type": "array", "minItems": 3, "items": {"type": "integer"}},
+        "epochs": {"type": "integer", "minimum": 1},
+        "optimizer": {"type": "string"},
+        "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+        "checkpoint_sha256": {"type": "object"}
+      }
+    },
+    "tasks": {"type": "object"},
+    "metrics": {"type": "object"},
+    "statistics": {"type": "object"},
+    "valid_results": {"type": "object"},
+    "test_firewall_declaration": {
+      "type": "object",
+      "required": ["test_files_present_during_search", "test_labels_read", "external_results_read"],
+      "properties": {
+        "test_files_present_during_search": {"const": false},
+        "test_labels_read": {"const": false},
+        "external_results_read": {"const": false}
+      }
+    },
+    "checksums": {"type": "object"}
+  }
+}

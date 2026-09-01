@@ -39,11 +39,23 @@
 8. `QA.md`：模型架构、技术路线和科学问题的持续问答记录。
 9. `reports/p0-overview.html`：快速查看 P0 原始样本、干预和 embedding。
 
-当前执行状态（2026-09-01）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2、独立 fracture continuity 和 P2-H1 有界异质性诊断均已闭合，分别为 `P2_RIGID_C2_COMPLETE`、`P2_FRACTURE_C2_COMPLETE` 和 `P2_H1_HETEROGENEITY_DIAGNOSIS_COMPLETE`。P2 的冻结结论仍是 `mixed_or_graph_specific`：部分方向跨比赛稳定，但幅度和方向依赖 architecture、graph、role、energy，且它是 representation response，不是下游任务性能。项目仍在既有 `P3_CAUSAL_MECHANISM`；T0–T5 已完成工程施工，但唯一因果开关只得到“表示塑形”证据，未闭合任务—鲁棒性门，因此当前状态为 `P3_T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET`。P3 的一句话目标是：用 support-conditioned local geometry 预测、定位并干预 P2 异质性。局部几何在 retrospective 和同资产 response-blind prospective 上均优于频率/residual 基线；layer-wise 结果选择了 pooling accessibility 路线，但三 seed 的客观 phase-label 结果没有稳定 macro-F1 改善，context robustness 反而变差，所以不进入 P4、不训练 AMR。权威 P2 证据见 `artifacts/phase2/p2_fracture_continuity_v1/`、`reports/EXPLORATION_CHECKPOINT_2_FRACTURE.md` 和 `reports/P2_HETEROGENEITY_DIAGNOSIS.md`；P3 证据见 `artifacts/phase3/`、`configs/phase3_support_geometry_v1.yaml` 和 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`。
+当前执行状态（2026-09-02）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2、独立 fracture continuity 和 P2-H1 有界异质性诊断均已闭合。P2 的冻结结论仍是 `mixed_or_graph_specific`：部分方向跨比赛稳定，但幅度和方向依赖 architecture、graph、role、energy，且它是 representation response，不是下游任务性能。项目仍在既有 `P3_CAUSAL_MECHANISM`；原 T0–T5 只得到“表示塑形”证据，旧 task gate 未闭合，且旧 heldout 已在候选循环中暴露，只能作 exploratory audit。当前授权的是有界的 `P3-T5R` task-semantic repair，不是新 Phase，也不是直接训练 AMR。其目标是把需要保留绝对部署信息的 context task 与要求全局平移稳健的 intrinsic task 分开，并在独立比赛上检验固定双通道表示。权威 P2 证据见 `artifacts/phase2/` 与 P2 reports；P3 证据见 `artifacts/phase3/`、`configs/phase3_support_geometry_v1.yaml` 和 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`。
 
 P3 不否定 Action-Mode Spectrum，而把它保留为跨条件的边缘汇总，并补上 support/relationship-conditioned local geometry 机制层：先检验归一化 embedding 的 Jacobian 与 \(G_f=J_f^\top J_f\) 能否预测 fracture response，再做 prospective、layer-wise 定位和一个证据选择的因果开关。只有出现预测、定位、因果开关和客观任务联系，才进入 P4 AMR；M1/M2 不得先行。
 
-## 3. 一键准备
+## 3. 当前启动动作：P3-T5R
+
+当前唯一启动动作是先完成协议/文档迁移，再获取开发数据：
+
+1. 读取 `docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/` 全部说明；
+2. 完成 `P3-T5R0`，更新 canonical docs/configs 和 current-state audit；
+3. 只申请或下载 SNGAR train+valid，test 保持 firewall；
+4. 构建 context/intrinsic task 与 fixed dual-channel baseline；
+5. 只有 sanity gate 支持后，才允许最多两轮 bounded autoresearch。
+
+旧 heldout 标记为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再作为确认集。P4 AMR 继续 blocked，书法不参与体育端机制选择。
+
+## 4. 历史/基础准备
 
 ```bash
 cd ICLR_ActionMode_Project_Pack_20260818
@@ -53,11 +65,11 @@ python scripts/verify_data.py --manifest configs/data_manifest.yaml
 bash scripts/run_phase0_smoke.sh
 ```
 
-`--core` 只下载低成本、无需审批的数据：SkillCorner、Metrica、Make Me a Hanzi、开放书法小数据和 MathWriting excerpt。TrackID3x3、CCSE、MCCD、MathWriting full 需按文档中的可选参数或人工步骤执行。
+该段命令属于历史基础准备，不是当前 T5R 启动动作。原 `--core` 只下载低成本、无需审批的数据；SNGAR、IDSSE 和 SoccerTrack 的当前访问、split 和 candidate-lock 规则以 `configs/data_manifest.yaml`、`configs/phase3_task_semantic_repair_v1.yaml` 及补丁包为准。不得把 gated 数据写成已下载。
 
-P3 不需要新增数据域或更新 `infra/bioinf-data-index/`。所有结果使用同一批 250 个 canonical samples、9 个冻结点集模型和 P2 provenance 链；T2 只生成了一次预先锁定的同资产新 support reallocation。当前唯一下一步是冻结 P3 的条件化几何与“表示塑形、非方法修复”结论，保留 P4 为 gate-blocked；不得继续堆叠机制复杂度或先训练 AMR。
+旧 P3 结果继续使用同一批 250 个 canonical samples、9 个冻结点集模型和 P2 provenance 链；其 heldout 只能作为 exploratory audit。P3-T5R 允许在既有阶段内扩充独立比赛并修复任务语义，但不访问、修改或重建 `infra/bioinf-data-index/`。只有 T5R gate 闭合后，才重新考虑 P4 AMR。
 
-## 4. 研究原则与探索空间
+## 5. 研究原则与探索空间
 
 - **等能量扰动是测量条件**：比较不同模式时，应在坐标能量或像素感知能量上配平。
 - 对单调低通、非单调凹陷和组织性差异分别进行同频语义联盟与随机联盟对照，避免把不同现象混为一谈。
@@ -67,7 +79,7 @@ P3 不需要新增数据域或更新 `infra/bioinf-data-index/`。所有结果�
 - CAP 作为 baseline；方法探索从 AMR-Fixed 开始，并根据结果决定是否推进 AMR-Learned。
 - 算力按当前瓶颈和信息增益决定；需要 GPU 时记录 workload、成本和替代方案。
 
-## 5. 时间边界
+## 6. 时间边界
 
 ICLR 2027 官方节点：
 
@@ -77,7 +89,7 @@ ICLR 2027 官方节点：
 
 项目日程已写入 `configs/project.yaml`。延期时可根据实际发现动态重排阶段、扩展探索或收缩范围。
 
-## 6. 最小成功形态
+## 7. 最小成功形态
 
 探索性研究的高价值结果不是“体育和书法都提高准确率”，而是：
 

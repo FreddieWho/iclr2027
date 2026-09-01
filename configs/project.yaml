@@ -8,10 +8,13 @@ project:
   main_page_limit: 9
   created: 2026-08-18
   active_phase: P3_CAUSAL_MECHANISM
-  current_checkpoint: P3_T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY
-  current_route: mixed_or_graph_specific
-  current_phase_status: P3_T4_T5_COMPLETE_RESPONSE_SHAPING_ONLY_P4_GATE_NOT_MET
-  current_next_action: freeze_p3_claims_and_stop_mechanism_complexity
+  current_checkpoint: P3_T5R0_DOCUMENT_MIGRATION_COMPLETE
+  current_route: support_conditioned_geometry_with_task_semantic_repair
+  current_phase_status: P3_T5R0_COMPLETE_T5R1_DATA_ACCESS_PENDING_P4_BLOCKED
+  current_next_action: verify_sngar_train_valid_access_and_canonical_conversion
+  legacy_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
+  p4_status: blocked_pending_p3_t5r_gate
+  p5_status: blocked_pending_sports_prediction_lock
 
 scientific_core:
   primary_domain: football_tracking
@@ -44,14 +47,14 @@ schedule:
     end: 2026-08-26
   - phase: P3_CAUSAL_MECHANISM
     start: 2026-09-01
-    end: 2026-09-08
-    status: active
-    description: support-conditioned local geometry prediction, prospective validation, layer-wise localization, one evidence-selected causal switch, and task-geometry alignment
-  - phase: P4_AMR_METHOD
-    start: 2026-09-08
     end: 2026-09-14
-    entry_gate: P3_strong_or_conditionally_supported_route_only
-    status: blocked_by_p3_gate
+    status: active
+    description: support-conditioned local geometry prediction, prospective validation, layer-wise localization, one evidence-selected causal switch, and bounded P3-T5R task-semantic repair
+  - phase: P4_AMR_METHOD
+    start: 2026-09-15
+    end: 2026-09-18
+    entry_gate: P3_geometry_task_semantic_gate_and_external_confirmation
+    status: blocked_pending_p3_t5r_gate
   - phase: P5_CALLIGRAPHY_PREDICTION
     start: 2026-09-12
     end: 2026-09-17
@@ -76,3 +79,11 @@ exploration:
     - pivot
     - pause
     - stop
+  p3_task_semantic_repair:
+    status: t5r0_complete_data_access_pending
+    task_lane: P3-T5R0_to_P3-T5R6
+    protocol: configs/phase3_task_semantic_repair_v1.yaml
+    package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
+    autoresearch_budget: max_2_rounds_x_6_candidates
+    test_firewall: candidate_lock_required
+    dynamic_support: non_blocking_parallel_subtask

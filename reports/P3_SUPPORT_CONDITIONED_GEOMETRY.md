@@ -136,3 +136,9 @@ T5 的 controlled-intervention localization 进一步用六个 switch checkpoint
 - T4/T5：`artifacts/phase3/selected_causal_switch_v1/`
 - T5 localization：`node_sensitivity_localization_v2.parquet`、`node_sensitivity_localization_v2_summary.parquet` 及同名 receipt。
 - 每个目录的 `receipt.json`、`SHA256SUMS`、`known_limitations.md` 与 machine-readable summary 是对应结果的权威证据；Figure source tables 见各目录中的 parquet 以及 `figure_data/README.md`。
+
+## Revision note（2026-09-02）
+
+本报告中的 P3 geometry、prospective、layer/block 和 response-shaping 结果保持不变，不因 task-semantic repair 补丁而重算或覆盖。旧 candidate search 在候选循环中计算、打印并保存了 heldout，因此该 heldout 现在固定标记为 `EXPOSED_DURING_CANDIDATE_SEARCH`，只允许 exploratory audit。
+
+补丁包授权的 `P3-T5R` 是对旧 conflated task gate 的 protocol-corrective follow-up：它分离 context 与 intrinsic task，并计划使用 SNGAR train/valid 开发、candidate lock 后的 SNGAR test 和 IDSSE external confirmation。T5R 尚未产生实验结果；不得把本 revision note 解释为 task repair 已支持或 AMR 已启动。

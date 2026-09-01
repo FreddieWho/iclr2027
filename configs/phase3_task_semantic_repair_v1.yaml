@@ -1,0 +1,165 @@
+version: 1
+project: action-mode-spectrum
+phase: P3_CAUSAL_MECHANISM
+task_lane: P3-T5R
+status: t5r0_complete_data_access_pending
+package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
+
+legacy_evidence:
+  old_task_gate: NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE
+  old_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
+  old_heldout_allowed_use: exploratory_audit_only
+  p2_artifacts_read_only: true
+  p3_geometry_artifacts_read_only: true
+
+data:
+  development:
+    dataset_id: SNGAR-Action-Spotting-Tracking
+    source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
+    access_status: gated_access_not_assumed
+    train_matches: 45
+    valid_matches: 9
+    test_matches: 10
+    search_splits: [train, valid]
+    test_policy: candidate_lock_then_single_run
+    time_column: videoTimeMs
+    raw_manifest: MANIFEST.sha256
+  historical_dynamic_support:
+    dataset_id: SkillCorner_Open_Data
+    source: https://github.com/SkillCorner/opendata
+    status: existing_historical_asset
+    final_confirmation_allowed: false
+  external_confirmation:
+    dataset_id: IDSSE
+    source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
+    matches: 7
+    status: not_downloaded_by_this_package
+    policy: no_model_results_before_candidate_lock
+  acquisition_shift:
+    dataset_id: SoccerTrack_v2
+    source: https://huggingface.co/datasets/atomscott/soccertrack-v2
+    smoke_matches: [117092, 117093]
+    status: parser_smoke_only_until_candidate_lock
+
+split_lock:
+  primary_unit: source_match_id
+  cross_match_frame_split_forbidden: true
+  cross_event_split_forbidden: true
+  train_valid_only_during_search: true
+  final_test_labels_available_during_search: false
+  external_results_available_during_search: false
+
+tasks:
+  context:
+    primary:
+      - phase_or_deployment_classification
+      - absolute_team_centroid_or_field_zone
+    representation: z_ctx
+    input_view: raw_positions
+    global_translation_semantics: preserve_context_accessibility
+  intrinsic:
+    primary:
+      - natural_pair_ranking
+    secondary:
+      - intrinsic_formation_retrieval
+    representation: z_mode
+    input_view: globally_centered_positions
+    global_translation_semantics: robust_nuisance_invariance
+    intervention_label_as_main_task: false
+  dynamic_support:
+    status: non_blocking_parallel
+    response_blind: true
+
+model:
+  encoder: shared_phase_gat_or_locked_equivalent
+  channels:
+    context: raw_positions_to_z_ctx
+    mode: centered_positions_to_z_mode
+  context_head_reads: [z_ctx]
+  intrinsic_head_reads: [z_mode]
+  cross_readouts: leakage_audit_only
+  role_as_required_runtime_input: false
+
+baselines:
+  - raw_single_channel_team_mean
+  - centered_single_channel
+  - raw_relational_pooling
+  - fixed_dual_channel
+  - raw_coordinates_or_procrustes
+
+training_lock:
+  seeds: [11, 23, 47]
+  optimizer: pending_baseline_lock
+  epochs: pending_baseline_lock
+  parameter_matching: required
+  noninferiority_margin:
+    status: pending_baseline_lock
+    context_metric: context_task_primary
+
+metrics:
+  primary_statistical_unit: source_match_id
+  context:
+    - macro_f1
+    - accuracy_or_regression_error
+    - absolute_deployment_accessibility
+  intrinsic:
+    - match_grouped_ranking_accuracy
+    - mrr_or_recall_at_k
+    - hard_negative_performance
+  robustness:
+    - z_mode_global_translation_response
+    - z_ctx_context_accessibility
+  geometry:
+    - full_geometry_response_spearman
+    - diagonal_geometry_response_spearman
+    - off_diagonal_geometry_response_spearman
+  statistics:
+    - match_bootstrap_ci
+    - leave_one_match_out_sensitivity
+    - seed_level_effect
+
+autoresearch:
+  status: not_started
+  max_rounds: 2
+  max_new_candidates_per_round: 6
+  one_major_mechanism_axis_per_candidate: true
+  round_1_axes: [loss_balance, head_placement, gradient_routing, fixed_leakage_penalty]
+  round_2_requires_round_1_stable_signal: true
+  round_2_axes: [pooling, constraint_placement]
+  heldout_selection: forbidden
+  external_result_selection: forbidden
+  metric_or_split_changes: forbidden
+  architecture_zoo: forbidden
+
+candidate_lock:
+  required_before_test: true
+  status: CANDIDATE_LOCKED_BEFORE_TEST
+  schema: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/templates/candidate_lock.schema.json
+  output: artifacts/phase3/task_semantic_repair_v1/candidate_lock.json
+
+firewall:
+  legacy_heldout: exploratory_audit_only
+  sngar_test_files_present_during_search: false
+  sngar_test_labels_read_during_search: false
+  idsse_results_read_during_search: false
+  soccertrack_final_results_read_during_search: false
+  candidate_lock_required_for_test_download: true
+
+artifacts:
+  root: artifacts/phase3/task_semantic_repair_v1/
+  plan_report: reports/P3_TASK_SEMANTIC_REPAIR_PLAN.md
+  results_report: reports/P3_TASK_SEMANTIC_REPAIR_RESULTS.md
+  final_decision: reports/P3_T5R_FINAL_DECISION.md
+
+gate:
+  p4_requires:
+    - unseen_match_geometry_prediction
+    - context_task_noninferiority
+    - intrinsic_task_improvement
+    - z_mode_translation_robustness
+    - majority_seed_and_match_consistency
+    - sngar_test_confirmation
+    - idsse_external_confirmation
+    - no_leakage_role_oracle_or_capacity_shortcut
+    - fixed_non_posterior_routing_rule
+  failure_route: NOT_SUPPORTED_OR_DIAGNOSTIC_MECHANISTIC_VERSION

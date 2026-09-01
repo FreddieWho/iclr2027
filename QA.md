@@ -732,3 +732,15 @@ P3 采用 support-conditioned local geometry，因为归一化 embedding 的局�
 局部几何在当前 250 samples、10 个 source matches 和 9 个冻结模型上，对 P2 fracture pair effect 的 retrospective mean Spearman 为 0.8466，response-blind 同资产 prospective 为 0.8526；频率/residual baseline 分别为 0.1222 和 0.1294。T3 显示 diagonal sensitivity 为主，off-diagonal 信息按架构在 message passing 或 pooling 中形成/保留。T4 选择的 Phase-GAT pooling-accessibility 开关在 3 个 matched-capacity seeds 上改变 geometry 和 response；T5 nodewise support localization 仅为 0.1546/0.1487，对应 uniform baseline 0.1458。context response 三 seed 均上升，heldout macro-F1 均值略降。因此结果是 representation shaping，不是任务修复；P4 gate 未满足，不启动 AMR 或完整 causal matrix。
 
 这不是把 `mixed_or_graph_specific` 改写成统一效应：Action-Mode Spectrum 仍是条件化 response 的边缘汇总，P2 的异号条件和 role/architecture/graph 依赖仍保留。完整证据见 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`、`artifacts/phase3/` 和 `CLAIM_LEDGER.md`。
+
+## QA-2026-09-02-025：为什么旧 task repair 阴性结果仍允许 P3-T5R？
+
+### 回答
+
+旧 T5 将 phase/deployment 等需要 absolute position 的 context task，与要求对 global translation 低响应的 intrinsic robustness 放入同一 gate。它支持 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`，但不能证伪分离 `z_ctx` 与 `z_mode` 后的 task-conditioned repair。T5R 仍在既有 `P3_CAUSAL_MECHANISM` 内，先修 protocol、独立比赛和 test firewall；只有固定双通道 sanity 有稳定信号才运行 bounded autoresearch，P4 AMR 仍 blocked。
+
+## QA-2026-09-02-026：T5R 当前哪些数据可以使用？
+
+### 回答
+
+搜索阶段只允许 SNGAR train/valid（访问批准后）以及已标记为 historical 的 SkillCorner dynamic-support 规则开发。SNGAR test、IDSSE 结果和 SoccerTrack 正式 acquisition-shift 结果必须等 candidate lock 后再读取。旧 heldout 只能作 exploratory audit；任何 gated 数据都不能在配置中伪装成已下载。书法不用于选择体育端机制，`infra/bioinf-data-index/` 不在本项目范围内。

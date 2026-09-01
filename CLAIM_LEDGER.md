@@ -1,6 +1,6 @@
 # Claim Ledger
 
-更新时间：2026-09-01
+更新时间：2026-09-02
 
 | Claim ID | Claim | Evidence status | Allowed wording / boundary | Next evidence |
 |---|---|---|---|---|
@@ -13,7 +13,7 @@
 | P3-G2 | diagonal/off-diagonal block 可解释异质性 | WORKING_HYPOTHESIS | 若 off-diagonal 无增益，收缩为 diagonal claim | T3 block decomposition |
 | P3-G3 | 异质性可定位到特定网络阶段 | WORKING_HYPOTHESIS | 不预设 pooling 或 message passing | T3 layer-wise |
 | P3-G4 | 一个 matched-capacity 开关可改变 geometry、response、任务 | WORKING_HYPOTHESIS | 仅一条 evidence-selected route | T4，未通过则不做 AMR |
-| P3-G5 | geometry-task alignment 带来任务 Pareto 改善 | WORKING_HYPOTHESIS | response 大小本身无方向意义 | T5 |
+| P3-G5 | geometry-task alignment 在旧 conflated task gate 下带来任务 Pareto 改善 | NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE | 仅否定旧任务定义下的修复；response 大小本身无方向意义 | P3-R2 |
 | P4-C1 | AMR-Fixed 适合作为机制驱动方法 | BLOCKED_BY_P3_GATE | 只有 P3 强/条件支持后才可进入 | P3 gate |
 | Domain-C1 | 书法结果可选择体育端机制 | FORBIDDEN | 书法 exploratory，不用于本轮选择 | 未来独立冻结预测后再评估 |
 
@@ -33,3 +33,14 @@
 ## 证据状态规则
 
 SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-P2 mechanistic follow-up，不是预注册确认；NOT_RUN、NOT_TESTED、BLOCKED 不得用“趋势一致”替代。每次结果回写都必须同时记录 match-level 单位、失败条件、prospective 状态和 artifact provenance。
+
+## P3-T5R 新增 claim（2026-09-02）
+
+| Claim ID | Claim | Evidence status | Allowed wording / boundary | Next evidence |
+|---|---|---|---|---|
+| P3-R1 | 旧 T5 gate 混淆了 context signal 与 intrinsic nuisance | DESIGN_DIAGNOSIS_SUPPORTED | 仅解释旧任务设计，不等于已证明修复有效 | T5R-2/T5R-3 |
+| P3-R2 | 固定 context/mode 双通道能改善正确任务 Pareto | WORKING_HYPOTHESIS | context 与 intrinsic 必须分开评价 | T5R-3 |
+| P3-R3 | geometry-response 关系可推广到未见比赛 | NOT_ESTABLISHED | 当前同资产 prospective 不等于新比赛泛化 | T5R-5/T5R-6 |
+| P3-R4 | dynamic semantic support 相对 matched random 有稳定增量 | NOT_ESTABLISHED | support construction 必须 response-blind 并经审计 | dynamic-support task |
+| P3-R5 | P3-T5R 可为 AMR-Fixed 提供非后验目标 | BLOCKED_PENDING_T5R | 只有新 task、test firewall 和外部确认闭合后才可进入 P4 | T5R-5/T5R-6 |
+| DATA-C1 | 旧 heldout 可用于最终确认 | FORBIDDEN | 只允许 exploratory audit；不得选择候选 | SNGAR test lock |

@@ -2,19 +2,27 @@
 
 > 本文件便于连续阅读；执行时以各独立文档、配置和脚本为准。
 
-## 当前同步状态（2026-09-01）
+## 当前同步状态（2026-09-02）
 
 本节是本合并版的当前入口，优先于下方保留的历史方案文字；独立 canonical source docs 和 machine-readable configs 是执行真源。
 
 - P2 rigid formal v2、independent fracture continuity、P2-H1 heterogeneity diagnosis 已完成并冻结。
-- 当前 route 为 mixed_or_graph_specific；P2 是 representation response，不是下游任务性能。P2 reports、manifest、checksum、artifacts 和历史 claim 只读。
-- 当前 active phase 为既有 P3_CAUSAL_MECHANISM，不增加 P2.5/P3a/P3b；P3-T0–T5 已完成工程施工，当前停止点为 response shaping only，P4 gate 未满足。
+- P2 的冻结 route 为 mixed_or_graph_specific；P2 是 representation response，不是下游任务性能。P2 reports、manifest、checksum、artifacts 和历史 claim 只读。
+- 当前 active phase 为既有 P3_CAUSAL_MECHANISM，不增加 P2.5/P3a/P3b；原 P3-T0–T5 已完成，当前进入有界 P3-T5R task-semantic repair，旧 task gate 仍未支持，P4 gate 未满足。
 - P3 的一句话目标是用 support-conditioned local geometry 预测、定位并干预 P2 异质性。机制对象为归一化 embedding 的局部 Jacobian 和 G_f=J_f^T J_f；Action-Mode Spectrum 保留为条件化对象的边缘汇总。
-- P3 顺序固定为 T0 接口 → T1 retrospective grouped prediction → T2 response-blind prospective → T3 layer/block localization → T4 一个 evidence-selected causal switch → T5 objective task alignment。完整 causal matrix 仅为 gate 后 optional extension；P4 AMR 在 gate 前不运行。
-- 当前 P3 结果为：full local geometry 在 retrospective/prospective 同资产评估中优于频率/residual 基线，T3 选择了 Phase-GAT pooling-accessibility 开关；nodewise support localization 仅接近 uniform，客观任务 macro-F1 未改善且 context robustness 变差，因此不进入 P4、不训练 AMR。入口配置为 `configs/phase3_support_geometry_v1.yaml`，主报告为 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`，迁移验收为 `reports/P3_DOCUMENT_MIGRATION.md`。
-- 本轮不新增数据，不访问、修改或重建 infra/bioinf-data-index/；书法结果保持 exploratory，不用于选择体育端机制。
+- P3 原顺序为 T0 接口 → T1 retrospective grouped prediction → T2 response-blind prospective → T3 layer/block localization → T4 一个 evidence-selected causal switch → T5 objective task alignment；当前在同一 P3 内追加 T5R0–T5R6：协议修复、独立数据、任务拆分、fixed dual-channel、有限 autoresearch、candidate lock/test 和外部确认。完整 causal matrix 仍为 gate 后 optional extension；P4 AMR 在 gate 前不运行。
+- 当前 P3 结果为：full local geometry 在 retrospective/prospective 同资产评估中优于频率/residual 基线，T3 选择了 Phase-GAT pooling-accessibility 开关；nodewise support localization 仅接近 uniform，客观任务 macro-F1 未改善且 context robustness 变差，因此不进入 P4、不训练 AMR。入口配置为 `configs/phase3_support_geometry_v1.yaml`，主报告为 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`，T5R0 迁移验收为 `reports/P3_T5R_DOCUMENT_MIGRATION.md`。
+- P3-T5R 可按数据 manifest 使用独立体育数据，但不访问、修改或重建 infra/bioinf-data-index；书法结果保持 exploratory，不用于选择体育端机制。
 
 下方旧 Phase 3、旧 bootstrap 和旧 QA 片段保留作历史上下文，不代表当前启动动作；如与上列状态或独立 canonical docs 冲突，以本节、source docs 和 configs 为准。
+
+## 当前同步增补（2026-09-02）：P3-T5R task-semantic repair
+
+本增补优先级高于下方历史正文，但不删除或改写 P2/P3 历史。旧 T5 的阴性结果限定为 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`；旧 heldout 因候选循环曾被计算、打印和保存，状态为 `EXPOSED_DURING_CANDIDATE_SEARCH`，只允许 exploratory audit。
+
+当前 active phase 仍为既有 `P3_CAUSAL_MECHANISM`，新增的是 `P3-T5R0`–`P3-T5R6` 任务编号，不是新 Phase。路线为：协议迁移 → SNGAR train/valid 开发数据与 canonical conversion → context/intrinsic 任务拆分 → fixed dual-channel sanity → 有界 autoresearch → candidate lock 后一次性 SNGAR test → IDSSE external confirmation。SkillCorner 只作历史 dynamic-support 规则开发，书法不用于选择体育端机制，`infra/bioinf-data-index/` 不在范围内。
+
+固定双通道使用 raw positions 的 `z_ctx` 与 globally centered positions 的 `z_mode`：前者保留 absolute deployment context，后者承担 intrinsic structure 与 global translation robustness。只有新 task、geometry、robustness、多 match/seed、candidate-lock test firewall 和外部确认同时闭合，才进入 P4 AMR-Fixed；当前 P4 仍 `blocked_pending_p3_t5r_gate`。机器配置为 `configs/phase3_task_semantic_repair_v1.yaml`，执行计划为 `reports/P3_TASK_SEMANTIC_REPAIR_PLAN.md`。
 
 # ICLR 2027 项目方案包：Action-Mode Spectrum
 

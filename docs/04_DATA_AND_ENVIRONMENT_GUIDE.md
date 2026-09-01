@@ -434,3 +434,17 @@ python scripts/verify_data.py --manifest configs/data_manifest.yaml
 - MCCD 仅非商业研究且禁止衍生再分发时，公开仓库只放索引和处理代码；
 - Google Drive 链接可能变化，提交前验证；
 - ICLR 双盲期仓库、W&B 和文件元数据不得暴露作者身份。
+
+## 11. P3-T5R 数据与访问状态（2026-09-02）
+
+当前数据入口由 `configs/data_manifest.yaml`（version 2）和 `configs/dataset_acquisition_manifest_v2.yaml` 共同描述：
+
+| 数据 | 当前状态 | 允许用途 |
+|---|---|---|
+| SNGAR train/valid | gated access not assumed | 仅在访问批准后用于开发、任务构造和候选选择 |
+| SNGAR test | locked | candidate lock 后一次性下载/运行 |
+| SkillCorner | existing historical asset | dynamic-support 规则开发和人工审计，不作最终确认 |
+| IDSSE | not downloaded by this package | candidate lock 后 external confirmation |
+| SoccerTrack v2 | parser smoke only | 先做两场转换 smoke，正式 acquisition-shift 需候选锁 |
+
+旧 heldout 只允许 `exploratory_audit_only`。跨比赛 split 是强制的，不能跨 match 随机切 frame；原始数据不进入 Git，必须保留 source revision、raw-to-canonical mapping、license snapshot、receipt 和 SHA-256。未获得访问权限时使用包内降级路线，但不能把 event-only 数据冒充 continuous geometry evidence。

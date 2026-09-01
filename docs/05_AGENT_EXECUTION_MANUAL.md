@@ -483,4 +483,20 @@ NEXT
 
 ## 15. P3 执行收口（2026-09-01）
 
-T0–T5 的实际 receipt、manifest、checksum 和结果已写入 `artifacts/phase3/`。T1/T2 支持局部几何预测，T3 支持条件性 layer/block anatomy，T4/T5 的唯一开关只支持 representation shaping。由于客观任务与 context robustness gate 未闭合，W4 不得继续实现 AMR-Fixed 或完整 causal matrix；W6 的当前职责是保存 Figure source contract、claim ledger 和失败边界。下一动作是冻结 P3 状态，不是重新分派机制实验。
+原 T0–T5 的实际 receipt、manifest、checksum 和结果已写入 `artifacts/phase3/`。T1/T2 支持局部几何预测，T3 支持条件性 layer/block anatomy，T4/T5 的唯一开关只支持 representation shaping。由于旧客观任务与 context robustness gate 未闭合，W4 仍不得实现 AMR-Fixed 或完整 causal matrix；截至 2026-09-02，补丁包授权在同一 P3 内执行 T5R task-semantic repair，W6 继续保存旧失败边界并为新 candidate lock 建立可复现 contract。
+
+## 16. P3-T5R worker 分工与协议（2026-09-02）
+
+P3-T5R 仍属于 `P3_CAUSAL_MECHANISM`：
+
+| Worker | T5R 职责 | 必须输出 |
+|---|---|---|
+| Data worker | SNGAR train/valid、SkillCorner dynamic-support、canonical conversion | source revision、split manifest、conversion receipt、checksum、QC |
+| Task worker | context/intrinsic task、natural pair/ranking、fixed dual-channel baseline | frozen task definitions、label coverage、leakage audit、baseline lock |
+| W2 | response-blind support/intervention复用与验证 | support manifest、合法性、match-level response、receipt |
+| W3 | geometry/JVP、layer/block 与 task-geometry diagnostics | fixed-layer metrics、match bootstrap、失败条件 |
+| W4 | T5R gate 通过前不得实现 AMR；通过后才可实现 AMR-Fixed | matched-capacity diff、训练 receipt、候选 gate |
+| Autoresearch worker | 最多两轮、每轮最多六候选、单轴搜索 | registered candidates、candidate metrics、Pareto 表、firewall 证明 |
+| W6/Repro worker | candidate lock、test firewall、hash、figure contract | lock schema、receipts、SHA-256、known limitations |
+
+每个任务必须标明 input、output、tests、manifest 和 stop condition。test/IDSSE 结果在 candidate lock 前必须物理不可见；旧 heldout 不得选候选。动态 support 可并行，但不能反向选择主 task-repair 候选。

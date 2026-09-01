@@ -150,3 +150,95 @@ exploration_checkpoints:
     evidence_to_collect:
       - "multiple band and mapping versions, with the exploration history retained"
       - "objective structure matching, perturbation localization and cross-domain failure cases"
+
+# This is a task lane inside the existing P3_CAUSAL_MECHANISM phase, not a new phase.
+p3_task_semantic_repair:
+  phase: P3_CAUSAL_MECHANISM
+  task_lane: P3-T5R
+  status: t5r0_complete_data_access_pending
+  protocol_config: configs/phase3_task_semantic_repair_v1.yaml
+  package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
+  legacy_heldout:
+    status: EXPOSED_DURING_CANDIDATE_SEARCH
+    allowed_use: exploratory_audit_only
+    candidate_selection: forbidden
+  data:
+    development:
+      dataset: SNGAR-Action-Spotting-Tracking
+      splits: [train, valid]
+      match_split: [45, 9]
+      access_status: gated_access_not_assumed
+    hidden_same_source:
+      dataset: SNGAR-Action-Spotting-Tracking
+      split: test
+      matches: 10
+      policy: candidate_lock_then_single_run
+    external:
+      dataset: IDSSE
+      matches: 7
+      policy: candidate_lock_then_external_confirmation
+    historical:
+      dataset: SkillCorner_Open_Data
+      matches: 10
+      policy: dynamic_support_rule_development_only
+  tasks:
+    context:
+      tasks:
+        - phase_or_deployment_classification
+        - absolute_team_centroid_or_field_zone
+      representation: z_ctx
+      translation_requirement: preserve_context_accessibility
+    intrinsic:
+      tasks:
+        - natural_pair_ranking
+        - intrinsic_formation_retrieval
+      representation: z_mode
+      translation_requirement: global_translation_robustness
+    dynamic_support:
+      status: non_blocking_parallel
+      response_blind: true
+  model:
+    architecture: shared_encoder_fixed_dual_channel
+    raw_view: z_ctx
+    centered_view: z_mode
+    context_head_reads: z_ctx_only
+    intrinsic_head_reads: z_mode_only
+    cross_readout: leakage_audit_only
+  baselines:
+    - raw_single_channel_team_mean
+    - centered_single_channel
+    - raw_relational_pooling
+    - fixed_dual_channel
+    - raw_coordinates_or_procrustes
+  metrics:
+    primary_unit: source_match_id
+    context: [macro_f1, accuracy_or_regression_error, accessibility]
+    intrinsic: [ranking_accuracy, mrr, recall_at_k, hard_negative_performance]
+    mode_robustness: [global_translation_response]
+    geometry: [full_spearman, diagonal_spearman, off_diagonal_spearman]
+    statistics: [match_bootstrap_ci, leave_one_match_out, seed_level_effect]
+  autoresearch:
+    max_rounds: 2
+    max_new_candidates_per_round: 6
+    min_seeds: [11, 23, 47]
+    one_major_axis_per_candidate: true
+    heldout_or_external_results_during_search: forbidden
+    architecture_zoo: forbidden
+  candidate_lock:
+    required_before_test: true
+    schema: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/templates/candidate_lock.schema.json
+    required_status: CANDIDATE_LOCKED_BEFORE_TEST
+  gate:
+    p4_entry_requires_all:
+      - geometry_prediction_on_unseen_matches
+      - context_task_noninferiority
+      - intrinsic_task_improvement
+      - z_mode_translation_robustness
+      - majority_seed_and_match_consistency
+      - sngar_test_direction_preserved
+      - external_idsse_direction_preserved
+      - no_test_leakage_role_oracle_or_capacity_shortcut
+      - fixed_non_posterior_routing_rule
+    failure_route: diagnostic_mechanistic_version_and_stop_amr
+  optional_after_minimal_mechanism_gate:
+    - full_augmentation_pooling_constraint_matrix

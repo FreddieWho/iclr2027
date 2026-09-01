@@ -563,9 +563,23 @@ q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2.
 
 ## 12. P3 实际结果与 Figure source contract（2026-09-01）
 
-P3-T0–T5 已执行完毕；当前结论为 response shaping only，P4 gate 未满足。retrospective full-vs-baseline mean Spearman 为 `0.8466` vs `0.1222`，prospective 为 `0.8526` vs `0.1294`，统计单位为 `source_match_id`。
+原 P3-T0–T5 已执行完毕；当前结论为 response shaping only，P4 gate 未满足。2026-09-02 起在同一 P3 内追加有界 T5R，不改变以下历史 Figure contract。retrospective full-vs-baseline mean Spearman 为 `0.8466` vs `0.1222`，prospective 为 `0.8526` vs `0.1294`，统计单位为 `source_match_id`。
 
 - Figure 3 使用 `artifacts/phase3/support_geometry_v1/pair_predictions.parquet`、`prediction_metrics.parquet` 和 `match_bootstrap_comparisons.parquet`，并分开显示 `artifacts/phase3/support_geometry_prospective_v1/prospective_pair_predictions.parquet` 与 prospective metrics。
 - Figure 4 使用 `layerwise_block_summary.parquet`、`layerwise_prediction_metrics.parquet` 和 `layerwise_jacobian_rank.parquet`，使用规范化/匹配方向指标，不比较不同维度层的原始 Frobenius norm。
 - Figure 5 使用 `selected_causal_switch_v1/switch_seed_summary.parquet`、`switch_task_metrics.parquet`、`switch_context_robustness_by_seed.parquet` 和 `node_sensitivity_localization_v2_summary.parquet`，必须同时画出 response shaping 与 task/robustness failure boundary。
 - 本轮 Figure 只支持“预测—定位—response shaping”链，不能标为任务修复或 AMR 成功图。完整 causal matrix 由于 gate 失败不启动。
+
+## 13. P3-T5R：任务语义与独立确认路线（2026-09-02）
+
+P3-T5R 不改变 Phase 0–8 编号。它在现有 P3 内使用 `T5R0`–`T5R6` 任务编号：protocol/document repair、data conversion、task/baseline lock、fixed dual-channel sanity、bounded autoresearch、candidate lock/test、external confirmation/go-no-go。
+
+固定双通道的主图和表必须分别报告：
+
+- context accessibility 与 phase/deployment task；
+- intrinsic ranking/retrieval 与 `z_mode` translation robustness；
+- cross-readout leakage；
+- full/diagonal/off-diagonal geometry prediction；
+- match-level、seed-level 和 bootstrap 区间。
+
+旧 heldout 标为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再绘制为 confirmatory test。SNGAR test 和 IDSSE 结果只能在 candidate lock 后进入图件。Figure 规划新增 fixed dual-channel task semantics、independent-match Pareto 和 test-firewall provenance；不恢复 universal notch，也不把动态 support 或书法结果提前写成正向机制。

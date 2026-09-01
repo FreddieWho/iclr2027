@@ -374,4 +374,18 @@ T3 表明 diagonal sensitivity 是主要贡献，off-diagonal coupling 提供额
 
 依据 T3 只执行一个 Phase-GAT pooling-accessibility switch。`relational_pairwise` 在 3 个 seed 上均改变 off-diagonal/full geometry 比例和 prospective response，但 context response 均增加，heldout macro-F1 均值略降；nodewise support localization 也只略高于 uniform baseline。因此 P3-G4 只能写为 `RESPONSE_SHAPING_ONLY`，P3-G5 不支持作为方法修复；P4 AMR gate 未满足。
 
-Action-Mode Spectrum 不被撤回：它是 support、relationship 和 task 条件化响应的边缘汇总，允许条件效应异号。统一中频盲区仍只是历史候选。下一步是冻结该边界并停止当前机制复杂度，不启动 AMR；完整证据见 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md` 和 `artifacts/phase3/`。
+Action-Mode Spectrum 不被撤回：它是 support、relationship 和 task 条件化响应的边缘汇总，允许条件效应异号。统一中频盲区仍只是历史候选。原 T0–T5 的停止边界仍然有效；截至 2026-09-02，补丁包在同一 P3 内授权有限的 T5R task-semantic repair，结果未出前不启动 AMR。完整旧 P3 证据见 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md` 和 `artifacts/phase3/`。
+
+## 13. P3-T5R：任务语义修复与独立数据确认（2026-09-02）
+
+补丁包将原 T5 阴性结果限定为旧的 conflated task gate：它把需要保留 absolute deployment 的 context task 与要求对 global translation 稳健的 intrinsic task 放进同一个表示优劣判据。因此旧结论保留为 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`，不被扩写为所有 task-conditioned repair 均失败。
+
+新的中心问题仍属于本阶段：
+
+```text
+operator × frequency × support/relationship × task semantics
+```
+
+P3-T5R 先固定两个互补读出：raw positions 进入 `z_ctx`，globally centered positions 进入 `z_mode`。`z_ctx` 负责 phase/deployment 和 absolute field context；`z_mode` 负责 natural pair ranking 或 intrinsic formation retrieval，并要求 global translation robustness。两个任务分别评价，cross-readout 只作 leakage audit。
+
+SNGAR train/valid 用于开发，SNGAR test 在 candidate lock 后一次性运行，IDSSE 用于外部确认，SkillCorner 只用于历史 dynamic-support 规则开发。所有 support 规则必须 response-blind、可审计且按 source match 统计。P3-T5R 是有界 post-P2 follow-up，不新增 Phase，不先训练 AMR；geometry 可预测不等于任务语义已被理解。
