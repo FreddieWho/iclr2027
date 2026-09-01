@@ -73,11 +73,12 @@ def main() -> int:
     require(project_state.get("active_phase") == "P3_CAUSAL_MECHANISM", "active phase is not P3_CAUSAL_MECHANISM", failures)
     require(project_state.get("current_checkpoint") == "P3_T5R0_DOCUMENT_MIGRATION_COMPLETE", "project checkpoint mismatch", failures)
     require(project_state.get("current_route") == "support_conditioned_geometry_with_task_semantic_repair", "project route mismatch", failures)
+    require(project_state.get("current_phase_status") == "P3_T5R0_COMPLETE_T5R1_BLOCKED_EXTERNAL_ACCESS_P4_BLOCKED", "project phase status mismatch", failures)
     require(project_state.get("p4_status") == "blocked_pending_p3_t5r_gate", "P4 is not blocked pending T5R gate", failures)
     require(project_state.get("p5_status") == "blocked_pending_sports_prediction_lock", "P5 status mismatch", failures)
     require(project_state.get("legacy_heldout_status") == "EXPOSED_DURING_CANDIDATE_SEARCH", "legacy heldout status mismatch", failures)
     repair_state = project.get("exploration", {}).get("p3_task_semantic_repair", {})
-    require(repair_state.get("status") == "t5r0_complete_data_access_pending", "T5R project status is not t5r0_complete_data_access_pending", failures)
+    require(repair_state.get("status") == "t5r1_blocked_external_access", "T5R project status is not t5r1_blocked_external_access", failures)
 
     require(matrix.get("p3_task_semantic_repair", {}).get("phase") == "P3_CAUSAL_MECHANISM", "T5R matrix is not inside P3", failures)
     require(matrix.get("p3_task_semantic_repair", {}).get("task_lane") == "P3-T5R", "T5R task lane missing", failures)
@@ -89,6 +90,8 @@ def main() -> int:
     datasets = data_manifest.get("datasets", {})
     sngar = datasets.get("sngar_tracking", {})
     require(sngar.get("status") == "access_not_assumed", "SNGAR access was silently marked available", failures)
+    require(sngar.get("access_probe_status") == "blocked_external_network_2026-09-02", "SNGAR access probe status mismatch", failures)
+    require(sngar.get("local_data_present") is False, "SNGAR local data presence is not explicitly false", failures)
     require(datasets.get("idsse", {}).get("status") == "not_downloaded_by_this_package", "IDSSE status mismatch", failures)
 
     require(repair.get("phase") == "P3_CAUSAL_MECHANISM", "repair config phase mismatch", failures)

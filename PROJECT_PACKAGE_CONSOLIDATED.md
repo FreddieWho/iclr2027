@@ -17,6 +17,7 @@
 下方旧 Phase 3、旧 bootstrap 和旧 QA 片段保留作历史上下文，不代表当前启动动作；如与上列状态或独立 canonical docs 冲突，以本节、source docs 和 configs 为准。
 
 ## 当前同步增补（2026-09-02）：P3-T5R task-semantic repair
+截至 2026-09-02，T5R0 已完成；T5R1 的 SNGAR train/valid dry-run 因外部网络不可用阻塞，未开始 canonical conversion 或任务训练。
 
 本增补优先级高于下方历史正文，但不删除或改写 P2/P3 历史。旧 T5 的阴性结果限定为 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`；旧 heldout 因候选循环曾被计算、打印和保存，状态为 `EXPOSED_DURING_CANDIDATE_SEARCH`，只允许 exploratory audit。
 

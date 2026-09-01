@@ -10,8 +10,8 @@ project:
   active_phase: P3_CAUSAL_MECHANISM
   current_checkpoint: P3_T5R0_DOCUMENT_MIGRATION_COMPLETE
   current_route: support_conditioned_geometry_with_task_semantic_repair
-  current_phase_status: P3_T5R0_COMPLETE_T5R1_DATA_ACCESS_PENDING_P4_BLOCKED
-  current_next_action: verify_sngar_train_valid_access_and_canonical_conversion
+  current_phase_status: P3_T5R0_COMPLETE_T5R1_BLOCKED_EXTERNAL_ACCESS_P4_BLOCKED
+  current_next_action: resolve_sngar_train_valid_access_or_provide_verified_mirror
   legacy_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
   p4_status: blocked_pending_p3_t5r_gate
   p5_status: blocked_pending_sports_prediction_lock
@@ -80,7 +80,7 @@ exploration:
     - pause
     - stop
   p3_task_semantic_repair:
-    status: t5r0_complete_data_access_pending
+    status: t5r1_blocked_external_access
     task_lane: P3-T5R0_to_P3-T5R6
     protocol: configs/phase3_task_semantic_repair_v1.yaml
     package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/

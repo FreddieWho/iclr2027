@@ -7,10 +7,10 @@
 - active_phase: P3_CAUSAL_MECHANISM
 - current_checkpoint: P3_T5R0_DOCUMENT_MIGRATION_COMPLETE
 - current_route: support_conditioned_geometry_with_task_semantic_repair
-- current_phase_status: P3_T5R0_COMPLETE_T5R1_DATA_ACCESS_PENDING_P4_BLOCKED
+- current_phase_status: P3_T5R0_COMPLETE_T5R1_BLOCKED_EXTERNAL_ACCESS_P4_BLOCKED
 - p4_status: blocked_pending_p3_t5r_gate
 - p5_status: blocked_pending_sports_prediction_lock
-- next_action: verify_sngar_train_valid_access_and_canonical_conversion
+- next_action: resolve_sngar_train_valid_access_or_provide_verified_mirror
 
 P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性诊断均已完成。P2 结论是 representation response，不是下游任务性能；20/36 条件正向、16/36 条件负向，方向依赖 architecture、graph、role、energy。该结果不被重算、覆盖或改写。
 
@@ -56,7 +56,7 @@ P3-T5R 允许在既有阶段内引入经批准的独立体育数据，但不访�
 ## P3-T5R 当前状态（2026-09-02）
 
 - T5R0：协议/文档迁移，已完成；
-- T5R1：SNGAR train/valid 获取与 canonical conversion，未运行；
+- T5R1：SNGAR train/valid 获取与 canonical conversion，BLOCKED_EXTERNAL_ACCESS；
 - T5R2：context/intrinsic task 与 baseline lock，未运行；
 - T5R3：fixed dual-channel sanity，未运行；
 - T5R4：bounded autoresearch，未授权启动；

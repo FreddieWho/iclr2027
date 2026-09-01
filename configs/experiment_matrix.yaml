@@ -155,7 +155,7 @@ exploration_checkpoints:
 p3_task_semantic_repair:
   phase: P3_CAUSAL_MECHANISM
   task_lane: P3-T5R
-  status: t5r0_complete_data_access_pending
+  status: t5r1_blocked_external_access
   protocol_config: configs/phase3_task_semantic_repair_v1.yaml
   package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
   legacy_heldout:

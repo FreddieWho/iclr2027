@@ -96,6 +96,12 @@
 
 ## D-20260902-P3-015：动态 support 状态
 
+## D-20260902-P3-016: SNGAR access blocked
+- Date: 2026-09-02
+- Decision: T5R1 only ran a train/valid dry-run; the local SNGAR directory is absent, normal access failed on DNS, and the elevated probe failed with `Network is unreachable`. Status is `BLOCKED_EXTERNAL_ACCESS`.
+- Impact: do not run canonical conversion, task construction, or fixed dual-channel; do not treat the existing SkillCorner historical asset as SNGAR continuous tracking. SNGAR test, IDSSE, and SoccerTrack remain behind the existing firewall.
+- Recovery: provide gated Hugging Face access or a raw-data mirror with source revision, license snapshot, raw-to-canonical mapping, and SHA-256.
+
 - 日期：2026-09-02
 - 决定：static role universal effect 仍为 `NOT_SUPPORTED`；dynamic semantic support 作为 response-blind、可人工审计的新 operationalization，属于非阻塞子任务。
 - 影响：dynamic support 不能反向选择主 task-repair 候选；规则、匹配和人工审计必须先于 response 计算冻结。

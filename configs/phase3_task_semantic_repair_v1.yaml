@@ -2,7 +2,7 @@ version: 1
 project: action-mode-spectrum
 phase: P3_CAUSAL_MECHANISM
 task_lane: P3-T5R
-status: t5r0_complete_data_access_pending
+status: t5r1_blocked_external_access
 package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
 
 legacy_evidence:
@@ -16,7 +16,7 @@ data:
   development:
     dataset_id: SNGAR-Action-Spotting-Tracking
     source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
-    access_status: gated_access_not_assumed
+    access_status: blocked_external_network_2026-09-02
     train_matches: 45
     valid_matches: 9
     test_matches: 10

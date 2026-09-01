@@ -54,6 +54,7 @@ P3 不否定 Action-Mode Spectrum，而把它保留为跨条件的边缘汇总�
 5. 只有 sanity gate 支持后，才允许最多两轮 bounded autoresearch。
 
 旧 heldout 标记为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再作为确认集。P4 AMR 继续 blocked，书法不参与体育端机制选择。
+截至 2026-09-02，SNGAR train/valid 访问探针为 `BLOCKED_EXTERNAL_ACCESS`，未产生本地数据或 T5R 实验结果；恢复条件是可验证的网络访问或带 checksum 的用户提供镜像。
 
 ## 4. 历史/基础准备
 

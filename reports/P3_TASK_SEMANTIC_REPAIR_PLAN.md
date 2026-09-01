@@ -1,7 +1,7 @@
 # P3-T5R Task-Semantic Repair Plan
 
 日期：2026-09-02  
-状态：`T5R0_COMPLETE_T5R1_DATA_ACCESS_PENDING`  
+状态：`T5R1_BLOCKED_EXTERNAL_ACCESS`
 所属阶段：既有 `P3_CAUSAL_MECHANISM`
 
 ## 1. 目的与边界
@@ -87,7 +87,8 @@ centered view:  X - mean(X) -> Pool -> z_mode -> intrinsic head
 ## 7. 当前证据状态
 
 已完成：T5R0 的文档/config 迁移与一致性审计准备。  
-尚未运行：SNGAR 获取与转换、任务构造、fixed dual-channel、autoresearch、candidate lock、SNGAR test、IDSSE confirmation。  
+T5R1 访问探针：SNGAR train/valid 本地目录不存在；普通权限 dry-run 为 DNS 失败，升权 dry-run 在 131 秒后为 `Network is unreachable`。未下载任何 SNGAR 文件。
+尚未运行：canonical conversion、任务构造、fixed dual-channel、autoresearch、candidate lock、SNGAR test、IDSSE confirmation。
 当前 P4：`blocked_pending_p3_t5r_gate`。
 
 机器配置：`configs/phase3_task_semantic_repair_v1.yaml`。  

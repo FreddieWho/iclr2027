@@ -101,6 +101,8 @@ datasets:
     source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
     access: gated_huggingface
     status: access_not_assumed
+    access_probe_status: blocked_external_network_2026-09-02
+    local_data_present: false
     split_policy: train_valid_development_only_until_candidate_lock
     test_policy: test_requires_candidate_lock
     license_note: respect gated access terms; do not redistribute raw data
