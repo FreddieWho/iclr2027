@@ -1,0 +1,39 @@
+{
+  "artifact": "candidate_search_v1",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "search_protocol": "AUTORESEARCH_P3_GOAL_PROMPT.md",
+  "incumbent": "team_mean",
+  "candidates": [
+    "team_mean",
+    "relational_pairwise",
+    "centered_team_mean",
+    "centered_relational",
+    "team_centered"
+  ],
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "matched_parameter_count": 149639,
+  "train_epochs": 80,
+  "optimizer": "Adam lr=1e-3",
+  "split": "train 113 / dev 37 / heldout 32 (canonical_samples.jsonl grouped inner split reused, heldout excluded from ranking)",
+  "config": "configs/phase3_support_geometry_v1.yaml",
+  "code_version": "scripts/p3_candidate_search.py sha256 102d7afe8b69bbebaad6f8d53b943cee913c7cf7e0727be94186c3c9151d8ebe",
+  "ranking_csv": "ranking.csv",
+  "task_parquets": [
+    "task_team_mean.parquet",
+    "task_relational_pairwise.parquet",
+    "task_centered_team_mean.parquet",
+    "task_centered_relational.parquet",
+    "task_team_centered.parquet"
+  ],
+  "context_parquets": [
+    "context_team_mean.parquet",
+    "context_relational_pairwise.parquet",
+    "context_centered_team_mean.parquet",
+    "context_centered_relational.parquet",
+    "context_team_centered.parquet"
+  ]
+}

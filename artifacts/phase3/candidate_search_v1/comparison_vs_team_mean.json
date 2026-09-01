@@ -1,0 +1,50 @@
+{
+  "records": [
+    {
+      "candidate": "centered_team_mean",
+      "dev_macro_f1_mean": 0.3701993956493107,
+      "dev_delta_vs_team_mean": 0.0309565966580026,
+      "context_mean": 1.160559056264295e-13,
+      "context_delta_vs_team_mean": -0.013235216345342244,
+      "geom_mean": 0.7280178099467811,
+      "geom_delta_vs_team_mean": -0.010328409625157575,
+      "pareto_dev_up": true,
+      "pareto_context_down": true,
+      "pareto_geom_keep": false,
+      "pareto_all_three": false
+    },
+    {
+      "candidate": "centered_relational",
+      "dev_macro_f1_mean": 0.352026640752131,
+      "dev_delta_vs_team_mean": 0.012783841760822923,
+      "context_mean": 1.209961020265382e-13,
+      "context_delta_vs_team_mean": -0.013235216345337303,
+      "geom_mean": 0.7462358026121255,
+      "geom_delta_vs_team_mean": 0.007889583040186832,
+      "pareto_dev_up": true,
+      "pareto_context_down": true,
+      "pareto_geom_keep": true,
+      "pareto_all_three": true
+    },
+    {
+      "candidate": "relational_pairwise",
+      "dev_macro_f1_mean": 0.3555793412936269,
+      "dev_delta_vs_team_mean": 0.01633654230231879,
+      "context_mean": 0.0157052054024142,
+      "context_delta_vs_team_mean": 0.002469989056955899,
+      "geom_mean": 0.8453067881628752,
+      "geom_delta_vs_team_mean": 0.1069605685909365,
+      "pareto_dev_up": true,
+      "pareto_context_down": false,
+      "pareto_geom_keep": true,
+      "pareto_all_three": false
+    }
+  ],
+  "heldout_means": {
+    "team_mean": 0.18612001633348105,
+    "centered_relational": 0.18896508262470443,
+    "centered_team_mean": 0.1393073593073593,
+    "relational_pairwise": 0.18393365893365896
+  },
+  "note": "heldout computed after ranking, not used for selection"
+}

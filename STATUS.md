@@ -33,6 +33,7 @@ P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性�
 - P2-H1 diagnosis：artifacts/phase2/p2_heterogeneity_diagnosis_v1/
 - P3 design lock：configs/phase3_support_geometry_v1.yaml
 - P3 主报告：reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md
+- P3 候选搜索（autoresearch）：artifacts/phase3/candidate_search_v1/、reports/P3_CANDIDATE_SEARCH_REPORT.md（结论 NOT_SUPPORTED，保留 team_mean）
 
 关键 provenance、版本和 hash 见 P3 config、各 phase3 artifact 的 receipt/SHA256SUMS 与 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`。P2 报告、manifest、checksum 和历史 claim 只读。
 

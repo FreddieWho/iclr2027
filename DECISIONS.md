@@ -56,3 +56,11 @@
 - 结果：6 个 switch checkpoint、53,700 个 complete arms、60 个 match-group rows；relational pairwise mean top-k recall 0.1546，team mean 0.1487，uniform support-size baseline 0.1458；q-full 重算最大绝对误差 `8.9e-9`。
 - 解释边界：定位增益接近 uniform，不能支撑有用 localization task 或 geometry-task repair；P3-G5 仍不支持，P4 继续 blocked。
 - 证据：`artifacts/phase3/selected_causal_switch_v1/node_sensitivity_localization_v2_summary.parquet`。
+
+## D-20260901-P3-010：Autoresearch 候选搜索（task-geometry Pareto）
+
+- 日期：2026-09-01
+- 决定：执行 `AUTORESEARCH_P3_GOAL_PROMPT.md` 的单轴小改动搜索，复用 train 113/dev 37 分组内验证，heldout 32 仅冻结后审计，不用于排序；候选 `team_mean` / `relational_pairwise` / `centered_team_mean` / `centered_relational` / `team_centered`，seeds 11,23,47，matched capacity 149639，80 epochs Adam 1e-3。
+- 结果：lexicographic 排序首位 `centered_team_mean` dev 0.3702>0.3392 且 context~0，但 geom 0.728<0.738 且 heldout 0.139<0.186；单轴 `relational_pairwise` context 上升；`centered_relational` 虽满足三阈值（dev 0.352、context~0、geom 0.746、heldout 0.189）但为 2 轴组合且 dev/heldout 均由单 seed 驱动（seed 11 dev +0.052、seed 47 heldout 0.300），不满足“不能只由单个 seed 驱动”与“一次一轴”门槛。
+- 判定：`表示塑形成功，但 task repair 未支持。 / NOT SUPPORTED`，保留 `team_mean` incumbent，不扩大矩阵、不新增数据/模型动物园、不改 P2 冻结资产、不启动 P4 AMR。
+- 证据：`artifacts/phase3/candidate_search_v1/`（`ranking.csv`、`task_*.parquet`、`context_*.parquet`、`comparison_vs_team_mean.json`、`manifest.json`、`SHA256SUMS`）、`reports/P3_CANDIDATE_SEARCH_REPORT.md`、`scripts/p3_candidate_search.py` sha256 `102d7afe8`。
