@@ -1,0 +1,17 @@
+{
+  "variant": "raw_coordinate_procrustes",
+  "valid": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.0871677752584219,
+    "procrustes_match_grouped_ranking_accuracy": 0.9372348487377167,
+    "raw_coordinate_pair_count": 980,
+    "procrustes_pair_count": 980,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "train": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.2201898992061615,
+    "procrustes_match_grouped_ranking_accuracy": 0.9822226911783218,
+    "raw_coordinate_pair_count": 3750,
+    "procrustes_pair_count": 3750,
+    "status": "analytic_control_only_no_context_head"
+  }
+}

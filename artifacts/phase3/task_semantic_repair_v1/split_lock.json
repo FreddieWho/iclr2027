@@ -1,0 +1,22 @@
+{
+  "event_split_forbidden": true,
+  "frame_split_forbidden": true,
+  "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+  "primary_unit": "source_match_id",
+  "reserved_holdout_match_count": 1,
+  "reserved_holdout_policy": "do not load into T5R2 task views; candidate lock required before one read",
+  "same_source_not_independent_provider": true,
+  "selection_rule": "fixed ID-only assignment; no event count, score, model result, or holdout result used",
+  "split_map": {
+    "J03WMX": "train",
+    "J03WN1": "valid",
+    "J03WOH": "train",
+    "J03WOY": "valid",
+    "J03WPY": "train",
+    "J03WQQ": "reserved_holdout",
+    "J03WR9": "train"
+  },
+  "status": "MATCH_SPLIT_FROZEN_BEFORE_T5R2_TASK_CONSTRUCTION",
+  "train_match_count": 4,
+  "valid_match_count": 2
+}

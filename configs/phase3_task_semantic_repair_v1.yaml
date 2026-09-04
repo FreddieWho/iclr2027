@@ -2,7 +2,7 @@ version: 1
 project: action-mode-spectrum
 phase: P3_CAUSAL_MECHANISM
 task_lane: P3-T5R
-status: t5r1_blocked_external_access
+status: t5r3_directional_pass_t5r4_review_required
 package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
 
 legacy_evidence:
@@ -14,16 +14,33 @@ legacy_evidence:
 
 data:
   development:
+    dataset_id: IDSSE
+    source: https://huggingface.co/datasets/pysport/idsse-data
+    original_source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
+    access_status: official_page_verified_canonical_conversion_and_qc_complete
+    raw_path: data/raw/sports/idsse-data
+    match_count: 7
+    official_revision: a715a38dfbaf5f58e431727c2b78d174101a703c
+    official_file_tree_matches_local: true
+    official_card_id_note: card_text_lists_J03WPF_and_J03WQF_file_tree_lists_J03WQQ_and_J03WR9
+    viewer_status: unavailable_features_error_file_not_found_for_default_train
+    role: temporary_substitute_for_sngar_development
+    split_policy: match_level_split_frozen_before_task_construction
+    train_matches: [J03WMX, J03WOH, J03WPY, J03WR9]
+    valid_matches: [J03WN1, J03WOY]
+    heldout_matches: [J03WQQ]
+    search_splits: train_and_valid_only
+    test_policy: no_official_hidden_split; reserved_match_read_only_after_candidate_lock
+    time_column: source_native_event_and_frame_time
+    raw_manifest: artifacts/data_v2/idsse/source_file_manifest.json
+    raw_sha256sums: artifacts/data_v2/idsse/RAW_SHA256SUMS
+    canonical_manifest: artifacts/data_v2/idsse/canonical_manifest.json
+    conversion_receipts: artifacts/data_v2/idsse/canonical/conversion_receipts/
+  deferred_sngar:
     dataset_id: SNGAR-Action-Spotting-Tracking
     source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
     access_status: blocked_external_network_2026-09-02
-    train_matches: 45
-    valid_matches: 9
-    test_matches: 10
-    search_splits: [train, valid]
-    test_policy: candidate_lock_then_single_run
-    time_column: videoTimeMs
-    raw_manifest: MANIFEST.sha256
+    role: deferred_primary_development_and_future_independent_confirmation
   historical_dynamic_support:
     dataset_id: SkillCorner_Open_Data
     source: https://github.com/SkillCorner/opendata
@@ -31,10 +48,14 @@ data:
     final_confirmation_allowed: false
   external_confirmation:
     dataset_id: IDSSE
-    source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
+    source: https://huggingface.co/datasets/pysport/idsse-data
     matches: 7
-    status: not_downloaded_by_this_package
-    policy: no_model_results_before_candidate_lock
+    status: unavailable_as_independent_confirmation_after_development_substitution
+    policy: do_not_reuse_development_matches_as_external_confirmation
+  independent_confirmation:
+    dataset_id: SNGAR-test-or-SoccerTrack-v2
+    status: pending_after_idsse_development_branch
+    policy: candidate_lock_before_any_reserved_holdout_or_external_result
   acquisition_shift:
     dataset_id: SoccerTrack_v2
     source: https://huggingface.co/datasets/atomscott/soccertrack-v2
@@ -89,12 +110,23 @@ baselines:
 
 training_lock:
   seeds: [11, 23, 47]
-  optimizer: pending_baseline_lock
-  epochs: pending_baseline_lock
+  optimizer: Adam
+  learning_rate: 0.001
+  weight_decay: 0
+  epochs: 80
+  batch_size: 64
+  latent_dim: 128
+  hidden_dim: 128
+  message_passing_layers: 2
+  augmentation: none
+  early_stopping: false
+  class_weighting: false
   parameter_matching: required
   noninferiority_margin:
-    status: pending_baseline_lock
+    status: locked_in_artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json
     context_metric: context_task_primary
+    macro_f1_absolute_drop_max: 0.05
+    centroid_mae_increase_max: 0.05
 
 metrics:
   primary_statistical_unit: source_match_id
@@ -133,7 +165,7 @@ autoresearch:
 
 candidate_lock:
   required_before_test: true
-  status: CANDIDATE_LOCKED_BEFORE_TEST
+  status: NOT_CREATED
   schema: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/templates/candidate_lock.schema.json
   output: artifacts/phase3/task_semantic_repair_v1/candidate_lock.json
 
@@ -141,6 +173,8 @@ firewall:
   legacy_heldout: exploratory_audit_only
   sngar_test_files_present_during_search: false
   sngar_test_labels_read_during_search: false
+  idsse_development_data_allowed_during_search: true
+  idsse_external_confirmation_results_read_during_search: false
   idsse_results_read_during_search: false
   soccertrack_final_results_read_during_search: false
   candidate_lock_required_for_test_download: true
@@ -150,6 +184,15 @@ artifacts:
   plan_report: reports/P3_TASK_SEMANTIC_REPAIR_PLAN.md
   results_report: reports/P3_TASK_SEMANTIC_REPAIR_RESULTS.md
   final_decision: reports/P3_T5R_FINAL_DECISION.md
+  source_provenance: artifacts/data_v2/idsse/source_provenance.json
+  split_lock: artifacts/phase3/task_semantic_repair_v1/split_lock.json
+  task_manifest: artifacts/phase3/task_semantic_repair_v1/task_manifest.json
+  baseline_and_metric_lock: artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json
+  t5r2_audit: scripts/audit_idsse_t5r2.py
+  t5r3_runner: scripts/run_t5r3_sanity.py
+  t5r3_report: reports/P3_T5R3_SANITY_REPORT.md
+  t5r3_audit: scripts/audit_t5r3_sanity.py
+  t5r3_output: artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/
 
 gate:
   p4_requires:
@@ -158,8 +201,8 @@ gate:
     - intrinsic_task_improvement
     - z_mode_translation_robustness
     - majority_seed_and_match_consistency
-    - sngar_test_confirmation
-    - idsse_external_confirmation
+    - unseen_match_or_reserved_holdout_confirmation
+    - independent_provider_confirmation_after_development
     - no_leakage_role_oracle_or_capacity_shortcut
     - fixed_non_posterior_routing_rule
   failure_route: NOT_SUPPORTED_OR_DIAGNOSTIC_MECHANISTIC_VERSION

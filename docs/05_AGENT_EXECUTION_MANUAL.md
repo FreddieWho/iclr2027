@@ -491,7 +491,7 @@ P3-T5R 仍属于 `P3_CAUSAL_MECHANISM`：
 
 | Worker | T5R 职责 | 必须输出 |
 |---|---|---|
-| Data worker | SNGAR train/valid、SkillCorner dynamic-support、canonical conversion | source revision、split manifest、conversion receipt、checksum、QC |
+| Data worker | IDSSE 暂代 SNGAR 的开发数据、SkillCorner dynamic-support、canonical conversion | source revision、split manifest、conversion receipt、checksum、QC；SNGAR 恢复仍为后续分支 |
 | Task worker | context/intrinsic task、natural pair/ranking、fixed dual-channel baseline | frozen task definitions、label coverage、leakage audit、baseline lock |
 | W2 | response-blind support/intervention复用与验证 | support manifest、合法性、match-level response、receipt |
 | W3 | geometry/JVP、layer/block 与 task-geometry diagnostics | fixed-layer metrics、match bootstrap、失败条件 |
@@ -499,4 +499,4 @@ P3-T5R 仍属于 `P3_CAUSAL_MECHANISM`：
 | Autoresearch worker | 最多两轮、每轮最多六候选、单轴搜索 | registered candidates、candidate metrics、Pareto 表、firewall 证明 |
 | W6/Repro worker | candidate lock、test firewall、hash、figure contract | lock schema、receipts、SHA-256、known limitations |
 
-每个任务必须标明 input、output、tests、manifest 和 stop condition。test/IDSSE 结果在 candidate lock 前必须物理不可见；旧 heldout 不得选候选。动态 support 可并行，但不能反向选择主 task-repair 候选。
+每个任务必须标明 input、output、tests、manifest 和 stop condition。IDSSE 开发数据可以按当前替代决策使用，但 IDSSE 保留 match 和任何独立 provider confirmation 在 candidate lock 前必须物理不可见；旧 heldout 不得选候选。动态 support 可并行，但不能反向选择主 task-repair 候选。

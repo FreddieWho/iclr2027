@@ -1,0 +1,109 @@
+{
+  "baseline_and_metric_lock": "artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json",
+  "baseline_and_metric_lock_sha256": "d5fe2c85a781fa54cbac1c1d3f7176211e0ca2552f88223c4e37dbb2ab809bee",
+  "generated_by": "scripts/prepare_idsse_t5r2.py",
+  "holdout_firewall": {
+    "candidate_lock_required_before_read": true,
+    "reserved_match_ids": [
+      "J03WQQ"
+    ],
+    "reserved_match_labels_used": false,
+    "reserved_match_loaded": false
+  },
+  "label_summary": {
+    "train": {
+      "ball_present_fraction": 1.0,
+      "home_field_zone_counts": {
+        "attacking_third": 5157,
+        "defensive_third": 4117,
+        "middle_third": 13778
+      },
+      "match_counts": {
+        "J03WMX": 5840,
+        "J03WOH": 5489,
+        "J03WPY": 5849,
+        "J03WR9": 5874
+      },
+      "phase_counts": {
+        "firstHalf": 11107,
+        "secondHalf": 11945
+      }
+    },
+    "valid": {
+      "ball_present_fraction": 1.0,
+      "home_field_zone_counts": {
+        "attacking_third": 1153,
+        "defensive_third": 1258,
+        "middle_third": 3716
+      },
+      "match_counts": {
+        "J03WN1": 425,
+        "J03WOY": 5702
+      },
+      "phase_counts": {
+        "firstHalf": 3190,
+        "secondHalf": 2937
+      }
+    }
+  },
+  "natural_pair_protocol": {
+    "hard_negative_centroid_max": 0.12,
+    "hard_negative_internal_min": 0.35,
+    "minimum_time_separation_s": 4.0,
+    "no_cross_split": true,
+    "positive_centroid_min": 0.35,
+    "positive_internal_max": 0.28,
+    "same_match_same_half": true
+  },
+  "pair_diagnostics": {
+    "train": {
+      "anchor_stride": 5,
+      "missing_hard_negative": 334,
+      "missing_positive": 530,
+      "pairs": 3750
+    },
+    "valid": {
+      "anchor_stride": 5,
+      "missing_hard_negative": 167,
+      "missing_positive": 79,
+      "pairs": 980
+    }
+  },
+  "source_canonical_manifest": "artifacts/data_v2/idsse/canonical_manifest.json",
+  "source_canonical_manifest_sha256": "90dc80a22a5a7c092e033a48a36cf56e0af300419c42ba44f5d80de83bdc3318",
+  "split_lock": "artifacts/phase3/task_semantic_repair_v1/split_lock.json",
+  "split_lock_sha256": "0e5d3ef7d9c87d56d738f82f2b09e42b9928d8c67ce847bb05a355651ba476dd",
+  "status": "T5R2_TASK_CONSTRUCTION_COMPLETE",
+  "status_boundary": "T5R2 closed; T5R3 fixed dual-channel sanity not run",
+  "task": "P3-T5R2",
+  "task_views": {
+    "train": {
+      "context_labels": "artifacts/phase3/task_semantic_repair_v1/data_views/context_labels_train.parquet",
+      "natural_pair_ranking": "artifacts/phase3/task_semantic_repair_v1/data_views/natural_pair_ranking_train.parquet",
+      "pair_count": 3750,
+      "positions_centered": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_centered_train.npy",
+      "positions_centered_sha256": "1369c05fb3e07a626ae66e07eccdbb5fd129fc7f4db0bfa507c8b5134f214465",
+      "positions_raw": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_raw_train.npy",
+      "positions_raw_sha256": "260cbbe2dbe3386a9590d3ad0575d90e6764210db7197fbf72585f090a384d99",
+      "reserved_holdout_data_written": false,
+      "snapshot_count": 23052,
+      "snapshot_index": "artifacts/phase3/task_semantic_repair_v1/data_views/snapshot_index_train.parquet",
+      "team_slots": "artifacts/phase3/task_semantic_repair_v1/data_views/team_slots_train.npy",
+      "team_slots_sha256": "f43e7981ad1ab656b51af2e4f0c3c6551c579928c3791b349b3929c735a50243"
+    },
+    "valid": {
+      "context_labels": "artifacts/phase3/task_semantic_repair_v1/data_views/context_labels_valid.parquet",
+      "natural_pair_ranking": "artifacts/phase3/task_semantic_repair_v1/data_views/natural_pair_ranking_valid.parquet",
+      "pair_count": 980,
+      "positions_centered": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_centered_valid.npy",
+      "positions_centered_sha256": "5c5dfdb33cea63564bee09aeb1b4ee7679aaa92be4c72eec563d58b78b0b2e5b",
+      "positions_raw": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_raw_valid.npy",
+      "positions_raw_sha256": "00c8c5b9250fd74c2d9dac30e0731db536592a1ab46891424c0b429c12a40c8c",
+      "reserved_holdout_data_written": false,
+      "snapshot_count": 6127,
+      "snapshot_index": "artifacts/phase3/task_semantic_repair_v1/data_views/snapshot_index_valid.parquet",
+      "team_slots": "artifacts/phase3/task_semantic_repair_v1/data_views/team_slots_valid.npy",
+      "team_slots_sha256": "0d90e1925d6fa11ffa638c9021afcdbb923f31abb3448ea079d4cd4868960d08"
+    }
+  }
+}

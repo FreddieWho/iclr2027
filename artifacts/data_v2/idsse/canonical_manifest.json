@@ -1,0 +1,128 @@
+{
+  "coordinate_policy": "canonical frames retain source meter coordinates; task arrays normalize x about pitch center and y about field center",
+  "event_schema": [
+    "source_match_id",
+    "event_index",
+    "event_id",
+    "timestamp_ms",
+    "event_type",
+    "event_root_type",
+    "game_section",
+    "x",
+    "y",
+    "source_x",
+    "source_y",
+    "player_id",
+    "team_id",
+    "recipient_id",
+    "outcome"
+  ],
+  "figshare_url": "https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177",
+  "frame_schema": [
+    "source_match_id",
+    "game_section",
+    "team_id",
+    "person_id",
+    "entity_type",
+    "frame_n",
+    "timestamp_ms",
+    "x",
+    "y",
+    "z",
+    "direction",
+    "speed",
+    "acceleration",
+    "measurement_status",
+    "ball_possession",
+    "ball_status"
+  ],
+  "generated_by": "scripts/prepare_idsse_t5r2.py",
+  "match_count": 7,
+  "match_ids": [
+    "J03WMX",
+    "J03WN1",
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ",
+    "J03WR9"
+  ],
+  "matches": [
+    {
+      "event_count": 1715,
+      "frame_rows": 3795142,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WMX.json",
+      "sampled_rows": 151840,
+      "source_match_id": "J03WMX",
+      "split": "train"
+    },
+    {
+      "event_count": 1363,
+      "frame_rows": 3549641,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WN1.json",
+      "sampled_rows": 142000,
+      "source_match_id": "J03WN1",
+      "split": "valid"
+    },
+    {
+      "event_count": 1389,
+      "frame_rows": 3155922,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WOH.json",
+      "sampled_rows": 126247,
+      "source_match_id": "J03WOH",
+      "split": "train"
+    },
+    {
+      "event_count": 1489,
+      "frame_rows": 3278328,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WOY.json",
+      "sampled_rows": 131146,
+      "source_match_id": "J03WOY",
+      "split": "valid"
+    },
+    {
+      "event_count": 1504,
+      "frame_rows": 3362853,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WPY.json",
+      "sampled_rows": 134527,
+      "source_match_id": "J03WPY",
+      "split": "train"
+    },
+    {
+      "event_count": 1586,
+      "frame_rows": 3220946,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WQQ.json",
+      "sampled_rows": 128865,
+      "source_match_id": "J03WQQ",
+      "split": "reserved_holdout"
+    },
+    {
+      "event_count": 1452,
+      "frame_rows": 3376630,
+      "receipt": "artifacts/data_v2/idsse/canonical/conversion_receipts/J03WR9.json",
+      "sampled_rows": 135102,
+      "source_match_id": "J03WR9",
+      "split": "train"
+    }
+  ],
+  "official_dataset_url": "https://huggingface.co/datasets/pysport/idsse-data",
+  "official_file_tree_url": "https://huggingface.co/datasets/pysport/idsse-data/tree/main",
+  "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+  "raw_manifest_sha256": "1a05ff744de7e3454c93188306774a7601ea15b204e9d7338c018103d89c5c63",
+  "raw_root": "data/raw/sports/idsse-data",
+  "raw_sha256sums_sha256": "4fcc803c6975b72b59657423b049ba4bb4f55944bd8341a38c0a7fec87eac976",
+  "sample_hz": 1.0,
+  "sample_stride": 25,
+  "source_dataset": "IDSSE",
+  "source_fps": 25.0,
+  "split_lock": {
+    "J03WMX": "train",
+    "J03WN1": "valid",
+    "J03WOH": "train",
+    "J03WOY": "valid",
+    "J03WPY": "train",
+    "J03WQQ": "reserved_holdout",
+    "J03WR9": "train"
+  },
+  "status": "IDSSE_T5R1_CANONICAL_CONVERSION_COMPLETE"
+}

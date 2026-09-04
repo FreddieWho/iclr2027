@@ -1,0 +1,26 @@
+{
+  "canonical_manifest": "artifacts/data_v2/idsse/canonical_manifest.json",
+  "canonical_qc_receipts": 7,
+  "dataset": "IDSSE",
+  "elapsed_seconds": 322.629,
+  "license": "CC BY 4.0",
+  "official_card_text_id_note": "official card text also lists J03WPF and J03WQF; current main file tree lists J03WQQ and J03WR9; raw identity follows the file tree",
+  "official_dataset_url": "https://huggingface.co/datasets/pysport/idsse-data",
+  "official_file_tree_match_ids": [
+    "J03WMX",
+    "J03WN1",
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ",
+    "J03WR9"
+  ],
+  "official_file_tree_url": "https://huggingface.co/datasets/pysport/idsse-data/tree/main",
+  "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+  "original_source": "https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177",
+  "raw_file_manifest": "artifacts/data_v2/idsse/source_file_manifest.json",
+  "raw_root": "data/raw/sports/idsse-data",
+  "raw_sha256sums": "artifacts/data_v2/idsse/RAW_SHA256SUMS",
+  "status": "OFFICIAL_PAGE_VERIFIED_RAW_MANIFEST_AND_CANONICAL_QC_COMPLETE",
+  "viewer_note": "Dataset Viewer default/train was unavailable with FeaturesError/FileNotFoundError; schema evidence comes from local XML conversion and receipts"
+}

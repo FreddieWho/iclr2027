@@ -39,7 +39,7 @@
 8. `QA.md`：模型架构、技术路线和科学问题的持续问答记录。
 9. `reports/p0-overview.html`：快速查看 P0 原始样本、干预和 embedding。
 
-当前执行状态（2026-09-02）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2、独立 fracture continuity 和 P2-H1 有界异质性诊断均已闭合。P2 的冻结结论仍是 `mixed_or_graph_specific`：部分方向跨比赛稳定，但幅度和方向依赖 architecture、graph、role、energy，且它是 representation response，不是下游任务性能。项目仍在既有 `P3_CAUSAL_MECHANISM`；原 T0–T5 只得到“表示塑形”证据，旧 task gate 未闭合，且旧 heldout 已在候选循环中暴露，只能作 exploratory audit。当前授权的是有界的 `P3-T5R` task-semantic repair，不是新 Phase，也不是直接训练 AMR。其目标是把需要保留绝对部署信息的 context task 与要求全局平移稳健的 intrinsic task 分开，并在独立比赛上检验固定双通道表示。权威 P2 证据见 `artifacts/phase2/` 与 P2 reports；P3 证据见 `artifacts/phase3/`、`configs/phase3_support_geometry_v1.yaml` 和 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`。
+当前执行状态（2026-09-04）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2、独立 fracture continuity 和 P2-H1 有界异质性诊断均已闭合。P2 的冻结结论仍是 `mixed_or_graph_specific`：部分方向跨比赛稳定，但幅度和方向依赖 architecture、graph、role、energy，且它是 representation response，不是下游任务性能。项目仍在既有 `P3_CAUSAL_MECHANISM`；原 T0–T5 只得到“表示塑形”证据，旧 task gate 未闭合，且旧 heldout 已在候选循环中暴露，只能作 exploratory audit。当前授权的是有界的 `P3-T5R` task-semantic repair，不是新 Phase，也不是直接训练 AMR。由于 SNGAR 暂时不可访问，已固定由 IDSSE 暂代 T5R 开发数据角色；该替代不改变 P2/P3 历史，也不把 IDSSE 同时写成独立外部确认。其目标是把需要保留绝对部署信息的 context task 与要求全局平移稳健的 intrinsic task 分开，并在 match-level 保留方案上检验固定双通道表示。权威 P2 证据见 `artifacts/phase2/` 与 P2 reports；P3 证据见 `artifacts/phase3/`、`configs/phase3_support_geometry_v1.yaml` 和 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`。
 
 P3 不否定 Action-Mode Spectrum，而把它保留为跨条件的边缘汇总，并补上 support/relationship-conditioned local geometry 机制层：先检验归一化 embedding 的 Jacobian 与 \(G_f=J_f^\top J_f\) 能否预测 fracture response，再做 prospective、layer-wise 定位和一个证据选择的因果开关。只有出现预测、定位、因果开关和客观任务联系，才进入 P4 AMR；M1/M2 不得先行。
 
@@ -49,12 +49,12 @@ P3 不否定 Action-Mode Spectrum，而把它保留为跨条件的边缘汇总�
 
 1. 读取 `docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/` 全部说明；
 2. 完成 `P3-T5R0`，更新 canonical docs/configs 和 current-state audit；
-3. 只申请或下载 SNGAR train+valid，test 保持 firewall；
+3. 核验并转换本地 IDSSE，暂代 SNGAR 的开发数据；SNGAR 保留为恢复分支；
 4. 构建 context/intrinsic task 与 fixed dual-channel baseline；
 5. 只有 sanity gate 支持后，才允许最多两轮 bounded autoresearch。
 
 旧 heldout 标记为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再作为确认集。P4 AMR 继续 blocked，书法不参与体育端机制选择。
-截至 2026-09-02，SNGAR train/valid 访问探针为 `BLOCKED_EXTERNAL_ACCESS`，未产生本地数据或 T5R 实验结果；恢复条件是可验证的网络访问或带 checksum 的用户提供镜像。
+截至 2026-09-04，IDSSE 官方 revision、raw 文件清单、23/23 SHA-256、7 场 canonical conversion、逐场 QC、match-level split、T5R2 task/baseline lock 和 T5R3 fixed dual-channel sanity 已完成。T5R3 只得到方向性 pass，尚未形成最终方法收益或 P4 证据；SNGAR 访问仍为 `BLOCKED_EXTERNAL_ACCESS`，保留为后续独立样本/确认恢复分支。
 
 ## 4. 历史/基础准备
 
@@ -66,7 +66,7 @@ python scripts/verify_data.py --manifest configs/data_manifest.yaml
 bash scripts/run_phase0_smoke.sh
 ```
 
-该段命令属于历史基础准备，不是当前 T5R 启动动作。原 `--core` 只下载低成本、无需审批的数据；SNGAR、IDSSE 和 SoccerTrack 的当前访问、split 和 candidate-lock 规则以 `configs/data_manifest.yaml`、`configs/phase3_task_semantic_repair_v1.yaml` 及补丁包为准。不得把 gated 数据写成已下载。
+该段命令属于历史基础准备，不是当前 T5R 启动动作。原 `--core` 只下载低成本、无需审批的数据；当前 IDSSE 替代分支、SNGAR 恢复分支和 SoccerTrack 的 split/candidate-lock 规则以 `configs/data_manifest.yaml`、`configs/phase3_task_semantic_repair_v1.yaml`、`STATUS.md` 和 `TODO.md` 为准。不得把未登记的数据或未完成的转换写成已完成证据。
 
 旧 P3 结果继续使用同一批 250 个 canonical samples、9 个冻结点集模型和 P2 provenance 链；其 heldout 只能作为 exploratory audit。P3-T5R 允许在既有阶段内扩充独立比赛并修复任务语义，但不访问、修改或重建 `infra/bioinf-data-index/`。只有 T5R gate 闭合后，才重新考虑 P4 AMR。
 

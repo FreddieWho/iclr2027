@@ -1,0 +1,122 @@
+{
+  "status": "T5R3_FIXED_DUAL_CHANNEL_SANITY_COMPLETE",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R3",
+  "t5r2_lock_status": "T5R2_CLOSED_BASELINE_AND_METRIC_LOCK",
+  "t5r2_lock_path": "artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json",
+  "t5r2_lock_sha256": "d5fe2c85a781fa54cbac1c1d3f7176211e0ca2552f88223c4e37dbb2ab809bee",
+  "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+  "split_lock_status": "MATCH_SPLIT_FROZEN_BEFORE_T5R2_TASK_CONSTRUCTION",
+  "split_map": {
+    "J03WMX": "train",
+    "J03WOH": "train",
+    "J03WPY": "train",
+    "J03WR9": "train",
+    "J03WN1": "valid",
+    "J03WOY": "valid",
+    "J03WQQ": "reserved_holdout"
+  },
+  "visible_splits": [
+    "train",
+    "valid"
+  ],
+  "reserved_holdout": {
+    "match_ids": [
+      "J03WQQ"
+    ],
+    "loaded": false,
+    "task_arrays_written": false
+  },
+  "external_results_used": false,
+  "old_heldout_used": false,
+  "model_results_used_for_selection": false,
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "torch_threads": 8,
+  "training_lock": {
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0,
+    "epochs": 80,
+    "batch_size": 64,
+    "latent_dim": 128,
+    "hidden_dim": 128,
+    "message_passing_layers": 2,
+    "augmentation": "none",
+    "early_stopping": false,
+    "class_weighting": false
+  },
+  "loss_protocol": {
+    "context": "cross_entropy_phase + cross_entropy_field_zone + centroid_MSE",
+    "intrinsic": "triplet_hinge_on_normalized_mode_embedding",
+    "triplet_margin": 0.2,
+    "joint_loss_weighting": "context_loss + intrinsic_loss"
+  },
+  "graph_protocol": {
+    "type": "fixed_symmetric_weighted_knn",
+    "k": 4,
+    "weight": "exp(-distance^2 / median_nonzero_distance^2)",
+    "source": "T5R2 baseline representation_contract / P0 knn_adjacency",
+    "encoder_implementation": "two fixed-weighted message-passing layers; no learned graph or attention adjacency"
+  },
+  "translation_protocol": {
+    "vector_normalized_pitch": [
+      0.25,
+      -0.15000000596046448
+    ],
+    "response": "1-cosine(z_base,z_after_global_translation)",
+    "z_mode_centering_reapplied": true
+  },
+  "variants": {
+    "raw_single_channel_phase_gat_team_mean": {
+      "context_view": "raw",
+      "intrinsic_view": "raw",
+      "pooling": "team_mean",
+      "dual": false
+    },
+    "centered_single_channel_phase_gat_team_mean": {
+      "context_view": "centered",
+      "intrinsic_view": "centered",
+      "pooling": "team_mean",
+      "dual": false
+    },
+    "raw_relational_pooling_phase_gat": {
+      "context_view": "raw",
+      "intrinsic_view": "raw",
+      "pooling": "relational_pairwise",
+      "dual": false
+    },
+    "fixed_dual_channel_shared_phase_gat": {
+      "context_view": "raw",
+      "intrinsic_view": "centered",
+      "pooling": "team_mean",
+      "dual": true
+    }
+  },
+  "input_files": {
+    "train_raw": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_raw_train.npy",
+    "train_centered": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_centered_train.npy",
+    "train_team_slots": "artifacts/phase3/task_semantic_repair_v1/data_views/team_slots_train.npy",
+    "train_snapshot_index": "artifacts/phase3/task_semantic_repair_v1/data_views/snapshot_index_train.parquet",
+    "train_pairs": "artifacts/phase3/task_semantic_repair_v1/data_views/natural_pair_ranking_train.parquet",
+    "valid_raw": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_raw_valid.npy",
+    "valid_centered": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_centered_valid.npy",
+    "valid_team_slots": "artifacts/phase3/task_semantic_repair_v1/data_views/team_slots_valid.npy",
+    "valid_snapshot_index": "artifacts/phase3/task_semantic_repair_v1/data_views/snapshot_index_valid.parquet",
+    "valid_pairs": "artifacts/phase3/task_semantic_repair_v1/data_views/natural_pair_ranking_valid.parquet"
+  },
+  "input_shapes": {
+    "train_snapshots": 23052,
+    "valid_snapshots": 6127,
+    "train_pairs": 3750,
+    "valid_pairs": 980
+  },
+  "adjacency_sha256": {
+    "train": "be9ef45bb43f6b8dcc24b136ca01a771fc1e17f9f39a257bd6a3374d68221f8e",
+    "valid": "3312ef4b74cdfc6cff0f0ff1d22f2c8d15b425275e2aeb2a1f189e6704b780d1"
+  },
+  "manifest_sha256": "3409fdb18ac883caafda0dc788baf813fbdafdbf33d519b63f9bea2d098505ef"
+}

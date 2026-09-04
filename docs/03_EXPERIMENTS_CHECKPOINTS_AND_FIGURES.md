@@ -570,7 +570,7 @@ q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2.
 - Figure 5 使用 `selected_causal_switch_v1/switch_seed_summary.parquet`、`switch_task_metrics.parquet`、`switch_context_robustness_by_seed.parquet` 和 `node_sensitivity_localization_v2_summary.parquet`，必须同时画出 response shaping 与 task/robustness failure boundary。
 - 本轮 Figure 只支持“预测—定位—response shaping”链，不能标为任务修复或 AMR 成功图。完整 causal matrix 由于 gate 失败不启动。
 
-## 13. P3-T5R：任务语义与独立确认路线（2026-09-02）
+## 13. P3-T5R：任务语义与独立确认路线（2026-09-04）
 
 P3-T5R 不改变 Phase 0–8 编号。它在现有 P3 内使用 `T5R0`–`T5R6` 任务编号：protocol/document repair、data conversion、task/baseline lock、fixed dual-channel sanity、bounded autoresearch、candidate lock/test、external confirmation/go-no-go。
 
@@ -582,4 +582,4 @@ P3-T5R 不改变 Phase 0–8 编号。它在现有 P3 内使用 `T5R0`–`T5R6` 
 - full/diagonal/off-diagonal geometry prediction；
 - match-level、seed-level 和 bootstrap 区间。
 
-旧 heldout 标为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再绘制为 confirmatory test。SNGAR test 和 IDSSE 结果只能在 candidate lock 后进入图件。Figure 规划新增 fixed dual-channel task semantics、independent-match Pareto 和 test-firewall provenance；不恢复 universal notch，也不把动态 support 或书法结果提前写成正向机制。
+当前暂以 IDSSE 替代 SNGAR 的开发数据角色。7 场 IDSSE 只按 source match 划分，具体开发/验证/保留方案在 T5R2 训练前冻结；已用于开发的 IDSSE 不再兼任独立 external confirmation。候选 lock 后才读取保留 match，SNGAR 恢复或其他 provider/source 才能承担真正独立确认。旧 heldout 标为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再绘制为 confirmatory test。Figure 规划新增 fixed dual-channel task semantics、same-source heldout、independent-match Pareto 和 provenance；不恢复 universal notch，也不把动态 support 或书法结果提前写成正向机制。

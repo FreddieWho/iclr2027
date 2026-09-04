@@ -11,6 +11,8 @@ policy:
   gated_data_access_not_assumed: true
   p2_artifacts_read_only: true
   calligraphy_cannot_select_sports_mechanism: true
+  temporary_sngar_development_substitute: IDSSE
+  temporary_substitution_scope: development_only
 
 datasets:
   skillcorner:
@@ -100,10 +102,10 @@ datasets:
       - MANIFEST.sha256
     source: https://huggingface.co/datasets/OpenSportsLab/SNGAR-Action-Spotting-Tracking
     access: gated_huggingface
-    status: access_not_assumed
+    status: deferred_while_idsse_substitute_active
     access_probe_status: blocked_external_network_2026-09-02
     local_data_present: false
-    split_policy: train_valid_development_only_until_candidate_lock
+    split_policy: deferred_train_valid_development_only_until_candidate_lock
     test_policy: test_requires_candidate_lock
     license_note: respect gated access terms; do not redistribute raw data
 
@@ -119,15 +121,31 @@ datasets:
     license_note: historical exploratory/dynamic-support rule development only
 
   idsse:
-    priority: B0
+    priority: A0_TEMPORARY_SUBSTITUTE
     required: false
-    path: sports/idsse
+    path: sports/idsse-data
     markers:
-      - figshare_metadata.json
-    source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
-    access: open_figshare
-    status: not_downloaded_by_this_package
-    split_policy: external_confirmatory_only_after_candidate_lock
+      - README.md
+      - .gitattributes
+    source: https://huggingface.co/datasets/pysport/idsse-data
+    original_source: https://springernature.figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177
+    access: open_huggingface
+    status: canonical_conversion_complete_t5r2_lock_complete
+    local_data_present: true
+    match_count: 7
+    official_revision: a715a38dfbaf5f58e431727c2b78d174101a703c
+    official_file_tree_matches_local: true
+    official_card_id_note: card_text_lists_J03WPF_and_J03WQF_file_tree_lists_J03WQQ_and_J03WR9
+    viewer_status: unavailable_features_error_file_not_found_for_default_train
+    role: temporary_development_substitute_for_sngar
+    split_policy: match_level_split_frozen_before_task_construction
+    split_lock: artifacts/phase3/task_semantic_repair_v1/split_lock.json
+    source_manifest: artifacts/data_v2/idsse/source_file_manifest.json
+    sha256sums: artifacts/data_v2/idsse/RAW_SHA256SUMS
+    canonical_manifest: artifacts/data_v2/idsse/canonical_manifest.json
+    task_manifest: artifacts/phase3/task_semantic_repair_v1/task_manifest.json
+    baseline_and_metric_lock: artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json
+    external_confirmation_allowed_in_same_run: false
     license_note: CC BY 4.0; preserve download receipt and source checksums
 
   soccertrack_v2_smoke:

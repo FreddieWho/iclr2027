@@ -155,7 +155,7 @@ exploration_checkpoints:
 p3_task_semantic_repair:
   phase: P3_CAUSAL_MECHANISM
   task_lane: P3-T5R
-  status: t5r1_blocked_external_access
+  status: t5r3_directional_pass_t5r4_review_required
   protocol_config: configs/phase3_task_semantic_repair_v1.yaml
   package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
   legacy_heldout:
@@ -164,19 +164,32 @@ p3_task_semantic_repair:
     candidate_selection: forbidden
   data:
     development:
-      dataset: SNGAR-Action-Spotting-Tracking
-      splits: [train, valid]
-      match_split: [45, 9]
-      access_status: gated_access_not_assumed
-    hidden_same_source:
-      dataset: SNGAR-Action-Spotting-Tracking
-      split: test
-      matches: 10
-      policy: candidate_lock_then_single_run
-    external:
       dataset: IDSSE
+      source: https://huggingface.co/datasets/pysport/idsse-data
+      raw_path: data/raw/sports/idsse-data
       matches: 7
-      policy: candidate_lock_then_external_confirmation
+      role: temporary_substitute_for_sngar_development
+      official_revision: a715a38dfbaf5f58e431727c2b78d174101a703c
+      official_file_tree_matches_local: true
+      split_policy: match_level_split_frozen_before_task_construction
+      train_matches: [J03WMX, J03WOH, J03WPY, J03WR9]
+      valid_matches: [J03WN1, J03WOY]
+      reserved_holdout_matches: [J03WQQ]
+      task_manifest: artifacts/phase3/task_semantic_repair_v1/task_manifest.json
+      baseline_and_metric_lock: artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json
+      t5r3_sanity_report: reports/P3_T5R3_SANITY_REPORT.md
+      t5r3_sanity_output: artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/
+    deferred_sngar:
+      dataset: SNGAR-Action-Spotting-Tracking
+      access_status: blocked_external_network_2026-09-02
+      role: deferred_development_and_future_independent_confirmation
+    hidden_same_source:
+      dataset: IDSSE
+      policy: candidate_lock_then_single_reserved_match_read
+      note: same_source_holdout_not_independent_provider_confirmation
+    external:
+      dataset: SNGAR-test-or-SoccerTrack-v2
+      policy: candidate_lock_then_independent_confirmation
     historical:
       dataset: SkillCorner_Open_Data
       matches: 10
@@ -227,7 +240,8 @@ p3_task_semantic_repair:
   candidate_lock:
     required_before_test: true
     schema: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/templates/candidate_lock.schema.json
-    required_status: CANDIDATE_LOCKED_BEFORE_TEST
+    required_status: NOT_CREATED
+    note: T5R2 lock is closed; candidate lock remains required before any reserved/test read
   gate:
     p4_entry_requires_all:
       - geometry_prediction_on_unseen_matches
@@ -235,8 +249,8 @@ p3_task_semantic_repair:
       - intrinsic_task_improvement
       - z_mode_translation_robustness
       - majority_seed_and_match_consistency
-      - sngar_test_direction_preserved
-      - external_idsse_direction_preserved
+      - unseen_match_or_reserved_holdout_confirmation
+      - independent_provider_confirmation_after_development
       - no_test_leakage_role_oracle_or_capacity_shortcut
       - fixed_non_posterior_routing_rule
     failure_route: diagnostic_mechanistic_version_and_stop_amr

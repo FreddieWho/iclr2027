@@ -8,10 +8,10 @@ project:
   main_page_limit: 9
   created: 2026-08-18
   active_phase: P3_CAUSAL_MECHANISM
-  current_checkpoint: P3_T5R0_DOCUMENT_MIGRATION_COMPLETE
+  current_checkpoint: P3_T5R3_FIXED_DUAL_CHANNEL_SANITY_COMPLETE
   current_route: support_conditioned_geometry_with_task_semantic_repair
-  current_phase_status: P3_T5R0_COMPLETE_T5R1_BLOCKED_EXTERNAL_ACCESS_P4_BLOCKED
-  current_next_action: resolve_sngar_train_valid_access_or_provide_verified_mirror
+  current_phase_status: P3_T5R3_DIRECTIONAL_PASS_T5R4_REVIEW_P4_BLOCKED
+  current_next_action: review_t5r3_then_start_bounded_autoresearch
   legacy_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
   p4_status: blocked_pending_p3_t5r_gate
   p5_status: blocked_pending_sports_prediction_lock
@@ -80,10 +80,15 @@ exploration:
     - pause
     - stop
   p3_task_semantic_repair:
-    status: t5r1_blocked_external_access
+    status: t5r3_directional_pass_t5r4_review_required
     task_lane: P3-T5R0_to_P3-T5R6
     protocol: configs/phase3_task_semantic_repair_v1.yaml
     package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
     autoresearch_budget: max_2_rounds_x_6_candidates
     test_firewall: candidate_lock_required
     dynamic_support: non_blocking_parallel_subtask
+    temporary_sngar_substitute: IDSSE
+    substitution_scope: development_only
+    idsse_raw_path: data/raw/sports/idsse-data
+    same_run_independent_confirmation: false
+    sngar_recovery: deferred

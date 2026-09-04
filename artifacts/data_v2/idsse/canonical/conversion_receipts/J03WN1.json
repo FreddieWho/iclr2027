@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "away_team_id": "DFL-CLU-00000B",
+    "home_team_id": "DFL-CLU-00000S",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0
+  },
+  "output_sha256": {
+    "events": "8d85d67fd813d95b13c7387efb02a69b83e73615eb1b64eeaa96f7845dd22cd0",
+    "frames": "abf416ed43700970bb62f6b7977991f77cf27be3465938735169680f825a3ee3",
+    "sampled_frames": "3b87eb00383005b637974d761134ee89402ad345c1de27ef48c1d48070d272dd"
+  },
+  "outputs": {
+    "events": "artifacts/data_v2/idsse/canonical/events/J03WN1.parquet",
+    "frames": "artifacts/data_v2/idsse/canonical/frames/J03WN1.parquet",
+    "sampled_frames": "artifacts/data_v2/idsse/canonical/sampled_frames/J03WN1.parquet"
+  },
+  "qc": {
+    "ball_rows": 141561,
+    "canonical_coordinate_units": "meters in source pitch coordinates centered at pitch origin; task views divide x by pitch_x/2 and y by pitch_y/2",
+    "event_alignment_reference": "1Hz sampled source timestamps; full-range check uses all canonical frames",
+    "event_count": 1363,
+    "event_nearest_sample_max_ms": 5118,
+    "event_nearest_sample_median_ms": 257.0,
+    "event_time_in_full_position_range_fraction": 0.9985326485693323,
+    "frame_n_range": [
+      10000,
+      172272
+    ],
+    "frame_number_gap_count": 0,
+    "frame_rows": 3549641,
+    "frame_set_count": 58,
+    "max_within_frameset_time_gap_ms": 40,
+    "missing_xy_rows": 0,
+    "out_of_pitch_rows": 332840,
+    "player_rows": 2983397,
+    "referee_rows": 424683,
+    "sampled_ball_snapshot_fraction": 1.0,
+    "sampled_exact_20_outfield_fraction": 0.0750485608334805,
+    "sampled_exact_22_source_player_fraction": 0.0750485608334805,
+    "sampled_outfield_count_max": 20,
+    "sampled_outfield_count_min": 19,
+    "sampled_player_count_max": 22,
+    "sampled_player_count_min": 21,
+    "sampled_rows": 142000,
+    "sampled_snapshot_count": 5663,
+    "sampled_snapshot_with_player_rows": 5663,
+    "sampled_source_player_count_expected": 22,
+    "section_entity_counts": {
+      "firstHalf": 26,
+      "secondHalf": 32
+    },
+    "source_match_id": "J03WN1",
+    "time_gap_count_gt_80ms": 0,
+    "timestamp_ms_range": [
+      1685194266400,
+      1685200926720
+    ]
+  },
+  "source_files": {
+    "events": {
+      "bytes": 612114,
+      "path": "data/raw/sports/idsse-data/DFL_03_02_events_raw_DFL-COM-000001_DFL-MAT-J03WN1.xml",
+      "sha256": "d7fa1d4445e3215eb79ec62fabefa4779b4974e496195c2fdc25624c375a9b9b"
+    },
+    "metadata": {
+      "bytes": 11722,
+      "path": "data/raw/sports/idsse-data/DFL_02_01_matchinformation_DFL-COM-000001_DFL-MAT-J03WN1.xml",
+      "sha256": "5490286436c86e6f80a538d2b1b379d0efd016e0defcaf594bc59d9ef5079f4c"
+    },
+    "positions": {
+      "bytes": 391722803,
+      "path": "data/raw/sports/idsse-data/DFL_04_03_positions_raw_observed_DFL-COM-000001_DFL-MAT-J03WN1.xml",
+      "sha256": "56ef948961a18e150dba0b7b16869d0008ff66f3050a0c355d31fa5b8ec2fcec"
+    }
+  },
+  "source_match_id": "J03WN1",
+  "split": "valid",
+  "status": "CANONICAL_CONVERSION_COMPLETE"
+}

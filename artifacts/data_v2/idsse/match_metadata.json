@@ -1,0 +1,1879 @@
+[
+  {
+    "away_team_id": "DFL-CLU-00000G",
+    "competition": "Bundesliga",
+    "competition_id": "DFL-COM-000001",
+    "home_team_id": "DFL-CLU-000008",
+    "match_day": 34,
+    "match_title": "1. FC Köln:FC Bayern München",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 40,
+    "players": {
+      "DFL-OBJ-0000IA": {
+        "person_id": "DFL-OBJ-0000IA",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0000LT": {
+        "person_id": "DFL-OBJ-0000LT",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0000M0": {
+        "person_id": "DFL-OBJ-0000M0",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0000RP": {
+        "person_id": "DFL-OBJ-0000RP",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-00012X": {
+        "person_id": "DFL-OBJ-00012X",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-000191": {
+        "person_id": "DFL-OBJ-000191",
+        "position_role": "DML",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-000270": {
+        "person_id": "DFL-OBJ-000270",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0002AU": {
+        "person_id": "DFL-OBJ-0002AU",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0002BO": {
+        "person_id": "DFL-OBJ-0002BO",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0002DR": {
+        "person_id": "DFL-OBJ-0002DR",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0002F5": {
+        "person_id": "DFL-OBJ-0002F5",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0002HE": {
+        "person_id": "DFL-OBJ-0002HE",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0026PM": {
+        "person_id": "DFL-OBJ-0026PM",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0026ZI": {
+        "person_id": "DFL-OBJ-0026ZI",
+        "position_role": "LV",
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0027AX": {
+        "person_id": "DFL-OBJ-0027AX",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0027B6": {
+        "person_id": "DFL-OBJ-0027B6",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0027G0": {
+        "person_id": "DFL-OBJ-0027G0",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0027G6": {
+        "person_id": "DFL-OBJ-0027G6",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0027KL": {
+        "person_id": "DFL-OBJ-0027KL",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-0027V2": {
+        "person_id": "DFL-OBJ-0027V2",
+        "position_role": "RV",
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-0028BD": {
+        "person_id": "DFL-OBJ-0028BD",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-002G0R": {
+        "person_id": "DFL-OBJ-002G0R",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-002G4A": {
+        "person_id": "DFL-OBJ-002G4A",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-002G89": {
+        "person_id": "DFL-OBJ-002G89",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-002GBW": {
+        "person_id": "DFL-OBJ-002GBW",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-002GCR": {
+        "person_id": "DFL-OBJ-002GCR",
+        "position_role": "ZO",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-002GIC": {
+        "person_id": "DFL-OBJ-002GIC",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-002GKO": {
+        "person_id": "DFL-OBJ-002GKO",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-002GLJ": {
+        "person_id": "DFL-OBJ-002GLJ",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-J00USE": {
+        "person_id": "DFL-OBJ-J00USE",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-J0117H": {
+        "person_id": "DFL-OBJ-J0117H",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-J015S4": {
+        "person_id": "DFL-OBJ-J015S4",
+        "position_role": "DLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-J017RE": {
+        "person_id": "DFL-OBJ-J017RE",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-J01APO": {
+        "person_id": "DFL-OBJ-J01APO",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-J01B8N": {
+        "person_id": "DFL-OBJ-J01B8N",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000G"
+      },
+      "DFL-OBJ-J01BGM": {
+        "person_id": "DFL-OBJ-J01BGM",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-J01D1W": {
+        "person_id": "DFL-OBJ-J01D1W",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-J01DVC": {
+        "person_id": "DFL-OBJ-J01DVC",
+        "position_role": "ZO",
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-J01LJ2": {
+        "person_id": "DFL-OBJ-J01LJ2",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000008"
+      },
+      "DFL-OBJ-J01N65": {
+        "person_id": "DFL-OBJ-J01N65",
+        "position_role": "STL",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000G"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WMX",
+    "result": "1:2",
+    "season": "2022/2023",
+    "source_match_id": "J03WMX",
+    "teams": {
+      "DFL-CLU-000008": {
+        "role": "home",
+        "team_id": "DFL-CLU-000008",
+        "team_name": "1. FC Köln"
+      },
+      "DFL-CLU-00000G": {
+        "role": "guest",
+        "team_id": "DFL-CLU-00000G",
+        "team_name": "FC Bayern München"
+      }
+    }
+  },
+  {
+    "away_team_id": "DFL-CLU-00000B",
+    "competition": "Bundesliga",
+    "competition_id": "DFL-COM-000001",
+    "home_team_id": "DFL-CLU-00000S",
+    "match_day": 34,
+    "match_title": "VfL Bochum 1848:Bayer 04 Leverkusen",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 40,
+    "players": {
+      "DFL-OBJ-00002Z": {
+        "person_id": "DFL-OBJ-00002Z",
+        "position_role": "RA",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-00003J": {
+        "person_id": "DFL-OBJ-00003J",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0000XU": {
+        "person_id": "DFL-OBJ-0000XU",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0000YV": {
+        "person_id": "DFL-OBJ-0000YV",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-000172": {
+        "person_id": "DFL-OBJ-000172",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-000199": {
+        "person_id": "DFL-OBJ-000199",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0001I0": {
+        "person_id": "DFL-OBJ-0001I0",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0001UP": {
+        "person_id": "DFL-OBJ-0001UP",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-0001WB": {
+        "person_id": "DFL-OBJ-0001WB",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0002LI": {
+        "person_id": "DFL-OBJ-0002LI",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-0025J8": {
+        "person_id": "DFL-OBJ-0025J8",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0026NY": {
+        "person_id": "DFL-OBJ-0026NY",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-0027FG": {
+        "person_id": "DFL-OBJ-0027FG",
+        "position_role": "RA",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0027LO": {
+        "person_id": "DFL-OBJ-0027LO",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0028D6": {
+        "person_id": "DFL-OBJ-0028D6",
+        "position_role": "LV",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-0028NB": {
+        "person_id": "DFL-OBJ-0028NB",
+        "position_role": "LA",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-002G02": {
+        "person_id": "DFL-OBJ-002G02",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002G1P": {
+        "person_id": "DFL-OBJ-002G1P",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002G4G": {
+        "person_id": "DFL-OBJ-002G4G",
+        "position_role": "DML",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-002G57": {
+        "person_id": "DFL-OBJ-002G57",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002G6G": {
+        "person_id": "DFL-OBJ-002G6G",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-002G8H": {
+        "person_id": "DFL-OBJ-002G8H",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002GAR": {
+        "person_id": "DFL-OBJ-002GAR",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002GAV": {
+        "person_id": "DFL-OBJ-002GAV",
+        "position_role": "DML",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-002GBK": {
+        "person_id": "DFL-OBJ-002GBK",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002GFO": {
+        "person_id": "DFL-OBJ-002GFO",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002GH4": {
+        "person_id": "DFL-OBJ-002GH4",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002GM0": {
+        "person_id": "DFL-OBJ-002GM0",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-002GNP": {
+        "person_id": "DFL-OBJ-002GNP",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-002GOI": {
+        "person_id": "DFL-OBJ-002GOI",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J012D8": {
+        "person_id": "DFL-OBJ-J012D8",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J013O2": {
+        "person_id": "DFL-OBJ-J013O2",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J014F7": {
+        "person_id": "DFL-OBJ-J014F7",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-J016C3": {
+        "person_id": "DFL-OBJ-J016C3",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-J01AQV": {
+        "person_id": "DFL-OBJ-J01AQV",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000S"
+      },
+      "DFL-OBJ-J01B8R": {
+        "person_id": "DFL-OBJ-J01B8R",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J01G0J": {
+        "person_id": "DFL-OBJ-J01G0J",
+        "position_role": "HR",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J01K4C": {
+        "person_id": "DFL-OBJ-J01K4C",
+        "position_role": "DMR",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J01KDN": {
+        "person_id": "DFL-OBJ-J01KDN",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000B"
+      },
+      "DFL-OBJ-J01QRV": {
+        "person_id": "DFL-OBJ-J01QRV",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000B"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WN1",
+    "result": "3:0",
+    "season": "2022/2023",
+    "source_match_id": "J03WN1",
+    "teams": {
+      "DFL-CLU-00000B": {
+        "role": "guest",
+        "team_id": "DFL-CLU-00000B",
+        "team_name": "Bayer 04 Leverkusen"
+      },
+      "DFL-CLU-00000S": {
+        "role": "home",
+        "team_id": "DFL-CLU-00000S",
+        "team_name": "VfL Bochum 1848"
+      }
+    }
+  },
+  {
+    "away_team_id": "DFL-CLU-000011",
+    "competition": "2. Bundesliga",
+    "competition_id": "DFL-COM-000002",
+    "home_team_id": "DFL-CLU-00000P",
+    "match_day": 6,
+    "match_title": "Fortuna Düsseldorf:SSV Jahn Regensburg",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 39,
+    "players": {
+      "DFL-OBJ-00003X": {
+        "person_id": "DFL-OBJ-00003X",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00006V": {
+        "person_id": "DFL-OBJ-00006V",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00008K": {
+        "person_id": "DFL-OBJ-00008K",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000F8": {
+        "person_id": "DFL-OBJ-0000F8",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000NZ": {
+        "person_id": "DFL-OBJ-0000NZ",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-000170": {
+        "person_id": "DFL-OBJ-000170",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00028V": {
+        "person_id": "DFL-OBJ-00028V",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002651": {
+        "person_id": "DFL-OBJ-002651",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-00268T": {
+        "person_id": "DFL-OBJ-00268T",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0026RH": {
+        "person_id": "DFL-OBJ-0026RH",
+        "position_role": "ZO",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0026UQ": {
+        "person_id": "DFL-OBJ-0026UQ",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0027B0": {
+        "person_id": "DFL-OBJ-0027B0",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0027P7": {
+        "person_id": "DFL-OBJ-0027P7",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0027VS": {
+        "person_id": "DFL-OBJ-0027VS",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0027XP": {
+        "person_id": "DFL-OBJ-0027XP",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002850": {
+        "person_id": "DFL-OBJ-002850",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0028CD": {
+        "person_id": "DFL-OBJ-0028CD",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0028FW": {
+        "person_id": "DFL-OBJ-0028FW",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0028OR": {
+        "person_id": "DFL-OBJ-0028OR",
+        "position_role": "STL",
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-0028SW": {
+        "person_id": "DFL-OBJ-0028SW",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002FXT": {
+        "person_id": "DFL-OBJ-002FXT",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002G2Y": {
+        "person_id": "DFL-OBJ-002G2Y",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002G5J": {
+        "person_id": "DFL-OBJ-002G5J",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GAB": {
+        "person_id": "DFL-OBJ-002GAB",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002GDZ": {
+        "person_id": "DFL-OBJ-002GDZ",
+        "position_role": "STR",
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002GEE": {
+        "person_id": "DFL-OBJ-002GEE",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002GFH": {
+        "person_id": "DFL-OBJ-002GFH",
+        "position_role": "LV",
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-002GM1": {
+        "person_id": "DFL-OBJ-002GM1",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GM9": {
+        "person_id": "DFL-OBJ-002GM9",
+        "position_role": "IVR",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GMO": {
+        "person_id": "DFL-OBJ-002GMO",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GNH": {
+        "person_id": "DFL-OBJ-002GNH",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-J0130T": {
+        "person_id": "DFL-OBJ-J0130T",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J014UG": {
+        "person_id": "DFL-OBJ-J014UG",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01CN9": {
+        "person_id": "DFL-OBJ-J01CN9",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-J01CP5": {
+        "person_id": "DFL-OBJ-J01CP5",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01FDY": {
+        "person_id": "DFL-OBJ-J01FDY",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000011"
+      },
+      "DFL-OBJ-J01H9X": {
+        "person_id": "DFL-OBJ-J01H9X",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01KJ5": {
+        "person_id": "DFL-OBJ-J01KJ5",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01L1F": {
+        "person_id": "DFL-OBJ-J01L1F",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WOH",
+    "result": "4:0",
+    "season": "2022/2023",
+    "source_match_id": "J03WOH",
+    "teams": {
+      "DFL-CLU-00000P": {
+        "role": "home",
+        "team_id": "DFL-CLU-00000P",
+        "team_name": "Fortuna Düsseldorf"
+      },
+      "DFL-CLU-000011": {
+        "role": "guest",
+        "team_id": "DFL-CLU-000011",
+        "team_name": "SSV Jahn Regensburg"
+      }
+    }
+  },
+  {
+    "away_team_id": "DFL-CLU-00000Q",
+    "competition": "2. Bundesliga",
+    "competition_id": "DFL-COM-000002",
+    "home_team_id": "DFL-CLU-00000P",
+    "match_day": 8,
+    "match_title": "Fortuna Düsseldorf:F.C. Hansa Rostock",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 40,
+    "players": {
+      "DFL-OBJ-0000F8": {
+        "person_id": "DFL-OBJ-0000F8",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000NZ": {
+        "person_id": "DFL-OBJ-0000NZ",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-000170": {
+        "person_id": "DFL-OBJ-000170",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00019R": {
+        "person_id": "DFL-OBJ-00019R",
+        "position_role": "STL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0001CF": {
+        "person_id": "DFL-OBJ-0001CF",
+        "position_role": "IVR",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0001IG": {
+        "person_id": "DFL-OBJ-0001IG",
+        "position_role": "DRM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-00028V": {
+        "person_id": "DFL-OBJ-00028V",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0002GW": {
+        "person_id": "DFL-OBJ-0002GW",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0002IR": {
+        "person_id": "DFL-OBJ-0002IR",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0025BB": {
+        "person_id": "DFL-OBJ-0025BB",
+        "position_role": "IVZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-00264V": {
+        "person_id": "DFL-OBJ-00264V",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0026RH": {
+        "person_id": "DFL-OBJ-0026RH",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0026ZT": {
+        "person_id": "DFL-OBJ-0026ZT",
+        "position_role": "DLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-00286X": {
+        "person_id": "DFL-OBJ-00286X",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0028FW": {
+        "person_id": "DFL-OBJ-0028FW",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0028IJ": {
+        "person_id": "DFL-OBJ-0028IJ",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0028JQ": {
+        "person_id": "DFL-OBJ-0028JQ",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-0028KZ": {
+        "person_id": "DFL-OBJ-0028KZ",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-002FXA": {
+        "person_id": "DFL-OBJ-002FXA",
+        "position_role": "STR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-002FXT": {
+        "person_id": "DFL-OBJ-002FXT",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002FZB": {
+        "person_id": "DFL-OBJ-002FZB",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-002G5J": {
+        "person_id": "DFL-OBJ-002G5J",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GLL": {
+        "person_id": "DFL-OBJ-002GLL",
+        "position_role": "HL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-002GM1": {
+        "person_id": "DFL-OBJ-002GM1",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GM9": {
+        "person_id": "DFL-OBJ-002GM9",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GMO": {
+        "person_id": "DFL-OBJ-002GMO",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J0130T": {
+        "person_id": "DFL-OBJ-J0130T",
+        "position_role": "DML",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J0153J": {
+        "person_id": "DFL-OBJ-J0153J",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-J0196K": {
+        "person_id": "DFL-OBJ-J0196K",
+        "position_role": "DMZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-J01D0C": {
+        "person_id": "DFL-OBJ-J01D0C",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01GG9": {
+        "person_id": "DFL-OBJ-J01GG9",
+        "position_role": "HL",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-J01H9X": {
+        "person_id": "DFL-OBJ-J01H9X",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01JQC": {
+        "person_id": "DFL-OBJ-J01JQC",
+        "position_role": "ZO",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01KE3": {
+        "person_id": "DFL-OBJ-J01KE3",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01KGY": {
+        "person_id": "DFL-OBJ-J01KGY",
+        "position_role": "HR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-J01KJ5": {
+        "person_id": "DFL-OBJ-J01KJ5",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01L1F": {
+        "person_id": "DFL-OBJ-J01L1F",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01MF0": {
+        "person_id": "DFL-OBJ-J01MF0",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000Q"
+      },
+      "DFL-OBJ-J01NQ8": {
+        "person_id": "DFL-OBJ-J01NQ8",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01PRX": {
+        "person_id": "DFL-OBJ-J01PRX",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WOY",
+    "result": "3:1",
+    "season": "2022/2023",
+    "source_match_id": "J03WOY",
+    "teams": {
+      "DFL-CLU-00000P": {
+        "role": "home",
+        "team_id": "DFL-CLU-00000P",
+        "team_name": "Fortuna Düsseldorf"
+      },
+      "DFL-CLU-00000Q": {
+        "role": "guest",
+        "team_id": "DFL-CLU-00000Q",
+        "team_name": "F.C. Hansa Rostock"
+      }
+    }
+  },
+  {
+    "away_team_id": "DFL-CLU-000005",
+    "competition": "2. Bundesliga",
+    "competition_id": "DFL-COM-000002",
+    "home_team_id": "DFL-CLU-00000P",
+    "match_day": 12,
+    "match_title": "Fortuna Düsseldorf:1. FC Nürnberg",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 40,
+    "players": {
+      "DFL-OBJ-00008F": {
+        "person_id": "DFL-OBJ-00008F",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-00008K": {
+        "person_id": "DFL-OBJ-00008K",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000EJ": {
+        "person_id": "DFL-OBJ-0000EJ",
+        "position_role": "DMZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0000F8": {
+        "person_id": "DFL-OBJ-0000F8",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000NZ": {
+        "person_id": "DFL-OBJ-0000NZ",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-000170": {
+        "person_id": "DFL-OBJ-000170",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0001BX": {
+        "person_id": "DFL-OBJ-0001BX",
+        "position_role": "RV",
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0001HW": {
+        "person_id": "DFL-OBJ-0001HW",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0001LJ": {
+        "person_id": "DFL-OBJ-0001LJ",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-00028V": {
+        "person_id": "DFL-OBJ-00028V",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002595": {
+        "person_id": "DFL-OBJ-002595",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-00265W": {
+        "person_id": "DFL-OBJ-00265W",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0026IA": {
+        "person_id": "DFL-OBJ-0026IA",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0026RH": {
+        "person_id": "DFL-OBJ-0026RH",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00286U": {
+        "person_id": "DFL-OBJ-00286U",
+        "position_role": "HL",
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0028BZ": {
+        "person_id": "DFL-OBJ-0028BZ",
+        "position_role": "STL",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-0028FW": {
+        "person_id": "DFL-OBJ-0028FW",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0028T3": {
+        "person_id": "DFL-OBJ-0028T3",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002FXT": {
+        "person_id": "DFL-OBJ-002FXT",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002FYC": {
+        "person_id": "DFL-OBJ-002FYC",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002G5E": {
+        "person_id": "DFL-OBJ-002G5E",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002G5J": {
+        "person_id": "DFL-OBJ-002G5J",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002G68": {
+        "person_id": "DFL-OBJ-002G68",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002G78": {
+        "person_id": "DFL-OBJ-002G78",
+        "position_role": "STR",
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002GG4": {
+        "person_id": "DFL-OBJ-002GG4",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002GLC": {
+        "person_id": "DFL-OBJ-002GLC",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-002GM1": {
+        "person_id": "DFL-OBJ-002GM1",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GM9": {
+        "person_id": "DFL-OBJ-002GM9",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GMO": {
+        "person_id": "DFL-OBJ-002GMO",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J0178P": {
+        "person_id": "DFL-OBJ-J0178P",
+        "position_role": "STR",
+        "starting": "true",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-J01CP5": {
+        "person_id": "DFL-OBJ-J01CP5",
+        "position_role": "LV",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01D0C": {
+        "person_id": "DFL-OBJ-J01D0C",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01H9X": {
+        "person_id": "DFL-OBJ-J01H9X",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01IUM": {
+        "person_id": "DFL-OBJ-J01IUM",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-J01JQC": {
+        "person_id": "DFL-OBJ-J01JQC",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01K2L": {
+        "person_id": "DFL-OBJ-J01K2L",
+        "position_role": "DMZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-000005"
+      },
+      "DFL-OBJ-J01KJ5": {
+        "person_id": "DFL-OBJ-J01KJ5",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01L1F": {
+        "person_id": "DFL-OBJ-J01L1F",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01NQ8": {
+        "person_id": "DFL-OBJ-J01NQ8",
+        "position_role": "ZO",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01PRX": {
+        "person_id": "DFL-OBJ-J01PRX",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WPY",
+    "result": "0:1",
+    "season": "2022/2023",
+    "source_match_id": "J03WPY",
+    "teams": {
+      "DFL-CLU-000005": {
+        "role": "guest",
+        "team_id": "DFL-CLU-000005",
+        "team_name": "1. FC Nürnberg"
+      },
+      "DFL-CLU-00000P": {
+        "role": "home",
+        "team_id": "DFL-CLU-00000P",
+        "team_name": "Fortuna Düsseldorf"
+      }
+    }
+  },
+  {
+    "away_team_id": "DFL-CLU-00000H",
+    "competition": "2. Bundesliga",
+    "competition_id": "DFL-COM-000002",
+    "home_team_id": "DFL-CLU-00000P",
+    "match_day": 15,
+    "match_title": "Fortuna Düsseldorf:FC St. Pauli",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 40,
+    "players": {
+      "DFL-OBJ-00005H": {
+        "person_id": "DFL-OBJ-00005H",
+        "position_role": "DMR",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00006V": {
+        "person_id": "DFL-OBJ-00006V",
+        "position_role": "IVL",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00008K": {
+        "person_id": "DFL-OBJ-00008K",
+        "position_role": "STR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000F8": {
+        "person_id": "DFL-OBJ-0000F8",
+        "position_role": "RM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000NZ": {
+        "person_id": "DFL-OBJ-0000NZ",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000S8": {
+        "person_id": "DFL-OBJ-0000S8",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-000170": {
+        "person_id": "DFL-OBJ-000170",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0002EL": {
+        "person_id": "DFL-OBJ-0002EL",
+        "position_role": "DLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0026RH": {
+        "person_id": "DFL-OBJ-0026RH",
+        "position_role": "LM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0026V5": {
+        "person_id": "DFL-OBJ-0026V5",
+        "position_role": "HL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0027AY": {
+        "person_id": "DFL-OBJ-0027AY",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0027QN": {
+        "person_id": "DFL-OBJ-0027QN",
+        "position_role": "STR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0027UQ": {
+        "person_id": "DFL-OBJ-0027UQ",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0027W9": {
+        "person_id": "DFL-OBJ-0027W9",
+        "position_role": "RV",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0028FW": {
+        "person_id": "DFL-OBJ-0028FW",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0028HW": {
+        "person_id": "DFL-OBJ-0028HW",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0028LZ": {
+        "person_id": "DFL-OBJ-0028LZ",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-0028SU": {
+        "person_id": "DFL-OBJ-0028SU",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-002FXT": {
+        "person_id": "DFL-OBJ-002FXT",
+        "position_role": "STL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002FZR": {
+        "person_id": "DFL-OBJ-002FZR",
+        "position_role": "STL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-002G5J": {
+        "person_id": "DFL-OBJ-002G5J",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GIY": {
+        "person_id": "DFL-OBJ-002GIY",
+        "position_role": "DMZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-002GM1": {
+        "person_id": "DFL-OBJ-002GM1",
+        "position_role": "RM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GM9": {
+        "person_id": "DFL-OBJ-002GM9",
+        "position_role": "IVZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GMO": {
+        "person_id": "DFL-OBJ-002GMO",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GMV": {
+        "person_id": "DFL-OBJ-002GMV",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-002GN4": {
+        "person_id": "DFL-OBJ-002GN4",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-002GND": {
+        "person_id": "DFL-OBJ-002GND",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-002GNL": {
+        "person_id": "DFL-OBJ-002GNL",
+        "position_role": "IVZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-J0130T": {
+        "person_id": "DFL-OBJ-J0130T",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J014L2": {
+        "person_id": "DFL-OBJ-J014L2",
+        "position_role": "HR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-J0157X": {
+        "person_id": "DFL-OBJ-J0157X",
+        "position_role": "DRM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-J01CVM": {
+        "person_id": "DFL-OBJ-J01CVM",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01HCH": {
+        "person_id": "DFL-OBJ-J01HCH",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000H"
+      },
+      "DFL-OBJ-J01JQC": {
+        "person_id": "DFL-OBJ-J01JQC",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01KJ5": {
+        "person_id": "DFL-OBJ-J01KJ5",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01L1F": {
+        "person_id": "DFL-OBJ-J01L1F",
+        "position_role": "STL",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01NQ8": {
+        "person_id": "DFL-OBJ-J01NQ8",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01OYT": {
+        "person_id": "DFL-OBJ-J01OYT",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01PRP": {
+        "person_id": "DFL-OBJ-J01PRP",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000H"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WQQ",
+    "result": "1:0",
+    "season": "2022/2023",
+    "source_match_id": "J03WQQ",
+    "teams": {
+      "DFL-CLU-00000H": {
+        "role": "guest",
+        "team_id": "DFL-CLU-00000H",
+        "team_name": "FC St. Pauli"
+      },
+      "DFL-CLU-00000P": {
+        "role": "home",
+        "team_id": "DFL-CLU-00000P",
+        "team_name": "Fortuna Düsseldorf"
+      }
+    }
+  },
+  {
+    "away_team_id": "DFL-CLU-00000I",
+    "competition": "2. Bundesliga",
+    "competition_id": "DFL-COM-000002",
+    "home_team_id": "DFL-CLU-00000P",
+    "match_day": 17,
+    "match_title": "Fortuna Düsseldorf:1. FC Kaiserslautern",
+    "pitch_x": 105.0,
+    "pitch_y": 68.0,
+    "player_count_in_match_info": 40,
+    "players": {
+      "DFL-OBJ-00003W": {
+        "person_id": "DFL-OBJ-00003W",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-00005H": {
+        "person_id": "DFL-OBJ-00005H",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00006V": {
+        "person_id": "DFL-OBJ-00006V",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00008K": {
+        "person_id": "DFL-OBJ-00008K",
+        "position_role": "STL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000F8": {
+        "person_id": "DFL-OBJ-0000F8",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000F9": {
+        "person_id": "DFL-OBJ-0000F9",
+        "position_role": "IVL",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0000NZ": {
+        "person_id": "DFL-OBJ-0000NZ",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0000YE": {
+        "person_id": "DFL-OBJ-0000YE",
+        "position_role": "STZ",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-000170": {
+        "person_id": "DFL-OBJ-000170",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-00017G": {
+        "person_id": "DFL-OBJ-00017G",
+        "position_role": "ZO",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0001ZY": {
+        "person_id": "DFL-OBJ-0001ZY",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-00021G": {
+        "person_id": "DFL-OBJ-00021G",
+        "position_role": "RV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-00028V": {
+        "person_id": "DFL-OBJ-00028V",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0002DT": {
+        "person_id": "DFL-OBJ-0002DT",
+        "position_role": "DMR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0025YM": {
+        "person_id": "DFL-OBJ-0025YM",
+        "position_role": "ZO",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-00265D": {
+        "person_id": "DFL-OBJ-00265D",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-00265G": {
+        "person_id": "DFL-OBJ-00265G",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0026MI": {
+        "person_id": "DFL-OBJ-0026MI",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0026RH": {
+        "person_id": "DFL-OBJ-0026RH",
+        "position_role": "OLM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0026WW": {
+        "person_id": "DFL-OBJ-0026WW",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0028FW": {
+        "person_id": "DFL-OBJ-0028FW",
+        "position_role": "TW",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-0028G2": {
+        "person_id": "DFL-OBJ-0028G2",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0028GO": {
+        "person_id": "DFL-OBJ-0028GO",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-0028PO": {
+        "person_id": "DFL-OBJ-0028PO",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-002FXT": {
+        "person_id": "DFL-OBJ-002FXT",
+        "position_role": "STR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002G0F": {
+        "person_id": "DFL-OBJ-002G0F",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-002G5J": {
+        "person_id": "DFL-OBJ-002G5J",
+        "position_role": "OLM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002G9B": {
+        "person_id": "DFL-OBJ-002G9B",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-002GEO": {
+        "person_id": "DFL-OBJ-002GEO",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-002GM1": {
+        "person_id": "DFL-OBJ-002GM1",
+        "position_role": "ORM",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GM9": {
+        "person_id": "DFL-OBJ-002GM9",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GMO": {
+        "person_id": "DFL-OBJ-002GMO",
+        "position_role": "IVR",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-002GPI": {
+        "person_id": "DFL-OBJ-002GPI",
+        "position_role": "STZ",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-002GPN": {
+        "person_id": "DFL-OBJ-002GPN",
+        "position_role": "IVL",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000I"
+      },
+      "DFL-OBJ-J0130T": {
+        "person_id": "DFL-OBJ-J0130T",
+        "position_role": "DML",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01CVM": {
+        "person_id": "DFL-OBJ-J01CVM",
+        "position_role": "STR",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01KJ5": {
+        "person_id": "DFL-OBJ-J01KJ5",
+        "position_role": "LV",
+        "starting": "true",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01L1F": {
+        "person_id": "DFL-OBJ-J01L1F",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01NQ8": {
+        "person_id": "DFL-OBJ-J01NQ8",
+        "position_role": "ORM",
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      },
+      "DFL-OBJ-J01OYT": {
+        "person_id": "DFL-OBJ-J01OYT",
+        "position_role": null,
+        "starting": "false",
+        "team_id": "DFL-CLU-00000P"
+      }
+    },
+    "raw_match_id": "DFL-MAT-J03WR9",
+    "result": "1:2",
+    "season": "2022/2023",
+    "source_match_id": "J03WR9",
+    "teams": {
+      "DFL-CLU-00000I": {
+        "role": "guest",
+        "team_id": "DFL-CLU-00000I",
+        "team_name": "1. FC Kaiserslautern"
+      },
+      "DFL-CLU-00000P": {
+        "role": "home",
+        "team_id": "DFL-CLU-00000P",
+        "team_name": "Fortuna Düsseldorf"
+      }
+    }
+  }
+]

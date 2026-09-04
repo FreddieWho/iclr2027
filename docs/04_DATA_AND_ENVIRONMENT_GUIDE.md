@@ -435,16 +435,17 @@ python scripts/verify_data.py --manifest configs/data_manifest.yaml
 - Google Drive 链接可能变化，提交前验证；
 - ICLR 双盲期仓库、W&B 和文件元数据不得暴露作者身份。
 
-## 11. P3-T5R 数据与访问状态（2026-09-02）
+## 11. P3-T5R 数据与访问状态（2026-09-04）
 
 当前数据入口由 `configs/data_manifest.yaml`（version 2）和 `configs/dataset_acquisition_manifest_v2.yaml` 共同描述：
 
 | 数据 | 当前状态 | 允许用途 |
 |---|---|---|
-| SNGAR train/valid | gated access not assumed | 仅在访问批准后用于开发、任务构造和候选选择 |
-| SNGAR test | locked | candidate lock 后一次性下载/运行 |
+| IDSSE（7 场） | 本地原始文件已提供，来源登记与转换待完成 | 暂代 SNGAR 的开发、任务构造和候选选择 |
+| SNGAR train/valid | gated access blocked/deferred | 当前不阻塞 IDSSE 替代分支，后续可升级独立样本量 |
+| IDSSE 保留 match | same-source holdout | candidate lock 后一次性读取，不称独立 external confirmation |
 | SkillCorner | existing historical asset | dynamic-support 规则开发和人工审计，不作最终确认 |
-| IDSSE | not downloaded by this package | candidate lock 后 external confirmation |
+| SNGAR test / 其他 provider | not available in current branch | candidate lock 后才可承担独立确认 |
 | SoccerTrack v2 | parser smoke only | 先做两场转换 smoke，正式 acquisition-shift 需候选锁 |
 
-旧 heldout 只允许 `exploratory_audit_only`。跨比赛 split 是强制的，不能跨 match 随机切 frame；原始数据不进入 Git，必须保留 source revision、raw-to-canonical mapping、license snapshot、receipt 和 SHA-256。未获得访问权限时使用包内降级路线，但不能把 event-only 数据冒充 continuous geometry evidence。
+旧 heldout 只允许 `exploratory_audit_only`。跨比赛 split 是强制的，不能跨 match 随机切 frame；原始数据不进入 Git，必须保留 source revision、raw-to-canonical mapping、license snapshot、receipt 和 SHA-256。IDSSE 已用于开发后，不得把同一批数据再次写成独立 external confirmation。未获得访问权限时使用当前固定替代路线，但不能把 event-only 数据冒充 continuous geometry evidence。

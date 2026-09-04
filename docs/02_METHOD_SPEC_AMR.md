@@ -508,4 +508,4 @@ globally centered:   X - mean(X) -> Pool -> z_mode -> intrinsic head
 
 `z_ctx` 允许保留 absolute deployment information；`z_mode` 要求对 global translation 这一 nuisance 稳健，同时保留内部构型与 support/relationship 信息。context head 只读 `z_ctx`，intrinsic head 只读 `z_mode`，cross-readout 仅用于检查泄漏。
 
-P3-T5R 的任务是修正评价语义，不是把所有 context response 压到零。固定双通道必须先与 raw single-channel、centered single-channel、relational pooling 和 raw-coordinate/Procrustes baseline 比较；只有 context noninferiority、intrinsic task signal、mode robustness 和 geometry relation 同时出现稳定信号，才允许 bounded autoresearch。candidate lock、SNGAR test 和 IDSSE external confirmation 全部完成前，AMR-Fixed 保持 `NOT_STARTED`。
+P3-T5R 的任务是修正评价语义，不是把所有 context response 压到零。当前暂以 IDSSE 作为 SNGAR 的开发替代数据，固定双通道必须先与 raw single-channel、centered single-channel、relational pooling 和 raw-coordinate/Procrustes baseline 比较；只有 context noninferiority、intrinsic task signal、mode robustness 和 geometry relation 同时出现稳定信号，才允许 bounded autoresearch。candidate lock、IDSSE 保留 match 检查和真正独立 provider confirmation 全部完成前，AMR-Fixed 保持 `NOT_STARTED`。

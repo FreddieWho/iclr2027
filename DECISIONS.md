@@ -105,3 +105,35 @@
 - 日期：2026-09-02
 - 决定：static role universal effect 仍为 `NOT_SUPPORTED`；dynamic semantic support 作为 response-blind、可人工审计的新 operationalization，属于非阻塞子任务。
 - 影响：dynamic support 不能反向选择主 task-repair 候选；规则、匹配和人工审计必须先于 response 计算冻结。
+
+## D-20260904-P3-017：IDSSE 暂代 SNGAR 的开发数据角色
+- 日期：2026-09-04
+- 决定：由于 SNGAR gated access 当前不可用，暂时使用本地 `data/raw/sports/idsse-data/` 的 IDSSE 数据推进 T5R 的开发链；替代范围为 T5R1–T5R4 的数据转换、任务构造、baseline lock、fixed dual-channel sanity 和有界候选开发。
+- 数据边界：IDSSE 只有 7 场，不能伪装成 SNGAR 的 45 train / 9 valid / 10 test；必须按 `source_match_id` 划分，训练前冻结开发、验证和保留 match。
+- 确认边界：同一批 IDSSE 一旦用于本轮开发，不得再次被称为同一轮的独立 external confirmation。SNGAR 恢复或其他 provider/source 仍是独立确认分支；IDSSE 保留 match 最多只能称为同源未见确认。
+- 不变项：P2/P3 冻结资产只读；不新增 Phase；旧 heldout 仍仅 `exploratory_audit_only`；P4 AMR、书法和 candidate-lock 后的确认门继续保留。
+
+## D-20260904-P3-018：IDSSE 官方页面核验与文件身份裁决
+- 日期：2026-09-04
+- 核验依据：官方数据集页 `https://huggingface.co/datasets/pysport/idsse-data` 及其 `main` 文件树；当前文件提交为 `a715a38dfbaf5f58e431727c2b78d174101a703c`。
+- 结果：官方页面确认 7 场 2022/23 Bundesliga 数据、tracking/event/metadata、25 fps、CC BY 4.0、Figshare DOI 和论文 DOI；`main` 文件树列出的 7 个实际比赛 ID 与本地 XML 文件名及内部 `MatchId` 一致。
+- 差异处理：数据卡正文列出的 `J03WPF`、`J03WQF` 与 `main` 文件树中的 `J03WQQ`、`J03WR9` 不一致。文件身份以官方 `main` 文件树为准；该差异写入 provenance，禁止修改或重命名 raw 文件来消除差异。
+- 限制：官方 Dataset Viewer 当前对 `default/train` 报 `FeaturesError`/`FileNotFoundError`，因此字段级 schema、样本统计和 XML 完整性不能由 Viewer 证明，仍需本地 receipt、SHA-256 和 canonical QC。
+- 影响：T5R1 的“官方来源核验”已完成；本地 provenance/manifest/SHA-256 和 canonical conversion 仍未完成，T5R2 及后续训练继续不启动。
+- 复查条件：IDSSE 官方数据说明、文件/比赛 ID、来源 revision、许可和 SHA-256 完成登记并通过 canonical QC 后，才可进入 T5R2；若 schema 或覆盖不足，停止并记录失败，不用结果反向放宽协议。
+
+## D-20260904-P3-019：T5R2 IDSSE task 与 baseline/metric lock 闭合
+- 日期：2026-09-04
+- 数据来源：IDSSE 官方 Hugging Face revision `a715a38dfbaf5f58e431727c2b78d174101a703c`；raw manifest、`RAW_SHA256SUMS`、canonical manifest 和 7 场 conversion receipts 已生成，原始文件哈希复核 23/23 通过。
+- 固定 split：train=`J03WMX,J03WOH,J03WPY,J03WR9`；valid=`J03WN1,J03WOY`；reserved holdout=`J03WQQ`。只按 source match 划分，禁止 frame/event 随机切分；reserved match 在 T5R2 未加载，candidate lock 前不得读取。
+- 固定任务：raw positions → `z_ctx` 用于 phase/field-zone/absolute-centroid context；20 个出场球员的 globally centered positions → `z_mode` 用于 natural pair ranking。自然配对为同 match、同 half、至少 4 秒分离；正样本 geometry≤0.28 且 centroid≥0.35，hard negative centroid≤0.12 且 geometry≥0.35。
+- 规模：train 23,052 snapshots/3,750 pairs；valid 6,127 snapshots/980 pairs。配对阈值只由响应盲的几何协议固定，不使用模型结果；`J03WQQ` 无任务数组输出。
+- baseline/metric lock：raw single-channel、centered single-channel、raw relational、fixed dual-channel（仅 T5R3 sanity）和 raw-coordinate/Procrustes；seeds 11/23/47；match-level bootstrap 2,000 次，seed `20260904`；context non-inferiority margin 为 macro-F1 最多下降 0.05、centroid MAE 最多增加 0.05。
+- 状态边界：T5R2 已闭合，但没有运行 fixed dual-channel、autoresearch、candidate lock、reserved-match 检查、独立 provider confirmation 或任何模型训练；P4 仍 blocked。IDSSE 不能在本轮同时被写成 independent external confirmation。
+
+## D-20260904-P3-020：T5R3 fixed dual-channel sanity 的方向性门判断
+- 日期：2026-09-04
+- 运行：`artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/`；仅 train/valid，4 个 neural variants × seeds `11/23/47`，所有 neural variants 均为 141,769 参数；`J03WQQ` 未加载。
+- 结果：fixed dual valid natural-pair ranking accuracy 均值 `0.9487`，raw single-channel 为 `0.8030`；dual 相对 raw 的 phase macro-F1 变化 `-0.0126`、field-zone macro-F1 变化 `-0.0087`、centroid MAE 变化 `+0.0095`，均在 `0.05` non-inferiority margin 内；三个 seed 的 dual intrinsic ranking 均高于 raw。
+- 机制边界：dual 的 `z_mode` global translation response 约为 `0`，cross-readout 受限，natural-pair geometry→latent-distance proxy 为正且三个 seed 同方向。该 proxy 不是旧 P3 intervention-response Spearman；不能写成旧机制在 IDSSE 上的复现。
+- 决定：T5R3 记为 `DIRECTIONAL_PASS_T5R4_REVIEW_REQUIRED`，允许审阅后考虑 T5R4 bounded autoresearch；不得据此创建 candidate lock、读取 reserved/test、放行 P4 或宣称最终方法收益。v1/v2 中止尝试不纳入证据。

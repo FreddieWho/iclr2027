@@ -1,0 +1,226 @@
+{
+  "baseline_models": [
+    {
+      "channel": "z_ctx",
+      "id": "raw_single_channel_phase_gat_team_mean",
+      "input": "raw_positions",
+      "pooling": "team_mean"
+    },
+    {
+      "channel": "z_mode",
+      "id": "centered_single_channel_phase_gat_team_mean",
+      "input": "centered_positions",
+      "pooling": "team_mean"
+    },
+    {
+      "channel": "z_ctx",
+      "id": "raw_relational_pooling_phase_gat",
+      "input": "raw_positions",
+      "pooling": "relational_pairwise"
+    },
+    {
+      "channel": "z_ctx_and_z_mode",
+      "id": "fixed_dual_channel_shared_phase_gat",
+      "input": "raw_and_centered_positions",
+      "pooling": "team_mean",
+      "status": "T5R3_minimal_sanity_only"
+    },
+    {
+      "channel": "intrinsic_control",
+      "id": "raw_coordinate_procrustes",
+      "input": "raw_coordinates",
+      "pooling": "geometry_free_control"
+    }
+  ],
+  "candidate_budget": {
+    "candidate_lock_status": "NOT_CREATED",
+    "max_new_candidates_per_round": 6,
+    "max_rounds": 2
+  },
+  "context_tasks": {
+    "absolute_field_zone_classification": {
+      "classes": [
+        "defensive_third",
+        "middle_third",
+        "attacking_third"
+      ],
+      "input_view": "raw_positions",
+      "label": "home_field_zone",
+      "primary_metric": "match_grouped_macro_f1",
+      "representation": "z_ctx"
+    },
+    "absolute_team_centroid_regression": {
+      "input_view": "raw_positions",
+      "primary_metric": "match_grouped_mae",
+      "representation": "z_ctx",
+      "secondary_metric": "match_grouped_r2",
+      "targets": [
+        "home_centroid_x",
+        "home_centroid_y",
+        "away_centroid_x",
+        "away_centroid_y"
+      ]
+    },
+    "phase_deployment_classification": {
+      "classes": [
+        "firstHalf",
+        "secondHalf"
+      ],
+      "input_view": "raw_positions",
+      "label": "phase_label",
+      "primary_metric": "match_grouped_macro_f1",
+      "representation": "z_ctx",
+      "secondary_metric": "match_grouped_accuracy"
+    },
+    "translation_reporting": "report z_ctx accessibility and sensitivity; do not optimize for lower response"
+  },
+  "dataset": {
+    "canonical_manifest": "artifacts/data_v2/idsse/canonical_manifest.json",
+    "canonical_manifest_sha256": "90dc80a22a5a7c092e033a48a36cf56e0af300419c42ba44f5d80de83bdc3318",
+    "id": "IDSSE",
+    "official_dataset_url": "https://huggingface.co/datasets/pysport/idsse-data",
+    "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+    "role": "temporary_substitute_for_sngar_development",
+    "source_manifest": "artifacts/data_v2/idsse/source_file_manifest.json",
+    "source_manifest_sha256": "1a05ff744de7e3454c93188306774a7601ea15b204e9d7338c018103d89c5c63"
+  },
+  "decision_rules": {
+    "context_noninferiority_margin": {
+      "centroid_mae_increase_max": 0.05,
+      "macro_f1_absolute_drop_max": 0.05
+    },
+    "geometry_floor": "geometry-response Spearman must not fall below locked baseline tolerance in T5R3",
+    "intrinsic_improvement": "positive direction on primary ranking metric across majority of matches and at least 2 of 3 seeds",
+    "no_post_hoc_reweighting": true,
+    "translation_robustness": "z_mode global translation response reported separately; lower is better for intrinsic channel only"
+  },
+  "firewall": {
+    "candidate_lock_required_before_reserved_read": true,
+    "external_results_used": false,
+    "model_results_used": false,
+    "old_heldout_used": false,
+    "reserved_holdout_match_ids": [
+      "J03WQQ"
+    ],
+    "reserved_holdout_task_arrays_written": false,
+    "train_match_ids": [
+      "J03WMX",
+      "J03WOH",
+      "J03WPY",
+      "J03WR9"
+    ],
+    "valid_match_ids": [
+      "J03WN1",
+      "J03WOY"
+    ]
+  },
+  "generated_by": "scripts/prepare_idsse_t5r2.py",
+  "intrinsic_task": {
+    "cross_split_pairs": false,
+    "hard_negative_rule": "same_match_same_half natural snapshot with absolute centroid distance <= 0.12 and centered pairwise geometry distance >= 0.35",
+    "input_view": "globally_centered_positions",
+    "intervention_labels_as_task": false,
+    "minimum_time_separation_seconds": 4.0,
+    "name": "natural_pair_ranking",
+    "pair_anchor_stride_in_one_hz_snapshots": 5,
+    "positive_rule": "same_match_same_half natural snapshot with centered pairwise geometry distance <= 0.28 and absolute centroid distance >= 0.35",
+    "primary_metrics": [
+      "match_grouped_ranking_accuracy",
+      "match_grouped_mrr_at_2"
+    ],
+    "representation": "z_mode",
+    "secondary_metrics": [
+      "hard_negative_ranking_accuracy",
+      "raw_coordinate_shortcut_audit"
+    ]
+  },
+  "phase": "P3_CAUSAL_MECHANISM",
+  "representation_contract": {
+    "coordinate_normalization": "x=X/(pitch_x/2), y=Y/(pitch_y/2); source X/Y are centered at the pitch origin",
+    "graph": "fixed weighted kNN-4 from each snapshot normalized coordinates; no learned graph",
+    "team_features": "two-hot team slot is allowed; player role is not a required runtime input",
+    "z_ctx": "shared encoder pooled from pitch-normalized raw positions; absolute deployment retained",
+    "z_mode": "shared encoder pooled from positions after subtracting the 20-player global centroid"
+  },
+  "split_lock": {
+    "event_split_forbidden": true,
+    "frame_split_forbidden": true,
+    "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+    "primary_unit": "source_match_id",
+    "reserved_holdout_match_count": 1,
+    "reserved_holdout_policy": "do not load into T5R2 task views; candidate lock required before one read",
+    "same_source_not_independent_provider": true,
+    "selection_rule": "fixed ID-only assignment; no event count, score, model result, or holdout result used",
+    "split_map": {
+      "J03WMX": "train",
+      "J03WN1": "valid",
+      "J03WOH": "train",
+      "J03WOY": "valid",
+      "J03WPY": "train",
+      "J03WQQ": "reserved_holdout",
+      "J03WR9": "train"
+    },
+    "status": "MATCH_SPLIT_FROZEN_BEFORE_T5R2_TASK_CONSTRUCTION",
+    "train_match_count": 4,
+    "valid_match_count": 2
+  },
+  "statistics": {
+    "bootstrap": "match-level percentile bootstrap",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260904,
+    "leave_one_match_out": true,
+    "primary_unit": "source_match_id",
+    "seed_is_not_independent_match": true
+  },
+  "status": "T5R2_CLOSED_BASELINE_AND_METRIC_LOCK",
+  "task": "P3-T5R2",
+  "task_views": {
+    "train": {
+      "pair_count": 3750,
+      "pair_table": "artifacts/phase3/task_semantic_repair_v1/data_views/natural_pair_ranking_train.parquet",
+      "pair_table_sha256": "694eb80d0769d10c7376b396791e2bb89757220e0f3dbd9a0861fbe8f50ac790",
+      "positions_centered": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_centered_train.npy",
+      "positions_centered_sha256": "1369c05fb3e07a626ae66e07eccdbb5fd129fc7f4db0bfa507c8b5134f214465",
+      "positions_raw": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_raw_train.npy",
+      "positions_raw_sha256": "260cbbe2dbe3386a9590d3ad0575d90e6764210db7197fbf72585f090a384d99",
+      "snapshot_count": 23052,
+      "snapshot_index": "artifacts/phase3/task_semantic_repair_v1/data_views/snapshot_index_train.parquet",
+      "snapshot_index_sha256": "e7d173d8ccadf2faf216e0187705d607cee3719f11061a12d34dacc038604f3d",
+      "team_slots": "artifacts/phase3/task_semantic_repair_v1/data_views/team_slots_train.npy",
+      "team_slots_sha256": "f43e7981ad1ab656b51af2e4f0c3c6551c579928c3791b349b3929c735a50243"
+    },
+    "valid": {
+      "pair_count": 980,
+      "pair_table": "artifacts/phase3/task_semantic_repair_v1/data_views/natural_pair_ranking_valid.parquet",
+      "pair_table_sha256": "543e524a893502636f71c5d00a6042362a0b05c4b354956b9a6065b65cadbf00",
+      "positions_centered": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_centered_valid.npy",
+      "positions_centered_sha256": "5c5dfdb33cea63564bee09aeb1b4ee7679aaa92be4c72eec563d58b78b0b2e5b",
+      "positions_raw": "artifacts/phase3/task_semantic_repair_v1/data_views/positions_raw_valid.npy",
+      "positions_raw_sha256": "00c8c5b9250fd74c2d9dac30e0731db536592a1ab46891424c0b429c12a40c8c",
+      "snapshot_count": 6127,
+      "snapshot_index": "artifacts/phase3/task_semantic_repair_v1/data_views/snapshot_index_valid.parquet",
+      "snapshot_index_sha256": "b3c0b1a340924709498a6f6e82d131140543423cbeb029dbf11e4fc5afd1e7ec",
+      "team_slots": "artifacts/phase3/task_semantic_repair_v1/data_views/team_slots_valid.npy",
+      "team_slots_sha256": "0d90e1925d6fa11ffa638c9021afcdbb923f31abb3448ea079d4cd4868960d08"
+    }
+  },
+  "training_lock": {
+    "augmentation": "none",
+    "batch_size": 64,
+    "class_weighting": false,
+    "early_stopping": false,
+    "epochs": 80,
+    "hidden_dim": 128,
+    "latent_dim": 128,
+    "learning_rate": 0.001,
+    "message_passing_layers": 2,
+    "optimizer": "Adam",
+    "parameter_matching": "same encoder width/depth; dual channel shares encoder and uses fixed task heads",
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "weight_decay": 0.0
+  }
+}

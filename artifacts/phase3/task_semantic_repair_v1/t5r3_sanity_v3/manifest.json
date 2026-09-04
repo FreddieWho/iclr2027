@@ -1,0 +1,18 @@
+{
+  "status": "T5R3_FIXED_DUAL_CHANNEL_SANITY_COMPLETE",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R3",
+  "protocol": "protocol.json",
+  "results": "model_results.json",
+  "summary": "summary.json",
+  "analytic_control": "analytic_control.json",
+  "model_count": 12,
+  "variant_count": 4,
+  "seed_count": 3,
+  "reserved_holdout_loaded": false,
+  "external_results_used": false,
+  "old_heldout_used": false,
+  "candidate_selection_performed": false,
+  "status_boundary": "T5R3 complete; T5R4 bounded autoresearch not started",
+  "elapsed_seconds": 2999.199
+}

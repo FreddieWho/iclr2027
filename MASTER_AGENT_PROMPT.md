@@ -70,17 +70,17 @@ CAP 作为 baseline；优先实现 AMR-Fixed，再根据实验结果探索 AMR-L
 
 P2 已结束并冻结。原 P3-T0–T5 的 geometry prediction、prospective、layer/block anatomy 和 response-shaping 结果保持不变；旧 task gate 只适用于旧的 conflated task，且旧 heldout 已暴露，只能作为 exploratory audit。当前仍是 `P3_CAUSAL_MECHANISM`，新增的工作编号为 `P3-T5R0`–`P3-T5R6`，不是新 Phase。
 
-按以下顺序施工：
+按以下顺序施工（当前固定分支见项目根目录 `TODO.md`）：
 
 1. 读取并校验 `docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/`；
 2. 先完成 canonical docs/configs、`configs/phase3_task_semantic_repair_v1.yaml` 和 current-state consistency audit；
-3. 只获取 SNGAR train+valid，构建 match-isolated context/intrinsic tasks；
+3. 先核验并转换本地 IDSSE，暂代 SNGAR 的开发数据角色，按 match-level 冻结 context/intrinsic tasks；SNGAR 恢复保留为后续分支；
 4. 运行 fixed dual-channel sanity：raw `z_ctx`、centered `z_mode`、任务交叉泄漏和 translation robustness；
 5. 只有 sanity 有稳定信号，才调度最多两轮、每轮最多六个候选的 bounded autoresearch；
-6. candidate lock 提交后，才允许一次性读取 SNGAR test，并随后进行 IDSSE external confirmation；
+6. candidate lock 提交后，才允许一次性读取 IDSSE 保留 match；已用于开发的 IDSSE 不得再次作为独立 external confirmation，真正独立确认等待 SNGAR 或其他 provider/source；
 7. 只有完整 T5R gate 闭合，才启动 P4 的 AMR-Fixed。
 
-禁止重新运行或覆盖 P2，禁止使用旧 heldout 选候选，禁止在 candidate lock 前读取 test/IDSSE 结果，禁止先训练 AMR，禁止用 response 增大代替任务改善。动态 support 子任务可并行，但不阻塞主 task-repair gate。书法结果继续 exploratory，不用于选择体育端机制；本项目不访问、修改或重建任何生信数据/index。
+禁止重新运行或覆盖 P2，禁止使用旧 heldout 选候选，禁止在 candidate lock 前读取 IDSSE 保留 match 或任何独立确认结果，禁止先训练 AMR，禁止用 response 增大代替任务改善。动态 support 子任务可并行，但不阻塞主 task-repair gate。书法结果继续 exploratory，不用于选择体育端机制；本项目不访问、修改或重建任何生信数据/index。
 
 P3 几何证据见 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`；本轮执行计划见 `reports/P3_TASK_SEMANTIC_REPAIR_PLAN.md`；施工协议见 `docs/05_AGENT_EXECUTION_MANUAL.md`，机器可读路线见 `configs/experiment_matrix.yaml`。
 
