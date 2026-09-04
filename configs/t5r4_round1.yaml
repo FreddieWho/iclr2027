@@ -1,0 +1,62 @@
+version: 1
+phase: P3_CAUSAL_MECHANISM
+task_lane: P3-T5R4
+status: round_1_complete_review_required
+
+data:
+  dataset: IDSSE
+  role: temporary_substitute_for_sngar_development
+  visible_splits: [train, valid]
+  reserved_match: J03WQQ
+  reserved_loaded: false
+  external_results_used: false
+  old_heldout_used: false
+
+reference:
+  task: P3-T5R3
+  summary: artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/summary.json
+  baseline: fixed_dual_channel_shared_phase_gat
+
+search:
+  max_rounds: 2
+  max_candidates_per_round: 6
+  round: 1
+  seeds: [11, 23, 47]
+  one_major_axis_per_candidate: true
+  candidate_selection: review_after_round
+
+# These are representative starting points, not a closed architecture grid.
+# New candidates may vary within the declared axis without changing the data,
+# split, or primary metric contract.
+candidates:
+  - id: loss_context_up
+    axis: loss_balance
+    context_weight: 1.5
+    intrinsic_weight: 1.0
+    gradient_routing: shared
+    head_placement: identity
+  - id: loss_intrinsic_up
+    axis: loss_balance
+    context_weight: 1.0
+    intrinsic_weight: 1.5
+    gradient_routing: shared
+    head_placement: identity
+  - id: routing_mode_head_only
+    axis: gradient_routing
+    context_weight: 1.0
+    intrinsic_weight: 1.0
+    gradient_routing: mode_head_only
+    head_placement: identity
+  - id: head_context_layernorm
+    axis: head_placement
+    context_weight: 1.0
+    intrinsic_weight: 1.0
+    gradient_routing: shared
+    head_placement: context_layernorm
+
+firewall:
+  split_changes: forbidden
+  metric_changes: forbidden
+  candidate_lock_before_reserved_read: true
+  reserved_read_during_round: false
+  external_read_during_round: false

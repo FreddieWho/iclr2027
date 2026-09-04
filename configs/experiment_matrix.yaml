@@ -155,7 +155,7 @@ exploration_checkpoints:
 p3_task_semantic_repair:
   phase: P3_CAUSAL_MECHANISM
   task_lane: P3-T5R
-  status: t5r3_directional_pass_t5r4_review_required
+  status: t5r4_round1_complete_review_required
   protocol_config: configs/phase3_task_semantic_repair_v1.yaml
   package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
   legacy_heldout:
@@ -179,6 +179,10 @@ p3_task_semantic_repair:
       baseline_and_metric_lock: artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json
       t5r3_sanity_report: reports/P3_T5R3_SANITY_REPORT.md
       t5r3_sanity_output: artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/
+      t5r3_closure_review: reports/P3_T5R3_CLOSURE_REVIEW.md
+      t5r4_round1_config: configs/t5r4_round1.yaml
+      t5r4_round1_output: artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/
+      t5r4_round1_report: reports/P3_T5R4_ROUND1_REPORT.md
     deferred_sngar:
       dataset: SNGAR-Action-Spotting-Tracking
       access_status: blocked_external_network_2026-09-02

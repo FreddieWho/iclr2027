@@ -5,12 +5,12 @@
 ## 当前路线
 
 - active_phase: P3_CAUSAL_MECHANISM
-- current_checkpoint: P3_T5R3_FIXED_DUAL_CHANNEL_SANITY_COMPLETE
+- current_checkpoint: P3_T5R4_ROUND1_COMPLETE
 - current_route: support_conditioned_geometry_with_task_semantic_repair
-- current_phase_status: P3_T5R3_DIRECTIONAL_PASS_T5R4_REVIEW_P4_BLOCKED
+- current_phase_status: P3_T5R4_ROUND1_REVIEW_REQUIRED_P4_BLOCKED
 - p4_status: blocked_pending_p3_t5r_gate
 - p5_status: blocked_pending_sports_prediction_lock
-- next_action: review_t5r3_then_start_bounded_autoresearch
+- next_action: review_t5r4_round1_then_decide_round2_or_candidate_lock
 
 P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性诊断均已完成。P2 结论是 representation response，不是下游任务性能；20/36 条件正向、16/36 条件负向，方向依赖 architecture、graph、role、energy。该结果不被重算、覆盖或改写。
 
@@ -51,7 +51,7 @@ P3-T5R 允许在既有阶段内引入经批准的独立体育数据，但不访�
 - 只有 diagonal geometry 有效时，claim 收缩为节点/支持敏感度各向异性。
 - retrospective 有效但 prospective 失败、或 response 可控但任务无收益时，不进入 AMR。
 - geometry 与允许的 integrated metric 均不能预测时，停止当前机制复杂度，保留 P2 的 mixed_or_graph_specific。
-- 当前实际路由：旧 causal switch 仍为 response shaping only；T5R0–T5R3 已完成，IDSSE 暂代 SNGAR 的开发分支已固定，T5R3 方向性门通过，下一步是审阅结果后再决定是否运行 T5R4 bounded autoresearch，P4 继续 blocked。
+- 当前实际路由：旧 causal switch 仍为 response shaping only；T5R0–T5R3 已完成，T5R4 Round 1 已完成待审阅，IDSSE 暂代 SNGAR 的开发分支已固定，P4 继续 blocked。
 
 ## P3-T5R 当前状态（2026-09-04）
 
@@ -59,10 +59,10 @@ P3-T5R 允许在既有阶段内引入经批准的独立体育数据，但不访�
 - T5R1：IDSSE 暂代 SNGAR 的开发数据，官方页面、raw manifest、SHA-256、canonical conversion 和逐场 QC 已完成；
 - T5R2：context/intrinsic task、match-level split、自然配对规则和 baseline/metric lock 已闭合；任务审计通过；
 - T5R3：fixed dual-channel sanity 已完成；dual 相对 raw 满足方向性 sanity 条件，但 geometry 指标是 natural-pair proxy，不能写成旧 P3 intervention-response 复现；
-- T5R4：bounded autoresearch，未授权启动；
+- T5R4：bounded autoresearch Round 1 已完成；仅 train/valid，4 个候选无自动晋级，结果待审阅；
 - T5R5/T5R6：candidate lock、IDSSE 同源保留 match 检查与独立 provider confirmation，未运行。
 
-本轮目标是判断任务语义修复是否能把 geometry/response shaping 转化为客观 task–robustness Pareto；T5R3 已产生仅限 train/valid 的 sanity 结果，尚未形成 P4 或外部确认 claim。T5R4 是否启动仍需审阅，不能把当前结果写成最终方法收益。
+本轮目标是判断任务语义修复是否能把 geometry/response shaping 转化为客观 task–robustness Pareto；T5R3 closure review 已允许 T5R4 Round 1，Round 1 已完成但无全维度 Pareto 支配者，尚未形成 P4 或外部确认 claim。
 
 ## IDSSE 临时替代说明
 
@@ -71,3 +71,5 @@ IDSSE 当前只承担 T5R 的开发输入。官方 Hugging Face `main` 文件树
 T5R2 已锁定：train=`J03WMX,J03WOH,J03WPY,J03WR9`，valid=`J03WN1,J03WOY`，reserved holdout=`J03WQQ`。训练/验证任务视图分别为 23,052/6,127 个 snapshot，自然配对分别为 3,750/980；reserved match 未加载，candidate lock 仍是测试前置条件。原始哈希复核为 23/23 通过，IDSSE T5R2 结构审计为 `PASS`。权威 artifacts 为 `artifacts/data_v2/idsse/` 和 `artifacts/phase3/task_semantic_repair_v1/`；T5R3 v3 已完成并通过独立审计，结果仅为方向性 sanity pass。
 
 T5R3 已完成：4 个 neural variants × 3 个 seeds，所有 neural models 为 141,769 参数；dual valid natural-pair ranking accuracy 均值 0.9487，raw baseline 为 0.8030；dual valid context 的 phase/field-zone macro-F1 为 0.5382/0.9619，centroid MAE 为 0.0554；`z_mode` translation response 约为 0。结果只说明可进入 T5R4 审阅，不说明 P4 已放行。
+
+T5R4 Round 1 已完成：配置为 `configs/t5r4_round1.yaml`，正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`；4 个候选只在 train/valid 上比较，不自动晋级，不读取 `J03WQQ`。结果见 `reports/P3_T5R4_ROUND1_REPORT.md`。

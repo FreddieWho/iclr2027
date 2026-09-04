@@ -1,7 +1,7 @@
 # P3-T5R Task-Semantic Repair Plan
 
 日期：2026-09-04
-状态：`T5R2_TASK_AND_BASELINE_LOCK_COMPLETE`
+状态：`T5R4_ROUND1_COMPLETE_REVIEW_REQUIRED`
 所属阶段：既有 `P3_CAUSAL_MECHANISM`
 
 ## 1. 目的与边界
@@ -32,7 +32,7 @@ P3-T5R0 protocol/document repair
 
 | 数据 | 当前用途 | 搜索期间状态 |
 |---|---|---|
-| IDSSE（7 场） | 暂代开发、任务构造、候选选择 | 来源、SHA-256、canonical QC 和 T5R2 lock 已完成；T5R3 前只读 |
+| IDSSE（7 场） | 暂代开发、任务构造、T5R3/T5R4 Round 1 | 来源、SHA-256、canonical QC 和 T5R2 lock 已完成；当前只读 train/valid |
 | SNGAR train/valid（45/9 场） | 原计划开发数据 | 暂缓，访问阻塞；不影响当前 IDSSE 替代分支 |
 | SNGAR test（10 场） | 同源未见确认 | candidate lock 前不得下载/读取 |
 | SkillCorner（10 场） | 历史探索、dynamic support 规则开发 | 不作为最终确认 |
@@ -89,10 +89,10 @@ centered view:  X - mean(X) -> Pool -> z_mode -> intrinsic head
 
 已完成：T5R0 的文档/config 迁移；已固定 IDSSE 暂代 SNGAR 的开发数据角色；T5R1 的官方来源、raw manifest、23/23 SHA-256、7 场 canonical conversion receipts 和逐场 QC；T5R2 的 match-level split、context/intrinsic task views、natural pair protocol 与 baseline/metric lock。
 T5R2 任务视图：train=`J03WMX,J03WOH,J03WPY,J03WR9`，valid=`J03WN1,J03WOY`，reserved=`J03WQQ`；train/valid 分别为 23,052/6,127 snapshots 和 3,750/980 natural pairs。`J03WQQ` 未加载，未写出 reserved task arrays。
-已运行：fixed dual-channel sanity（仅 train/valid，v3 正式证据）；尚未运行：autoresearch、candidate lock、IDSSE 保留 match 检查、独立 provider confirmation。v1/v2 中止尝试不纳入证据。
-当前 P4：`blocked_pending_p3_t5r_gate`。
+已运行：fixed dual-channel sanity（仅 train/valid，v3 正式证据）和 T5R4 Round 1（4 候选、12 个模型）；尚未运行：Round 2、candidate lock、IDSSE 保留 match 检查、独立 provider confirmation。v1/v2 中止尝试不纳入证据。
+当前 P4：`blocked_pending_p3_t5r_gate`。T5R3 closure review 已接受 T5R4 Round 1 探索，具体候选仍不自动晋级。
 
-T5R3 已完成并记录在 `reports/P3_T5R3_SANITY_REPORT.md`。其方向性门为 `PASS`，但 valid 只有 2 场比赛，且 geometry 指标是 natural-pair proxy，不是 intervention-response；T5R4 仍需审阅授权。
+T5R3 已完成并记录在 `reports/P3_T5R3_SANITY_REPORT.md`。其方向性门为 `PASS`，但 valid 只有 2 场比赛，且 geometry 指标是 natural-pair proxy，不是 intervention-response。T5R4 Round 1 已完成并记录在 `reports/P3_T5R4_ROUND1_REPORT.md`，无全维度 Pareto 支配者，Round 2 待审阅。
 
 机器配置：`configs/phase3_task_semantic_repair_v1.yaml`。  
 权威 artifacts：`artifacts/data_v2/idsse/`、`artifacts/phase3/task_semantic_repair_v1/`。

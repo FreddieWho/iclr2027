@@ -1,0 +1,19 @@
+{
+  "status": "T5R4_ROUND1_COMPLETE",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R4",
+  "round": 1,
+  "protocol": "protocol.json",
+  "results": "model_results.json",
+  "summary": "summary.json",
+  "reference_t5r3_summary": "reference_t5r3_summary.json",
+  "candidate_count": 4,
+  "model_count": 12,
+  "seed_count": 3,
+  "reserved_holdout_loaded": false,
+  "external_results_used": false,
+  "old_heldout_used": false,
+  "candidate_selection_performed": false,
+  "decision_status": "REVIEW_AFTER_ROUND1",
+  "elapsed_seconds": 2848.187
+}

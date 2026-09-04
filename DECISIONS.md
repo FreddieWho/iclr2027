@@ -137,3 +137,15 @@
 - 结果：fixed dual valid natural-pair ranking accuracy 均值 `0.9487`，raw single-channel 为 `0.8030`；dual 相对 raw 的 phase macro-F1 变化 `-0.0126`、field-zone macro-F1 变化 `-0.0087`、centroid MAE 变化 `+0.0095`，均在 `0.05` non-inferiority margin 内；三个 seed 的 dual intrinsic ranking 均高于 raw。
 - 机制边界：dual 的 `z_mode` global translation response 约为 `0`，cross-readout 受限，natural-pair geometry→latent-distance proxy 为正且三个 seed 同方向。该 proxy 不是旧 P3 intervention-response Spearman；不能写成旧机制在 IDSSE 上的复现。
 - 决定：T5R3 记为 `DIRECTIONAL_PASS_T5R4_REVIEW_REQUIRED`，允许审阅后考虑 T5R4 bounded autoresearch；不得据此创建 candidate lock、读取 reserved/test、放行 P4 或宣称最终方法收益。v1/v2 中止尝试不纳入证据。
+
+## D-20260904-P3-021：T5R3 closure review 与 T5R4 Round 1 启动
+- 日期：2026-09-04
+- 判断：没有路线级偏移；IDSSE 暂代 SNGAR、train/valid firewall 和 T5R3 的 proxy/等价实现边界均保留。
+- 决定：允许 T5R4 Round 1 bounded autoresearch。搜索保持轻量和可探索：最多 2 轮、每轮最多 6 个候选、每候选一个主要机制轴；具体候选值不预先写死，不自动晋级。
+- 当前范围：Round 1 仅使用 T5R2 train/valid，候选参考 T5R3 fixed dual；不读取 `J03WQQ`、SNGAR test、旧 exposed heldout 或外部结果。T5R4 结果仍不构成 P4 或独立确认。
+
+## D-20260904-P3-022：T5R4 Round 1 结果边界
+- 日期：2026-09-04
+- 运行：4 个候选 × seeds `11/23/47`，共 12 个模型；所有模型 141,769 参数，正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`。
+- 结果：没有全维度 Pareto 支配者。`loss_context_up` 与 `head_context_layernorm` 各有局部改善，`routing_mode_head_only` 的 intrinsic ranking 明显下降；Procrustes control 仍显示 ranking 接近几何上限。
+- 决定：Round 1 记为 `COMPLETE_REVIEW_REQUIRED`，不自动进入 Round 2，不创建 candidate lock，不读取 `J03WQQ`，不放行 P4。Round 2 是否进行由结果审阅决定，探索轴和具体值保持开放。
