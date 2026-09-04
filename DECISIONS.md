@@ -149,3 +149,16 @@
 - 运行：4 个候选 × seeds `11/23/47`，共 12 个模型；所有模型 141,769 参数，正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`。
 - 结果：没有全维度 Pareto 支配者。`loss_context_up` 与 `head_context_layernorm` 各有局部改善，`routing_mode_head_only` 的 intrinsic ranking 明显下降；Procrustes control 仍显示 ranking 接近几何上限。
 - 决定：Round 1 记为 `COMPLETE_REVIEW_REQUIRED`，不自动进入 Round 2，不创建 candidate lock，不读取 `J03WQQ`，不放行 P4。Round 2 是否进行由结果审阅决定，探索轴和具体值保持开放。
+
+## D-20260904-P3-023：T5R4 Round 1 审阅、语义漂移修复与 Round 2 授权（最后一轮）
+- 日期：2026-09-04
+- 判断：Round 1 无全维度 Pareto winner；`routing_mode_head_only` 构成“intrinsic objective 必须塑造 encoder”的负机制证据；`head_context_layernorm` 实为 post-pooling readout-normalization control；`1.5× loss` 受 Adam 与约 361:59 update imbalance 影响，不能解释为精确机制量。
+- 修复：新增 `artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json`（match-half context probe、intrinsic structural accessibility proxy、geometry 非干预 alias、readout-norm control、loss-scale 说明）；冻结 lock 内容/hash 不变，历史报告不重写。repair config 预填的 `round_2_axes: [pooling, constraint_placement]` 被本授权覆盖。
+- 决定：授权 Round 2 为最后一轮，只检验 `shared_encoder_task_update_balance`（3:1=315/105、2:1=280/140，总步数 420 持平 reference），判断规则训练前冻结于 `configs/t5r4_round2.yaml` 与本授权报告。`J03WQQ`/SNGAR/旧 heldout/外部结果均不读取，不创建 candidate lock。
+- 冲突记录：Round 1 protocol 的 `config_sha256=f27643d5…` 与提交的 `configs/t5r4_round1.yaml`（`ffd9d9cf…`）不一致（运行后提交前被编辑）；冻结产物未动，不重写历史。
+
+## D-20260904-P3-024：T5R4 Round 2 结果与 bounded autoresearch 关闭
+- 日期：2026-09-04
+- 运行：`artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/`；2 候选 × seeds `11/23/47`，6 模型，141,769 参数；`T5R4_ROUND2_AUDIT: PASS`。
+- 结果：`update_ratio_2to1` 通过全部资格 gate（pair `0.9511`≥floor、`0.7034` geometry、3/3 seeds 双 floor、`z_mode`~1e-8、context 非劣效），且满足冻结的强推荐条件 A（geometry 3 seeds 同方向 +0.050/+0.010/+0.021，pair/context 保持）与条件 B 支持（centroid 3 seeds 同方向改善 0.0554→0.0376）；`update_ratio_3to1` 通过资格 gate 但 geometry 在 seed23 跌破 floor，主要故事为 ceiling 附近 ranking 增益，不晋级。
+- 决定：`T5R4_selected_candidate=update_ratio_2to1`；bounded autoresearch 关闭，不做 Round 3，不扫描 ratio，不微调 2:1。P3-R7 记为 `SUPPORTED_CONDITIONALLY`（边界 = IDSSE 开发集/固定结构/2 场 valid），P3-R3 仍 `NOT_ESTABLISHED`，P4 继续 blocked。下一步 `T5R5_candidate_lock_then_single_reserved_read`（本轮不执行 T5R5）。

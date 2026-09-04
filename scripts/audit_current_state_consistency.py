@@ -91,6 +91,14 @@ def main() -> int:
         "scripts/audit_t5r4_round1.py",
         "artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/manifest.json",
         "reports/P3_T5R4_ROUND1_REPORT.md",
+        "artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json",
+        "reports/P3_T5R4_ROUND1_REVIEW_AND_ROUND2_AUTHORIZATION.md",
+        "configs/t5r4_round2.yaml",
+        "scripts/run_t5r4_round2.py",
+        "scripts/audit_t5r4_round2.py",
+        "tests/test_t5r4_round2.py",
+        "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/manifest.json",
+        "reports/P3_T5R4_ROUND2_REPORT.md",
     ]
     for relative in required_paths:
         require((root / relative).is_file(), f"missing required path: {relative}", failures)
@@ -103,18 +111,19 @@ def main() -> int:
     split_lock = load_json(root / "artifacts/phase3/task_semantic_repair_v1/split_lock.json", failures)
     t5r3_manifest = load_json(root / "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/manifest.json", failures)
     t5r4_manifest = load_json(root / "artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/manifest.json", failures)
+    t5r4r2_manifest = load_json(root / "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/manifest.json", failures)
 
     project_state = project.get("project", {})
     require(project_state.get("active_phase") == "P3_CAUSAL_MECHANISM", "active phase is not P3_CAUSAL_MECHANISM", failures)
-    require(project_state.get("current_checkpoint") == "P3_T5R4_ROUND1_COMPLETE", "project checkpoint mismatch", failures)
+    require(project_state.get("current_checkpoint") == "P3_T5R4_ROUND2_COMPLETE", "project checkpoint mismatch", failures)
     require(project_state.get("current_route") == "support_conditioned_geometry_with_task_semantic_repair", "project route mismatch", failures)
-    require(project_state.get("current_phase_status") == "P3_T5R4_ROUND1_REVIEW_REQUIRED_P4_BLOCKED", "project phase status mismatch", failures)
-    require(project_state.get("current_next_action") == "review_t5r4_round1_then_decide_round2_or_candidate_lock", "project next action mismatch", failures)
+    require(project_state.get("current_phase_status") == "P3_T5R4_BOUNDED_AUTORESEARCH_CLOSED_READY_FOR_T5R5_LOCK", "project phase status mismatch", failures)
+    require(project_state.get("current_next_action") == "t5r5_candidate_lock_review", "project next action mismatch", failures)
     require(project_state.get("p4_status") == "blocked_pending_p3_t5r_gate", "P4 is not blocked pending T5R gate", failures)
     require(project_state.get("p5_status") == "blocked_pending_sports_prediction_lock", "P5 status mismatch", failures)
     require(project_state.get("legacy_heldout_status") == "EXPOSED_DURING_CANDIDATE_SEARCH", "legacy heldout status mismatch", failures)
     repair_state = project.get("exploration", {}).get("p3_task_semantic_repair", {})
-    require(repair_state.get("status") == "t5r4_round1_complete_review_required", "T5R project status is not t5r4_round1_complete_review_required", failures)
+    require(repair_state.get("status") == "t5r4_round2_complete_autoresearch_closed", "T5R project status is not t5r4_round2_complete_autoresearch_closed", failures)
     require(repair_state.get("temporary_sngar_substitute") == "IDSSE", "temporary IDSSE substitution is missing", failures)
 
     require(matrix.get("p3_task_semantic_repair", {}).get("phase") == "P3_CAUSAL_MECHANISM", "T5R matrix is not inside P3", failures)
@@ -137,9 +146,9 @@ def main() -> int:
     require(idsse.get("official_revision") == "a715a38dfbaf5f58e431727c2b78d174101a703c", "IDSSE official revision mismatch", failures)
     require(idsse.get("official_file_tree_matches_local") is True, "IDSSE official file-tree match not recorded", failures)
 
-    require(matrix.get("p3_task_semantic_repair", {}).get("status") == "t5r4_round1_complete_review_required", "T5R matrix status mismatch", failures)
-    require(repair.get("status") == "t5r4_round1_complete_review_required", "repair config status mismatch", failures)
-    require(repair.get("autoresearch", {}).get("status") == "round_1_complete_review_required", "autoresearch Round 1 status mismatch", failures)
+    require(matrix.get("p3_task_semantic_repair", {}).get("status") == "t5r4_round2_complete_autoresearch_closed", "T5R matrix status mismatch", failures)
+    require(repair.get("status") == "t5r4_round2_complete_autoresearch_closed", "repair config status mismatch", failures)
+    require(repair.get("autoresearch", {}).get("status") == "round_2_complete_autoresearch_closed", "autoresearch Round 2 status mismatch", failures)
     require(split_lock.get("status") == "MATCH_SPLIT_FROZEN_BEFORE_T5R2_TASK_CONSTRUCTION", "T5R2 split lock status mismatch", failures)
     require(t5r2_lock.get("status") == "T5R2_CLOSED_BASELINE_AND_METRIC_LOCK", "T5R2 baseline lock status mismatch", failures)
     require(t5r2_lock.get("firewall", {}).get("model_results_used") is False, "T5R2 lock used model results", failures)
@@ -147,9 +156,11 @@ def main() -> int:
     require(t5r3_manifest.get("status") == "T5R3_FIXED_DUAL_CHANNEL_SANITY_COMPLETE", "T5R3 manifest status mismatch", failures)
     require(t5r3_manifest.get("reserved_holdout_loaded") is False, "T5R3 manifest reserved holdout mismatch", failures)
     require(t5r3_manifest.get("candidate_selection_performed") is False, "T5R3 manifest candidate selection mismatch", failures)
-    require(t5r4_manifest.get("status") == "T5R4_ROUND1_COMPLETE", "T5R4 manifest status mismatch", failures)
-    require(t5r4_manifest.get("reserved_holdout_loaded") is False, "T5R4 manifest reserved holdout mismatch", failures)
-    require(t5r4_manifest.get("candidate_selection_performed") is False, "T5R4 manifest candidate selection mismatch", failures)
+    require(t5r4r2_manifest.get("status") == "T5R4_ROUND2_COMPLETE", "T5R4 Round 2 manifest status mismatch", failures)
+    require(t5r4r2_manifest.get("reserved_holdout_loaded") is False, "T5R4 Round 2 manifest reserved holdout mismatch", failures)
+    require(t5r4r2_manifest.get("candidate_selection_performed") is False, "T5R4 Round 2 manifest candidate selection mismatch", failures)
+    require(t5r4r2_manifest.get("candidate_lock_created") is False, "T5R4 Round 2 manifest candidate-lock mismatch", failures)
+    require(t5r4r2_manifest.get("P4_release") is False, "T5R4 Round 2 manifest P4 mismatch", failures)
 
     require(repair.get("phase") == "P3_CAUSAL_MECHANISM", "repair config phase mismatch", failures)
     require(repair.get("task_lane") == "P3-T5R", "repair config task lane missing", failures)
@@ -166,7 +177,7 @@ def main() -> int:
     text_checks = {
         "README.md": ["P3-T5R", "EXPOSED_DURING_CANDIDATE_SEARCH", "P4 AMR 继续 blocked"],
         "MASTER_AGENT_PROMPT.md": ["P3-T5R0", "candidate lock", "禁止先训练 AMR"],
-        "STATUS.md": ["P3_T5R4_ROUND1_COMPLETE", "T5R3", "T5R4", "p4_status: blocked_pending_p3_t5r_gate"],
+        "STATUS.md": ["P3_T5R4_ROUND2_COMPLETE", "T5R3", "T5R4", "p4_status: blocked_pending_p3_t5r_gate"],
         "CLAIM_LEDGER.md": ["P3-R1", "P3-R2", "P3-R3", "P3-R4", "P3-R5", "DATA-C1"],
         "DECISIONS.md": ["D-20260902-P3-011", "D-20260902-P3-012", "D-20260902-P3-013", "D-20260902-P3-014", "D-20260902-P3-015", "D-20260904-P3-017", "D-20260904-P3-018", "D-20260904-P3-019", "D-20260904-P3-020", "D-20260904-P3-021", "D-20260904-P3-022"],
         "docs/01_SCIENTIFIC_BLUEPRINT.md": ["P3-T5R", "context", "intrinsic"],
@@ -175,7 +186,7 @@ def main() -> int:
         "docs/04_DATA_AND_ENVIRONMENT_GUIDE.md": ["SNGAR", "IDSSE", "candidate lock"],
         "docs/05_AGENT_EXECUTION_MANUAL.md": ["Task worker", "Autoresearch worker", "candidate lock"],
         "reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md": ["heldout", "T5R"],
-        "TODO.md": ["当前固定决定", "IDSSE", "分支记录", "变更记录", "Round 1 已完成"],
+        "TODO.md": ["当前固定决定", "IDSSE", "分支记录", "变更记录", "T5R4 Round 2"],
     }
     for relative, markers in text_checks.items():
         path = root / relative
@@ -187,6 +198,7 @@ def main() -> int:
 
     test_root = root / "data/raw/sports/sngar_tracking"
     candidate_lock = root / "artifacts/phase3/task_semantic_repair_v1/candidate_lock.json"
+    require(not candidate_lock.exists(), "candidate lock exists before T5R5 review", failures)
     if not candidate_lock.exists() and test_root.exists():
         test_markers = list(test_root.glob("test/**")) + list(test_root.glob("*annotations_test*"))
         require(not test_markers, "SNGAR test files are present before candidate lock", failures)
@@ -204,7 +216,8 @@ def main() -> int:
     print("- p4_status=blocked_pending_p3_t5r_gate")
     print("- t5r2_baseline_lock=T5R2_CLOSED_BASELINE_AND_METRIC_LOCK")
     print("- t5r3_status=T5R3_FIXED_DUAL_CHANNEL_SANITY_COMPLETE")
-    print("- t5r4_status=T5R4_ROUND1_COMPLETE_REVIEW_REQUIRED")
+    print("- t5r4_status=T5R4_ROUND2_COMPLETE_AUTORESEARCH_CLOSED")
+    print("- t5r5_status=CANDIDATE_LOCK_REVIEW_PENDING")
     print("- final_test_requires_candidate_lock=true")
     return 0
 

@@ -1,0 +1,87 @@
+{
+  "reference_variant": "fixed_dual_channel_shared_phase_gat",
+  "reference_valid_means": {
+    "pair_accuracy": 0.9486565788586935,
+    "geometry_latent_spearman": 0.676132772752562,
+    "z_mode_translation_response": 9.488231829853552e-09
+  },
+  "raw_baseline_valid_means": {
+    "phase_f1": 0.5508411934550779,
+    "field_zone_f1": 0.970594579046527,
+    "centroid_mae": 0.04586852341890335
+  },
+  "floors_read_from_reference_artifact": {
+    "pair_accuracy_floor": 0.9386565788586935,
+    "geometry_spearman_floor": 0.666132772752562,
+    "z_mode_translation_ceiling": 1e-06
+  },
+  "candidates": [
+    {
+      "candidate_id": "update_ratio_2to1",
+      "valid_pair_accuracy_mean": 0.9511101543903351,
+      "valid_pair_accuracy_by_seed": [
+        0.9439609944820404,
+        0.9585735499858856,
+        0.9507959187030792
+      ],
+      "valid_geometry_relation_spearman_mean": 0.7034176383111218,
+      "valid_geometry_relation_spearman_by_seed": [
+        0.717865126219683,
+        0.6824816824920019,
+        0.7099061062216807
+      ],
+      "valid_z_mode_translation_response_mean": 1.0104350837517965e-08,
+      "delta_vs_reference": {
+        "pair_accuracy": 0.0024535755316416052,
+        "geometry_spearman": 0.0272848655585598
+      },
+      "intrinsic_floor_check_means": {
+        "pair_accuracy_mean_above_floor": true,
+        "geometry_spearman_mean_above_floor": true,
+        "z_mode_translation_mean_below_ceiling": true
+      },
+      "seeds_holding_both_intrinsic_floors": 3,
+      "at_least_2_of_3_seeds_hold_floors": true,
+      "context_noninferiority_vs_raw_means": {
+        "phase_f1_drop": -0.05137990515313107,
+        "field_zone_f1_drop": 0.007864697759206174,
+        "centroid_mae_increase": -0.008293384686112404,
+        "margin": 0.05
+      }
+    },
+    {
+      "candidate_id": "update_ratio_3to1",
+      "valid_pair_accuracy_mean": 0.96694948275884,
+      "valid_pair_accuracy_by_seed": [
+        0.9622538685798645,
+        0.9752891659736633,
+        0.9633054137229919
+      ],
+      "valid_geometry_relation_spearman_mean": 0.6959341521218491,
+      "valid_geometry_relation_spearman_by_seed": [
+        0.7081096476456066,
+        0.664016405987322,
+        0.7156764027326186
+      ],
+      "valid_z_mode_translation_response_mean": 9.076404812920677e-09,
+      "delta_vs_reference": {
+        "pair_accuracy": 0.018292903900146484,
+        "geometry_spearman": 0.019801379369287053
+      },
+      "intrinsic_floor_check_means": {
+        "pair_accuracy_mean_above_floor": true,
+        "geometry_spearman_mean_above_floor": true,
+        "z_mode_translation_mean_below_ceiling": true
+      },
+      "seeds_holding_both_intrinsic_floors": 2,
+      "at_least_2_of_3_seeds_hold_floors": true,
+      "context_noninferiority_vs_raw_means": {
+        "phase_f1_drop": -0.009908041175045068,
+        "field_zone_f1_drop": 0.013768799670212495,
+        "centroid_mae_increase": -0.0008266555766264574,
+        "margin": 0.05
+      }
+    }
+  ],
+  "note": "Means-level advisory comparison only; promotion requires the frozen seed/match-level stability rules in the Round 2 report."
+}

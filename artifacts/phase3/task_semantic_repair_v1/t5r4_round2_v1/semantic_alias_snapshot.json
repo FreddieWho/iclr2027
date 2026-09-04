@@ -1,0 +1,74 @@
+{
+  "status": "ACTIVE_SEMANTIC_ADDENDUM",
+  "scope": "P3-T5R IDSSE development branch (T5R2 lock and later)",
+  "frozen_lock_untouched": "artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json",
+  "frozen_lock_sha256": "d5fe2c85a781fa54cbac1c1d3f7176211e0ca2552f88223c4e37dbb2ab809bee",
+  "rule": "Legacy machine keys are kept for artifact/script compatibility. Display names and interpretations below are authoritative for all current and future canonical docs and reports. Historical reports are not rewritten; they are covered by this addendum.",
+  "aliases": [
+    {
+      "legacy_key": "phase_match_grouped_macro_f1",
+      "legacy_task_key": "phase_deployment_classification",
+      "display_name": "match_half_context_macro_f1",
+      "display_short": "match-half context F1",
+      "label_values": ["firstHalf", "secondHalf"],
+      "allowed_interpretation": "auxiliary match-half/period context accessibility probe on z_ctx; evidence that z_ctx retains some absolute context information",
+      "forbidden_interpretation": [
+        "tactical phase classification",
+        "deployment phase understanding",
+        "football tactical understanding"
+      ],
+      "promotion_rule": "must not be used as the primary reason for candidate promotion in T5R4 Round 2 or later"
+    },
+    {
+      "task_name": "natural-pair ranking",
+      "display_name": "geometry-constructed intrinsic structural accessibility proxy",
+      "display_short": "intrinsic structural accessibility proxy",
+      "construction": "response-blind geometric construction: positives share near centered internal geometry with far absolute centroids; negatives share near absolute centroids with far centered internal geometry",
+      "allowed_interpretation": "intrinsic structural accessibility stress test / proxy on z_mode",
+      "forbidden_interpretation": [
+        "formation understanding",
+        "tactical similarity understanding",
+        "semantic formation retrieval",
+        "football structural semantics understanding"
+      ],
+      "ceiling_warning": "Procrustes analytic control reaches ~0.9372 valid ranking accuracy; the task is strongly geometry-solvable, so small gains near the ceiling must not alone justify promotion",
+      "promotion_rule": "candidate promotion must not rest on ranking gains of 0.1%-0.5% near the Procrustes ceiling"
+    },
+    {
+      "legacy_key": "geometry_response_spearman",
+      "preferred_key": "natural_geometry_latent_distance_spearman",
+      "display_name": "natural geometry-latent distance Spearman",
+      "definition": "Spearman correlation between natural-pair internal-geometry distance and latent distance",
+      "allowed_interpretation": "non-interventional geometry accessibility proxy on IDSSE development data",
+      "forbidden_interpretation": [
+        "replication of the legacy P3 geometry-response (intervention-response) mechanism on IDSSE"
+      ],
+      "compatibility": "both keys are emitted with identical values; when the legacy key is written, it must carry legacy_alias_only semantics"
+    },
+    {
+      "candidate_id": "head_context_layernorm",
+      "legacy_axis_label": "head_placement",
+      "display_name": "context readout normalization control",
+      "display_alternate": "post-pooling context LayerNorm control",
+      "implementation": "pooled z -> parameter-free LayerNorm -> existing context heads; not a layer-wise head placement",
+      "allowed_interpretation": "control showing task accuracy can stay high while the geometry proxy drops; accuracy alone cannot judge representation geometry",
+      "forbidden_interpretation": [
+        "head placement is the mechanism",
+        "layer/message-passing head placement result"
+      ],
+      "round2_status": "does not enter Round 2; the head_placement/readout-normalization axis is closed"
+    },
+    {
+      "round1_axis_label": "loss_balance",
+      "round1_setting": "context_weight x1.5 or intrinsic_weight x1.5 on separate optimizer steps",
+      "display_name": "exploratory loss-scale probe under update imbalance",
+      "allowed_interpretation": "Round 1 motivates testing training balance; it does not identify a precise mechanism magnitude",
+      "forbidden_interpretation": [
+        "intrinsic influence increased by exactly 50%",
+        "1.5x loss weight equals 1.5x task influence"
+      ],
+      "reason": "context and intrinsic use separate optimizer steps (about 361 vs 59 batches per epoch, ratio about 6.12:1); Adam adaptively normalizes pure gradient scale, so loss scaling cannot be read as a precise influence ratio",
+      "round2_status": "superseded by the encoder update-allocation axis with matched total optimizer steps"
+    }
+  ]
+}

@@ -38,11 +38,11 @@
     - [x] 比较 raw single-channel、centered single-channel、relational pooling 和 fixed dual-channel；4×3 neural grid 的 capacity 与 seeds 可审计，另有 Procrustes analytic control。
     - [x] context 在 non-inferiority margin 内，intrinsic 三个 seed 均改善，`z_mode` 平移响应近零，natural-pair geometry relation 未坍缩；T5R3 closure review 通过，允许进入 T5R4 Round 1。
 
-- [ ] 6. 按预算运行 bounded autoresearch（Round 1 已完成，待审阅）
-    - [x] 已建立简洁的 Round 1 框架和 4 个代表候选；具体候选值可在声明的主要轴内探索，不自动晋级。
-    - [x] 本轮运行 4 个候选、每个候选 seeds 11/23/47，共 12 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`，结果待审阅决定是否进入 Round 2。
+- [x] 6. 按预算运行 bounded autoresearch（两轮已完成并关闭）
+    - [x] Round 1：4 个候选、每个候选 seeds 11/23/47，共 12 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`；无全维度 Pareto 支配者，不自动晋级。
+    - [x] Round 2（最后一轮）：只检验 encoder update balance，3:1/2:1、总步数 420 持平 reference，共 6 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/`；按训练前冻结规则选出 `update_ratio_2to1`，关闭搜索。语义 addendum 与授权报告已冻结。
 
-- [ ] 7. candidate lock 后运行一次保留 match，并寻找真正独立的外部确认（依赖 6）
+- [ ] 7. candidate lock 后运行一次保留 match，并寻找真正独立的外部确认（依赖 6；已解锁待审阅）
     - [ ] 锁定候选、配置、数据 hash、指标和失败条件后，才读取 IDSSE 保留 match。
     - [ ] 不把已用于开发的 IDSSE 结果写成 external confirmation；SNGAR 或 SoccerTrack 仍是独立确认恢复分支。
 
@@ -53,7 +53,7 @@
 
 | 分支 | 状态 | 说明 |
 |---|---|---|
-| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R3 已闭合，T5R4 Round 1 已完成待审阅；T5R3 仅为方向性 sanity pass，7 场 IDSSE 仍只承担开发角色。 |
+| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R4 已闭合，bounded autoresearch 已关闭（入选 `update_ratio_2to1`）；T5R5 candidate lock 待审阅，7 场 IDSSE 仍只承担开发角色。 |
 | B：SNGAR 恢复 | 暂缓 | 保留原访问和 test firewall；获得可信访问或带 revision/mapping/SHA-256 的镜像后，可升级独立样本量与确认强度。 |
 | C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
 | D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |
@@ -68,3 +68,4 @@
 - 2026-09-04：完成 T5R3 fixed dual-channel sanity：4 个 neural variants、3 个 seeds、12 个 checkpoints、Procrustes control、match-level bootstrap 和 cross-readout；T5R3 审计通过。dual 仅获方向性 pass，T5R4、candidate lock、reserved match 和外部确认仍未运行；v1/v2 中止尝试不纳入证据。
 - 2026-09-04：完成简短 T5R3 closure review，确认无路线级偏移并允许 T5R4 Round 1；新增可探索候选框架，Round 1 仅使用 train/valid，candidate lock、reserved match 和外部确认继续未运行。
 - 2026-09-04：完成 T5R4 Round 1：4 个候选、3 个 seeds、12 个模型；结构审计通过，未发现全维度 Pareto 支配者，不自动进入 Round 2，candidate lock、reserved match 和外部确认继续未运行。
+- 2026-09-04：完成语义漂移修复（新增 `metric_semantics_addendum.json`）与 Round 1 审阅授权；完成 T5R4 Round 2：2 个候选、3 个 seeds、6 个模型，结构审计通过，按冻结规则选出 `update_ratio_2to1` 并关闭 bounded autoresearch；candidate lock、reserved match 和外部确认继续未运行，P4 仍 blocked。

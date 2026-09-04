@@ -1,0 +1,156 @@
+version: 1
+phase: P3_CAUSAL_MECHANISM
+task_lane: P3-T5R4
+round: 2
+status: round_2_authorized_final_round
+authorization: reports/P3_T5R4_ROUND1_REVIEW_AND_ROUND2_AUTHORIZATION.md
+semantic_addendum: artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json
+
+reference:
+  task: P3-T5R3
+  id: fixed_dual_channel_shared_phase_gat
+  summary: artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/summary.json
+  # Informative values only; the runner reads floors from the reference artifact at runtime.
+  reference_valid_means:
+    pair_accuracy: 0.9486566
+    geometry_latent_spearman: 0.6761328
+    z_mode_translation_response_order: 1e-8
+
+source_evidence: round_1_intrinsic_signal_insufficient_motivation_and_routing_negative_control
+
+data:
+  dataset: IDSSE
+  role: temporary_substitute_for_sngar_development
+  visible_splits: [train, valid]
+  reserved_match: J03WQQ
+  reserved_loaded: false
+  external_results_used: false
+  old_heldout_used: false
+
+# The single allowed mechanism axis for Round 2.
+axis:
+  id: shared_encoder_task_update_balance
+  alias: encoder_update_ratio
+  definition: per-epoch allocation of context vs intrinsic optimizer updates on the shared encoder
+  total_optimizer_steps_per_epoch: 420
+
+frozen:
+  dataset: IDSSE
+  train_matches: [J03WMX, J03WOH, J03WPY, J03WR9]
+  valid_matches: [J03WN1, J03WOY]
+  raw_centered_views: unchanged
+  graph: fixed_weighted_knn_4
+  encoder_architecture: unchanged_from_t5r3_reference
+  pooling: team_mean
+  context_mode_heads: unchanged
+  layernorm: none
+  gradient_routing: shared
+  context_weight: 1.0
+  intrinsic_weight: 1.0
+  optimizer: Adam
+  learning_rate: 0.001
+  weight_decay: 0.0
+  epochs: 80
+  batch_size: 64
+  hidden_dim: 128
+  latent_dim: 128
+  message_passing_layers: 2
+  seeds: [11, 23, 47]
+  augmentation: none
+  early_stopping: false
+  class_weighting: false
+  parameter_count: 141769
+  metrics_compatible_with_t5r2_lock: true
+  train_valid_only: true
+
+scheduling:
+  order: blockwise_context_then_intrinsic_preserved
+  one_optimizer_step_is_one_task_loss: true
+  context_stream: seed_deterministic_shuffle_cycles
+  intrinsic_stream: seed_deterministic_shuffle_cycles_new_permutation_per_cycle
+  context_under_quota_rule: take_quota_from_continuing_cyclic_stream_never_permanently_drop_tail
+  intrinsic_over_quota_rule: continue_across_shuffle_cycles_with_deterministic_new_permutation
+  coverage: all_snapshots_and_pairs_repeatedly_covered_over_80_epochs
+  no_loss_accuracy_or_valid_adaptive_sampling: true
+  no_curriculum: true
+  no_early_stopping: true
+  no_ratio_change_during_run: true
+
+search:
+  max_rounds: 2
+  max_candidates_per_round: 6
+  round: 2
+  seeds: [11, 23, 47]
+  one_major_axis_per_candidate: true
+  candidate_selection: frozen_rules_before_seeing_results
+  closed_after_this_round: true
+  no_round_3: true
+  no_ratio_sweep: true
+
+candidates:
+  - id: update_ratio_3to1
+    axis: shared_encoder_task_update_balance
+    context_updates_per_epoch: 315
+    intrinsic_updates_per_epoch: 105
+    total_updates_per_epoch: 420
+    context_weight: 1.0
+    intrinsic_weight: 1.0
+    gradient_routing: shared
+    head_readout_normalization: none
+  - id: update_ratio_2to1
+    axis: shared_encoder_task_update_balance
+    context_updates_per_epoch: 280
+    intrinsic_updates_per_epoch: 140
+    total_updates_per_epoch: 420
+    context_weight: 1.0
+    intrinsic_weight: 1.0
+    gradient_routing: shared
+    head_readout_normalization: none
+
+# Frozen BEFORE seeing Round 2 results. Do not rewrite after results.
+decision_rules:
+  qualification_gate:
+    - satisfies_original_t5r2_context_noninferiority_contract
+    - z_mode_translation_response_stays_numerical_zero_audit_threshold_mean_below_1e-6
+    - natural_pair_ranking_accuracy_within_reference_minus_0.01
+    - natural_geometry_latent_spearman_within_reference_minus_0.01
+    - at_least_2_of_3_seeds_hold_both_intrinsic_floors
+    - no_mean_gain_driven_by_single_seed_only
+    - no_promotion_on_match_half_f1_alone
+    - no_promotion_on_near_procrustes_ceiling_micro_gain_alone
+  incumbent_replacement_requires_clear_task_geometry_pareto:
+    strong_A: geometry_latent_spearman_stably_up_with_pair_and_context_not_substantially_degraded
+    strong_B: absolute_context_field_zone_or_centroid_stably_improved_with_geometry_and_pair_held
+    stability_means:
+      - at_least_2_of_3_seeds_same_direction
+      - not_driven_by_single_match_with_opposite_other_match
+      - report_same_seed_and_match_level_comparisons_not_grand_mean_only
+  forbidden_promotion_reasons:
+    - higher_match_half_f1_only
+    - pair_accuracy_up_0.1_to_0.5_percent_only
+    - higher_train_metrics_only
+    - lower_total_loss_only
+    - single_seed_outlier_only
+    - classification_up_geometry_down
+    - looks_more_balanced
+  no_winner_outcome: T5R4_ROUND2_NO_CLEAR_PARETO_incumbent_stays_t5r3_fixed_dual
+  winner_outcome: T5R4_selected_candidate_then_close_autoresearch_no_third_round_no_ratio_finetune
+
+provenance:
+  head_commit_at_authorization: 95ed8a3
+  t5r2_lock_sha256: d5fe2c85a781fa54cbac1c1d3f7176211e0ca2552f88223c4e37dbb2ab809bee
+  t5r3_reference_summary_sha256: 4e25e2fa075adddd69fe8392f07ed3cdb8c649c9cd698e89280bfc6474832f69
+  round1_summary_sha256: 3e3c0cb4903e6aead191a7fd409529c20d317cd2e9d13f0bfce89294d23432e7
+  round1_protocol_sha256: 9e914e1a97c4e3ae1034d868fca7ddfdfc5c370c6924a737cd43ea5099c0fb83
+  # Known conflict: round1 protocol records config_sha256 f27643d5... but the
+  # committed configs/t5r4_round1.yaml hashes to ffd9d9cf... (edited after the
+  # run, before commit). Frozen round1 artifacts are left untouched.
+
+firewall:
+  split_changes: forbidden
+  metric_changes: forbidden
+  candidate_lock_before_reserved_read: true
+  candidate_lock_created: false
+  reserved_read_during_round: false
+  external_read_during_round: false
+  P4_release: false

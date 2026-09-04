@@ -1,0 +1,177 @@
+{
+  "status": "T5R4_ROUND2_COMPLETE",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R4",
+  "round": 2,
+  "final_round": true,
+  "config": "configs/t5r4_round2.yaml",
+  "config_sha256": "164ee15f1d8584715f3971dfc8b88bac77b0886457244fdb89fe652adeb62a5b",
+  "t5r2_lock_status": "T5R2_CLOSED_BASELINE_AND_METRIC_LOCK",
+  "t5r2_lock_sha256": "d5fe2c85a781fa54cbac1c1d3f7176211e0ca2552f88223c4e37dbb2ab809bee",
+  "t5r3_reference_summary": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/summary.json",
+  "t5r3_reference_summary_sha256": "4e25e2fa075adddd69fe8392f07ed3cdb8c649c9cd698e89280bfc6474832f69",
+  "semantic_addendum": "artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json",
+  "semantic_addendum_sha256": "8a5efeb7ea7bbbe10aa5c8e1537f0d0198c2719470654cff701c3218edf373ac",
+  "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+  "visible_splits": [
+    "train",
+    "valid"
+  ],
+  "reserved_holdout": {
+    "match_ids": [
+      "J03WQQ"
+    ],
+    "loaded": false,
+    "task_arrays_written": false
+  },
+  "external_results_used": false,
+  "old_heldout_used": false,
+  "candidate_selection_performed": false,
+  "candidate_lock_created": false,
+  "P4_release": false,
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "torch_threads": 8,
+  "axis": {
+    "id": "shared_encoder_task_update_balance",
+    "alias": "encoder_update_ratio",
+    "definition": "per-epoch allocation of context vs intrinsic optimizer updates on the shared encoder",
+    "total_optimizer_steps_per_epoch": 420
+  },
+  "frozen": {
+    "dataset": "IDSSE",
+    "train_matches": [
+      "J03WMX",
+      "J03WOH",
+      "J03WPY",
+      "J03WR9"
+    ],
+    "valid_matches": [
+      "J03WN1",
+      "J03WOY"
+    ],
+    "raw_centered_views": "unchanged",
+    "graph": "fixed_weighted_knn_4",
+    "encoder_architecture": "unchanged_from_t5r3_reference",
+    "pooling": "team_mean",
+    "context_mode_heads": "unchanged",
+    "layernorm": "none",
+    "gradient_routing": "shared",
+    "context_weight": 1.0,
+    "intrinsic_weight": 1.0,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "epochs": 80,
+    "batch_size": 64,
+    "hidden_dim": 128,
+    "latent_dim": 128,
+    "message_passing_layers": 2,
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "augmentation": "none",
+    "early_stopping": false,
+    "class_weighting": false,
+    "parameter_count": 141769,
+    "metrics_compatible_with_t5r2_lock": true,
+    "train_valid_only": true
+  },
+  "scheduling": {
+    "order": "blockwise_context_then_intrinsic_preserved",
+    "one_optimizer_step_is_one_task_loss": true,
+    "context_stream": "seed_deterministic_shuffle_cycles",
+    "intrinsic_stream": "seed_deterministic_shuffle_cycles_new_permutation_per_cycle",
+    "context_under_quota_rule": "take_quota_from_continuing_cyclic_stream_never_permanently_drop_tail",
+    "intrinsic_over_quota_rule": "continue_across_shuffle_cycles_with_deterministic_new_permutation",
+    "coverage": "all_snapshots_and_pairs_repeatedly_covered_over_80_epochs",
+    "no_loss_accuracy_or_valid_adaptive_sampling": true,
+    "no_curriculum": true,
+    "no_early_stopping": true,
+    "no_ratio_change_during_run": true
+  },
+  "decision_rules": {
+    "qualification_gate": [
+      "satisfies_original_t5r2_context_noninferiority_contract",
+      "z_mode_translation_response_stays_numerical_zero_audit_threshold_mean_below_1e-6",
+      "natural_pair_ranking_accuracy_within_reference_minus_0.01",
+      "natural_geometry_latent_spearman_within_reference_minus_0.01",
+      "at_least_2_of_3_seeds_hold_both_intrinsic_floors",
+      "no_mean_gain_driven_by_single_seed_only",
+      "no_promotion_on_match_half_f1_alone",
+      "no_promotion_on_near_procrustes_ceiling_micro_gain_alone"
+    ],
+    "incumbent_replacement_requires_clear_task_geometry_pareto": {
+      "strong_A": "geometry_latent_spearman_stably_up_with_pair_and_context_not_substantially_degraded",
+      "strong_B": "absolute_context_field_zone_or_centroid_stably_improved_with_geometry_and_pair_held",
+      "stability_means": [
+        "at_least_2_of_3_seeds_same_direction",
+        "not_driven_by_single_match_with_opposite_other_match",
+        "report_same_seed_and_match_level_comparisons_not_grand_mean_only"
+      ]
+    },
+    "forbidden_promotion_reasons": [
+      "higher_match_half_f1_only",
+      "pair_accuracy_up_0.1_to_0.5_percent_only",
+      "higher_train_metrics_only",
+      "lower_total_loss_only",
+      "single_seed_outlier_only",
+      "classification_up_geometry_down",
+      "looks_more_balanced"
+    ],
+    "no_winner_outcome": "T5R4_ROUND2_NO_CLEAR_PARETO_incumbent_stays_t5r3_fixed_dual",
+    "winner_outcome": "T5R4_selected_candidate_then_close_autoresearch_no_third_round_no_ratio_finetune"
+  },
+  "candidates": [
+    {
+      "id": "update_ratio_3to1",
+      "axis": "shared_encoder_task_update_balance",
+      "context_updates_per_epoch": 315,
+      "intrinsic_updates_per_epoch": 105,
+      "total_updates_per_epoch": 420,
+      "context_weight": 1.0,
+      "intrinsic_weight": 1.0,
+      "gradient_routing": "shared",
+      "head_readout_normalization": "none"
+    },
+    {
+      "id": "update_ratio_2to1",
+      "axis": "shared_encoder_task_update_balance",
+      "context_updates_per_epoch": 280,
+      "intrinsic_updates_per_epoch": 140,
+      "total_updates_per_epoch": 420,
+      "context_weight": 1.0,
+      "intrinsic_weight": 1.0,
+      "gradient_routing": "shared",
+      "head_readout_normalization": "none"
+    }
+  ],
+  "update_counts_per_epoch": {
+    "update_ratio_3to1": {
+      "context": 315,
+      "intrinsic": 105,
+      "total": 420
+    },
+    "update_ratio_2to1": {
+      "context": 280,
+      "intrinsic": 140,
+      "total": 420
+    }
+  },
+  "input_shapes": {
+    "train_snapshots": 23052,
+    "valid_snapshots": 6127,
+    "train_pairs": 3750,
+    "valid_pairs": 980
+  },
+  "adjacency_sha256": {
+    "train": "be9ef45bb43f6b8dcc24b136ca01a771fc1e17f9f39a257bd6a3374d68221f8e",
+    "valid": "3312ef4b74cdfc6cff0f0ff1d22f2c8d15b425275e2aeb2a1f189e6704b780d1"
+  },
+  "manifest_sha256": "e690a86ae767c2dad5d76c9b8257d4492e9b06f8c12b517339834ca030ddf40a"
+}

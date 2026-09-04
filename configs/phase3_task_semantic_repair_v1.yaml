@@ -2,7 +2,7 @@ version: 1
 project: action-mode-spectrum
 phase: P3_CAUSAL_MECHANISM
 task_lane: P3-T5R
-status: t5r4_round1_complete_review_required
+status: t5r4_round2_complete_autoresearch_closed
 package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
 
 legacy_evidence:
@@ -73,14 +73,15 @@ split_lock:
 tasks:
   context:
     primary:
-      - phase_or_deployment_classification
+      - phase_or_deployment_classification  # display: match-half context probe; see metric_semantics_addendum.json
       - absolute_team_centroid_or_field_zone
+    semantic_alias: match_half_context_probe  # firstHalf/secondHalf labels; not tactical-phase understanding
     representation: z_ctx
     input_view: raw_positions
     global_translation_semantics: preserve_context_accessibility
   intrinsic:
     primary:
-      - natural_pair_ranking
+      - natural_pair_ranking  # display: intrinsic structural accessibility proxy (geometry-constructed); Procrustes ceiling ~0.9372
     secondary:
       - intrinsic_formation_retrieval
     representation: z_mode
@@ -151,16 +152,21 @@ metrics:
     - seed_level_effect
 
 autoresearch:
-  status: round_1_complete_review_required
+  status: round_2_complete_autoresearch_closed
   round_1_config: configs/t5r4_round1.yaml
   round_1_output: artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/
   round_1_report: reports/P3_T5R4_ROUND1_REPORT.md
+  round_2_config: configs/t5r4_round2.yaml
+  round_2_output: artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/
+  round_2_report: reports/P3_T5R4_ROUND2_REPORT.md
+  round_2_review_authorization: reports/P3_T5R4_ROUND1_REVIEW_AND_ROUND2_AUTHORIZATION.md
+  selected_candidate: update_ratio_2to1
   max_rounds: 2
   max_new_candidates_per_round: 6
   one_major_mechanism_axis_per_candidate: true
   round_1_axes: [loss_balance, head_placement, gradient_routing, fixed_leakage_penalty]
-  round_2_requires_round_1_stable_signal: true
-  round_2_axes: [pooling, constraint_placement]
+  round_2_requires_round_1_stable_signal: true  # satisfied narrowly: intrinsic-gradient-must-shape-encoder mechanistic signal, not a Pareto win
+  round_2_axes: [shared_encoder_task_update_balance]  # authorized override of the earlier [pooling, constraint_placement] placeholder; see D-20260904-P3-023
   heldout_selection: forbidden
   external_result_selection: forbidden
   metric_or_split_changes: forbidden
@@ -202,6 +208,13 @@ artifacts:
   t5r4_round1_audit: scripts/audit_t5r4_round1.py
   t5r4_round1_output: artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/
   t5r4_round1_report: reports/P3_T5R4_ROUND1_REPORT.md
+  t5r4_round2_config: configs/t5r4_round2.yaml
+  t5r4_round2_runner: scripts/run_t5r4_round2.py
+  t5r4_round2_audit: scripts/audit_t5r4_round2.py
+  t5r4_round2_output: artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/
+  t5r4_round2_report: reports/P3_T5R4_ROUND2_REPORT.md
+  t5r4_review_authorization: reports/P3_T5R4_ROUND1_REVIEW_AND_ROUND2_AUTHORIZATION.md
+  metric_semantics_addendum: artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json
 
 gate:
   p4_requires:
