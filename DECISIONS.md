@@ -162,3 +162,16 @@
 - 运行：`artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/`；2 候选 × seeds `11/23/47`，6 模型，141,769 参数；`T5R4_ROUND2_AUDIT: PASS`。
 - 结果：`update_ratio_2to1` 通过全部资格 gate（pair `0.9511`≥floor、`0.7034` geometry、3/3 seeds 双 floor、`z_mode`~1e-8、context 非劣效），且满足冻结的强推荐条件 A（geometry 3 seeds 同方向 +0.050/+0.010/+0.021，pair/context 保持）与条件 B 支持（centroid 3 seeds 同方向改善 0.0554→0.0376）；`update_ratio_3to1` 通过资格 gate 但 geometry 在 seed23 跌破 floor，主要故事为 ceiling 附近 ranking 增益，不晋级。
 - 决定：`T5R4_selected_candidate=update_ratio_2to1`；bounded autoresearch 关闭，不做 Round 3，不扫描 ratio，不微调 2:1。P3-R7 记为 `SUPPORTED_CONDITIONALLY`（边界 = IDSSE 开发集/固定结构/2 场 valid），P3-R3 仍 `NOT_ESTABLISHED`，P4 继续 blocked。下一步 `T5R5_candidate_lock_then_single_reserved_read`（本轮不执行 T5R5）。
+
+## D-20260905-P3-025：T5R5-0 闭包审计（lock 前）
+- 日期：2026-09-05
+- 范围：只读已可见 train/valid 产物；`J03WQQ` 未打开；无重训练；无协议改动。
+- 结果：逐场重算 fixed dual 与入选 2:1（3 seeds × J03WN1/J03WOY）：pooled Spearman 几乎完全由 J03WOY（951/980 pairs）决定；match-macro 方向一致；J03WN1 仅 29 pairs，逐场值处噪声带（标不稳定），不构成反向证据。2:1 在主导场 3 seeds 几何均高于同 seed reference。
+- 文档清理：STATUS 残留 Round1 待审阅句、task-geometry 行新旧分隔、phase/deployment 显示别名、P3-G1–G4 标历史假设；核查无 head-placement 误写、无 1.5× 精确影响误写。
+- 结论：收紧 claim 边界，不重开 T5R4 选择。证据：`reports/P3_T5R4_TO_T5R5_CLOSURE_AUDIT.md`、`artifacts/phase3/task_semantic_repair_v1/t5r5_prelock_audit_v1/`。
+
+## D-20260905-P3-026：T5R5 candidate lock、干预协议锁与 T5R6 shadow lock
+- 日期：2026-09-05
+- 锁定：`update_ratio_2to1`（280/140/420）及 9 个对照 checkpoint hash；T5R4 报告/config/protocol hash；数据与 split hash；隐藏任务规则逐字沿用 T5R2（阈值不变）；任务语义 gate（§9.1）与干预机制 gate（§9.2）预冻结；C 路径诊断 fallback（T5R3 fixed dual 仅作 T5R6 诊断参照）已预声明。
+- 干预协议：表示映射 f 与 response 同层；fracture 端点重分配（同 multiset、同 support 大小 4、不同端点，response-blind，不用静态 role）；单 epsilon 0.25（归一化半 pitch 单位，与 P2 形式范围最低档精确对应，可见 6 场全 105×68）；最多 250 等距快照；full/diagonal 主预测器＋Rayleigh 简单基线；不训练预测器。
+- 状态：`T5R5_LOCK_AUDIT: PASS`；保留 match 只允许读一次；P4 blocked。

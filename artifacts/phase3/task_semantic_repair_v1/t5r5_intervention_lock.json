@@ -1,0 +1,66 @@
+{
+  "status": "T5R5_INTERVENTION_LOCKED",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R5",
+  "created_before_any_reserved_read": true,
+  "operator": {
+    "id": "t5r5_support_reallocation_v1",
+    "adapted_from": "p2_fracture_endpoint_reallocation_v1",
+    "code": ["scripts/p2_fracture_controls.py", "scripts/run_phase2_fracture_formal.py (pair_residual weights only)"],
+    "principle": "same non-zero displacement-vector multiset, same support size and team, different endpoint/support assignment; response-blind; not a semantic-coalition test; static roles never used as truth"
+  },
+  "representation_map": {
+    "definition": "f(raw X [20,2]) = L2norm(mode_head(team_mean_pool(enc(center(X), team_slots, A_base))))",
+    "centering": "global 20-player centroid subtraction INSIDE the differentiable map",
+    "graph": "frozen base-snapshot kNN-4 adjacency reused for base and both perturbed arms; no graph rewiring (same as P3 prospective response)",
+    "jacobian": "J = df/dX_raw via autograd at base point, shape 64x40",
+    "geometry": "G = J^T J (40x40); q_full = 1/2||J delta||^2; q_diag from 2x2 per-node diagonal blocks; q_offdiag = q_full - q_diag",
+    "observed_response": "r = 1 - cosine(f(X), f(X+delta)); Delta r = r_anchor - r_control; same 1-cosine family as P3 prospective response"
+  },
+  "matched_pair_construction": {
+    "support_size": 4,
+    "team_choice": "seeded RNG choice of team_slot 0/1 per snapshot; seed = stable_seed(operator_id, snapshot_id, draw)",
+    "source_support": "seeded choice of 4 nodes within the chosen team (response-blind; no model output, task error, event or role input)",
+    "base_field": "unit_base_displacement_field(20, source, seed_parts=(operator_id, snapshot_id, draw))",
+    "anchor_arm": "delta_A = base * epsilon on source support",
+    "control_arm": "same vector multiset reassigned to a disjoint same-team support via enumerate_vector_bijections + reassigned_vector_field",
+    "target_ranking": "all disjoint same-team targets x bijections; keep boundary-valid (bound 1.0, tol 1e-9) with matching component_count (require_same_component_count=true); rank by legacy pair_residual score then frequency, topology, target, assignment; top-1",
+    "residual_weights": {"density_scale": 0.10, "cut_scale": 1.0, "n_bands": 6},
+    "disjoint_supports": "required (validate_fracture_supports); no feasible disjoint boundary-valid target => set INCOMPLETE, reported in failure rate"
+  },
+  "perturbation_magnitude": {
+    "epsilon": 0.25,
+    "units": "normalized half-pitch coordinates (x=X/(pitch_x/2))",
+    "transfer": "EXACT at normalized level: P2 canonical positions use the identical half-pitch convention; frozen P2 formal scope lowest regime (0.25 of [0.25, 0.5]) taken as the single primary magnitude",
+    "visible_pitch_check": "all 6 visible IDSSE matches are 105.0x68.0, identical to the P2 default pitch; no physical conversion needed for the normalized definition",
+    "physical_caveat": "if J03WQQ pitch dimensions differ, the physical-meter equivalent differs slightly; the model only ever sees normalized units, which is what is frozen here",
+    "single_epsilon_policy": "one epsilon only; no hidden-epsilon sweep and no post-hoc selection",
+    "protocol_transfer_status": "PROTOCOL_TRANSFER_EXACT"
+  },
+  "snapshot_sampling": {
+    "eligibility": "existing valid 20-player/QC rule from build_snapshots (20 non-GK, 10+10, finite, timestamp spread <= 1ms)",
+    "max_snapshots": 250,
+    "spacing": "equally spaced indices over eligible snapshots in canonical order (np.linspace); if fewer eligible, use all",
+    "selection_inputs": "snapshot order only; no model output/task-error/event/role-based selection",
+    "intervention_seed_root": 20260905,
+    "draws": [0],
+    "no_sample_count_adaptation": true
+  },
+  "predictors": {
+    "primary": ["full local geometry (Delta q_full vs Delta r)", "diagonal local geometry (Delta q_diag vs Delta r)"],
+    "simple_baselines": {
+      "primary_simple_spectral_baseline": "rayleigh_quotient_total (frozen for the gate)",
+      "secondary": ["low_band_power_share (bands 0-1 of 6)", "cut_weight"],
+      "support_size_sanity": "constant by construction (s=4); reported, not correlated"
+    },
+    "no_trained_predictor": true,
+    "no_neural_meta_predictor": true
+  },
+  "validity_and_reporting": {
+    "valid_set": "both arms boundary-valid, finite response, finite q",
+    "report": ["full geometry Spearman with observed pair-effect", "diagonal Spearman", "simple spectral baseline Spearman", "sign/direction accuracy", "valid snapshot/pair/arm counts", "invalid/failure rate"],
+    "degeneracy_guard": "if observed-response std <= 1e-12 or valid pairs < 10, mark INTERVENTION_UNDERDEGRADED and do not promote on intervention",
+    "no_collapse_rule": "mean_full_spearman >= mean_diag_spearman - 0.05",
+    "scope": "one unseen source match, not multi-match population generalization"
+  }
+}

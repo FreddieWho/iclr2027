@@ -155,7 +155,7 @@ exploration_checkpoints:
 p3_task_semantic_repair:
   phase: P3_CAUSAL_MECHANISM
   task_lane: P3-T5R
-  status: t5r4_round2_complete_autoresearch_closed
+  status: t5r5_locked_single_read_authorized
   protocol_config: configs/phase3_task_semantic_repair_v1.yaml
   package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
   legacy_heldout:

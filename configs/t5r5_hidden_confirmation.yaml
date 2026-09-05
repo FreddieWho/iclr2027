@@ -1,0 +1,58 @@
+version: 1
+phase: P3_CAUSAL_MECHANISM
+task_lane: P3-T5R5
+status: hidden_confirmation_authorized_single_read
+candidate_lock: artifacts/phase3/task_semantic_repair_v1/candidate_lock.json
+candidate_lock_sha256: 3bd8e250d73529b1b482e0cc332e78f0b1bd73294153292bdb9a7557cb99dec5
+intervention_lock: artifacts/phase3/task_semantic_repair_v1/t5r5_intervention_lock.json
+intervention_lock_sha256: 4071138405362d994edd18325273a45931097304558bc8b824731df4b021140a
+shadow_lock: artifacts/phase3/task_semantic_repair_v1/t5r6_shadow_confirmation_lock.json
+shadow_lock_sha256: 653b2c959dc1774c3097ce00a58266bb1e8251c7f4069f9dcbb6759008aea6a4
+pre_lock_head: c72d66c
+
+selected_candidate: update_ratio_2to1
+seeds: [11, 23, 47]
+reserved_match: J03WQQ
+reads_allowed: 1
+retraining: forbidden
+
+frozen_models:
+  selected: update_ratio_2to1
+  reference: fixed_dual_channel_shared_phase_gat
+  raw_baseline: raw_single_channel_phase_gat_team_mean
+  analytic_control: raw_coordinate_procrustes
+
+task_generation:
+  code: scripts/prepare_idsse_t5r2.py
+  split: reserved_holdout
+  thresholds_unchanged: true
+
+intervention:
+  operator: t5r5_support_reallocation_v1
+  epsilon: 0.25
+  support_size: 4
+  max_snapshots: 250
+  seed_root: 20260905
+  draws: [0]
+
+output: artifacts/phase3/task_semantic_repair_v1/t5r5_reserved_j03wqq_v1
+
+gates:
+  task_semantic:
+    z_mode_translation_mean_below: 1.0e-6
+    field_zone_f1_drop_max: 0.05
+    centroid_mae_increase_max: 0.05
+    pair_accuracy_selected_minus_reference_min: -0.02
+    geometry_spearman_selected_mean_delta_min: 0.0
+    geometry_spearman_seeds_non_negative_min: 2
+  intervention:
+    mean_full_spearman_min: 0.5
+    mean_full_minus_baseline_min: 0.2
+    seeds_full_above_baseline_min: 2
+    no_collapse_margin: 0.05
+
+firewall:
+  sngar_test: untouched
+  old_heldout_unused: true
+  external_results_unused: true
+  P4_release: false

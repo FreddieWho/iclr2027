@@ -1,0 +1,18 @@
+{
+  "status": "T5R6_SHADOW_LOCKED",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "created_before_any_reserved_read": true,
+  "note": "High-level rules only. No external data touched during T5R5.",
+  "target": "SoccerTrack-v2 or another approved independent provider/source",
+  "frozen_rules": {
+    "model": "same selected update_ratio_2to1 checkpoints (or predeclared T5R3-fixed-dual diagnostic reference only under route C)",
+    "channels": "same raw/centered views, same team_mean pooling, same heads",
+    "task_semantics": "same display names from metric_semantics_addendum.json",
+    "natural_pair_rules": "same geometric thresholds, allowing only deterministic physical-coordinate conversion to the new provider pitch",
+    "translation_robustness": "same definition (frozen vector in normalized half-pitch units)",
+    "intervention_operator": "same support-reallocation principle, same epsilon in normalized units, same validity rules",
+    "predictors": "same full/diagonal/spectral predictor set; no trained predictor",
+    "aggregation": "per-match Spearman primary across external matches; match-macro primary; pooled-pair secondary",
+    "claim_boundary": "external multi-match confirmation required before P3-R3 can move; single-provider success still not cross-domain generalization"
+  }
+}

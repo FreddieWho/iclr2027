@@ -42,8 +42,9 @@
     - [x] Round 1：4 个候选、每个候选 seeds 11/23/47，共 12 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`；无全维度 Pareto 支配者，不自动晋级。
     - [x] Round 2（最后一轮）：只检验 encoder update balance，3:1/2:1、总步数 420 持平 reference，共 6 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/`；按训练前冻结规则选出 `update_ratio_2to1`，关闭搜索。语义 addendum 与授权报告已冻结。
 
-- [ ] 7. candidate lock 后运行一次保留 match，并寻找真正独立的外部确认（依赖 6；已解锁待审阅）
-    - [ ] 锁定候选、配置、数据 hash、指标和失败条件后，才读取 IDSSE 保留 match。
+- [ ] 7. candidate lock 后运行一次保留 match（T5R5 lock 已创建，隐藏读取待执行；外部确认仍待后续）
+    - [x] 已锁定候选（`update_ratio_2to1`）、配置、数据 hash、干预协议、指标和失败条件；lock 审计通过，`J03WQQ` 仍未读。
+    - [ ] 运行一次性保留 match 读取（`t5r5_reserved_j03wqq_v1`），随后不再调参。
     - [ ] 不把已用于开发的 IDSSE 结果写成 external confirmation；SNGAR 或 SoccerTrack 仍是独立确认恢复分支。
 
 - [ ] 8. 根据 T5R gate 决定 P4 或诊断论文路线（依赖 7）
@@ -53,7 +54,7 @@
 
 | 分支 | 状态 | 说明 |
 |---|---|---|
-| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R4 已闭合，bounded autoresearch 已关闭（入选 `update_ratio_2to1`）；T5R5 candidate lock 待审阅，7 场 IDSSE 仍只承担开发角色。 |
+| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R4 已闭合，bounded autoresearch 已关闭（入选 `update_ratio_2to1`）；T5R5 lock 已创建，一次性保留 match 读取待执行。 |
 | B：SNGAR 恢复 | 暂缓 | 保留原访问和 test firewall；获得可信访问或带 revision/mapping/SHA-256 的镜像后，可升级独立样本量与确认强度。 |
 | C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
 | D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |

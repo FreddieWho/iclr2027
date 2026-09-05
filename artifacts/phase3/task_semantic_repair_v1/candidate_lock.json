@@ -1,0 +1,134 @@
+{
+  "status": "T5R5_CANDIDATE_LOCKED",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R5",
+  "created_before_any_reserved_read": true,
+  "pre_lock_head": "c72d66c",
+  "identity": {
+    "selected_candidate": "update_ratio_2to1",
+    "t5r4_report": "reports/P3_T5R4_ROUND2_REPORT.md",
+    "t5r4_report_sha256": "244aecc600bc56008fa9cf1632330291d16e96eb1a2575cdc1ae23a7fcd25cb4",
+    "t5r4_config": "configs/t5r4_round2.yaml",
+    "t5r4_config_sha256": "164ee15f1d8584715f3971dfc8b88bac77b0886457244fdb89fe652adeb62a5b",
+    "t5r4_protocol": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/protocol.json",
+    "t5r4_protocol_sha256": "39e8e6396d8d6a08b88bf3a5aeb75811a14906e20a7a30f9006c45a3c8b5ce04",
+    "t5r4_summary_sha256": "d44d8f6f3b14847f1a48c181277912d9d7da4baad85af5e1f70edd54d989f518",
+    "t5r4_manifest_sha256": "b561faca03344b47adc744705b32a6eb945ea5b906c9c268e2f13a5f24fd9950",
+    "t5r4_comparison_sha256": "23892c8b04a1450bf5801fa5dce7fc5f7986966685b14ee2784e78e921662f66",
+    "authorization_report": "reports/P3_T5R4_ROUND1_REVIEW_AND_ROUND2_AUTHORIZATION.md",
+    "authorization_report_sha256": "f9edd068ad297421d96586eee4270a10f4217ec4a26682dd92ad0a1ff8b9dec7"
+  },
+  "model": {
+    "architecture": "fixed-graph-message-passing-equivalent (T5R3 TaskModel)",
+    "encoder": "GraphEncoder: in_proj 4->128, 2 fixed-weighted message-passing layers, hidden 128",
+    "pooling": "team_mean",
+    "views": {"z_ctx": "raw_positions", "z_mode": "globally_centered_positions"},
+    "heads": "phase(2)/zone(3)/centroid(4) on z_ctx; mode MLP 128->64 on z_mode",
+    "parameter_count": 141769,
+    "update_schedule_per_epoch": {"context": 280, "intrinsic": 140, "total": 420},
+    "loss_weights": {"context": 1.0, "intrinsic": 1.0},
+    "gradient_routing": "shared",
+    "readout_normalization": "none",
+    "seeds": [11, 23, 47],
+    "checkpoints": {
+      "11": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/models/update_ratio_2to1_seed11.pt", "sha256": "d5243b4f0cb72f7e5e4cd39385869b2be1ad48a962cc18b22c22b645f729b03e", "bytes": 575613},
+      "23": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/models/update_ratio_2to1_seed23.pt", "sha256": "74767ef4302192755d7998b293944b1f4ad90bdbd73be09bc661493b144bf0c8", "bytes": 575613},
+      "47": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/models/update_ratio_2to1_seed47.pt", "sha256": "fee7c2972d39aab9fdea27997610f289431b2f029b2d02a898eafee977e6503e", "bytes": 575613}
+    }
+  },
+  "frozen_comparison_set": {
+    "selected": "update_ratio_2to1",
+    "reference": {
+      "id": "fixed_dual_channel_shared_phase_gat",
+      "checkpoints": {
+        "11": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/fixed_dual_channel_shared_phase_gat_seed11.pt", "sha256": "bec35f3eaffc9aadeef2329fd151e176cf67fdd6b6a3d5bbe0353624804dccb2"},
+        "23": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/fixed_dual_channel_shared_phase_gat_seed23.pt", "sha256": "e358524782e8657e5101ded31ecfbbd8ed514a80b5c309a9152a270994a2afb9"},
+        "47": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/fixed_dual_channel_shared_phase_gat_seed47.pt", "sha256": "4dc1e4bcec0d23ec43c84d622f0a94749ddedae125ced243a34e55ec21c7ff96"}
+      }
+    },
+    "raw_baseline": {
+      "id": "raw_single_channel_phase_gat_team_mean",
+      "checkpoints": {
+        "11": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/raw_single_channel_phase_gat_team_mean_seed11.pt", "sha256": "0bd0bde056c4fbe87d4a4ac5d5d16d1dceaa0f45064c3b87d9c40c6e1d582742"},
+        "23": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/raw_single_channel_phase_gat_team_mean_seed23.pt", "sha256": "afa1d9a76a686a82d4af0900024b84421af7a602489a8380c6e3d7f43364d017"},
+        "47": {"path": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/raw_single_channel_phase_gat_team_mean_seed47.pt", "sha256": "6d2bf2e3576234f2f65590169bfa945170b351a0f0bb913ff5ca4e1b6f5d2f73"}
+      }
+    },
+    "analytic_control": "raw_coordinate_procrustes (no checkpoint)",
+    "retraining": "forbidden"
+  },
+  "data": {
+    "dataset": "IDSSE",
+    "official_revision": "a715a38dfbaf5f58e431727c2b78d174101a703c",
+    "canonical_manifest": "artifacts/data_v2/idsse/canonical_manifest.json",
+    "canonical_manifest_sha256": "90dc80a22a5a7c092e033a48a36cf56e0af300419c42ba44f5d80de83bdc3318",
+    "source_file_manifest_sha256": "1a05ff744de7e3454c93188306774a7601ea15b204e9d7338c018103d89c5c63",
+    "split_lock": "artifacts/phase3/task_semantic_repair_v1/split_lock.json",
+    "split_lock_sha256": "0e5d3ef7d9c87d56d738f82f2b09e42b9928d8c67ce847bb05a355651ba476dd",
+    "t5r2_lock": "artifacts/phase3/task_semantic_repair_v1/baseline_and_metric_lock.json",
+    "t5r2_lock_sha256": "d5fe2c85a781fa54cbac1c1d3f7176211e0ca2552f88223c4e37dbb2ab809bee",
+    "train_match_ids": ["J03WMX", "J03WOH", "J03WPY", "J03WR9"],
+    "valid_match_ids": ["J03WN1", "J03WOY"],
+    "reserved_match_ids": ["J03WQQ"],
+    "reserved_task_arrays_written_before_lock": false,
+    "reserved_results_read_before_lock": false
+  },
+  "task_semantics": {
+    "addendum": "artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json",
+    "addendum_sha256": "8a5efeb7ea7bbbe10aa5c8e1537f0d0198c2719470654cff701c3218edf373ac",
+    "match_half": "auxiliary period-context probe on z_ctx; must not rescue or fail the candidate alone",
+    "field_zone_centroid": "absolute-context tasks on z_ctx",
+    "natural_pair": "geometry-constructed intrinsic structural accessibility proxy on z_mode; Procrustes ceiling ~0.9372",
+    "translation_robustness": "intrinsic nuisance test on z_mode (frozen vector [0.25, -0.15])"
+  },
+  "hidden_task_generation": {
+    "code": "scripts/prepare_idsse_t5r2.py",
+    "code_sha256": "310f6be19b220c701cdc36e8d930b72ba2d4796d3327b7119a930de7062a181a",
+    "functions": ["build_snapshots", "build_natural_pairs"],
+    "snapshot_rules": "20-player non-goalkeeper frames, 10 home + 10 away by team_slot sort, finite normalized positions, timestamp spread <= 1ms, 1Hz sampled frames",
+    "coordinate_normalization": "x=X/(pitch_x/2), y=Y/(pitch_y/2); source X/Y centered at pitch origin; per-match pitch from canonical metadata",
+    "view_20_player": "exclude goalkeepers, require exactly 10+10, sort by (team_slot, person_id)",
+    "natural_pair_thresholds": {
+      "positive_internal_max": 0.28,
+      "positive_centroid_min": 0.35,
+      "hard_negative_centroid_max": 0.12,
+      "hard_negative_internal_min": 0.35,
+      "minimum_time_separation_s": 4.0,
+      "pair_anchor_stride": 5,
+      "same_match_same_half": true,
+      "no_cross_split": true
+    },
+    "underpowered_policy": "if reserved produces few/zero natural pairs, report UNDERPOWERED/UNDEFINED; thresholds unchanged"
+  },
+  "task_semantic_gate": {
+    "z_mode_translation_mean_below": 1e-6,
+    "context_noninferiority_vs_hidden_raw_baseline": {"field_zone_f1_drop_max": 0.05, "centroid_mae_increase_max": 0.05},
+    "pair_accuracy_selected_minus_reference_min": -0.02,
+    "pair_gate_applies_only_if": "natural pairs sufficiently populated",
+    "geometry_latent_spearman": {"selected_mean_delta_vs_reference_min": 0.0, "seeds_non_negative_min": 2, "underpowered_policy": "mark UNDERPOWERED, thresholds unchanged"},
+    "match_half_policy": "cannot rescue or fail the candidate alone"
+  },
+  "intervention_gate": {
+    "strong_pass": {"mean_full_spearman_min": 0.5, "mean_full_minus_baseline_min": 0.2, "seeds_full_above_baseline_min": 2},
+    "also_require": ["direction accuracy above chance directionally", "no systematic full<diagonal collapse (mean_full >= mean_diag - 0.05)"],
+    "comparison_note": "2:1 need not beat fixed dual on intervention prediction for the core local-geometry mechanism to replicate; that comparison is secondary"
+  },
+  "diagnostic_fallback_declaration": "If outcome is FAIL_SELECTED_CANDIDATE_BUT_MECHANISM_SURVIVES, the original T5R3 fixed dual may serve ONLY as a diagnostic reference in T5R6, not as a newly tuned method. No other fallback is authorized.",
+  "outcome_routes": {
+    "A": "T5R5_PASS_STRONG -> T5R6_EXTERNAL_PROVIDER_CONFIRMATION",
+    "B": "T5R5_PASS_TASK_MECHANISM_MIXED -> T5R6_DECISIVE_EXTERNAL_CONFIRMATION",
+    "C": "T5R5_FAIL_SELECTED_CANDIDATE_BUT_MECHANISM_SURVIVES -> no method search; diagnostic external confirmation only if prelocked",
+    "D": "T5R5_FAIL_MECHANISM -> stop repair/method path; no AMR"
+  },
+  "firewall": {
+    "round_3": "forbidden",
+    "retraining_before_or_after_hidden": "forbidden",
+    "threshold_or_target_changes_after_hidden": "forbidden",
+    "old_heldout_for_selection": "forbidden",
+    "external_results_for_selection": "forbidden",
+    "sngar_test": "untouched",
+    "P4_AMR": "blocked",
+    "calligraphy_confirmation": "not authorized",
+    "reserved_reads_allowed": 1
+  }
+}
