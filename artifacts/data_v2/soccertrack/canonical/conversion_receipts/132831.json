@@ -1,0 +1,60 @@
+{
+  "status": "SOCCERTRACK_CANONICAL_CONVERSION_COMPLETE",
+  "source_match_id": "132831",
+  "source_files": {
+    "132831_1st.json": "a2a3cc169e7916318f53a88a33517bd764f4c97a5f165e7429120a162ee944c8",
+    "132831_2nd.json": "5d443e00084aea2376a6ab4ab7930ff58467481e3cc669f7028927b3d68037a1"
+  },
+  "pitch_assumed": [
+    105.0,
+    68.0
+  ],
+  "sample_hz": 1.0,
+  "team_slot_rule": "slot0 = physical team that is left in 1st half (player_id majority vote)",
+  "ball_present": false,
+  "ball_reason": "ball tracks not downloaded by design (positions only)",
+  "qc": {
+    "frames_per_half": {
+      "1st": 67800,
+      "2nd": 68401
+    },
+    "sampled_per_half": {
+      "1st": 2712,
+      "2nd": 2737
+    },
+    "kept": 5437,
+    "dropped_not20": 12,
+    "dropped_split": 0,
+    "dropped_nonfinite": 0,
+    "slot_mapping": {
+      "1st": {
+        "left": 0,
+        "right": 1
+      },
+      "2nd": {
+        "left": 1,
+        "right": 0
+      }
+    },
+    "kept_per_half": {
+      "1st": 2711,
+      "2nd": 2726
+    }
+  },
+  "snapshot_count": 5437,
+  "pair_count": 932,
+  "pair_diagnostics": {
+    "missing_hard_negative": 128,
+    "missing_positive": 29,
+    "pairs": 932,
+    "anchor_stride": 5
+  },
+  "output_files": {
+    "snapshot_index_132831.parquet": "51b7eaab47fe49ac1ea9e1495189321b4310616c63588249ce7559322889fc70",
+    "context_labels_132831.parquet": "51b7eaab47fe49ac1ea9e1495189321b4310616c63588249ce7559322889fc70",
+    "positions_raw_132831.npy": "7089f313d65781dba2c9763730143049e32fcde191acb305208ebf9b2b4a4122",
+    "positions_centered_132831.npy": "2c0f17eb0909cfd8cbabe7ae2a659ab8fb2ed3ea8d31a9b717876d66efac644f",
+    "team_slots_132831.npy": "4e122135d2938ab2df8bf1769e12fc67f5202b657f950f836f69369e8310d944",
+    "natural_pair_ranking_132831.parquet": "cf790d06b76ba8bc9bca5ebb804b9772f0928b4e7f024ac641b8910496cce783"
+  }
+}

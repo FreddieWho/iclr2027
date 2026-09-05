@@ -1,0 +1,15 @@
+{
+  "status": "SOCCERTRACK_T5R6_CANONICAL_CONVERSION_COMPLETE",
+  "matches": [
+    "118576",
+    "118577",
+    "118578",
+    "128057",
+    "128058",
+    "132831",
+    "132877"
+  ],
+  "total_snapshots": 38913,
+  "total_pairs": 6597,
+  "elapsed_seconds": 1475.3
+}

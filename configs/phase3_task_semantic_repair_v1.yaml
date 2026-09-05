@@ -2,7 +2,7 @@ version: 1
 project: action-mode-spectrum
 phase: P3_CAUSAL_MECHANISM
 task_lane: P3-T5R
-status: t5r5_pass_strong_t5r6_pending
+status: t5r6_confirmed_p4_decision_pending
 package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
 
 legacy_evidence:
@@ -54,13 +54,13 @@ data:
     policy: do_not_reuse_development_matches_as_external_confirmation
   independent_confirmation:
     dataset_id: SNGAR-test-or-SoccerTrack-v2
-    status: pending_after_idsse_development_branch
+    status: complete_soccertrack_v2_t5r6_confirmed
     policy: candidate_lock_before_any_reserved_holdout_or_external_result
   acquisition_shift:
     dataset_id: SoccerTrack_v2
     source: https://huggingface.co/datasets/atomscott/soccertrack-v2
     smoke_matches: [117092, 117093]
-    status: parser_smoke_only_until_candidate_lock
+    status: external_confirmation_complete_t5r6_confirmed
 
 split_lock:
   primary_unit: source_match_id

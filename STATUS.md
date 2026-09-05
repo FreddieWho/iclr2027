@@ -5,12 +5,13 @@
 ## 当前路线
 
 - active_phase: P3_CAUSAL_MECHANISM
-- current_checkpoint: P3_T5R5_PASS_STRONG
+- current_checkpoint: P3_T5R6_CONFIRMED
 - current_route: support_conditioned_geometry_with_task_semantic_repair
-- current_phase_status: P3_T5R5_COMPLETE_T5R6_EXTERNAL_CONFIRMATION_PENDING
+- current_phase_status: P3_T5R6_COMPLETE_P4_DECISION_PENDING
 - p4_status: blocked_pending_p3_t5r_gate
 - p5_status: blocked_pending_sports_prediction_lock
-- next_action: t5r6_external_provider_confirmation
+- next_action: p4_or_diagnostic_decision
+- t5r6_blocker: 已完成（T5R6_CONFIRMED，8 场同方向）；下一步为事项 8 的 P4/诊断决策
 
 P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性诊断均已完成。P2 结论是 representation response，不是下游任务性能；20/36 条件正向、16/36 条件负向，方向依赖 architecture、graph、role、energy。该结果不被重算、覆盖或改写。
 

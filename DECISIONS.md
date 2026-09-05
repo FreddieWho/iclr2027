@@ -181,3 +181,17 @@
 - 运行：`artifacts/phase3/task_semantic_repair_v1/t5r5_reserved_j03wqq_v1/`；只读一次，无重训练；9 个冻结 checkpoint＋解析对照；250 采样快照→159 complete＋91 incomplete（70 anchor 越界、21 无合法 target，均计失败率）；`T5R5_HIDDEN_AUDIT: PASS`。
 - 结果：任务 gate 全过（`z_mode`≈0；zone/centroid 相对隐藏 raw 基线无退化；pair −0.0026；geometry +0.0051 且 2/3 seeds 非负；515 pairs 充分）；干预强通过（2:1 mean full 0.63≥0.5、mean 差 0.66≥0.2、3/3 超基线、方向 0.76、无坍缩）；fixed dual 家族机制同样复现（次要比较，2:1 三 seeds 占优）。
 - 决定：verdict `T5R5_PASS_STRONG`，路由 A（`T5R6_EXTERNAL_PROVIDER_CONFIRMATION`）。P3-R2→单 match 条件支持，P3-R7→未见 match 条件支持，新增 P3-R8（单未见 match 干预预测），P3-R3 仍未建立，P4 blocked。不做新搜索。
+
+## D-20260905-T5R6-001：T5R6 用 SoccerTrack-v2 做独立外部确认
+- 日期：2026-09-05
+- 决定：路由 A 指定的独立确认用 SoccerTrack-v2（`atomscott/soccertrack-v2`，CC BY 4.0，10 场中排除 smoke 场 117092/117093，用其余 8 场）；坐标系为 105×68 中心原点米制，与 IDSSE 归一化一致，无需物理转换。
+- 原因：SNGAR test 仍不可访问；SoccerTrack 是已登记的独立 provider 恢复分支；shadow lock 已预冻结 high-level 规则。
+- 复查触发：若 8 场中可用场次不足（如大面积缺帧/队伍不满员），或数据条款变化，则停下报告，不降标准硬做。
+- 状态：gated 数据集需用户授权（HF_TOKEN 且账号已接受数据条款）后才能下载数据文件；已建立 PLAN/ROADMAP/LEADS，N1 阻塞中。
+
+## D-20260905-T5R6-002：T5R6 外部确认完成，verdict CONFIRMED
+- 日期：2026-09-05
+- 事实：用户授权 HF 后下载 8 场 GSR（45.16GB，修订 eae51793，SHA 登记）；转换 44,401 快照/7,534 对；冻结 9 checkpoints 无训练推理；干预与 T5R5 同算子（eps 0.25、support 4、150 场/场）。
+- 结果：任务 macro（2:1 zone 0.9653/pair 0.9219/geom 0.5738/cent 0.0365，逐场 8/8 占优）；干预 8/8 full 高于基线、方向 0.66–0.73；审计与 verdict 复算通过。
+- 决定：`T5R6_CONFIRMED`；P3-R3 升级为独立 provider 条件支持；P3-R5 门条件满足，是否启动 P4 由事项 8 决定，不自动放行。
+- 复查触发：事项 8 若决定启动 P4，需另行冻结 AMR 目标与门槛；若冻结为诊断版本，本分支即封存。

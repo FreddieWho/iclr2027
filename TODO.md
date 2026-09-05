@@ -50,6 +50,14 @@
 - [ ] 8. 根据 T5R gate 决定 P4 或诊断论文路线（依赖 7）
     - [ ] gate 未闭合时冻结为诊断/机制版本，不启动 AMR，不提前推进书法确认。
 
+- [x] 9. T5R6 独立外部确认（SoccerTrack-v2，8 场同方向，CONFIRMED）子项串行执行完毕
+    - [x] N1 下载登记 8 场 GSR 并写 SHA/receipt（45.16GB，修订 eae51793）
+    - [x] N2 GSR 转 canonical 与逐场 QC（44,401 快照）
+    - [x] N3 构建任务视图并审计（7,534 对）
+    - [x] N4 跑任务确认（2:1 逐场 8/8 占优）
+    - [x] N5 跑干预确认（8/8 full 高于基线）
+    - [x] N6 写报告回写 ledger 定路由
+
 ## 分支记录
 
 | 分支 | 状态 | 说明 |
@@ -59,6 +67,7 @@
 | C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
 | D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |
 | E：AMR 与书法 | 阻塞 | 只有 T5R 任务—鲁棒性—外部确认门闭合后才重新评估。 |
+| F：SoccerTrack-v2 外部确认 | 完成 | T5R6 CONFIRMED；8 场同方向；P4/诊断决策待事项 8。 |
 
 ## 变更记录
 
@@ -71,3 +80,5 @@
 - 2026-09-04：完成 T5R4 Round 1：4 个候选、3 个 seeds、12 个模型；结构审计通过，未发现全维度 Pareto 支配者，不自动进入 Round 2，candidate lock、reserved match 和外部确认继续未运行。
 - 2026-09-04：完成语义漂移修复（新增 `metric_semantics_addendum.json`）与 Round 1 审阅授权；完成 T5R4 Round 2：2 个候选、3 个 seeds、6 个模型，结构审计通过，按冻结规则选出 `update_ratio_2to1` 并关闭 bounded autoresearch；candidate lock、reserved match 和外部确认继续未运行，P4 仍 blocked。
 - 2026-09-05：完成 T5R5-0 闭包审计（逐场重算＋文档清理，不重开选择）；创建 candidate lock、干预协议锁与 T5R6 shadow lock（lock 审计通过）；执行一次性 `J03WQQ` 读取（3575 snapshots/515 pairs，159 complete 干预集），任务 gate 全过、干预强通过，verdict `T5R5_PASS_STRONG`，路由 A；P4 仍 blocked，不做新搜索。
+- 2026-09-05：建立 T5R6 项目文档（PLAN/ROADMAP/LEADS）；新增分支 F（SoccerTrack-v2 外部确认）；SoccerTrack-v2 为 gated 数据集，匿名可读元数据但数据文件需授权，待用户提供 HF_TOKEN 后执行 N1。
+- 2026-09-05：收到用户 HF 授权，完成 8 场 GSR 下载登记（45.16GB）；转换 QC 通过（44,401 快照/7,534 对）；任务＋干预确认 8 场同方向，verdict `T5R6_CONFIRMED`；P3-R3 升级为独立 provider 条件支持，P4 门条件满足待事项 8 决策。

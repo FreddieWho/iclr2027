@@ -164,5 +164,5 @@ datasets:
     markers: []
     source: https://huggingface.co/datasets/atomscott/soccertrack-v2
     access: gated_huggingface
-    status: candidate_lock_required
+    status: external_confirmation_complete_t5r6_confirmed
     split_policy: acquisition_shift_confirmation_only

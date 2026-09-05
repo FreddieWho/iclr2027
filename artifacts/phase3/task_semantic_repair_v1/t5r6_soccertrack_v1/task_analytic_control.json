@@ -1,0 +1,58 @@
+{
+  "118575": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.3030949831008911,
+    "procrustes_match_grouped_ranking_accuracy": 0.9989327788352966,
+    "raw_coordinate_pair_count": 937,
+    "procrustes_pair_count": 937,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "118576": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.19640971720218658,
+    "procrustes_match_grouped_ranking_accuracy": 0.9693769812583923,
+    "raw_coordinate_pair_count": 947,
+    "procrustes_pair_count": 947,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "118577": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.16717325150966644,
+    "procrustes_match_grouped_ranking_accuracy": 0.9939209818840027,
+    "raw_coordinate_pair_count": 987,
+    "procrustes_pair_count": 987,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "118578": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.3179433345794678,
+    "procrustes_match_grouped_ranking_accuracy": 0.9916054606437683,
+    "raw_coordinate_pair_count": 953,
+    "procrustes_pair_count": 953,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "128057": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.17879417538642883,
+    "procrustes_match_grouped_ranking_accuracy": 0.9958419799804688,
+    "raw_coordinate_pair_count": 962,
+    "procrustes_pair_count": 962,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "128058": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.2654462158679962,
+    "procrustes_match_grouped_ranking_accuracy": 0.991990864276886,
+    "raw_coordinate_pair_count": 874,
+    "procrustes_pair_count": 874,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "132831": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.18133047223091125,
+    "procrustes_match_grouped_ranking_accuracy": 0.995708167552948,
+    "raw_coordinate_pair_count": 932,
+    "procrustes_pair_count": 932,
+    "status": "analytic_control_only_no_context_head"
+  },
+  "132877": {
+    "raw_coordinate_match_grouped_ranking_accuracy": 0.2717622220516205,
+    "procrustes_match_grouped_ranking_accuracy": 0.993630588054657,
+    "raw_coordinate_pair_count": 942,
+    "procrustes_pair_count": 942,
+    "status": "analytic_control_only_no_context_head"
+  }
+}

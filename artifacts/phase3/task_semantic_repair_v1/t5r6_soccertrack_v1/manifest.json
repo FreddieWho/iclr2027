@@ -1,0 +1,21 @@
+{
+  "status": "T5R6_EXTERNAL_CONFIRMATION_COMPLETE",
+  "matches": [
+    "118575",
+    "118576",
+    "118577",
+    "118578",
+    "128057",
+    "128058",
+    "132831",
+    "132877"
+  ],
+  "excluded_smoke": [
+    "117092",
+    "117093"
+  ],
+  "t5r6_lock_sha256": "880068230aac93fc46365ba9a9959651c0eb75c01137d2bd6cc6e2119f1524f7",
+  "candidate_lock_sha256": "3bd8e250d73529b1b482e0cc332e78f0b1bd73294153292bdb9a7557cb99dec5",
+  "verdict": "T5R6_CONFIRMED",
+  "elapsed_seconds": 616.7
+}

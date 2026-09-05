@@ -40,9 +40,9 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 |---|---|---|---|---|
 | P3-R1 | 旧 T5 gate 混淆了 context signal 与 intrinsic nuisance | DESIGN_DIAGNOSIS_SUPPORTED | 仅解释旧任务设计，不等于已证明修复有效 | T5R-2/T5R-3 |
 | P3-R2 | 固定 context/mode 双通道能改善正确任务 Pareto | SUPPORTED_ON_IDSSE_UNSEEN_MATCH_CONDITIONALLY | T5R5 单次 J03WQQ 确认：任务 gate 全过（pair −0.0026、geometry +0.0051、context 无退化）；边界 = 单一同源未见 match，不是独立 provider 确认 | T5R-6 |
-| P3-R3 | geometry-response 关系可推广到未见比赛 | NOT_ESTABLISHED | 单一同源未见 match 的复现不等于多比赛总体泛化，更不等于独立 provider 确认 | T5R-6 |
+| P3-R3 | geometry-response 关系可推广到未见比赛 | SUPPORTED_ON_INDEPENDENT_PROVIDER_CONDITIONALLY | T5R6：独立 provider（SoccerTrack-v2 大学联赛）8 场比赛同方向；边界 = 单一 provider，不是跨域泛化 | P4 decision |
 | P3-R4 | dynamic semantic support 相对 matched random 有稳定增量 | NOT_ESTABLISHED | support construction 必须 response-blind 并经审计 | dynamic-support task |
-| P3-R5 | P3-T5R 可为 AMR-Fixed 提供非后验目标 | BLOCKED_PENDING_T5R | 只有新 task、test firewall 和外部确认闭合后才可进入 P4 | T5R-5/T5R-6 |
+| P3-R5 | P3-T5R 可为 AMR-Fixed 提供非后验目标 | GATE_CONDITIONS_MET_PENDING_P4_DECISION | 任务—鲁棒性—外部确认门已闭合（T5R6 CONFIRMED）；是否启动 P4 由事项 8 决定，不自动放行 | P4 decision |
 | DATA-C1 | 旧 heldout 可用于最终确认 | FORBIDDEN | 只允许 exploratory audit；不得选择候选 | SNGAR test lock |
 | P3-R6 | intrinsic objective 必须直接塑造 shared encoder 而非只训练末端 mode head | SUPPORTED_AS_ROUND1_MECHANISTIC_CONTROL | 边界 = IDSSE 开发集 / 当前固定结构；来自 Round 1 `routing_mode_head_only` 负对照 | T5R-5 candidate lock |
 | P3-R7 | shared-encoder update allocation 实质影响 task–geometry Pareto（2:1 入选） | SUPPORTED_CONDITIONALLY_ON_IDSSE_UNSEEN_MATCH | 开发集方向在 J03WQQ 保持：任务保持＋干预 full 3 seeds 高于同 seed reference；不是通用最优 ratio 结论 | T5R-6 |

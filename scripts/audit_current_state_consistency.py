@@ -113,6 +113,16 @@ def main() -> int:
         "tests/test_t5r5_candidate_lock.py",
         "tests/test_t5r5_hidden_confirmation.py",
         "reports/P3_T5R5_HIDDEN_CONFIRMATION_REPORT.md",
+        "artifacts/phase3/task_semantic_repair_v1/t5r6_confirmation_lock.json",
+        "scripts/download_soccertrack_v2.py",
+        "scripts/prepare_soccertrack_t5r6.py",
+        "scripts/run_t5r6_external_confirmation.py",
+        "scripts/audit_t5r6_confirmation.py",
+        "tests/test_t5r6_confirmation.py",
+        "artifacts/data_v2/soccertrack/source_file_manifest.json",
+        "artifacts/data_v2/soccertrack/canonical_manifest.json",
+        "artifacts/phase3/task_semantic_repair_v1/t5r6_soccertrack_v1/manifest.json",
+        "reports/P3_T5R6_EXTERNAL_CONFIRMATION_REPORT.md",
         "artifacts/phase3/task_semantic_repair_v1/t5r5_reserved_j03wqq_v1/reserved_manifest.json",
     ]
     for relative in required_paths:
@@ -130,15 +140,15 @@ def main() -> int:
 
     project_state = project.get("project", {})
     require(project_state.get("active_phase") == "P3_CAUSAL_MECHANISM", "active phase is not P3_CAUSAL_MECHANISM", failures)
-    require(project_state.get("current_checkpoint") == "P3_T5R5_PASS_STRONG", "project checkpoint mismatch", failures)
+    require(project_state.get("current_checkpoint") == "P3_T5R6_CONFIRMED", "project checkpoint mismatch", failures)
     require(project_state.get("current_route") == "support_conditioned_geometry_with_task_semantic_repair", "project route mismatch", failures)
-    require(project_state.get("current_phase_status") == "P3_T5R5_COMPLETE_T5R6_EXTERNAL_CONFIRMATION_PENDING", "project phase status mismatch", failures)
-    require(project_state.get("current_next_action") == "t5r6_external_provider_confirmation", "project next action mismatch", failures)
+    require(project_state.get("current_phase_status") == "P3_T5R6_COMPLETE_P4_DECISION_PENDING", "project phase status mismatch", failures)
+    require(project_state.get("current_next_action") == "p4_or_diagnostic_decision", "project next action mismatch", failures)
     require(project_state.get("p4_status") == "blocked_pending_p3_t5r_gate", "P4 is not blocked pending T5R gate", failures)
     require(project_state.get("p5_status") == "blocked_pending_sports_prediction_lock", "P5 status mismatch", failures)
     require(project_state.get("legacy_heldout_status") == "EXPOSED_DURING_CANDIDATE_SEARCH", "legacy heldout status mismatch", failures)
     repair_state = project.get("exploration", {}).get("p3_task_semantic_repair", {})
-    require(repair_state.get("status") == "t5r5_pass_strong_t5r6_pending", "T5R project status mismatch", failures)
+    require(repair_state.get("status") == "t5r6_confirmed_p4_decision_pending", "T5R project status mismatch", failures)
     require(repair_state.get("temporary_sngar_substitute") == "IDSSE", "temporary IDSSE substitution is missing", failures)
 
     require(matrix.get("p3_task_semantic_repair", {}).get("phase") == "P3_CAUSAL_MECHANISM", "T5R matrix is not inside P3", failures)
@@ -161,8 +171,8 @@ def main() -> int:
     require(idsse.get("official_revision") == "a715a38dfbaf5f58e431727c2b78d174101a703c", "IDSSE official revision mismatch", failures)
     require(idsse.get("official_file_tree_matches_local") is True, "IDSSE official file-tree match not recorded", failures)
 
-    require(matrix.get("p3_task_semantic_repair", {}).get("status") == "t5r5_pass_strong_t5r6_pending", "T5R matrix status mismatch", failures)
-    require(repair.get("status") == "t5r5_pass_strong_t5r6_pending", "repair config status mismatch", failures)
+    require(matrix.get("p3_task_semantic_repair", {}).get("status") == "t5r6_confirmed_p4_decision_pending", "T5R matrix status mismatch", failures)
+    require(repair.get("status") == "t5r6_confirmed_p4_decision_pending", "repair config status mismatch", failures)
     require(repair.get("autoresearch", {}).get("status") == "round_2_complete_autoresearch_closed", "autoresearch Round 2 status mismatch", failures)
     require(split_lock.get("status") == "MATCH_SPLIT_FROZEN_BEFORE_T5R2_TASK_CONSTRUCTION", "T5R2 split lock status mismatch", failures)
     require(t5r2_lock.get("status") == "T5R2_CLOSED_BASELINE_AND_METRIC_LOCK", "T5R2 baseline lock status mismatch", failures)
@@ -192,16 +202,16 @@ def main() -> int:
     text_checks = {
         "README.md": ["P3-T5R", "EXPOSED_DURING_CANDIDATE_SEARCH", "P4 AMR 继续 blocked"],
         "MASTER_AGENT_PROMPT.md": ["P3-T5R0", "candidate lock", "禁止先训练 AMR"],
-        "STATUS.md": ["P3_T5R5_PASS_STRONG", "T5R3", "T5R4", "p4_status: blocked_pending_p3_t5r_gate"],
+        "STATUS.md": ["P3_T5R6_CONFIRMED", "T5R3", "T5R4", "p4_status: blocked_pending_p3_t5r_gate"],
         "CLAIM_LEDGER.md": ["P3-R1", "P3-R2", "P3-R3", "P3-R4", "P3-R5", "DATA-C1"],
-        "DECISIONS.md": ["D-20260902-P3-011", "D-20260902-P3-012", "D-20260902-P3-013", "D-20260902-P3-014", "D-20260902-P3-015", "D-20260904-P3-017", "D-20260904-P3-018", "D-20260904-P3-019", "D-20260904-P3-020", "D-20260904-P3-021", "D-20260904-P3-022", "D-20260905-P3-025", "D-20260905-P3-026", "D-20260905-P3-027"],
+        "DECISIONS.md": ["D-20260902-P3-011", "D-20260902-P3-012", "D-20260902-P3-013", "D-20260902-P3-014", "D-20260902-P3-015", "D-20260904-P3-017", "D-20260904-P3-018", "D-20260904-P3-019", "D-20260904-P3-020", "D-20260904-P3-021", "D-20260904-P3-022", "D-20260905-P3-025", "D-20260905-P3-026", "D-20260905-P3-027", "D-20260905-T5R6-001", "D-20260905-T5R6-002"],
         "docs/01_SCIENTIFIC_BLUEPRINT.md": ["P3-T5R", "context", "intrinsic"],
         "docs/02_METHOD_SPEC_AMR.md": ["z_ctx", "z_mode", "P3-T5R"],
         "docs/03_EXPERIMENTS_CHECKPOINTS_AND_FIGURES.md": ["P3-T5R", "candidate lock"],
         "docs/04_DATA_AND_ENVIRONMENT_GUIDE.md": ["SNGAR", "IDSSE", "candidate lock"],
         "docs/05_AGENT_EXECUTION_MANUAL.md": ["Task worker", "Autoresearch worker", "candidate lock"],
         "reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md": ["heldout", "T5R"],
-        "TODO.md": ["当前固定决定", "IDSSE", "分支记录", "变更记录", "T5R4 Round 2", "T5R5"],
+        "TODO.md": ["当前固定决定", "IDSSE", "分支记录", "变更记录", "T5R4 Round 2", "T5R5", "T5R6"],
     }
     for relative, markers in text_checks.items():
         path = root / relative
