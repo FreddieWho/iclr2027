@@ -1,0 +1,46 @@
+{
+  "status": "T5R5_HIDDEN_CONFIRMATION_COMPLETE",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R5",
+  "reserved_match": "J03WQQ",
+  "reads": 1,
+  "retraining": false,
+  "candidate_lock_sha256": "3bd8e250d73529b1b482e0cc332e78f0b1bd73294153292bdb9a7557cb99dec5",
+  "intervention_lock_sha256": "4071138405362d994edd18325273a45931097304558bc8b824731df4b021140a",
+  "hidden_config_sha256": "c65f1d6838c9b92ec9d346196c964672da1a57025c0947825a598b5a62948158",
+  "views": {
+    "n_snapshots": 3575,
+    "n_pairs": 515,
+    "phase_counts": {
+      "firstHalf": 2769,
+      "secondHalf": 806
+    },
+    "pair_diagnostics": {
+      "missing_hard_negative": 96,
+      "missing_positive": 105,
+      "pairs": 515,
+      "anchor_stride": 5
+    },
+    "files": {
+      "snapshot_index_reserved_holdout.parquet": "d9fcbd7b910f87b10a7fc3eeb4f45e9538f0832231540d6daf937e67c59bccf1",
+      "context_labels_reserved_holdout.parquet": "d9fcbd7b910f87b10a7fc3eeb4f45e9538f0832231540d6daf937e67c59bccf1",
+      "positions_raw_reserved_holdout.npy": "0ed3b2716fd5b3ceb04132083d821574ec7e42beb3314bb655bc10769a95f9ee",
+      "positions_centered_reserved_holdout.npy": "3dd12c5f7a6e4486be39279676e37f8d48afaa4faea4964784700f77e7d7ea53",
+      "team_slots_reserved_holdout.npy": "7356c4a4da23fb3f050305f48149ab49e91852a19adef1d8b0837b53774e1b8e",
+      "natural_pair_ranking_reserved_holdout.parquet": "08fa8181473500d94ffb478842ca62e8da597b52eef15bf75b754d93b3f06f08"
+    },
+    "thresholds": {
+      "positive_internal_max": 0.28,
+      "positive_centroid_min": 0.35,
+      "hard_negative_centroid_max": 0.12,
+      "hard_negative_internal_min": 0.35,
+      "minimum_time_separation_s": 4.0,
+      "pair_anchor_stride": 5
+    }
+  },
+  "n_snapshots": 3575,
+  "n_pairs": 515,
+  "adjacency_sha256": "8bff334263509a232e70ed8f7c1f6d84c2c517620988c3e893697955144a44dc",
+  "verdict": "T5R5_PASS_STRONG",
+  "elapsed_seconds": 76.089
+}

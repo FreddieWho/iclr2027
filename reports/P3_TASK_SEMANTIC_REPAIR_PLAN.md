@@ -91,7 +91,8 @@ centered view:  X - mean(X) -> Pool -> z_mode -> intrinsic head
 T5R2 任务视图：train=`J03WMX,J03WOH,J03WPY,J03WR9`，valid=`J03WN1,J03WOY`，reserved=`J03WQQ`；train/valid 分别为 23,052/6,127 snapshots 和 3,750/980 natural pairs。`J03WQQ` 未加载，未写出 reserved task arrays。
 已运行：fixed dual-channel sanity（仅 train/valid，v3 正式证据）、T5R4 Round 1（4 候选、12 个模型，无全维度 Pareto 支配者）
 和 T5R4 Round 2（最后一轮，仅 encoder update balance 轴，3:1/2:1，总步数 420 持平，6 个模型；按训练前冻结规则选出
-`update_ratio_2to1`，bounded autoresearch 已关闭）；尚未运行：candidate lock、IDSSE 保留 match 检查、独立 provider confirmation。v1/v2 中止尝试不纳入证据。
+`update_ratio_2to1`，bounded autoresearch 已关闭）；已创建 candidate lock、干预协议锁与 T5R6 shadow lock，
+并完成一次性 IDSSE 保留 match 读取（`J03WQQ`，verdict `T5R5_PASS_STRONG`，路由 A）；尚未运行：独立 provider confirmation。v1/v2 中止尝试不纳入证据。
 当前 P4：`blocked_pending_p3_t5r_gate`。T5R3 closure review 已接受 T5R4 Round 1 探索，具体候选仍不自动晋级。
 
 T5R3 已完成并记录在 `reports/P3_T5R3_SANITY_REPORT.md`。其方向性门为 `PASS`，但 valid 只有 2 场比赛，且 geometry 指标是 natural-pair proxy，不是 intervention-response。T5R4 Round 1 已完成并记录在 `reports/P3_T5R4_ROUND1_REPORT.md`，无全维度 Pareto 支配者。T5R4 Round 2 已完成并记录在 `reports/P3_T5R4_ROUND2_REPORT.md`（入选 `update_ratio_2to1`，搜索关闭）；语义显示名以 `artifacts/phase3/task_semantic_repair_v1/metric_semantics_addendum.json` 为准（match-half context probe、intrinsic structural accessibility proxy）。

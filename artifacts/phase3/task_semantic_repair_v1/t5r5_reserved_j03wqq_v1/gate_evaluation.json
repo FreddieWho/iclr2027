@@ -1,0 +1,35 @@
+{
+  "task_checks": {
+    "z_mode_translation_below_1e_6": true,
+    "field_zone_drop_within_0_05": true,
+    "centroid_increase_within_0_05": true,
+    "pair_within_0_02_of_reference": true,
+    "geometry_mean_delta_non_negative": true,
+    "geometry_seeds_non_negative_at_least_2": true
+  },
+  "task_pass": true,
+  "pair_underpowered": false,
+  "selected_intervention": {
+    "seeds_ok": 3,
+    "mean_full": 0.6300603057081443,
+    "mean_baseline": -0.02547169811320756,
+    "mean_diff": 0.6555320038213519,
+    "seeds_full_above_baseline": 3,
+    "mean_direction": 0.7631027253668763,
+    "mean_diag": 0.3591374094419235
+  },
+  "reference_intervention": {
+    "seeds_ok": 3,
+    "mean_full": 0.546973768012101,
+    "mean_baseline": -0.11809768330546933,
+    "mean_diff": 0.6650714513175703,
+    "seeds_full_above_baseline": 3,
+    "mean_direction": 0.70020964360587,
+    "mean_diag": 0.239917204044264
+  },
+  "selected_strong": true,
+  "selected_positive": true,
+  "reference_positive": true,
+  "leakage_ok": true,
+  "verdict": "T5R5_PASS_STRONG"
+}

@@ -1,6 +1,6 @@
 # Claim Ledger
 
-更新时间：2026-09-04
+更新时间：2026-09-05
 
 | Claim ID | Claim | Evidence status | Allowed wording / boundary | Next evidence |
 |---|---|---|---|---|
@@ -39,10 +39,11 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | Claim ID | Claim | Evidence status | Allowed wording / boundary | Next evidence |
 |---|---|---|---|---|
 | P3-R1 | 旧 T5 gate 混淆了 context signal 与 intrinsic nuisance | DESIGN_DIAGNOSIS_SUPPORTED | 仅解释旧任务设计，不等于已证明修复有效 | T5R-2/T5R-3 |
-| P3-R2 | 固定 context/mode 双通道能改善正确任务 Pareto | DIRECTIONALLY_SUPPORTED_ON_IDSSE_DEVELOPMENT | 仅 T5R3 + IDSSE 开发数据范围内的方向性支持；2:1 update-balance 入选后仍需 T5R5/T5R6 确认，不等于外部确认或方法最终成功 | T5R-5/T5R-6 |
-| P3-R3 | geometry-response 关系可推广到未见比赛 | NOT_ESTABLISHED | 当前同资产 prospective 不等于新比赛泛化 | T5R-5/T5R-6 |
+| P3-R2 | 固定 context/mode 双通道能改善正确任务 Pareto | SUPPORTED_ON_IDSSE_UNSEEN_MATCH_CONDITIONALLY | T5R5 单次 J03WQQ 确认：任务 gate 全过（pair −0.0026、geometry +0.0051、context 无退化）；边界 = 单一同源未见 match，不是独立 provider 确认 | T5R-6 |
+| P3-R3 | geometry-response 关系可推广到未见比赛 | NOT_ESTABLISHED | 单一同源未见 match 的复现不等于多比赛总体泛化，更不等于独立 provider 确认 | T5R-6 |
 | P3-R4 | dynamic semantic support 相对 matched random 有稳定增量 | NOT_ESTABLISHED | support construction 必须 response-blind 并经审计 | dynamic-support task |
 | P3-R5 | P3-T5R 可为 AMR-Fixed 提供非后验目标 | BLOCKED_PENDING_T5R | 只有新 task、test firewall 和外部确认闭合后才可进入 P4 | T5R-5/T5R-6 |
 | DATA-C1 | 旧 heldout 可用于最终确认 | FORBIDDEN | 只允许 exploratory audit；不得选择候选 | SNGAR test lock |
 | P3-R6 | intrinsic objective 必须直接塑造 shared encoder 而非只训练末端 mode head | SUPPORTED_AS_ROUND1_MECHANISTIC_CONTROL | 边界 = IDSSE 开发集 / 当前固定结构；来自 Round 1 `routing_mode_head_only` 负对照 | T5R-5 candidate lock |
-| P3-R7 | shared-encoder update allocation 实质影响 task–geometry Pareto（2:1 入选） | SUPPORTED_CONDITIONALLY | 边界 = IDSSE 开发集 / 当前固定结构 / 2 场 valid；geometry 稳定改善、pair/context 保持；不是通用最优 ratio 结论 | T5R-5/T5R-6 |
+| P3-R7 | shared-encoder update allocation 实质影响 task–geometry Pareto（2:1 入选） | SUPPORTED_CONDITIONALLY_ON_IDSSE_UNSEEN_MATCH | 开发集方向在 J03WQQ 保持：任务保持＋干预 full 3 seeds 高于同 seed reference；不是通用最优 ratio 结论 | T5R-6 |
+| P3-R8 | 归一化局部几何可预测未见 IDSSE 源比赛上的受控 support-reallocation 响应 | SUPPORTED_ON_SINGLE_UNSEEN_MATCH | 边界 = 一个未见源比赛、固定家族、冻结干预（eps 0.25、support 4）；2:1 mean full 0.63 vs 基线 ~0，不是独立 provider 确认 | T5R-6 |

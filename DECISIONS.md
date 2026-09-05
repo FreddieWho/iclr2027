@@ -175,3 +175,9 @@
 - 锁定：`update_ratio_2to1`（280/140/420）及 9 个对照 checkpoint hash；T5R4 报告/config/protocol hash；数据与 split hash；隐藏任务规则逐字沿用 T5R2（阈值不变）；任务语义 gate（§9.1）与干预机制 gate（§9.2）预冻结；C 路径诊断 fallback（T5R3 fixed dual 仅作 T5R6 诊断参照）已预声明。
 - 干预协议：表示映射 f 与 response 同层；fracture 端点重分配（同 multiset、同 support 大小 4、不同端点，response-blind，不用静态 role）；单 epsilon 0.25（归一化半 pitch 单位，与 P2 形式范围最低档精确对应，可见 6 场全 105×68）；最多 250 等距快照；full/diagonal 主预测器＋Rayleigh 简单基线；不训练预测器。
 - 状态：`T5R5_LOCK_AUDIT: PASS`；保留 match 只允许读一次；P4 blocked。
+
+## D-20260905-P3-027：T5R5 一次性保留 match 读取结果与路由 A
+- 日期：2026-09-05
+- 运行：`artifacts/phase3/task_semantic_repair_v1/t5r5_reserved_j03wqq_v1/`；只读一次，无重训练；9 个冻结 checkpoint＋解析对照；250 采样快照→159 complete＋91 incomplete（70 anchor 越界、21 无合法 target，均计失败率）；`T5R5_HIDDEN_AUDIT: PASS`。
+- 结果：任务 gate 全过（`z_mode`≈0；zone/centroid 相对隐藏 raw 基线无退化；pair −0.0026；geometry +0.0051 且 2/3 seeds 非负；515 pairs 充分）；干预强通过（2:1 mean full 0.63≥0.5、mean 差 0.66≥0.2、3/3 超基线、方向 0.76、无坍缩）；fixed dual 家族机制同样复现（次要比较，2:1 三 seeds 占优）。
+- 决定：verdict `T5R5_PASS_STRONG`，路由 A（`T5R6_EXTERNAL_PROVIDER_CONFIRMATION`）。P3-R2→单 match 条件支持，P3-R7→未见 match 条件支持，新增 P3-R8（单未见 match 干预预测），P3-R3 仍未建立，P4 blocked。不做新搜索。

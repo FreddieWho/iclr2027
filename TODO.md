@@ -42,9 +42,9 @@
     - [x] Round 1：4 个候选、每个候选 seeds 11/23/47，共 12 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`；无全维度 Pareto 支配者，不自动晋级。
     - [x] Round 2（最后一轮）：只检验 encoder update balance，3:1/2:1、总步数 420 持平 reference，共 6 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/`；按训练前冻结规则选出 `update_ratio_2to1`，关闭搜索。语义 addendum 与授权报告已冻结。
 
-- [ ] 7. candidate lock 后运行一次保留 match（T5R5 lock 已创建，隐藏读取待执行；外部确认仍待后续）
-    - [x] 已锁定候选（`update_ratio_2to1`）、配置、数据 hash、干预协议、指标和失败条件；lock 审计通过，`J03WQQ` 仍未读。
-    - [ ] 运行一次性保留 match 读取（`t5r5_reserved_j03wqq_v1`），随后不再调参。
+- [x] 7. candidate lock 后运行一次保留 match（T5R5 PASS_STRONG；外部确认仍待后续）
+    - [x] 已锁定候选（`update_ratio_2to1`）、配置、数据 hash、干预协议、指标和失败条件；lock 审计通过后执行一次性读取。
+    - [x] `J03WQQ` 读取完成（3575 snapshots/515 pairs，只读一次，无重训练）：任务 gate 全过，干预 full mean 0.63 强通过，路由 A（T5R6 独立确认）。
     - [ ] 不把已用于开发的 IDSSE 结果写成 external confirmation；SNGAR 或 SoccerTrack 仍是独立确认恢复分支。
 
 - [ ] 8. 根据 T5R gate 决定 P4 或诊断论文路线（依赖 7）
@@ -54,7 +54,7 @@
 
 | 分支 | 状态 | 说明 |
 |---|---|---|
-| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R4 已闭合，bounded autoresearch 已关闭（入选 `update_ratio_2to1`）；T5R5 lock 已创建，一次性保留 match 读取待执行。 |
+| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R5 已闭合（`T5R5_PASS_STRONG`，路由 A）；T5R6 独立确认待执行，7 场 IDSSE 不复用为外部确认。 |
 | B：SNGAR 恢复 | 暂缓 | 保留原访问和 test firewall；获得可信访问或带 revision/mapping/SHA-256 的镜像后，可升级独立样本量与确认强度。 |
 | C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
 | D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |
@@ -70,3 +70,4 @@
 - 2026-09-04：完成简短 T5R3 closure review，确认无路线级偏移并允许 T5R4 Round 1；新增可探索候选框架，Round 1 仅使用 train/valid，candidate lock、reserved match 和外部确认继续未运行。
 - 2026-09-04：完成 T5R4 Round 1：4 个候选、3 个 seeds、12 个模型；结构审计通过，未发现全维度 Pareto 支配者，不自动进入 Round 2，candidate lock、reserved match 和外部确认继续未运行。
 - 2026-09-04：完成语义漂移修复（新增 `metric_semantics_addendum.json`）与 Round 1 审阅授权；完成 T5R4 Round 2：2 个候选、3 个 seeds、6 个模型，结构审计通过，按冻结规则选出 `update_ratio_2to1` 并关闭 bounded autoresearch；candidate lock、reserved match 和外部确认继续未运行，P4 仍 blocked。
+- 2026-09-05：完成 T5R5-0 闭包审计（逐场重算＋文档清理，不重开选择）；创建 candidate lock、干预协议锁与 T5R6 shadow lock（lock 审计通过）；执行一次性 `J03WQQ` 读取（3575 snapshots/515 pairs，159 complete 干预集），任务 gate 全过、干预强通过，verdict `T5R5_PASS_STRONG`，路由 A；P4 仍 blocked，不做新搜索。

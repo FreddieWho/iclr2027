@@ -54,7 +54,7 @@ P3 不否定 Action-Mode Spectrum，而把它保留为跨条件的边缘汇总�
 5. 只有 sanity gate 支持后，才允许最多两轮 bounded autoresearch。
 
 旧 heldout 标记为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再作为确认集。P4 AMR 继续 blocked，书法不参与体育端机制选择。
-截至 2026-09-04，IDSSE 官方 revision、raw 文件清单、23/23 SHA-256、7 场 canonical conversion、逐场 QC、match-level split、T5R2 task/baseline lock、T5R3 fixed dual-channel sanity 和 T5R4 两轮 bounded autoresearch 已完成（Round 2 按冻结规则选出 `update_ratio_2to1`，搜索已关闭）。语义 addendum（match-half context probe、intrinsic structural accessibility proxy）已冻结。T5R5 candidate lock 待审阅；SNGAR 访问仍为 `BLOCKED_EXTERNAL_ACCESS`，保留为后续独立样本/确认恢复分支。
+截至 2026-09-04，IDSSE 官方 revision、raw 文件清单、23/23 SHA-256、7 场 canonical conversion、逐场 QC、match-level split、T5R2 task/baseline lock、T5R3 fixed dual-channel sanity 和 T5R4 两轮 bounded autoresearch 已完成（Round 2 按冻结规则选出 `update_ratio_2to1`，搜索已关闭）。语义 addendum（match-half context probe、intrinsic structural accessibility proxy）已冻结。T5R5 candidate lock、干预协议锁与 shadow lock 已创建并审计通过；一次性 `J03WQQ` 读取已完成（verdict `T5R5_PASS_STRONG`，路由 A：T5R6 独立确认）；SNGAR 访问仍为 `BLOCKED_EXTERNAL_ACCESS`，保留为后续独立样本/确认恢复分支。
 
 ## 4. 历史/基础准备
 

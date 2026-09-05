@@ -1,0 +1,7 @@
+{
+  "raw_coordinate_match_grouped_ranking_accuracy": 0.0796116515994072,
+  "procrustes_match_grouped_ranking_accuracy": 0.9922330379486084,
+  "raw_coordinate_pair_count": 515,
+  "procrustes_pair_count": 515,
+  "status": "analytic_control_only_no_context_head"
+}

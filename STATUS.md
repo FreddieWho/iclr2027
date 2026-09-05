@@ -5,12 +5,12 @@
 ## 当前路线
 
 - active_phase: P3_CAUSAL_MECHANISM
-- current_checkpoint: P3_T5R5_LOCKED
+- current_checkpoint: P3_T5R5_PASS_STRONG
 - current_route: support_conditioned_geometry_with_task_semantic_repair
-- current_phase_status: P3_T5R5_CANDIDATE_LOCKED_SINGLE_READ_AUTHORIZED
+- current_phase_status: P3_T5R5_COMPLETE_T5R6_EXTERNAL_CONFIRMATION_PENDING
 - p4_status: blocked_pending_p3_t5r_gate
 - p5_status: blocked_pending_sports_prediction_lock
-- next_action: run_t5r5_single_hidden_read
+- next_action: t5r6_external_provider_confirmation
 
 P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性诊断均已完成。P2 结论是 representation response，不是下游任务性能；20/36 条件正向、16/36 条件负向，方向依赖 architecture、graph、role、energy。该结果不被重算、覆盖或改写。
 
@@ -60,9 +60,9 @@ P3-T5R 允许在既有阶段内引入经批准的独立体育数据，但不访�
 - T5R2：context/intrinsic task、match-level split、自然配对规则和 baseline/metric lock 已闭合；任务审计通过；
 - T5R3：fixed dual-channel sanity 已完成；dual 相对 raw 满足方向性 sanity 条件，但 geometry 指标是 natural-pair proxy，不能写成旧 P3 intervention-response 复现；
 - T5R4：bounded autoresearch 两轮已完成并关闭；Round 2（encoder update balance，3:1/2:1，总步数 420 持平）按训练前冻结规则选出 `update_ratio_2to1`（geometry 3 seeds 同方向改善、pair/context 保持），T5R3 不再是 incumbent；candidate lock、reserved match 和外部确认仍未运行；
-- T5R5：candidate lock 已创建（`update_ratio_2to1` 冻结，干预协议与 T5R6 shadow rules 已冻结），一次性保留 match 读取已授权、尚未执行；`J03WQQ` 仍未读；
+- T5R5：一次性保留 match 读取已完成（`J03WQQ`，3575 snapshots/515 pairs），任务 gate 全过、干预 full mean 0.63 强通过，verdict `T5R5_PASS_STRONG`；只读一次，无重训练；
 
-本轮目标是 T5R5 确认性 lock-and-read：冻结 `update_ratio_2to1` 并一次性读取保留 match `J03WQQ`，检验任务语义与局部几何机制能否在未见比赛上复现；不再做优化或搜索。P4 与外部确认 claim 仍未形成。
+本轮目标已达成：T5R5 确认性 lock-and-read 在未见比赛上复现了任务语义与局部几何机制（PASS_STRONG）；下一步为 T5R6 独立 provider 确认。P4 与外部确认 claim 仍未形成。
 
 ## IDSSE 临时替代说明
 

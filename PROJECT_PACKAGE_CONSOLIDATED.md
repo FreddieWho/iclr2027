@@ -21,7 +21,7 @@
 
 本增补优先级高于下方历史正文，但不删除或改写 P2/P3 历史。旧 T5 的阴性结果限定为 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`；旧 heldout 因候选循环曾被计算、打印和保存，状态为 `EXPOSED_DURING_CANDIDATE_SEARCH`，只允许 exploratory audit。
 
-当前 active phase 仍为既有 `P3_CAUSAL_MECHANISM`，新增的是 `P3-T5R0`–`P3-T5R6` 任务编号，不是新 Phase。路线为：协议迁移 → IDSSE 暂代 SNGAR 的开发数据并完成 canonical conversion → context/intrinsic 任务拆分 → fixed dual-channel sanity → 有界 autoresearch → candidate lock 后一次性读取 IDSSE 保留 match → 另一个 provider/source 的独立确认。T5R4 两轮已完成：入选 `update_ratio_2to1`，bounded autoresearch 已关闭；T5R5 candidate lock 待审阅。SkillCorner 只作历史 dynamic-support 规则开发，书法不用于选择体育端机制，`infra/bioinf-data-index/` 不在范围内。
+当前 active phase 仍为既有 `P3_CAUSAL_MECHANISM`，新增的是 `P3-T5R0`–`P3-T5R6` 任务编号，不是新 Phase。路线为：协议迁移 → IDSSE 暂代 SNGAR 的开发数据并完成 canonical conversion → context/intrinsic 任务拆分 → fixed dual-channel sanity → 有界 autoresearch → candidate lock 后一次性读取 IDSSE 保留 match → 另一个 provider/source 的独立确认。T5R4 两轮已完成：入选 `update_ratio_2to1`，bounded autoresearch 已关闭；T5R5 已完成一次性保留 match 读取（verdict `T5R5_PASS_STRONG`，路由 A：T5R6 独立确认）。SkillCorner 只作历史 dynamic-support 规则开发，书法不用于选择体育端机制，`infra/bioinf-data-index/` 不在范围内。
 
 固定双通道使用 raw positions 的 `z_ctx` 与 globally centered positions 的 `z_mode`：前者保留 absolute deployment context，后者承担 intrinsic structure 与 global translation robustness。只有新 task、geometry、robustness、多 match/seed、candidate-lock test firewall 和外部确认同时闭合，才进入 P4 AMR-Fixed；当前 P4 仍 `blocked_pending_p3_t5r_gate`。机器配置为 `configs/phase3_task_semantic_repair_v1.yaml`，执行计划为 `reports/P3_TASK_SEMANTIC_REPAIR_PLAN.md`。
 

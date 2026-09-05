@@ -8,10 +8,10 @@ project:
   main_page_limit: 9
   created: 2026-08-18
   active_phase: P3_CAUSAL_MECHANISM
-  current_checkpoint: P3_T5R5_LOCKED
+  current_checkpoint: P3_T5R5_PASS_STRONG
   current_route: support_conditioned_geometry_with_task_semantic_repair
-  current_phase_status: P3_T5R5_CANDIDATE_LOCKED_SINGLE_READ_AUTHORIZED
-  current_next_action: run_t5r5_single_hidden_read
+  current_phase_status: P3_T5R5_COMPLETE_T5R6_EXTERNAL_CONFIRMATION_PENDING
+  current_next_action: t5r6_external_provider_confirmation
   legacy_heldout_status: EXPOSED_DURING_CANDIDATE_SEARCH
   p4_status: blocked_pending_p3_t5r_gate
   p5_status: blocked_pending_sports_prediction_lock
@@ -80,7 +80,7 @@ exploration:
     - pause
     - stop
   p3_task_semantic_repair:
-    status: t5r5_locked_single_read_authorized
+    status: t5r5_pass_strong_t5r6_pending
     task_lane: P3-T5R0_to_P3-T5R6
     protocol: configs/phase3_task_semantic_repair_v1.yaml
     package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/

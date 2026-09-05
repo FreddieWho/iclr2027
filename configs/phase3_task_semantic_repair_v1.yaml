@@ -2,7 +2,7 @@ version: 1
 project: action-mode-spectrum
 phase: P3_CAUSAL_MECHANISM
 task_lane: P3-T5R
-status: t5r5_locked_single_read_authorized
+status: t5r5_pass_strong_t5r6_pending
 package: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/
 
 legacy_evidence:
@@ -175,6 +175,7 @@ autoresearch:
 candidate_lock:
   required_before_test: true
   status: CREATED_T5R5
+  hidden_read: COMPLETE_SINGLE_J03WQQ_PASS_STRONG
   schema: docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/templates/candidate_lock.schema.json
   output: artifacts/phase3/task_semantic_repair_v1/candidate_lock.json
 
