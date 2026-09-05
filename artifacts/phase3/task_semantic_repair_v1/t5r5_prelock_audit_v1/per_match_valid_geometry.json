@@ -1,0 +1,188 @@
+[
+  {
+    "model_id": "fixed_dual_channel_shared_phase_gat",
+    "seed": 11,
+    "checkpoint": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/fixed_dual_channel_shared_phase_gat_seed11.pt",
+    "checkpoint_sha256": "bec35f3eaffc9aadeef2329fd151e176cf67fdd6b6a3d5bbe0353624804dccb2",
+    "per_match": {
+      "J03WN1": {
+        "n_snapshots": 425,
+        "n_pairs": 29,
+        "pair_accuracy": 0.9655172228813171,
+        "field_zone_f1": 0.9185075911242241,
+        "match_half_f1_auxiliary": 0.4097222222222222,
+        "centroid_mae": 0.03719985485076904,
+        "geometry_latent_spearman": 0.7334276661847489,
+        "spearman_stable": false
+      },
+      "J03WOY": {
+        "n_snapshots": 5702,
+        "n_pairs": 951,
+        "pair_accuracy": 0.9537329077720642,
+        "field_zone_f1": 0.9277877606159532,
+        "match_half_f1_auxiliary": 0.7207121520945996,
+        "centroid_mae": 0.0431412011384964,
+        "geometry_latent_spearman": 0.667457235227295,
+        "spearman_stable": true
+      }
+    },
+    "pooled_pair_spearman": 0.6675604994011025,
+    "match_macro_spearman": 0.700442450706022,
+    "total_pairs": 980
+  },
+  {
+    "model_id": "fixed_dual_channel_shared_phase_gat",
+    "seed": 23,
+    "checkpoint": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/fixed_dual_channel_shared_phase_gat_seed23.pt",
+    "checkpoint_sha256": "e358524782e8657e5101ded31ecfbbd8ed514a80b5c309a9152a270994a2afb9",
+    "per_match": {
+      "J03WN1": {
+        "n_snapshots": 425,
+        "n_pairs": 29,
+        "pair_accuracy": 0.9655172228813171,
+        "field_zone_f1": 0.9917185273593064,
+        "match_half_f1_auxiliary": 0.34514637904468415,
+        "centroid_mae": 0.06814578920602798,
+        "geometry_latent_spearman": 0.7264142237534222,
+        "spearman_stable": false
+      },
+      "J03WOY": {
+        "n_snapshots": 5702,
+        "n_pairs": 951,
+        "pair_accuracy": 0.9505783319473267,
+        "field_zone_f1": 0.9790032065923931,
+        "match_half_f1_auxiliary": 0.678304288805281,
+        "centroid_mae": 0.06903240084648132,
+        "geometry_latent_spearman": 0.6728899888327419,
+        "spearman_stable": true
+      }
+    },
+    "pooled_pair_spearman": 0.6722764278783977,
+    "match_macro_spearman": 0.699652106293082,
+    "total_pairs": 980
+  },
+  {
+    "model_id": "fixed_dual_channel_shared_phase_gat",
+    "seed": 47,
+    "checkpoint": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/fixed_dual_channel_shared_phase_gat_seed47.pt",
+    "checkpoint_sha256": "4dc1e4bcec0d23ec43c84d622f0a94749ddedae125ced243a34e55ec21c7ff96",
+    "per_match": {
+      "J03WN1": {
+        "n_snapshots": 425,
+        "n_pairs": 29,
+        "pair_accuracy": 0.8965517282485962,
+        "field_zone_f1": 0.9837223481215537,
+        "match_half_f1_auxiliary": 0.32,
+        "centroid_mae": 0.05615753307938576,
+        "geometry_latent_spearman": 0.7237072810606294,
+        "spearman_stable": false
+      },
+      "J03WOY": {
+        "n_snapshots": 5702,
+        "n_pairs": 951,
+        "pair_accuracy": 0.9600420594215393,
+        "field_zone_f1": 0.9705533479682739,
+        "match_half_f1_auxiliary": 0.7555435535708478,
+        "centroid_mae": 0.05880240723490715,
+        "geometry_latent_spearman": 0.6918346086720855,
+        "spearman_stable": true
+      }
+    },
+    "pooled_pair_spearman": 0.688561390978186,
+    "match_macro_spearman": 0.7077709448663574,
+    "total_pairs": 980
+  },
+  {
+    "model_id": "update_ratio_2to1",
+    "seed": 11,
+    "checkpoint": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/models/update_ratio_2to1_seed11.pt",
+    "checkpoint_sha256": "d5243b4f0cb72f7e5e4cd39385869b2be1ad48a962cc18b22c22b645f729b03e",
+    "per_match": {
+      "J03WN1": {
+        "n_snapshots": 425,
+        "n_pairs": 29,
+        "pair_accuracy": 0.931034505367279,
+        "field_zone_f1": 0.9844794989956281,
+        "match_half_f1_auxiliary": 0.38848920863309355,
+        "centroid_mae": 0.0394284762442112,
+        "geometry_latent_spearman": 0.7469623796487127,
+        "spearman_stable": false
+      },
+      "J03WOY": {
+        "n_snapshots": 5702,
+        "n_pairs": 951,
+        "pair_accuracy": 0.9568874835968018,
+        "field_zone_f1": 0.9613793552943829,
+        "match_half_f1_auxiliary": 0.8175654704633661,
+        "centroid_mae": 0.03906697779893875,
+        "geometry_latent_spearman": 0.7196235514543712,
+        "spearman_stable": true
+      }
+    },
+    "pooled_pair_spearman": 0.717865126219683,
+    "match_macro_spearman": 0.7332929655515419,
+    "total_pairs": 980
+  },
+  {
+    "model_id": "update_ratio_2to1",
+    "seed": 23,
+    "checkpoint": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/models/update_ratio_2to1_seed23.pt",
+    "checkpoint_sha256": "74767ef4302192755d7998b293944b1f4ad90bdbd73be09bc661493b144bf0c8",
+    "per_match": {
+      "J03WN1": {
+        "n_snapshots": 425,
+        "n_pairs": 29,
+        "pair_accuracy": 0.9655172228813171,
+        "field_zone_f1": 0.953258571559886,
+        "match_half_f1_auxiliary": 0.39372325249643364,
+        "centroid_mae": 0.037514250725507736,
+        "geometry_latent_spearman": 0.6853179119628411,
+        "spearman_stable": false
+      },
+      "J03WOY": {
+        "n_snapshots": 5702,
+        "n_pairs": 951,
+        "pair_accuracy": 0.9516298770904541,
+        "field_zone_f1": 0.972229437504209,
+        "match_half_f1_auxiliary": 0.8155204654221813,
+        "centroid_mae": 0.037386756390333176,
+        "geometry_latent_spearman": 0.6860221240435475,
+        "spearman_stable": true
+      }
+    },
+    "pooled_pair_spearman": 0.6824816824920019,
+    "match_macro_spearman": 0.6856700180031943,
+    "total_pairs": 980
+  },
+  {
+    "model_id": "update_ratio_2to1",
+    "seed": 47,
+    "checkpoint": "artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/models/update_ratio_2to1_seed47.pt",
+    "checkpoint_sha256": "fee7c2972d39aab9fdea27997610f289431b2f029b2d02a898eafee977e6503e",
+    "per_match": {
+      "J03WN1": {
+        "n_snapshots": 425,
+        "n_pairs": 29,
+        "pair_accuracy": 0.931034505367279,
+        "field_zone_f1": 0.9369497691008516,
+        "match_half_f1_auxiliary": 0.371301775147929,
+        "centroid_mae": 0.037598926573991776,
+        "geometry_latent_spearman": 0.7496693223415055,
+        "spearman_stable": false
+      },
+      "J03WOY": {
+        "n_snapshots": 5702,
+        "n_pairs": 951,
+        "pair_accuracy": 0.9705573320388794,
+        "field_zone_f1": 0.968082655268967,
+        "match_half_f1_auxiliary": 0.8267264194862498,
+        "centroid_mae": 0.034455444663763046,
+        "geometry_latent_spearman": 0.7147823794170293,
+        "spearman_stable": true
+      }
+    },
+    "pooled_pair_spearman": 0.7099061062216807,
+    "match_macro_spearman": 0.7322258508792674,
+    "total_pairs": 980
+  }
+]

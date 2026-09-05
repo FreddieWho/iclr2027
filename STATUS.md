@@ -25,7 +25,7 @@ P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性�
 | retrospective geometry prediction | SUPPORTED_T1 | full geometry pooled mean Spearman 0.8466，baseline 0.1222；match bootstrap 仍按 n=10 谨慎解释 |
 | prospective intervention | SUPPORTED_T2 | 同资产、同模型、同 operator 的 response-blind 新 reallocation；full geometry mean Spearman 0.8526，baseline 0.1294 |
 | causal switch | RESPONSE_SHAPING_ONLY | Phase-GAT pooling accessibility 改变 off-diagonal 比例和 response，但未闭合任务/鲁棒性门 |
-| task-geometry alignment | NOT_SUPPORTED_AS_METHOD_REPAIR | nodewise support localization 仅接近 uniform；heldout macro-F1 均值略降，context response 三 seed 均上升 |
+| task-geometry alignment | NOT_SUPPORTED_AS_METHOD_REPAIR | 旧 T5 结果，非 T5R：nodewise support localization 仅接近 uniform；heldout macro-F1 均值略降，context response 三 seed 均上升。T5R 开发证据见 P3-R2/R6/R7，不在此行。 |
 | 书法路线 | EXPLORATORY_FROZEN | 不用于选择体育端机制；本轮不调参 |
 | P4 AMR | BLOCKED_BY_P3_GATE | 不直接训练 AMR |
 
@@ -51,7 +51,7 @@ P3-T5R 允许在既有阶段内引入经批准的独立体育数据，但不访�
 - 只有 diagonal geometry 有效时，claim 收缩为节点/支持敏感度各向异性。
 - retrospective 有效但 prospective 失败、或 response 可控但任务无收益时，不进入 AMR。
 - geometry 与允许的 integrated metric 均不能预测时，停止当前机制复杂度，保留 P2 的 mixed_or_graph_specific。
-- 当前实际路由：旧 causal switch 仍为 response shaping only；T5R0–T5R3 已完成，T5R4 Round 1 已完成待审阅，IDSSE 暂代 SNGAR 的开发分支已固定，P4 继续 blocked。
+- 当前实际路由：旧 causal switch 仍为 response shaping only；T5R0–T5R4 已完成（bounded autoresearch 已关闭，`update_ratio_2to1` 入选），IDSSE 暂代 SNGAR 的开发分支已固定，P4 继续 blocked。
 
 ## P3-T5R 当前状态（2026-09-04）
 
@@ -62,7 +62,7 @@ P3-T5R 允许在既有阶段内引入经批准的独立体育数据，但不访�
 - T5R4：bounded autoresearch 两轮已完成并关闭；Round 2（encoder update balance，3:1/2:1，总步数 420 持平）按训练前冻结规则选出 `update_ratio_2to1`（geometry 3 seeds 同方向改善、pair/context 保持），T5R3 不再是 incumbent；candidate lock、reserved match 和外部确认仍未运行；
 - T5R5/T5R6：candidate lock、IDSSE 同源保留 match 检查与独立 provider confirmation，未运行。
 
-本轮目标是判断任务语义修复是否能把 geometry/response shaping 转化为客观 task–robustness Pareto；T5R3 closure review 已允许 T5R4 Round 1，Round 1 已完成但无全维度 Pareto 支配者，尚未形成 P4 或外部确认 claim。
+本轮目标是 T5R5 确认性 lock-and-read：冻结 `update_ratio_2to1` 并一次性读取保留 match `J03WQQ`，检验任务语义与局部几何机制能否在未见比赛上复现；不再做优化或搜索。P4 与外部确认 claim 仍未形成。
 
 ## IDSSE 临时替代说明
 

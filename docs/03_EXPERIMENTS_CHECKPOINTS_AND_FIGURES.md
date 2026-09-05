@@ -255,7 +255,7 @@ q_f(X,\delta)=\frac12\|J_f(X)\delta\|_2^2.
 
 ### 6.6 P3-T5：任务意义
 
-任务定义和 pair 规则必须在查看方法结果前冻结。至少完成 controlled perturbation localization，以及一个已有且非 intervention-label 的客观任务，优先使用已有 phase/deployment 标签、自然 pair ranking，或 intrinsic formation retrieval/context prediction。
+任务定义和 pair 规则必须在查看方法结果前冻结。至少完成 controlled perturbation localization，以及一个已有且非 intervention-label 的客观任务，优先使用已有 phase/deployment 标签（match-half context probe，非战术理解）、自然 pair ranking，或 intrinsic formation retrieval/context prediction。
 
 定义 \(S_\tau(X,\delta)=\Delta\ell_\tau(X,X\oplus\delta)\) 或等价的 oracle 几何/排序变化，检验 \(q_f\) 与 \(S_\tau\) 的排序、校准和 alignment；在相同 context robustness 下评价结构任务 Pareto。表示 response 大小本身没有正确方向。
 ### P3 路由
@@ -576,7 +576,7 @@ P3-T5R 不改变 Phase 0–8 编号。它在现有 P3 内使用 `T5R0`–`T5R6` 
 
 固定双通道的主图和表必须分别报告：
 
-- context accessibility 与 phase/deployment task；
+- context accessibility 与 phase/deployment task（match-half context probe）；
 - intrinsic ranking/retrieval 与 `z_mode` translation robustness；
 - cross-readout leakage；
 - full/diagonal/off-diagonal geometry prediction；

@@ -386,6 +386,6 @@ Action-Mode Spectrum 不被撤回：它是 support、relationship 和 task 条�
 operator × frequency × support/relationship × task semantics
 ```
 
-P3-T5R 先固定两个互补读出：raw positions 进入 `z_ctx`，globally centered positions 进入 `z_mode`。`z_ctx` 负责 phase/deployment 和 absolute field context；`z_mode` 负责 natural pair ranking 或 intrinsic formation retrieval，并要求 global translation robustness。两个任务分别评价，cross-readout 只作 leakage audit。
+P3-T5R 先固定两个互补读出：raw positions 进入 `z_ctx`，globally centered positions 进入 `z_mode`。`z_ctx` 负责 phase/deployment（显示名：match-half/period context probe，非战术阶段，见 semantic addendum）和 absolute field context；`z_mode` 负责 natural pair ranking 或 intrinsic formation retrieval，并要求 global translation robustness。两个任务分别评价，cross-readout 只作 leakage audit。
 
 当前固定分支暂以 IDSSE 替代 SNGAR 的开发数据角色：IDSSE 原始数据用于 T5R1–T5R4 的 conversion、任务构造、候选开发和固定双通道检验；7 场数据必须按 source match 划分，不能伪装成 SNGAR 的 45/9/10 场。已用于开发的 IDSSE 不再同时承担独立 external confirmation，SNGAR 恢复或其他 provider/source 保留为独立确认分支。所有 support 规则必须 response-blind、可审计且按 source match 统计。P3-T5R 是有界 post-P2 follow-up，不新增 Phase，不先训练 AMR；geometry 可预测不等于任务语义已被理解。

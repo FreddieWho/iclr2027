@@ -47,7 +47,7 @@ P3-T5R0 protocol/document repair
 
 输入 raw positions，主表示为 `z_ctx`，至少包含：
 
-- phase/deployment classification；
+- phase/deployment classification（显示名：match-half/period context probe；`firstHalf/secondHalf`，非战术阶段理解）；
 - absolute team centroid 或 field-zone prediction。
 
 该通道允许使用 absolute deployment information；global translation response 不能被简单当作越低越好。

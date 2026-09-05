@@ -1,0 +1,21 @@
+{
+  "status": "T5R5_PRELOCK_AUDIT_COMPLETE",
+  "phase": "P3_CAUSAL_MECHANISM",
+  "task_lane": "P3-T5R5",
+  "scope": "visible valid only; J03WQQ never opened",
+  "models": [
+    "fixed_dual_channel_shared_phase_gat",
+    "update_ratio_2to1"
+  ],
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "matches": [
+    "J03WN1",
+    "J03WOY"
+  ],
+  "reserved_output_existed": false,
+  "elapsed_seconds": 1.928
+}

@@ -309,7 +309,7 @@ c_b=P_b(L)\delta.
 \mathcal L_{task}=\ell(q_\tau(z_{ctx},z_{mode}),y_\tau).
 \]
 
-任务包括 formation retrieval、phase/deployment、结构匹配和扰动定位。
+任务包括 formation retrieval、phase/deployment（match-half context probe，非战术理解）、结构匹配和扰动定位。
 
 ### 7.6 防塌缩与解耦
 

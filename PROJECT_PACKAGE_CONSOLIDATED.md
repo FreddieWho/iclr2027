@@ -17,7 +17,7 @@
 下方旧 Phase 3、旧 bootstrap 和旧 QA 片段保留作历史上下文，不代表当前启动动作；如与上列状态或独立 canonical docs 冲突，以本节、source docs 和 configs 为准。
 
 ## 当前同步增补（2026-09-02）：P3-T5R task-semantic repair
-截至 2026-09-04，T5R0、T5R1、T5R2、T5R3 和 T5R4（两轮 bounded autoresearch，Round 2 按冻结规则选出 `update_ratio_2to1`）已完成，搜索已关闭；由于 SNGAR 外部访问仍不可用，已固定 IDSSE 暂代 T5R1–T5R4 的开发数据角色。IDSSE 来源登记、raw SHA-256、canonical conversion、逐场 QC、match-level split、T5R2 task/baseline/metric lock 和 T5R3 closure review 已完成，T5R4 Round 1 已完成待审阅。
+截至 2026-09-04，T5R0、T5R1、T5R2、T5R3 和 T5R4（两轮 bounded autoresearch，Round 2 按冻结规则选出 `update_ratio_2to1`）已完成，搜索已关闭；由于 SNGAR 外部访问仍不可用，已固定 IDSSE 暂代 T5R1–T5R4 的开发数据角色。IDSSE 来源登记、raw SHA-256、canonical conversion、逐场 QC、match-level split、T5R2 task/baseline/metric lock、T5R3 closure review 和 T5R4 两轮 bounded autoresearch 已完成（搜索已关闭，入选 `update_ratio_2to1`）。
 
 本增补优先级高于下方历史正文，但不删除或改写 P2/P3 历史。旧 T5 的阴性结果限定为 `NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE`；旧 heldout 因候选循环曾被计算、打印和保存，状态为 `EXPOSED_DURING_CANDIDATE_SEARCH`，只允许 exploratory audit。
 

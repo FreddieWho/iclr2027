@@ -9,10 +9,10 @@
 | P2-C3 | role alliance 普遍更特殊 | NOT_SUPPORTED | 不得写成普遍机制 | 若研究，仅作诊断分层 |
 | P2-C4 | 统一 endpoint-organization 因果机制 | NOT_SUPPORTED | 不得外推为统一理论 | P3 block/layer 和 prospective |
 | P2-C5 | P2 response 改善下游任务 | NOT_TESTED | P2 不是任务性能 | P3-T5 客观任务 |
-| P3-G1 | local geometry 可跨 match 预测 fracture/pair response | WORKING_HYPOTHESIS | 不得当作已验证 | T1/T2 grouped evaluation |
-| P3-G2 | diagonal/off-diagonal block 可解释异质性 | WORKING_HYPOTHESIS | 若 off-diagonal 无增益，收缩为 diagonal claim | T3 block decomposition |
-| P3-G3 | 异质性可定位到特定网络阶段 | WORKING_HYPOTHESIS | 不预设 pooling 或 message passing | T3 layer-wise |
-| P3-G4 | 一个 matched-capacity 开关可改变 geometry、response、任务 | WORKING_HYPOTHESIS | 仅一条 evidence-selected route | T4，未通过则不做 AMR |
+| P3-G1 | local geometry 可跨 match 预测 fracture/pair response | HISTORICAL_PRE_RESULT_HYPOTHESIS | 结果前假设，已由完成证据 P3-C1 替代；本行保留为历史，不得当作已验证 | T1/T2 grouped evaluation → P3-C1 |
+| P3-G2 | diagonal/off-diagonal block 可解释异质性 | HISTORICAL_PRE_RESULT_HYPOTHESIS | 结果前假设，已由完成证据 P3-C3 替代；本行保留为历史 | T3 block decomposition → P3-C3 |
+| P3-G3 | 异质性可定位到特定网络阶段 | HISTORICAL_PRE_RESULT_HYPOTHESIS | 结果前假设，已由完成证据 P3-C4 替代；本行保留为历史 | T3 layer-wise → P3-C4 |
+| P3-G4 | 一个 matched-capacity 开关可改变 geometry、response、任务 | HISTORICAL_PRE_RESULT_HYPOTHESIS | 结果前假设，已由完成证据 P3-C5/C6 替代（仅 response shaping）；本行保留为历史 | T4 → P3-C5/P3-C6 |
 | P3-G5 | geometry-task alignment 在旧 conflated task gate 下带来任务 Pareto 改善 | NOT_SUPPORTED_UNDER_OLD_CONFLATED_TASK_GATE | 仅否定旧任务定义下的修复；response 大小本身无方向意义 | P3-R2 |
 | P4-C1 | AMR-Fixed 适合作为机制驱动方法 | BLOCKED_BY_P3_GATE | 只有 P3 强/条件支持后才可进入 | P3 gate |
 | Domain-C1 | 书法结果可选择体育端机制 | FORBIDDEN | 书法 exploratory，不用于本轮选择 | 未来独立冻结预测后再评估 |
