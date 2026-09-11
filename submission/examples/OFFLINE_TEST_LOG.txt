@@ -1,0 +1,45 @@
+test_bad_tokenizer (test_pilot.CoreTests.test_bad_tokenizer) ... ok
+test_cap (test_pilot.CoreTests.test_cap) ... ok
+test_cost_reservation (test_pilot.CoreTests.test_cost_reservation) ... ok
+test_demo_mark (test_pilot.CoreTests.test_demo_mark) ... ok
+test_exact (test_pilot.CoreTests.test_exact) ... ok
+test_import_no_label_leak (test_pilot.CoreTests.test_import_no_label_leak) ... ok
+test_live_forbidden (test_pilot.CoreTests.test_live_forbidden) ... ok
+test_mock_end_to_end_and_resume (test_pilot.CoreTests.test_mock_end_to_end_and_resume) ... ok
+test_not_substring (test_pilot.CoreTests.test_not_substring) ... ok
+test_oracle_is_read_only_arm (test_pilot.CoreTests.test_oracle_is_read_only_arm) ... ok
+test_parse_failure_not_score (test_pilot.CoreTests.test_parse_failure_not_score) ... ok
+test_positive_budget (test_pilot.CoreTests.test_positive_budget) ... ok
+test_query_allowlist (test_pilot.CoreTests.test_query_allowlist) ... ok
+test_raw_once (test_pilot.CoreTests.test_raw_once) ... ok
+test_reader_parse (test_pilot.CoreTests.test_reader_parse) ... ok
+test_rewrite_identical_text_still_new_step (test_pilot.CoreTests.test_rewrite_identical_text_still_new_step) ... ok
+test_schedule_control (test_pilot.CoreTests.test_schedule_control) ... ok
+test_schema_mismatch (test_pilot.CoreTests.test_schema_mismatch) ... ok
+test_synthetic_determinism (test_pilot.CoreTests.test_synthetic_determinism) ... ok
+test_synthetic_gold_is_present (test_pilot.CoreTests.test_synthetic_gold_is_present) ... ok
+test_synthetic_is_chronological (test_pilot.CoreTests.test_synthetic_is_chronological) ... ok
+test_synthetic_new_seed (test_pilot.CoreTests.test_synthetic_new_seed) ... ok
+test_targets (test_pilot.CoreTests.test_targets) ... ok
+test_too_large_budget (test_pilot.CoreTests.test_too_large_budget) ... ok
+test_unknown_arm (test_pilot.CoreTests.test_unknown_arm) ... ok
+test_go_fixture (test_pilot.DecisionTests.test_go_fixture) ... ok
+test_invalid_ci_not_go (test_pilot.DecisionTests.test_invalid_ci_not_go) ... ok
+test_missing_evidence (test_pilot.DecisionTests.test_missing_evidence) ... ok
+test_mock_never_go (test_pilot.DecisionTests.test_mock_never_go) ... ok
+test_negative_effect_can_go (test_pilot.DecisionTests.test_negative_effect_can_go) ... ok
+test_non_sig_not_go (test_pilot.DecisionTests.test_non_sig_not_go) ... ok
+test_small_effect_needs_precision (test_pilot.DecisionTests.test_small_effect_needs_precision) ... ok
+test_small_n_no_go (test_pilot.DecisionTests.test_small_n_no_go) ... ok
+test_bootstrap_direction (test_pilot.StatisticsTests.test_bootstrap_direction) ... ok
+test_duplicate_rejected (test_pilot.StatisticsTests.test_duplicate_rejected) ... ok
+test_seed_not_independent_history (test_pilot.StatisticsTests.test_seed_not_independent_history) ... ok
+test_technical_failure_not_zero (test_pilot.StatisticsTests.test_technical_failure_not_zero) ... ok
+test_zero_ci_is_not_failure (test_pilot.StatisticsTests.test_zero_ci_is_not_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.090s
+
+OK
+Completed reference run: [temporary_test_directory]; mock=True. Evidence/length/novelty audits are still required.
+Completed reference run: [temporary_test_directory]; mock=True. Evidence/length/novelty audits are still required.

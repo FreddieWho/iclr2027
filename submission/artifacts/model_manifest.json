@@ -1,0 +1,100 @@
+{
+  "status": "BLOCKED_C1_LONG_CONTEXT_MAX_REASONING_OUTPUT_EXHAUSTION",
+  "checked_date": "2026-09-11",
+  "live_requests_sent": 14,
+  "formal_p0_completed": false,
+  "authorization": {
+    "live_authorized": true,
+    "usd_cap": 0.5,
+    "source": "active-session MEMORY_PILOT_RUNTIME_AUTHORIZATION_V1; credential value is not stored"
+  },
+  "canonical_tokenizer": {
+    "name": "tiktoken:cl100k_base",
+    "available": true,
+    "package_version": "0.12.0",
+    "native_tokenizer_verified": true,
+    "runtime_name": "hf:/home/huyudi/012_conference/iclr2027/submission/work/tokenizers/glm-5.3-flash-eb9eb208",
+    "runtime_repo": "zai-org/GLM-5.3-Flash",
+    "runtime_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+    "runtime_tokenizer_json_sha256": "19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d"
+  },
+  "roles": {
+    "compressor": {
+      "model": "glm-5.3-flash",
+      "family": "glm-5.3-flash",
+      "base_url": "https://opencode.ai/zen/go/v1/chat/completions",
+      "context_tokens": 65536,
+      "max_visible_output_tokens": 10240,
+      "provider_output_budget_tokens": 10240,
+      "reasoning_effort": "max",
+      "provider_name": "OpenCode Go",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.5,
+      "cache_read_usd_per_million": 0.03,
+      "status": "LIVE_LONG_CONTEXT_OUTPUT_EXHAUSTED",
+      "last_probe_provider_output_budget_tokens": 10240,
+      "last_probe_visible_output_tokens": 0,
+      "last_probe_finish_reason": "length",
+      "last_probe_reason": "content=null; reasoning_content_only"
+    },
+    "reader": {
+      "model": "glm-5.3-flash",
+      "family": "glm-5.3-flash",
+      "base_url": "https://opencode.ai/zen/go/v1/chat/completions",
+      "context_tokens": 65536,
+      "max_visible_output_tokens": 512,
+      "provider_output_budget_tokens": 2048,
+      "visible_output_limit_tokens": 512,
+      "reasoning_effort": "max",
+      "provider_name": "OpenCode Go",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.5,
+      "cache_read_usd_per_million": 0.03,
+      "status": "REVISED_CONTRACT_CONFIGURED_C1_BLOCKED",
+      "live_probe_status": "NOT_RUN_C1_BLOCKED"
+    }
+  },
+  "local_inventory": [
+    {
+      "model": "qwen2.5:1.5b",
+      "status": "installed_not_running",
+      "formal_role": "not_selected_pending_C1_R1_capability_and_adequacy_verification"
+    },
+    {
+      "model": "qwen2.5:0.5b",
+      "status": "installed_not_running",
+      "formal_role": "not_selected_pending_C1_R1_capability_and_adequacy_verification"
+    },
+    {
+      "model": "bge-m3:latest",
+      "status": "installed_not_running",
+      "formal_role": "not_reader_or_compressor_embedding_model"
+    }
+  ],
+  "not_run": [
+    "C1 32K+ visible memory under authorized 10240 output",
+    "R1 revised 2048 provider output / 512 visible answer live behavior",
+    "P0 live calibration"
+  ],
+  "runtime_authorization_preflight": {
+    "status": "BLOCKED_C1_LONG_CONTEXT_MAX_REASONING_OUTPUT_EXHAUSTION",
+    "config": "configs/models_opencode_go_p0_r1_2048.json",
+    "provider": "OpenCode Go",
+    "models_endpoint_sha256": "e859652c6d13b5233309d8f53d0525325225ba4300ecabe7bb8cc0d31967cffd",
+    "compressor_model": "glm-5.3-flash",
+    "reader_model": "glm-5.3-flash",
+    "glm_tokenizer_repo": "zai-org/GLM-5.3-Flash",
+    "glm_tokenizer_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+    "deepseek_tokenizer_repo": "deepseek-ai/DeepSeek-V4-Flash",
+    "deepseek_tokenizer_revision": "60d8d70770c6776ff598c94bb586a859a38244f1",
+    "live_probe_attempts": 14,
+    "formal_p0_completed": false,
+    "r1_original_512_reasoning_compatible": false,
+    "r1_revised_contract": "provider_output_2048_visible_answer_512_reasoning_max",
+    "r1_revised_live_probe": "NOT_RUN_C1_BLOCKED",
+    "c1_short_probe_natural_stop": true,
+    "c1_long_probe_10240_natural_stop": false,
+    "c1_long_probe_finish_reason": "length",
+    "c1_long_probe_visible_content": "null"
+  }
+}

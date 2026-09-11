@@ -1,0 +1,10 @@
+{
+  "status": "NOT_RUN",
+  "live_attempts": 0,
+  "live_input_tokens": 0,
+  "live_output_tokens": 0,
+  "live_cost_usd": 0.0,
+  "uncertain_live_reservations": 0,
+  "mock_run_cost": "not_billable_and_excluded",
+  "mock_run_plan_upper_calls": 200
+}

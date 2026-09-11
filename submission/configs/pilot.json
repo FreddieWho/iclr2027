@@ -1,0 +1,25 @@
+{
+  "name": "exploration",
+  "history_tokens": 32768,
+  "budgets": [
+    1024,
+    2048
+  ],
+  "arms": [
+    "raw",
+    "direct",
+    "staged2_wide",
+    "staged2_tight",
+    "staged3",
+    "rewrite3",
+    "wait3"
+  ],
+  "replicates": [
+    0
+  ],
+  "tokenizer": "tiktoken:cl100k_base",
+  "n_histories": 32,
+  "max_calls": 15000,
+  "max_input_tokens": 150000000,
+  "max_output_tokens": 15000000
+}

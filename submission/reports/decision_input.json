@@ -1,0 +1,40 @@
+{
+  "contains_mock": false,
+  "audits": {
+    "technical_validity": {
+      "pass": false,
+      "evidence": ["reports/PREFLIGHT.md", "artifacts/provider_probe_manifest.json"]
+    },
+    "query_blind": {
+      "pass": false,
+      "evidence": ["reports/PILOT_REPORT.md"]
+    },
+    "budget_length": {
+      "pass": false,
+      "evidence": ["reports/LENGTH_AUDIT.md"]
+    },
+    "rewrite_controls": {
+      "pass": false,
+      "evidence": ["reports/PILOT_REPORT.md"]
+    },
+    "independent_confirmation": {
+      "pass": false,
+      "evidence": ["reports/PILOT_REPORT.md"]
+    },
+    "generalization": {
+      "pass": false,
+      "evidence": ["reports/ROBUSTNESS.md"]
+    },
+    "novelty": {
+      "pass": false,
+      "evidence": ["reports/NOVELTY_AUDIT.md"]
+    },
+    "task_relevance": {
+      "pass": false,
+      "evidence": ["reports/PILOT_REPORT.md"]
+    }
+  },
+  "candidates": [],
+  "reason_if_none": "TECHNICAL",
+  "note": "This is the real decision input for this run: formal live execution stopped on the first C1 long-context output-exhaustion failure and produced no score row. Mock artifacts are explicitly excluded; no scientific effect is inferred."
+}

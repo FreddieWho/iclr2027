@@ -1,0 +1,4 @@
+Audit whether the supplied memory contains enough semantically correct information to answer the supplied question. The reference evidence is available for auditing only; it must not be added to the memory.
+Return JSON: evidence_state (complete, missing, distorted, unknown), supporting_spans (verbatim short spans already in memory), issue_type (entity, value, chronology, relation, scope, negation, provenance, none), and a short rationale.
+Exact lexical match is not required except for identifiers. A relation requires its endpoints and predicate. An update requires identifying the current versus superseded state. Rules require relevant scope, exceptions and revocations. Do not classify paraphrased but intact evidence as missing.
+You are not being asked whether the reader's answer is correct.

@@ -1,0 +1,4 @@
+numpy>=1.24
+requests>=2.31
+tiktoken>=0.7
+# Optional alternative: transformers, with a verified local tokenizer and trust_remote_code=False.

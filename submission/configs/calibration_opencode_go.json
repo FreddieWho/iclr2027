@@ -1,0 +1,14 @@
+{
+  "name": "P0_calibration_opencode_go_glm_20260911",
+  "history_tokens": 32768,
+  "budgets": [1024],
+  "arms": ["raw", "no_memory", "oracle", "direct"],
+  "replicates": [0],
+  "tokenizer": "hf:/home/huyudi/012_conference/iclr2027/submission/work/tokenizers/glm-5.3-flash-eb9eb208",
+  "tokenizer_repo": "zai-org/GLM-5.3-Flash",
+  "tokenizer_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+  "tokenizer_add_special_tokens": false,
+  "n_histories": 8,
+  "phase": "P0",
+  "budget_definition": "memory_body_only"
+}

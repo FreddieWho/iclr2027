@@ -1,0 +1,21 @@
+{
+  "name": "calibration_NOT_FOR_INFERENCE",
+  "history_tokens": 32768,
+  "budgets": [
+    1024
+  ],
+  "arms": [
+    "raw",
+    "no_memory",
+    "oracle",
+    "direct"
+  ],
+  "replicates": [
+    0
+  ],
+  "tokenizer": "tiktoken:cl100k_base",
+  "n_histories": 8,
+  "max_calls": 15000,
+  "max_input_tokens": 150000000,
+  "max_output_tokens": 15000000
+}

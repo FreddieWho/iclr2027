@@ -1,0 +1,63 @@
+{
+  "status": "DATA_READY_PILOT_NOT_RUN",
+  "checked_date": "2026-09-11",
+  "query_blind_contract": "Compressor receives histories only; queries and gold remain withheld until memories are frozen.",
+  "synthetic_p0": {
+    "status": "CALIBRATION_ONLY_NOT_FOR_INFERENCE",
+    "directory": "work/p0_calibration_data_20260911",
+    "n_histories": 8,
+    "n_questions": 64,
+    "question_types": ["atomic", "constraint", "relational", "update"],
+    "canonical_tokenizer": "tiktoken:cl100k_base",
+    "history_tokens_min": 32722,
+    "history_tokens_max": 32753,
+    "histories_sha256": "2c5ff982a9c1e69f8a01a1021d8b92625dbe3fefbfcf6f1fff81e2a1941f4f4f",
+    "queries_sha256": "401e1a5e53b9d214b1e9043cda79f24fdd6416c7cc686108af7b2efcd2a009b2",
+    "manifest_sha256": "d126264a8d1bbd0af691c9cf20090d3ed0c545f5353a302cea4bc223616432ce",
+    "public_forbidden_fields_found": []
+  },
+  "synthetic_p0_native_glm": {
+    "status": "CALIBRATION_ONLY_NOT_FOR_INFERENCE",
+    "directory": "work/p0_calibration_data_glm_20260911",
+    "n_histories": 8,
+    "n_questions": 64,
+    "tokenizer_repo": "zai-org/GLM-5.3-Flash",
+    "tokenizer_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+    "history_tokens_min": 32720,
+    "history_tokens_max": 32751,
+    "histories_file_sha256": "609d382187aa0467ceb4a91d0aa0acc5a99c3e1940e6a7ba09812aca9bfd3b48",
+    "queries_file_sha256": "401e1a5e53b9d214b1e9043cda79f24fdd6416c7cc686108af7b2efcd2a009b2",
+    "manifest_file_sha256": "44cfb6a603efd284f49c0bc95d0e5bd09bade61b115896f51ca88ee49a6fab21",
+    "public_forbidden_fields_found": []
+  },
+  "longmemeval_s_cleaned": {
+    "status": "IMPORTED_NOT_EVALUATED",
+    "source_url": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/main/longmemeval_s_cleaned.json",
+    "revision": "main",
+    "raw_bytes": 277383467,
+    "raw_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "imported_directory": "data/longmemeval_20260911",
+    "imported_n_histories": 32,
+    "imported_n_questions": 32,
+    "canonical_tokens_min": 112845,
+    "canonical_tokens_max": 118608,
+    "scoring": "semantic_required",
+    "public_forbidden_fields_found": [],
+    "imported_histories_sha256": "6fdaea7c8eb6399884840b2872e4cdaea33fa89880b10104634fe66b0082f38b",
+    "imported_queries_sha256": "6ba94066b9d8954decf25eea41be282d8e535f6cfda14766444fbae14223bbdd",
+    "manifest_sha256": "784f7bf861390b8c4e58afe298df0ea03eec3b9733da1ef5d900e44eae483181"
+  },
+  "longmemeval_oracle": {
+    "status": "DOWNLOADED_WITHHELD_FROM_COMPRESSOR",
+    "source_url": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/main/longmemeval_oracle.json",
+    "revision": "main",
+    "raw_bytes": 15388478,
+    "raw_sha256": "821a2034d219ab45846873dd14c14f12cfe7776e73527a483f9dac095d38620c",
+    "used_as_main_history": false
+  },
+  "license": {
+    "dataset_card_status": "MIT shown on dataset page; retain upstream terms and do not redistribute raw data in public package",
+    "download_manifest": "data/raw/longmemeval_20260911/download_manifest.json",
+    "download_manifest_sha256": "ac56477b7a7847bccd8fa674306e957c1b7667035bb225e58f3e2641f759e2ea"
+  }
+}

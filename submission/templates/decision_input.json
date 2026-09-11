@@ -1,0 +1,40 @@
+{
+  "contains_mock": true,
+  "audits": {
+    "technical_validity": {
+      "pass": false,
+      "evidence": []
+    },
+    "query_blind": {
+      "pass": false,
+      "evidence": []
+    },
+    "budget_length": {
+      "pass": false,
+      "evidence": []
+    },
+    "rewrite_controls": {
+      "pass": false,
+      "evidence": []
+    },
+    "independent_confirmation": {
+      "pass": false,
+      "evidence": []
+    },
+    "generalization": {
+      "pass": false,
+      "evidence": []
+    },
+    "novelty": {
+      "pass": false,
+      "evidence": []
+    },
+    "task_relevance": {
+      "pass": false,
+      "evidence": []
+    }
+  },
+  "candidates": [],
+  "reason_if_none": "EVIDENCE",
+  "note": "Replace only using real confirmatory artifacts. Empty/mock never gives GO."
+}

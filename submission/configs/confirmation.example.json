@@ -1,0 +1,22 @@
+{
+  "name": "confirmation_REQUIRES_SELECTION",
+  "history_tokens": 32768,
+  "budgets": [
+    2048
+  ],
+  "arms": [
+    "direct",
+    "staged3",
+    "rewrite3"
+  ],
+  "replicates": [
+    0,
+    1
+  ],
+  "tokenizer": "tiktoken:cl100k_base",
+  "n_histories": 96,
+  "max_calls": 15000,
+  "max_input_tokens": 150000000,
+  "max_output_tokens": 15000000,
+  "note": "Example only. Select <=2 primary contrasts using independent confirmation; do not run all model combinations."
+}

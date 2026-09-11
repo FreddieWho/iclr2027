@@ -1,0 +1,11 @@
+# Local credentials; never include them in artifacts or source control.
+.env
+.env.*
+!.env.example
+
+# Local benchmark bodies, tokenizer assets, and generated run roots. The
+# repository publishes manifests, reports, prompts, and reproducible code;
+# raw/imported data and live outputs stay local.
+data/raw/
+data/longmemeval_20260911/
+work/

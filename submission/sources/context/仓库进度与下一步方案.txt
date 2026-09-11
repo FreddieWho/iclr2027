@@ -1,0 +1,521 @@
+## 结论先说
+
+**提示词要求的 P3 工作在工程上基本完成，科学上只完成了前半段。**
+
+现在不是“路线失败”，而是形成了一个很清楚的分界：
+
+> **局部几何能够解释模型为什么产生不同的表示响应；但目前还不能证明，按这种几何去改模型会改善有意义的任务。**
+
+因此当前状态准确地说是：
+
+- P2 已完成并冻结；
+- P3-T0～T5 都已执行；
+- “预测—定位”成功；
+- “因果开关改变表示”成功；
+- “因果开关改善任务”失败；
+- P4 AMR 尚未获得启动依据。fileciteturn74file0L2-L2
+
+额外的一轮候选搜索也确实完成了，但没有找到满足任务、鲁棒性和几何三者同时改善的单轴方案。它没有把项目救活，也没有进一步破坏主线；不过这轮搜索存在一个需要正式纠正的 heldout 协议问题，后面详细说。fileciteturn78file0L2-L2
+
+---
+
+# 一、完成到了哪里
+
+| 工作 | 工程完成情况 | 科学结论 |
+|---|---|---|
+| P3 文档和方案衔接 | 完成 | 没有建立平行路线，Action-Mode Spectrum 被保留 |
+| T0：Jacobian/JVP 接口和数值验证 | 完成 | 9 个模型 parity 全部通过，输入和 checkpoint 未被改写 |
+| T1：回顾性预测 P2 response | 完成 | 强支持 |
+| T2：新干预的 prospective 验证 | 完成 | 支持，但只是同一批样本上的新干预 |
+| T3：层级和 diagonal/off-diagonal 分解 | 完成 | 条件性支持 |
+| T4：单一 pooling 因果开关 | 完成 | 能改变几何和表示响应 |
+| T5：任务与定位 | 完成 | 没有形成实质性任务收益 |
+| 额外候选搜索 | 完成 | 阴性，没有合格候选 |
+| P4 AMR-Fixed/Learned | 未启动 | 被 P3 gate 阻塞 |
+| 体育到书法的独立预测 | 未完成 | 书法仍只能算 exploratory |
+
+方案文档、配置、状态、决策和 claim ledger 都已经同步到 P3，没有用新解释覆盖 P2 历史。这部分完成得很规矩。fileciteturn79file0L2-L7 fileciteturn90file0L2-L2
+
+---
+
+# 二、顺利的部分
+
+## 1. 局部几何确实能解释表示响应
+
+这是目前最扎实的科学结果。
+
+你们用：
+
+\[
+q_f(X,\delta)=\frac12\|J_f(X)\delta\|^2
+\]
+
+预测同一个模型面对不同 support reallocation 时的 embedding response。
+
+结果非常明显：
+
+| 预测量 | 回顾性 Spearman | 新干预 Spearman |
+|---|---:|---:|
+| 频率、残差等普通基线 | 0.1222 | 0.1294 |
+| diagonal geometry | 0.6528 | 0.6580 |
+| full geometry | **0.8466** | **0.8526** |
+| off-diagonal geometry | 0.3886 | 0.3815 |
+
+也就是说，图频率只能解释很少一部分；知道模型对“每个节点以及节点之间组合”的局部敏感度后，预测力大幅提升。方向准确率也从约 54% 提高到了约 81%。fileciteturn77file0L2-L2
+
+通俗说：
+
+> 同样一组位移落在不同球员身上，模型反应不同，不是随机噪声；这种差异可以从模型自身的局部敏感度地图中预测。
+
+这成功地解释了 P2 为什么会出现正负混合，而不必再强行寻找一个所有条件都同号的平均规律。
+
+## 2. 层级解剖有实际信息
+
+结果不是简单的“Jacobian 有效”，而是进一步定位了信息如何形成：
+
+- 输入层的 geometry-response 相关只有约 0.21；
+- 第一层 message passing 后约 0.44；
+- 第二层后约 0.57；
+- pooling 前约 0.76；
+- pooled embedding 约 0.84。
+
+DeepSets 的跨节点项主要在 pooling 时形成；GAT 和 Phase-GAT 的跨节点项更多在 message passing 中形成，并在 pooling 后保留。fileciteturn77file0L2-L2
+
+这说明“架构依赖”不再只是麻烦，也开始成为一个可解释的结果：
+
+> 不同架构不是以同一种方式表示“谁和谁一起变化”。
+
+## 3. 因果开关确实改变了模型几何
+
+在参数量相同、相同训练设置、三个 seed 下，把 `team_mean` 改成 `relational_pairwise` 后：
+
+- off-diagonal/full 比例从 0.493 提高到 0.579；
+- geometry-response Spearman 从 0.738 提高到 0.845；
+- 实际 pair response 和预测的局部响应都发生了系统变化。
+
+因此可以说：
+
+> pooling 不是无关的旁观者，它确实能够塑造表示几何。
+
+这部分因果证据是成立的，只是还不能叫“修复”。fileciteturn77file0L2-L2 fileciteturn97file0L2-L2
+
+## 4. 负面结果没有被美化
+
+候选搜索发现：
+
+- `centered_team_mean` 提高 dev，但 geometry 略降，heldout 明显变差；
+- `relational_pairwise` 提高 geometry，但 context response 上升；
+- `centered_relational` 表面上三项都过线，但结果主要由一个 seed 驱动，而且一次改了两个轴；
+- `team_centered` 基本坍缩。
+
+仓库选择保留 incumbent，没有把某个脆弱均值包装成成功。这是正确做法。fileciteturn78file0L2-L2
+
+---
+
+# 三、现在真正阻隔路线的是什么
+
+## 阻隔一：当前任务门槛本身存在语义冲突
+
+这是我认为最关键的问题，也意味着当前阴性结果**不能直接解释为“方法修不好”**。
+
+现在用于检验任务收益的是 phase classification，类别包括：
+
+- high block；
+- medium block；
+- low block；
+- defending transition；
+- defending set play 等。fileciteturn96file0L2-L2
+
+其中 high/medium/low block 显然依赖球队在球场上的绝对部署位置。也就是说，对这个任务而言，全队整体向前或向后移动往往不是 nuisance，而是信息。
+
+但额外优化的评分标准又要求：
+
+> `context response` 越低越好，即模型越不响应整体平移越好。fileciteturn87file0L2-L2
+
+于是当前评分体系实际上同时要求模型：
+
+1. 根据绝对位置判断 high/medium/low block；
+2. 尽量对整体位置变化不敏感。
+
+这相当于同时要求它记住地址，并因记住地址而扣分。
+
+更重要的是，原始 AMR 方案已经明确区分了这两类任务：
+
+- formation identity 应忽略全局位置；
+- high/low block 或 deployment prediction 应保留全局位置；
+- context 和 mode 应进入不同通道，由任务选择。fileciteturn101file0L2-L2
+
+因此，当前 P3-T5 的失败至少部分可能不是模型失败，而是**把 context task 和 intrinsic-structure task 压进了一个错误的 Pareto 指标**。
+
+这是一次真实但可修正的偏移。
+
+---
+
+## 阻隔二：任务数据太少、任务本身也很弱
+
+目前有标签的样本只有：
+
+- train：113；
+- dev：37；
+- heldout：32。
+
+原始三个 Phase-GAT 的 dev macro-F1 只有约 0.075～0.144，说明这个任务从开始就非常不稳定。fileciteturn78file0L2-L2 fileciteturn96file0L2-L2
+
+这会造成两个问题：
+
+- 一个 seed 就足以显著改变均值；
+- 某个 pooling 的真实改善，很容易被标签稀疏、类别不平衡或少数比赛淹没。
+
+`centered_relational` 就是典型例子：heldout 均值略高，但主要来自 seed 47，另外两个 seed 反而更差。这样的结果不能作为方法证据。
+
+所以当前不是“缺少更多模型”，而是：
+
+> **用于证明方法价值的任务测量尺太短，而且尺子刻度还不完全对。**
+
+---
+
+## 阻隔三：Jacobian 的高预测力本身还不够新
+
+当前最漂亮的数值是 full geometry Spearman 约 0.85，但要小心其解释。
+
+因为：
+
+\[
+\frac12\|J\delta\|^2
+\]
+
+本来就是模型输出距离在局部的二阶近似。用模型自己的 Jacobian 预测模型自己的小扰动响应，理论上就应该有较强相关。
+
+因此，这个结果证明了：
+
+- 当前有限扰动仍可由局部几何较好近似；
+- support placement 确实通过 Jacobian block 影响响应；
+- 频率基线不足。
+
+但它单独不足以成为标题级发现。审稿人可能会说：
+
+> “你们用局部导数预测局部变化，这不是很自然吗？”
+
+真正的新意必须来自后半段：
+
+1. block 结构揭示了此前未知的架构失效；
+2. 该结构能预测独立任务或独立数据；
+3. 操作该结构能带来任务上的正确变化。
+
+当前只完成了第 1 项，部分完成第 2 项，还没有完成第 3 项。
+
+---
+
+## 阻隔四：prospective 还不是独立泛化
+
+T2 的设计纪律很好：新 seed、response-blind、先冻结公式和指标再计算。
+
+但它仍然使用：
+
+- 同一批 250 个样本；
+- 同样的 10 场比赛；
+- 同样的 9 个模型；
+- 同一种 operator；
+- 只是换了一批新的 support reallocation。
+
+所以它证明的是：
+
+> 解释不是只适用于 P2 那一批具体干预。
+
+它还不能证明：
+
+> 解释可以推广到新比赛、新模型、新任务或新领域。
+
+仓库自己也正确保留了这个边界。fileciteturn75file0L2-L2 fileciteturn76file0L2-L2
+
+---
+
+## 阻隔五：额外优化的 heldout 已被暴露
+
+候选搜索报告写的是：
+
+> heldout 只在候选冻结后审计，不参与选择。
+
+但实际脚本在每个 candidate 的循环中都会：
+
+- 计算 heldout macro-F1；
+- 打印 heldout macro-F1；
+- 将每个候选的 heldout 指标保存下来；
+- 然后才做候选排序。fileciteturn99file0L2-L2
+
+排序公式确实没有直接使用 heldout，所以这不是简单的数据泄漏作弊。
+
+但从严格实验设计上说，heldout 已经被 agent 或研究者看到，之后就不再是“真正未见的最终确认集”。因此：
+
+> 当前 heldout 结果仍可作为探索性审计，但不能再作为正式的独立确认。
+
+另外，提交历史中候选搜索提交早于“加入 autoresearch goal prompt”的提交。可能只是 prompt 已经存在于本地、后来才提交，但仓库历史本身无法证明搜索目标是在结果出现前完成版本冻结的。fileciteturn47file0L2-L2
+
+这不推翻搜索结果，但降低了它的确认性等级。
+
+---
+
+## 阻隔六：方法和跨域贡献仍然缺失
+
+原始强成功版本要求：
+
+1. Action-Mode Probe；
+2. 普通谱偏置解释不了的规律；
+3. 可开关的因果机制；
+4. 有独立价值的 AMR；
+5. 体育到书法的跨域预测。fileciteturn72file2
+
+现在实际完成的是：
+
+1. Probe：完成；
+2. 普通谱偏置不足：完成；
+3. 因果机制：只完成“表示塑形”，没有任务修复；
+4. AMR：未开始；
+5. 跨域确认：未完成。
+
+所以现有结果可以形成一篇**诊断和机制解剖型论文**，但还不是最初设想的完整方法论文。
+
+---
+
+# 四、代码和工程层面还需要修什么
+
+P3 主几何代码的测试覆盖了：
+
+- JVP 与有限差分；
+- block 分解恒等式；
+- pooling 的置换一致性；
+- grouped CV 基础行为；
+- prospective manifest 的 response-blind 检查；
+- node localization 的 response-blind 和数值 parity。fileciteturn86file0L2-L2
+
+但当前没有看到专门针对以下内容的正式测试：
+
+- candidate search 不提前读取 heldout；
+- causal-switch 训练和 split 完整性；
+- 候选冻结后才允许 heldout；
+- artifact 目录禁止覆盖；
+- 搜索排序与报告完全一致。
+
+而且 `p3_candidate_search.py` 使用运行时 monkey-patch 修改 `FrozenGeometryModel.layer_values`，`team_centered` 分支中还保留了重复逻辑和一个 `pass`。这适合作为快速探索脚本，不适合作为最终复现入口。fileciteturn99file0L2-L2
+
+文档也有一些轻微残留：
+
+- README 顶部仍把 AMR 写成当前核心方法；
+- `project.yaml` 仍安排 P5 书法日程，但当前 P4 已阻塞；
+- README 仍保留旧的 P0 一键启动命令；
+- Master Prompt 的方法章节仍写“优先实现 AMR-Fixed”，而当前动作又明确禁止启动 AMR。
+
+这些不构成科学结果冲突，但正式施工前应把“历史目标”和“当前可执行动作”分开写清楚。fileciteturn88file0L2-L2 fileciteturn89file0L2-L2 fileciteturn102file0L2-L2
+
+---
+
+# 五、下一步怎么做
+
+我不建议继续跑更多 pooling、更多模型或更多 seed 的盲目搜索。当前最值得做的是**修正任务定义，而不是再调架构**。
+
+## 第一步：先修复实验协议
+
+立即做三件事：
+
+1. 在 `STATUS.md`、`DECISIONS.md` 和报告中把现有 heldout 标为：
+
+   ```text
+   EXPOSED_DURING_CANDIDATE_SEARCH
+   exploratory audit only
+   ```
+
+2. 修改候选搜索程序：
+   - 搜索期完全不加载 heldout 标签；
+   - 候选确定后先生成 `candidate_lock.json`；
+   - 只有存在该锁文件时，独立脚本才能运行一次 heldout；
+   - 输出目录改为 fail-closed，不允许覆盖旧结果；
+   - 去掉 monkey-patch，建立正式 pooling/readout 模块；
+   - 增加专门的 leakage 和 split 单元测试。
+
+3. 同步文档：
+   - P5 标为 `blocked/pending new frozen prediction`；
+   - 旧 P0 启动命令标为历史；
+   - AMR 标为目标方法，而不是当前已批准任务。
+
+---
+
+## 第二步：把一个错误的单任务 Gate 拆成两个正确任务
+
+不要再要求同一个 embedding 同时满足：
+
+\[
+\text{phase F1 高}
+\quad+\quad
+\text{global translation response 低}.
+\]
+
+应该明确区分：
+
+### Context task
+
+例如：
+
+- high/medium/low block；
+- 场区部署；
+- phase/deployment prediction。
+
+对这类任务，绝对位置可能是信号，应允许甚至要求 context 信息可读。
+
+### Intrinsic structure task
+
+优先使用现有数据中已经规划过的：
+
+- intrinsic formation retrieval；
+- natural pair ranking；
+- 内部构型匹配；
+- 合理定义后的结构变化定位。
+
+对这类任务，全队整体平移是 nuisance，内部结构变化才是 signal。
+
+这才符合最初的：
+
+\[
+z=(z_{\mathrm{ctx}},z_{\mathrm{mode}})
+\]
+
+设计，而不是把两类语义压成一个分数。
+
+---
+
+## 第三步：只做一个最小双通道 sanity test
+
+还不要做完整 AMR，也不要引入 learned gate。
+
+只比较：
+
+### 基线
+
+```text
+raw coordinates
+→ same Phase-GAT
+→ team-mean representation
+```
+
+### 最小双读出模型
+
+```text
+raw coordinates
+→ context readout
+
+globally centered coordinates
+→ mode readout
+```
+
+先保持：
+
+- 同一个 backbone；
+- 相同 pooling；
+- matched capacity；
+- 同样的训练步数；
+- 相同 seed；
+- 不加入频段门；
+- 不加入复杂 relational 模块。
+
+它只回答一个问题：
+
+> 当前方法失败，是因为模型无法同时保存两类信息，还是因为我们之前把两类任务用错误的方式绑在了一起？
+
+评价时分别要求：
+
+- context readout 在 phase/deployment 上不下降；
+- mode readout 在 formation retrieval/natural pair ranking 上提高；
+- mode 对 global translation 更稳健；
+- geometry-response 预测力不能坍缩；
+- 改善不能由单个 seed 或单场比赛驱动。
+
+这实际上是原始 AMR 核心假设的最低成本检查，但还不算正式 P4 方法开发。
+
+---
+
+## 第四步：重新建立真正的确认集
+
+现有 heldout 已经暴露，不能再重复使用来宣布成功。
+
+正确选择只有两个：
+
+- 找一场或一组从未参与任何选择的新比赛；
+- 或者明确承认没有独立确认集，仅用 nested match-level CV 做探索性估计，不声称最终泛化。
+
+若后续需要一条能支撑投稿的强结论，我倾向于必须增加真正未见的比赛。当前同资产 prospective 已经足够，不值得再生成第三批 support draw。
+
+---
+
+## 第五步：设置最后一次决策门
+
+### 双任务、双读出成功
+
+若在多 seed、match-grouped 评价和真正未见数据上同时出现：
+
+- intrinsic task 改善；
+- context task不下降；
+- nuisance robustness 改善；
+- geometry 仍可解释；
+- 结果不是单 seed 驱动；
+
+则进入 P4，AMR-Fixed 有了明确目标：
+
+> 按任务把 context 与 support-conditioned mode 路由到不同 readout。
+
+### 双读出仍失败
+
+则不再开发 AMR。
+
+文章路线应收缩为：
+
+> Action-Mode Spectrum + support-conditioned local geometry + architecture-specific representation anatomy。
+
+这种版本仍可能有研究价值，但需要：
+
+- 独立比赛复现；
+- 更强的相关工作审计；
+- 明确强调“图频率不足以决定多构件表示响应”；
+- 不再声称已经提出有效修复；
+- 书法只作为探索性案例，不能作为独立确认。
+
+---
+
+# 六、和最初设想偏移了多少
+
+最准确的说法是：
+
+> **科学问题偏移不大，论文形态偏移很大。**
+
+| 原始设想 | 当前情况 | 偏移程度 |
+|---|---|---|
+| operator × support × task | 完整保留 | 小 |
+| 等能量 Action-Mode Probe | 完成且更严谨 | 无负面偏移 |
+| 统一的中频盲区/组织盲 | 没有成立，改为条件化局部几何 | 大 |
+| 组织效应超越普通频率 | 成立，但方向依赖架构和支持 | 中等 |
+| 找到可控机制 | 能塑形，但不能证明修复 | 中等偏大 |
+| AMR 方法贡献 | 尚未启动 | 大 |
+| 体育→书法独立预测 | 尚未形成 | 大 |
+| 强方法论文 | 当前更接近诊断/机制论文 | 大 |
+
+粗略估计：
+
+- **工程执行完成度：约 85%～90%。**
+- **P3 提示词的科学链条完成度：约 65%。**
+- **最初“规律 + 机制 + AMR + 跨域”强论文版本：约 40%～50%。**
+
+这个百分比不是统计量，只是路线完整度判断。
+
+---
+
+# 我的最终判断
+
+当前仓库并没有崩，也没有明显换题。事实上，P3 把 P2 的混合结果转化成了一个相当干净的机制线索：
+
+> 图频率不是充分坐标；模型响应还取决于节点支持和跨节点局部几何。
+
+但现在直接进入论文或继续堆 AMR 都不合适。最大阻隔不是缺少一个更聪明的 pooling，而是：
+
+> **当前任务评价把应该保留的 context 和应该消除的 nuisance 混成了同一件事。**
+
+所以我不同意仓库当前“完全停止机制探索”的字面结论。应当允许**最后一轮、仅一轮**任务语义修正：用 context task 与 intrinsic task 分开检验固定双通道。它成功，AMR 才真正有出生证明；它失败，就应果断收缩为诊断论文。
+
+审计边界：我检查了当前仓库提交、代码、配置、报告、artifact contract 和测试文件，但没有在独立环境完整重跑所有计算；因此这里确认的是“仓库证据链是否闭合”和“设计是否合理”，不是第三方复现实验。

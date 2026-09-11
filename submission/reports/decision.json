@@ -1,0 +1,16 @@
+{
+  "decision": "NO_GO",
+  "reason": "TECHNICAL",
+  "detail": "Required audit incomplete/failed",
+  "failed_audits": [
+    "technical_validity",
+    "query_blind",
+    "budget_length",
+    "rewrite_controls",
+    "independent_confirmation",
+    "generalization",
+    "novelty",
+    "task_relevance"
+  ],
+  "decision_input_hash": "17fc42b0c66f2f038716fbbc84ff5fdd7d2c2a5bfc8db711b5e69d2a1ef25662"
+}

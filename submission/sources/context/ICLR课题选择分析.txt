@@ -1,0 +1,446 @@
+# 项目方案包已完成
+
+这是一个可以直接交给总控 agent 开始施工的完整研究包。它没有做成偏展示性的 Word/PDF，而是采用 **Markdown + YAML + Shell/Python 脚本 + 实验模板**：便于 agent 读取、修改、执行和审计。
+
+## 下载
+
+- **[下载完整项目方案包 ZIP](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818.zip)**
+- **[阅读合并版完整方案](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/PROJECT_PACKAGE_CONSOLIDATED.md)**
+- **[AMR 方法详细规格](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/docs/02_METHOD_SPEC_AMR.md)**
+- **[实验 Gate 与 Figure 规划](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/docs/03_EXPERIMENTS_GATES_AND_FIGURES.md)**
+- **[数据下载与环境指南](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/docs/04_DATA_AND_ENVIRONMENT_GUIDE.md)**
+- **[Agent 施工手册](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/docs/05_AGENT_EXECUTION_MANUAL.md)**
+- **[五份评审的接受与拒绝记录](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/docs/06_REVIEW_DECISIONS.md)**
+- **[可直接交给总控 Agent 的启动 Prompt](sandbox:/mnt/data/ICLR_ActionMode_Project_Pack_20260818/MASTER_AGENT_PROMPT.md)**
+
+---
+
+# 一、项目最终被锁定成什么
+
+## 暂定项目名
+
+**Action-Mode Spectrum**
+
+标题候选：
+
+> **Who Moved Together? Action-Mode Spectra in Structured Representations**
+
+或更正式地：
+
+> **Nuisance Is a Mode, Not a Transform: Learning Task-Conditioned Action Spectra**
+
+## 唯一科学问题
+
+现有模型通常知道：
+
+> 哪种变换发生了。
+
+但未必知道：
+
+> **这个变换通过哪个构件联盟发生了。**
+
+足球中，同样的位移可以是：
+
+- 全队共同前移；
+- 后卫线整体前提；
+- 一名后卫脱离阵线。
+
+书法中，同样的位移或旋转可以是：
+
+- 页面整体变化；
+- 一个偏旁整体变化；
+- 一笔相对其他笔画发生偏差。
+
+变换幅度可以完全相同，但它们对任务的意义不同。因此，表征不应只按“平移、旋转、缩放”组织，而应按：
+
+\[
+\text{operator}
+\times
+\text{coalition/support}
+\times
+\text{task}
+\]
+
+组织。
+
+## 我们定义的核心对象
+
+在构件关系图上，对扰动场做图 Laplacian 谱分解：
+
+- 零频：共同运动；
+- 低至中频：大范围或有意义的子群协同；
+- 高频：少量个体的局部偏离。
+
+对一个模型定义其 **结构传递函数**：
+
+\[
+H_f(k;\varepsilon)
+=
+\mathbb E_X
+\frac{
+d_z(f(X\oplus\delta_k),f(X))
+}{
+\varepsilon
+},
+\qquad
+\|\delta_k\|=\varepsilon.
+\]
+
+它描述模型对每一种“谁和谁一起动”的模式有多敏感。
+
+---
+
+# 二、文章真正押注的发现
+
+项目不把“敏感度随频率单调下降”当作足够新颖的结论。那很可能只是 GNN 过平滑或一般谱偏置换了一个数据集。
+
+我们押注三个更强、可直接被判死刑的现象。
+
+## 1. 等能量排序反转
+
+在总扰动能量相同的条件下：
+
+\[
+d_z(\text{原状态},\text{共同位移})
+>
+d_z(\text{原状态},\text{语义结构破坏}),
+\]
+
+而任务意义恰好相反。
+
+通俗说：
+
+> 模型觉得全队一起搬家，比一名后卫撕开整条防线更重要。
+
+或者：
+
+> 模型觉得纸张倾斜，比关键笔画错位更重要。
+
+这应成为 Figure 1 的实测结果，而不是概念示意图。五份评审都认可这是一项最可能让论文被记住的资产，但同时强调，若不配平扰动能量，这个结论毫无意义。fileciteturn6file19 fileciteturn8file13
+
+## 2. 中频凹陷
+
+更有价值的可能发现是：
+
+> 模型不是简单地从低频到高频逐渐变迟钝，而是在“有组织的子群协同”所在中频段出现异常盲区。
+
+即模型能够感知：
+
+- 显眼的整体场景变化；
+- 尖锐的单点异常；
+
+却反而忽略：
+
+- 防线整体移动；
+- 弱侧多人轮转；
+- 偏旁级的协调变化。
+
+如果成立，这是比普通 spectral bias 更强的规律。
+
+## 3. 组织效应不能由频率解释
+
+在相同的：
+
+- 总能量；
+- 支持节点数量；
+- Rayleigh quotient；
+- 频率带；
+- 位移方向分布；
+
+下比较：
+
+- 真实战术联盟或真实偏旁；
+- 随机挑选的同频节点集合。
+
+若两者仍有稳定不同的表示响应，就说明模型遗漏的不只是频率，而是：
+
+> **组织本身。**
+
+这是整个项目区别于“oversmoothing on sports data”的关键 Gate。评审明确指出，没有这一判别实验，当前故事会被一句“这是低通偏置”击穿。fileciteturn8file10
+
+---
+
+# 三、方法贡献：不再是一个最小修复
+
+你追加的要求已经被写入整个方案包的硬约束：
+
+> **CAP 或简单 centered-action prediction 只能作为 baseline，不能作为最终方法贡献。**
+
+主方法正式设为：
+
+# **AMR — Action-Mode Routing**
+
+AMR 不是简单增加一个“预测相对位移”的辅助头。它试图解决一个更具体的方法问题：
+
+> 在作用模式频谱上，哪些模式应当被任务视为不变，哪些模式必须保持等变或可恢复？这条边界能否由模型学习？
+
+## 1. 谱频段表示
+
+AMR 不依赖每个样本不稳定的特征向量对齐，而使用 Chebyshev 图谱滤波器构造多个稳定频段：
+
+\[
+P_1(L),P_2(L),\ldots,P_B(L).
+\]
+
+每个频段对应不同尺度的协同结构。
+
+## 2. 谱白化干预采样
+
+自然增广往往只大量覆盖：
+
+- 全局仿射变化；
+- 高频噪声或裁剪；
+
+而对子群协同的中频几乎没有训练信号。
+
+AMR 先均匀采样频段，再生成严格等能量扰动：
+
+\[
+\delta_b
+=
+\varepsilon
+\frac{P_b(L)\xi}
+{\|P_b(L)\xi\|}.
+\]
+
+因此训练信号不会再次被自然增广的偏斜频谱控制。
+
+## 3. 上下文与内部模式双通道
+
+AMR 不假设全局信息永远是 nuisance，而输出：
+
+\[
+z=(z_{\mathrm{ctx}},z_{\mathrm{mode}}).
+\]
+
+- \(z_{\mathrm{ctx}}\)：保存球场绝对位置、页面姿态、场景背景；
+- \(z_{\mathrm{mode}}\)：保存内部阵型、子群协同和局部关系。
+
+这避免了“为了阵型识别而永久删除场区位置，随后又无法判断高位压迫”的问题。
+
+## 4. 任务条件频段门
+
+对于任务 \(\tau\) 和频段 \(b\)，学习门：
+
+\[
+\alpha_{\tau,b}\in[0,1].
+\]
+
+- \(\alpha_{\tau,b}\to1\)：该任务要求这个频段不变；
+- \(\alpha_{\tau,b}\to0\)：该频段应保持等变或可恢复。
+
+核心损失为：
+
+\[
+\mathcal L_{\mathrm{route}}
+=
+\sum_b
+\left[
+\alpha_{\tau,b}\mathcal L_{\mathrm{inv}}^{(b)}
++
+(1-\alpha_{\tau,b})\mathcal L_{\mathrm{eqv}}^{(b)}
+\right].
+\]
+
+这不是把某个算子整体宣布为 nuisance，而是让任务在作用模式坐标上决定信息如何流动。
+
+## 5. 方法交付层级
+
+包中规定了四级实现：
+
+| 层级 | 内容 | 地位 |
+|---|---|---|
+| M0 | CAP：预测去中心化差分 | 仅 baseline |
+| M1 | **AMR-Fixed**：固定频段路由 | 必须完成 |
+| M2 | **AMR-Learned**：可学习任务频段门 | 目标主方法 |
+| M3 | AMR-Implicit：从图像 token 构建隐式图 | 高风险扩展 |
+
+因此，即使 learned gate 失败，AMR-Fixed 仍是一个结构完整的方法；如果 learned gate 成功，则能够给出很有吸引力的“不同任务具有不同作用模式通带”的结果。
+
+评审提出“中频缺的不是更多不变性，而是正确类型的等变约束”，我接受并将其直接发展为 AMR 的核心，而不是只把它当消融。fileciteturn8file13
+
+---
+
+# 四、足球、篮球、书法和公式的分工
+
+## 足球：规律建立与因果仪器
+
+足球 tracking 负责：
+
+- 精确构件坐标；
+- 等能量反事实；
+- 图谱模式；
+- 真实战术联盟；
+- 增广与聚合机制的因果开关。
+
+它不负责做一个完整的体育分析系统。
+
+## 篮球：低成本重复验证
+
+3×3 篮球只在足球主结果存活后加入：
+
+- 节点更少；
+- 子群协同不同；
+- 可测试规律是否只属于足球 11 人结构。
+
+它不是第二条独立路线。
+
+## 中国书法：预注册跨域预测
+
+书法不是简单的“第二个数据集”。体育端先冻结：
+
+- 最弱频段；
+- 支持域边界；
+- 模型弱点排序；
+- AMR 优先修复的模式。
+
+随后在书法中测试：
+
+> 偏旁和笔画关系是否在预测的归一化谱位置出现相似盲区。
+
+这使两域关系从“两个应用都有效”升级为：
+
+> **一个域建立规律，另一个域验证事先登记的预测。**
+
+五份评审对“体育是显式结构仪器、书法是隐式结构现场实验”的设计总体支持。fileciteturn8file15 fileciteturn7file7
+
+## MathWriting：只作为 fallback
+
+不允许它和书法并行发展。
+
+只有当以下问题形成硬阻塞时才启动：
+
+- 书法数据许可未及时获得；
+- 笔画支持完全无法可靠构建；
+- 自然书法任务无法形成客观真值。
+
+---
+
+# 五、我接受了哪些评审建议
+
+## 完全接受
+
+1. **Figure 1 必须是实测失败，而不是理论示意图。**
+2. **所有模式比较必须严格等能量。**
+3. **Action-Mode Spectrum 必须是真正的图谱数学对象。**
+4. **必须做同频语义联盟与随机联盟对照。**
+5. **主叙事应是发现规律、定位机制并控制规律，而不是定义几个名词。**
+6. **体育端建立规律，书法端验证预注册预测。**
+7. **必须测试 augmentation、pooling、relational interaction 对现象的因果作用。**
+8. **canonicalization、frame averaging、Procrustes/Kendall shape 都必须作为强基线。**
+9. **必须测试模型规模是否会自然消除问题。**
+10. **已知 part/stroke support 必须诚实称为 intervention-supervised 或 privileged structural support。**
+11. **通用 backbone 保存全局姿态不天然是错误；应由任务选择信息。**
+12. **理论应解释典型机制，而不是证明“信息丢了就存在任务会失败”这种近乎同义反复的命题。**
+
+这些共识分别来自评审对 Figure 1、等能量谱分析、mechanism-first、显式/隐式仪器和方法定位的批评。fileciteturn6file2 fileciteturn7file8 fileciteturn6file13
+
+---
+
+# 六、我拒绝或降级了哪些建议
+
+## 1. 拒绝把单调频率衰减包装成主要发现
+
+若最终只是：
+
+\[
+H(k)\text{ 随频率单调下降},
+\]
+
+那么它更可能是一般谱偏置或过平滑。此时必须 pivot，不能保留“模型看不见组织”的强 claim。
+
+## 2. 拒绝 CAP 作为唯一方法
+
+CAP 足以表达“共同运动是差分的零空间”，但方法新颖性不足。它已被降为 M0 baseline。
+
+## 3. 拒绝把无监督部件涌现纳入主命题
+
+Slot、object-centric discovery 或学习构件图会引入：
+
+- 新的结构发现问题；
+- 新评价体系；
+- 大量退化解；
+- 完全不同的文献树。
+
+它只作为 AMR-Implicit 条件性扩展。
+
+## 4. 拒绝把 VLM 关系盲写成已解释的核心机制
+
+可以做小规模 probe，但在没有因果证据前，只能称为可能联系。否则 stakes 很高，证据却跟不上。
+
+## 5. 拒绝用 complete invariant 作为标题级主张
+
+恢复内部几何不等于保留全部商空间信息；这个词容易过承诺，而且接近已有定义性事实。
+
+## 6. 拒绝把 MathWriting 替换为主域
+
+公式结构更客观，但书法的隐式参考系、文化辨识度和作者性仍有独特价值。公式保留为紧邻 fallback。
+
+## 7. 拒绝把书法降为纯定性装饰
+
+我接受书法不承担“定律建立责任”，但不同意只留一张漂亮图。它仍须完成客观、定量、预注册的跨域检验。
+
+## 8. 拒绝同时加入更多领域
+
+体育、篮球、书法、公式的角色已经足够。继续加舞蹈、微表情、机械关节或油画，只会降低故事压缩度。
+
+---
+
+# 七、方案包里已经准备了什么
+
+项目包共包含以下施工层：
+
+1. **科学蓝图**：问题、定义、H1–H9 假设、学术空缺、难点和贡献边界。
+2. **AMR 方法规格**：模块、公式、方法层级、理论目标、失败条件。
+3. **实验与 Gate**：从 Phase 0 到跨域验证，每个阶段都有输入、输出、继续和停止条件。
+4. **Figure 规划**：Figure 1–6 的目的、panel、数据合同和结果分支。
+5. **数据指南**：足球、篮球、书法、公式数据下载、许可和替代路径。
+6. **Agent 手册**：总控与 6 个 worker 的职责、共享 schema、禁止漂移规则。
+7. **Master Prompt**：可直接交给 Codex/其他总控 agent。
+8. **YAML 配置**：项目时间表、数据清单、实验矩阵。
+9. **可执行脚本**：环境初始化、公开数据下载、数据验证、仓库脚手架和谱 smoke test。
+10. **审计模板**：实验记录、Gate 报告、GPU 申请、数据卡和 Figure manifest。
+
+核心公开数据路线已经写入脚本和指南：足球 P0 使用 SkillCorner，书法受控结构使用 Make Me a Hanzi；MCCD 需要正常申请，脚本不会规避其访问或许可要求；MathWriting 仅在 fallback 时下载完整包。([github.com](https://github.com/SkillCorner/opendata))
+
+---
+
+# 八、质量检查
+
+我已经完成：
+
+- 全部 shell 脚本 `bash -n` 检查；
+- Python 脚本编译检查；
+- YAML 配置解析；
+- 仓库初始化脚本试运行；
+- 图 Laplacian 与等能量谱干预 smoke test；
+- ZIP 完整性测试；
+- SHA256 文件清单生成。
+
+压缩包测试结果为 **无损坏文件**。包内不含原始数据和模型权重，因此体积较小；数据由下载脚本按许可条件获取。
+
+---
+
+# 九、启动方式
+
+```bash
+unzip ICLR_ActionMode_Project_Pack_20260818.zip
+cd ICLR_ActionMode_Project_Pack_20260818
+
+bash scripts/bootstrap_env.sh
+bash scripts/download_public_data.sh --core
+python scripts/verify_data.py --manifest configs/data_manifest.yaml
+bash scripts/run_phase0_smoke.sh
+```
+
+随后把 `MASTER_AGENT_PROMPT.md` 交给总控 agent。第一批必须交付的不是论文正文，而是：
+
+1. 一场 SkillCorner 比赛的标准化样本；
+2. 六个频段的等能量干预；
+3. 真实联盟与同频随机联盟；
+4. 一个坐标模型和一个冻结视觉模型的作用谱；
+5. 初版 Gate 1 报告。
+
+项目日程已经围绕 ICLR 2027 的 **2026 年 9 月 18 日摘要截止、9 月 25 日全文截止**配置。([iclr.cc](https://iclr.cc/Conferences/2027/AuthorGuidelines))
+
+**建议先打开合并版方案确认总结构，然后直接使用 Master Agent Prompt 启动 Phase 0。**
