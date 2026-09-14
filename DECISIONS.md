@@ -238,3 +238,10 @@
   B. 不变性＋判别联合训练的塌缩机制（SSL 塌缩文献、共享主干梯度冲突证据、与"路由塑造表征"目标相容的修复排名）；
   C. 图不确定性/频带×支持张力（Slepian/局部谱帧文献；mask-then-filter vs filter-then-mask；成功与失败先例）。
 - 后续：research 简报＋v3 判据双就绪后，综合 top-3 路线，以锁附录形式预注册后在 dev 上自主尝试（仍受 P4-N5/N6 二次读取授权约束；v3 若通过，research 转入 N4/论文支撑）。
+
+## D-20260905-P4-006：Research 综合 top-3 路线（v3 失败时的尝试顺序）
+- 日期：2026-09-05
+- 来源：三条 researcher 轨道简报（reports/research_p4/）＋综合 SYNTHESIS_TOP3.md。
+- 跨轨道收敛：① n=20 精确 eigh 在各方面占优，Chebyshev 应删除；② 6 等宽频带过 resolving 离散谱，应 2–3 密度均衡带；③ 塌缩=complete collapse 类，有因果验证解（SimSiam/VICReg/GradNorm）；④ Shannon 数 K≈0.3–0.8：中/高频小支持干预本质非局域，无论 v3 成败进论文 Limitations。
+- 尝试顺序（v3 失败才启动，每条锁附录预注册、dev-only）：路线 1 精确谱基础（eigh＋密度均衡带＋Slepian 采样＋μ 报告）→ 路线 2 最终嵌入防护（VICReg 最终层＋stop-grad 非对称＋mining 守卫）→ 路线 3 梯度尺度平衡（GradNorm＋warm-start＋PCGrad 备用）。
+- v3 预读：v3 仍保留中间层 floor 旁路与对称梯度两个塌缩通道；存活则功劳归可恢复性惩罚塌缩。
