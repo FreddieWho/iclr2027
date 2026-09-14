@@ -1,0 +1,23 @@
+{
+  "status": "P3_RATIO_SWEEP_COMPLETE",
+  "ratios": {
+    "update_ratio_1to0": [
+      420,
+      0
+    ],
+    "update_ratio_1to1": [
+      210,
+      210
+    ]
+  },
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "parallelism": {
+    "workers": 6,
+    "torch_threads_train_per_worker": 8
+  },
+  "elapsed_seconds_max_worker": 450.9
+}

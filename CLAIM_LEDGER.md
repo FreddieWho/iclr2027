@@ -53,3 +53,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P3-R12 | 几何预测的信息载体随联盟粒度从对角项向耦合项迁移 | SUPPORTED_ON_DEV | support 伸缩 v2（4 档×60 快照×6 模型）：full−diag 差距 0→+0.2~0.27（两族同向）；s=1 时 full≡diag（构造一致性）；“谁和谁一起动”的语义在 off-diagonal block 中且随联盟规模递增 | 论文写作 |
 | P3-R13 | support 敏感与几何→响应关系跨 SSL 目标族复现 | SUPPORTED_ON_DEV_CROSS_OBJECTIVE | Barlow-Twins 对照（冻结 2:1 配方仅换损失）：干预 full ρ 0.47–0.67（均值 0.59≈对比族 0.56），full＞diag 三 seed 一致；边界 = 同架构同视图，架构通用性（EGNN/SetTransformer）未测 | 论文写作 |
 | P3-R14 | Jacobian 几何超越无模型基线但幅度有限；谱基线失效对 k 稳健 | SUPPORTED_ON_DEV | 同集头对头：full 0.49 ＞ gyration 0.35 ＞ 谱基线 0.11（逐 seed 一致）；谱基线在 k=2/4/6/8 下 ρ∈[−0.05,0.19] 全近零；不许声称“只有微分几何能预测”——简单队形统计携带约一半信号 | 论文写作 |
+
+| P3-R15 | update-allocation 曲线（dev 事后消融）：pair 随 intrinsic 配额单调升（0.804→0.944→0.951→0.967），zone 单调降、centroid 总体升，几何代理 ≥1:1 平台化（~0.70）；无占优配比点，2:1 为膝点；1:0 在随机 mode_head 读出下仍保留 pair 0.80/干预 ρ 0.53（结构在池化特征）；干预预测对所有已训配比存在 | SUPPORTED_DEV_ONLY | 配比扫掠 1:0/1:1（本节点）＋T5R4 Round-2 冻结值 | `artifacts/phase3/ratio_sweep_v1/`、`reports/P3_RATIO_SWEEP_REPORT.md` | dev-only，NOT selection；1:0 行带随机读出警示 |
