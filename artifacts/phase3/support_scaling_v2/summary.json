@@ -1,0 +1,296 @@
+{
+  "support_sizes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "epsilon": 0.25,
+  "n_snapshots": 60,
+  "results": {
+    "1": {
+      "n_sets": 60,
+      "per_model": {
+        "update_ratio_2to1__seed11": {
+          "0.25": {
+            "valid": 44,
+            "response_std": 0.05044612119517008,
+            "full_spearman": 0.18928823114869625,
+            "diag_spearman": 0.18928823114869625,
+            "quad_rel_error_median": 0.571449708666697,
+            "quad_over_actual_median": 1.0707784879908426,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed23": {
+          "0.25": {
+            "valid": 44,
+            "response_std": 0.04944494552654373,
+            "full_spearman": 0.2362226920366455,
+            "diag_spearman": 0.2362226920366455,
+            "quad_rel_error_median": 0.6110931459667854,
+            "quad_over_actual_median": 0.8469656823831768,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed47": {
+          "0.25": {
+            "valid": 44,
+            "response_std": 0.04748223346531836,
+            "full_spearman": 0.4439746300211416,
+            "diag_spearman": 0.4439746300211416,
+            "quad_rel_error_median": 0.6667253558330046,
+            "quad_over_actual_median": 1.0039651147551782,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed11": {
+          "0.25": {
+            "valid": 44,
+            "response_std": 0.029125743329337643,
+            "full_spearman": 0.5688513037350247,
+            "diag_spearman": 0.5688513037350247,
+            "quad_rel_error_median": 0.5140097381895807,
+            "quad_over_actual_median": 0.8217651277069024,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed23": {
+          "0.25": {
+            "valid": 44,
+            "response_std": 0.03139431936981491,
+            "full_spearman": 0.551937984496124,
+            "diag_spearman": 0.551937984496124,
+            "quad_rel_error_median": 0.5181347297177425,
+            "quad_over_actual_median": 0.8279482862375778,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed47": {
+          "0.25": {
+            "valid": 44,
+            "response_std": 0.01824465098660984,
+            "full_spearman": 0.455813953488372,
+            "diag_spearman": 0.455813953488372,
+            "quad_rel_error_median": 0.5691651785674254,
+            "quad_over_actual_median": 0.9160241290908293,
+            "status": "OK"
+          }
+        }
+      }
+    },
+    "2": {
+      "n_sets": 60,
+      "per_model": {
+        "update_ratio_2to1__seed11": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.04403831587373588,
+            "full_spearman": 0.572473867595819,
+            "diag_spearman": 0.2871080139372823,
+            "quad_rel_error_median": 0.5650093928407813,
+            "quad_over_actual_median": 1.1658984772381082,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed23": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.048986340791752056,
+            "full_spearman": 0.22439024390243906,
+            "diag_spearman": -0.10034843205574916,
+            "quad_rel_error_median": 0.5973721851714284,
+            "quad_over_actual_median": 1.2473408320828128,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed47": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.02020910412705327,
+            "full_spearman": 0.39425087108013945,
+            "diag_spearman": 0.34564459930313596,
+            "quad_rel_error_median": 0.6612937902789598,
+            "quad_over_actual_median": 0.93074673906914,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed11": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.03424388539050707,
+            "full_spearman": 0.4726480836236934,
+            "diag_spearman": 0.3015679442508712,
+            "quad_rel_error_median": 0.5497189469841344,
+            "quad_over_actual_median": 1.060181411175726,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed23": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.02645862597400814,
+            "full_spearman": 0.6311846689895472,
+            "diag_spearman": 0.4125435540069687,
+            "quad_rel_error_median": 0.5327891406085863,
+            "quad_over_actual_median": 1.1424053806161727,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed47": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.020655269883773007,
+            "full_spearman": 0.35052264808362377,
+            "diag_spearman": 0.1839721254355401,
+            "quad_rel_error_median": 0.4371748326441038,
+            "quad_over_actual_median": 1.1007839473153553,
+            "status": "OK"
+          }
+        }
+      }
+    },
+    "3": {
+      "n_sets": 60,
+      "per_model": {
+        "update_ratio_2to1__seed11": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.04458941875254257,
+            "full_spearman": 0.6428571428571429,
+            "diag_spearman": 0.34668989547038337,
+            "quad_rel_error_median": 0.5192930429104218,
+            "quad_over_actual_median": 1.0634033141538326,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed23": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.03159107919920938,
+            "full_spearman": 0.4945993031358887,
+            "diag_spearman": 0.5618466898954705,
+            "quad_rel_error_median": 0.570092552148132,
+            "quad_over_actual_median": 1.4598965129462025,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed47": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.038452462769691324,
+            "full_spearman": 0.5696864111498259,
+            "diag_spearman": 0.5299651567944251,
+            "quad_rel_error_median": 0.4992018802146684,
+            "quad_over_actual_median": 1.226002702498687,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed11": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.0446378807991537,
+            "full_spearman": 0.5357142857142858,
+            "diag_spearman": 0.3599303135888503,
+            "quad_rel_error_median": 0.5108417619831469,
+            "quad_over_actual_median": 1.0259276018947439,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed23": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.04165864779890501,
+            "full_spearman": 0.5074912891986063,
+            "diag_spearman": 0.33675958188153315,
+            "quad_rel_error_median": 0.6575241705429126,
+            "quad_over_actual_median": 1.1658261900995546,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed47": {
+          "0.25": {
+            "valid": 41,
+            "response_std": 0.029857908205477426,
+            "full_spearman": 0.46097560975609764,
+            "diag_spearman": 0.46341463414634154,
+            "quad_rel_error_median": 0.649180594062676,
+            "quad_over_actual_median": 1.26711407134271,
+            "status": "OK"
+          }
+        }
+      }
+    },
+    "4": {
+      "n_sets": 57,
+      "per_model": {
+        "update_ratio_2to1__seed11": {
+          "0.25": {
+            "valid": 40,
+            "response_std": 0.03470964026314756,
+            "full_spearman": 0.5420262664165104,
+            "diag_spearman": 0.29362101313320826,
+            "quad_rel_error_median": 0.5806198633396074,
+            "quad_over_actual_median": 0.9979838681794105,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed23": {
+          "0.25": {
+            "valid": 40,
+            "response_std": 0.0693450984931945,
+            "full_spearman": 0.5292682926829269,
+            "diag_spearman": 0.22795497185741093,
+            "quad_rel_error_median": 0.7792537476083194,
+            "quad_over_actual_median": 1.4543136323645212,
+            "status": "OK"
+          }
+        },
+        "update_ratio_2to1__seed47": {
+          "0.25": {
+            "valid": 40,
+            "response_std": 0.04960426692136185,
+            "full_spearman": 0.44690431519699814,
+            "diag_spearman": 0.23545966228893062,
+            "quad_rel_error_median": 0.5908525181898179,
+            "quad_over_actual_median": 0.9211020656257927,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed11": {
+          "0.25": {
+            "valid": 40,
+            "response_std": 0.02044092419317925,
+            "full_spearman": 0.7414634146341464,
+            "diag_spearman": 0.5414634146341465,
+            "quad_rel_error_median": 0.5653588431162881,
+            "quad_over_actual_median": 0.9808938210097577,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed23": {
+          "0.25": {
+            "valid": 40,
+            "response_std": 0.036245088840187935,
+            "full_spearman": 0.5675422138836773,
+            "diag_spearman": 0.2701688555347092,
+            "quad_rel_error_median": 0.5900043596147342,
+            "quad_over_actual_median": 1.208578985750321,
+            "status": "OK"
+          }
+        },
+        "fixed_dual_channel_shared_phase_gat__seed47": {
+          "0.25": {
+            "valid": 40,
+            "response_std": 0.0357505302247707,
+            "full_spearman": 0.6121951219512195,
+            "diag_spearman": 0.31031894934333965,
+            "quad_rel_error_median": 0.7941753541513044,
+            "quad_over_actual_median": 1.1812453750318266,
+            "status": "OK"
+          }
+        }
+      }
+    }
+  }
+}

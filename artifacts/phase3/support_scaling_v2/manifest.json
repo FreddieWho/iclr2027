@@ -1,0 +1,15 @@
+{
+  "status": "P3_SUPPORT_SCALING_COMPLETE",
+  "data": "IDSSE train+valid dev only",
+  "models": 6,
+  "support_sizes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "n_snapshots": 60,
+  "supersedes": "support_scaling_v1 (pilot: s=4 hit the min-valid threshold at N=30)",
+  "candidate_lock_sha256": "3bd8e250d73529b1b482e0cc332e78f0b1bd73294153292bdb9a7557cb99dec5",
+  "elapsed_seconds": 70.0
+}

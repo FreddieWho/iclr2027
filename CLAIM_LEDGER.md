@@ -50,3 +50,4 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P3-R9 | 修复存在选择性 context 代价：辅助 match-half 探针 0/8 场反向（−30%） | SUPPORTED_AS_BOUNDARY_ON_REPAIR | 冻结 addendum 将该探针定位为 auxiliary（测 z_ctx 绝对上下文保留）；四项主指标 8/8 占优不受其影响；论文必须如实并列表述，用于界定“context 无退化”的边界——空间上下文改善、赛时上下文退化 | P4 decision |
 | P3-R10 | 局部几何→响应排序预测存在有界有效域（ε≲0.25），域外按理论预测方式失效 | SUPPORTED_ON_DEV | ε-sweep（57 组、12 模型）：2:1 ρ 0.83→0.56→−0.001；相对误差 0.26→0.73；ε=1.0 协议合法性崩（11/57）；冻结工作点 0.25 在域内近边界；dev 证据，非外部确认 | 论文写作 |
 | P3-R11 | support 敏感的响应现象是训练诱导的 | SUPPORTED_ON_DEV | 未训练对照 ΔR 量级 ~1e-6 vs 训练后 ~1e-1（差 5 个数量级）；未训练处于平凡线性域（q/a≈1.0），训练将映射推出平凡域；未训练 Spearman 绝对值不做过度解读（近 float32 精度边缘） | 论文写作 |
+| P3-R12 | 几何预测的信息载体随联盟粒度从对角项向耦合项迁移 | SUPPORTED_ON_DEV | support 伸缩 v2（4 档×60 快照×6 模型）：full−diag 差距 0→+0.2~0.27（两族同向）；s=1 时 full≡diag（构造一致性）；“谁和谁一起动”的语义在 off-diagonal block 中且随联盟规模递增 | 论文写作 |
