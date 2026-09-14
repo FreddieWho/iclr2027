@@ -1,17 +1,16 @@
 # Current Status
 
-更新时间：2026-09-04
+更新时间：2026-09-05（P4-AMR 启动）
 
 ## 当前路线
 
-- active_phase: P3_CAUSAL_MECHANISM
-- current_checkpoint: P3_T5R6_CONFIRMED
-- current_route: support_conditioned_geometry_with_task_semantic_repair
-- current_phase_status: P3_T5R6_COMPLETE_P4_DECISION_PENDING
-- p4_status: blocked_pending_p3_t5r_gate
+- active_phase: P4_AMR_FIXED（用户 2026-09-05 裁决选项 C 全周期，D-20260905-P4-001）
+- current_checkpoint: P4_N1_AMR_MODEL_IMPLEMENTED（7 项单测通过）；配比扫掠 1:0/1:1 并行运行中（dev-only 事后消融）
+- current_route: support_conditioned_geometry_with_task_semantic_repair → AMR-Fixed M1
+- current_phase_status: P4_N2_CONFIG_LOCK_PENDING（路由分配冻结前不得训练）
+- p4_status: in_progress（N5/N6 二次读取届时需用户授权）
 - p5_status: blocked_pending_sports_prediction_lock
-- next_action: p4_or_diagnostic_decision
-- t5r6_blocker: 已完成（T5R6_CONFIRMED，8 场同方向）；下一步为事项 8 的 P4/诊断决策
+- next_action: P4-N2 M1 config lock（固定"频段 × 支持/关系"路由分配）
 
 P2 已冻结：rigid formal v2、独立 fracture continuity 和 P2-H1 异质性诊断均已完成。P2 结论是 representation response，不是下游任务性能；20/36 条件正向、16/36 条件负向，方向依赖 architecture、graph、role、energy。该结果不被重算、覆盖或改写。
 

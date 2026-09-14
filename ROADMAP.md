@@ -1,13 +1,14 @@
-# ROADMAP — T5R6 独立外部确认
+# ROADMAP — P4 AMR-Fixed（M1）全周期
 
 | 节点 | 内容 | 检验的假设 | 状态 |
 |---|---|---|---|
-| N1 | gated 数据获取与登记（HF 修订、文件清单、SHA-256、许可快照） | —（[infra] 前提） | 待执行，阻塞于用户授权 |
-| N2 | GSR→canonical 转换＋逐场 QC（1Hz 采样、20 人快照、跨半场队伍对齐） | —（[infra] 前提） | 待执行 |
-| N3 | T5R6 任务视图构建（冻结阈值、context 标签、natural pairs）＋审计 | H1 的测量基础 | 待执行 |
-| N4 | 任务确认：9 checkpoints 推理，逐场＋macro 统计 | H1 | 待执行 |
-| N5 | 干预确认：fracture 重分配＋Jacobian，逐场 full/diag/基线 | H2 | 待执行 |
-| N6 | T5R6 报告＋ledger 回写＋路由判定（P4/诊断） | H1＋H2 综合 | 待执行 |
+| P4-N1 [infra] | AMRModel 实现：双通道＋Chebyshev 谱带滤波（B=6）＋谱白化采样＋路由损失；JVP 与有限差分校验；单元测试 | —（[infra] 前提） | 待执行 |
+| P4-N2 | M1 config lock：固定"频段 × 支持/关系"路由分配（由 P3 证据导出）、损失权重、白化采样协议、seeds/splits；锁审计。**任何 AMR 结果产生前必须冻结** | —（协议前提） | 待执行 |
+| P4-N3 | M1 训练（3 seeds）＋dev 评估（任务＋干预＋几何剖面） | H1、H2 | 待执行 |
+| P4-N4 | matched-capacity 对照（CAP、centering、canonicalization、relational pooling 子集，dev） | H1 | 待执行 |
+| P4-N5 | candidate lock＋保留场确认读取（**需用户授权 J03WQQ 二次读取**） | H1/H2 确认 | 待授权 |
+| P4-N6 | 外部确认读取（**需用户授权 SoccerTrack-v2 二次读取**）＋P4 报告＋ledger 回写 | H1/H2 外部确认 | 待授权 |
 
-smoke 场（117092/117093）排除在正式确认之外。8 场：118575、118576、118577、
-118578、128057、128058、132831、132877。
+说明：N1–N4 全部限 train/valid dev 集，无需任何授权即可推进；N5/N6 是新的
+协议事件（T5R 的单次读取已消耗），到达该节点时停下等用户授权。
+M1 未达到 Pareto 改善判据时，按 spec §13 收缩，不启动 M2。

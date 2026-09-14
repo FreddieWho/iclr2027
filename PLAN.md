@@ -1,17 +1,26 @@
-# PLAN — T5R6 独立外部确认（SoccerTrack-v2）
+# PLAN — P4 AMR-Fixed（M1）全周期
 
-科学问题：T5R5 在单场同源保留比赛上复现的“任务语义分离＋局部几何预测受控响应”机制，
-换到独立 provider（不同联赛级别、不同采集系统）与多场比赛时是否保持方向。
+科学问题：P3/T5R 已用冻结证据建立"位移如何在构件联盟上分配是表征的一等变量，
+且局部几何可预测、修复可被外部确认"。AMR-Fixed（M1）问的是下一步：**把 P3
+机制证据转化为固定的"频段 × 支持/关系"路由约束后，一个显式方法能否在
+robustness–structure Pareto 上超过既有 baseline**（CAP、centering、
+canonicalization、relational pooling），而不只是把响应压大。
 
 假设：
 
-- H1（任务确认）：`update_ratio_2to1` 在 SoccerTrack-v2 多比赛上的 task–geometry 表现为
-  与 T5R5 同方向（context 非劣效、intrinsic pair 保持、geometry 不坍缩、translation 近零）。
-- H2（机制确认）：归一化局部几何（full/diagonal）预测受控 support-reallocation 响应的能力
-  在独立 provider 上复现，多比赛逐场 full 相对简单谱基线保持优势方向。
+- H1（路由有效性）：M1 的固定机制路由在 dev 上改善 robustness–structure Pareto
+  （相对 CAP/centering/canonicalization/relational pooling 的 matched-capacity
+  对照），不要求所有频段响应变正。
+- H2（机制一致性）：M1 学到的模式指纹与 P3 证据相容——不变性收益集中在
+  context-nuisance 频段，coupling 频段保持可恢复性；不要求逐频段方向预设。
 
-判据（描述性、非预注册门控）：逐场 Spearman 为主、match-macro 为主汇总、pooled 为辅；
-多比赛同方向即算支持，不逐场设硬门槛；任一方向系统性反转即记为机制边界并停下报告。
+判据（描述性）：以 dev 任务指标（zone/pair/geometry/centroid）＋干预指标
+（full/diag/基线）联合判定；任一系统性反转即收缩 claim 并停下报告。
+M1 不过即不启动 M2（spec §13）。
 
-为什么值得做：T5R5 只是单场同源确认；P3-R3（跨比赛泛化）与 P4（AMR） gate 要求独立确认。
-这是路由 A 指定的唯一正路，不开新搜索、不调参。
+为什么值得做：P3-R5 门已闭合（T5R6 CONFIRMED）；用户 2026-09-05 裁决选项 C
+（D-20260905-P4-001）。AMR 是项目立项时的核心方法贡献，M1 是它的最小可证伪形态。
+
+读取纪律：J03WQQ 与 SoccerTrack-v2 在 T5R 锁下各已消耗一次读取。P4 的任何
+保留场/外部确认读取都是**新的协议事件，届时需用户显式授权**；在那之前全部
+工作限 train/valid dev 集。

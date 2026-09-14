@@ -62,9 +62,16 @@
     - [ ] 10b 冻结论文形状并开始写作：机制先行 9 页；AMR/书法/篮球进 future work（可并行，依赖 10a 的作者决定）
     - [x] 10c 修复增益 headline 表＋8 场 bootstrap CI（已有数字，只需整理）→ `reports/P3_HEADLINE_EFFECT_TABLE.md`；发现 match-half 辅助探针 0/8 反向，已入 ledger P3-R9
     - [ ] 10d SSL 基线（SimSiam/BYOL 类，仅开发集评估，不新增保留场/外部读取）
-    - [ ] 10e 配比扫掠 1:0/1:1 是否补做——需用户拍板（与"无 Round 3"承诺有张力，见评审 3.3）
+    - [ ] 10e 配比扫掠 1:0/1:1（用户已授权，6 worker 并行运行中；dev-only 事后消融，选择仍 2:1）
 - [ ] 12. 手稿（骨架已建：`paper/main.tex`＋8 节 scaffold＋EVIDENCE_MAP；摘要初稿在 `paper/sections/00_abstract.tex`）子项按节推进，可并行
-    - [ ] 12a 用户复核摘要初稿与论文形状（机制先行 9 页）
+    - [ ] 12a 用户复核摘要初稿与论文形状（机制先行 9 页）——用户指示暂缓
+- [ ] 13. P4 AMR-Fixed 全周期（选项 C，PLAN/ROADMAP 已重写）子项串行，N2 锁冻结前不得训练
+    - [ ] P4-N1 AMRModel 实现＋JVP 校验＋单元测试
+    - [ ] P4-N2 M1 config lock（固定路由分配）＋锁审计
+    - [ ] P4-N3 M1 训练 3 seeds＋dev 评估
+    - [ ] P4-N4 matched-capacity 对照（CAP/centering/canonicalization/relational）
+    - [ ] P4-N5 candidate lock＋保留场读取（需用户授权二次读取）
+    - [ ] P4-N6 外部确认读取（需用户授权）＋报告
     - [ ] 12b 正文 prose 填充（按 EVIDENCE_MAP 的措辞规则）
     - [ ] 12c Figure 1 概念图生成
     - [ ] 12d 官方 ICLR 2027 样式文件替换占位 preamble；references.bib 补齐（现 11 条，需 ~40+）
@@ -82,7 +89,7 @@
 | B：SNGAR 恢复 | 暂缓 | 保留原访问和 test firewall；获得可信访问或带 revision/mapping/SHA-256 的镜像后，可升级独立样本量与确认强度。 |
 | C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
 | D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |
-| E：AMR 与书法 | 门已闭合、待用户裁决 | T5R 任务—鲁棒性—外部确认门已闭合（T5R6 CONFIRMED，P3-R5）；选项 A（本期不做）/B（dev-gated proof-of-concept）/C（P4 全周期）待事项 8 决定；agent 的 future-work 说法仅为建议。 |
+| E：AMR | 当前执行（选项 C 全周期） | 用户 2026-09-05 裁决（D-20260905-P4-001）；P4-N1..N4 dev 集推进；N5/N6 二次读取届时需用户授权。书法维持暂缓。 |
 | F：SoccerTrack-v2 外部确认 | 完成 | T5R6 CONFIRMED；8 场同方向；P4/诊断决策待事项 8。 |
 | G：ICLR 2027 投稿冲刺 | 当前执行 | 摘要截止 2026-09-18、全文 2026-09-25（官方核实）；论文形状为机制先行＋修复＋外部确认；AMR/书法/篮球明确移出正文。 |
 
@@ -109,3 +116,4 @@
 - 2026-09-05：11c 全部完成：预测基线头对头（full 0.49＞gyration 0.35＞谱 0.11，逐 seed 一致）＋k 敏感性（谱基线全 k 近零无翻转）；ledger P3-R14。事项 11 仅剩 11d（随手稿执行的措辞修正）。
 - 2026-09-05：用户质询后更正：分支 E 状态由“阻塞”改为“门已闭合、待用户裁决”——AMR 从未被任何治理文档判为 future work，该说法仅是 agent 在评审报告中的建议；A/B/C 三选项见评审报告及 D-20260905-T5R6-002。
 - 2026-09-05：新增事项 12（手稿）：论文骨架＋8 节写作 scaffold＋证据映射表＋摘要初稿已建于 `paper/`；AMR 与配比扫掠留槽位待用户裁决。
+- 2026-09-05：用户三项指令：论文 brief 暂缓评审；AMR 走完整流程（选项 C，D-20260905-P4-001，新增事项 13，分支 E 转执行）；配比扫掠 1:0/1:1 授权并行执行（10e 转执行，dev-only 事后消融）。PLAN/ROADMAP 已重写为 P4。
