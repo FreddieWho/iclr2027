@@ -42,7 +42,7 @@
       "task": 1.0,
       "ctx": 1.0,
       "route": 1.0,
-      "var": 0.1,
+      "var": 1.0,
       "orth": 0.01
     },
     "weights_rationale": "task/context losses dominant and equal to frozen recipe; route at parity as the new mechanism signal; regularizers one/two orders below"
@@ -90,6 +90,25 @@
       "before_any_training": true,
       "change": "AMRModel gains eqv_heads (per-band restricted linear 32->4, spec 7.2) and a frozen-eval-compatible encode() returning flattened band features + mode_embedding accepting flat or band-shaped input; no protocol content changed",
       "reason": "make the frozen T5R5/epsilon-sweep evaluation machinery reusable verbatim; recoverability heads are part of the model definition"
+    },
+    {
+      "date": "2026-09-05",
+      "version": "v2",
+      "before_v2_training": true,
+      "trigger": "v1 dev collapse (reports/P4_N3_V1_COLLAPSE_REPORT.md): mode channel near-total collapse 3/3 seeds",
+      "changes": [
+        "L_eqv normalized direction recovery: compare L2-normalized prediction with L2-normalized pooled band target (collapse makes normalized readout unstable -> equivariance bands penalize collapse)",
+        "W_var 0.1 -> 1.0 (variance floor at parity with route pressure)"
+      ],
+      "unchanged": [
+        "routing alpha [1,0,0,0,0,0]",
+        "update budget 210/140/70=420",
+        "seeds",
+        "evaluation protocol",
+        "success criteria",
+        "evidence scope (dev only)"
+      ],
+      "justification": "spec 7.2 recoverability tests information accessibility; magnitude-free directional readout is the stricter test; collapse must be costly for the 5 recoverable bands"
     }
   ]
 }

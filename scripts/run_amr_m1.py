@@ -35,7 +35,7 @@ CTX_QUOTA, PAIR_QUOTA, ROUTE_QUOTA = 210, 140, 70
 ROUTE_BATCH = 8
 SUPPORT_SIZES = (2, 3, 4, 5)
 EPSILON = 0.25
-W_TASK, W_CTX, W_ROUTE, W_VAR, W_ORTH = 1.0, 1.0, 1.0, 0.1, 0.01
+W_TASK, W_CTX, W_ROUTE, W_VAR, W_ORTH = 1.0, 1.0, 1.0, 1.0, 0.01
 N_INTERVENTION_SNAPSHOTS = 40
 
 
@@ -67,6 +67,8 @@ def verify_lock() -> dict[str, Any]:
     for rel, digest in lock["code_hashes"].items():
         if sha256_file(ROOT / rel) != digest:
             raise RuntimeError(f"REFUSED: code hash mismatch vs lock: {rel}")
+    if float(lock["losses"]["weights"]["var"]) != W_VAR:
+        raise RuntimeError("REFUSED: W_VAR constant out of sync with lock")
     return lock
 
 
@@ -98,7 +100,10 @@ def route_batch(model: Any, T5R3: Any, amr: Any, batch: dict[str, torch.Tensor],
     feats_after = model.band_features(centered + delta, team, adj)
     d_r = feats_after[:, band, :] - feats_before[:, band, :]
     l_inv = d_r.pow(2).sum(dim=-1).mean()
-    l_eqv = (model.eqv_heads[band](d_r) - target_pooled).pow(2).sum(dim=-1).mean()
+    pred = model.eqv_heads[band](d_r)
+    pred_n = F.normalize(pred, dim=-1)
+    target_n = F.normalize(target_pooled, dim=-1)
+    l_eqv = (pred_n - target_n).pow(2).sum(dim=-1).mean()
     alpha = model.route_alpha[band]
     l_route = alpha * l_inv + (1.0 - alpha) * l_eqv
     std = feats_before.std(dim=0).mean(dim=-1)

@@ -48,8 +48,9 @@ def main() -> int:
     scope = lock["evidence_scope"]
     check("dev only" in scope and "J03WQQ" in scope and "SoccerTrack" in scope,
           "dev-only scope with consumed-asset re-authorization noted")
-    trainings = [p for p in P4.rglob("*") if p.name.startswith(("record_", "summary")) and p.suffix == ".json"]
-    check(not trainings, "no M1 training records predate the lock")
+    trainings = [p for p in P4.rglob("*") if p.name.startswith(("record_", "summary")) and p.suffix == ".json"
+                 and "m1_v1" not in p.parts]
+    check(not trainings, "no M1 training records outside the closed documented m1_v1 run (pre-training gate)")
     criteria = lock["evaluation_plan"]["success_criteria_descriptive"]
     check("H1" in criteria and "H2" in criteria and "no m2" in criteria.lower(),
           "descriptive success criteria with contraction rule")
