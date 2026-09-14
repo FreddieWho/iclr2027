@@ -1,0 +1,18 @@
+{
+  "status": "AUTHORIZED_SINGLE_PROBE_ONLY",
+  "live_authorized": true,
+  "approval_source": "User agreed to the single 24576-token C1 probe in the active conversation, then requested continuation.",
+  "proposal": "configs/c1_output_budget_proposal.json",
+  "proposal_sha256": "40cf25e6fc17425c5b33e5d69b499a6c731ab81770e81cf74ed3b342e0f5dcac",
+  "accounting": "work/p0_repair_accounting_v1",
+  "output_root": "work/p0_c1_24576_authorized_v1",
+  "expected_prior_ledger_rows": 5,
+  "expected_prior_actual_or_conservative_usd": 0.15204730,
+  "expected_memory_input_hash": "80c3a2f04bb8a2a77358ceb496c616262af0772a24f7191e63505e5e3e56de48",
+  "original_prompt_sha256": "2bac3d3953acb2c2b7aba65c24fc3da9de58a7f864a3618246e38f1172197c95",
+  "max_probe_calls": 1,
+  "automatic_transport_retries": 0,
+  "read_timeout_seconds": 600,
+  "P0_cap_usd": 0.50,
+  "full_grid_restart_authorized_by_this_record": false
+}

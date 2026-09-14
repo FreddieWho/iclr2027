@@ -1,5 +1,13 @@
 # Release Changelog — 2026-09-11
 
+最新本地续报（未提交发布）：用户已批准并完成唯一一次C1 24576/max探针，原始32K/原始提示仍length、visible=0；新增实测$0.01723065，累计保守占用$0.16927795。授权已消耗，无重试，仍NO_GO/TECHNICAL。见 `reports/P0_C1_24576_PROBE.md`；下文“未授权”保留为旧快照。
+
+2026-09-12续报（未提交发布）：用户进一步授权增加 cap，并按 V2 low 合同实际尝试 DeepSeek V4.1/V4 与 GLM C1 fallback；V4.1 32K 重试仍未产生 natural-stop visible memory。当前共享账本累计保守占用 `$0.49637695`，含 5 个 uncertain reservations；R1 未执行、formal score rows 为 0。完整证据见 `reports/REASONING_BUDGET_V2.md` 与 `artifacts/reasoning_v2_live_result.json`。
+
+## 后续修复（尚未提交发布）
+
+详见 `reports/P0_REPAIR_20260911.md`：修复空完成解析、完整输出费用预留、超额结算回滚与跨路径session隔离，50项测试通过；R1简单短答探针通过，C1的32K/16K诊断仍失败。完整P0、科学评分与P1/P2未完成，仍为 `NO_GO/TECHNICAL`。本节之后保留前次本地提交快照；其中旧费用与“C1增额尚未授权/执行”只描述历史时点，当前状态以本文件顶部续报和 V2 artifact 为准。
+
 ## Release scope
 
 本次仅发布 ICLR Memory Pilot 的 preflight、数据准备、查重输入、阻塞审计、OpenCode Go P0 运行配置和可复跑 smoke surface；未发布真实 pilot 结果。
@@ -7,7 +15,7 @@
 ## Included updates
 
 - 离线测试通过：44/44。
-- 冻结 OpenCode Go P0 配置：GLM-5.3-Flash、User-Agent、价格/预算、models endpoint SHA、GLM/DeepSeek tokenizer revisions；凭据值未写入工作区。
+- 冻结 OpenCode Go P0 配置：GLM-5.3-Flash、User-Agent、价格/预算、models endpoint SHA、GLM/DeepSeek tokenizer revisions；凭据只留在被gitignore排除的本地 `.env`，不纳入提交或artifact。
 - 下载并本地验证 GLM native tokenizer；生成 8 history/64 question 的 native-tokenizer P0 calibration data。
 - 完成 OpenCode Go session/capability probes：短 C1 `max_tokens=2048` 返回 natural stop；R1 旧 `max_tokens=512 + reasoning=max` 被 provider 拒绝；首个 32K C1 请求在授权 `max_tokens=10240 + reasoning=max` 下仍返回 `content=null`/`finish_reason=length`；R1 新 `2048 provider / 512 visible` 合同已写入配置但尚未 live 执行。独立 reservation/actual ledger 汇总写入 `artifacts/provider_probe_manifest.json`。
 - 生成 8 条真实 `tiktoken:cl100k_base` synthetic P0 history、64 题并保存 manifest/hash。

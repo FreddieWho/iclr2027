@@ -3,7 +3,7 @@
   "audits": {
     "technical_validity": {
       "pass": false,
-      "evidence": ["reports/PREFLIGHT.md", "artifacts/provider_probe_manifest.json"]
+      "evidence": ["reports/PREFLIGHT.md", "artifacts/provider_probe_manifest.json", "reports/P0_REPAIR_20260911.md", "artifacts/p0_repair_result.json", "reports/P0_C1_24576_PROBE.md", "artifacts/c1_24576_probe_result.json", "reports/P0_DEEPSEEK_SWITCH_20260912.md", "artifacts/deepseek_switch_result.json", "reports/REASONING_BUDGET_V2.md", "artifacts/reasoning_v2_live_result.json"]
     },
     "query_blind": {
       "pass": false,
@@ -36,5 +36,5 @@
   },
   "candidates": [],
   "reason_if_none": "TECHNICAL",
-  "note": "This is the real decision input for this run: formal live execution stopped on the first C1 long-context output-exhaustion failure and produced no score row. Mock artifacts are explicitly excluded; no scientific effect is inferred."
+  "note": "Formal P0 remains incomplete. User-authorized V2 C1 runs on DeepSeek-V4.1-Flash low returned length/zero visible memory at 12000 and 16000; the first 32000 call returned HTTP 500 and a user-requested retry returned length/zero visible memory. V4-Flash low failed through proxy and direct 600-second timeout; the original GLM C1 low fallback also returned length/zero visible memory at 12000. R1 was not called; no scientific score, confirmation or hypothesis verdict."
 }

@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from core import Tokenizer,path_targets,public_text,parse_answer,exact_score,Ledger,Provider,write_json,response_schema_summary
+from core import Tokenizer,path_targets,public_text,parse_answer,exact_score,Ledger,Provider,write_json,load_json,response_schema_summary
 from make_synthetic import make_history
 from build_plan import build
 from import_longmemeval import convert
@@ -84,16 +84,18 @@ class CoreTests(unittest.TestCase):
         import requests
         cfg={'live_authorized':True,'usd_cap':1,'max_calls':10,'max_input_tokens':10000,'max_output_tokens':10000,'models_endpoint_sha256':'models-sha','opencode_session_id':'test-session','compressor':{'model':'glm-5.3-flash','base_url':'https://example/v1','chat_completions_url':'https://example/v1/chat/completions','api_key_env':'PILOT_TEST_KEY','context_tokens':1000,'max_visible_output_tokens':100,'output_parameter':'max_tokens','supports_seed':False,'extra_parameters':{'temperature':0.2},'input_usd_per_million':.15,'output_usd_per_million':.5,'cache_read_usd_per_million':.03,'input_reservation_overhead_tokens':16,'full_HF_tokenizer_revision':'hf-sha','user_agent':'iclr-memory-pilot/0.1'}}
         response=Mock(status_code=200)
-        response.json.return_value={'model':'glm-5.3-flash','choices':[{'message':{'content':'memory'},'finish_reason':'stop'}],'usage':{'prompt_tokens':7,'completion_tokens':2,'prompt_tokens_details':{'cached_tokens':3}}}
+        response.json.return_value={'model':'glm-5.3-flash','choices':[{'message':{'content':'memory'},'finish_reason':'stop'}],'usage':{'prompt_tokens':7,'completion_tokens':2,'prompt_tokens_details':{'cached_tokens':3},'completion_tokens_details':{'reasoning_tokens':1}}}
         with tempfile.TemporaryDirectory() as td, patch.dict(os.environ,{'PILOT_TEST_KEY':'secret'}), patch.object(requests,'post',return_value=response) as post:
             result=Provider(cfg,Tokenizer('tiktoken:cl100k_base'),td).call('compressor','system','user',5,0,request_metadata={'native_memory_tokens':4},provider_output_budget=20,visible_output_limit=5)
         self.assertEqual(post.call_args.args[0],'https://example/v1/chat/completions')
         self.assertEqual(post.call_args.kwargs['headers']['User-Agent'],'iclr-memory-pilot/0.1')
         self.assertEqual(post.call_args.kwargs['headers']['x-opencode-session'],'test-session')
         self.assertEqual(post.call_args.kwargs['json']['max_tokens'],20)
+        self.assertTrue(all(set(message) == {'role','content'} for message in post.call_args.kwargs['json']['messages']))
         self.assertEqual(result['provider_input_tokens'],7);self.assertEqual(result['provider_output_tokens'],2);self.assertEqual(result['cache_read_tokens'],3)
+        self.assertEqual(result['reasoning_tokens'],1)
         self.assertEqual(result['full_HF_tokenizer_revision'],'hf-sha');self.assertEqual(result['GET_v1_models_sha256'],'models-sha');self.assertEqual(result['native_memory_tokens'],4)
-        self.assertEqual(result['provider_output_budget_tokens'],20);self.assertEqual(result['visible_output_limit_tokens'],5)
+        self.assertEqual(result['provider_output_budget_tokens'],20);self.assertEqual(result['max_completion_tokens'],20);self.assertEqual(result['visible_output_limit_tokens'],5)
 
     def test_reader_visible_limit_never_truncates(self):
         from run_pilot import validate_reader_response
@@ -157,6 +159,76 @@ class CoreTests(unittest.TestCase):
         from run_pilot import compression_maxout
         models={'compressor':{'max_visible_output_tokens':10240,'provider_min_output_tokens':2048}}
         self.assertEqual(compression_maxout(1024,models),2048)
+
+    def test_reasoning_budget_v2_contract_is_frozen(self):
+        cfg=load_json(Path(__file__).resolve().parents[1]/'configs/models_opencode_go_p0_reasoning_v2.json')
+        self.assertEqual(cfg['contract_revision'],'REASONING_BUDGET_AMENDMENT_V2')
+        self.assertEqual(cfg['compressor']['model'],'deepseek-v4.1-flash')
+        self.assertEqual(cfg['compressor']['reasoning_effort'],'low')
+        self.assertEqual(cfg['compressor']['final_memory_calls']['max_completion_tokens'],12000)
+        self.assertEqual(cfg['compressor']['intermediate_memory_calls']['max_completion_tokens'],24000)
+        self.assertEqual(cfg['reader']['model'],'glm-5.3-flash')
+        self.assertEqual(cfg['reader']['reasoning_effort'],'low')
+        self.assertEqual(cfg['reader']['max_completion_tokens'],12000)
+        self.assertEqual(cfg['reader']['max_visible_output_tokens'],512)
+        self.assertFalse(cfg['max_effort']['use_in_primary_pilot'])
+        self.assertFalse(cfg['truncation']['posthoc_memory_truncation'])
+
+    def test_primary_max_effort_is_blocked_by_v2_policy(self):
+        from run_pilot import validate_primary_reasoning_policy
+        with self.assertRaises(RuntimeError):
+            validate_primary_reasoning_policy({'max_effort': {'use_in_primary_pilot': False},
+                                               'compressor': {'reasoning_effort': 'max'}})
+
+    def test_visible_budget_v3_config_is_inherited_and_fail_closed(self):
+        from core import load_model_config
+        from run_pilot import validate_visible_budget_protocol
+        root=Path(__file__).resolve().parents[1]
+        cfg=load_model_config(root/'configs/models_opencode_go_p0_visible_budget_v3.json')
+        self.assertEqual(cfg['compressor']['model'],'deepseek-v4.1-flash')
+        self.assertEqual(cfg['reader']['model'],'glm-5.3-flash')
+        self.assertEqual(cfg['visible_budget_protocol_v3']['preflight_budget_feasibility']['candidate_budgets'],[1024,1536,2048,3072,4096])
+        self.assertEqual(cfg['final_memory_budgets_native_tokens'],[])
+        with self.assertRaisesRegex(RuntimeError,'preflight is not complete'):
+            validate_visible_budget_protocol(cfg)
+
+    def test_visible_budget_v3_classifies_overflow_separately_from_memory_quality(self):
+        from run_pilot import compressor_budget_compliance,reasoning_tokens_or_estimate,actual_compression_rate
+        models={'visible_budget_protocol_v3':{'hard_facts':{}},'truncation':{'accepted_finish_reasons':['stop']}}
+        natural={'text':'memory','finish_reason':'stop','provider_output_tokens':11,'reasoning_tokens':7}
+        self.assertEqual(compressor_budget_compliance(natural,11,10,models),'BUDGET_NONCOMPLIANT')
+        self.assertEqual(compressor_budget_compliance(natural,10,10,models),'COMPLIANT')
+        self.assertEqual(reasoning_tokens_or_estimate(natural,4),(7,'PROVIDER_REPORTED'))
+        self.assertEqual(reasoning_tokens_or_estimate({'provider_output_tokens':11},4),(7,'ESTIMATED_COMPLETION_MINUS_VISIBLE_NATIVE'))
+        self.assertEqual(actual_compression_rate(100,25),0.75)
+
+    def test_visible_budget_overflow_is_unscored_and_reader_is_skipped(self):
+        from run_pilot import run
+        from core import append_jsonl,read_jsonl
+        class FakeProvider:
+            def __init__(self,*args,**kwargs):self.ledger=type('LedgerStub',(),{'summary':lambda self:{'attempts':1}})()
+            def call(self,role,system,user,max_tokens,replicate,**kwargs):
+                if role=='reader':raise AssertionError('R1 must not receive a budget-noncompliant memory')
+                body=' '.join(['x']*(int(kwargs['visible_output_limit'])+1))
+                return {'text':body,'finish_reason':'stop','model':'TEST','provider_model_id':'TEST','returned_model_field':'TEST','provider_name':'TEST','reasoning_effort':'low','provider_output_budget_tokens':100,'max_completion_tokens':100,'completion_budget_class':'final','visible_output_limit_tokens':kwargs['visible_output_limit'],'provider_input_tokens':20,'provider_output_tokens':14,'reasoning_tokens':3,'cache_read_tokens':0,'full_HF_tokenizer_revision':'test-rev','GET_v1_models_sha256':'test-catalog','run_start_utc':'test-time','opencode_session_id':'test-session','native_memory_tokens':20,'think_blocks_removed':False,'reasoning_content_present':True,'usage':{'prompt_tokens':20,'completion_tokens':14},'request_key':'test-request','cache_hit':False,'cost_usd_or_conservative':0}
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td)
+            history,questions=make_history(0,41,Tokenizer('demo'),1500,8)
+            append_jsonl(td/'histories.jsonl',history);append_jsonl(td/'queries.jsonl',questions[0])
+            write_json(td/'plan.json',build({'budgets':[10],'arms':['direct'],'replicates':[0],'history_tokens':1500,'n_histories':1,'tokenizer':'demo'}))
+            cfg=load_json(Path(__file__).resolve().parents[1]/'configs/models.example.json')
+            cfg['visible_budget_protocol_v3']={'hard_facts':{}}
+            cfg['compressor']['final_memory_calls']={'target_memory_tokens':[10],'max_completion_tokens':100}
+            cfg['compressor']['provider_output_budget_tokens']=100
+            cfg['compressor']['max_visible_output_tokens']=100
+            write_json(td/'models.json',cfg)
+            with patch('run_pilot.Provider',FakeProvider),patch('run_pilot.validate_visible_budget_protocol'):
+                run(td/'histories.jsonl',td/'queries.jsonl',td/'plan.json',td/'models.json',td/'out',mock=False)
+            score=read_jsonl(td/'out/scores.jsonl')[0]
+            self.assertEqual(score['status'],'BUDGET_NONCOMPLIANT')
+            self.assertIsNone(score['score'])
+            self.assertEqual(score['budget_compliance'],'BUDGET_NONCOMPLIANT')
+            self.assertGreater(score['visible_native_tokens'],score['budget'])
 
 class StatisticsTests(unittest.TestCase):
     def test_bootstrap_direction(self):

@@ -1,0 +1,86 @@
+{
+  "artifact_type": "owner_authorized_p1_exploration_result",
+  "recorded_utc": "2026-09-13T21:02:21Z",
+  "protocol_id": "memory_path_v4_fast_route_decision_20260913",
+  "continuation_amendment_id": "V4_OWNER_CONTINUATION_AFTER_P0_TECHNICAL_FAILURE_20260914_V1",
+  "phase": "p1_exploration",
+  "statistical_status": "EXPLORATORY_ONLY; NOT_A_ROUTE_DECISION",
+  "runtime_config_sha256": "2ea71c6357a810c8f060a2c068eef55a82452d16bad101395bd2c76cee80144f",
+  "compressor_prompt": {
+    "path": "prompts/compress_v4_route_selection.txt",
+    "sha256": "253a1e813308b0500b574a6698e1b6bf57a02cfe0c8e0b4afd849f4597d3d0bb"
+  },
+  "compression_manifest": {
+    "path": "work/v4_fast_decision_20260914_owner_continuation/p1/live/compression_manifest.json",
+    "sha256": "258d1cea4562a3f5559ea24868d50f57e4442e9f56dba2d296a17592e04d306e",
+    "memories_sha256": "9f7ca25b2794b158ec9a93785e44b93ee0bfdb16375f956c2bdb469ed61b2a56",
+    "memory_steps_sha256": "29758a024f9e5ec2a42a6a9c22c01a45d250e7147353421607d0249beec37325",
+    "histories_sha256": "532ef8e2121e0ad851282ffd4c1f1548ffe570948d4bff52930a573780b379a2",
+    "history_count": 12,
+    "query_file_opened": false,
+    "no_future_query_visible_to_compressor": true,
+    "posthoc_truncation": false,
+    "compression_retry_count": 0
+  },
+  "c1": {
+    "provider": "OpenCode Go",
+    "model": "deepseek-v4.1-flash",
+    "thinking": "disabled",
+    "reasoning_effort": "NOT_SENT",
+    "requested_final_target_tokens": 8192,
+    "requested_intermediate_target_tokens": 16384,
+    "provider_output_budget_tokens": {
+      "final": 24576,
+      "intermediate": 32768
+    },
+    "final_cells": {
+      "direct": {"n": 12, "natural_stop": 9, "technical_invalid": 3, "natural_in_4096_16384": 4, "mean_utility_valid_only": 0.6527777778},
+      "staged2": {"n": 12, "natural_stop": 7, "technical_invalid": 5, "natural_in_4096_16384": 5, "mean_utility_valid_only": 0.9107142857},
+      "rewrite": {"n": 12, "natural_stop": 8, "technical_invalid": 4, "natural_in_4096_16384": 2, "mean_utility_valid_only": 0.4375}
+    },
+    "length_invalid_steps": {"final_budget_24576": 7, "intermediate_budget_32768": 5},
+    "reason_for_prompt_v2": "12/36 final memories were technically invalid; overlong outputs occurred in all three paths."
+  },
+  "r1": {
+    "reader_manifest_path": "work/v4_fast_decision_20260914_owner_continuation/p1/r1_low/reader_manifest.json",
+    "reader_manifest_sha256": "1b5b2e4ae86f5eff018234a55fb1b8b7b48dd16f713a85eb9fd9e77eec13a2d9",
+    "reader_rows_sha256": "01edbb6d0a972703b016f45b20fd1f6b2c9cdea635c5f2f1b31b2acfa9a72530",
+    "provider": "OpenCode Go",
+    "model": "glm-5.3-flash",
+    "reasoning_effort": "low",
+    "provider_output_budget_tokens": 12000,
+    "visible_answer_limit_tokens": 512,
+    "valid_question_rows": {"raw": 96, "direct": 72, "staged2": 56, "rewrite": 64},
+    "mean_utility_valid_only": {"raw": 1.0, "direct": 0.6527777778, "staged2": 0.9107142857, "rewrite": 0.4375},
+    "utility_by_information_type_valid_only": {
+      "direct": {"atomic_fact": 0.5555555556, "exception_retraction_constraint": 0.8333333333, "relational_multihop": 0.3333333333, "temporal_update_provenance": 0.8888888889},
+      "staged2": {"atomic_fact": 0.8571428571, "exception_retraction_constraint": 0.9285714286, "relational_multihop": 0.8571428571, "temporal_update_provenance": 1.0},
+      "rewrite": {"atomic_fact": 0.375, "exception_retraction_constraint": 0.5, "relational_multihop": 0.375, "temporal_update_provenance": 0.5}
+    }
+  },
+  "paired_history_analysis": {
+    "statistics_unit": "history",
+    "all_three_complete_histories": 5,
+    "bootstrap_replicates": 20000,
+    "confidence_level": 0.9,
+    "staged2_minus_direct": {"n": 6, "mean": 0.2083333333, "bootstrap90_ci": [0.0625, 0.3541666667]},
+    "rewrite_minus_direct": {"n": 6, "mean": -0.2083333333, "bootstrap90_ci": [-0.6666666667, 0.2083333333]},
+    "staged2_minus_rewrite": {"n": 6, "mean": 0.5625, "bootstrap90_ci": [0.2291666667, 0.8333333333]},
+    "staged2_minus_direct_length_balanced": {"n": 3, "mean": 0.0416666667, "max_length_ratio": 1.25},
+    "staged2_minus_direct_length_regression": {
+      "equal_length_intercept": -0.001452232,
+      "intercept_bootstrap90_ci": [-0.0714258423, 0.0449302133],
+      "length_slope": 0.3192709356
+    }
+  },
+  "conclusion": "P1 is not a clear-futility result: the reader instrument works and memory utilities are not uniformly near no_memory. The positive unadjusted staged2-direct difference is weakly supported only among complete pairs and is largely attenuated by length balance/regression; P1 is too small and has 12/36 technically invalid final memories. Continue with a new, frozen compact prompt on fresh confirmation histories; do not pool P1 old-prompt utility with P2 new-prompt utility.",
+  "cost_ledger_after_p1_r1": {
+    "project_actual_plus_uncertain_usd": 3.3473646,
+    "deepseek_actual_plus_uncertain_usd": 3.22717915,
+    "glm_actual_plus_uncertain_usd": 1.4922969,
+    "project_reserved_usd": 0.0641718,
+    "project_cap_usd": 55.0,
+    "deepseek_cap_usd": 13.0,
+    "glm_cap_usd": 42.0
+  }
+}

@@ -1,10 +1,18 @@
 # Phase Report — ICLR Memory Pilot preflight and credential-bound handoff
 
-日期：2026-09-11
+日期：2026-09-12（增补）
+
+最新增额与 fallback 探针已授权并完成：DeepSeek V4.1/V4 以及 GLM C1 low 均未产生 32K history 的 natural-stop visible memory；V4.1 32K 重试仍为 `length/visible=0`。累计共享账本保守占用 `$0.49637695`，含 5 个 uncertain reservations；完整 P0 未完成。详见 `reports/REASONING_BUDGET_V2.md` 和 `artifacts/reasoning_v2_live_result.json`，下文为此前快照。
+
+2026-09-12：新增并执行 `REASONING_BUDGET_AMENDMENT_V2` 技术校准；基础预算与预设 escalation 均未解锁 C1。它不改变上述历史证据或当前 `NO_GO_TECHNICAL`；详见 `reports/REASONING_BUDGET_V2.md`。
+
+补充真实执行结果：V2 C1 `low/12000`、`low/16000` 均在首个 32K history 上 `finish_reason=length`、visible memory=0；`low/32000` 首次为 HTTP 500，重试仍为 `length/visible=0`；DeepSeek V4 fallback 的代理尝试与直连均失败/超时；GLM C1 `low/12000` 仍为 `length/visible=0`。R1 未执行。证据见 `artifacts/reasoning_v2_live_result.json`，累计共享账本保守占用 `$0.49637695`。
+
+后续修复快照：见 `reports/P0_REPAIR_20260911.md` 与 `artifacts/p0_repair_result.json`。工程回归现为56项通过，R1简单短答探针已通过，C1在所有已测长上下文 fallback 上仍无可见输出；完整P0保持未完成。下文为修复前阶段记录，费用以 `artifacts/reasoning_v2_live_result.json` 的共享账本为准。
 
 ## Scope and status
 
-本阶段负责把 bounded pilot 从施工包推进到可运行状态，并冻结当前可安全交给后续执行者的输入/输出面。离线代码、C1/R1 native tokenizer、P0 synthetic data、LongMemEval 数据准备和 mock smoke 已完成；R1 新合同已冻结为 provider `2048`、visible answer `512`、`reasoning=max`。正式 P0 首个 C1 长上下文请求在授权 `10240` 上限内耗尽 reasoning，返回 `content=null`/`finish_reason=length`，真实 C1/R1 pilot 为 `BLOCKED_C1_LONG_CONTEXT_MAX_REASONING_OUTPUT_EXHAUSTION`，没有科学效应结果。
+本阶段负责把 bounded pilot 从施工包推进到可运行状态，并冻结当前可安全交给后续执行者的输入/输出面。离线代码、C1/R1 native tokenizer、P0 synthetic data、LongMemEval 数据准备和 mock smoke 已完成；R1 新合同已冻结为 provider `12000`、visible answer `512`、`reasoning_effort=low`。真实 P0 的多个 C1 长上下文 gate 均在预算耗尽、HTTP/network failure 或 read timeout 下失败，真实 C1/R1 pilot 为 `BLOCKED_C1_LONG_CONTEXT_PROVIDER_OUTPUT_OR_TRANSPORT`，没有科学效应结果。
 
 ## Canonical inputs
 
@@ -15,7 +23,8 @@
 | Action-Mode 备忘 | `docs/08_ACTION_MODE_AUDIT_MEMO.md` | 只读后续备忘，本阶段不施工 |
 | pilot/calibration 配置 | `configs/pilot.json`, `configs/calibration.json` | H/B/路径/工程上限 |
 | 模型示例配置 | `configs/models.example.json` | 当前为 REPLACE 示例，不能 live |
-| P0 运行配置 | `configs/models_opencode_go_p0_r1_2048.json`, `configs/calibration_opencode_go.json` | OpenCode Go/GLM-5.3-Flash；R1 provider 2048/visible 512；key 只通过 env |
+| P0 运行配置（历史） | `configs/models_opencode_go_p0_r1_2048.json`, `configs/calibration_opencode_go.json` | OpenCode Go/GLM-5.3-Flash；R1 provider 2048/visible 512；key 只通过 env |
+| P0 运行配置（V2） | `configs/models_opencode_go_p0_reasoning_v2*.json`, `configs/calibration_opencode_go_reasoning_v2.json` | C1 DeepSeek-V4.1/V4/GLM fallback；R1 GLM-5.3-Flash/low；按阶段预算与 R1 visible 512；key 只通过 env |
 | prompts | `prompts/*.txt` | compressor/reader/judge/audit 原始提示 |
 
 ## Canonical outputs
@@ -25,7 +34,7 @@
 - `reports/decision_input.json`：本次真实 decision input，mock 明确排除。
 - `reports/PREFLIGHT.md`、`NOVELTY_AUDIT.md`、`LENGTH_AUDIT.md`、`EVIDENCE_AUDIT.md`、`ROBUSTNESS.md`：门状态和证据边界。
 - `artifacts/dataset_manifest.json`、`model_manifest.json`、`confirmation_selection.json`：机器可读 provenance/status。
-- `artifacts/steps.jsonl`、`predictions.jsonl`、`scores.jsonl`：canonical score surface 保留 `NOT_RUN` 标记；独立失败 P0 output roots 不并入其中。
+- `artifacts/steps.jsonl`、`predictions.jsonl`、`scores.jsonl`：canonical score surface 保留 `NOT_RUN` 标记；独立失败 P0 output roots 不并入其中；V2 失败汇总见 `artifacts/reasoning_v2_live_result.json`。
 - `artifacts/cost_ledger.sqlite`、`cost_summary.json`：canonical score surface 未产生有效 formal row；失败/probe ledger 另列于 `artifacts/provider_probe_manifest.json`。
 - `artifacts/provider_probe_manifest.json`：独立 provider probes、响应字段形状、错误摘要、session 与 reservation 汇总。
 
@@ -66,4 +75,4 @@
 
 ## Reading order for the next executor
 
-先读 `reports/PILOT_REPORT.md` 和 `reports/PREFLIGHT.md`，再读三个 machine-readable manifests；若获得 C1 `>10240` provider output 的明确授权，重新核验当前 git/data hashes，并以新的 output root 重做 8 条 P0 live calibration。不得复用 probe/mock output 或把本阶段 `NO_GO` 改成科学否定。
+先读 `reports/PILOT_REPORT.md` 和 `reports/PREFLIGHT.md`，再读 machine-readable manifests；若获得新的、可验证的 C1 protocol 解锁方案，重新核验当前 git/data hashes，并以新的 output root 重做 8 条 P0 live calibration。不得复用 probe/mock output 或把本阶段 `NO_GO` 改成科学否定。

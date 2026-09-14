@@ -1,0 +1,191 @@
+{
+  "protocol_id": "memory_path_v4_fast_route_decision_20260913",
+  "freeze_state": "OWNER_AUTHORIZED_CONTINUATION_C1_32768_R1_CALIBRATION_PENDING",
+  "resource_contract_id": "V4_RESOURCE_AMENDMENT_20260913_V1",
+  "resource_contract_approved_utc": "2026-09-13T15:52:42Z",
+  "resource_contract_scope": "User authorized continuation after the original P0 technical stop. Preserve models, prompts, paths, history length, seeds, scoring, and local USD-equivalent caps; raise C1 completion ceilings to 24576 final and 32768 intermediate tokens.",
+  "supersedes_for_route_selection": "visible_budget_preflight_v3",
+  "provider": {
+    "name": "OpenCode Go",
+    "chat_completions_url": "https://opencode.ai/zen/go/v1/chat/completions",
+    "models_url": "https://opencode.ai/zen/go/v1/models",
+    "api_key_env": "PILOT_OPENCODE_GO_API_KEY",
+    "use_balance": false,
+    "auto_topup": false,
+    "paid_fallback": false,
+    "user_agent": "iclr-memory-pilot/0.1",
+    "pricing_verified_date": "2026-09-13",
+    "pricing_source": "https://dev.opencode.ai/docs/go/",
+    "pricing_reservation_policy": "DeepSeek peak rates and no cache discount; conservative for cap checks",
+    "models_catalog_source": "work/v4_fast_decision_20260913/preflight/provider_models_live_20260913.json",
+    "models_catalog_sha256": "8f4a71947dacd5fccaf8353064cab5a7c932a5f332a2631d6ab38f028a6bbd2d"
+  },
+  "resource_caps_usd": {
+    "project_total": 55,
+    "deepseek_v4_1_flash": 13,
+    "glm_5_3_flash": 42,
+    "prior_project_actual_plus_uncertain": 1.37211145,
+    "prior_project_split_by_model": "unknown; for model-cap preflight conservatively reserve the full prior amount against each model independently"
+  },
+  "provider_usage_limits_usd": {
+    "verified_utc": "2026-09-13T16:00:22Z",
+    "source": "https://dev.opencode.ai/docs/go/",
+    "models": {
+      "deepseek-v4.1-flash": {
+        "five_hour": 3,
+        "weekly": 7.5,
+        "monthly": 15
+      },
+      "glm-5.3-flash": {
+        "five_hour": 12,
+        "weekly": 30,
+        "monthly": 60
+      }
+    },
+    "note": "Provider-enforced usage limits are separate from local project/model caps; usage outside this pilot is not observable here. No balance fallback or auto-topup."
+  },
+  "compressor_C1": {
+    "provider_model_id": "deepseek-v4.1-flash",
+    "provider": "OpenCode Go",
+    "thinking": "disabled",
+    "reasoning_effort": null,
+    "reasoning_effort_wire_policy": "omit",
+    "temperature": 0,
+    "top_p": 0.95,
+    "supports_seed": false,
+    "final_requested_target_tokens": 8192,
+    "intermediate_requested_target_tokens": 16384,
+    "final_provider_output_budget_tokens": 24576,
+    "intermediate_provider_output_budget_tokens": 32768,
+    "active_budget_amendment": {
+      "id": "OWNER_AUTHORIZED_COMPLETION_CEILING_32768_20260914",
+      "status": "OWNER_AUTHORIZED_FROZEN_FOR_CONTINUATION",
+      "previous_values": {
+        "final_target": 8192,
+        "intermediate_target": 16384,
+        "final_provider_budget": 16384,
+        "intermediate_provider_budget": 24576
+      },
+      "source_p0_manifest": "work/v4_fast_decision_20260913/p0_b8192_resource_amendment_live/compression_manifest.json",
+      "no_further_budget_adjustment_allowed": false,
+      "supersedes_id": "P0_B8192_SINGLE_TECHNICAL_ADJUSTMENT"
+    },
+    "allowed_single_p0_fallback": {
+      "final_requested_target_tokens": 8192,
+      "intermediate_requested_target_tokens": 16384,
+      "final_provider_output_budget_tokens": 24576,
+      "intermediate_provider_output_budget_tokens": 32768
+    },
+    "output_parameter": "max_tokens",
+    "context_tokens": 1048576,
+    "tokenizer": "hf_json:/home/huyudi/012_conference/iclr2027/submission/work/p0_deepseek_switch_20260912_v1/deepseek-v4.1-flash/tokenizer",
+    "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+    "tokenizer_add_special_tokens": false,
+    "input_usd_per_million": 0.3,
+    "output_usd_per_million": 1.2,
+    "cache_read_usd_per_million": 0.006,
+    "temperature_policy": "explicit_zero; top_p=0.95; frozen across paths",
+    "thinking_parameter_policy": "send thinking.type=disabled; omit reasoning_effort"
+  },
+  "reader_R1": {
+    "provider_model_id": "glm-5.3-flash",
+    "provider": "OpenCode Go",
+    "reasoning_effort": "low",
+    "reasoning_effort_promote_once_to": "high",
+    "oracle_accuracy_promotion_threshold": 0.9,
+    "provider_output_budget_tokens": 12000,
+    "visible_answer_limit_tokens": 512,
+    "visible_limit_tokenizer": "hf:/home/huyudi/012_conference/iclr2027/submission/work/tokenizers/glm-5.3-flash-eb9eb208",
+    "full_HF_tokenizer_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+    "tokenizer_add_special_tokens": false,
+    "context_tokens": 65536,
+    "temperature": 0,
+    "input_usd_per_million": 0.15,
+    "output_usd_per_million": 0.5,
+    "cache_read_usd_per_million": 0.03,
+    "reasoning_effort_source": "existing approved R1 runtime; V4 calibration threshold supersedes prior threshold"
+  },
+  "reader_R2": {
+    "provider_model_id": "deepseek-v4.1-flash",
+    "provider": "OpenCode Go",
+    "reasoning_effort": "MATCH_FINAL_R1_SETTING",
+    "provider_output_budget_tokens": 12000,
+    "visible_answer_limit_tokens": 512,
+    "context_tokens": 1048576,
+    "tokenizer": "hf_json:/home/huyudi/012_conference/iclr2027/submission/work/p0_deepseek_switch_20260912_v1/deepseek-v4.1-flash/tokenizer",
+    "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+    "input_usd_per_million": 0.3,
+    "output_usd_per_million": 1.2,
+    "cache_read_usd_per_million": 0.006,
+    "reuse_frozen_memories_only": true
+  },
+  "paths": {
+    "raw": [],
+    "direct": [
+      8192
+    ],
+    "staged2": [
+      16384,
+      8192
+    ],
+    "rewrite": [
+      8192,
+      8192
+    ],
+    "reader_calibration_only": [
+      "oracle",
+      "no_memory"
+    ]
+  },
+  "sampling": {
+    "C1_temperature": 0,
+    "C1_top_p": 0.95,
+    "C1_seed": null,
+    "R1_temperature": 0,
+    "accept_finish_reason": "stop",
+    "posthoc_truncation": false,
+    "automatic_retry_for_compression": false,
+    "reader_protocol_retry_limit": 1
+  },
+  "memory_definition": {
+    "include_reasoning_tokens": false,
+    "include_think_blocks": false,
+    "include_only_final_memory_body": true,
+    "query_blind_compression": true,
+    "fresh_request_each_stage": true,
+    "pass_previous_reasoning_to_next_stage": false,
+    "actual_visible_length_scored_and_reported": true,
+    "requested_target_is_hard_cap": false
+  },
+  "data_design": {
+    "p0_histories": 2,
+    "p1_exploration_histories": 12,
+    "p2_confirmation_histories": 24,
+    "questions_per_history": 8,
+    "statistics_unit": "history",
+    "p0_seed": 2026091301,
+    "p1_seed": 2026091302,
+    "p2_seed": 2026091303,
+    "history_native_tokens": 32768
+  },
+  "analysis": {
+    "paired_bootstrap_confidence": 0.9,
+    "paired_bootstrap_replicates": 20000,
+    "length_balance_ratio_max": 1.25,
+    "ci_borderline_zero_crossing_max": 0.01,
+    "decision_rules_source": "docs/ICLR_MemoryPilot_V4_FastDecision_20260913/docs/04_ROUTE_DECISION_RULES.md"
+  },
+  "execution": {
+    "max_transport_attempts": 1,
+    "read_timeout_seconds": 1800,
+    "max_calls": 5000,
+    "max_input_tokens": 200000000,
+    "max_output_tokens": 60000000,
+    "stable_session_within_path": true,
+    "isolated_sessions_between_paths": true,
+    "no_tools_inside_model_calls": true,
+    "no_web_inside_model_calls": true
+  },
+  "continuation_amendment_id": "V4_OWNER_CONTINUATION_AFTER_P0_TECHNICAL_FAILURE_20260914_V1",
+  "parent_runtime_config_sha256": "6efe541eccb62508bdffbaaf73c518030d57ea4b7e30706fa045608805bf0415"
+}

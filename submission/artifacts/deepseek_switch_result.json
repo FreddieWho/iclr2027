@@ -1,0 +1,282 @@
+{
+  "status": "CAPABILITY_DIAGNOSTICS_ONLY",
+  "authorization": "configs/deepseek_switch_authorization_20260912.json",
+  "authorization_hash": "c6512d867e4816c1c1727bce3a1d1cf463903087296784af884cfd638d09cc15",
+  "runs": [
+    {
+      "output_root": "work/p0_deepseek_switch_20260912_v1/deepseek-v4-flash/b1024",
+      "manifest": {
+        "purpose": "P0_technical_diagnostic_only",
+        "history_id": "syn-20260910-00000",
+        "model_config_hash": "bf46983a69d571a1400b055670eeac1cb76d12b1c7cf4d07202b41c78fc6cf83",
+        "input_hash": "80c3a2f04bb8a2a77358ceb496c616262af0772a24f7191e63505e5e3e56de48",
+        "system_prompt_hash": "8da721c441b0017b6a87085fe76839a06716079da2a245c9b9582dca56d1c111",
+        "native_input_tokens": 32693,
+        "target": 1024,
+        "role": "compressor",
+        "provider_output_budget_tokens": 24576,
+        "code_hash": "4ee571e563e5f415ae87c545d9287492a5b43d33ca40ece6acaf48d94fa5c3fb",
+        "selection_uses_scores": false,
+        "queries_loaded_by_compressor": false,
+        "run_start_utc": "2026-09-11T16:26:03.205123+00:00"
+      },
+      "result": {
+        "mock": false,
+        "cache_hit": false,
+        "model": "deepseek-v4-flash",
+        "returned_model_field": "deepseek-v4-flash",
+        "provider_model_id": "deepseek-v4-flash",
+        "provider_name": "OpenCode Go",
+        "reasoning_effort": "max",
+        "provider_output_budget_tokens": 24576,
+        "visible_output_limit_tokens": 1024,
+        "fingerprint": null,
+        "usage": {
+          "prompt_tokens": 32903,
+          "completion_tokens": 24576,
+          "total_tokens": 57479,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 32903,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 24576
+          }
+        },
+        "usage_is_measured": true,
+        "provider_input_tokens": 32903,
+        "provider_output_tokens": 24576,
+        "cache_read_tokens": 0,
+        "cost_usd_or_conservative": 0.0393621,
+        "run_start_utc": "2026-09-11T16:26:03.205391+00:00",
+        "opencode_session_id": "iclr-memory-pilot/deepseek-switch/deepseek-v4-flash/b1024",
+        "full_HF_tokenizer_revision": "60d8d70770c6776ff598c94bb586a859a38244f1",
+        "GET_v1_models_sha256": "ea639115e7f742960d572ba15414802b91742a74f94113f042a4077e09d2dd5b",
+        "full_request_native_tokens": 32873,
+        "native_memory_tokens": 32693,
+        "finish_reason": "length",
+        "request_key": "fe6459d7895ab8b3b84c6f772da512b485f3e00a08775728525cd1183a305686",
+        "latency_seconds": 103.68844612687826,
+        "response_shape": {
+          "body_keys": [
+            "choices",
+            "cost",
+            "created",
+            "id",
+            "model",
+            "object",
+            "usage"
+          ],
+          "choice_count": 1,
+          "choice_keys": [
+            "finish_reason",
+            "index",
+            "logprobs",
+            "message"
+          ],
+          "finish_reason": "length",
+          "usage_keys": [
+            "completion_tokens",
+            "completion_tokens_details",
+            "prompt_cache_hit_tokens",
+            "prompt_cache_miss_tokens",
+            "prompt_tokens",
+            "prompt_tokens_details",
+            "total_tokens"
+          ],
+          "prompt_tokens": 32903,
+          "completion_tokens": 24576,
+          "total_tokens": 57479,
+          "message_keys": [
+            "content",
+            "reasoning_content",
+            "role"
+          ],
+          "role_type": "str",
+          "role_length": 9,
+          "content_type": "str",
+          "content_length": 0,
+          "reasoning_content_type": "str",
+          "reasoning_content_length": 62749
+        },
+        "visible_response_tokens": 0,
+        "request_system_hash": "8da721c441b0017b6a87085fe76839a06716079da2a245c9b9582dca56d1c111",
+        "request_user_hash": "850e6dc6905396e9584d379d340eefd1cf436afe29da13cd89a3204108c5ecca",
+        "status": "compressor_non_natural_stop",
+        "history_id": "syn-20260910-00000",
+        "target": 1024,
+        "final_visible_answer_tokens": null,
+        "scientific_score": null
+      },
+      "provider_output_budget_overrun_tokens": 0
+    },
+    {
+      "output_root": "work/p0_deepseek_switch_20260912_v1/deepseek-v4.1-flash/b1024",
+      "manifest": {
+        "purpose": "P0_technical_diagnostic_only",
+        "history_id": "syn-20260910-00000",
+        "model_config_hash": "8beb6dccbf96f120826120d3f78cf688ca4d2589bec608942b65cf12f2bdef64",
+        "input_hash": "80c3a2f04bb8a2a77358ceb496c616262af0772a24f7191e63505e5e3e56de48",
+        "system_prompt_hash": "8da721c441b0017b6a87085fe76839a06716079da2a245c9b9582dca56d1c111",
+        "native_input_tokens": 32693,
+        "target": 1024,
+        "role": "compressor",
+        "provider_output_budget_tokens": 24576,
+        "code_hash": "8100d00979b886a28236d91369928bbbd8c0be3a1cf1fb06bde68454fc165216",
+        "selection_uses_scores": false,
+        "queries_loaded_by_compressor": false,
+        "run_start_utc": "2026-09-11T16:22:57.304737+00:00"
+      },
+      "result": {
+        "mock": false,
+        "cache_hit": false,
+        "model": "deepseek-v4.1-flash",
+        "returned_model_field": "deepseek-v4.1-flash",
+        "provider_model_id": "deepseek-v4.1-flash",
+        "provider_name": "OpenCode Go",
+        "reasoning_effort": "max",
+        "provider_output_budget_tokens": 24576,
+        "visible_output_limit_tokens": 1024,
+        "fingerprint": null,
+        "usage": {
+          "prompt_tokens": 32903,
+          "completion_tokens": 24577,
+          "total_tokens": 57480,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 32903,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 24577
+          }
+        },
+        "usage_is_measured": true,
+        "provider_input_tokens": 32903,
+        "provider_output_tokens": 24577,
+        "cache_read_tokens": 0,
+        "cost_usd_or_conservative": 0.0393633,
+        "run_start_utc": "2026-09-11T16:22:57.305097+00:00",
+        "opencode_session_id": "iclr-memory-pilot/b1024",
+        "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+        "GET_v1_models_sha256": "13f7c0f0b72c515f11af414f44d885c9d620b14b3dbdebcd08412dd6299a5e0a",
+        "full_request_native_tokens": 32873,
+        "native_memory_tokens": 32693,
+        "finish_reason": "length",
+        "request_key": "f45571eaffa4b34c4728e0298198b28071963be2cf951e6524c0506d91c1069f",
+        "latency_seconds": 103.27687186002731,
+        "response_shape": {
+          "body_keys": [
+            "choices",
+            "cost",
+            "created",
+            "id",
+            "model",
+            "object",
+            "usage"
+          ],
+          "choice_count": 1,
+          "choice_keys": [
+            "finish_reason",
+            "index",
+            "logprobs",
+            "message"
+          ],
+          "finish_reason": "length",
+          "usage_keys": [
+            "completion_tokens",
+            "completion_tokens_details",
+            "prompt_cache_hit_tokens",
+            "prompt_cache_miss_tokens",
+            "prompt_tokens",
+            "prompt_tokens_details",
+            "total_tokens"
+          ],
+          "prompt_tokens": 32903,
+          "completion_tokens": 24577,
+          "total_tokens": 57480,
+          "message_keys": [
+            "content",
+            "reasoning_content",
+            "role"
+          ],
+          "role_type": "str",
+          "role_length": 9,
+          "content_type": "str",
+          "content_length": 0,
+          "reasoning_content_type": "str",
+          "reasoning_content_length": 70914
+        },
+        "visible_response_tokens": 0,
+        "request_system_hash": "8da721c441b0017b6a87085fe76839a06716079da2a245c9b9582dca56d1c111",
+        "request_user_hash": "850e6dc6905396e9584d379d340eefd1cf436afe29da13cd89a3204108c5ecca",
+        "status": "compressor_non_natural_stop",
+        "history_id": "syn-20260910-00000",
+        "target": 1024,
+        "final_visible_answer_tokens": null,
+        "scientific_score": null
+      },
+      "provider_output_budget_overrun_tokens": 1
+    }
+  ],
+  "preflights": [
+    {
+      "model": "deepseek-v4-flash",
+      "repo": "deepseek-ai/DeepSeek-V4-Flash",
+      "full_HF_tokenizer_revision": "60d8d70770c6776ff598c94bb586a859a38244f1",
+      "tokenizer": "hf_json:/home/huyudi/012_conference/iclr2027/submission/work/p0_deepseek_switch_20260912_v1/deepseek-v4-flash/tokenizer",
+      "tokenizer_file_hashes": {
+        "tokenizer.json": "8f9f37ca37fdc4f5fd36d5cf4d3b0e8392edb4e894fd10cc0d70b4957c8633cf",
+        "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547"
+      },
+      "GET_v1_models_sha256": "ea639115e7f742960d572ba15414802b91742a74f94113f042a4077e09d2dd5b",
+      "models_response_canonical_digest": "80c06a8302be8b2512216a51a64848b12adce41932de505f17e8cf1609b2a5bc",
+      "observed_utc": "2026-09-11T16:25:29.508624+00:00",
+      "history_native_tokens": 32693,
+      "history_input_hash": "80c3a2f04bb8a2a77358ceb496c616262af0772a24f7191e63505e5e3e56de48",
+      "native_budget_add_special_tokens": false,
+      "model_weights_downloaded": false,
+      "hf_cli_fallback_reason": "Installed CLI Typer/Click conflict; existing Hub SDK used",
+      "reasoning_effort_requested": "max",
+      "upstream_effort_mapping": "max",
+      "gateway_effort_mapping": "NOT_EXPOSED; must not equate accepted parameter with verified internal effort",
+      "gateway_exact_context_limit": null
+    },
+    {
+      "model": "deepseek-v4.1-flash",
+      "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+      "tokenizer": "hf_json:/home/huyudi/012_conference/iclr2027/submission/work/p0_deepseek_switch_20260912_v1/deepseek-v4.1-flash/tokenizer",
+      "tokenizer_file_hashes": {
+        "tokenizer.json": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+        "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547",
+        "encoding/README.md": "a2f0fc3baea318c9cfbceca68cbfe50d37cf7da6605ace887f33148bcff7e3ae"
+      },
+      "GET_v1_models_sha256": "13f7c0f0b72c515f11af414f44d885c9d620b14b3dbdebcd08412dd6299a5e0a",
+      "models_response_canonical_digest": "489cdae8680150aa5d8a13f05c4adca24258f5df1b05d1bb2072ff9700b13106",
+      "observed_utc": "2026-09-11T16:22:06.161954+00:00",
+      "history_native_tokens": 32693,
+      "history_input_hash": "80c3a2f04bb8a2a77358ceb496c616262af0772a24f7191e63505e5e3e56de48",
+      "native_budget_add_special_tokens": false,
+      "model_weights_downloaded": false,
+      "hf_cli_fallback_reason": "Installed CLI Typer/Click conflict; existing Hub SDK used",
+      "reasoning_effort_requested": "max",
+      "upstream_effort_mapping": 100,
+      "gateway_effort_mapping": "NOT_EXPOSED; must not equate accepted parameter with verified internal effort",
+      "gateway_exact_context_limit": null
+    }
+  ],
+  "new_attempts": 2,
+  "new_usage_cost_upper_usd": 0.07872539999999997,
+  "P0_cumulative_conservative_usd": 0.24800334999999998,
+  "P0_remaining_usd": 0.25199665000000004,
+  "dollar_basis": "Conservative peak rates; not a provider billing receipt",
+  "formal_P0_completed": false,
+  "scientific_scores": 0,
+  "R1_changed": false,
+  "scientific_result_selection": false,
+  "full_grid_restarted": false,
+  "valid_memory_count": 0,
+  "larger_memory_probe_targets_executed": []
+}

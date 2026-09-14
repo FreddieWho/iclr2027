@@ -1,0 +1,82 @@
+{
+  "artifact_type": "owner_authorized_compact_prompt_v2_P0_technical_calibration_result",
+  "protocol_id": "memory_path_v4_fast_route_decision_20260913",
+  "amendment_id": "V4_OWNER_CONTINUATION_AFTER_P0_TECHNICAL_FAILURE_20260914_V2",
+  "recorded_utc": "2026-09-13T21:28:28Z",
+  "decision_scope": "Non-statistical compressor calibration only; the user explicitly authorized continuing to P2 regardless of this technical result.",
+  "P0_result": {
+    "histories": 2,
+    "planned_final_memories": 6,
+    "natural_stop_final_memories": 4,
+    "technical_invalid_final_memories": 2,
+    "status": "TECHNICAL_CALIBRATION_INCOMPLETE_FOR_DIRECT; DO_NOT_SCORE",
+    "scientific_hypothesis_tested": false,
+    "continue_to_P2": true
+  },
+  "final_cells": [
+    {"history_id":"syn-2026091401-00000","condition":"direct","status":"TECHNICAL_INVALID_UNCERTAIN","visible_native_tokens":0,"finish_reason":null,"cause":"Local sandbox denied the proxy connection before the request reached the provider; the reservation is quarantined and was not resent."},
+    {"history_id":"syn-2026091401-00000","condition":"staged2","status":"natural_stop","visible_native_tokens":17799,"finish_reason":"stop"},
+    {"history_id":"syn-2026091401-00000","condition":"rewrite","status":"natural_stop","visible_native_tokens":17500,"finish_reason":"stop"},
+    {"history_id":"syn-2026091401-00001","condition":"direct","status":"TECHNICAL_INVALID_LENGTH","visible_native_tokens":24576,"finish_reason":"length"},
+    {"history_id":"syn-2026091401-00001","condition":"staged2","status":"natural_stop","visible_native_tokens":14501,"finish_reason":"stop"},
+    {"history_id":"syn-2026091401-00001","condition":"rewrite","status":"natural_stop","visible_native_tokens":15038,"finish_reason":"stop"}
+  ],
+  "prompt_and_runtime": {
+    "prompt_path":"prompts/compress_v4_route_selection_compact_v2.txt",
+    "prompt_sha256":"2612dc3ecf14dea3f4d6bc907d227f703fab25fae2bce65465c1bfb3b299092d",
+    "runtime_config_path":"configs/v4_compact_v2_continuation_runtime_20260914.json",
+    "runtime_config_sha256":"db7b7392f2e9ecf3a0270177170baa03efb71006927d222c3f9b34714589cc28",
+    "runner_path":"scripts/run_v4_fast_pilot.py",
+    "runner_sha256":"55eabd3ae946f0785d0f6bbd49aec5176c2437398e59905fdac2a8f82e5adc2a",
+    "data_manifest":"work/v4_fast_decision_20260914_compact_v2/p0/data/manifest.json",
+    "histories_sha256":"c8054d9eb1e6d0445b65e71621d9afa56ce665dd5ffc87602d4327f0692f3af1",
+    "compression_manifest":"work/v4_fast_decision_20260914_compact_v2/p0/live/compression_manifest.json",
+    "compression_manifest_sha256":"b09c59b6e1735b642016299ed77639a6ca1bf49d8a283434dbcce5ab9c6cd1cc",
+    "memory_steps_sha256":"3f5a5cb30a9d848c46a52bb4d1c7024c05e89ae6cd71d86855f9623cea83160f",
+    "memories_sha256":"56c7fb94930d02ee611281c2a7e744375e1d5bc51c7a481703014fc70600e486"
+  },
+  "provider_metadata": {
+    "provider":"OpenCode Go",
+    "provider_model_id":"deepseek-v4.1-flash",
+    "returned_model_field":"deepseek-v4.1-flash for all 9 received provider responses",
+    "thinking":"disabled",
+    "reasoning_effort":"NOT_SENT",
+    "final_provider_output_budget_tokens":24576,
+    "intermediate_provider_output_budget_tokens":32768,
+    "full_HF_tokenizer_revision":"dba1be0a40aa45a94ad051997016db3960a90277",
+    "GET_v1_models_sha256":"8f4a71947dacd5fccaf8353064cab5a7c932a5f332a2631d6ab38f028a6bbd2d",
+    "run_start_utc_first_successful_request":"2026-09-13T21:19:36.942486+00:00",
+    "run_end_utc":"2026-09-13T21:28:27.756141+00:00",
+    "provider_input_tokens":231955,
+    "provider_output_tokens":154493,
+    "cache_read_tokens":0,
+    "actual_cost_usd":0.2944719,
+    "unresolved_sandbox_reservation_usd":0.0394938
+  },
+  "length_observation": {
+    "requested_final_target_tokens":8192,
+    "target_is_hard_cap":false,
+    "natural_final_lengths_tokens":[17799,17500,14501,15038],
+    "all_four_natural_final_outputs_exceeded_requested_target":true,
+    "posthoc_truncation":false,
+    "interpretation":"The compact prompt did not make the soft 8192-token target naturally feasible in this two-history calibration. P2 will retain actual length measurement and length adjustment; no memory is truncated or replaced."
+  },
+  "query_blindness": {
+    "query_file_opened_by_compressor":false,
+    "no_future_query_visible_to_compressor":true
+  },
+  "accounting_after_run": {
+    "project_actual_plus_uncertain_usd":3.6418365,
+    "project_cap_usd":55.0,
+    "deepseek_actual_plus_uncertain_usd":3.52165105,
+    "deepseek_cap_usd":13.0,
+    "glm_actual_plus_uncertain_usd":1.4922969,
+    "glm_cap_usd":42.0,
+    "project_reserved_usd":0.1036656
+  },
+  "limitations": [
+    "P0 is a technical calibration and does not estimate the scientific path effect.",
+    "One direct cell is unresolved due to a local sandbox block before provider delivery; a second direct cell ended with finish_reason=length.",
+    "The 8192-token requested final target was missed by all four natural final outputs; these outputs remain valid only under the soft-target protocol and require length-aware P2 analysis."
+  ]
+}

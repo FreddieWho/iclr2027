@@ -1,0 +1,255 @@
+{
+  "config_name": "P0_REASONING_BUDGET_AMENDMENT_V4_SINGLELINE",
+  "active_status": "FROZEN_NOT_EXECUTED_FOR_FORMAL_P0",
+  "phase": "P0_REASONING_V4_SINGLELINE",
+  "execution_scope": "P0_calibration_only_until_C1_and_R1_gates_pass",
+  "contract_revision": "REASONING_BUDGET_AMENDMENT_V4_USER_AUTHORIZED_TECHNICAL_REPAIR",
+  "previous_config": "configs/models_opencode_go_p0_reasoning_v3_naturalstop.json",
+  "live_authorized": true,
+  "api_key_env": "PILOT_OPENCODE_GO_API_KEY",
+  "provider_name": "OpenCode Go",
+  "api_base_chat_completions": "https://opencode.ai/zen/go/v1/chat/completions",
+  "models_endpoint": "https://opencode.ai/zen/go/v1/models",
+  "models_endpoint_sha256": "5abe278712027f75a1a503f99a827d79afe2ad3b98591f727eff9ec24e8ba67b",
+  "models_endpoint_observed_utc": "2026-09-11T23:05:41.117749+00:00",
+  "upstream_native_context_tokens": 1048576,
+  "authorized_max_input_tokens": 65536,
+  "gateway_exact_limit": null,
+  "final_memory_budgets_native_tokens": [1024, 2048],
+  "max_intermediate_memory_tokens": 8192,
+  "budget_definition": "memory_body_only",
+  "memory_definition": {
+    "include_reasoning_tokens": false,
+    "include_think_blocks": false,
+    "include_only_final_memory_body": true
+  },
+  "no_future_query_visible_to_compressor": true,
+  "no_tools_inside_model_calls": true,
+  "no_web_inside_model_calls": true,
+  "session_policy": "stable_within_each_experimental_path_and_isolated_between_paths",
+  "session_header": "x-opencode-session",
+  "run_user_agent": "iclr-memory-pilot/0.1",
+  "unsupported_parameter_policy": "freeze_provider_default_and_record",
+  "output_budget_field": "max_completion_tokens",
+  "wire_output_parameter": "max_tokens",
+  "stop_on_compression_protocol_failure": true,
+  "transport_attempts": 1,
+  "read_timeout_seconds": 1800,
+  "ledger_path": "work/p0_repair_accounting_v1/cost_ledger.sqlite",
+  "phase_usd_cap": 18.0,
+  "usd_cap": 18.0,
+  "project_total_usd_cap": 18.0,
+  "prior_shared_ledger_usd_actual_plus_uncertain": 0.90109255,
+  "model_caps_usd": {
+    "glm-5.3-flash": 15.0,
+    "deepseek-v4-flash": 3.0,
+    "deepseek-v4.1-flash": 3.0
+  },
+  "max_calls": 15000,
+  "max_input_tokens": 150000000,
+  "max_output_tokens": 15000000,
+  "use_balance": false,
+  "auto_topup": false,
+  "paid_fallback_provider": false,
+  "cap_amendment": {
+    "authorized_by_user": true,
+    "basis": "Measured V3 low-effort diagnostic showed natural stop but memory bodies over target; V4 adds a uniform single-line and word safety protocol while retaining model, effort, tokenizer, data, and scientific grid.",
+    "c1_technical_probe_calls": 2,
+    "formal_p0_c1_calls": 16,
+    "formal_p0_r1_calls_before_retry": 320,
+    "r1_protocol_retry_max": 1,
+    "c1_provider_output_budget_tokens": 65536,
+    "r1_provider_output_budget_tokens": 12000,
+    "project_total_cap_usd": 18.0,
+    "deepseek_v4_1_flash_cap_usd": 3.0
+  },
+  "reasoning_budget_amendment": {
+    "reasoning_effort_is_not_a_treatment": true,
+    "use_lowest_effort_that_passes_role_calibration": true,
+    "keep_effort_fixed_across_all_paths_within_a_role": true,
+    "C1_compressor": {
+      "reasoning_effort": "low",
+      "final_memory_calls": {
+        "target_memory_tokens": [1024, 2048],
+        "max_completion_tokens": 65536
+      },
+      "intermediate_memory_calls": {
+        "max_memory_tokens": 8192,
+        "max_completion_tokens": 65536
+      },
+      "memory_body_prompt": "prompts/compress_neutral_formal_v4.txt",
+      "wire_stop_sequence": "newline",
+      "body_word_safety_limits": {
+        "1024": 180,
+        "2048": 360
+      }
+    },
+    "R1_reader": {
+      "initial_reasoning_effort": "low",
+      "max_completion_tokens": 12000,
+      "visible_answer_limit_tokens": 512,
+      "calibration": {
+        "promote_to_high_if": {
+          "oracle_accuracy_below": 0.95,
+          "or_systematic_failure_on": ["relational_multihop", "exception_or_retraction"]
+        },
+        "if_promoted": {
+          "reasoning_effort": "high",
+          "apply_to_all_formal_R1_runs": true,
+          "requires_new_frozen_config": true
+        }
+      }
+    },
+    "R2_reader": {
+      "reasoning_effort": "MATCH_FINAL_R1_SETTING",
+      "max_completion_tokens": 12000,
+      "execute_only_after_primary_signal": true
+    },
+    "max_effort": {
+      "use_in_primary_pilot": false,
+      "allowed_after_GO": true,
+      "purpose": "robustness_only",
+      "max_completion_tokens": 32768
+    },
+    "truncation": {
+      "accepted_finish_reason": "stop",
+      "finish_reason_length": "TECHNICAL_INVALID",
+      "posthoc_memory_truncation": false,
+      "automatic_escalation": false,
+      "over_budget_body": "TECHNICAL_INVALID"
+    },
+    "memory_definition": {
+      "include_reasoning_tokens": false,
+      "include_think_blocks": false,
+      "include_only_final_memory_body": true
+    },
+    "staged_calls": {
+      "fresh_request_each_stage": true,
+      "pass_previous_reasoning_to_next_stage": false
+    }
+  },
+  "max_effort": {
+    "use_in_primary_pilot": false,
+    "allowed_after_GO": true,
+    "purpose": "robustness_only",
+    "max_completion_tokens": 32768
+  },
+  "truncation": {
+    "accepted_finish_reasons": ["stop"],
+    "finish_reason_length": "TECHNICAL_INVALID",
+    "posthoc_memory_truncation": false,
+    "automatic_escalation": false,
+    "active_c1_provider_output_budget_tokens": 65536,
+    "escalation_requires_new_frozen_config": true
+  },
+  "staged_calls": {
+    "fresh_request_each_stage": true,
+    "pass_previous_reasoning_to_next_stage": false
+  },
+  "execution_policy": {
+    "primary_pilot_uses_low_effort_only": true,
+    "r1_promotion_is_calibration_gated": true,
+    "r2_execute_only_after_primary_signal": true,
+    "c2_execute_only_if_needed_for_compressor_generalization": true,
+    "no_future_query_visible_to_compressor": true,
+    "no_tools_inside_model_calls": true,
+    "no_web_inside_model_calls": true,
+    "scientific_history_question_arm_budget_replication_grid_unchanged": true
+  },
+  "compressor_prompt": "prompts/compress_neutral_formal_v4.txt",
+  "compressor": {
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "chat_completions_url": "https://opencode.ai/zen/go/v1/chat/completions",
+    "model": "deepseek-v4.1-flash",
+    "family": "deepseek-v4.1-flash",
+    "api_key_env": "PILOT_OPENCODE_GO_API_KEY",
+    "tokenizer": "hf_json:/home/huyudi/012_conference/iclr2027/submission/work/p0_deepseek_switch_20260912_v1/deepseek-v4.1-flash/tokenizer",
+    "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+    "tokenizer_add_special_tokens": false,
+    "models_endpoint_sha256": "5abe278712027f75a1a503f99a827d79afe2ad3b98591f727eff9ec24e8ba67b",
+    "context_tokens": 1048576,
+    "max_visible_output_tokens": 8192,
+    "provider_output_budget_tokens": 65536,
+    "max_completion_tokens": 65536,
+    "final_memory_calls": {
+      "target_memory_tokens": [1024, 2048],
+      "max_completion_tokens": 65536
+    },
+    "intermediate_memory_calls": {
+      "max_memory_tokens": 8192,
+      "max_completion_tokens": 65536
+    },
+    "provider_min_output_tokens": 0,
+    "output_parameter": "max_tokens",
+    "supports_seed": false,
+    "reasoning_effort": "low",
+    "extra_parameters": {
+      "thinking": {"type": "enabled"},
+      "reasoning_effort": "low",
+      "top_p": 0.95,
+      "stop": ["\n"]
+    },
+    "temperature_policy": "omitted: provider thinking-mode documentation says temperature has no effect",
+    "input_usd_per_million": 0.3,
+    "output_usd_per_million": 1.2,
+    "cache_read_usd_per_million": 0.006,
+    "price_basis": "conservative OpenCode Go peak rate; not a billing receipt",
+    "price_verified_date": "2026-09-11",
+    "price_source_url": "https://opencode.ai/docs/go/",
+    "user_agent": "iclr-memory-pilot/0.1",
+    "input_reservation_overhead_tokens": 256
+  },
+  "reader": {
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "chat_completions_url": "https://opencode.ai/zen/go/v1/chat/completions",
+    "model": "glm-5.3-flash",
+    "family": "glm-5.3-flash",
+    "api_key_env": "PILOT_OPENCODE_GO_API_KEY",
+    "tokenizer": "hf:/home/huyudi/012_conference/iclr2027/submission/work/tokenizers/glm-5.3-flash-eb9eb208",
+    "full_HF_tokenizer_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+    "tokenizer_add_special_tokens": false,
+    "models_endpoint_sha256": "5abe278712027f75a1a503f99a827d79afe2ad3b98591f727eff9ec24e8ba67b",
+    "context_tokens": 65536,
+    "max_visible_output_tokens": 512,
+    "visible_output_limit_tokens": 512,
+    "provider_output_budget_tokens": 12000,
+    "max_completion_tokens": 12000,
+    "reservation_output_tokens": 12000,
+    "protocol_retry_limit": 1,
+    "output_parameter": "max_tokens",
+    "supports_seed": false,
+    "initial_reasoning_effort": "low",
+    "reasoning_effort": "low",
+    "calibration": {
+      "status": "PENDING",
+      "initial_reasoning_effort": "low",
+      "promote_to_high_if": {
+        "oracle_accuracy_below": 0.95,
+        "or_systematic_failure_on": ["relational_multihop", "exception_or_retraction"]
+      },
+      "promoted_reasoning_effort": "high",
+      "apply_to_all_formal_R1_runs": true,
+      "promotion_requires_new_frozen_config": true
+    },
+    "extra_parameters": {"reasoning_effort": "low", "temperature": 0},
+    "input_usd_per_million": 0.15,
+    "output_usd_per_million": 0.5,
+    "cache_read_usd_per_million": 0.03,
+    "price_verified_date": "2026-09-11",
+    "price_source_url": "https://opencode.ai/docs/go/",
+    "user_agent": "iclr-memory-pilot/0.1",
+    "input_reservation_overhead_tokens": 256
+  },
+  "independent_reader": {
+    "model": "deepseek-v4.1-flash",
+    "family": "deepseek-v4.1-flash",
+    "tokenizer": "hf_json:/home/huyudi/012_conference/iclr2027/submission/work/p0_deepseek_switch_20260912_v1/deepseek-v4.1-flash/tokenizer",
+    "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+    "models_endpoint_sha256": "5abe278712027f75a1a503f99a827d79afe2ad3b98591f727eff9ec24e8ba67b",
+    "execute_only_after_primary_signal": true,
+    "reasoning_effort": "MATCH_FINAL_R1_SETTING",
+    "max_completion_tokens": 12000,
+    "provider_output_budget_tokens": 12000,
+    "match_role": "reader"
+  }
+}

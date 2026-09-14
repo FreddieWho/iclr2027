@@ -6,6 +6,8 @@
   "models_endpoint_sha256": "e859652c6d13b5233309d8f53d0525325225ba4300ecabe7bb8cc0d31967cffd",
   "formal_p0_completed": false,
   "formal_p0_scores": 0,
+  "latest_repair_evidence": "artifacts/p0_repair_result.json",
+  "historical_accounting_note": "This probe list preserves the earlier record; its reserved totals are not a strict cost upper bound. Current conservative accounting including 4 new repair calls is in p0_repair_result.json.",
   "probe_policy": "No automatic model switch, reasoning relaxation, output-budget expansion, or posthoc use of reasoning_content; every independent output root is preserved.",
   "probes": [
     {

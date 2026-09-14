@@ -1,0 +1,81 @@
+{
+  "status": "DIAGNOSTIC_COMPLETE",
+  "scientific_scoring": false,
+  "formal_p0_status": "NO_GO_TECHNICAL_UNCHANGED",
+  "run_start_utc": "2026-09-11T21:55:02.976931+00:00",
+  "provider_name": "OpenCode Go",
+  "provider_model_id": "deepseek-v4.1-flash",
+  "returned_model_fields": [
+    "deepseek-v4.1-flash"
+  ],
+  "reasoning_effort": "low",
+  "provider_output_budget_tokens": 131072,
+  "technical_output_ceiling_tokens": 131072,
+  "ordinary_output_limit_applied": false,
+  "final_memory_target_native_tokens": 1024,
+  "memory_definition": {
+    "include_reasoning_tokens": false,
+    "include_think_blocks": false,
+    "include_only_final_memory_body": true
+  },
+  "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+  "GET_v1_models_sha256": "4a89bdfda8e3acf9e26348e1c05c299321a8393b70d21b8251c0076f04b8dd16",
+  "sample_plan": {
+    "calls": 10,
+    "unique_histories": 8,
+    "repeat_calls": 2,
+    "repeat_history_ids": [
+      "syn-20260910-00000",
+      "syn-20260910-00001"
+    ]
+  },
+  "summary": {
+    "completed_calls": 10,
+    "failed_calls": 0,
+    "finish_reason_counts": {
+      "stop": 10
+    },
+    "reasoning_tokens_sum": 141536,
+    "reasoning_tokens_min": 6189,
+    "reasoning_tokens_max": 29913,
+    "reasoning_tokens_mean": 14153.6,
+    "reasoning_tokens_median": 13907,
+    "unique_reasoning_tokens_mean": 16101.0,
+    "repeat_reasoning_tokens_mean": 6364.0,
+    "provider_output_tokens_sum": 164773,
+    "final_visible_token_count_min": 1310,
+    "final_visible_token_count_max": 4073,
+    "all_reasoning_counts_are_exact_usage_values": true,
+    "length_lower_bound_count": 0
+  },
+  "calls": [
+    {"call_index": 1, "history_id": "syn-20260910-00000", "sample_kind": "unique", "reasoning_tokens": 18100, "provider_output_tokens": 20666, "final_visible_token_count": 2565, "full_request_native_tokens": 32873, "provider_input_tokens": 32903, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 2, "history_id": "syn-20260910-00001", "sample_kind": "unique", "reasoning_tokens": 7450, "provider_output_tokens": 9416, "final_visible_token_count": 1965, "full_request_native_tokens": 32771, "provider_input_tokens": 32801, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 3, "history_id": "syn-20260910-00002", "sample_kind": "unique", "reasoning_tokens": 13216, "provider_output_tokens": 15524, "final_visible_token_count": 2307, "full_request_native_tokens": 32907, "provider_input_tokens": 32937, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 4, "history_id": "syn-20260910-00003", "sample_kind": "unique", "reasoning_tokens": 29913, "provider_output_tokens": 32236, "final_visible_token_count": 2322, "full_request_native_tokens": 32759, "provider_input_tokens": 32789, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 5, "history_id": "syn-20260910-00004", "sample_kind": "unique", "reasoning_tokens": 23117, "provider_output_tokens": 27191, "final_visible_token_count": 4073, "full_request_native_tokens": 32940, "provider_input_tokens": 32970, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 6, "history_id": "syn-20260910-00005", "sample_kind": "unique", "reasoning_tokens": 15209, "provider_output_tokens": 18589, "final_visible_token_count": 3379, "full_request_native_tokens": 32811, "provider_input_tokens": 32841, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 7, "history_id": "syn-20260910-00006", "sample_kind": "unique", "reasoning_tokens": 14598, "provider_output_tokens": 16509, "final_visible_token_count": 1910, "full_request_native_tokens": 32905, "provider_input_tokens": 32935, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 8, "history_id": "syn-20260910-00007", "sample_kind": "unique", "reasoning_tokens": 7205, "provider_output_tokens": 8666, "final_visible_token_count": 1460, "full_request_native_tokens": 32936, "provider_input_tokens": 32966, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 9, "history_id": "syn-20260910-00000", "sample_kind": "repeat", "replicate": 1, "reasoning_tokens": 6539, "provider_output_tokens": 8476, "final_visible_token_count": 1936, "full_request_native_tokens": 32873, "provider_input_tokens": 32903, "cache_read_tokens": 0, "finish_reason": "stop"},
+    {"call_index": 10, "history_id": "syn-20260910-00001", "sample_kind": "repeat", "replicate": 1, "reasoning_tokens": 6189, "provider_output_tokens": 7500, "final_visible_token_count": 1310, "full_request_native_tokens": 32771, "provider_input_tokens": 32801, "cache_read_tokens": 0, "finish_reason": "stop"}
+  ],
+  "cost": {
+    "ledger_before_usd_actual_plus_uncertain_reservations": 0.49637695,
+    "ledger_after_usd_actual_plus_uncertain_reservations": 0.79275835,
+    "conservative_ledger_increment_usd": 0.2963814,
+    "hard_project_cap_usd": 18.0,
+    "hard_deepseek_v4_1_flash_cap_usd": 3.0,
+    "auto_topup": false,
+    "paid_fallback_provider": false,
+    "price_basis_is_not_a_billing_receipt": true
+  },
+  "interpretation": "Under low reasoning effort, provider-reported reasoning length varied substantially across these full-history requests. The diagnostic did not constrain the ordinary memory output budget and did not produce formal memory or score rows. It does not change the NO_GO_TECHNICAL decision.",
+  "raw_call_records": "work/p0_reasoning_length_diag_v1_20260912/calls.jsonl",
+  "run_manifest": "work/p0_reasoning_length_diag_v1_20260912/run_manifest.json",
+  "cost_summary": "work/p0_reasoning_length_diag_v1_20260912/cost_summary.json",
+  "config": "configs/models_opencode_go_reasoning_length_diagnostic_v1.json",
+  "config_sha256": "0e5827a79098e80b1c77e9a291d18c5ac9e0431a9fd5734980639263347985de",
+  "runner": "scripts/probe_reasoning_length.py",
+  "runner_sha256": "826d3241fb6e68cbe01fd281db1a65f7b2562fad4d297d0825cd15501625416f"
+}

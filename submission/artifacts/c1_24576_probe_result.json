@@ -1,0 +1,118 @@
+{
+  "authorization": "configs/c1_output_budget_authorization_24576.json",
+  "authorization_hash": "552681ed1ffc1d2b92defd1ccfffb170335b5dad26752825548f25d0258c9b27",
+  "output_root": "work/p0_c1_24576_authorized_v1",
+  "manifest": {
+    "purpose": "P0_technical_diagnostic_only",
+    "history_id": "syn-20260910-00000",
+    "model_config_hash": "0ecdd63f5a999cf0aea8281ca18c925601898d9515aa64a022758b222f2a650a",
+    "input_hash": "80c3a2f04bb8a2a77358ceb496c616262af0772a24f7191e63505e5e3e56de48",
+    "system_prompt_hash": "b35d846638bbc5aaac372bf48099fd97318e199926761ca23fe789ad2262e18b",
+    "native_input_tokens": 32747,
+    "target": 1024,
+    "role": "compressor",
+    "provider_output_budget_tokens": 24576,
+    "code_hash": "a9a5c4de912c39aaba4da239052986c59bc3073f0296421be357ef860fc86429",
+    "selection_uses_scores": false,
+    "queries_loaded_by_compressor": false,
+    "run_start_utc": "2026-09-11T15:27:19.549822+00:00"
+  },
+  "result": {
+    "mock": false,
+    "cache_hit": false,
+    "model": "glm-5.3-flash",
+    "returned_model_field": "glm-5.3-flash",
+    "provider_model_id": "glm-5.3-flash",
+    "provider_name": "OpenCode Go",
+    "reasoning_effort": "max",
+    "provider_output_budget_tokens": 24576,
+    "visible_output_limit_tokens": 1024,
+    "fingerprint": null,
+    "usage": {
+      "prompt_tokens": 32951,
+      "completion_tokens": 24576,
+      "total_tokens": 57527,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 24553
+      }
+    },
+    "usage_is_measured": true,
+    "provider_input_tokens": 32951,
+    "provider_output_tokens": 24576,
+    "cache_read_tokens": 0,
+    "cost_usd_or_conservative": 0.01723065,
+    "run_start_utc": "2026-09-11T15:27:19.550136+00:00",
+    "opencode_session_id": "iclr-memory-pilot/p0_c1_24576_authorized_v1",
+    "full_HF_tokenizer_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+    "GET_v1_models_sha256": "e859652c6d13b5233309d8f53d0525325225ba4300ecabe7bb8cc0d31967cffd",
+    "full_request_native_tokens": 32938,
+    "native_memory_tokens": 32747,
+    "finish_reason": "length",
+    "request_key": "652200b3d059e506030098bf7663316e28194d0ca31c113d61cf9e95b3b868b1",
+    "latency_seconds": 215.10757039487362,
+    "response_shape": {
+      "body_keys": [
+        "choices",
+        "cost",
+        "created",
+        "id",
+        "model",
+        "object",
+        "usage"
+      ],
+      "choice_count": 1,
+      "choice_keys": [
+        "finish_reason",
+        "index",
+        "message"
+      ],
+      "finish_reason": "length",
+      "usage_keys": [
+        "completion_tokens",
+        "completion_tokens_details",
+        "prompt_tokens",
+        "prompt_tokens_details",
+        "total_tokens"
+      ],
+      "prompt_tokens": 32951,
+      "completion_tokens": 24576,
+      "total_tokens": 57527,
+      "message_keys": [
+        "content",
+        "reasoning_content",
+        "role"
+      ],
+      "role_type": "str",
+      "role_length": 9,
+      "content_type": "str",
+      "content_length": 0,
+      "reasoning_content_type": "str",
+      "reasoning_content_length": 58588
+    },
+    "visible_response_tokens": 0,
+    "request_system_hash": "b35d846638bbc5aaac372bf48099fd97318e199926761ca23fe789ad2262e18b",
+    "request_user_hash": "850e6dc6905396e9584d379d340eefd1cf436afe29da13cd89a3204108c5ecca",
+    "status": "compressor_non_natural_stop",
+    "history_id": "syn-20260910-00000",
+    "target": 1024,
+    "final_visible_answer_tokens": null,
+    "scientific_score": null
+  },
+  "prior_cumulative_conservative_usd": 0.1520473,
+  "cumulative_actual_or_conservative_usd": 0.16927794999999998,
+  "new_attempts": 1,
+  "cost_summary": {
+    "attempts": 6,
+    "usd_actual_plus_uncertain_reservations": 0.16927794999999998,
+    "input_tokens": 100124,
+    "output_tokens": 55353,
+    "uncertain_attempts": 1
+  },
+  "formal_P0_completed": false,
+  "scientific_scores": 0,
+  "full_grid_restarted": false,
+  "posthoc_truncation": false
+}

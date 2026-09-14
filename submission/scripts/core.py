@@ -19,6 +19,47 @@ def digest(obj: Any) -> str:
 def load_json(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
+def _deep_merge_config(base, overlay):
+    merged = dict(base)
+    for key, value in overlay.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = _deep_merge_config(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
+
+def load_model_config(path, _seen=None):
+    """Load a standalone model config or a local overlay that extends one."""
+    path = Path(path).resolve()
+    seen = set() if _seen is None else set(_seen)
+    if path in seen:
+        raise ValueError(f'cyclic model config inheritance: {path}')
+    seen.add(path)
+    overlay = load_json(path)
+    parent = overlay.pop('extends_config', None)
+    expected_parent_sha256 = overlay.pop('extends_config_sha256', None)
+    if not parent:
+        return overlay
+    parent_path = (path.parent / parent).resolve()
+    if not parent_path.is_file():
+        raise FileNotFoundError(f'extended model config not found: {parent_path}')
+    if expected_parent_sha256:
+        actual_parent_sha256 = hashlib.sha256(parent_path.read_bytes()).hexdigest()
+        if actual_parent_sha256 != expected_parent_sha256:
+            raise ValueError(f'extended model config hash mismatch: {parent_path}')
+    base = load_model_config(parent_path, seen)
+    return _deep_merge_config(base, overlay)
+
+def reported_reasoning_tokens(usage):
+    """Read a provider-reported hidden reasoning token count without retaining it."""
+    if not isinstance(usage, dict):
+        return None
+    details = usage.get('completion_tokens_details') or {}
+    value = usage.get('reasoning_tokens')
+    if value is None and isinstance(details, dict):
+        value = details.get('reasoning_tokens')
+    return int(value) if isinstance(value, (int, float)) and value >= 0 else None
+
 def write_json(path, data):
     p = Path(path); p.parent.mkdir(parents=True, exist_ok=True)
     tmp = p.with_suffix(p.suffix + '.tmp')
@@ -90,6 +131,27 @@ def response_schema_summary(body):
             summary[name + '_type'] = type(value).__name__
     return summary
 
+
+_THINK_BLOCK_RE = re.compile(r'<think\b[^>]*>.*?</think\s*>', re.IGNORECASE | re.DOTALL)
+
+
+def final_visible_body(text: str) -> tuple[str, bool]:
+    """Return only provider content outside explicit hidden-thought blocks.
+
+    Reasoning returned in a separate ``reasoning_content`` field is never read
+    into this function.  An unclosed think block is treated as having no
+    visible body instead of being copied into a memory or answer artifact.
+    """
+    if not isinstance(text, str):
+        return '', False
+    opening = re.search(r'<think\b[^>]*>', text, re.IGNORECASE)
+    closing = re.search(r'</think\s*>', text, re.IGNORECASE)
+    if opening and not closing:
+        return text[:opening.start()].strip(), True
+    cleaned = _THINK_BLOCK_RE.sub('', text)
+    cleaned = re.sub(r'</?think\b[^>]*>', '', cleaned, flags=re.IGNORECASE)
+    return cleaned.strip(), cleaned != text
+
 class Tokenizer:
     """Demo is NOT a real token budget. Formal runs must specify a fixed tokenizer."""
     def __init__(self, name: str):
@@ -121,7 +183,7 @@ class Tokenizer:
         if self.name.startswith('tiktoken:'):
             return self.encoder.encode(text, disallowed_special=())
         if self.name.startswith('hf_json:'):
-            return self.encoder.encode(text).ids
+            return self.encoder.encode(text, add_special_tokens=False).ids
         return self.encoder.encode(text, add_special_tokens=False)
     def decode(self, tokens):
         if self.is_demo:
@@ -195,14 +257,18 @@ class Ledger:
             row = c.execute('INSERT INTO calls (key,usd,input_tokens,output_tokens,state) VALUES (?,?,?,?,?)', (key,usd,inp,out,'reserved'))
             return row.lastrowid
     def settle(self, rid, usd, inp, out):
+        overflow = False
         with sqlite3.connect(self.path) as c:
             c.execute('BEGIN IMMEDIATE')
             other_cost = c.execute('SELECT COALESCE(SUM(usd),0) FROM calls WHERE id<>?', (rid,)).fetchone()[0]
             cap = self.limits.get('usd_cap')
             if cap is not None and other_cost + usd > cap:
                 c.execute('UPDATE calls SET usd=?,input_tokens=?,output_tokens=?,state=? WHERE id=?', (usd,inp,out,'completed_over_cap',rid))
-                raise RuntimeError('BUDGET_OVERFLOW: measured provider usage would exceed the authorized USD cap; no score assigned')
-            c.execute('UPDATE calls SET usd=?,input_tokens=?,output_tokens=?,state=? WHERE id=?', (usd,inp,out,'completed',rid))
+                overflow = True
+            else:
+                c.execute('UPDATE calls SET usd=?,input_tokens=?,output_tokens=?,state=? WHERE id=?', (usd,inp,out,'completed',rid))
+        if overflow:
+            raise RuntimeError('BUDGET_OVERFLOW: measured provider usage exceeds the authorized USD cap; no score assigned')
     def summary(self):
         with sqlite3.connect(self.path) as c:
             n, cost, inp, out = c.execute('SELECT COUNT(*),COALESCE(SUM(usd),0),COALESCE(SUM(input_tokens),0),COALESCE(SUM(output_tokens),0) FROM calls').fetchone()
@@ -216,12 +282,19 @@ class Provider:
         self.run_start_utc = config.get('run_start_utc') or datetime.now(timezone.utc).isoformat()
         self.opencode_session_id = config.get('opencode_session_id') or f'iclr-memory-pilot/{Path(out).name}'
         self.cache = Path(out)/'cache'; self.cache.mkdir(parents=True, exist_ok=True)
-        self.ledger = Ledger(Path(out)/'cost_ledger.sqlite', config)
+        self.ledger = Ledger(config.get('ledger_path', Path(out)/'cost_ledger.sqlite'), config)
         if not mock and (not config.get('live_authorized') or tokenizer.is_demo):
             raise RuntimeError('Live mode requires explicit authorization and a real tokenizer')
     def call(self, role, system, user, max_tokens, replicate, mock_text=None, namespace=None, request_metadata=None, provider_output_budget=None, visible_output_limit=None):
         cfg = self.config[role]
         request_metadata = request_metadata or {}
+        models_sha256 = cfg.get('models_endpoint_sha256', self.config.get('models_endpoint_sha256'))
+        scope = request_metadata.get('experimental_path')
+        session_id = self.opencode_session_id if scope is None else self.opencode_session_id + '/' + digest(scope)[:24]
+        configured_effort = cfg.get('reasoning_effort', cfg.get('extra_parameters', {}).get('reasoning_effort'))
+        requested_effort = request_metadata.get('reasoning_effort')
+        if requested_effort is not None and requested_effort != configured_effort:
+            raise RuntimeError('CONFIG_BLOCK: reasoning effort cannot vary by experimental path')
         provider_budget = int(provider_output_budget if provider_output_budget is not None else max_tokens)
         visible_limit = int(visible_output_limit if visible_output_limit is not None else cfg.get('max_visible_output_tokens', provider_budget))
         configured_provider_budget = int(cfg.get('provider_output_budget_tokens', cfg.get('max_visible_output_tokens', provider_budget)))
@@ -235,7 +308,11 @@ class Provider:
             obj = load_json(cp); obj['cache_hit'] = True
             return obj
         if self.mock:
-            obj = {'text':mock_text if mock_text is not None else '{"answer":"UNKNOWN","evidence_ids":[]}', 'mock':True, 'cache_hit':False, 'model':'MOCK', 'returned_model_field':'MOCK', 'provider_model_id':'MOCK', 'provider_name':self.config.get('provider_name'), 'reasoning_effort':cfg.get('extra_parameters',{}).get('reasoning_effort'), 'provider_output_budget_tokens':provider_budget, 'visible_output_limit_tokens':visible_limit, 'usage':{'prompt_tokens':full_request_native_tokens,'completion_tokens':provider_budget}, 'provider_input_tokens':full_request_native_tokens, 'provider_output_tokens':provider_budget, 'cache_read_tokens':0, 'usage_is_measured':False, 'run_start_utc':self.run_start_utc, 'opencode_session_id':self.opencode_session_id, 'full_HF_tokenizer_revision':cfg.get('full_HF_tokenizer_revision'), 'GET_v1_models_sha256':self.config.get('models_endpoint_sha256'), 'full_request_native_tokens':full_request_native_tokens, 'native_memory_tokens':request_metadata.get('native_memory_tokens'), 'finish_reason':'stop','request_key':key,'latency_seconds':0}
+            body, think_blocks_removed = final_visible_body(mock_text if mock_text is not None else '{"answer":"UNKNOWN","evidence_ids":[]}')
+            obj = {'text':body, 'mock':True, 'cache_hit':False, 'model':'MOCK', 'returned_model_field':'MOCK', 'provider_model_id':'MOCK', 'provider_name':self.config.get('provider_name'), 'reasoning_effort':configured_effort, 'provider_output_budget_tokens':provider_budget, 'max_completion_tokens':provider_budget, 'completion_budget_class':request_metadata.get('completion_budget_class'), 'visible_output_limit_tokens':visible_limit, 'usage':{'prompt_tokens':full_request_native_tokens,'completion_tokens':provider_budget}, 'provider_input_tokens':full_request_native_tokens, 'provider_output_tokens':provider_budget, 'cache_read_tokens':0, 'usage_is_measured':False, 'run_start_utc':self.run_start_utc, 'opencode_session_id':self.opencode_session_id, 'full_HF_tokenizer_revision':cfg.get('full_HF_tokenizer_revision'), 'GET_v1_models_sha256':models_sha256, 'full_request_native_tokens':full_request_native_tokens, 'native_memory_tokens':request_metadata.get('native_memory_tokens'), 'finish_reason':'stop','request_key':key,'latency_seconds':0, 'think_blocks_removed':think_blocks_removed, 'reasoning_content_present':False}
+            obj['total_completion_tokens'] = provider_budget
+            obj['reasoning_tokens'] = None
+            obj['opencode_session_id'] = session_id
             write_json(cp,obj); return obj
         if 'REPLACE' in cfg['model'] or 'REPLACE' in cfg['base_url']:
             raise RuntimeError('Configure a real, exact model and endpoint before live requests')
@@ -259,23 +336,27 @@ class Provider:
         headers = {'Content-Type':'application/json'}
         if api_key: headers['Authorization']='Bearer '+api_key
         if cfg.get('user_agent'): headers['User-Agent'] = cfg['user_agent']
-        headers['x-opencode-session'] = self.opencode_session_id
+        headers['x-opencode-session'] = session_id
         p_in = float(cfg['input_usd_per_million']); p_out = float(cfg['output_usd_per_million'])
         p_cache = float(cfg.get('cache_read_usd_per_million', p_in))
         # Reserve the measured native request plus a protocol margin. The context
         # gate above still protects the full authorized window.
         reserve_in = min(int(cfg['context_tokens']), full_request_native_tokens + int(cfg.get('input_reservation_overhead_tokens', 256)))
-        reserve_out = min(provider_budget, int(cfg.get('reservation_output_tokens', provider_budget)))
-        for attempt in range(3):
+        reserve_out = provider_budget  # Hidden reasoning is part of paid output.
+        transport_attempts = int(self.config.get('transport_attempts', 3))
+        if not 1 <= transport_attempts <= 3:
+            raise ValueError('transport_attempts must be between one and three')
+        for attempt in range(transport_attempts):
             rid = self.ledger.reserve(key, (reserve_in*p_in+reserve_out*p_out)/1e6, reserve_in, reserve_out)
             start = time.monotonic()
             try:
-                response = requests.post(url, json=payload, headers=headers, timeout=(15,180))
+                response = requests.post(url, json=payload, headers=headers,
+                                         timeout=(15,int(self.config.get('read_timeout_seconds',180))))
             except requests.RequestException:
-                if attempt == 2: raise RuntimeError('NETWORK_FAILURE: uncertain charges retained; no score assigned')
+                if attempt == transport_attempts-1: raise RuntimeError('NETWORK_FAILURE: uncertain charges retained; no score assigned')
                 time.sleep(2**(attempt+1)); continue
             if response.status_code == 429 or response.status_code >= 500:
-                if attempt == 2: raise RuntimeError(f'HTTP_RETRY_EXHAUSTED {response.status_code}')
+                if attempt == transport_attempts-1: raise RuntimeError(f'HTTP_RETRY_EXHAUSTED {response.status_code}')
                 time.sleep(2**(attempt+1)); continue
             if response.status_code >= 400:
                 try:
@@ -287,8 +368,15 @@ class Provider:
             body = None; choice = None
             try:
                 body = response.json(); choice=body['choices'][0]
-                text=choice['message']['content']
+                message = choice['message']
+                reasoning_content_present = isinstance(message, dict) and bool(message.get('reasoning_content'))
+                text=message['content']
+                if text is None:
+                    # A reasoning-only/empty completion is a protocol failure,
+                    # not an unknown wire format. Preserve usage and finish reason.
+                    text = ''
                 if not isinstance(text,str): raise ValueError('non-text content')
+                text, think_blocks_removed = final_visible_body(text)
             except (KeyError,IndexError,TypeError,ValueError) as e:
                 shape = response_schema_summary(body)
                 detail = json.dumps(shape, ensure_ascii=False, separators=(',', ':'))[:2400]
@@ -303,20 +391,30 @@ class Provider:
                     cache_read = max(0, min(cache_read, inp))
                     cost = ((inp-cache_read)*p_in + cache_read*p_cache + output*p_out) / 1e6
                     self.ledger.settle(rid, cost, inp, output)
-                metadata = {'run_start_utc':self.run_start_utc,'provider_name':self.config.get('provider_name'),'provider_model_id':cfg['model'],'returned_model_field':body.get('model',cfg['model']) if isinstance(body,dict) else cfg['model'],'reasoning_effort':cfg.get('extra_parameters',{}).get('reasoning_effort'),'provider_output_budget_tokens':provider_budget,'visible_output_limit_tokens':visible_limit,'full_HF_tokenizer_revision':cfg.get('full_HF_tokenizer_revision'),'GET_v1_models_sha256':self.config.get('models_endpoint_sha256'),'full_request_native_tokens':full_request_native_tokens,'native_memory_tokens':request_metadata.get('native_memory_tokens'),'provider_input_tokens':inp,'provider_output_tokens':output,'cache_read_tokens':cache_read,'usage_is_measured':measured,'finish_reason':choice.get('finish_reason') if isinstance(choice,dict) else None,'opencode_session_id':self.opencode_session_id}
+                metadata = {'run_start_utc':self.run_start_utc,'provider_name':self.config.get('provider_name'),'provider_model_id':cfg['model'],'returned_model_field':body.get('model',cfg['model']) if isinstance(body,dict) else cfg['model'],'reasoning_effort':configured_effort,'provider_output_budget_tokens':provider_budget,'max_completion_tokens':provider_budget,'completion_budget_class':request_metadata.get('completion_budget_class'),'visible_output_limit_tokens':visible_limit,'full_HF_tokenizer_revision':cfg.get('full_HF_tokenizer_revision'),'GET_v1_models_sha256':models_sha256,'full_request_native_tokens':full_request_native_tokens,'native_memory_tokens':request_metadata.get('native_memory_tokens'),'provider_input_tokens':inp,'provider_output_tokens':output,'cache_read_tokens':cache_read,'usage_is_measured':measured,'finish_reason':choice.get('finish_reason') if isinstance(choice,dict) else None,'opencode_session_id':self.opencode_session_id,'reasoning_content_present':locals().get('reasoning_content_present',False)}
+                metadata['reasoning_tokens'] = reported_reasoning_tokens(usage)
+                metadata['total_completion_tokens'] = output
                 error = RuntimeError(f'RESPONSE_SCHEMA_ERROR: requires vendor adaptation; response_shape={detail}')
+                metadata['opencode_session_id'] = session_id
                 error.metadata = metadata
                 raise error from e
             usage=body.get('usage') or {}
             known='prompt_tokens' in usage and 'completion_tokens' in usage
             inp=int(usage.get('prompt_tokens',reserve_in)); output=int(usage.get('completion_tokens',provider_budget))
+            reasoning_tokens=reported_reasoning_tokens(usage)
             prompt_details=usage.get('prompt_tokens_details') or usage.get('input_tokens_details') or {}
             cache_read=int(usage.get('cache_read_tokens', usage.get('cache_read_input_tokens', prompt_details.get('cached_tokens', 0) if isinstance(prompt_details, dict) else 0)) or 0)
             cache_read=max(0,min(cache_read,inp))
             cost=((inp-cache_read)*p_in+cache_read*p_cache+output*p_out)/1e6
             self.ledger.settle(rid,cost,inp,output)
             returned_model=body.get('model',cfg['model'])
-            obj={'text':text,'mock':False,'cache_hit':False,'model':returned_model,'returned_model_field':returned_model,'provider_model_id':cfg['model'],'provider_name':self.config.get('provider_name'),'reasoning_effort':cfg.get('extra_parameters',{}).get('reasoning_effort'),'provider_output_budget_tokens':provider_budget,'visible_output_limit_tokens':visible_limit,'fingerprint':body.get('system_fingerprint'), 'usage':usage,'usage_is_measured':known,'provider_input_tokens':inp,'provider_output_tokens':output,'cache_read_tokens':cache_read,'cost_usd_or_conservative':cost,'run_start_utc':self.run_start_utc,'opencode_session_id':self.opencode_session_id,'full_HF_tokenizer_revision':cfg.get('full_HF_tokenizer_revision'),'GET_v1_models_sha256':self.config.get('models_endpoint_sha256'),'full_request_native_tokens':full_request_native_tokens,'native_memory_tokens':request_metadata.get('native_memory_tokens'),'finish_reason':choice.get('finish_reason'),'request_key':key,'latency_seconds':time.monotonic()-start}
+            obj={'text':text,'mock':False,'cache_hit':False,'model':returned_model,'returned_model_field':returned_model,'provider_model_id':cfg['model'],'provider_name':self.config.get('provider_name'),'reasoning_effort':configured_effort,'provider_output_budget_tokens':provider_budget,'max_completion_tokens':provider_budget,'completion_budget_class':request_metadata.get('completion_budget_class'),'visible_output_limit_tokens':visible_limit,'fingerprint':body.get('system_fingerprint'), 'usage':usage,'usage_is_measured':known,'provider_input_tokens':inp,'provider_output_tokens':output,'cache_read_tokens':cache_read,'cost_usd_or_conservative':cost,'run_start_utc':self.run_start_utc,'opencode_session_id':self.opencode_session_id,'full_HF_tokenizer_revision':cfg.get('full_HF_tokenizer_revision'),'GET_v1_models_sha256':models_sha256,'full_request_native_tokens':full_request_native_tokens,'native_memory_tokens':request_metadata.get('native_memory_tokens'),'finish_reason':choice.get('finish_reason'),'request_key':key,'latency_seconds':time.monotonic()-start,'think_blocks_removed':think_blocks_removed,'reasoning_content_present':reasoning_content_present}
+            obj['reasoning_tokens'] = reasoning_tokens
+            obj['total_completion_tokens'] = output
+            obj.update({'response_shape': response_schema_summary(body),
+                        'visible_response_tokens': self.tok.count(text),
+                        'opencode_session_id': session_id,
+                        'request_system_hash': digest(system), 'request_user_hash': digest(user)})
             write_json(cp,obj)
             return obj
         raise RuntimeError('Unreachable')
