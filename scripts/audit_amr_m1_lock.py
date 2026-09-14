@@ -36,8 +36,8 @@ def main() -> int:
     alpha = lock["routing_assignment"]["alpha"]
     check(len(alpha) == lock["model"]["n_bands"] == 6, "alpha length matches n_bands")
     check(all(a in (0.0, 1.0) for a in alpha), "alpha is binary (M1 fixed)")
-    check(alpha[0] == 1.0 and all(a == 0.0 for a in alpha[1:]),
-          "routing = band0 invariant, bands 1-5 recoverable (P2 honest-negative consistent)")
+    check(all(a == 0.0 for a in alpha) or (alpha[0] == 1.0 and all(a == 0.0 for a in alpha[1:])),
+          "routing assignment is one of the two pre-registered evidence-consistent forms")
     for rel, digest in lock["code_hashes"].items():
         path = ROOT / rel
         check(path.is_file() and sha256_file(path) == digest, f"code hash: {rel}")
@@ -48,9 +48,10 @@ def main() -> int:
     scope = lock["evidence_scope"]
     check("dev only" in scope and "J03WQQ" in scope and "SoccerTrack" in scope,
           "dev-only scope with consumed-asset re-authorization noted")
+    closed_runs = {"m1_v1", "m1_v2"}
     trainings = [p for p in P4.rglob("*") if p.name.startswith(("record_", "summary")) and p.suffix == ".json"
-                 and "m1_v1" not in p.parts]
-    check(not trainings, "no M1 training records outside the closed documented m1_v1 run (pre-training gate)")
+                 and not (closed_runs & set(p.parts))]
+    check(not trainings, "no M1 training records outside closed documented runs (pre-training gate)")
     criteria = lock["evaluation_plan"]["success_criteria_descriptive"]
     check("H1" in criteria and "H2" in criteria and "no m2" in criteria.lower(),
           "descriptive success criteria with contraction rule")

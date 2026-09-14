@@ -57,3 +57,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P3-R15 | update-allocation 曲线（dev 事后消融）：pair 随 intrinsic 配额单调升（0.804→0.944→0.951→0.967），zone 单调降、centroid 总体升，几何代理 ≥1:1 平台化（~0.70）；无占优配比点，2:1 为膝点；1:0 在随机 mode_head 读出下仍保留 pair 0.80/干预 ρ 0.53（结构在池化特征）；干预预测对所有已训配比存在 | SUPPORTED_DEV_ONLY | 配比扫掠 1:0/1:1（本节点）＋T5R4 Round-2 冻结值 | `artifacts/phase3/ratio_sweep_v1/`、`reports/P3_RATIO_SWEEP_REPORT.md` | dev-only，NOT selection；1:0 行带随机读出警示 |
 
 | P4-A1 | 朴素谱带不变性压力（无防护实现）导致模态通道塌缩：3/3 seeds pair=0、干预退化；根因=路由损失尺度失衡＋塌缩同时满足未归一化 L_inv/L_eqv＋防塌缩不足 | SUPPORTED_DEV_ONLY（负结果） | M1 v1 训练（锁 v1） | `artifacts/phase4_amr/m1_v1/`、`reports/P4_N3_V1_COLLAPSE_REPORT.md` | dev-only；判决的是无防护实现，不是路由假设本身 |
+
+| P4-A2 | 共享主干上的学习型不变性压力（v1 带尺度失衡、v2 归一化修复后）均导致系统性塌缩：v1 毁模态通道，v2 seed 11 经共享编码器毁 context 通道（z_ctx 平移响应 1.0）；机制：不变性目标在共享主干上的最小阻力路径是通道/主干塌缩 | SUPPORTED_DEV_ONLY（负结果） | M1 v2 训练（锁 v2） | `artifacts/phase4_amr/m1_v2/`、`reports/P4_N3_V2_FAILURE_AND_REDESIGN.md` | dev-only；与 P4-A1 合并构成"不变性压力需结构性防护"的证据 |

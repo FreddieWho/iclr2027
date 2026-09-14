@@ -18,7 +18,7 @@
   "routing_assignment": {
     "rule": "fixed per-band gates for the intrinsic/mode channel; set from config, never learned (M1)",
     "alpha": [
-      1.0,
+      0.0,
       0.0,
       0.0,
       0.0,
@@ -27,9 +27,9 @@
     ],
     "semantics": "alpha_b=1 -> invariance objective (L_inv); alpha_b=0 -> equivariance/recoverability (L_eqv)",
     "evidence_basis": [
-      "band 0 (lowest, contains near-global/DC modes): whole-team global translation is the confirmed context-nuisance for intrinsic tasks (T5R3 by-construction design; raw single-channel contrast 0.256 in T5R5; P3-R2/R8) -> invariant",
-      "bands 1-5: P2 honest negative (no universal mid-frequency blind spot; 20/36 vs 16/36 across architecture/graph/role/energy) forbids presetting any mid band as repair target -> recoverable",
-      "support factor: enters via support-conditioned whitened sampling (mask xi to a random same-team subset before filtering), NOT via a learned gate; per-(band, support-size) response recorded as diagnostics"
+      "v3 (D-20260905-P4-004): ALL bands recoverable. Band-0 invariance removed: translation invariance is already guaranteed by construction (centered view, T5R3/T5R5 z_mode response ~0); a learned invariance objective on top is redundant and empirically destructive on a shared trunk (v1 mode-channel collapse; v2 seed-11 total trunk collapse incl. context channel).",
+      "bands 1-5 recoverable (unchanged): P2 honest negative (20/36 vs 16/36) forbids presetting any mid band as repair target.",
+      "support factor: support-conditioned whitened sampling retained; KNOWN DESIGN RISK (graph uncertainty): node-domain support masking and spectral band-limiting are only approximately compatible; per-(band, support-size) diagnostics recorded."
     ]
   },
   "losses": {
@@ -109,6 +109,25 @@
         "evidence scope (dev only)"
       ],
       "justification": "spec 7.2 recoverability tests information accessibility; magnitude-free directional readout is the stricter test; collapse must be costly for the 5 recoverable bands"
+    },
+    {
+      "date": "2026-09-05",
+      "version": "v3",
+      "before_v3_training": true,
+      "trigger": "v2 systematic failure 3/3 seeds (reports/P4_N3_V2_FAILURE_AND_REDESIGN.md)",
+      "changes": [
+        "routing alpha [1,0,0,0,0,0] -> [0,0,0,0,0,0] (all bands recoverable)"
+      ],
+      "unchanged": [
+        "normalized L_eqv",
+        "W_var=1.0",
+        "update budget 210/140/70=420",
+        "seeds",
+        "evaluation protocol",
+        "evidence scope (dev only)"
+      ],
+      "justification": "single-variable change isolating invariance pressure as the destructive factor; recoverability everywhere is the most conservative routing consistent with the P2 honest negative; collapse is costly for all bands under normalized readout",
+      "stop_rule": "if v3 also fails systematically, M1 iteration stops and all three rounds are reported to the user"
     }
   ]
 }
