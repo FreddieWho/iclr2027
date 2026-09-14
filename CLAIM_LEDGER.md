@@ -47,3 +47,4 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P3-R6 | intrinsic objective 必须直接塑造 shared encoder 而非只训练末端 mode head | SUPPORTED_AS_ROUND1_MECHANISTIC_CONTROL | 边界 = IDSSE 开发集 / 当前固定结构；来自 Round 1 `routing_mode_head_only` 负对照 | T5R-5 candidate lock |
 | P3-R7 | shared-encoder update allocation 实质影响 task–geometry Pareto（2:1 入选） | SUPPORTED_CONDITIONALLY_ON_IDSSE_UNSEEN_MATCH | 开发集方向在 J03WQQ 保持：任务保持＋干预 full 3 seeds 高于同 seed reference；不是通用最优 ratio 结论 | T5R-6 |
 | P3-R8 | 归一化局部几何可预测未见 IDSSE 源比赛上的受控 support-reallocation 响应 | SUPPORTED_ON_SINGLE_UNSEEN_MATCH | 边界 = 一个未见源比赛、固定家族、冻结干预（eps 0.25、support 4）；2:1 mean full 0.63 vs 基线 ~0，不是独立 provider 确认 | T5R-6 |
+| P3-R9 | 修复存在选择性 context 代价：辅助 match-half 探针 0/8 场反向（−30%） | SUPPORTED_AS_BOUNDARY_ON_REPAIR | 冻结 addendum 将该探针定位为 auxiliary（测 z_ctx 绝对上下文保留）；四项主指标 8/8 占优不受其影响；论文必须如实并列表述，用于界定“context 无退化”的边界——空间上下文改善、赛时上下文退化 | P4 decision |
