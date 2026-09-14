@@ -48,3 +48,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P3-R7 | shared-encoder update allocation 实质影响 task–geometry Pareto（2:1 入选） | SUPPORTED_CONDITIONALLY_ON_IDSSE_UNSEEN_MATCH | 开发集方向在 J03WQQ 保持：任务保持＋干预 full 3 seeds 高于同 seed reference；不是通用最优 ratio 结论 | T5R-6 |
 | P3-R8 | 归一化局部几何可预测未见 IDSSE 源比赛上的受控 support-reallocation 响应 | SUPPORTED_ON_SINGLE_UNSEEN_MATCH | 边界 = 一个未见源比赛、固定家族、冻结干预（eps 0.25、support 4）；2:1 mean full 0.63 vs 基线 ~0，不是独立 provider 确认 | T5R-6 |
 | P3-R9 | 修复存在选择性 context 代价：辅助 match-half 探针 0/8 场反向（−30%） | SUPPORTED_AS_BOUNDARY_ON_REPAIR | 冻结 addendum 将该探针定位为 auxiliary（测 z_ctx 绝对上下文保留）；四项主指标 8/8 占优不受其影响；论文必须如实并列表述，用于界定“context 无退化”的边界——空间上下文改善、赛时上下文退化 | P4 decision |
+| P3-R10 | 局部几何→响应排序预测存在有界有效域（ε≲0.25），域外按理论预测方式失效 | SUPPORTED_ON_DEV | ε-sweep（57 组、12 模型）：2:1 ρ 0.83→0.56→−0.001；相对误差 0.26→0.73；ε=1.0 协议合法性崩（11/57）；冻结工作点 0.25 在域内近边界；dev 证据，非外部确认 | 论文写作 |
+| P3-R11 | support 敏感的响应现象是训练诱导的 | SUPPORTED_ON_DEV | 未训练对照 ΔR 量级 ~1e-6 vs 训练后 ~1e-1（差 5 个数量级）；未训练处于平凡线性域（q/a≈1.0），训练将映射推出平凡域；未训练 Spearman 绝对值不做过度解读（近 float32 精度边缘） | 论文写作 |
