@@ -69,7 +69,7 @@
     - [ ] P4-N1 AMRModel 实现＋JVP 校验＋单元测试
     - [x] P4-N2 M1 config lock 已冻结并审计 PASS（α=[1,0,0,0,0,0]，预算 210/140/70，D-20260905-P4-002）
     - [ ] P4-N3 M1 训练＋dev 评估（v1 塌缩负结果 P4-A1 已入账；v2 附录锁 65ee8599，重训运行中）
-    - [ ] P4-N4 matched-capacity 对照（CAP/centering/canonicalization/relational）
+    - [ ] P4-N4 matched-capacity 对照（CAP/M0 脚本已实现待 v2 判定后启动；centering/canonicalization/relational 复用 T5R3 冻结数）
     - [ ] P4-N5 candidate lock＋保留场读取（需用户授权二次读取）
     - [ ] P4-N6 外部确认读取（需用户授权）＋报告
     - [ ] 12b 正文 prose 填充（按 EVIDENCE_MAP 的措辞规则）
