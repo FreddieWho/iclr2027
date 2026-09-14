@@ -77,7 +77,7 @@
 | B：SNGAR 恢复 | 暂缓 | 保留原访问和 test firewall；获得可信访问或带 revision/mapping/SHA-256 的镜像后，可升级独立样本量与确认强度。 |
 | C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
 | D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |
-| E：AMR 与书法 | 阻塞 | 只有 T5R 任务—鲁棒性—外部确认门闭合后才重新评估。 |
+| E：AMR 与书法 | 门已闭合、待用户裁决 | T5R 任务—鲁棒性—外部确认门已闭合（T5R6 CONFIRMED，P3-R5）；选项 A（本期不做）/B（dev-gated proof-of-concept）/C（P4 全周期）待事项 8 决定；agent 的 future-work 说法仅为建议。 |
 | F：SoccerTrack-v2 外部确认 | 完成 | T5R6 CONFIRMED；8 场同方向；P4/诊断决策待事项 8。 |
 | G：ICLR 2027 投稿冲刺 | 当前执行 | 摘要截止 2026-09-18、全文 2026-09-25（官方核实）；论文形状为机制先行＋修复＋外部确认；AMR/书法/篮球明确移出正文。 |
 
@@ -102,3 +102,4 @@
 - 2026-09-05：11c support 伸缩 v2 完成（full−diag 差距随联盟粒度 0→+0.2~0.27，两族同向；ledger P3-R12）；11b Barlow-Twins 目标族对照已后台启动（训练 3 seeds×80 epochs＋干预评估，协议注明 control 非 selection）。
 - 2026-09-05：SSL 对照并行化重构（3 seed worker×8 线程，墙钟降至分钟级；线程数入 manifest）后完成 11b：现象跨目标族复现（ledger P3-R13）。
 - 2026-09-05：11c 全部完成：预测基线头对头（full 0.49＞gyration 0.35＞谱 0.11，逐 seed 一致）＋k 敏感性（谱基线全 k 近零无翻转）；ledger P3-R14。事项 11 仅剩 11d（随手稿执行的措辞修正）。
+- 2026-09-05：用户质询后更正：分支 E 状态由“阻塞”改为“门已闭合、待用户裁决”——AMR 从未被任何治理文档判为 future work，该说法仅是 agent 在评审报告中的建议；A/B/C 三选项见评审报告及 D-20260905-T5R6-002。

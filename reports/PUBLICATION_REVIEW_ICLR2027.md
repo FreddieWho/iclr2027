@@ -177,9 +177,11 @@ account, with a task-semantic repair and independent external confirmation."
 - 剂量-响应／support 大小消融：纯推理，无协议张力，建议做（便宜）。
 - EGNN/Set Transformer 等变基线：有训练成本，时间紧可降级为 related-work 讨论＋limitation。
 
-### 3.4 明确不做（本期）
+### 3.4 明确不做（本期）——**本节为 agent 建议，不是项目决定**
 
-AMR 训练与 gate（未来论文）；书法/篮球跨域（future work）；GRF 模拟臂（rebuttal 预案）；任何新的保留场或外部数据读取（协议红线，T5R5/T5R6 的单次读取已消耗）。
+AMR 训练与 gate（建议未来论文）；书法/篮球跨域（future work）；GRF 模拟臂（rebuttal 预案）；任何新的保留场或外部数据读取（协议红线，T5R5/T5R6 的单次读取已消耗）。
+治理事实：P3-R5 门已闭合，AMR 是否启动由事项 8 决定（D-20260905-T5R6-002）；
+选项为 A（本期不做）/B（dev-gated proof-of-concept）/C（P4 全周期），本节建议仅为 A。
 
 ### 3.5 对 PLAN 假设的影响
 
