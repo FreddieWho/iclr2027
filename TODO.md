@@ -63,6 +63,11 @@
     - [x] 10c 修复增益 headline 表＋8 场 bootstrap CI（已有数字，只需整理）→ `reports/P3_HEADLINE_EFFECT_TABLE.md`；发现 match-half 辅助探针 0/8 反向，已入 ledger P3-R9
     - [ ] 10d SSL 基线（SimSiam/BYOL 类，仅开发集评估，不新增保留场/外部读取）
     - [ ] 10e 配比扫掠 1:0/1:1 是否补做——需用户拍板（与"无 Round 3"承诺有张力，见评审 3.3）
+- [ ] 12. 手稿（骨架已建：`paper/main.tex`＋8 节 scaffold＋EVIDENCE_MAP；摘要初稿在 `paper/sections/00_abstract.tex`）子项按节推进，可并行
+    - [ ] 12a 用户复核摘要初稿与论文形状（机制先行 9 页）
+    - [ ] 12b 正文 prose 填充（按 EVIDENCE_MAP 的措辞规则）
+    - [ ] 12c Figure 1 概念图生成
+    - [ ] 12d 官方 ICLR 2027 样式文件替换占位 preamble；references.bib 补齐（现 11 条，需 ~40+）
 - [ ] 11. 科学补强线（评审第四部分；全部开发集内，不触碰已消耗的锁）子项可并行
     - [x] 11a ε-sweep＋局部近似失效曲线＋未训练对照（完成：`reports/P3_EPSILON_SWEEP_REPORT.md`，ledger P3-R10/R11）
     - [x] 11b SSL 目标族对照（与 10d 同一项；Barlow-Twins 复现，ledger P3-R13）
@@ -103,3 +108,4 @@
 - 2026-09-05：SSL 对照并行化重构（3 seed worker×8 线程，墙钟降至分钟级；线程数入 manifest）后完成 11b：现象跨目标族复现（ledger P3-R13）。
 - 2026-09-05：11c 全部完成：预测基线头对头（full 0.49＞gyration 0.35＞谱 0.11，逐 seed 一致）＋k 敏感性（谱基线全 k 近零无翻转）；ledger P3-R14。事项 11 仅剩 11d（随手稿执行的措辞修正）。
 - 2026-09-05：用户质询后更正：分支 E 状态由“阻塞”改为“门已闭合、待用户裁决”——AMR 从未被任何治理文档判为 future work，该说法仅是 agent 在评审报告中的建议；A/B/C 三选项见评审报告及 D-20260905-T5R6-002。
+- 2026-09-05：新增事项 12（手稿）：论文骨架＋8 节写作 scaffold＋证据映射表＋摘要初稿已建于 `paper/`；AMR 与配比扫掠留槽位待用户裁决。

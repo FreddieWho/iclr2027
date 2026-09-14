@@ -1,0 +1,26 @@
+\section{Evaluation Protocol and Reproducibility}
+% ROLE: ~0.5 page main text + appendix. A differentiator in the current
+% review environment — present as evaluation-methodology contribution, with a
+% short "leakage threat model" box (taste brief item 14: some reviewers have
+% never seen this machinery; make it legible, not gimmicky).
+
+% CONTENT:
+%  - match-level splits frozen BEFORE task construction; task/baseline/metric
+%    lock BEFORE any model result; candidate lock BEFORE the single reserved
+%    read; confirmation lock BEFORE the external read
+%  - single-read discipline: reserved match (J03WQQ) read exactly once;
+%    external provider read exactly once; no re-selection after any read
+%  - legacy heldout marked EXPOSED_DURING_CANDIDATE_SEARCH, never reused
+%  - every artifact hashed (SHA-256 manifests); audits executable
+%  - seeds 11/23/47 everywhere; match = unit of independence
+%  - threat model box: what each lock prevents (adaptive overfitting,
+%    threshold tuning on test, candidate cherry-picking, provider shopping)
+%  - Reproducibility Statement (ICLR-encouraged): code + SoccerTrack-v2
+%    artifacts public; IDSSE restricted (license), all derived dev artifacts
+%    + hashes provided. AI-use disclosure section per ICLR 2027 policy.
+
+% APPENDIX PLAN (supplementary, anonymized):
+%  A. full per-match tables (T5R5/T5R6)   B. lock files + audit outputs
+%  C. eps-sweep full per-seed curves      D. support-scaling full table
+%  E. predictor-baseline head-to-head     F. SSL-family control details
+%  G. conversion receipts + QC            H. claim ledger (evidence map)

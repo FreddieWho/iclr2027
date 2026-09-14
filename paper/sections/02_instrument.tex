@@ -1,0 +1,30 @@
+\section{Support-Reallocation Probing}
+% ROLE: 1 page. Formalize the instrument.
+
+% SUBSEC 2.1 — Setup. Multi-entity state X in R^{n x d}, relation graph
+% (kNN, k=4), normalized representation \hat z = z/||z||. Response metric:
+% 1 - cos(z(x), z(x + delta)).
+
+% SUBSEC 2.2 — The operator. Frozen protocol t5r5_support_reallocation_v1:
+% source support S (|S|=4, one team), unit base field (stable-seeded),
+% anchor = field on S at eps; control = SAME vector multiset reassigned to a
+% disjoint same-team support T (bijection enumerated, argmin spectral-match
+% selection), boundary-validity checked. Equal energy, equal multiset, equal
+% support size — only the ALLOCATION differs.
+% WORDING RULE: cite Morris elementary effects, Nettack, COMA as conceptual
+% ancestors; claim "novel combination", not "novel perturbation" (brief (b)).
+
+% SUBSEC 2.3 — Local geometry. J_f = d\hat z/d vec(X); G_f = J^T J;
+% Taylor: 1-cos ≈ 1/2 delta^T G delta. Block structure: 2x2 diagonal blocks
+% (self-sensitivity) vs off-diagonal (cross-node coupling).
+% WORDING RULE (review Part 4-A): state explicitly that as eps→0 the
+% prediction is definitional; the scientific content is (a) finite-eps
+% validity, (b) RANKING prediction, (c) transfer. Preempt: Gram = empirical
+% input-space NTK (Du et al. 2019 — must cite); Rayleigh = Dirichlet energy
+% (over-smoothing literature — must cite). Novelty = protocol + predictive
+% use, NOT the features.
+
+% SUBSEC 2.4 — Evaluation protocol (short; full in Sec.8/appendix):
+% match-level splits, task/baseline locks BEFORE model results, candidate
+% lock BEFORE the single reserved-match read, external lock BEFORE the
+% provider read. One read each; no re-selection after any read.

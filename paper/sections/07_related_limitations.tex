@@ -1,0 +1,46 @@
+\section{Related Work}
+% ROLE: ~1 page. Differentiation must be explicit (briefs: reviewers will
+% read us as incremental unless we do this work).
+
+% PARA 1 — Equivariance measurement: Lenc & Vedaldi 2015; Lie derivative
+% (Gruver et al., ICLR 2023). THEY: named group actions, scalar equivariance
+% error. WE: mode-resolved decomposition over entity subsets + prediction.
+% Parital/approximate equivariance: Romero & Lohit NeurIPS 2022 (Partial
+% G-CNNs — MUST CITE), Wang et al. ICML 2022, AEGN NeurIPS 2023.
+
+% PARA 2 — Intervention-based evaluation: causal abstractions / interchange
+% (Geiger et al. NeurIPS 2021, JMLR 2025) — internal activation swaps for
+% causal-model alignment; OURS: input-space reallocation as the prediction
+% TARGET; preempt OOD-representation critique (Grant et al., ICLR 2026).
+% Sensitivity analysis lineage: Morris 1991; Nettack KDD 2018; COMA AAAI 2018.
+
+% PARA 3 — Split invariance in SSL: Xiao et al. ICLR 2021; SIE/3DIEBench
+% (Garrido et al. ICML 2023); EquiMod ICLR 2023; capsule pose/geometry
+% disentanglement (Zhao et al. ECCV 2020). THEY: a-priori split by symmetry
+% type. WE: split MOTIVATED BY A MEASURED PATHOLOGY + budgeted allocation.
+
+% PARA 4 — Geometry/spectral analysis of representations: NTK (Jacot 2018;
+% Graph NTK Du 2019 — state the relation explicitly), Dirichlet energy /
+% over-smoothing (Oono & Suzuki ICLR 2020; Yang et al. ICML 2022), EDJM ICML
+% 2016, Jacobian-eigenvalue failure predictors (FODS 2022), Novak NeurIPS
+% 2018. Diagnostic-paper precedent: RankMe ICML 2023.
+
+% PARA 5 — Sports ML: TacticAI (Nature Comms 2024, D2-symmetric GNN),
+% Sports-Traj ICLR 2025, JointDiff ICLR 2026, Stöckl et al. 2022 (permutation-
+% invariant sports states), ghosting/VAEP lineage. WE: sport = testbed;
+% contribution = general instrument + mechanism for permutation-structured
+% multi-entity representations.
+
+\section{Limitations}
+% MANDATORY ITEMS (all already evidenced, no hiding):
+%  - single-frame snapshots, no temporal modeling; 1 Hz sampling
+%  - one encoder family (Phase-GAT, ~140k params); architecture generality
+%    untested (EGNN/Set Transformer) — objective-family generality IS tested
+%  - synthetic reallocations, not real tactical changes; distance to tactical
+%    semantics unmeasured
+%  - two providers, both soccer; single external provider ≠ cross-domain
+%  - gyration baseline evaluated on dev only (external read discipline
+%    consumed); n=8 external matches
+%  - match-half auxiliary cost (P3-R9) restated
+%  - IDSSE restricted access; mitigation = SoccerTrack-v2 public artifacts
+%    [+ GRF simulated arm as rebuttal-ready option, LEADS L-005]

@@ -1,0 +1,27 @@
+Representations of multi-entity systems are commonly probed by their response
+to global transformations, not by how a fixed perturbation budget
+\emph{redistributed across different coalitions of entities} changes them. We
+introduce \emph{support-reallocation probing}: controlled, equal-energy
+displacement interventions that redistribute the same displacement operator
+over different node supports of a multi-agent scene, turning ``who moves
+together'' into a measurable property of a learned representation. Applied to
+self-supervised encoders of soccer formations, the instrument shows that
+intervention responses are architecture-dependent yet \emph{predictable}: a
+normalized local-geometry descriptor---the input-Jacobian Gram of the encoder,
+decomposed into per-node and cross-node coupling blocks---ranks intervention
+responses with Spearman correlations of $0.5$--$0.85$ across development,
+held-out-match, and independent-provider evaluations, within a measured
+validity regime ($\varepsilon \lesssim 0.25$ in normalized pitch units) whose
+degradation matches the theory's own prediction. The relation is
+training-induced (random-initialization responses are five orders of magnitude
+smaller), replicates across SSL objective families, exceeds both spectral and
+model-free formation baselines, and its informative content shifts from
+self-sensitivity to coupling terms as coalition size grows. Guided by this
+diagnosis, a task-semantic repair---separating absolute-deployment and
+translation-invariant configuration channels with an asymmetric update
+allocation---improves all four primary task--geometry metrics on all 8 matches
+of an independent data provider (sign test $p<0.01$), at a measured and
+selective cost to auxiliary temporal-context retention. These results suggest
+that how displacement is distributed over entities is a first-class variable
+for multi-agent representation learning, and that local differential geometry
+is a practical instrument for measuring, predicting, and repairing it.
