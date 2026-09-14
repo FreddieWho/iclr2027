@@ -65,8 +65,8 @@
     - [ ] 10e 配比扫掠 1:0/1:1 是否补做——需用户拍板（与"无 Round 3"承诺有张力，见评审 3.3）
 - [ ] 11. 科学补强线（评审第四部分；全部开发集内，不触碰已消耗的锁）子项可并行
     - [x] 11a ε-sweep＋局部近似失效曲线＋未训练对照（完成：`reports/P3_EPSILON_SWEEP_REPORT.md`，ledger P3-R10/R11）
-    - [ ] 11b SSL 目标族对照（与 10d 同一项；Barlow-Twins 版 2:1 后台训练中）
-    - [ ] 11c k 敏感性、简单预测基线（support 大小伸缩已完成：`reports/P3_SUPPORT_SCALING_REPORT.md`，ledger P3-R12）
+    - [x] 11b SSL 目标族对照（与 10d 同一项；Barlow-Twins 复现，ledger P3-R13）
+    - [x] 11c 全部完成（support 伸缩 P3-R12；简单预测基线＋k 敏感性 P3-R14）
     - [ ] 11d 零成本措辞修正（z_mode 构造性、因果分层）随手稿写作执行
 
 ## 分支记录
@@ -100,3 +100,5 @@
 - 2026-09-05：11a 完成（ε-sweep 报告；有效域 ε≤0.25、现象训练诱导，ledger P3-R10/R11）；11c 的 support 大小伸缩已后台启动（support {1,2,3,4}×ε=0.25×6 模型×30 组）。
 - 2026-09-05：11c support 伸缩 v1 为 pilot（s=4 仅 18 组达阈值，触发 UNDERSAMPLED；确认 s=1 时 full≡diag 的构造一致性；full−diag 差距随 support 增大方向一致但噪声大）；已参数化脚本并启动 v2（4 档×60 快照，全量一致比较）。11b 设计定案：保持 2:1 配方与数据不变，仅将 intrinsic 三元组对比损失换成 Barlow-Twins 式互相关目标（隔离"目标族"变量），dev 评估。
 - 2026-09-05：11c support 伸缩 v2 完成（full−diag 差距随联盟粒度 0→+0.2~0.27，两族同向；ledger P3-R12）；11b Barlow-Twins 目标族对照已后台启动（训练 3 seeds×80 epochs＋干预评估，协议注明 control 非 selection）。
+- 2026-09-05：SSL 对照并行化重构（3 seed worker×8 线程，墙钟降至分钟级；线程数入 manifest）后完成 11b：现象跨目标族复现（ledger P3-R13）。
+- 2026-09-05：11c 全部完成：预测基线头对头（full 0.49＞gyration 0.35＞谱 0.11，逐 seed 一致）＋k 敏感性（谱基线全 k 近零无翻转）；ledger P3-R14。事项 11 仅剩 11d（随手稿执行的措辞修正）。

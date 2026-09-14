@@ -1,0 +1,17 @@
+{
+  "status": "P3_SSL_FAMILY_CONTROL_COMPLETE",
+  "objective": "barlow_twins",
+  "frozen_recipe": "2:1 quotas/streams/epochs/seeds identical to t5r4_round2",
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "models": 3,
+  "parallelism": {
+    "seed_workers": 3,
+    "torch_threads_train_per_worker": 8
+  },
+  "reproducibility_note": "thread count fixed and recorded; CPU reduction order may vary with thread count",
+  "elapsed_seconds_max_worker": 317.2
+}

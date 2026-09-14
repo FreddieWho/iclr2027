@@ -1,0 +1,14 @@
+{
+  "status": "P3_PREDICTOR_BASELINES_COMPLETE",
+  "data": "IDSSE train+valid dev only",
+  "n_sets": 38,
+  "epsilon": 0.25,
+  "k_values": [
+    2,
+    4,
+    6,
+    8
+  ],
+  "candidate_lock_sha256": "3bd8e250d73529b1b482e0cc332e78f0b1bd73294153292bdb9a7557cb99dec5",
+  "elapsed_seconds": 4.4
+}
