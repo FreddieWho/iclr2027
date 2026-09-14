@@ -1,0 +1,13 @@
+{
+  "status": "P3_SUPPORT_SCALING_COMPLETE",
+  "data": "IDSSE train+valid dev only",
+  "models": 6,
+  "support_sizes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "candidate_lock_sha256": "3bd8e250d73529b1b482e0cc332e78f0b1bd73294153292bdb9a7557cb99dec5",
+  "elapsed_seconds": 35.5
+}

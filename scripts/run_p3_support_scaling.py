@@ -28,6 +28,16 @@ SUPPORT_SIZES = (1, 2, 3, 4)
 N_SNAPSHOTS = 30
 
 
+def parse_args() -> tuple[set[int], int, Path]:
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sizes", type=int, nargs="+", default=list(SUPPORT_SIZES))
+    parser.add_argument("--snapshots", type=int, default=N_SNAPSHOTS)
+    parser.add_argument("--output", type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    return set(args.sizes), args.snapshots, args.output.resolve()
+
+
 def load_module(path: Path, name: str) -> Any:
     spec = importlib.util.spec_from_file_location(name, path)
     if spec is None or spec.loader is None:
@@ -52,9 +62,9 @@ def write_json(path: Path, value: Any) -> None:
 
 
 def build_sets_sized(T5R3: Any, T5R5: Any, FC: Any, raw: np.ndarray, team_all: np.ndarray,
-                     snapshot_ids: list[str], support_size: int) -> list[dict[str, Any]]:
+                     snapshot_ids: list[str], support_size: int, n_snapshots: int = N_SNAPSHOTS) -> list[dict[str, Any]]:
     total = len(raw)
-    take = min(N_SNAPSHOTS, total)
+    take = min(n_snapshots, total)
     chosen = sorted(set(int(v) for v in np.linspace(0, total - 1, take).round()))
     sets: list[dict[str, Any]] = []
     for snap in chosen:
@@ -95,8 +105,9 @@ def build_sets_sized(T5R3: Any, T5R5: Any, FC: Any, raw: np.ndarray, team_all: n
 
 def main() -> int:
     started = time.perf_counter()
-    if OUTPUT.exists():
-        print(f"REFUSED: output exists: {OUTPUT}", file=sys.stderr)
+    sizes, n_snapshots, output = parse_args()
+    if output.exists():
+        print(f"REFUSED: output exists: {output}", file=sys.stderr)
         return 2
     torch.set_num_threads(1)
     T5R3 = load_module(ROOT / "scripts" / "run_t5r3_sanity.py", "t5r3_for_support_scaling")
@@ -123,8 +134,8 @@ def main() -> int:
             models[f"{model_id}__seed{seed}"] = model
 
     results: dict[str, Any] = {}
-    for size in SUPPORT_SIZES:
-        sets = build_sets_sized(T5R3, T5R5, FC, raw, team, snapshot_ids, size)
+    for size in sorted(sizes):
+        sets = build_sets_sized(T5R3, T5R5, FC, raw, team, snapshot_ids, size, n_snapshots)
         print(f"support={size}: {len(sets)} sets", flush=True)
         if len(sets) < 20:
             results[str(size)] = {"status": "UNDERSAMPLED", "n_sets": len(sets)}
@@ -135,19 +146,20 @@ def main() -> int:
         results[str(size)] = {"n_sets": len(sets), "per_model": per_model}
         print(f"support={size}: done", flush=True)
 
-    summary = {"support_sizes": list(SUPPORT_SIZES), "epsilon": 0.25, "results": results}
-    OUTPUT.mkdir(parents=True)
-    write_json(OUTPUT / "summary.json", summary)
+    summary = {"support_sizes": sorted(sizes), "epsilon": 0.25, "n_snapshots": n_snapshots, "results": results}
+    output.mkdir(parents=True)
+    write_json(output / "summary.json", summary)
     manifest = {"status": "P3_SUPPORT_SCALING_COMPLETE", "data": "IDSSE train+valid dev only",
-                "models": 6, "support_sizes": list(SUPPORT_SIZES),
+                "models": 6, "support_sizes": sorted(sizes), "n_snapshots": n_snapshots,
+                "supersedes": "support_scaling_v1 (pilot: s=4 hit the min-valid threshold at N=30)",
                 "candidate_lock_sha256": sha256_file(LOCK_PATH),
                 "elapsed_seconds": round(time.perf_counter() - started, 1)}
-    write_json(OUTPUT / "manifest.json", manifest)
+    write_json(output / "manifest.json", manifest)
     lines = []
-    for path in sorted(OUTPUT.rglob("*")):
+    for path in sorted(output.rglob("*")):
         if path.is_file() and path.name != "SHA256SUMS":
-            lines.append(f"{sha256_file(path)}  {path.relative_to(OUTPUT)}")
-    (OUTPUT / "SHA256SUMS").write_text("\n".join(lines) + "\n", encoding="utf-8")
+            lines.append(f"{sha256_file(path)}  {path.relative_to(output)}")
+    (output / "SHA256SUMS").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(json.dumps({"status": manifest["status"]}), flush=True)
     return 0
 
