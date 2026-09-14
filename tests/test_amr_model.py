@@ -103,3 +103,18 @@ def test_route_alpha_guard():
         pass
     else:
         raise AssertionError("shape guard failed")
+
+
+def test_whitened_intervention_support_mask():
+    adj = (np.random.default_rng(1).random((20, 20)) > 0.7).astype(np.float64)
+    adj = np.triu(adj, 1)
+    adj = adj + adj.T
+    lap = amr.normalized_laplacian(torch.from_numpy(adj[None]).float())[0].numpy()
+    coeffs = amr.chebyshev_band_coefficients()
+    support = np.zeros(20, dtype=bool)
+    support[:5] = True
+    rng = np.random.default_rng(9)
+    d = amr.whitened_intervention(lap, coeffs, 3, 0.25, rng, support=support)
+    assert abs(float(np.linalg.norm(d)) - 0.25) < 1e-6
+    full = amr.whitened_intervention(lap, coeffs, 3, 0.25, np.random.default_rng(9))
+    assert not np.allclose(d, full)

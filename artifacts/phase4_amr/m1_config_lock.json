@@ -1,0 +1,87 @@
+{
+  "lock_id": "amr_m1_config_lock",
+  "created": "2026-09-05",
+  "authority": "P4-N2; D-20260905-P4-001 (user option C); docs/02_METHOD_SPEC_AMR.md M1",
+  "frozen_before": "any AMR M1 training or result inspection",
+  "evidence_scope": "train/valid dev only; NO reserved (J03WQQ) or external (SoccerTrack) reads; those need explicit user re-authorization (P4-N5/N6)",
+  "model": {
+    "class": "AMRModel (scripts/amr_model.py)",
+    "encoder": "GraphEncoder (frozen width, same backbone as T5R TaskModel family)",
+    "n_bands": 6,
+    "cheby_order": 5,
+    "band_out_dim": 32,
+    "mode_dim": 64,
+    "band_windows": "6 equal-width cosine-tapered windows on normalized-Laplacian spectrum [0,2]",
+    "context_channel": "raw view -> team_mean pool -> pool_projection -> phase/zone/centroid heads",
+    "mode_channel": "centered view -> per-band P_b(L)H -> team_mean pool -> band projection -> mode_head"
+  },
+  "routing_assignment": {
+    "rule": "fixed per-band gates for the intrinsic/mode channel; set from config, never learned (M1)",
+    "alpha": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "semantics": "alpha_b=1 -> invariance objective (L_inv); alpha_b=0 -> equivariance/recoverability (L_eqv)",
+    "evidence_basis": [
+      "band 0 (lowest, contains near-global/DC modes): whole-team global translation is the confirmed context-nuisance for intrinsic tasks (T5R3 by-construction design; raw single-channel contrast 0.256 in T5R5; P3-R2/R8) -> invariant",
+      "bands 1-5: P2 honest negative (no universal mid-frequency blind spot; 20/36 vs 16/36 across architecture/graph/role/energy) forbids presetting any mid band as repair target -> recoverable",
+      "support factor: enters via support-conditioned whitened sampling (mask xi to a random same-team subset before filtering), NOT via a learned gate; per-(band, support-size) response recorded as diagnostics"
+    ]
+  },
+  "losses": {
+    "L_task": "pair triplet margin loss on z_mode (same PAIR_MARGIN as frozen recipe)",
+    "L_ctx": "phase CE + zone CE + centroid MSE on z_ctx (same as frozen context_loss)",
+    "L_route": "sum_b alpha_b ||Dr_b||^2 + (1-alpha_b) ||W_b Dr_b - pool(P_b(L)delta)||^2; W_b restricted linear 32->4",
+    "L_var": "hinge std(r_b), gamma=1.0 (anti-collapse)",
+    "L_orth": "||Cov(z_ctx, z_mode)||_F^2 (decoupling)",
+    "weights": {
+      "task": 1.0,
+      "ctx": 1.0,
+      "route": 1.0,
+      "var": 0.1,
+      "orth": 0.01
+    },
+    "weights_rationale": "task/context losses dominant and equal to frozen recipe; route at parity as the new mechanism signal; regularizers one/two orders below"
+  },
+  "training_protocol": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "epochs": 80,
+    "batch_size": 64,
+    "optimizer": "Adam lr=1e-3 wd=0",
+    "update_budget_per_epoch": {
+      "context": 210,
+      "intrinsic_pair": 140,
+      "route": 70,
+      "total": 420
+    },
+    "budget_rationale": "total equals the frozen T5R4 recipe (420/epoch) for equal-compute comparability; context/intrinsic streams identical in distribution to the frozen recipe",
+    "route_sampling": "per route update: uniform band b; same-team support size uniform in {2,3,4,5}; xi masked to support; delta = 0.25 * P_b(L) xi_S / ||.||_F applied to centered coordinates",
+    "epsilon": 0.25,
+    "data": "IDSSE dev stand-in, train split only; split_lock unchanged",
+    "streams": "context seed*100000, pair seed*200000, route seed*300000 (disjoint from frozen streams)"
+  },
+  "evaluation_plan": {
+    "task_metrics": "frozen valid metrics (zone/pair/geometry-proxy/centroid/translation/cross-readout), same functions as T5R",
+    "intervention_metrics": "frozen operator t5r5_support_reallocation_v1 eps=0.25 support=4 draw=0 on dev snapshots; full/diag/offdiag + spectral baseline, same functions as P3 intervention evals",
+    "mechanism_diagnostics": "per-(band, support-size) response profile; JVP vs central finite-difference parity on mode channel (spec 4.3)",
+    "success_criteria_descriptive": "H1: robustness-structure Pareto improvement vs matched-capacity controls (P4-N4); H2: invariance gain concentrated in band 0, coupling bands retain recoverability. Any systematic reversal -> contract claim and stop (no M2)"
+  },
+  "controls_for_N4": [
+    "CAP/M0 (spec section 8)",
+    "centering (T5R3 centered variant, frozen numbers)",
+    "canonicalization/Procrustes (frozen numbers)",
+    "relational pooling (T5R3 relational variant, frozen numbers)"
+  ],
+  "code_hashes": {
+    "scripts/amr_model.py": "07b93779c78ce1c3075689ec121919374ac04f09fc7f7928271a423255d4b568",
+    "tests/test_amr_model.py": "ac633757fa5f8bd8d86bb465abdf29275cf086b6199ae16d35cb3ba223235f23"
+  }
+}

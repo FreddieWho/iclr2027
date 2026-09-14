@@ -164,10 +164,18 @@ class AMRModel(nn.Module):
 
 
 def whitened_intervention(laplacian: np.ndarray, coeffs: np.ndarray, band: int,
-                          epsilon: float, rng: np.random.Generator) -> np.ndarray:
-    """delta_b = eps * P_b(L) xi / ||P_b(L) xi||_F (spec 5.2), numpy for samplers."""
+                          epsilon: float, rng: np.random.Generator,
+                          support: np.ndarray | None = None) -> np.ndarray:
+    """delta = eps * P_b(L) xi / ||P_b(L) xi||_F (spec 5.2), numpy for samplers.
+
+    support: optional boolean node mask — the noise is restricted to the
+    support BEFORE spectral filtering (support-conditioned whitening for the
+    M1 band x support sampling protocol).
+    """
     n = laplacian.shape[0]
     xi = rng.standard_normal((n, 2))
+    if support is not None:
+        xi = xi * support[:, None]
     lap_t = torch.from_numpy(laplacian[None]).float()
     xi_t = torch.from_numpy(xi[None]).float()
     coeff_t = torch.from_numpy(coeffs[band]).float()
