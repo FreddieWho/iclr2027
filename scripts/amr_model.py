@@ -132,6 +132,7 @@ class AMRModel(nn.Module):
         self.band_projections = nn.ModuleList(
             [nn.Sequential(nn.Linear(2 * HIDDEN_DIM, BAND_OUT_DIM), nn.ReLU()) for _ in range(n_bands)])
         self.mode_head = nn.Sequential(nn.Linear(n_bands * BAND_OUT_DIM, MODE_DIM), nn.ReLU())
+        self.eqv_heads = nn.ModuleList([nn.Linear(BAND_OUT_DIM, 4) for _ in range(n_bands)])
 
     def set_route_alpha(self, alpha: torch.Tensor) -> None:
         """M1: gates are SET from the config lock, never learned."""
@@ -157,7 +158,23 @@ class AMRModel(nn.Module):
         return torch.stack(bands, dim=1)
 
     def mode_embedding(self, band_feats: torch.Tensor) -> torch.Tensor:
+        if band_feats.dim() == 2:
+            return self.mode_head(band_feats)
         return self.mode_head(band_feats.reshape(band_feats.shape[0], -1))
+
+    def encode(self, positions: torch.Tensor, team_slots: torch.Tensor,
+               adjacency: torch.Tensor, pooling: str) -> torch.Tensor:
+        """Frozen-eval-compatible interface: returns flattened band features.
+
+        `positions` is the mode-channel view (callers pass the centered view,
+        exactly as the frozen T5R5/epsilon-sweep evaluation does internally).
+        Only team_mean pooling is supported; the flattened output feeds
+        mode_head directly, so frozen evaluate_model/pair_metrics code paths
+        work unchanged on this model.
+        """
+        if pooling != "team_mean":
+            raise ValueError("AMRModel.encode supports team_mean only")
+        return self.band_features(positions, team_slots, adjacency).reshape(positions.shape[0], -1)
 
     def context(self, z_ctx: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         return self.phase_head(z_ctx), self.zone_head(z_ctx), self.centroid_head(z_ctx)

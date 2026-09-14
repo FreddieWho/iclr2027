@@ -68,7 +68,7 @@
 - [ ] 13. P4 AMR-Fixed 全周期（选项 C，PLAN/ROADMAP 已重写）子项串行，N2 锁冻结前不得训练
     - [ ] P4-N1 AMRModel 实现＋JVP 校验＋单元测试
     - [x] P4-N2 M1 config lock 已冻结并审计 PASS（α=[1,0,0,0,0,0]，预算 210/140/70，D-20260905-P4-002）
-    - [ ] P4-N3 M1 训练 3 seeds＋dev 评估
+    - [ ] P4-N3 M1 训练 3 seeds＋dev 评估（3 worker 并行运行中）
     - [ ] P4-N4 matched-capacity 对照（CAP/centering/canonicalization/relational）
     - [ ] P4-N5 candidate lock＋保留场读取（需用户授权二次读取）
     - [ ] P4-N6 外部确认读取（需用户授权）＋报告
@@ -119,3 +119,4 @@
 - 2026-09-05：用户三项指令：论文 brief 暂缓评审；AMR 走完整流程（选项 C，D-20260905-P4-001，新增事项 13，分支 E 转执行）；配比扫掠 1:0/1:1 授权并行执行（10e 转执行，dev-only 事后消融）。PLAN/ROADMAP 已重写为 P4。
 - 2026-09-05：事项 10e 完成：配比曲线 0→3:1 成表，P3-R15 入账；1:0 随机读出警示已记录。
 - 2026-09-05：P4-N2 完成：M1 config lock 冻结（含路由证据依据与等计算量预算），审计 PASS，DECISIONS 追加 D-20260905-P4-002。
+- 2026-09-05：P4-N3 启动：AMR M1 三种子并行训练中（锁哈希 65d1417b…，训练前 addendum 已记录 eqv_heads 与 encode 适配）。

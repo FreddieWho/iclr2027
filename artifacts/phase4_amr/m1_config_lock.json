@@ -81,7 +81,15 @@
     "relational pooling (T5R3 relational variant, frozen numbers)"
   ],
   "code_hashes": {
-    "scripts/amr_model.py": "07b93779c78ce1c3075689ec121919374ac04f09fc7f7928271a423255d4b568",
-    "tests/test_amr_model.py": "ac633757fa5f8bd8d86bb465abdf29275cf086b6199ae16d35cb3ba223235f23"
-  }
+    "scripts/amr_model.py": "1ef73ee904b08233eaa71490d526058d4126520fe17a955bec0c91eb321f79fe",
+    "tests/test_amr_model.py": "44eedcfc47b4c3cca15a8d4e81d1e895d96625f755e7f581e1161c33d6a86754"
+  },
+  "addenda": [
+    {
+      "date": "2026-09-05",
+      "before_any_training": true,
+      "change": "AMRModel gains eqv_heads (per-band restricted linear 32->4, spec 7.2) and a frozen-eval-compatible encode() returning flattened band features + mode_embedding accepting flat or band-shaped input; no protocol content changed",
+      "reason": "make the frozen T5R5/epsilon-sweep evaluation machinery reusable verbatim; recoverability heads are part of the model definition"
+    }
+  ]
 }

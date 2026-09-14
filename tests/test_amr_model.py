@@ -118,3 +118,26 @@ def test_whitened_intervention_support_mask():
     assert abs(float(np.linalg.norm(d)) - 0.25) < 1e-6
     full = amr.whitened_intervention(lap, coeffs, 3, 0.25, np.random.default_rng(9))
     assert not np.allclose(d, full)
+
+
+def test_encode_frozen_eval_compatible():
+    torch.manual_seed(2)
+    model = amr.AMRModel()
+    positions = torch.randn(2, 20, 2)
+    team = torch.tensor([[0] * 10 + [1] * 10] * 2)
+    adj = (torch.rand(2, 20, 20) > 0.7).float()
+    z = model.encode(positions, team, adj, "team_mean")
+    assert z.shape == (2, amr.N_BANDS * amr.BAND_OUT_DIM)
+    emb_from_flat = model.mode_embedding(z)
+    emb_from_bands = model.mode_embedding(model.band_features(positions, team, adj))
+    assert torch.allclose(emb_from_flat, emb_from_bands, atol=1e-6)
+    assert emb_from_flat.shape == (2, amr.MODE_DIM)
+    head = model.mode_head(z)
+    assert head.shape == (2, amr.MODE_DIM)
+
+
+def test_eqv_heads_shape():
+    model = amr.AMRModel()
+    feats = torch.randn(4, amr.N_BANDS, amr.BAND_OUT_DIM)
+    for b in range(amr.N_BANDS):
+        assert model.eqv_heads[b](feats[:, b, :]).shape == (4, 4)
