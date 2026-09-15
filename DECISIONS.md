@@ -252,3 +252,18 @@
 - 隔离结论：不变性压力不是必要破坏因子（证伪 v2→v3 假设）；残存驱动锁定 Track B 三机制（对称路由梯度、中间层 floor 旁路、三元组不动点）。
 - 决定：① 触发停止规则，盲猜式 M1 迭代终结（三轮总账见报告）；② 按用户既有授权（D-20260905-P4-005"自主尝试"）启动 research 驱动重设计 v4：路线 1（精确谱＋密度均衡带＋Slepian 采样＋μ）与路线 2（最终嵌入 VICReg＋stop-grad 非对称＋mining 守卫）合并实施——路线 1 单独不触塌缩机制，单独尝试预期仍塌，故合并为一次重设计（偏离单变量原则，但属新设计而非调参，如实记录）；路线 3（GradNorm）作备用。
 - 复查触发：v4 若仍塌缩 → M1 方法存废交用户裁决，不再开新设计。
+
+## D-20260905-P4-008：v4 重设计冻结并开训（路线 1＋2 合并）
+- 日期：2026-09-15（锁时间戳；P4 决策链属 09-05）
+- 新设计锁 `m1_v4_config_lock.json`（哈希 37cbb0db…，审计 PASS），相对 v3 的变更全部有测量依据：
+  ① 精确 eigh 谱投影替代 Chebyshev（Track A＋C；旧 band5 在 99% snapshot 上为空）；
+  ② 3 密度均衡频带 [0,1.0)/[1.0,1.3)/[1.3,2.0]（2000-snapshot 经验谱三等分）；
+  ③ Slepian 向量干预采样＋逐 update μ 报告（Track C）；
+  ④ VICReg 方差 hinge＋within-mode 协方差移到最终 64 维嵌入（Track B；跨通道惩罚删除）；
+  ⑤ stop-grad 非对称路由分支（Track B/SimSiam）；
+  ⑥ mean＋energy 并池化（实测 bands1-2 均值池化相消 10×）；
+  ⑦ mode_head 去 bias＋LayerNorm(affine=False)（实测 bias 主导 1e-2 信号致 init 死亡）；
+  ⑧ W_ROUTE=12.0（init 主干梯度范数 parity 实测 11.98）、VIC_GAMMA=0.02（实测校准）；
+  ⑨ active-triplet 0×3 early-stop＋NaN guard（预注册）。
+- 冻结保持：seeds/80 epochs/210-140-70 预算/dev-only/冻结 pair 与 context 损失/冻结干预评估＋新增奇异谱与 μ 诊断。
+- mini 2-epoch 全链路 smoke 通过（ctx 下降、active-triplet=1.0、eqv 下降）；3 worker 已发射。

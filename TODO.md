@@ -71,7 +71,7 @@
     - [ ] P4-N1 AMRModel 实现＋JVP 校验＋单元测试
     - [x] P4-N2 M1 config lock 已冻结并审计 PASS（α=[1,0,0,0,0,0]，预算 210/140/70，D-20260905-P4-002）
     - [x] P4-N3 M1 训练＋dev 评估（三轮全败 P4-A1/A2/A3；v3 证伪不变性压力假设；自主迭代终结）
-    - [ ] P4-N4 v4 重设计（路线 1＋2 合并：精确谱＋Slepian＋最终嵌入 VICReg＋stop-grad；新设计锁；dev-only）
+    - [ ] P4-N4 v4 重设计训练中（锁 37cbb0db，3 worker；D-20260905-P4-008）
     - [ ] P4-N4 matched-capacity 对照（CAP/M0 脚本已实现待 v2 判定后启动；centering/canonicalization/relational 复用 T5R3 冻结数）
     - [ ] P4-N5 candidate lock＋保留场读取（需用户授权二次读取）
     - [ ] P4-N6 外部确认读取（需用户授权）＋报告
@@ -128,3 +128,4 @@
 - 2026-09-05：用户 fallback 指令（D-20260905-P4-005）：v3 若失败转 research 驱动；三条 researcher 轨道已提前并行启动。
 - 2026-09-05：research 综合完成：top-3 路线（精确谱基础→最终嵌入防护→梯度平衡）已定序；尝试待 v3 判据。
 - 2026-09-05：P4-N3 关闭：v3 失败（P4-A3 入账，不变性压力假设被证伪）；D-20260905-P4-007 启动 v4 重设计。
+- 2026-09-15：v4 冻结开训：init 死亡根因找到并修复（均值池化相消＋bias 主导），W_ROUTE/VIC_GAMMA 实测校准，审计 PASS，3 worker 运行中。
