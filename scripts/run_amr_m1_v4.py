@@ -45,7 +45,9 @@ ROUTE_BATCH = 8
 SUPPORT_SIZES = (2, 3, 4, 5)
 EPSILON = 0.25
 W_TASK, W_CTX = 1.0, 1.0
-W_ROUTE = 12.0  # init-calibrated trunk grad-norm parity (route 0.034 vs ctx 0.41 at init)
+W_ROUTE = 2.0  # v4b: reduced from 12.0 (Route-3 backup; warm-start + ramp below)
+WARMUP_EPOCHS = 20  # epochs 1-20: ctx+pair only (frozen-recipe regime), no route updates
+RAMP_EPOCHS = 20  # epochs 21-40: W_ROUTE ramps linearly 0 -> 2.0; full after
 W_VICVAR, W_VICCOV = 1.0, 0.04  # VICReg-ratio-mirrored (25/25/1 -> 1.0/x/0.04)
 VIC_GAMMA = 0.02  # init-calibrated floor on raw final-embedding per-dim std
 N_INTERVENTION_SNAPSHOTS = 40
@@ -196,12 +198,20 @@ def train_v4(model: Any, T5R3: Any, R2: Any, v4: Any, train: Any,
             viccov_total += float(cov_l.detach())
             active_total += active
         route_totals = {"l_eqv": 0.0, "inv_response": 0.0, "mu": 0.0}
-        for _ in range(ROUTE_QUOTA):
+        if epoch < WARMUP_EPOCHS:
+            w_route_now = 0.0
+        elif epoch < WARMUP_EPOCHS + RAMP_EPOCHS:
+            w_route_now = W_ROUTE * (epoch + 1 - WARMUP_EPOCHS) / RAMP_EPOCHS
+        else:
+            w_route_now = W_ROUTE
+        n_route_updates = 0
+        for _ in range(ROUTE_QUOTA if w_route_now > 0 else 0):
             snap_idx = rng.integers(0, len(train.raw), size=ROUTE_BATCH)
             out = route_batch(model, T5R3, v4, batch, spec_cache, snap_idx, rng)
             optimizer.zero_grad(set_to_none=True)
-            (W_ROUTE * out["loss"]).backward()
+            (w_route_now * out["loss"]).backward()
             optimizer.step()
+            n_route_updates += 1
             route_totals["l_eqv"] += float(out["l_eqv"])
             route_totals["inv_response"] += float(out["inv_response"])
             route_totals["mu"] += out["mu_mean"]
@@ -211,13 +221,14 @@ def train_v4(model: Any, T5R3: Any, R2: Any, v4: Any, train: Any,
         last = {"context": ctx_total / ctx_seen, "pair": pair_total / pair_seen,
                 "vicvar": vicvar_total / PAIR_QUOTA, "viccov": viccov_total / PAIR_QUOTA,
                 "active_triplet_frac": active_frac,
-                "l_eqv": route_totals["l_eqv"] / ROUTE_QUOTA,
-                "inv_response": route_totals["inv_response"] / ROUTE_QUOTA,
-                "mu_mean": route_totals["mu"] / ROUTE_QUOTA}
+                "l_eqv": route_totals["l_eqv"] / max(n_route_updates, 1),
+                "inv_response": route_totals["inv_response"] / max(n_route_updates, 1),
+                "mu_mean": route_totals["mu"] / max(n_route_updates, 1),
+                "w_route_now": w_route_now}
         if epoch == 0 or (epoch + 1) % 20 == 0 or epoch + 1 == EPOCHS:
             print(f"seed={seed} epoch={epoch + 1}/{EPOCHS} ctx={last['context']:.4f} "
                   f"pair={last['pair']:.4f} active={active_frac:.3f} eqv={last['l_eqv']:.4f} "
-                  f"vicvar={last['vicvar']:.4f} mu={last['mu_mean']:.3f} "
+                  f"vicvar={last['vicvar']:.4f} mu={last['mu_mean']:.3f} wr={last['w_route_now']:.2f} "
                   f"elapsed={time.perf_counter() - started:.0f}s", flush=True)
         if any(not np.isfinite(x) for x in last.values()):
             return {"epochs": epoch + 1, "status": "FAILED_NONFINITE", "last_loss": last,
@@ -274,7 +285,8 @@ def run_one(seed: int, threads: int, output: Path) -> None:
         train_bands = M1BASE.encode_bands(model, train, train_adj)
         valid_ctx = M1BASE.encode_ctx(model, valid, valid_adj)
         valid_bands = M1BASE.encode_bands(model, valid, valid_adj)
-        record = {"candidate_id": "amr_v4_exact_slepian_vicreg", "seed": seed, "parameter_count": params,
+        tag = "amr_v4b_routebak" if output.name.endswith("v4b") else "amr_v4_exact_slepian_vicreg"
+        record = {"candidate_id": tag, "seed": seed, "parameter_count": params,
                   "train": {"context": T5R3.prediction_metrics(train, model, train_ctx),
                             "intrinsic": T5R3.pair_metrics(train, model, train_bands),
                             "translation": M1BASE.translation_response(model, train, train_adj, train_ctx, train_bands)},
@@ -319,11 +331,14 @@ def merge(output: Path) -> int:
             print(f"REFUSED: missing {path}", file=sys.stderr)
             return 2
         records.append(json.loads(path.read_text(encoding="utf-8")))
-    summary = {"method": "amr_v4_exact_slepian_vicreg", "lock": "artifacts/phase4_amr/m1_v4_config_lock.json",
+    is_b = output.name.endswith("v4b")
+    summary = {"method": "amr_v4b_routebak" if is_b else "amr_v4_exact_slepian_vicreg",
+               "lock": "artifacts/phase4_amr/m1_v4_config_lock.json",
                "evidence_scope": "train/valid dev only", "n_intervention_sets": records[0]["n_intervention_sets"],
                "records": records}
     write_json(output / "summary.json", summary)
-    manifest = {"status": "P4_N4_AMR_V4_DEV_COMPLETE", "seeds": list(SEEDS),
+    manifest = {"status": "P4_N4_AMR_V4B_DEV_COMPLETE" if is_b else "P4_N4_AMR_V4_DEV_COMPLETE",
+                "seeds": list(SEEDS),
                 "elapsed_seconds_max_worker": max(r["training"]["elapsed_seconds"] for r in records)}
     write_json(output / "manifest.json", manifest)
     lines = []

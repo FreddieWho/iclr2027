@@ -88,7 +88,7 @@
     "success_rule": "H1/H2 descriptive; any systematic collapse -> v4 fails, M1存废 goes to user (no further autonomous redesign)"
   },
   "constants": {
-    "W_ROUTE": 12.0,
+    "W_ROUTE": 2.0,
     "W_VICVAR": 1.0,
     "W_VICCOV": 0.04,
     "VIC_GAMMA": 0.02
@@ -98,7 +98,26 @@
   "code_hashes": {
     "scripts/amr_model_v4.py": "883bfc6196186c090f82271d012fecba8f07c0ef64380aa074d2ab163c36908c",
     "tests/test_amr_model_v4.py": "2342249fcb7b7e3201e9930c061224411adddbbac4895d9cb3a7b9d6da34157c",
-    "scripts/run_amr_m1_v4.py": "47ef7d4dd251f96884aeede7e353d82acff3694e64a20c405571db0b32a94419",
+    "scripts/run_amr_m1_v4.py": "702b6c69ff6de8cd1dd4c7f0fae8dab7298e9694d6c2521ace7eef51b1408513",
     "scripts/build_spectral_cache_v4.py": "5b0f9dfa12989c8b7d98fc996bcd024cf19c92c79299caf2f0f27931d867d82e"
-  }
+  },
+  "addenda": [
+    {
+      "date": "2026-09-15",
+      "version": "v4b",
+      "before_v4b_training": true,
+      "trigger": "v4 H1 FAIL (P4_N4_V4_RESULTS.md, P4-A4): 12x route wins shared trunk, context collapses 2/3",
+      "changes": [
+        "W_ROUTE 12.0 -> 2.0",
+        "warm-start epochs 1-20: ctx+pair only, no route updates (frozen-recipe regime)",
+        "ramp epochs 21-40: W_ROUTE linear 0 -> 2.0; full 2.0 after",
+        "record/merge candidate tagging by output dir (v4b)"
+      ],
+      "unchanged": [
+        "model code (AMRModelV4 hashes unchanged)",
+        "bands/sampling/VICReg/stop-grad/guards/eval/seeds/budget"
+      ],
+      "justification": "pre-registered Route-3 backup (D-20260905-P4-007): single bounded attempt; if v4b fails H1, M1存废 goes to user, no further attempts"
+    }
+  ]
 }

@@ -267,3 +267,12 @@
   ⑨ active-triplet 0×3 early-stop＋NaN guard（预注册）。
 - 冻结保持：seeds/80 epochs/210-140-70 预算/dev-only/冻结 pair 与 context 损失/冻结干预评估＋新增奇异谱与 μ 诊断。
 - mini 2-epoch 全链路 smoke 通过（ctx 下降、active-triplet=1.0、eqv 下降）；3 worker 已发射。
+
+## D-20260905-P4-009：v4b Route-3 备用启动（最后一次有界尝试）
+- 日期：2026-09-15
+- 触发：v4 H1 未通过（P4-A4）：模态 3/3 存活但 12× 路由吃掉 context（2/3 塌缩）。
+- 决定：按 D-20260905-P4-007 预注册备用条款开 v4b（锁附录 v4b，哈希 37c52427…，审计 PASS）：
+  W_ROUTE 12→2、1–20 epoch route-free warm-start、21–40 ramp、之后全 2.0；
+  模型/频带/采样/VICReg/守卫/评估全冻结的新 Runner 调度。
+- mini 调度 smoke 通过（warm-start 期 ctx 1.59→0.29、pair→0.003，ramp 期路由扰动三元组后 active 回 0.41）。
+- 终局规则：v4b 若未通过 H1 → M1 方法存废交用户裁决，不再开任何尝试。

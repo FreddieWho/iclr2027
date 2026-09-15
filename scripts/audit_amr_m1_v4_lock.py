@@ -47,7 +47,7 @@ def main() -> int:
         path = ROOT / rel
         check(path.is_file() and sha256_file(path) == digest, f"code hash: {rel}")
     consts = lock["constants"]
-    check(consts == {"W_ROUTE": 12.0, "W_VICVAR": 1.0, "W_VICCOV": 0.04, "VIC_GAMMA": 0.02},
+    check(consts == {"W_ROUTE": 2.0, "W_VICVAR": 1.0, "W_VICCOV": 0.04, "VIC_GAMMA": 0.02},
           "constants block frozen")
     for split in ("train", "valid"):
         path = P4 / f"spectral_cache_{split}.npz"
@@ -62,10 +62,10 @@ def main() -> int:
           "dev-only scope with consumed-asset note")
     check("W_ROUTE_rationale" in lock["calibration"] and "VIC_GAMMA_rationale" in lock["calibration"],
           "calibration rationale recorded")
-    v4dir = P4 / "m1_v4"
+    v4dir = P4 / "m1_v4b"
     existing = [p for p in v4dir.rglob("*") if p.name.startswith(("record_", "summary")) and p.suffix == ".json"] \
         if v4dir.is_dir() else []
-    check(not existing, "no v4 training records predate the lock")
+    check(not existing, "no v4b training records predate the lock (m1_v4 acknowledged history)")
     if FAILURES:
         print(f"AMR_V4_LOCK_AUDIT: FAIL ({len(FAILURES)} checks)")
         return 1
