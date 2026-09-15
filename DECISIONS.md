@@ -386,3 +386,12 @@
   mask_trials=0）；其余冻结（锁 `m1_v6nomask_config_lock.json` 462be450…，
   审计 PASS 含输出目录隔离检查）。
 - 判定（锁内 R1_decision）：H1 通过⇒幽灵球员非必要；退化⇒幽灵球员 load-bearing。
+
+## D-20260916-GOAL04：R1 判据（H1 通过）＋第 2 轮锁定 JGCL 式单几何损失
+- 日期：2026-09-16
+- 事实：R1 slepian-only 教师 H1 通过 3/3（GOAL_R1_NOMASK_RESULTS.md，GOAL-R1）；
+  一致性反优于 v6 全 bundle；幽灵球员非必要。
+- 决定：第 2 轮＝JGCL 式单几何 InfoNCE（新损失本体，消灭 tug-of-war）：
+  context 损失保留＋InfoNCE（自然对＋Slepian 视图正例，batch 内负例，τ=0.1），
+  warm-start 20＋ramp 20沿用；teacher/predictor/VICReg/KoLeo/triplet 全拆
+  （v6 类复用，死头注明）。F-range 权重、CAGrad、freeze-route 降级为后备。

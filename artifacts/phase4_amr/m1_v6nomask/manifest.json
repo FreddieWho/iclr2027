@@ -1,0 +1,9 @@
+{
+  "status": "GOAL_R1_NOMASK_DEV_COMPLETE",
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "elapsed_seconds_max_worker": 2328.7
+}
