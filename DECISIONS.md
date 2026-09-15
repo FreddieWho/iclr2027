@@ -298,3 +298,16 @@
   R3–R5：视 R1/R2 结果而定（胜者精化/消融），由 research 结论定。
 - H1 bar 不变：context 非劣（zone≥0.90 且 centroid 健康）＋ intrinsic 信号 ＋ 干预有限。
 - 先行 research（D/E/F 三轨并行）：D 软共享解决破坏性干扰的证据；E GradNorm 之后的 MTL 平衡＋两阶段路由先例；F 联合训练成功的正面先例（与我们有何不同）。
+
+## D-20260905-P4-012：R1（v5）全解耦双塔启动（5 轮预算第 1 轮）
+- 日期：2026-09-15
+- 来源：D/E/F 综合（SYNTHESIS_5ROUNDS.md）。
+- 设计（锁 `m1_v5_config_lock.json`，哈希 a60b3092…，审计 PASS）：
+  ctx 塔与 mode 塔零共享参数（双向绝缘单测通过）；mode 侧 v4 机器原样；
+  故意无 gate（冻结评估接口要求 train/eval 同构；学习共享延至 R3＋）；
+  与 v4b 唯一变量差＝编码器共享→分离；schedule/权重/采样/评估全同 v4b；
+  参数 288,757（≈2× 主干，诚实下限）。
+- mini 调度 smoke：warm-start ctx 1.65→0.10、pair→0.004（健康双塔起点）。
+- R1 预注册判定：H1 通过→AMR（分支塑造版）成立，进 N4，剩 3 轮转对照；
+  mode 仍塌缩→路由目标本身 broken→R2 freeze-then-route；
+  context 异常（构造不可能）→实现 bug，修 bug 不计轮次。
