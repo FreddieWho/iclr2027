@@ -59,3 +59,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-A1 | 朴素谱带不变性压力（无防护实现）导致模态通道塌缩：3/3 seeds pair=0、干预退化；根因=路由损失尺度失衡＋塌缩同时满足未归一化 L_inv/L_eqv＋防塌缩不足 | SUPPORTED_DEV_ONLY（负结果） | M1 v1 训练（锁 v1） | `artifacts/phase4_amr/m1_v1/`、`reports/P4_N3_V1_COLLAPSE_REPORT.md` | dev-only；判决的是无防护实现，不是路由假设本身 |
 
 | P4-A2 | 共享主干上的学习型不变性压力（v1 带尺度失衡、v2 归一化修复后）均导致系统性塌缩：v1 毁模态通道，v2 seed 11 经共享编码器毁 context 通道（z_ctx 平移响应 1.0）；机制：不变性目标在共享主干上的最小阻力路径是通道/主干塌缩 | SUPPORTED_DEV_ONLY（负结果） | M1 v2 训练（锁 v2） | `artifacts/phase4_amr/m1_v2/`、`reports/P4_N3_V2_FAILURE_AND_REDESIGN.md` | dev-only；与 P4-A1 合并构成"不变性压力需结构性防护"的证据 |
+
+| P4-A3 | 移除全部不变性压力后（α 全零）塌缩依然复现 3/3：不变性压力不是必要破坏因子；残存驱动为对称路由梯度＋中间层 floor 旁路＋三元组对称不动点（与 Track B 文献诊断一致） | SUPPORTED_DEV_ONLY（负结果＋隔离结论） | M1 v3 训练（锁 v3） | `artifacts/phase4_amr/m1_v3/`、`reports/P4_N3_V3_FAILURE_AND_STOP.md` | dev-only；证伪 v2→v3 假设；支撑重设计方向 |
