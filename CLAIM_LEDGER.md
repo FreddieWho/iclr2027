@@ -67,3 +67,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-A5 | v4b（W_ROUTE 2×＋20 epoch 健康 warm-start＋ramp）：context 依然 2/3 总塌缩＋1/3 侵蚀（最佳 zone 0.79）；健康起点亦被摧毁 ⇒ 路由目标与 context 保存根本不相容（非权重/init/不变性问题）；15/15 路由运行损坏至少一通道 ⇒ M1 原设计在共享主干下不可行 | SUPPORTED_DEV（负结果＋终局） | M1 v4b 训练 | `artifacts/phase4_amr/m1_v4b/`、`reports/P4_TERMINAL_V4B.md` | dev-only；终局规则触发，无进一步尝试 |
 
 | P4-B1 | v5 全解耦双塔：context 3/3 健康（zone 0.97–0.99，centroid 0.026–0.030 优于冻结配方，z_ctx 响应正常）＋模态 3/3 信号（pair 0.52–0.82 非零 margin，干预 full ρ 0.81–0.96 全有限，奇异谱铺展）⇒ H1 通过；与 v4b 唯一变量差为编码器共享→分离 ⇒ 硬共享是 context 杀手（关闭 P4-A5 残存疑问）；seed-23 pair 弱但机制信号最强（limitation 备注）；seed-11 diag 负/full 正复现 P3-R12 | SUPPORTED_DEV | M1 v5 训练（锁 v5） | `artifacts/phase4_amr/m1_v5/`、`reports/P4_R1_V5_RESULTS.md` | dev-only；AMR 分支塑造版成立；待 N4 对照 |
+
+| P4-B2 | N4 CAP-双塔对照（唯一变量＝机制目标）：pair 0.61 vs 0.64、几何代理 0.50 vs 0.50、干预 full 0.89 vs 0.86——逐种子互有胜负，无系统性赢家 ⇒ Slepian 频带路由相对整体变换预测无增量，AMR 收缩为分支塑造；context 侧逐位相同＝80-epoch 机器级绝缘证明；两者 margin 远薄于冻结配方（aux 的真实代价） | SUPPORTED_DEV（对照结论） | CAP-decoupled 训练（锁 v5cap）vs v5 | `artifacts/phase4_amr/m1_v5cap/`、`reports/P4_R2_V5CAP_RESULTS.md` | dev-only；训练问题回答完毕，建议银行剩余预算 |

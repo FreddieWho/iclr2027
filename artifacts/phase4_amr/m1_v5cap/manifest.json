@@ -1,0 +1,9 @@
+{
+  "status": "P4_R2_AMR_V5CAP_DEV_COMPLETE",
+  "seeds": [
+    11,
+    23,
+    47
+  ],
+  "elapsed_seconds_max_worker": 2555.0
+}
