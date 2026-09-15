@@ -16,9 +16,15 @@
 | 5.4/6.2 | match-half 0/8 反向（−30%） | `t5r6_soccertrack_v1/`、`reports/P3_HEADLINE_EFFECT_TABLE.md` | P3-R9 | 与正向结果并列呈现；界定 context 保持边界 |
 | 6 | 外部 8 场：四主指标 8/8（CI 见 headline 表）；干预 8/8（+0.53） | `t5r6_soccertrack_v1/`、`artifacts/data_v2/soccertrack/` | P3-R3 | "小效应、全同向"；132877 最弱场保留 |
 | 2/8 | 协议：五层锁、单次读取、SHA、审计 | `artifacts/phase3/task_semantic_repair_v1/*lock*.json`、`scripts/audit_*.py` | DATA-C1 等 | 写成方法论贡献＋威胁模型框，不是噱头 |
+| 4.5 | 证伪链：v1–v4b 共享主干 15 连败（通道/主干塌缩模式见报告） | `artifacts/phase4_amr/m1_v{1,2,3,4,4b}/` | P4-A1..A5 | 单变量隔离表述；禁调参不够暗示 |
+| 4.5 | v5 解耦 H1 通过：zone 0.97–0.99、pair 0.52–0.82、干预 0.81–0.96 | `artifacts/phase4_amr/m1_v5/` | P4-B1 | seed-23 pair 弱＋seed-11 diag 负并列写 |
+| 4.5 | CAP 打平：pair 0.61/几何 0.50/full 0.89；context 逐位相同 | `artifacts/phase4_amr/m1_v5cap/` | P4-B2 | 主动拥有无特异性；margin 薄代价保留 |
+| 4.5 | v6 教师共享主干 H1 通过：pair 0.80–0.88、margin 0.15–0.17 | `artifacts/phase4_amr/m1_v6/` | P4-C1 | seed-47 分裂＋margin 仍薄并列写 |
+| 4.5 | μ 阈值证伪：AUC 0.44–0.50，三池无单调 | `artifacts/phase4_amr/mu_threshold_v1/` | GOAL-MU01 | 一句 filed negative，不藏不洗 |
+| 4.5 | R1 nomask 消融（待判据）：幽灵球员是否 load-bearing | `artifacts/phase4_amr/m1_v6nomask/` | 待入账 | 通过→简化故事；退化→新颖性 claim |
 
 ## 待决槽位（写作留位，不计入证据）
 
-- 配比扫掠 1:0/1:1（§5.2 SLOT）——待用户批准；批准后仅 dev 事后消融
-- AMR 定位（§6.3 SLOT）——待用户裁决 A/B/C；默认 A：outlook 一段，须区分 Partial G-CNN
+- 配比扫掠 1:0/1:1（§5.2 SLOT）——已完成（P3-R15：双向单调权衡＋2:1 膝点），待填 prose
+- AMR 定位（§6.3 SLOT）——已走完 P4 全周期，定位＝§4.5 边界证据（非 outlook）；Partial G-CNN 区分仍须写
 - Figure 1 概念图（§1）——待生成
