@@ -10,7 +10,7 @@
 - current_phase_status: P4_N2_CONFIG_LOCK_PENDING（路由分配冻结前不得训练）
 - p4_status: in_progress（N5/N6 二次读取届时需用户授权）
 - p5_status: blocked_pending_sports_prediction_lock
-- next_action: P4-N3 v3 dev 判定（全频带可恢复路由）
+- next_action: 等用户裁决 M1 存废（P4 terminal；选项 A 杀/B 解耦/C 其他）
 
 ## P4 偏离记录（2026-09-05）
 

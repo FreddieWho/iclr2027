@@ -63,3 +63,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-A3 | 移除全部不变性压力后（α 全零）塌缩依然复现 3/3：不变性压力不是必要破坏因子；残存驱动为对称路由梯度＋中间层 floor 旁路＋三元组对称不动点（与 Track B 文献诊断一致） | SUPPORTED_DEV_ONLY（负结果＋隔离结论） | M1 v3 训练（锁 v3） | `artifacts/phase4_amr/m1_v3/`、`reports/P4_N3_V3_FAILURE_AND_STOP.md` | dev-only；证伪 v2→v3 假设；支撑重设计方向 |
 
 | P4-A4 | v4（精确谱＋Slepian＋最终嵌入 VICReg＋stop-grad）：模态通道 9 个失败种子后首次 3/3 存活（pair 0.63–0.86，干预 full ρ 0.82–0.99 为全项目 dev 最强，奇异谱铺展无零秩）；但 W_ROUTE=12 下路由赢得共享主干，context 通道 2/3 塌缩（zone 0.11–0.13，z_ctx 响应≈0）＋1/3 侵蚀（zone 0.57）——共享主干竞争的反向实现，H1 未通过 | MIXED_DEV（机制有效＋分配失败） | M1 v4 训练（锁 v4） | `artifacts/phase4_amr/m1_v4/`、`reports/P4_N4_V4_RESULTS.md` | dev-only；触发 Route-3 备用 v4b |
+
+| P4-A5 | v4b（W_ROUTE 2×＋20 epoch 健康 warm-start＋ramp）：context 依然 2/3 总塌缩＋1/3 侵蚀（最佳 zone 0.79）；健康起点亦被摧毁 ⇒ 路由目标与 context 保存根本不相容（非权重/init/不变性问题）；15/15 路由运行损坏至少一通道 ⇒ M1 原设计在共享主干下不可行 | SUPPORTED_DEV（负结果＋终局） | M1 v4b 训练 | `artifacts/phase4_amr/m1_v4b/`、`reports/P4_TERMINAL_V4B.md` | dev-only；终局规则触发，无进一步尝试 |
