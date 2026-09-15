@@ -370,3 +370,12 @@
 - H1 bar沿用：context非劣（zone≥0.90＋centroid健康）＋intrinsic信号＋干预有限；
   每轮锁先行＋审计＋3种子＋报告＋ledger行；H1通过即停以省预算。
 - 台账文件：`artifacts/phase4_amr/BUDGET_10R.md`（每轮锁哈希＋状态＋花费）。
+
+## D-20260916-GOAL02：v6 verdict（H1 通过）＋第 1 训练轮内容锁定
+- 日期：2026-09-16
+- 事实：v6 共享主干 H1 通过 3/3（P4_R3_V6_RESULTS.md，P4-C1）：15连败终结；
+  seed-47 pair/干预分裂（机制边界）；margin仍薄。
+- 决定：动用新预算第 1 轮＝mask 消融（slepian-only 教师，其余冻结）：
+  若通过⇒幽灵球员非必要（故事简化）；若退化⇒幽灵球员 load-bearing
+  （新颖性 claim＋摘要级"幽灵球员"故事）。predictor加宽/F-range权重降级为
+  后备（v6 已健康，diagnostic 动机消失）。

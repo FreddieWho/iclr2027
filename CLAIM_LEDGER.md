@@ -71,3 +71,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-B2 | N4 CAP-双塔对照（唯一变量＝机制目标）：pair 0.61 vs 0.64、几何代理 0.50 vs 0.50、干预 full 0.89 vs 0.86——逐种子互有胜负，无系统性赢家 ⇒ Slepian 频带路由相对整体变换预测无增量，AMR 收缩为分支塑造；context 侧逐位相同＝80-epoch 机器级绝缘证明；两者 margin 远薄于冻结配方（aux 的真实代价） | SUPPORTED_DEV（对照结论） | CAP-decoupled 训练（锁 v5cap）vs v5 | `artifacts/phase4_amr/m1_v5cap/`、`reports/P4_R2_V5CAP_RESULTS.md` | dev-only；训练问题回答完毕，建议银行剩余预算 |
 
 | GOAL-MU01 | concentration(C)预测routing成功率：在冻结评估分布内无关系（三池Spearman≈0，logit CI覆盖零，AUC≈0.44–0.50覆盖0.5，最低浓度格成功率反而最高）；原因＝range restriction（C∈[0.35,0.82]无低μ尾）＋ceiling（基准85%+） | FALSIFIED_DEV_ONLY | μ阈值分析（444 trials，零训练） | `artifacts/phase4_amr/mu_threshold_v1/`、`reports/P4_MU_THRESHOLD_REPORT.md` | 预注册预测被证伪；检验需分布外低μ干预（未来工作） |
+
+| P4-C1 | v6 动量教师缝合包（旧预算R3）：共享主干双通道 3/3 存活（zone 0.977–0.982，pair 0.80–0.88 margin 0.15–0.17，干预 0.29–0.88 全有限，奇异谱平坦，teacher损失收敛）⇒ H1 通过，15连败终结，非对称即干预性证实；seed-47 pair/干预分裂（机制边界）；margin仍薄于冻结配方 | SUPPORTED_DEV | M1 v6 训练（锁 v6） | `artifacts/phase4_amr/m1_v6/`、`reports/P4_R3_V6_RESULTS.md` | dev-only；verdict计入目标，成本计旧预算 |
