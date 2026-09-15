@@ -61,3 +61,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-A2 | 共享主干上的学习型不变性压力（v1 带尺度失衡、v2 归一化修复后）均导致系统性塌缩：v1 毁模态通道，v2 seed 11 经共享编码器毁 context 通道（z_ctx 平移响应 1.0）；机制：不变性目标在共享主干上的最小阻力路径是通道/主干塌缩 | SUPPORTED_DEV_ONLY（负结果） | M1 v2 训练（锁 v2） | `artifacts/phase4_amr/m1_v2/`、`reports/P4_N3_V2_FAILURE_AND_REDESIGN.md` | dev-only；与 P4-A1 合并构成"不变性压力需结构性防护"的证据 |
 
 | P4-A3 | 移除全部不变性压力后（α 全零）塌缩依然复现 3/3：不变性压力不是必要破坏因子；残存驱动为对称路由梯度＋中间层 floor 旁路＋三元组对称不动点（与 Track B 文献诊断一致） | SUPPORTED_DEV_ONLY（负结果＋隔离结论） | M1 v3 训练（锁 v3） | `artifacts/phase4_amr/m1_v3/`、`reports/P4_N3_V3_FAILURE_AND_STOP.md` | dev-only；证伪 v2→v3 假设；支撑重设计方向 |
+
+| P4-A4 | v4（精确谱＋Slepian＋最终嵌入 VICReg＋stop-grad）：模态通道 9 个失败种子后首次 3/3 存活（pair 0.63–0.86，干预 full ρ 0.82–0.99 为全项目 dev 最强，奇异谱铺展无零秩）；但 W_ROUTE=12 下路由赢得共享主干，context 通道 2/3 塌缩（zone 0.11–0.13，z_ctx 响应≈0）＋1/3 侵蚀（zone 0.57）——共享主干竞争的反向实现，H1 未通过 | MIXED_DEV（机制有效＋分配失败） | M1 v4 训练（锁 v4） | `artifacts/phase4_amr/m1_v4/`、`reports/P4_N4_V4_RESULTS.md` | dev-only；触发 Route-3 备用 v4b |
