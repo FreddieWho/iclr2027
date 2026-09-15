@@ -406,3 +406,13 @@
 - mini smoke：warm-start ctx 1.82→0.85，ramp 期 InfoNCE 2.86（chance 4.56，有信号）。
 - 判定（锁内 R2_decision）：margin 锐于 triplet 系＋H1 保持⇒大数字希望；
   H1 失败⇒单几何不够⇒R3 freeze-then-route；塌缩⇒负例需规模⇒R3 教师＋InfoNCE 混合。
+
+## D-20260916-GOAL06：R2 判据＋建议银行剩余 8 轮转论文
+- 日期：2026-09-16
+- 事实：JGCL 单几何 H1 通过但全面弱于教师-triplet（GOAL_R2_JGCL_RESULTS.md，
+  GOAL-R2）：pair −0.2、margin −0.11、几何代理 −0.3；大数字分支未触发。
+- 判断：连续两轮回答"什么不重要"（R1 mask 非必要；R2 单几何更弱），
+  训练搜索出现收益递减拐点；剩余候选（CAGrad/momentum 变体/长 schedule）全为
+  低预期收益（无可修的共享冲突、无未收敛项、无新机制）。
+- 决定（待用户确认）：银行剩余 8 轮，目标转 task-final（N4 行文＋摘要数字＋
+  可复现性包）；task-r35/r610 若用户同意则关闭或转为写作任务。

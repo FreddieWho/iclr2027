@@ -75,3 +75,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-C1 | v6 动量教师缝合包（旧预算R3）：共享主干双通道 3/3 存活（zone 0.977–0.982，pair 0.80–0.88 margin 0.15–0.17，干预 0.29–0.88 全有限，奇异谱平坦，teacher损失收敛）⇒ H1 通过，15连败终结，非对称即干预性证实；seed-47 pair/干预分裂（机制边界）；margin仍薄于冻结配方 | SUPPORTED_DEV | M1 v6 训练（锁 v6） | `artifacts/phase4_amr/m1_v6/`、`reports/P4_R3_V6_RESULTS.md` | dev-only；verdict计入目标，成本计旧预算 |
 
 | GOAL-R1 | mask消融（slepian-only教师）：H1通过3/3（zone 0.97+、pair 0.82-0.83 margin 0.16、干预0.65-0.71全有限）⇒幽灵球员非必要，救援功劳归教师+predictor+stop-grad；一致性反优于v6（pair极差0.013 vs 0.075，seed-47分裂消失）；margin薄代价延续 | SUPPORTED_DEV | mask消融训练（锁nomask）vs v6 | `artifacts/phase4_amr/m1_v6nomask/`、`reports/GOAL_R1_NOMASK_RESULTS.md` | dev-only；新预算第1轮支出 |
+
+| GOAL-R2 | JGCL单几何InfoNCE：H1通过但全面弱于教师-triplet（pair 0.63 vs 0.84，margin 0.05 vs 0.16，几何代理0.26 vs 0.54，干预0.68 vs 0.61均值级持平）⇒tug-of-war本体不是锐度敌人，triplet margin压力才是锐度来源；种子方差极小（极差0.007）；大数字分支未触发 | SUPPORTED_DEV | JGCL训练（锁jgcl）vs v6/R1 | `artifacts/phase4_amr/m1_jgcl/`、`reports/GOAL_R2_JGCL_RESULTS.md` | dev-only；新预算第2轮支出；建议银行剩余8轮 |
