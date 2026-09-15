@@ -344,3 +344,19 @@
 - 决定：① AMR 收缩为分支塑造版（P4-B2）；② 训练问题已回答完毕，
   建议银行剩余 3 轮不再开训练（R3 CAGrad/momentum-teacher 已无可修的共享冲突，
   预期收益低）；③ 转 N4 行文＋论文写作；用户若坚持用完额度再议。
+
+## D-20260905-P4-016：R3（v6 动量教师缝合包）启动（5 轮预算第 3 轮）
+- 日期：2026-09-15
+- 来源：G/H/I 综合。用户指令"胆子大一点缝合时髦东西"——v6 把三件 15 炉未试之物
+  缝进同一个非对称预测故事（JEPA/BYOL/MAE 一家，非乱炖）：
+  ① 动量教师＋per-band predictor（G：stop-grad 非 negotiable，predictor 10×LR，
+  τ cosine 0.99→1.0 短 schedule 快教师）；② 双 corruption
+  （Slepian 位移／MAE 幽灵球员＋可学习 mask token，S4L 旋转预测同构）；
+  ③ KoLeo spread（DINOv2 从属权重 0.1）＋VICReg-final 安全网。
+- 设计（锁 `m1_v6_config_lock.json`，哈希 4646783e…，审计 PASS）：
+  SHARED 主干回归（救援对象）；teacher 仅镜像表征参数；triplet/context 冻结；
+  W_ROUTE=1.0（F#3 0.03–0.10 为 R4 fallback）；v4b schedule 原样；7 单测＋mini 全链路通过。
+- R3 预注册判定（锁内）：共享主干 H1 通过⇒联合训练救活（最强 AMR claim），
+  剩 2 轮做 ablation（predictor 宽度/F-range 权重）＋N4；
+  mode 再塌⇒非对称在该尺度不够⇒R4 JGCL 式单几何损失（Track I P1）；
+  context 再塌⇒教师压力亦 destructive⇒R4 freeze-then-route v6 变体（Track E P1）。
