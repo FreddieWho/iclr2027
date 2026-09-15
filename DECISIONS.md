@@ -360,3 +360,13 @@
   剩 2 轮做 ablation（predictor 宽度/F-range 权重）＋N4；
   mode 再塌⇒非对称在该尺度不够⇒R4 JGCL 式单几何损失（Track I P1）；
   context 再塌⇒教师压力亦 destructive⇒R4 freeze-then-route v6 变体（Track E P1）。
+
+## D-20260916-GOAL01：10轮自由预算目标立约（覆盖P4旧预算框架）
+- 日期：2026-09-16（目标 mu32v6c0-rywecg）
+- 用户授权：全新10轮dev-only训练预算（旧5轮框架关闭；v6不占额度但其verdict仍参与决策）；
+  目的=新颖性/科学性/趣味性＋摘要硬数字，两者兼顾；
+  本地≤48核并行（保留16核）；GPU仅在CPU不可替代时经aigalaxy租用，总额≤¥50；
+  dev-only铁律维持（保留场/外部绝不再碰）。
+- H1 bar沿用：context非劣（zone≥0.90＋centroid健康）＋intrinsic信号＋干预有限；
+  每轮锁先行＋审计＋3种子＋报告＋ledger行；H1通过即停以省预算。
+- 台账文件：`artifacts/phase4_amr/BUDGET_10R.md`（每轮锁哈希＋状态＋花费）。
