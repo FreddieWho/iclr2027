@@ -395,3 +395,14 @@
   context 损失保留＋InfoNCE（自然对＋Slepian 视图正例，batch 内负例，τ=0.1），
   warm-start 20＋ramp 20沿用；teacher/predictor/VICReg/KoLeo/triplet 全拆
   （v6 类复用，死头注明）。F-range 权重、CAGrad、freeze-route 降级为后备。
+
+## D-20260916-GOAL05：第 2 训练轮发射（JGCL 单几何，台账 2/10）
+- 日期：2026-09-16
+- 设计（锁 `m1_jgcl_config_lock.json` feeb99e4…，审计 PASS）：
+  v6 架构逐位复用（哈希与 v6 锁相等已验证）；triplet/teacher/predictor/VICReg/
+  KoLeo/mask 全拆；单 InfoNCE（自然对＋Slepian 视图正例，batch 内 189 负例，
+  τ=0.1）；210 ctx＋210 InfoNCE＝420 等算力；warm-start 20＋ramp 20；
+  emb-std 塌缩守卫＋NaN 守卫。
+- mini smoke：warm-start ctx 1.82→0.85，ramp 期 InfoNCE 2.86（chance 4.56，有信号）。
+- 判定（锁内 R2_decision）：margin 锐于 triplet 系＋H1 保持⇒大数字希望；
+  H1 失败⇒单几何不够⇒R3 freeze-then-route；塌缩⇒负例需规模⇒R3 教师＋InfoNCE 混合。

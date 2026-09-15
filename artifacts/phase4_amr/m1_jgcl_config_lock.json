@@ -1,0 +1,74 @@
+{
+  "lock_id": "amr_m1_jgcl_config_lock",
+  "created": "2026-09-16",
+  "authority": "D-20260916-GOAL05 (goal Round 2 of 10: JGCL-style single-geometry InfoNCE; Track I P1)",
+  "frozen_before": "any R2 training",
+  "evidence_scope": "train/valid dev only; NO reserved (J03WQQ) or external (SoccerTrack) reads",
+  "model": {
+    "class": "AMRModelV6 reused VERBATIM (scripts/amr_model_v6.py hash must match v6 lock — proves zero arch change)",
+    "dead_heads_documented": [
+      "predictor_heads",
+      "mask_token",
+      "route_alpha buffer",
+      "teacher (never built)"
+    ],
+    "encoder": "shared GraphEncoder (single-geometry loss is the tug-of-war removal test)"
+  },
+  "loss": {
+    "rule": "ONE InfoNCE over mode embeddings: anchors=64 queries, candidates=q+p+v (192), positives per anchor={natural positive, Slepian view}, in-batch negatives, tau=0.1",
+    "context": "frozen context_loss on ctx channel (unchanged)",
+    "dropped": [
+      "triplet",
+      "teacher",
+      "predictor",
+      "VICReg",
+      "KoLeo",
+      "mask",
+      "Slepian-routing"
+    ]
+  },
+  "schedule": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "epochs": 80,
+    "budget_per_epoch": {
+      "context": 210,
+      "infonce": 210,
+      "total": 420
+    },
+    "budget_note": "420/epoch equal-compute; slot recomposition by design (was 210/140/70)",
+    "warmup": "epochs 1-20 ctx-only (no InfoNCE updates)",
+    "ramp": "epochs 21-40 linear 0->1.0, full after",
+    "optimizer": "Adam lr=1e-3 wd=0 (single group; no predictor anymore)"
+  },
+  "guards": {
+    "collapse": "mean mode-embedding std < 1e-4 for 3 consecutive post-warmup epochs -> COLLAPSED",
+    "nonfinite": "any nonfinite epoch loss -> FAILED_NONFINITE"
+  },
+  "evaluation_plan": {
+    "frozen": "valid context/intrinsic(pair ranking on InfoNCE embeddings)/translation + t5r5_support_reallocation_v1 eps=0.25 + singular top-10 + mu means",
+    "R2_decision": "margins/pair SHARPER than triplet系 with H1 held -> big-number hope, remaining rounds to N4+paper; H1 fail (either channel) -> single-geometry insufficient at this scale -> R3 freeze-then-route; collapse -> negatives need scale (Track G lesson) -> R3 momentum-teacher+InfoNCE hybrid"
+  },
+  "calibration": {
+    "tau": "0.1 (SupCon 0.07-0.1 / JGCL range via Track I)",
+    "no_init_balancing": "single mechanism loss needs no grad-norm parity (that problem belonged to multi-loss)",
+    "risk_noted": "small-batch InfoNCE (191 in-batch negs) may underperform per Track G SimCLR lesson; failure is informative, pre-registered above"
+  },
+  "constants": {
+    "W_CTX": 1.0,
+    "W_INFO": 1.0,
+    "TAU": 0.1
+  },
+  "code_hashes": {
+    "scripts/run_amr_m1_jgcl.py": "430628bdc7745721284a4d48bed194f1cdf30b1b0004f16c47bdba9776c648bd",
+    "tests/test_amr_jgcl.py": "7349f57d6f03c28185357923b5d10630440f891011a9bca484299145db88ae49",
+    "scripts/amr_model_v6.py": "3697566e9572b7da3778bb72ea3e5a168815398ad4f692ca30dfe8f6a0d6ac33",
+    "tests/test_amr_model_v6.py": "165997904cbd38fc8d437880a0eb3023724e784cbdde38b3390bb1f827e9109c",
+    "scripts/build_spectral_cache_v4.py": "5b0f9dfa12989c8b7d98fc996bcd024cf19c92c79299caf2f0f27931d867d82e"
+  },
+  "spectral_cache_train_sha256": "e4e44176783b8abe419bdba5c7094e128a11af791bb8b8be1d3ecbc141833aa6",
+  "spectral_cache_valid_sha256": "228499a0c2a9759159c7aabc37fa7060b8a43ea424d48719b46398cb1637cb3f"
+}
