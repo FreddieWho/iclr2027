@@ -1,0 +1,103 @@
+{
+  "lock_id": "amr_m1_v5cap_config_lock",
+  "created": "2026-09-15",
+  "authority": "D-20260905-P4-013 R2 (N4 CAP-decoupled control; spec M1 matched-capacity)",
+  "frozen_before": "any AMR v4 training",
+  "evidence_scope": "train/valid dev only; NO reserved (J03WQQ) or external (SoccerTrack) reads",
+  "model": {
+    "class": "AMRModelV5CAP (scripts/amr_model_v5cap.py): v5 towers + restricted linear CAP head 64->40",
+    "encoder_ctx": "GraphEncoder serving context channel only (raw view, frozen context_loss)",
+    "encoder_mode": "GraphEncoder serving intrinsic/routing pathway only (centered view)",
+    "spectral_basis": "EXACT batched eigh projectors (as v4)",
+    "n_bands": 3,
+    "band_edges": [
+      0.0,
+      1.0,
+      1.3,
+      2.0
+    ],
+    "pooling": "per-team mean+energy concat (as v4)",
+    "mode_head": "Linear(96,64,bias=False) + LayerNorm(affine=False) + ReLU (as v4)",
+    "gate": "NONE in R1 (deliberate; frozen-eval interface requires train/eval isomorphism; learned sharing deferred to R3+ follow-up if R1 passes)",
+    "only_variable_vs_v4b": "encoder shared -> split; schedule/weights/losses/sampling/eval ALL identical to v4b",
+    "parameter_count": 288757,
+    "only_variable_vs_v5": "mechanism objective: Slepian band routing -> transformation prediction (M0, faithful: no stop-grad); schedule/architecture/losses/sampling/eval ALL identical"
+  },
+  "routing_assignment": {
+    "rule": "CAP transformation prediction on mode embeddings (spec 8 M0); Slepian sampling distribution IDENTICAL to v5 (band/team/support uniform, mu logged)",
+    "CapLoss": "||B(z1-z0) - delta||^2 / eps^2, B restricted linear, both branches with grads"
+  },
+  "losses": {
+    "L_task": "frozen pair_loss (normalizes internally) on z_mode",
+    "L_ctx": "frozen context_loss on z_ctx",
+    "L_route": "replaced by L_CAP (see routing_assignment); triplet/VICReg/context unchanged",
+    "L_vicvar": "VICReg variance hinge on FINAL raw z_mode (bypasses intermediate-floor bypass)",
+    "L_viccov": "within-mode covariance decorrelation (cross-channel penalty dropped: says nothing about within-mode rank)",
+    "weights": {
+      "task": 1.0,
+      "ctx": 1.0,
+      "route": 12.0,
+      "vicvar": 1.0,
+      "viccov": 0.04,
+      "vic_gamma": 0.02
+    }
+  },
+  "calibration": {
+    "date": "2026-09-15",
+    "seed": 11,
+    "init_only": true,
+    "trunk_grad_norm": {
+      "context": 0.4074,
+      "route": 0.034,
+      "ratio": 0.08
+    },
+    "W_ROUTE_rationale": "init grad-norm parity 0.4074/0.0340 = 11.98 -> 12.0 (documented starting point, not adaptive controller)",
+    "z_mode_init_std": {
+      "median": 0.0001,
+      "alive_dims": "~0.05"
+    },
+    "VIC_GAMMA_rationale": "0.02 sits below healthy alive-dim scale (~0.05), above collapse (0); active from init by design (breaks near-tie regime early); restoring gradient explodes as std->0 so small gamma still binds"
+  },
+  "training_protocol": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "epochs": 80,
+    "batch_size": 64,
+    "optimizer": "Adam lr=1e-3 wd=0 (joint; EM-alternation documented as deferred)",
+    "update_budget_per_epoch": {
+      "context": 210,
+      "intrinsic_pair": 140,
+      "route": 70,
+      "total": 420
+    },
+    "streams": "context seed*100000, pair seed*200000, route seed*300000",
+    "epsilon": 0.25,
+    "data": "IDSSE dev stand-in, train split only",
+    "early_stop": "active-triplet fraction == 0.0 for 3 consecutive epochs -> COLLAPSED (pre-registered, saves compute)",
+    "nan_guard": "any nonfinite epoch loss -> FAILED_NONFINITE",
+    "schedule": "v4b schedule verbatim: epochs 1-20 route-free warm-start, 21-40 linear ramp 0->2.0, full 2.0 after"
+  },
+  "evaluation_plan": {
+    "frozen": "valid context/intrinsic/translation metrics + t5r5_support_reallocation_v1 eps=0.25 intervention eval, verbatim code paths",
+    "added_diagnostics": "valid z_mode singular top-10 (Jing), mu means per (band,support), active-triplet final, collapse flag",
+    "success_rule": "H1/H2 descriptive; any systematic collapse -> v4 fails, M1存废 goes to user (no further autonomous redesign)",
+    "R1_decision": "H1 pass -> AMR (branch-shaping) established, remaining rounds to N4; mode still collapses -> routing objective broken even protected -> R2 freeze-then-route; ctx anomaly (constructionally impossible) -> implementation bug, fix does not consume a round",
+    "R2_decision": "CAP >= v5 on mode metrics with healthy context -> routing adds nothing over transformation prediction (AMR mechanism claim contracts to branch-shaping only); CAP collapses/erodes while v5 healthy -> routing objective load-bearing (strengthens P4-B1); both healthy -> compare magnitudes + N4 writeup"
+  },
+  "constants": {
+    "W_CAP": 2.0,
+    "W_VICVAR": 1.0,
+    "W_VICCOV": 0.04,
+    "VIC_GAMMA": 0.02
+  },
+  "spectral_cache_train_sha256": "e4e44176783b8abe419bdba5c7094e128a11af791bb8b8be1d3ecbc141833aa6",
+  "spectral_cache_valid_sha256": "228499a0c2a9759159c7aabc37fa7060b8a43ea424d48719b46398cb1637cb3f",
+  "code_hashes": {
+    "scripts/amr_model_v5cap.py": "e7076de9cc26279b038105453397fbe2090d8be910e88225c5fbc788c4be5edd",
+    "tests/test_amr_model_v5cap.py": "564a4808695977aef1aa7572a8b197245eb57452f571459cd268c485c4886cdb",
+    "scripts/run_amr_m1_v5cap.py": "3aeea0c1e4cae6a83f0752205b97ce0b53c5d9d9a05beec764582bb70b405909"
+  }
+}

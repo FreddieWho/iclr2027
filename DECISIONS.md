@@ -320,3 +320,13 @@
 - 决定：① H1 PASS，AMR 分支塑造版成立（P4-B1）；② 与 v4b 的干净隔离证明
   硬共享是 context 杀手；③ 剩余 4 轮预算转 N4：R2＝CAP-双塔对照（须适配，
   现脚本为共享主干版），centering/canonicalization/relational 复用冻结数。
+
+## D-20260905-P4-014：R2（CAP-双塔对照）启动（5 轮预算第 2 轮）
+- 日期：2026-09-15
+- 设计（锁 `m1_v5cap_config_lock.json`，哈希 753e5d25…，审计 PASS）：
+  v5 双塔原样＋受限线性 CAP 头 64→40；与 v5 唯一变量差＝机制目标
+  （Slepian 路由→变换预测 M0，忠实无 stop-grad）；schedule/权重/采样/评估全同；
+  mini smoke 通过（warm-start 健康，ramp 期 CAP 扰动三元组为预期瞬态）。
+- R2 预注册判定（锁内）：CAP≥v5 且 context 健康 ⇒ 路由相对 CAP 无增量
+  （AMR 收缩为分支塑造）；CAP 塌缩而 v5 健康 ⇒ 路由 load-bearing（强化 P4-B1）；
+  双健康 ⇒ 比幅度＋N4 行文。
