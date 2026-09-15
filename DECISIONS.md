@@ -311,3 +311,12 @@
 - R1 预注册判定：H1 通过→AMR（分支塑造版）成立，进 N4，剩 3 轮转对照；
   mode 仍塌缩→路由目标本身 broken→R2 freeze-then-route；
   context 异常（构造不可能）→实现 bug，修 bug 不计轮次。
+
+## D-20260905-P4-013：R1 H1 通过，AMR（分支塑造版）成立，剩 4 轮转 N4
+- 日期：2026-09-15
+- 事实：v5 双通道 3/3 存活（P4_R1_V5_RESULTS.md）：context 冻结配方水平、
+  模态信号＋干预 0.81–0.96 全有限；seed-23 pair 弱（0.52）但机制信号最强，
+  记 limitation；seed-11 diag 负/full 正复现 P3-R12。
+- 决定：① H1 PASS，AMR 分支塑造版成立（P4-B1）；② 与 v4b 的干净隔离证明
+  硬共享是 context 杀手；③ 剩余 4 轮预算转 N4：R2＝CAP-双塔对照（须适配，
+  现脚本为共享主干版），centering/canonicalization/relational 复用冻结数。

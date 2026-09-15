@@ -65,3 +65,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-A4 | v4（精确谱＋Slepian＋最终嵌入 VICReg＋stop-grad）：模态通道 9 个失败种子后首次 3/3 存活（pair 0.63–0.86，干预 full ρ 0.82–0.99 为全项目 dev 最强，奇异谱铺展无零秩）；但 W_ROUTE=12 下路由赢得共享主干，context 通道 2/3 塌缩（zone 0.11–0.13，z_ctx 响应≈0）＋1/3 侵蚀（zone 0.57）——共享主干竞争的反向实现，H1 未通过 | MIXED_DEV（机制有效＋分配失败） | M1 v4 训练（锁 v4） | `artifacts/phase4_amr/m1_v4/`、`reports/P4_N4_V4_RESULTS.md` | dev-only；触发 Route-3 备用 v4b |
 
 | P4-A5 | v4b（W_ROUTE 2×＋20 epoch 健康 warm-start＋ramp）：context 依然 2/3 总塌缩＋1/3 侵蚀（最佳 zone 0.79）；健康起点亦被摧毁 ⇒ 路由目标与 context 保存根本不相容（非权重/init/不变性问题）；15/15 路由运行损坏至少一通道 ⇒ M1 原设计在共享主干下不可行 | SUPPORTED_DEV（负结果＋终局） | M1 v4b 训练 | `artifacts/phase4_amr/m1_v4b/`、`reports/P4_TERMINAL_V4B.md` | dev-only；终局规则触发，无进一步尝试 |
+
+| P4-B1 | v5 全解耦双塔：context 3/3 健康（zone 0.97–0.99，centroid 0.026–0.030 优于冻结配方，z_ctx 响应正常）＋模态 3/3 信号（pair 0.52–0.82 非零 margin，干预 full ρ 0.81–0.96 全有限，奇异谱铺展）⇒ H1 通过；与 v4b 唯一变量差为编码器共享→分离 ⇒ 硬共享是 context 杀手（关闭 P4-A5 残存疑问）；seed-23 pair 弱但机制信号最强（limitation 备注）；seed-11 diag 负/full 正复现 P3-R12 | SUPPORTED_DEV | M1 v5 训练（锁 v5） | `artifacts/phase4_amr/m1_v5/`、`reports/P4_R1_V5_RESULTS.md` | dev-only；AMR 分支塑造版成立；待 N4 对照 |
