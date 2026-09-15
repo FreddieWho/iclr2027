@@ -287,3 +287,14 @@
 - agent 建议（仅建议）：选项 A，杀死 M1，负结果进论文，AMR 回 outlook。
   选项 B（解耦主干）可能 work 但让渡核心 claim，需用户授权。
 - 状态：P4 冻结，不再开任何尝试，等用户裁决（事项 8 的延续）。
+
+## D-20260905-P4-011：用户新批 5 轮 AMR 预算（覆盖 terminal 停止规则）
+- 日期：2026-09-15
+- 用户指令：再给 5 轮预算实现 AMR，鼓励多用 research。
+- 轮次规划（每轮 = 1 配置 × 3 seeds，H1 通过即提前停止以省预算）：
+  R1（v5）：软共享架构（cross-stitch/sluice 式双主干，学共享模式而非硬共享），
+  保留 v4 全部有效机器（精确谱、Slepian、VICReg-final、stop-grad）；
+  R2（v6）：两阶段 M2-lite（冻结健康的 T5R-2:1 主干，只学路由头；测"路由本身是否有价值"，让渡 shaping claim）；
+  R3–R5：视 R1/R2 结果而定（胜者精化/消融），由 research 结论定。
+- H1 bar 不变：context 非劣（zone≥0.90 且 centroid 健康）＋ intrinsic 信号 ＋ 干预有限。
+- 先行 research（D/E/F 三轨并行）：D 软共享解决破坏性干扰的证据；E GradNorm 之后的 MTL 平衡＋两阶段路由先例；F 联合训练成功的正面先例（与我们有何不同）。
