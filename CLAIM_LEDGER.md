@@ -69,3 +69,5 @@ SUPPORTED_P2 只来自既有 P2 artifacts/reports；WORKING_HYPOTHESIS 是 post-
 | P4-B1 | v5 全解耦双塔：context 3/3 健康（zone 0.97–0.99，centroid 0.026–0.030 优于冻结配方，z_ctx 响应正常）＋模态 3/3 信号（pair 0.52–0.82 非零 margin，干预 full ρ 0.81–0.96 全有限，奇异谱铺展）⇒ H1 通过；与 v4b 唯一变量差为编码器共享→分离 ⇒ 硬共享是 context 杀手（关闭 P4-A5 残存疑问）；seed-23 pair 弱但机制信号最强（limitation 备注）；seed-11 diag 负/full 正复现 P3-R12 | SUPPORTED_DEV | M1 v5 训练（锁 v5） | `artifacts/phase4_amr/m1_v5/`、`reports/P4_R1_V5_RESULTS.md` | dev-only；AMR 分支塑造版成立；待 N4 对照 |
 
 | P4-B2 | N4 CAP-双塔对照（唯一变量＝机制目标）：pair 0.61 vs 0.64、几何代理 0.50 vs 0.50、干预 full 0.89 vs 0.86——逐种子互有胜负，无系统性赢家 ⇒ Slepian 频带路由相对整体变换预测无增量，AMR 收缩为分支塑造；context 侧逐位相同＝80-epoch 机器级绝缘证明；两者 margin 远薄于冻结配方（aux 的真实代价） | SUPPORTED_DEV（对照结论） | CAP-decoupled 训练（锁 v5cap）vs v5 | `artifacts/phase4_amr/m1_v5cap/`、`reports/P4_R2_V5CAP_RESULTS.md` | dev-only；训练问题回答完毕，建议银行剩余预算 |
+
+| GOAL-MU01 | concentration(C)预测routing成功率：在冻结评估分布内无关系（三池Spearman≈0，logit CI覆盖零，AUC≈0.44–0.50覆盖0.5，最低浓度格成功率反而最高）；原因＝range restriction（C∈[0.35,0.82]无低μ尾）＋ceiling（基准85%+） | FALSIFIED_DEV_ONLY | μ阈值分析（444 trials，零训练） | `artifacts/phase4_amr/mu_threshold_v1/`、`reports/P4_MU_THRESHOLD_REPORT.md` | 预注册预测被证伪；检验需分布外低μ干预（未来工作） |
