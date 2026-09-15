@@ -1,0 +1,105 @@
+{
+  "lock_id": "amr_m1_v6nomask_config_lock",
+  "created": "2026-09-15",
+  "authority": "D-20260916-GOAL02 (goal Round 1 of 10: mask ablation, slepian-only teacher)",
+  "frozen_before": "any AMR v4 training",
+  "evidence_scope": "train/valid dev only; NO reserved (J03WQQ) or external (SoccerTrack) reads",
+  "model": {
+    "class": "AMRModelV6 (scripts/amr_model_v6.py): SHARED trunk + momentum teacher + predictor + mask token",
+    "encoder": "GraphEncoder shared (the rescue target; decoupled v5 already works)",
+    "teacher": "deepcopy at init, requires_grad_(False), EMA over encoder/band_projections/mode-head-Linear only; tau cosine 0.99->1.0 per-step (F: fast teacher for short schedule)",
+    "predictor": "per-band 2-layer MLP 32->128->32, no norms, student-side, 10x trunk LR (Tian et al. via Track G)",
+    "mask_token": "learned 2-dim, student view only, excluded from EMA (MAE-flavored ghost-player corruption, sizes {2,3})",
+    "spectral_basis": "EXACT batched eigh projectors (as v4)",
+    "n_bands": 3,
+    "band_edges": [
+      0.0,
+      1.0,
+      1.3,
+      2.0
+    ],
+    "pooling": "per-team mean+energy concat (as v4)",
+    "mode_head": "Linear(96,64,bias=False) + LayerNorm(affine=False) + ReLU (as v4)",
+    "parameter_count_student": 213963
+  },
+  "routing_assignment": {
+    "rule": "student-corrupted -> predictor -> teacher-clean band features, normalized MSE, one-directional (BGRL/data2vec asymmetric; Slepian views NOT symmetrized - recovery is directed)",
+    "corruptions": [
+      "slepian displacement ONLY (mask branch disabled)"
+    ],
+    "alpha": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "losses": {
+    "L_task": "frozen pair_loss on student z_mode",
+    "L_ctx": "frozen context_loss on student z_ctx",
+    "L_route": "teacher-prediction normalized MSE (replaces Slepian direction-recovery)",
+    "L_vicvar": "VICReg variance hinge on FINAL student z_mode (safety net)",
+    "L_viccov": "within-mode covariance (as v4)",
+    "L_koleo": "KoLeo uniform spread on normalized student embeddings (DINOv2 subordinate)",
+    "weights": {
+      "task": 1.0,
+      "ctx": 1.0,
+      "route": 1.0,
+      "vicvar": 1.0,
+      "viccov": 0.04,
+      "vic_gamma": 0.02,
+      "koleo": 0.1
+    }
+  },
+  "calibration": {
+    "note": "v4 init measurements stand for shared parts; new numbers from literature (documented judgment calls)",
+    "W_ROUTE": "1.0 middle between v4b 2.0 and F#3 0.03-0.10 (F range is R4 fallback)",
+    "predictor_lr": "10x trunk (Tian et al. NeurIPS 2021 via Track G)",
+    "tau": "cosine 0.99->1.0 (BYOL 0.996 too slow for 80 epochs; EMA-scaling + Track F)",
+    "koleo": "0.1 subordinate (DINOv2 recipe via Track F)"
+  },
+  "training_protocol": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "epochs": 80,
+    "batch_size": 64,
+    "optimizer": "Adam lr=1e-3 wd=0 (joint; EM-alternation documented as deferred)",
+    "update_budget_per_epoch": {
+      "context": 210,
+      "intrinsic_pair": 140,
+      "route": 70,
+      "total": 420
+    },
+    "streams": "context seed*100000, pair seed*200000, route seed*300000",
+    "epsilon": 0.25,
+    "data": "IDSSE dev stand-in, train split only",
+    "early_stop": "active-triplet fraction == 0.0 for 3 consecutive epochs -> COLLAPSED (pre-registered, saves compute)",
+    "nan_guard": "any nonfinite epoch loss -> FAILED_NONFINITE",
+    "schedule": "v4b schedule verbatim (warm-start 20 route-free, ramp 20, full after)",
+    "teacher_update": "EMA after EVERY optimizer step (all three loops)"
+  },
+  "evaluation_plan": {
+    "frozen": "valid context/intrinsic/translation metrics + t5r5_support_reallocation_v1 eps=0.25 intervention eval, verbatim code paths",
+    "added_diagnostics": "valid z_mode singular top-10 (Jing), mu means per (band,support), active-triplet final, collapse flag",
+    "success_rule": "H1/H2 descriptive; any systematic collapse -> v4 fails, M1存废 goes to user (no further autonomous redesign)",
+    "R1_decision": "H1 pass without mask => ghost-player dispensable (story simplifies); degradation vs v6 (context erosion/mode collapse/mechanism drop) => ghost-player load-bearing (novelty claim); compare pair/margin/intervention magnitudes head-to-head vs v6",
+    "R3_decision": "H1 pass on SHARED trunk -> joint training rescued (strongest possible AMR claim), remaining rounds to ablations (predictor width per G-Gaps, F-range weights) + N4; mode collapse again -> asymmetry insufficient at this scale -> R4 JGCL-style single-geometry loss (Track I P1); context collapse again -> teacher pressure also destructive -> R4 freeze-then-route v6 variant (Track E P1)"
+  },
+  "constants": {
+    "W_ROUTE": 1.0,
+    "W_VICVAR": 1.0,
+    "W_VICCOV": 0.04,
+    "VIC_GAMMA": 0.02,
+    "W_KOLEO": 0.1,
+    "CORRUPTIONS": "slepian"
+  },
+  "spectral_cache_train_sha256": "e4e44176783b8abe419bdba5c7094e128a11af791bb8b8be1d3ecbc141833aa6",
+  "spectral_cache_valid_sha256": "228499a0c2a9759159c7aabc37fa7060b8a43ea424d48719b46398cb1637cb3f",
+  "code_hashes": {
+    "scripts/amr_model_v6.py": "3697566e9572b7da3778bb72ea3e5a168815398ad4f692ca30dfe8f6a0d6ac33",
+    "tests/test_amr_model_v6.py": "165997904cbd38fc8d437880a0eb3023724e784cbdde38b3390bb1f827e9109c",
+    "scripts/run_amr_m1_v6.py": "27088a6207d40e8a7e553706ba15f82efac71bd00d4cb8a1f615093c0de435a3"
+  }
+}

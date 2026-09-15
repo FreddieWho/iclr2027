@@ -25,6 +25,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -47,6 +48,9 @@ EPSILON = 0.25
 W_TASK, W_CTX = 1.0, 1.0
 W_ROUTE = 1.0  # R3 teacher-routing weight (judgment middle; F#3 0.03-0.10 range is R4 fallback)
 W_KOLEO = 0.1  # DINOv2 subordinate spread weight
+CORRUPTIONS = os.environ.get("AMR_CORRUPTIONS", "both")  # R1 ablation switch: "both" | "slepian" | "mask" (frozen in lock)
+assert CORRUPTIONS in ("both", "slepian", "mask"), f"bad AMR_CORRUPTIONS={CORRUPTIONS}"
+LOCKFILE = P4 / ("m1_v6nomask_config_lock.json" if CORRUPTIONS != "both" else "m1_v6_config_lock.json")
 WARMUP_EPOCHS = 20  # epochs 1-20: ctx+pair only (frozen-recipe regime), no route updates
 RAMP_EPOCHS = 20  # epochs 21-40: W_ROUTE ramps linearly 0 -> 2.0; full after
 W_VICVAR, W_VICCOV = 1.0, 0.04  # VICReg-ratio-mirrored (25/25/1 -> 1.0/x/0.04)
@@ -79,7 +83,7 @@ def write_json(path: Path, value: Any) -> None:
 
 
 def verify_lock() -> dict[str, Any]:
-    lock = json.loads((P4 / "m1_v6_config_lock.json").read_text(encoding="utf-8"))
+    lock = json.loads(LOCKFILE.read_text(encoding="utf-8"))
     for rel, digest in lock["code_hashes"].items():
         if sha256_file(ROOT / rel) != digest:
             raise RuntimeError(f"REFUSED: code hash mismatch vs lock: {rel}")
@@ -88,6 +92,7 @@ def verify_lock() -> dict[str, Any]:
     assert consts["W_VICVAR"] == W_VICVAR and consts["W_VICCOV"] == W_VICCOV
     assert consts["VIC_GAMMA"] == VIC_GAMMA
     assert consts["W_KOLEO"] == W_KOLEO, "W_KOLEO out of sync with lock"
+    assert consts["CORRUPTIONS"] == CORRUPTIONS, "CORRUPTIONS out of sync with lock"
     for split in ("train", "valid"):
         key = f"spectral_cache_{split}_sha256"
         if sha256_file(P4 / f"spectral_cache_{split}.npz") != lock[key]:
@@ -108,7 +113,8 @@ def route_batch(model: Any, teacher: Any, T5R3: Any, v6: Any, batch: dict[str, t
     n = len(snap_idx)
     band = int(rng.integers(0, 3))
     support_size = int(SUPPORT_SIZES[rng.integers(0, len(SUPPORT_SIZES))])
-    corr = "slepian" if int(rng.integers(0, 2)) == 0 else "mask"
+    corr = {"slepian": "slepian", "mask": "mask"}.get(
+        CORRUPTIONS, "slepian" if int(rng.integers(0, 2)) == 0 else "mask")
     team_np = team.numpy()
     deltas, mus, mask_sizes = [], [], []
     student_input = centered.clone()
@@ -314,7 +320,8 @@ def run_one(seed: int, threads: int, output: Path) -> None:
         train_bands = M1BASE.encode_bands(model, train, train_adj)
         valid_ctx = M1BASE.encode_ctx(model, valid, valid_adj)
         valid_bands = M1BASE.encode_bands(model, valid, valid_adj)
-        tag = "amr_v6_momentum_teacher"
+        tag = {"both": "amr_v6_momentum_teacher", "slepian": "amr_v6nomask_slepian_only",
+               "mask": "amr_v6mask_only"}[CORRUPTIONS]
         record = {"candidate_id": tag, "seed": seed, "parameter_count": params,
                   "train": {"context": T5R3.prediction_metrics(train, model, train_ctx),
                             "intrinsic": T5R3.pair_metrics(train, model, train_bands),
@@ -348,7 +355,7 @@ def run_one(seed: int, threads: int, output: Path) -> None:
     model2.eval()
     record["intervention_dev"] = sweep.evaluate_model(model2, sets, FC, T5R3)
     record["n_intervention_sets"] = len(sets)
-    record["lock_sha256_at_train"] = hashlib.sha256((P4 / "m1_v6_config_lock.json").read_bytes()).hexdigest()
+    record["lock_sha256_at_train"] = hashlib.sha256(LOCKFILE.read_bytes()).hexdigest()
     record["torch_threads_train"] = threads
     rho = record["intervention_dev"]["0.25"].get("full_spearman")
     print(f"seed={seed} intervention full rho={rho if rho is None else round(rho, 3)} "
@@ -364,12 +371,14 @@ def merge(output: Path) -> int:
             print(f"REFUSED: missing {path}", file=sys.stderr)
             return 2
         records.append(json.loads(path.read_text(encoding="utf-8")))
-    summary = {"method": "amr_v6_momentum_teacher",
-               "lock": "artifacts/phase4_amr/m1_v6_config_lock.json",
+    summary = {"method": {"both": "amr_v6_momentum_teacher", "slepian": "amr_v6nomask_slepian_only",
+                          "mask": "amr_v6mask_only"}[CORRUPTIONS],
+               "lock": "artifacts/phase4_amr/m1_v6nomask_config_lock.json" if CORRUPTIONS != "both" else "artifacts/phase4_amr/m1_v6_config_lock.json",
                "evidence_scope": "train/valid dev only", "n_intervention_sets": records[0]["n_intervention_sets"],
                "records": records}
     write_json(output / "summary.json", summary)
-    manifest = {"status": "P4_R3_AMR_V6_DEV_COMPLETE",
+    manifest = {"status": ("P4_R3_AMR_V6_DEV_COMPLETE" if CORRUPTIONS == "both"
+                           else "GOAL_R1_NOMASK_DEV_COMPLETE"),
                 "seeds": list(SEEDS),
                 "elapsed_seconds_max_worker": max(r["training"]["elapsed_seconds"] for r in records)}
     write_json(output / "manifest.json", manifest)

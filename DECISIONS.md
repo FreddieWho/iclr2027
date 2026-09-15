@@ -379,3 +379,10 @@
   若通过⇒幽灵球员非必要（故事简化）；若退化⇒幽灵球员 load-bearing
   （新颖性 claim＋摘要级"幽灵球员"故事）。predictor加宽/F-range权重降级为
   后备（v6 已健康，diagnostic 动机消失）。
+
+## D-20260916-GOAL03：第 1 训练轮发射（mask 消融，台账 1/10）
+- 日期：2026-09-16
+- 设计：v6 runner + `AMR_CORRUPTIONS=slepian`（mask 分支零触发，mini 已验证
+  mask_trials=0）；其余冻结（锁 `m1_v6nomask_config_lock.json` 462be450…，
+  审计 PASS 含输出目录隔离检查）。
+- 判定（锁内 R1_decision）：H1 通过⇒幽灵球员非必要；退化⇒幽灵球员 load-bearing。

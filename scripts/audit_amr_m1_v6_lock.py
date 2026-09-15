@@ -15,7 +15,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 P4 = ROOT / "artifacts" / "phase4_amr"
-LOCK = P4 / "m1_v6_config_lock.json"
+import os
+
+LOCK = P4 / os.environ.get("AMR_AUDIT_LOCK", "m1_v6_config_lock.json")
 FAILURES: list[str] = []
 
 
@@ -34,7 +36,7 @@ def main() -> int:
         print("REFUSED: lock missing")
         return 2
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
-    check(lock["lock_id"] == "amr_m1_v6_config_lock", "lock id")
+    check(lock["lock_id"] == "amr_" + LOCK.stem, "lock id matches filename")
     check(lock["model"]["n_bands"] == 3, "3-band basis")
     check(lock["model"]["band_edges"] == [0.0, 1.0, 1.3, 2.0], "frozen density-equalized edges")
     check("Chebyshev" in lock["model"]["spectral_basis"] or "EXACT" in lock["model"]["spectral_basis"],
@@ -50,8 +52,10 @@ def main() -> int:
         path = ROOT / rel
         check(path.is_file() and sha256_file(path) == digest, f"code hash: {rel}")
     consts = lock["constants"]
-    check(consts == {"W_ROUTE": 1.0, "W_VICVAR": 1.0, "W_VICCOV": 0.04, "VIC_GAMMA": 0.02, "W_KOLEO": 0.1},
-          "constants block frozen")
+    base_ok = all(consts.get(k) == v for k, v in
+                  {"W_ROUTE": 1.0, "W_VICVAR": 1.0, "W_VICCOV": 0.04, "VIC_GAMMA": 0.02, "W_KOLEO": 0.1}.items())
+    corr_ok = ("CORRUPTIONS" not in consts) or (consts["CORRUPTIONS"] in ("both", "slepian", "mask"))
+    check(base_ok and corr_ok, "constants block frozen")
     for split in ("train", "valid"):
         path = P4 / f"spectral_cache_{split}.npz"
         check(path.is_file() and sha256_file(path) == lock[f"spectral_cache_{split}_sha256"],
@@ -66,10 +70,10 @@ def main() -> int:
     cal = lock["calibration"]
     check(all(k in cal for k in ("W_ROUTE", "predictor_lr", "tau", "koleo")),
           "calibration rationale recorded")
-    v6dir = P4 / "m1_v6"
+    v6dir = P4 / os.environ.get("AMR_AUDIT_OUTDIR", "m1_v6")
     existing = [p for p in v6dir.rglob("*") if p.name.startswith(("record_", "summary")) and p.suffix == ".json"] \
         if v6dir.is_dir() else []
-    check(not existing, "no v6 training records predate the lock")
+    check(not existing, f"no training records in {v6dir.name} predate the lock")
     if FAILURES:
         print(f"AMR_V6_LOCK_AUDIT: FAIL ({len(FAILURES)} checks)")
         return 1
