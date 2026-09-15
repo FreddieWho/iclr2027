@@ -264,7 +264,8 @@ def run_one(seed: int, threads: int, output: Path) -> None:
     print(f"=== AMR v5cap seed={seed} threads={threads} ===", flush=True)
     T5R3.set_seed(seed)
     model = v4.AMRModelV5CAP()
-    model.set_route_alpha(torch.tensor(lock["routing_assignment"]["alpha"], dtype=torch.float32))
+    # CAP uses no routing gates; buffer zeroed for determinism (lock has no alpha by design).
+    model.set_route_alpha(torch.zeros(model.n_bands))
     params = int(sum(p.numel() for p in model.parameters()))
     training = train_v4(model, T5R3, R2, v4, train, train_adj, spec_cache, seed)
     ckpt = models_dir / f"amr_v5_seed{seed}.pt"

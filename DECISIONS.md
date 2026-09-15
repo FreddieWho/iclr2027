@@ -330,3 +330,9 @@
 - R2 预注册判定（锁内）：CAP≥v5 且 context 健康 ⇒ 路由相对 CAP 无增量
   （AMR 收缩为分支塑造）；CAP 塌缩而 v5 健康 ⇒ 路由 load-bearing（强化 P4-B1）；
   双健康 ⇒ 比幅度＋N4 行文。
+
+## D-20260905-P4-014b：R2 启动 bug 修复（不计轮次）
+- R2 首次发射全部 worker 启动即崩（run_one 读锁中不存在的 alpha 键；训练前崩溃，
+  零算力浪费、零 record）。修复：route_alpha 直接置零（锁本就无 alpha，by design）。
+- 锁附录＋重哈希（a3f9f6bd…）＋审计 PASS 后重发射。此为实现 bug 修复，
+  不消耗轮次预算（5 轮用 2 剩 3 不变）。

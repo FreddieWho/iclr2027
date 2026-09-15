@@ -98,6 +98,14 @@
   "code_hashes": {
     "scripts/amr_model_v5cap.py": "e7076de9cc26279b038105453397fbe2090d8be910e88225c5fbc788c4be5edd",
     "tests/test_amr_model_v5cap.py": "564a4808695977aef1aa7572a8b197245eb57452f571459cd268c485c4886cdb",
-    "scripts/run_amr_m1_v5cap.py": "3aeea0c1e4cae6a83f0752205b97ce0b53c5d9d9a05beec764582bb70b405909"
-  }
+    "scripts/run_amr_m1_v5cap.py": "ea494ee93803812922cf52b63c14016af403274dd8b106fe11cd1b0062a7a7fe"
+  },
+  "addenda": [
+    {
+      "date": "2026-09-15",
+      "before_R2_training": true,
+      "change": "run_one: route_alpha buffer zeroed directly (v5cap lock has no alpha by design); no protocol content changed",
+      "reason": "startup KeyError fix; workers crashed before any training (no compute wasted, no records)"
+    }
+  ]
 }
