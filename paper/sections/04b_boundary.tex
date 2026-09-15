@@ -1,0 +1,47 @@
+\subsection{Boundary: spectral routing fails where allocation predicts}
+% ROLE: ~0.75 page. NOT a method section — a falsification record that closes
+% the mechanism arc. Tone: confident ownership, never apologetic. The allocation-
+% competition mechanism of Sec.4 predicts naive routing must fail; 15 runs confirm.
+
+% TABLE (falsification series, 5 configs x 3 seeds, dev-only):
+% v1 alpha=[1,0..0] unnormalized      -> mode collapse 3/3            (P4-A1)
+% v2 + normalized L_eqv, W_var=1.0    -> re-collapse + seed-11 total  (P4-A2)
+% v3 alpha all-zero (no invariance)   -> identical collapse 3/3      (P4-A3;
+%                                        falsifies "invariance is the killer")
+% v4 exact+Slepian+VICReg+stopgrad    -> mode lives 3/3, context 2/3 dead (P4-A4)
+% v4b W 12->2 + warm-start + ramp     -> context still 2/3 dead      (P4-A5; terminal)
+% v5 decoupled towers                 -> H1 PASS 3/3                 (P4-B1)
+% CAP-decoupled control               -> TIES routing (see below)    (P4-B2)
+% v6 momentum-teacher, shared trunk   -> H1 PASS 3/3                 (P4-C1)
+% R1 nomask ablation                  -> PENDING (slot; ghost-player load-bearing test)
+% Each row: single-variable isolation; all locks/audits in supplementary.
+
+% PARA 1 — The prediction: shared-trunk routing must destroy >=1 channel
+% (allocation competition, Sec.4). 15/15 runs damage >=1 channel; the only
+% healthy phases ever observed are route-free. NOT bad luck, NOT undertuning:
+% W 12->2, warm-start, normalization all tried and failed (cite rows).
+
+% PARA 2 — What survived (scoped positives, no inflation):
+% (a) decoupled branch-shaping passes H1 (zone 0.97-0.99, pair 0.52-0.82,
+% intervention 0.81-0.96); (b) momentum-teacher rescues joint training
+% (zone ~0.98, pair 0.80-0.88, margins 10x v5); (c) Slepian-mu + Shannon K~0.3-0.8
+% bound stands as probing methodology independent of training outcomes.
+
+% PARA 3 — The contraction (OWN IT, do not hide):
+% head-to-head: routing vs transformation prediction TIES (pair 0.64 vs 0.61,
+% geometry 0.50 vs 0.50, full 0.86 vs 0.89; context bitwise identical).
+% What works is "protected branch + predictive auxiliary", NOT spectral
+% specificity. Margin thinness persists everywhere (0.01-0.17 vs frozen 0.64):
+% the honest cost of aux machinery, stated plainly.
+% WORDING RULE (mandatory): "boundary settled" language throughout — NEVER
+% "future work will fix". The mu-threshold null (GOAL-MU01, AUC~0.44-0.50)
+% is reported in one sentence as a filed negative, not hidden.
+
+% CLOSING SENTENCE (candidate, refine in prose pass):
+% "The same allocation-competition mechanism that explains our repair predicts
+% that naive spectral routing on a shared trunk must fail — and across fifteen
+% runs, it did, in exactly the predicted directions."
+
+% [SLOT: R1 nomask verdict — ghost-player dispensable vs load-bearing.]
+% [SLOT: AMR outlook, one paragraph max — decoupled branch-shaping + Slepian
+% probes as future instruments, NOT promised results.]
