@@ -1,5 +1,8 @@
 # Memory Pilot 施工包 + Action-Mode 审计备忘
 
+> **当前状态入口（2026-09-16 起，必读）：`reports/CURRENT_STATUS.json`；当前主报告：`reports/V4_FAST_PILOT_REPORT.md`；当前决策：`reports/V4_ROUTE_DECISION.json`（`INCONCLUSIVE_NO_GO_SIGNAL`）。**
+> 本页下方的“没有真实 LLM pilot 结果”及旧 P0 停机叙述均为**历史快照**（2026-09-10），已被 owner continuation（2026-09-14）取代；原始正文保留，仅作收据。旧技术 `NO_GO`（`reports/decision.json`）同样为历史收据，不得当作当前科学结论。
+
 **日期：2026-09-10｜状态：可启动施工；没有真实 LLM pilot 结果。**
 
 ## 交付目标

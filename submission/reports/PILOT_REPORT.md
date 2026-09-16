@@ -1,5 +1,7 @@
 # PILOT_REPORT
 
+> **HISTORICAL — P0 停机阶段快照，已被取代。** P2/R1/R2 已在 owner continuation 下完成；当前结论见 `reports/V4_FAST_PILOT_REPORT.md` 与 `reports/CURRENT_STATUS.json`。下文保留原样，不代表当前状态。
+
 - 最新 P0 状态（2026-09-13）：V3 可见预算预检完成 4/40 格；观察到的 2,048/4,096 失败格已排除首选预算对通过的可能。但冻结计划规定除全局授权、配置或预算阻塞外继续执行，本轮未遇到这些阻塞仍提前停止，构成协议偏离；故整份预检不完整、正式预算未冻结，R1 与 formal scoring 均 `NOT_RUN`。项目级 `reports/decision.json` 当前仍为 `NO_GO/TECHNICAL`（多个审计门未过），不是科学阴性；该决策尚未从这份部分预检重新生成。详情见 `reports/P0_VISIBLE_BUDGET_V3_RESULT_20260913.md`、`artifacts/visible_budget_preflight_v3_partial_20260913.json`。
 
 - 最新非正式诊断：`deepseek-v4.1-flash/low` 对 8 条独立 full history 加 2 条 replicate 共 10 次请求，reasoning tokens 为 6,189–29,913（均值 14,153.6，中位数 13,907），10/10 `finish_reason=stop`。普通 formal memory 输出上限未启用，因此未生成 formal memory、未调用 R1、无新 score；共享账本累计保守占用 `$0.79275835`。详见 `reports/REASONING_LENGTH_DIAGNOSTIC_V1.md`。

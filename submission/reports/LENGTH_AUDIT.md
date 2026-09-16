@@ -1,5 +1,7 @@
 # LENGTH_AUDIT
 
+> **范围说明：** 严格等长 endpoint 实验为 `NOT_RUN`；P2 长度分析见主报告“压缩器与实际长度”与 rewrite/费用边界附录。
+
 状态：`NOT_RUN_FORMAL_LENGTH_AUDIT`
 
 2026-09-12：DeepSeek-V4.1-Flash、V4-Flash和 GLM C1 fallback 均使用固定 native tokenizer、`reasoning_effort=low` 和同一完整原始 history；V4.1 在 12000/16000 下、GLM 在 12000 下均 `visible memory=0/finish=length`，V4 在 16000 下经直连等待 600s 后无响应；V4.1 32000 首次返回 HTTP 500，重试后仍 `visible memory=0/finish=length`。没有任何 memory row 进入评分。见 `reports/REASONING_BUDGET_V2.md`。

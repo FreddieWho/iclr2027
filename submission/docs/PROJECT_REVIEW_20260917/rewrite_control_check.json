@@ -1,0 +1,11 @@
+{
+  "direct_first_step_cap": [
+    24576
+  ],
+  "rewrite_first_step_cap": [
+    32768
+  ],
+  "rewrite_first_step_equal_direct_count": 0,
+  "history_count": 24,
+  "note": "Independent path starts; identical requested B does not imply shared direct memory or identical first-step provider budget."
+}

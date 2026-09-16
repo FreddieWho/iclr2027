@@ -1,5 +1,7 @@
 # ROBUSTNESS
 
+> **范围说明：** 本文件为 pilot 之后的待办审计位（`NOT_RUN`），不是当前 P2 结果的一部分。当前结论见 `reports/CURRENT_STATUS.json`。
+
 状态：`NOT_RUN`
 
 本轮没有正式 C1/R1 memory 可供 R2、C2 或自然数据 reader 复现。LongMemEval cleaned 已下载并抽样 32 条完整 history，但每题标记为 `semantic_required`，尚未运行 semantic grader；自然 history 也明显超过默认 32K 配置，不能在未验证 context window 时强行评估。

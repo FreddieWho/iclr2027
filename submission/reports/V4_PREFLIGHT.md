@@ -1,5 +1,7 @@
 # V4 Fast Route Decision — Preflight
 
+> **HISTORICAL — continuation 前快照，已被取代。** `NO_GO_TECHNICAL` 为当时技术停机状态；当前决策为 `INCONCLUSIVE_NO_GO_SIGNAL`（`reports/V4_ROUTE_DECISION.json`）。
+
 **Current state:** The original B=4,096 P0 and the one permitted B=8,192 adjustment both failed the C1 technical gate. The amended run produced 3/6 natural-stop final memories and only 1/6 in `[4,096, 16,384]`. R1 calibration was skipped; P1/P2/R2 were not run. Current route decision: `NO_GO_TECHNICAL`; no scientific route comparison was performed. This package selects a research route; it is not a strict equal-native-token endpoint proof.
 
 ## Frozen scope

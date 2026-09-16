@@ -1,5 +1,7 @@
 # EVIDENCE_AUDIT
 
+> **范围说明：** 完整证据审计为 `NOT_RUN`（pilot 之后的工作），不等于工程缺陷。当前结论见 `reports/CURRENT_STATUS.json`。
+
 状态：`NOT_RUN_FORMAL_EVIDENCE_AUDIT`
 
 正式要求是至少 24 个可追到 gold+memory 的成功/失败 pair，并区分完整语义证据、reader 使用失败、缺失/扭曲、猜测和 unknown；还需按适用机制完成 highlight、restore 或等长 placebo 控制。本轮没有冻结任何 live memory，也没有生成 live prediction，因此：

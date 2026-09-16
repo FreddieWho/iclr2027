@@ -1,5 +1,7 @@
 # 本包质量验证
 
+> **HISTORICAL（2026-09-10）—— “未调用真实 LLM” 仅在当时成立。** C1/R1/R2 live 调用已在 continuation 下执行；当前状态见 `reports/CURRENT_STATUS.json`。
+
 验证日期：2026-09-10。
 
 - 38 项离线单元/集成测试全部通过。覆盖query输入白名单、数据标签剥离、相同历史group归并、真实tokenizer禁止静默降级、预算与路径、费用事务预留、重复改写不可误用同一步缓存、配对统计、mock拒绝GO及多种go/no-go边界。

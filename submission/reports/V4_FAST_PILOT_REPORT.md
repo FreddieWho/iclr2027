@@ -75,3 +75,14 @@ C1 为 OpenCode Go `deepseek-v4.1-flash`，thinking disabled，`reasoning_effort
 - P1 12 个 history 的 exploratory utility rows：`artifacts/v4_exploration_rows_owner_continuation_p1_20260914.jsonl`（旧 prompt，明确不与 P2 pooled）
 - owner continuation amendment：`artifacts/v4_owner_continuation_amendment_20260914_v2.json`
 - 旧 `artifacts/v4_confirmation_rows.jsonl` 与 `artifacts/v4_exploration_rows.jsonl` 保留为 continuation 前的 `NOT_RUN` 状态快照；它们不是当前 phase 结果源。实际 P1/P2 per-history 行见以上 owner-continuation artifacts，问题级收据见对应 reader rows。
+
+## 附录（2026-09-16 工程修复增补，只补边界解释，不改历史数值）
+
+### A. Rewrite 控制的实际限制
+direct 首次写入 cap=24,576；rewrite 首次写入 cap=32,768，且两路径 prompt 的 final/intermediate 角色不同。rewrite 独立重生成自己的起点，24 个 history 的第一步 memory 均不等于对应 direct memory。因此现有 staged2–rewrite/direct–rewrite 比较检验的是**整套路径策略**（含起点生成），不足以识别纯重复改写或纯 bottleneck 机制，也不能当成“同一个 direct memory 只多改写一次”的配对控制。共享 direct 起点且首步参数一致的 rewrite 是另行授权的新实验，本报告不虚构该结果。
+
+### B. 费用口径
+项目实付＋不确定累计 `$8.29376795`，其中 `$0.1529898` 为隔离预留（已含在总数内，不是额外支出）。各模型历史保守占用口径各自重复计入了旧项目占用 `$1.37211145`，仅用于各自 cap 检查；**不得将模型数相加报告成项目实付**。
+
+### C. 未完成声明
+以下仍为 `NOT_RUN`，不是工程缺陷：24 对机制证据审计、完整 novelty 审计、严格等长 endpoint 实验、完整第三方复现（见 `reports/CURRENT_STATUS.json` 的 completion_matrix）。没有自动平台隐藏压缩的可靠证据时，不写“已证明无隐藏压缩”。

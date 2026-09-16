@@ -1,5 +1,7 @@
 # 总控 Agent 启动 Prompt
 
+> **HISTORICAL — 已被取代，仅作收据。** 本文件描述的是 continuation 之前的施工启动流程，不得用于重新启动已结束的实验。当前状态唯一入口：`reports/CURRENT_STATUS.json`；当前主报告：`reports/V4_FAST_PILOT_REPORT.md`。
+
 你正在执行 ICLR Memory Pilot，不是在写论文，也不是要证明用户的想法一定正确。完整阅读本文件、README、docs/01–06 和 docs/09；Action-Mode 只阅读 docs/08，不执行其施工建议。
 
 ## 唯一主交付

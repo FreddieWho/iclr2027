@@ -30,7 +30,45 @@ PROMPT_COMPRESS = ROOT / 'prompts/compress_v4_route_selection_compact_v2.txt'
 PROMPT_READER_BATCH = ROOT / 'prompts/reader_batch_v4.txt'
 PROMPT_READER_BATCH_RETRY = ROOT / 'prompts/reader_batch_retry_v4.txt'
 PROMPT_READER_SINGLE = ROOT / 'prompts/reader.txt'
+READER_PROMPT_PATHS = {
+    'batch': PROMPT_READER_BATCH,
+    'batch_retry': PROMPT_READER_BATCH_RETRY,
+    'single': PROMPT_READER_SINGLE,
+}
 NATURAL_FINISH = 'stop'
+
+
+def runner_code_sha256() -> str:
+    return file_sha256(Path(__file__).resolve())
+
+
+def reader_prompt_hashes() -> dict[str, str]:
+    return {name: file_sha256(path) for name, path in READER_PROMPT_PATHS.items()}
+
+
+def resolve_compressor_prompt(runtime: dict, runtime_path: str | Path = RUNTIME_DEFAULT,
+                              allow_legacy: bool = False) -> tuple[Path, str, str]:
+    """Resolve the actual compressor template from the runtime (F8).
+
+    Returns (prompt_path, sha256, resolution) where resolution is
+    'runtime_explicit' or 'legacy_global_fallback'. Runtimes without an
+    explicit compressor_C1.prompt_path fail closed unless allow_legacy is set,
+    so a historical runtime can never silently run under the newest prompt.
+    """
+    declared = runtime.get('compressor_C1', {}).get('prompt_path')
+    if declared:
+        cand = Path(declared)
+        if not cand.is_absolute():
+            cand = ROOT / cand
+        if not cand.is_file():
+            raise ValueError(f'compressor prompt_path missing on disk: {declared}')
+        return cand, file_sha256(cand), 'runtime_explicit'
+    if allow_legacy:
+        return PROMPT_COMPRESS, file_sha256(PROMPT_COMPRESS), 'legacy_global_fallback'
+    raise ValueError(
+        'Runtime lacks compressor_C1.prompt_path; pass the continuation runtime via '
+        '--runtime (e.g. configs/v4_compact_v2_continuation_runtime_20260914.json) '
+        'or opt into historical reads with --allow-legacy-prompt')
 
 PATHS = ('direct', 'staged2', 'rewrite')
 TYPE_MAP = {
@@ -94,9 +132,72 @@ def public_history_text(history: dict) -> str:
     return text
 
 
-def c1_system_prompt(target: int, role: str, tokenizer_name: str) -> str:
-    template = PROMPT_COMPRESS.read_text(encoding='utf-8')
+def c1_system_prompt(target: int, role: str, tokenizer_name: str,
+                    template_text: str | None = None) -> str:
+    template = template_text if template_text is not None else PROMPT_COMPRESS.read_text(encoding='utf-8')
     return template.format(target_role=role, target_tokens=target, tokenizer=tokenizer_name)
+
+
+def expected_query_contract(queries: list[dict], questions_per_history: int = 8) -> dict:
+    """Derive the frozen query contract: expected question ids and per-type counts."""
+    by_history: dict[str, list[dict]] = {}
+    for q in queries:
+        by_history.setdefault(q['history_id'], []).append(q)
+    expected_ids: dict[str, set[str]] = {}
+    expected_types: dict[str, dict[str, int]] = {}
+    for hid, qs in by_history.items():
+        if len(qs) != questions_per_history:
+            raise ValueError(f'Query contract violation for {hid}: expected '
+                             f'{questions_per_history} questions, got {len(qs)}')
+        qids = [q['question_id'] for q in qs]
+        if len(set(qids)) != len(qids):
+            raise ValueError(f'Query contract violation for {hid}: duplicate question_id')
+        expected_ids[hid] = set(qids)
+        counts: dict[str, int] = {}
+        for q in qs:
+            counts[q.get('question_type', '')] = counts.get(q.get('question_type', ''), 0) + 1
+        expected_types[hid] = counts
+    return {'expected_ids': expected_ids, 'expected_types': expected_types,
+            'questions_per_history': questions_per_history}
+
+
+def verify_frozen_score_inputs(*, compression_manifest: dict, compression_manifest_path: Path,
+                               histories_path: str | Path, memories_path: str | Path) -> dict:
+    """Verify frozen inputs BEFORE queries are read or any provider is built (F3).
+
+    Checks manifest status, actual histories/memory file SHAs against the frozen
+    manifest, history-id coverage, per-row memory text digests and (history,
+    condition) key uniqueness. Raises on any mismatch; never trusts boolean
+    flags or self-reported hashes alone.
+    """
+    if compression_manifest.get('status') != 'COMPLETE':
+        raise RuntimeError('Refusing to score: compression manifest is not COMPLETE')
+    if not compression_manifest.get('no_future_query_visible_to_compressor'):
+        raise RuntimeError('Refusing to score: query-blindness flag missing in compression manifest')
+    histories_path = Path(histories_path)
+    memories_path = Path(memories_path)
+    actual_hist_sha = file_sha256(histories_path)
+    if actual_hist_sha != compression_manifest.get('histories_sha256'):
+        raise ValueError('Histories file SHA does not match the frozen compression manifest')
+    actual_mem_sha = file_sha256(memories_path)
+    if actual_mem_sha != compression_manifest.get('memory_rows_sha256'):
+        raise ValueError('Memory file SHA does not match the frozen compression manifest')
+    histories = read_history_rows(histories_path)
+    hist_ids = [h['history_id'] for h in histories]
+    if set(hist_ids) != set(compression_manifest.get('history_ids', [])):
+        raise ValueError('History IDs do not match the frozen compression manifest')
+    memory_rows = read_jsonl(memories_path)
+    seen_keys = set()
+    for m in memory_rows:
+        key = (m.get('history_id'), m.get('condition'))
+        if key in seen_keys:
+            raise ValueError(f'Duplicate frozen memory key: {key}')
+        seen_keys.add(key)
+        if digest(m.get('text', '')) != m.get('memory_hash'):
+            raise ValueError(f'Frozen memory text hash mismatch for {key}: '
+                             'file content differs from its recorded hash')
+    return {'histories': histories, 'memory_rows': memory_rows,
+            'histories_sha256': actual_hist_sha, 'memory_rows_sha256': actual_mem_sha}
 
 
 def compression_user(history_text: str) -> str:
@@ -524,21 +625,25 @@ def _write_or_verify_manifest(path: Path, manifest: dict, resume: bool) -> None:
 
 def compress_phase(histories_path: str | Path, out_dir: str | Path, phase: str,
                    runtime_path: str | Path = RUNTIME_DEFAULT, resume: bool = False,
-                   r1_effort: str | None = None) -> dict:
+                   r1_effort: str | None = None, allow_legacy_prompt: bool = False) -> dict:
     """Generate direct/staged2/rewrite memories without opening query data."""
     runtime = load_runtime(runtime_path)
+    prompt_path, prompt_hash, prompt_resolution = resolve_compressor_prompt(
+        runtime, runtime_path, allow_legacy=allow_legacy_prompt)
+    prompt_template = prompt_path.read_text(encoding='utf-8')
     histories = read_history_rows(histories_path)
     out = Path(out_dir)
     out.mkdir(parents=True,exist_ok=True)
     config_hash = file_sha256(runtime_path)
-    prompt_hash = file_sha256(PROMPT_COMPRESS)
     tok = Tokenizer(runtime['compressor_C1']['tokenizer'])
     manifest_path = out / 'compression_manifest.json'
     manifest = {
         'protocol_id':runtime['protocol_id'],'phase':phase,'status':'RUNNING',
         'runtime_config_path':str(Path(runtime_path).resolve()),'runtime_config_sha256':config_hash,
-        'compressor_prompt_path':str(PROMPT_COMPRESS.relative_to(ROOT)),
+        'compressor_prompt_path':str(prompt_path.relative_to(ROOT)) if prompt_path.is_relative_to(ROOT) else str(prompt_path),
         'compressor_prompt_sha256':prompt_hash,
+        'compressor_prompt_resolution':prompt_resolution,
+        'runner_code_sha256':runner_code_sha256(),
         'histories_path':str(Path(histories_path).resolve()),'histories_sha256':file_sha256(histories_path),
         'history_ids':[h['history_id'] for h in histories],
         'history_count':len(histories),'paths':list(PATHS),
@@ -608,7 +713,8 @@ def compress_phase(histories_path: str | Path, out_dir: str | Path, phase: str,
                     done_steps.add((history_id,condition,step_index))
                     final_result=row;path_status=row['status']
                     break
-                system = c1_system_prompt(target,'final' if is_final else 'intermediate',tok.name)
+                system = c1_system_prompt(target,'final' if is_final else 'intermediate',tok.name,
+                                          template_text=prompt_template)
                 user = compression_user(current)
                 meta = {
                     'native_memory_tokens':tok.count(current),
@@ -795,29 +901,190 @@ def _reader_attempt(provider: Provider, ledger: V4CostLedger, runtime: dict,
         visible_limit=visible_limit,namespace=namespace,request_metadata=metadata)
 
 
+def _score_cell(provider, ledger, runtime, tok, reader_runtime, reader_slot, effort, mode,
+                phase, hid, condition, memory, memory_status, memory_tokens, memory_hash,
+                qs, call_id, call_path, score_path, out, done_call_ids, done_score_ids,
+                done_call_attempts, replaying_from_receipt) -> None:
+    """Score one (history, condition) cell; append call receipts and score rows.
+
+    Recovery (F4) is deterministic: replayed provider calls resolve through the
+    confirmed response cache (budgeted_call enforces cache-hit for completed
+    ledger keys), so no new model spend occurs. Missing cache raises
+    BLOCKED_MISSING_RESPONSE_RECEIPT instead of refetching or fabricating.
+    Already-durable rows are never duplicated.
+    """
+    parsed_answers={};question_errors={};question_results={};retry_count=0;attempt_metadata=[]
+    if memory_status not in ('natural_stop','raw_history','calibration_oracle','calibration_no_memory'):
+        question_errors={q['question_id']:'compressor_memory_invalid' for q in qs}
+    else:
+        qgroups=[[q] for q in qs] if mode=='single' else [qs]
+        for group in qgroups:
+            group_key=digest([q['question_id'] for q in group])
+            group_error=None;group_result=None;parsed=None
+            for retry_index in range(2):
+                try:
+                    result=_reader_attempt(provider,ledger,runtime,phase,hid,condition,
+                        memory,group,mode,retry_index,effort,out)
+                except RuntimeError as exc:
+                    msg=str(exc)
+                    if 'CACHE_RECEIPT_BLOCK' in msg or 'UNCERTAIN_REQUEST_BLOCK' in msg:
+                        raise RuntimeError(f'BLOCKED_MISSING_RESPONSE_RECEIPT: {hid}/{condition}: {msg}') from exc
+                    raise
+                if replaying_from_receipt and result.get('cache_hit') is False:
+                    raise RuntimeError(f'IDEMPOTENCY_BLOCK: replay of {hid}/{condition} reached provider')
+                response_text=result.get('text','')
+                visible_tokens=tok.count(response_text)
+                if result.get('finish_reason')!=NATURAL_FINISH:
+                    parsed=None;error=('TECHNICAL_INVALID_LENGTH' if result.get('finish_reason')=='length'
+                                       else 'reader_non_natural_stop')
+                elif visible_tokens>int(reader_runtime['visible_answer_limit_tokens']):
+                    parsed=None;error='protocol_violation_answer_over_limit'
+                elif mode=='batch':
+                    parsed,error=parse_batch_response(response_text,[q['question_id'] for q in group])
+                else:
+                    obj,error=parse_single_response(response_text)
+                    parsed={group[0]['question_id']:obj} if obj else None
+                retryable=error in ('invalid_reader_json','invalid_reader_schema',
+                            'invalid_reader_batch_schema','duplicate_question_id',
+                            'missing_or_unexpected_question_ids','protocol_violation_answer_over_limit')
+                attempt_metadata.append({'result':result,'error':error,'retry_index':retry_index,
+                    'visible_tokens':visible_tokens,'group_key':group_key,
+                    'question_ids':[q['question_id'] for q in group],
+                    'will_retry':retry_index==0 and retryable})
+                group_error=error;group_result=result
+                if error is None:
+                    break
+                if retry_index==0 and retryable:
+                    retry_count+=1
+                    continue
+                break
+            for q in group:
+                qid=q['question_id'];question_results[qid]=group_result
+                if parsed and qid in parsed:
+                    parsed_answers[qid]=parsed[qid]
+                    question_errors[qid]=None
+                else:
+                    question_errors[qid]=group_error or 'invalid_reader_response'
+    # Every question gets a row. Protocol failures are missing, not silently truncated/scored.
+    final_retry_by_group={}
+    for entry in attempt_metadata:
+        final_retry_by_group[entry['group_key']]=entry['retry_index']
+    for entry in attempt_metadata:
+        attempt_key=(call_id,tuple(entry['question_ids']),entry['retry_index'])
+        if attempt_key in done_call_attempts:
+            continue
+        result=entry['result']
+        append_jsonl(call_path,{
+            'call_id':call_id,'phase':phase,'history_id':hid,'condition':condition,
+            'question_ids':entry['question_ids'],'reader_slot':reader_slot,
+            'reader_mode':mode,'reasoning_effort':effort,'attempt_index':entry['retry_index'],
+            'final_attempt_index':final_retry_by_group[entry['group_key']],
+            'protocol_error':entry['error'],'response_visible_tokens':entry['visible_tokens'],
+            'finish_reason':result.get('finish_reason'),
+            'provider_name':result.get('provider_name'),'provider_model_id':result.get('provider_model_id'),
+            'returned_model_field':result.get('returned_model_field'),
+            'provider_output_budget_tokens':result.get('provider_output_budget_tokens'),
+            'provider_input_tokens':result.get('provider_input_tokens'),
+            'provider_output_tokens':result.get('provider_output_tokens'),
+            'cache_read_tokens':result.get('cache_read_tokens',0),
+            'full_request_native_tokens':result.get('full_request_native_tokens'),
+            'run_start_utc':result.get('run_start_utc'),
+            'full_HF_tokenizer_revision':result.get('full_HF_tokenizer_revision'),
+            'GET_v1_models_sha256':result.get('GET_v1_models_sha256'),
+            'opencode_session_id':result.get('opencode_session_id'),
+            'request_key':result.get('request_key'),
+            'cost_usd_or_conservative':result.get('cost_usd_or_conservative'),
+            'response_hash':digest(result.get('text','')),
+        })
+        done_call_attempts.add(attempt_key)
+    all_parsed=len(parsed_answers)==len(qs)
+    condition_errors=[e for e in question_errors.values() if e]
+    call_row={
+        'call_id':call_id,'phase':phase,'history_id':hid,'condition':condition,
+        'reader_slot':reader_slot,'reader_mode':mode,'reasoning_effort':effort,
+        'status':'valid' if all_parsed else (condition_errors[0] if condition_errors else 'invalid_reader_response'),
+        'protocol_retry_count':retry_count,'n_attempts':len(attempt_metadata),
+        'memory_hash':memory_hash,'memory_native_tokens':memory_tokens,
+        'reader_output_budget_tokens':int(reader_runtime['provider_output_budget_tokens']),
+        'final_visible_tokens':max((e['visible_tokens'] for e in attempt_metadata),default=None),
+    }
+    if call_id not in done_call_ids:
+        append_jsonl(call_path,{'call_id':call_id,'history_id':hid,'condition':condition,
+                                 'reader_slot':reader_slot,'reader_mode':mode,
+                                 'attempt_index':-1,'final_attempt_index':-1,**call_row})
+    done_call_ids.add(call_id)
+    for q in qs:
+        qid=q['question_id'];obj=parsed_answers.get(qid)
+        score=None;status=question_errors.get(qid) or 'invalid_reader_response';answer=None;evidence=[]
+        if obj is not None:
+            answer=obj.get('answer');evidence=obj.get('evidence_ids',[])
+            score=exact_score(answer,q['answers']) if q.get('scoring')=='exact' else None
+            status='valid' if score is not None else 'semantic_grading_required'
+        score_id=digest([call_id,qid])
+        if score_id in done_score_ids:
+            continue
+        result=question_results.get(qid) or {}
+        group_attempts=[e for e in attempt_metadata if qid in e['question_ids']]
+        final_attempt=next((e for e in reversed(group_attempts) if e['retry_index']==final_retry_by_group.get(e['group_key'])),None)
+        row={
+            'score_id':score_id,'phase':phase,'history_id':hid,
+            'question_id':qid,'question_type':q.get('question_type'),
+            'information_type':TYPE_MAP.get(q.get('question_type'),q.get('question_type')),
+            'condition':condition,'reader_slot':reader_slot,'reader_model':reader_runtime['provider_model_id'],
+            'provider_name':runtime['provider']['name'],'reasoning_effort':effort,
+            'provider_output_budget_tokens':int(reader_runtime['provider_output_budget_tokens']),
+            'visible_answer_limit_tokens':int(reader_runtime['visible_answer_limit_tokens']),
+            'final_visible_tokens':final_attempt['visible_tokens'] if final_attempt else None,
+            'final_answer_tokens':tok.count(answer) if isinstance(answer,str) else None,
+            'provider_input_tokens':result.get('provider_input_tokens'),
+            'provider_output_tokens':result.get('provider_output_tokens'),
+            'cache_read_tokens':result.get('cache_read_tokens',0),
+            'full_request_native_tokens':result.get('full_request_native_tokens'),
+            'finish_reason':result.get('finish_reason'),
+            'returned_model_field':result.get('returned_model_field'),
+            'run_start_utc':result.get('run_start_utc'),
+            'full_HF_tokenizer_revision':reader_runtime.get('full_HF_tokenizer_revision'),
+            'GET_v1_models_sha256':runtime['provider']['models_catalog_sha256'],
+            'memory_hash':memory_hash,'memory_native_tokens':memory_tokens,
+            'answer':answer,'evidence_ids':evidence,'score':score,'status':status,
+            'protocol_retry_count':sum(e['retry_index']==1 for e in group_attempts),
+            'question_hash':digest(q['question']),
+        }
+        append_jsonl(score_path,row);done_score_ids.add(score_id)
+
+
 def score_phase(histories_path: str | Path, queries_path: str | Path,
                 memories_path: str | Path, out_dir: str | Path, phase: str,
                 mode: str = 'batch', reader_slot: str = 'R1',
                 conditions: list[str] | None = None,
                 runtime_path: str | Path = RUNTIME_DEFAULT,
-                r1_effort: str | None = None, resume: bool = False) -> dict:
+                r1_effort: str | None = None, resume: bool = False,
+                allow_legacy_prompt: bool = False) -> dict:
     runtime=load_runtime(runtime_path)
+    prompt_path, prompt_hash, prompt_resolution = resolve_compressor_prompt(
+        runtime, runtime_path, allow_legacy=allow_legacy_prompt)
+    _ = prompt_path, prompt_hash, prompt_resolution  # compressor prompt is bound, not re-read here
     compression_manifest_path=Path(memories_path).parent/'compression_manifest.json'
     if not compression_manifest_path.is_file():
         raise RuntimeError('Frozen compression manifest missing')
     compression_manifest=load_json(compression_manifest_path)
-    if compression_manifest.get('status')!='COMPLETE' or not compression_manifest.get('no_future_query_visible_to_compressor'):
-        raise RuntimeError('Refusing to read questions before all phase memories are frozen')
+    # F3: verify actual frozen files BEFORE queries are read or any provider exists.
+    frozen=verify_frozen_score_inputs(
+        compression_manifest=compression_manifest,
+        compression_manifest_path=compression_manifest_path,
+        histories_path=histories_path, memories_path=memories_path)
     # Only now are query/gold rows opened.
-    histories=read_history_rows(histories_path)
+    histories=frozen['histories']
     queries=read_jsonl(queries_path)
     by_history={}
     for q in queries:
         by_history.setdefault(q['history_id'],[]).append(q)
     if set(by_history)!=set(h['history_id'] for h in histories):
         raise ValueError('History/question ID sets differ')
-    memory_rows=read_jsonl(memories_path)
+    memory_rows=frozen['memory_rows']
     by_memory={(m['history_id'],m['condition']):m for m in memory_rows}
+    if len(by_memory)!=len(memory_rows):
+        raise ValueError('Duplicate (history_id, condition) keys in frozen memories')
     selected=conditions or (['oracle','no_memory','raw','direct','staged2','rewrite'] if phase=='p0'
                             else ['raw','direct','staged2','rewrite'])
     allowed={'oracle','no_memory','raw',*PATHS}
@@ -854,7 +1121,13 @@ def score_phase(histories_path: str | Path, queries_path: str | Path,
         'visible_answer_limit_tokens':int(reader_runtime['visible_answer_limit_tokens']),
         'runtime_config_sha256':file_sha256(runtime_path),
         'compression_manifest_sha256':file_sha256(compression_manifest_path),
-        'queries_sha256':file_sha256(queries_path),'histories_sha256':file_sha256(histories_path),
+        'memory_rows_sha256':frozen['memory_rows_sha256'],
+        'histories_sha256':frozen['histories_sha256'],
+        'queries_sha256':file_sha256(queries_path),
+        'reader_prompt_sha256':reader_prompt_hashes(),
+        'compressor_prompt_sha256':prompt_hash,
+        'compressor_prompt_resolution':prompt_resolution,
+        'runner_code_sha256':runner_code_sha256(),
         'conditions':selected,'created_utc':utc_now(),'status':'RUNNING',
         'full_HF_tokenizer_revision':reader_runtime.get('full_HF_tokenizer_revision'),
         'GET_v1_models_sha256':runtime['provider']['models_catalog_sha256'],
@@ -867,12 +1140,29 @@ def score_phase(histories_path: str | Path, queries_path: str | Path,
     score_rows=read_jsonl(score_path) if score_path.exists() else []
     done_call_ids={r['call_id'] for r in call_rows if r.get('attempt_index')==r.get('final_attempt_index')}
     done_score_ids={r['score_id'] for r in score_rows}
+    done_call_attempts={(r['call_id'],tuple(r.get('question_ids',[])),r.get('attempt_index'))
+                          for r in call_rows if 'call_id' in r}
+    # F4/F5: the expected (reader, history, condition, question_id) key set is the
+    # contract. A cell is done only when all its score keys exist; call receipts
+    # alone never mark a cell complete.
+    contract=expected_query_contract(queries,int(runtime['data_design']['questions_per_history']))
+    qph=int(runtime['data_design']['questions_per_history'])
+    expected_score_ids: set[str] = set()
+    call_id_by_cell: dict[tuple[str, str], str] = {}
+    for history in histories:
+        hid=history['history_id']
+        for condition in selected:
+            cid=digest([phase,hid,condition,reader_slot,effort,mode,manifest['runtime_config_sha256']])
+            call_id_by_cell[(hid,condition)]=cid
+            for qid in contract['expected_ids'][hid]:
+                expected_score_ids.add(digest([cid,qid]))
+    blocked_cells: list[dict] = []
 
     for history in histories:
         hid=history['history_id']
         qs=by_history[hid]
-        if len(qs)!=int(runtime['data_design']['questions_per_history']):
-            raise ValueError(f'Expected 8 questions for {hid}, got {len(qs)}')
+        if len(qs)!=qph:
+            raise ValueError(f'Expected {qph} questions for {hid}, got {len(qs)}')
         for condition in selected:
             if condition=='oracle':
                 memory=_oracle_text(qs)
@@ -890,140 +1180,48 @@ def score_phase(histories_path: str | Path, queries_path: str | Path,
                     raise ValueError(f'Missing frozen memory: {hid}/{condition}')
                 memory=m['text'];memory_status=m['status']
                 memory_tokens=tok.count(memory);memory_hash=m['memory_hash']
-            call_id=digest([phase,hid,condition,reader_slot,effort,mode,manifest['runtime_config_sha256']])
-            if call_id in done_call_ids:
+            call_id=call_id_by_cell[(hid,condition)]
+            # F4: skip only when every expected score key for this cell is durable.
+            # A completed call receipt with missing score rows triggers deterministic
+            # recovery from the confirmed response cache (no new provider spend);
+            # without a recoverable response the cell stops BLOCKED, never COMPLETE.
+            missing_before=[qid for qid in contract['expected_ids'][hid]
+                            if digest([call_id,qid]) not in done_score_ids]
+            if call_id in done_call_ids and not missing_before:
                 continue
-            parsed_answers={};question_errors={};question_results={};retry_count=0;attempt_metadata=[]
-            if memory_status not in ('natural_stop','raw_history','calibration_oracle','calibration_no_memory'):
-                question_errors={q['question_id']:'compressor_memory_invalid' for q in qs}
-            else:
-                qgroups=[[q] for q in qs] if mode=='single' else [qs]
-                for group in qgroups:
-                    group_key=digest([q['question_id'] for q in group])
-                    group_error=None;group_result=None;parsed=None
-                    for retry_index in range(2):
-                        result=_reader_attempt(provider,ledger,runtime,phase,hid,condition,
-                            memory,group,mode,retry_index,effort,out)
-                        response_text=result.get('text','')
-                        visible_tokens=tok.count(response_text)
-                        if result.get('finish_reason')!=NATURAL_FINISH:
-                            parsed=None;error=('TECHNICAL_INVALID_LENGTH' if result.get('finish_reason')=='length'
-                                               else 'reader_non_natural_stop')
-                        elif visible_tokens>int(reader_runtime['visible_answer_limit_tokens']):
-                            parsed=None;error='protocol_violation_answer_over_limit'
-                        elif mode=='batch':
-                            parsed,error=parse_batch_response(response_text,[q['question_id'] for q in group])
-                        else:
-                            obj,error=parse_single_response(response_text)
-                            parsed={group[0]['question_id']:obj} if obj else None
-                        retryable=error in ('invalid_reader_json','invalid_reader_schema',
-                                    'invalid_reader_batch_schema','duplicate_question_id',
-                                    'missing_or_unexpected_question_ids','protocol_violation_answer_over_limit')
-                        attempt_metadata.append({'result':result,'error':error,'retry_index':retry_index,
-                            'visible_tokens':visible_tokens,'group_key':group_key,
-                            'question_ids':[q['question_id'] for q in group],
-                            'will_retry':retry_index==0 and retryable})
-                        group_error=error;group_result=result
-                        if error is None:
-                            break
-                        if retry_index==0 and retryable:
-                            retry_count+=1
-                            continue
-                        break
-                    for q in group:
-                        qid=q['question_id'];question_results[qid]=group_result
-                        if parsed and qid in parsed:
-                            parsed_answers[qid]=parsed[qid]
-                            question_errors[qid]=None
-                        else:
-                            question_errors[qid]=group_error or 'invalid_reader_response'
-
-            # Every question gets a row. Protocol failures are missing, not silently truncated/scored.
-            final_retry_by_group={}
-            for entry in attempt_metadata:
-                final_retry_by_group[entry['group_key']]=entry['retry_index']
-            for entry in attempt_metadata:
-                result=entry['result']
-                append_jsonl(call_path,{
-                    'call_id':call_id,'phase':phase,'history_id':hid,'condition':condition,
-                    'question_ids':entry['question_ids'],'reader_slot':reader_slot,
-                    'reader_mode':mode,'reasoning_effort':effort,'attempt_index':entry['retry_index'],
-                    'final_attempt_index':final_retry_by_group[entry['group_key']],
-                    'protocol_error':entry['error'],'response_visible_tokens':entry['visible_tokens'],
-                    'finish_reason':result.get('finish_reason'),
-                    'provider_name':result.get('provider_name'),'provider_model_id':result.get('provider_model_id'),
-                    'returned_model_field':result.get('returned_model_field'),
-                    'provider_output_budget_tokens':result.get('provider_output_budget_tokens'),
-                    'provider_input_tokens':result.get('provider_input_tokens'),
-                    'provider_output_tokens':result.get('provider_output_tokens'),
-                    'cache_read_tokens':result.get('cache_read_tokens',0),
-                    'full_request_native_tokens':result.get('full_request_native_tokens'),
-                    'run_start_utc':result.get('run_start_utc'),
-                    'full_HF_tokenizer_revision':result.get('full_HF_tokenizer_revision'),
-                    'GET_v1_models_sha256':result.get('GET_v1_models_sha256'),
-                    'opencode_session_id':result.get('opencode_session_id'),
-                    'request_key':result.get('request_key'),
-                    'cost_usd_or_conservative':result.get('cost_usd_or_conservative'),
-                    'response_hash':digest(result.get('text','')),
-                })
-            all_parsed=len(parsed_answers)==len(qs)
-            condition_errors=[e for e in question_errors.values() if e]
-            call_row={
-                'call_id':call_id,'phase':phase,'history_id':hid,'condition':condition,
-                'reader_slot':reader_slot,'reader_mode':mode,'reasoning_effort':effort,
-                'status':'valid' if all_parsed else (condition_errors[0] if condition_errors else 'invalid_reader_response'),
-                'protocol_retry_count':retry_count,'n_attempts':len(attempt_metadata),
-                'memory_hash':memory_hash,'memory_native_tokens':memory_tokens,
-                'reader_output_budget_tokens':int(reader_runtime['provider_output_budget_tokens']),
-                'final_visible_tokens':max((e['visible_tokens'] for e in attempt_metadata),default=None),
-            }
-            append_jsonl(call_path,{'call_id':call_id,'history_id':hid,'condition':condition,
-                                     'reader_slot':reader_slot,'reader_mode':mode,
-                                     'attempt_index':-1,'final_attempt_index':-1,**call_row})
-            done_call_ids.add(call_id)
-            for q in qs:
-                qid=q['question_id'];obj=parsed_answers.get(qid)
-                score=None;status=question_errors.get(qid) or 'invalid_reader_response';answer=None;evidence=[]
-                if obj is not None:
-                    answer=obj.get('answer');evidence=obj.get('evidence_ids',[])
-                    score=exact_score(answer,q['answers']) if q.get('scoring')=='exact' else None
-                    status='valid' if score is not None else 'semantic_grading_required'
-                score_id=digest([call_id,qid])
-                if score_id in done_score_ids:
+            replaying_from_receipt=call_id in done_call_ids
+            try:
+                _score_cell(
+                    provider,ledger,runtime,tok,reader_runtime,reader_slot,effort,mode,
+                    phase,hid,condition,memory,memory_status,memory_tokens,memory_hash,
+                    qs,call_id,call_path,score_path,out,done_call_ids,done_score_ids,
+                    done_call_attempts,replaying_from_receipt)
+            except RuntimeError as exc:
+                msg = str(exc)
+                if ('BLOCKED_MISSING_RESPONSE_RECEIPT' in msg or 'CACHE_RECEIPT_BLOCK' in msg
+                        or 'UNCERTAIN_REQUEST_BLOCK' in msg or 'IDEMPOTENCY_BLOCK' in msg):
+                    blocked_cells.append({'history_id': hid, 'condition': condition,
+                                          'error': msg[:300]})
                     continue
-                result=question_results.get(qid) or {}
-                group_attempts=[e for e in attempt_metadata if qid in e['question_ids']]
-                final_attempt=next((e for e in reversed(group_attempts) if e['retry_index']==final_retry_by_group.get(e['group_key'])),None)
-                row={
-                    'score_id':score_id,'phase':phase,'history_id':hid,
-                    'question_id':qid,'question_type':q.get('question_type'),
-                    'information_type':TYPE_MAP.get(q.get('question_type'),q.get('question_type')),
-                    'condition':condition,'reader_slot':reader_slot,'reader_model':reader_runtime['provider_model_id'],
-                    'provider_name':runtime['provider']['name'],'reasoning_effort':effort,
-                    'provider_output_budget_tokens':int(reader_runtime['provider_output_budget_tokens']),
-                    'visible_answer_limit_tokens':int(reader_runtime['visible_answer_limit_tokens']),
-                    'final_visible_tokens':final_attempt['visible_tokens'] if final_attempt else None,
-                    'final_answer_tokens':tok.count(answer) if isinstance(answer,str) else None,
-                    'provider_input_tokens':result.get('provider_input_tokens'),
-                    'provider_output_tokens':result.get('provider_output_tokens'),
-                    'cache_read_tokens':result.get('cache_read_tokens',0),
-                    'full_request_native_tokens':result.get('full_request_native_tokens'),
-                    'finish_reason':result.get('finish_reason'),
-                    'returned_model_field':result.get('returned_model_field'),
-                    'run_start_utc':result.get('run_start_utc'),
-                    'full_HF_tokenizer_revision':reader_runtime.get('full_HF_tokenizer_revision'),
-                    'GET_v1_models_sha256':runtime['provider']['models_catalog_sha256'],
-                    'memory_hash':memory_hash,'memory_native_tokens':memory_tokens,
-                    'answer':answer,'evidence_ids':evidence,'score':score,'status':status,
-                    'protocol_retry_count':sum(e['retry_index']==1 for e in group_attempts),
-                    'question_hash':digest(q['question']),
-                }
-                append_jsonl(score_path,row);done_score_ids.add(score_id)
+                raise
 
     rows=read_jsonl(score_path) if score_path.exists() else []
-    expected=len(histories)*len(selected)*int(runtime['data_design']['questions_per_history'])
-    manifest.update({'status':'COMPLETE' if len(rows)>=expected else 'INCOMPLETE',
+    # F5: COMPLETE requires exact coverage of the expected key set. Duplicates,
+    # cross-phase admixture and unknown keys are hard errors, never silent.
+    actual_ids=[r.get('score_id') for r in rows]
+    if len(set(actual_ids))!=len(actual_ids):
+        dupes=sorted({x for x in actual_ids if actual_ids.count(x)>1})
+        raise ValueError(f'Duplicate score keys in {score_path}: {dupes[:5]}')
+    unknown=sorted(set(actual_ids)-expected_score_ids)
+    if unknown:
+        raise ValueError(f'Unknown score keys (cross-phase admixture?) in {score_path}: {unknown[:5]}')
+    missing=sorted(expected_score_ids-set(actual_ids))
+    expected=len(histories)*len(selected)*qph
+    complete=not missing and not blocked_cells
+    manifest.update({'status':'COMPLETE' if complete else 'INCOMPLETE',
                      'reader_rows':len(rows),'expected_reader_rows':expected,
+                     'missing_score_ids':missing,'missing_score_count':len(missing),
+                     'blocked_cells':blocked_cells,
                      'reader_rows_sha256':file_sha256(score_path) if score_path.exists() else None,
                      'updated_utc':utc_now(),'cost_ledger_summary':ledger.summary()})
     write_json(manifest_path,manifest)
@@ -1086,25 +1284,69 @@ def _length_regression(rows: list[dict], seed: int, reps: int = 20000) -> dict:
             'intercept_ci90':[_quantile(boot,.05),_quantile(boot,.95)],'n':n}
 
 
-def aggregate_history_utilities(reader_rows: list[dict], memory_rows: list[dict], phase: str) -> list[dict]:
+def aggregate_history_utilities(reader_rows: list[dict], memory_rows: list[dict], phase: str,
+                                queries: list[dict] | None = None,
+                                questions_per_history: int = 8) -> list[dict]:
+    """Aggregate question rows to history utilities with frozen-contract denominators (F5).
+
+    A (history, reader, condition) cell is scorable only when its valid rows
+    cover the contract's expected question set exactly. Missing or duplicate
+    questions leave utility None (technical missing) instead of shrinking the
+    denominator. With explicit queries the per-type denominators come from the
+    contract; otherwise each of the four information types expects
+    questions_per_history/4 questions.
+    """
+    if queries is not None:
+        contract=expected_query_contract(queries,questions_per_history)
+        contract_source='explicit_queries'
+    else:
+        contract=None
+        contract_source='default_8q_2pertype'
     by_hist_condition={}
+    seen_qids: dict[tuple, set] = {}
+    duplicate_cells: set = set()
     for row in reader_rows:
         key=(row['history_id'],row['condition'],row.get('reader_slot','R1'))
         by_hist_condition.setdefault(key,[]).append(row)
+        qkey=(key,row.get('question_id'))
+        if qkey in seen_qids:
+            duplicate_cells.add(key)
+        seen_qids[qkey]=seen_qids.get(qkey,set())|{id(row)}
     lengths={(m['history_id'],m['condition']):m.get('visible_native_tokens') for m in memory_rows}
     groups={}
     for (hid,condition,reader),rows in by_hist_condition.items():
         valid=[r for r in rows if r.get('status')=='valid' and r.get('score') is not None]
         qtypes={r['question_id']:r.get('information_type') for r in rows}
-        expected=len(rows)
-        utility=(sum(float(r['score']) for r in valid)/expected) if len(valid)==expected and expected else None
+        if contract is not None:
+            expected_qids=contract['expected_ids'].get(hid,set())
+        else:
+            expected_qids=None  # resolved per-cell below from observed ids
+        observed_qids={r['question_id'] for r in rows}
+        valid_qids={r['question_id'] for r in valid}
+        if expected_qids is None:
+            expected_qids=observed_qids
+        cell_complete=(valid_qids==expected_qids and len(observed_qids)==len(rows)
+                       and (hid,condition,reader) not in duplicate_cells
+                       and len(expected_qids)==questions_per_history)
+        expected=len(expected_qids)
+        utility=(sum(float(r['score']) for r in valid)/expected) if cell_complete and expected else None
         by_type={}
         for typ in sorted(set(qtypes.values())):
             tr=[r for r in valid if r.get('information_type')==typ]
-            n_expected=sum(1 for r in rows if r.get('information_type')==typ)
-            by_type[typ]=(sum(float(r['score']) for r in tr)/n_expected) if len(tr)==n_expected and n_expected else None
+            if contract is not None:
+                type_key={v:k for k,v in TYPE_MAP.items()}.get(typ,typ)
+                n_expected=sum(1 for q in queries if q['history_id']==hid
+                               and TYPE_MAP.get(q.get('question_type'),q.get('question_type'))==typ) \
+                    if any(q['history_id']==hid for q in queries) else 0
+            else:
+                n_expected=questions_per_history//len(TYPE_MAP)
+            type_complete=(cell_complete and len(tr)==n_expected and n_expected
+                           and len({r['question_id'] for r in tr})==n_expected)
+            by_type[typ]=(sum(float(r['score']) for r in tr)/n_expected) if type_complete else None
         groups[(hid,reader,condition)]={'history_id':hid,'reader_slot':reader,'condition':condition,
                                         'utility':utility,'n_questions':expected,'n_valid':len(valid),
+                                        'contract_source':contract_source,
+                                        'contract_complete':cell_complete,
                                         'by_type':by_type,'visible_native_tokens':lengths.get((hid,condition))}
     output=[]
     by_h_readers={}
@@ -1142,8 +1384,9 @@ def aggregate_history_utilities(reader_rows: list[dict], memory_rows: list[dict]
 
 
 def analyze_phase(reader_rows: list[dict], memory_rows: list[dict], phase: str,
-                  seed: int = 20260913, reps: int = 20000) -> dict:
-    histories=aggregate_history_utilities(reader_rows,memory_rows,phase)
+                  seed: int = 20260913, reps: int = 20000,
+                  queries: list[dict] | None = None) -> dict:
+    histories=aggregate_history_utilities(reader_rows,memory_rows,phase,queries=queries)
     contrasts={}
     for name,key in [('staged2_minus_direct','delta_SD'),('rewrite_minus_direct','delta_RD'),
                      ('staged2_minus_rewrite','delta_SR')]:
@@ -1453,18 +1696,20 @@ def _cli() -> None:
     parser.add_argument('--runtime',default=str(RUNTIME_DEFAULT))
     sub=parser.add_subparsers(dest='command',required=True)
     f=sub.add_parser('preflight');f.add_argument('--histories',required=True);f.add_argument('--queries',required=True);f.add_argument('--out',required=True)
-    c=sub.add_parser('compress');c.add_argument('--phase',required=True,choices=['p0','p1','p2']);c.add_argument('--histories',required=True);c.add_argument('--out',required=True);c.add_argument('--resume',action='store_true')
-    s=sub.add_parser('score');s.add_argument('--phase',required=True,choices=['p0','p1','p2']);s.add_argument('--histories',required=True);s.add_argument('--queries',required=True);s.add_argument('--memories',required=True);s.add_argument('--out',required=True);s.add_argument('--mode',choices=['batch','single'],default='batch');s.add_argument('--reader-slot',choices=['R1','R2'],default='R1');s.add_argument('--effort',choices=['low','high']);s.add_argument('--conditions');s.add_argument('--resume',action='store_true')
+    c=sub.add_parser('compress');c.add_argument('--phase',required=True,choices=['p0','p1','p2']);c.add_argument('--histories',required=True);c.add_argument('--out',required=True);c.add_argument('--resume',action='store_true');c.add_argument('--allow-legacy-prompt',action='store_true',help='Allow a runtime without compressor_C1.prompt_path to run under the built-in template (historical reads only; recorded in manifest)')
+    s=sub.add_parser('score');s.add_argument('--phase',required=True,choices=['p0','p1','p2']);s.add_argument('--histories',required=True);s.add_argument('--queries',required=True);s.add_argument('--memories',required=True);s.add_argument('--out',required=True);s.add_argument('--mode',choices=['batch','single'],default='batch');s.add_argument('--reader-slot',choices=['R1','R2'],default='R1');s.add_argument('--effort',choices=['low','high']);s.add_argument('--conditions');s.add_argument('--resume',action='store_true');s.add_argument('--allow-legacy-prompt',action='store_true',help='Allow a runtime without compressor_C1.prompt_path for historical reads (recorded in manifest)')
     a=parser.parse_args()
     if a.command=='preflight':
         result=estimate_preflight_costs(a.histories,a.queries,a.runtime)
         write_json(a.out,result)
     elif a.command=='compress':
-        result=compress_phase(a.histories,a.out,a.phase,a.runtime,a.resume)
+        result=compress_phase(a.histories,a.out,a.phase,a.runtime,a.resume,
+                              allow_legacy_prompt=a.allow_legacy_prompt)
     else:
         conditions=[x for x in a.conditions.split(',') if x] if a.conditions else None
         result=score_phase(a.histories,a.queries,a.memories,a.out,a.phase,a.mode,a.reader_slot,
-                           conditions,a.runtime,a.effort,a.resume)
+                           conditions,a.runtime,a.effort,a.resume,
+                           allow_legacy_prompt=a.allow_legacy_prompt)
     print(json.dumps(result,ensure_ascii=False,indent=2))
 
 

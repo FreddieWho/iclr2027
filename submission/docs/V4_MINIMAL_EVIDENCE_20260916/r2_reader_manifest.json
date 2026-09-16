@@ -1,0 +1,52 @@
+{
+  "protocol_id": "memory_path_v4_fast_route_decision_20260913",
+  "phase": "p2",
+  "reader_slot": "R2",
+  "reader_mode": "batch",
+  "reader_model": "deepseek-v4.1-flash",
+  "reasoning_effort": "low",
+  "provider_output_budget_tokens": 12000,
+  "visible_answer_limit_tokens": 512,
+  "runtime_config_sha256": "db7b7392f2e9ecf3a0270177170baa03efb71006927d222c3f9b34714589cc28",
+  "compression_manifest_sha256": "de812102d31c5cf32bc6853dba8b1848556e7b14ed811701be3b2bcb23c03333",
+  "queries_sha256": "059de9a16646c3e0010d24e5b67a3830583471f728a0ffb0dda57674fd444b71",
+  "histories_sha256": "8b8787eea787987a1ebed81b47585031d9c05bfc113f3c845768999b4cd0b06a",
+  "conditions": [
+    "direct",
+    "staged2",
+    "rewrite"
+  ],
+  "created_utc": "2026-09-13T23:59:11.752973+00:00",
+  "status": "COMPLETE",
+  "full_HF_tokenizer_revision": "dba1be0a40aa45a94ad051997016db3960a90277",
+  "GET_v1_models_sha256": "8f4a71947dacd5fccaf8353064cab5a7c932a5f332a2631d6ab38f028a6bbd2d",
+  "unit_of_scoring": "question; aggregate by history",
+  "protocol_retry_limit": 1,
+  "reader_rows": 576,
+  "expected_reader_rows": 576,
+  "reader_rows_sha256": "5d413733228047b530c50965d6bab0267c56e81fea5fb1804171840d3fd0cef8",
+  "updated_utc": "2026-09-14T00:16:10.876009+00:00",
+  "cost_ledger_summary": {
+    "project_actual_plus_uncertain_usd": 8.29376795,
+    "project_reserved_usd": 0.15298979999999998,
+    "project_cap_usd": 55.0,
+    "project_remaining_usd": 46.70623205,
+    "model_caps": {
+      "deepseek-v4.1-flash": {
+        "actual_plus_uncertain_usd": 7.87435975,
+        "cap_usd": 13.0,
+        "remaining_usd": 5.12564025
+      },
+      "glm-5.3-flash": {
+        "actual_plus_uncertain_usd": 1.7915196500000001,
+        "cap_usd": 42.0,
+        "remaining_usd": 40.20848035
+      }
+    },
+    "request_states": {
+      "completed": 363,
+      "prior_actual_plus_uncertain": 1,
+      "reserved": 4
+    }
+  }
+}

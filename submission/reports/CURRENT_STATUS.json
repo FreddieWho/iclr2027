@@ -1,0 +1,50 @@
+{
+  "entry_id": "CURRENT_STATUS_20260916",
+  "created_utc": "2026-09-16T16:42:28Z",
+  "active_protocol": "memory_path_v4_fast_route_decision_20260913",
+  "active_amendment": "V4_OWNER_CONTINUATION_AFTER_P0_TECHNICAL_FAILURE_20260914_V2",
+  "runtime_config": "configs/v4_compact_v2_continuation_runtime_20260914.json",
+  "runtime_config_sha256": "db7b7392f2e9ecf3a0270177170baa03efb71006927d222c3f9b34714589cc28",
+  "current_report": "reports/V4_FAST_PILOT_REPORT.md",
+  "current_decision": {
+    "artifact": "reports/V4_ROUTE_DECISION.json",
+    "decision": "INCONCLUSIVE_NO_GO_SIGNAL",
+    "decision_utc": "2026-09-14T00:50:23Z"
+  },
+  "current_data": {
+    "history_rows": "artifacts/v4_confirmation_rows_compact_v2_20260914.jsonl",
+    "history_rows_sha256": "9a5502b2e00f4f9fcaf2daffeaa820f28e0eeba25cca4eef7d03fc4c3e18497e",
+    "memories": "work/v4_fast_decision_20260914_compact_v2/p2/live/memories.jsonl",
+    "memories_sha256": "3d11ba615f468b3603a47201e4a382006c3016ac82fea8bdf4795d9f8590330e",
+    "science_result": "artifacts/v4_p2_compact_v2_science_result_20260914.json"
+  },
+  "cost_ledger": {
+    "project_actual_plus_uncertain_usd": 8.29376795,
+    "separately_reserved_usd": 0.1529898,
+    "note": "Reserved amount is included in the total, not additional. Per-model conservative occupancy figures each carry the full legacy project occupancy and must NOT be summed across models as project spend."
+  },
+  "superseded": {
+    "reports/decision.json NO_GO_TECHNICAL": "superseded for current work by V4_ROUTE_DECISION.json INCONCLUSIVE_NO_GO_SIGNAL; preserved as the pre-continuation technical-stop receipt",
+    "reports/PILOT_REPORT.md P0-stop narrative": "historical; P2/R1/R2 now exist under owner continuation",
+    "reports/V4_PREFLIGHT.md NO_GO_TECHNICAL state": "historical; superseded by continuation P2 results",
+    "VALIDATION_REPORT.md no-LLM statement": "historical as of 2026-09-10; live C1/R1/R2 calls have since run under the continuation",
+    "artifacts/v4_confirmation_rows.jsonl + v4_exploration_rows.jsonl": "pre-continuation NOT_RUN snapshots; current rows are the owner-continuation artifacts",
+    "C1/R1 runner 55eabd3a": "original snapshot UNAVAILABLE_ORIGINAL_RUNNER_SNAPSHOT unless recovered from git/backup; current source matches R2 8f7afcbc"
+  },
+  "completion_matrix": {
+    "P0_compact_v2_calibration": "COMPLETE_AS_CALIBRATION (not science)",
+    "P1_exploration_old_prompt": "COMPLETE_EXPLORATORY_ONLY_NOT_POOLED",
+    "P2_R1_confirmation": "COMPLETE_WITH_LIMITATIONS (11/24 three-path complete)",
+    "P2_R2_same_memory_sensitivity": "COMPLETE_WITH_LIMITATIONS (12/24; trigger override recorded)",
+    "V3": "INCOMPLETE_PROTOCOL_DEVIATION/SUPERSEDED_FOR_ROUTE_SELECTION",
+    "P3_natural_check": "NOT_RUN (GO trigger not met)",
+    "C2_second_compressor": "NOT_RUN",
+    "natural_data_generalization": "NOT_RUN",
+    "strict_equal_length_endpoint": "NOT_RUN (soft-target overshoot; not a strict endpoint proof)",
+    "shared_start_rewrite_control": "NOT_RUN (rewrite regenerates its own start; see report boundary)",
+    "full_novelty_audit": "NOT_RUN",
+    "mechanism_evidence_audit_24pair": "NOT_RUN",
+    "third_party_reproduction": "NOT_RUN"
+  },
+  "scientific_boundary": "INCONCLUSIVE_NO_GO_SIGNAL. Do not switch the primary line to Memory on this pilot; do not claim proof of absence, strict length control, hidden-compression exclusion, or completed novelty/mechanism audits."
+}
