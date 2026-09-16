@@ -1,104 +1,73 @@
 # TODO — ICLR 2027 Action-Mode Spectrum
 
-更新时间：2026-09-04
+更新时间：2026-09-16（B30 重整版；旧 1–13 项已归档，见文末）
 
-## 当前固定决定
+## 研究结论一句话（为什么是这份清单）
 
-由于 SNGAR 当前无法访问，IDSSE 暂时替代 SNGAR 的“开发数据”角色。这个替代只覆盖当前 T5R 开发链，不改变 P2/P3 历史，也不把 7 场 IDSSE 说成 SNGAR 的 45/9/10 场划分。
+- B30 头脑风暴 30/30 完成：`reports/research_b30/` 34 文件（W1-M1–M10 / W2-A1–A10 / W3-S1–S10＋ANGLE_MAP/LEDGER/SYNTHESIS_TOPLIST/VERIFY_FINAL），目标 `mu3wl782-yxuns1` 已关闭。
+- VERIFY_FINAL 复核 18 项主来源：17 项维持、仅 SimCLR 长 schedule 降级为 B（方向可信、量级弱）；5 项淘汰维持禁令；开火顺序冻结。
+- 含义：写作侧 6 项零训练成本先行；训练侧剩 8 轮只打 T2-1→T2-2→T2-4；Tier3 只按 non-claim 口径取用；行政 deadline（摘要 9/18、全文 9/25）阻塞其余。
 
-同一批 IDSSE 数据不能在本轮同时充当开发数据和独立外部确认数据。SNGAR 恢复、真正的独立 provider 确认和 P4 放行仍是后续条件。
+## 接下来要做（按执行顺序和重要程度排列）
 
-## 最近一次官方在线核验（2026-09-04）
+- [ ] 0. 行政与冻结——阻塞其余全部，今天必须启动          子项须串行，a 不定则 b/c 返工
+    - [ ] a OpenReview 资料冻结：机构邮箱 profile（审核可长达 2 周）、互审资格、作者名单——9/18 摘要截止前冻结
+    - [ ] b 论文形状冻结：机制先行 9 页；AMR/书法/篮球明确进 future work
+    - [ ] c 样式与引用基建：官方 ICLR 2027 样式替换占位 preamble；references 11 条→40+ 条
 
-- 官方数据集页确认：7 场 2022/23 德国 Bundesliga（含一、二级联赛）比赛；每场包含 25 fps tracking、同步 event 和 metadata；许可为 CC BY 4.0；页面总大小显示 2.63 GB。
-- 官方 `main` 文件树及提交 `a715a38dfbaf5f58e431727c2b78d174101a703c` 列出的实际文件 ID 是 `J03WMX`、`J03WN1`、`J03WOH`、`J03WOY`、`J03WPY`、`J03WQQ`、`J03WR9`，与本地三类 XML 文件的内部 `MatchId` 和文件名一致。
-- 官方数据卡正文仍列出 `J03WPF`、`J03WQF`；这是官方页面内部的文档差异。当前以官方文件树作为 raw 文件身份依据，保留差异，不改原始文件。
-- 官方 Dataset Viewer 当前对 `default/train` 报 `FeaturesError`/`FileNotFoundError`，所以字段级结构核验仍由本地 XML QC 完成，不能把 Viewer 不可用写成数据缺失。
+- [ ] 1. Tier1 写作六件套（零训练成本，推荐开工顺序即此序）   子项可并行，但 a/b 先行
+    - [ ] a T1-2 前置复核 1 小时：TacticAI PDF 全文 D2 细节复核（B＋升 A 的唯一门）
+    - [ ] b T1-3 前置 source-check：split/外部集/基线/种子/算力五处冻结数核对
+    - [ ] c T1-1 标题摘要机制先行重构（S3 方案 A，写作半天）
+    - [ ] d T1-2 related-work 柔道四段（写作半天，依赖 a）
+    - [ ] e T1-4 claim 分级制＋全表 min–max 化（写作半天；禁 mean±std、禁 winner 语言）
+    - [ ] f T1-3 rebuttal 十大异议＋现成答案（写作 1 天，依赖 b）
+    - [ ] g T1-5 证伪 K1–K3 预注册（K1 permutation null 为 CPU 小任务；K2/K3 先注册再跑）
+    - [ ] h T1-6 图表三件套：证伪 ledger 表＋validity-regime 图＋机制 panel（作图 1–2 天；Spec A 轴范围从 epsilon/support 日志锁定）
 
-## 主线待办（按顺序和重要程度）
+- [ ] 2. 训练开火（10 轮预算剩 8 轮，独立记账）              子项 T2-1 与 T2-2 可并行（改动正交）；T2-4 待前两项判据
+    - [ ] a T2-1 margin–SupCon 混合＋τ sweep（首选开火，1 轮；τ∈{0.07,0.1,0.2}×m∈{0.1,0.2,0.3}，τ=0.1×m=0.2 起步）
+    - [ ] b T2-2 attention readout（次选，1 轮；mean＋att＋max＋energy concat，α-entropy 防塌）
+    - [ ] c T2-4 结构等变分离路线 D1→D2→D3（占 1–2 轮；novelty 野心最大，需新架构＋审计）
+    - [ ] d T2-3 长 schedule 备选（seed-23 单跑 2–3×＋cosine；叙事包装成收敛修正）
 
-- [x] 1. 完成 IDSSE 来源登记与原始数据核验
-    - [x] 已按官方页面和 `main` 文件树登记 dataset revision、文件清单、比赛 ID、许可和数据说明；数据卡正文的 ID 差异已记录。
-    - [x] 已确认官方文件树的 7 个比赛 ID 与本地 raw 文件一致；不按数据卡中的旧 ID 猜测或覆盖原始文件。
-    - [x] 为 `data/raw/sports/idsse-data/` 建立来源记录、文件清单和 SHA-256；23/23 原始文件复核通过。
+- [ ] 3. Tier3 按需取用（non-claim 口径，不占主线）          子项可并行，随手稿进度取用
+    - [ ] a W-1 书法 outlook 一段＋定性图（不 eval）
+    - [ ] b W-5 B1 probe-discipline audit 进贡献（禁 leaderboard 承诺）
+    - [ ] c W-2/W-3/W-4 进 broader impact／related 段落（禁 adversarial/certificate 词；Rank 3 禁入正文）
+    - [ ] d W-7 层级探针 E1–E3 零成本重算已有 checkpoint（机制深度证据）
+    - [ ] e W-8 耦合标度律 240 点拟合（只许 2 参数饱和形＋hold-out 审计）
 
-- [x] 2. 把 IDSSE 原始 XML 转成项目统一格式并完成逐场 QC（依赖 1）
-    - [x] 保留 raw→canonical 映射、parser 版本、坐标单位、时间轴、缺失率、长间隔和事件对齐记录；7 场 receipt 均完成。
-    - [x] 输出每场 conversion receipt、data card 和可复核的 canonical manifest；整体 QC 审计通过。
+- [ ] 4. 手稿组装（骨架已有：`paper/main.tex`＋8 节＋EVIDENCE_MAP） 子项可并行，依赖事项 0 的 b/c
+    - [ ] a 摘要初稿复核（`paper/sections/00_abstract.tex`，用户暂缓后重启）
+    - [ ] b 正文 prose 填充（按 EVIDENCE_MAP 措辞规则；11d 措辞修正随此执行）
+    - [ ] c Figure 1 概念图生成
+    - [ ] d §4.5 证伪表述＋淘汰项诚实声明（X1–X5 禁复活；μ 重做禁返工）
 
-- [x] 3. 冻结 IDSSE 的 match-level 开发/保留方案（依赖 2；训练前必须完成）
-    - [x] 只按比赛划分，不按帧或事件随机切分；train/valid/reserved 已写入 split lock。
-    - [x] 明确 reserved 集只是同源未见 match，不等同于 SNGAR hidden test 或独立 provider confirmation。
+## 历史完成归档（2026-09-04—09-16，不再执行，仅留审计线索）
 
-- [x] 4. 冻结 T5R2 任务、指标和 baseline lock（依赖 3）
-    - [x] context 使用 raw positions 的 `z_ctx`，intrinsic 使用 centered positions 的 `z_mode`。
-    - [x] 固定 natural pair ranking / retrieval、translation robustness、cross-readout leakage、match-level bootstrap 和 non-inferiority 规则；lock 中明确 model results 尚未使用。
-
-- [x] 5. 运行 fixed dual-channel sanity（依赖 4）
-    - [x] 比较 raw single-channel、centered single-channel、relational pooling 和 fixed dual-channel；4×3 neural grid 的 capacity 与 seeds 可审计，另有 Procrustes analytic control。
-    - [x] context 在 non-inferiority margin 内，intrinsic 三个 seed 均改善，`z_mode` 平移响应近零，natural-pair geometry relation 未坍缩；T5R3 closure review 通过，允许进入 T5R4 Round 1。
-
-- [x] 6. 按预算运行 bounded autoresearch（两轮已完成并关闭）
-    - [x] Round 1：4 个候选、每个候选 seeds 11/23/47，共 12 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round1_v1/`；无全维度 Pareto 支配者，不自动晋级。
-    - [x] Round 2（最后一轮）：只检验 encoder update balance，3:1/2:1、总步数 420 持平 reference，共 6 个模型；正式输出为 `artifacts/phase3/task_semantic_repair_v1/t5r4_round2_v1/`；按训练前冻结规则选出 `update_ratio_2to1`，关闭搜索。语义 addendum 与授权报告已冻结。
-
-- [x] 7. candidate lock 后运行一次保留 match（T5R5 PASS_STRONG；外部确认仍待后续）
-    - [x] 已锁定候选（`update_ratio_2to1`）、配置、数据 hash、干预协议、指标和失败条件；lock 审计通过后执行一次性读取。
-    - [x] `J03WQQ` 读取完成（3575 snapshots/515 pairs，只读一次，无重训练）：任务 gate 全过，干预 full mean 0.63 强通过，路由 A（T5R6 独立确认）。
-    - [ ] 不把已用于开发的 IDSSE 结果写成 external confirmation；SNGAR 或 SoccerTrack 仍是独立确认恢复分支。
-
-- [ ] 8. 根据 T5R gate 决定 P4 或诊断论文路线（依赖 7）
-    - [ ] gate 未闭合时冻结为诊断/机制版本，不启动 AMR，不提前推进书法确认。
-
-- [x] 9. T5R6 独立外部确认（SoccerTrack-v2，8 场同方向，CONFIRMED）子项串行执行完毕
-    - [x] N1 下载登记 8 场 GSR 并写 SHA/receipt（45.16GB，修订 eae51793）
-    - [x] N2 GSR 转 canonical 与逐场 QC（44,401 快照）
-    - [x] N3 构建任务视图并审计（7,534 对）
-    - [x] N4 跑任务确认（2:1 逐场 8/8 占优）
-    - [x] N5 跑干预确认（8/8 full 高于基线）
-    - [x] N6 写报告回写 ledger 定路由
-- [ ] 10. ICLR 2027 投稿冲刺（评审已完成：`reports/PUBLICATION_REVIEW_ICLR2027.md`）子项 10a 阻塞其余全部
-    - [ ] 10a 行政合规：OpenReview profile（机构邮箱，审核可长达 2 周）、互审资格、作者名单——9/18 摘要截止前冻结，今天必须启动
-    - [ ] 10b 冻结论文形状并开始写作：机制先行 9 页；AMR/书法/篮球进 future work（可并行，依赖 10a 的作者决定）
-    - [x] 10c 修复增益 headline 表＋8 场 bootstrap CI（已有数字，只需整理）→ `reports/P3_HEADLINE_EFFECT_TABLE.md`；发现 match-half 辅助探针 0/8 反向，已入 ledger P3-R9
-    - [ ] 10d SSL 基线（SimSiam/BYOL 类，仅开发集评估，不新增保留场/外部读取）
-    - [x] 10e 配比扫掠 1:0/1:1 完成（P3-R15：双向单调权衡＋几何平台化＋2:1 膝点；报告 P3_RATIO_SWEEP_REPORT.md）
-- [ ] 12. 手稿（骨架已建：`paper/main.tex`＋8 节 scaffold＋EVIDENCE_MAP；摘要初稿在 `paper/sections/00_abstract.tex`）子项按节推进，可并行
-    - [ ] 12a 用户复核摘要初稿与论文形状（机制先行 9 页）——用户指示暂缓
-- [ ] 13. P4 AMR-Fixed 全周期（选项 C，PLAN/ROADMAP 已重写）子项串行，N2 锁冻结前不得训练
-    - [x] 13-research 三轨道简报完成并综合 top-3（SYNTHESIS_TOP3.md；D-20260905-P4-006）
-    - [x] 13-attempt 关闭（v4/v4b 已执行完毕，见 P4-N4）
-    - [x] R1（v5）H1 通过（P4-B1；AMR 分支塑造版成立）
-    - [ ] R3（v6 动量教师缝合包）训练中（锁 4646783e，3 worker；5 轮用 3 剩 2；D-20260905-P4-016）
-    - [x] R2 N4 CAP-双塔对照完成：打平（P4-B2），AMR 收缩为分支塑造；建议银行剩余 3 轮
-    - [ ] P4-N1 AMRModel 实现＋JVP 校验＋单元测试
-    - [x] P4-N2 M1 config lock 已冻结并审计 PASS（α=[1,0,0,0,0,0]，预算 210/140/70，D-20260905-P4-002）
-    - [x] P4-N3 M1 训练＋dev 评估（三轮全败 P4-A1/A2/A3；v3 证伪不变性压力假设；自主迭代终结）
-    - [x] P4-N4 v4 完成：模态 3/3 存活＋干预 ρ 0.82–0.99（P4-A4），context 被反噬，H1 未通过
-    - [x] P4-N4 v4b 完成：H1 未通过（P4-A5 终局）；M1 存废待用户裁决（选项 A 杀/B 解耦/C 其他），P4 冻结无进一步尝试
-    - [ ] P4-N4 matched-capacity 对照（CAP/M0 脚本已实现待 v2 判定后启动；centering/canonicalization/relational 复用 T5R3 冻结数）
-    - [ ] P4-N5 candidate lock＋保留场读取（需用户授权二次读取）
-    - [ ] P4-N6 外部确认读取（需用户授权）＋报告
-    - [ ] 12b 正文 prose 填充（按 EVIDENCE_MAP 的措辞规则）
-    - [ ] 12c Figure 1 概念图生成
-    - [ ] 12d 官方 ICLR 2027 样式文件替换占位 preamble；references.bib 补齐（现 11 条，需 ~40+）
-- [ ] 11. 科学补强线（评审第四部分；全部开发集内，不触碰已消耗的锁）子项可并行
-    - [x] 11a ε-sweep＋局部近似失效曲线＋未训练对照（完成：`reports/P3_EPSILON_SWEEP_REPORT.md`，ledger P3-R10/R11）
-    - [x] 11b SSL 目标族对照（与 10d 同一项；Barlow-Twins 复现，ledger P3-R13）
-    - [x] 11c 全部完成（support 伸缩 P3-R12；简单预测基线＋k 敏感性 P3-R14）
-    - [ ] 11d 零成本措辞修正（z_mode 构造性、因果分层）随手稿写作执行
+- 事项 1–7：IDSSE 登记→转码 QC→split lock→T5R2 lock→T5R3 sanity→T5R4 两轮关闭（`update_ratio_2to1`）→T5R5 `PASS_STRONG`（`J03WQQ` 一次性读取）。
+- 事项 9：T5R6 SoccerTrack-v2 独立确认 CONFIRMED（8 场同方向）。
+- 事项 10c/10e：headline 表（P3-R9）＋配比扫掠 1:0/1:1（P3-R15）完成；10d/11b SSL 对照完成（P3-R13）。
+- 事项 11a/11c：ε-sweep（P3-R10/R11）＋support 伸缩（P3-R12）＋预测基线（P3-R14）完成；仅剩 11d（已并入新事项 4b）。
+- 事项 12：手稿骨架＋摘要初稿已建。
+- 事项 13：P4 AMR v1–v4b 全败→v5（P4-B1）→CAP 打平（P4-B2）→v6 H1 通过终结 15 连败（P4-C1）；R1 mask 消融（GOAL-R1）＋R2 JGCL（GOAL-R2）完成，训练预算 2/10。
+- B30：30/30 简报＋toplist＋verify-final 完成，目标关闭。
 
 ## 分支记录
 
 | 分支 | 状态 | 说明 |
 |---|---|---|
-| A：IDSSE 暂代 SNGAR 的开发主线 | 当前执行 | T5R1–T5R5 已闭合（`T5R5_PASS_STRONG`，路由 A）；T5R6 独立确认待执行，7 场 IDSSE 不复用为外部确认。 |
-| B：SNGAR 恢复 | 暂缓 | 保留原访问和 test firewall；获得可信访问或带 revision/mapping/SHA-256 的镜像后，可升级独立样本量与确认强度。 |
-| C：IDSSE 独立外部确认 | 本轮关闭 | IDSSE 一旦被用于开发，就不能在同一轮再作为独立 external confirmation；需要另一个 provider/source，或明确降级为同源保留 match。 |
-| D：动态 support | 可并行、非阻塞 | 继续使用历史 SkillCorner 的 response-blind 规则开发，不能反向选择主线候选。 |
-| E：AMR | 当前执行（选项 C 全周期） | 用户 2026-09-05 裁决（D-20260905-P4-001）；P4-N1..N4 dev 集推进；N5/N6 二次读取届时需用户授权。书法维持暂缓。 |
-| F：SoccerTrack-v2 外部确认 | 完成 | T5R6 CONFIRMED；8 场同方向；P4/诊断决策待事项 8。 |
-| G：ICLR 2027 投稿冲刺 | 当前执行 | 摘要截止 2026-09-18、全文 2026-09-25（官方核实）；论文形状为机制先行＋修复＋外部确认；AMR/书法/篮球明确移出正文。 |
+| A：IDSSE 暂代 SNGAR 开发主线 | 完成归档 | T5R1–T5R5 已闭合（`T5R5_PASS_STRONG`，路由 A）。 |
+| B：SNGAR 恢复 | 暂缓 | 保留 firewall；可信访问或带 revision/mapping/SHA 镜像后升级。 |
+| C：IDSSE 独立外部确认 | 本轮关闭 | 已用于开发的 IDSSE 不复用为外部确认。 |
+| D：动态 support | 可并行、非阻塞 | response-blind 规则开发，不反向选择主线候选。 |
+| E：AMR | 当前执行→银行模式 | v6 H1 通过（P4-C1）；收缩为分支塑造；剩轮按新事项 2 执行。 |
+| F：SoccerTrack-v2 外部确认 | 完成 | T5R6 CONFIRMED；8 场同方向。 |
+| G：ICLR 2027 投稿冲刺 | 当前执行 | 摘要 9/18、全文 9/25；机制先行 9 页；AMR/书法/篮球进 future work。 |
+| H：B30 头脑风暴 | 完成 | 30/30＋toplist＋verify-final；目标 `mu3wl782-yxuns1` 关闭。 |
+| I：Tier1 写作 | 当前执行 | 新事项 1（零训练成本）；TacticAI 全文＋五处冻结数为前置门。 |
+| J：10 轮训练预算 | 当前执行（剩 8 轮） | 新事项 2 独立记账；T2-1→T2-2→T2-4；T2-3 备选。 |
 
 ## 变更记录
 
@@ -147,4 +116,4 @@
 - 2026-09-16：第 1 训练轮判据：H1 通过，幽灵球员非必要（GOAL-R1入账；台账1/10）。
 - 2026-09-16：第 2 训练轮发射（JGCL单几何，锁 feeb99e4；台账 2/10）。
 - 2026-09-16：第 2 训练轮判据：H1通过但弱于教师系（GOAL-R2入账；台账2/10；建议银行剩余）。
-- 2026-09-16：第 2 训练轮判据：H1通过但弱于教师系（GOAL-R2入账；台账2/10；建议银行剩余）。
+- 2026-09-16：B30 重整：旧事项 1–13 归档为历史完成；新事项 0–4 按 VERIFY_FINAL 开火顺序重排（行政阻塞首位→Tier1 零成本写作→训练剩 8 轮 T2-1→T2-2→T2-4→Tier3 按需→手稿组装）；新增分支 H/I/J；B30 目标关闭。
