@@ -1,0 +1,36 @@
+{
+ "arm": "sdf",
+ "epochs": 300,
+ "n_train_paths": 256,
+ "n_flip_states": 1534,
+ "s11": {
+  "turn_miss_rate": 0.49,
+  "mean_abs_terr": 0.2791134703393076,
+  "mean_integral_err": 0.32882352941176474,
+  "n": 200
+ },
+ "s23": {
+  "turn_miss_rate": 0.535,
+  "mean_abs_terr": 0.2331597112840222,
+  "mean_integral_err": 0.29147058823529415,
+  "n": 200
+ },
+ "s47": {
+  "turn_miss_rate": 0.59,
+  "mean_abs_terr": 0.22825436475800304,
+  "mean_integral_err": 0.3179411764705882,
+  "n": 200
+ },
+ "s101": {
+  "turn_miss_rate": 0.515,
+  "mean_abs_terr": 0.23765941501892718,
+  "mean_integral_err": 0.3005882352941176,
+  "n": 200
+ },
+ "s202": {
+  "turn_miss_rate": 0.495,
+  "mean_abs_terr": 0.282968804387763,
+  "mean_integral_err": 0.32705882352941174,
+  "n": 200
+ }
+}

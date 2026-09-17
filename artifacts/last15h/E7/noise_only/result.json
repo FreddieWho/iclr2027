@@ -1,0 +1,36 @@
+{
+ "arm": "noise_only",
+ "epochs": 300,
+ "n_train_paths": 256,
+ "n_flip_states": 1534,
+ "s11": {
+  "turn_miss_rate": 0.37,
+  "mean_abs_terr": 0.16160874139694942,
+  "mean_integral_err": 0.2314705882352941,
+  "n": 200
+ },
+ "s23": {
+  "turn_miss_rate": 0.37,
+  "mean_abs_terr": 0.18758525545634921,
+  "mean_integral_err": 0.23588235294117646,
+  "n": 200
+ },
+ "s47": {
+  "turn_miss_rate": 0.445,
+  "mean_abs_terr": 0.18973974279455236,
+  "mean_integral_err": 0.24941176470588233,
+  "n": 200
+ },
+ "s101": {
+  "turn_miss_rate": 0.42,
+  "mean_abs_terr": 0.19133679620150862,
+  "mean_integral_err": 0.25588235294117645,
+  "n": 200
+ },
+ "s202": {
+  "turn_miss_rate": 0.385,
+  "mean_abs_terr": 0.20273794778963414,
+  "mean_integral_err": 0.23352941176470587,
+  "n": 200
+ }
+}

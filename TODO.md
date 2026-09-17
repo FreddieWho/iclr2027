@@ -159,3 +159,6 @@
 - 2026-09-18：M 分支收敛：E2 三件套多种子同向（N01/N03/N06-hard）进主文，主文升级双数据故事；E3 关闭（库无重入动作）；E4 死（joint≡shuffled）。方法位=flipmine＋cover lr3e-4。见 reports/last15h/M_SELECTION.md。
 - 2026-09-18：E7 背景准备启动：4 并行 researcher（A 导数监督/B mixup 路径/C 蒸馏传边界/D 跨领域定位损失），各带 v1/v2/N02/N07/R04-minimax 死亡名单约束＋证伪实验要求；综合后写 reports/last15h/E7_background.md，关键引文再亲验。E2-N03 s23/s47 评价后台运行中。
 - 2026-09-18：E2 全关：N03 s23/s47 同向（cover 砍半 −18/−18pp），三件套皆三种子。M 分支彻底收敛，双数据故事证据齐。
+- 2026-09-18：E7 背景综合完成（reports/last15h/E7_background.md）：4 researcher 并轨收敛（斜率/斜率场/距离值/稠密标签——皆约束插值函数）；引文亲验：S&F 等价、DSNT、RKD 成立，Finlay 1910.06922 错配已剔除。v3 falsification 网提案待开火。
+- 2026-09-18：E7 开火（L-007→执行中）：v3 falsification 网（flip-mix/anti-flatness/SDF/tangent/coupled-margin 5 实验臂＋vanilla-mixup/global-grad/BAN 3 对照），积分第一指标，5 种子，通过线直通 E6（L-006）。
+- 2026-09-18：E7 v3 网开跑（4 并行 batch，12 臂 × 5 种子 = 60 训练）：flipmine 基线、flipmix_u/c、vanilla-mixup、antiflat×2、SDF、tangent、noise-only、coupled、globalgrad、BAN。slope 计算向量化（逐点循环→每路径 2 forward）。判据：积分胜 flipmine 0.229 且 5 种子同向→E6，否则按臂 kill 线。

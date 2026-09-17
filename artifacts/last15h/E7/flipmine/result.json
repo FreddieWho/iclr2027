@@ -1,0 +1,36 @@
+{
+ "arm": "flipmine",
+ "epochs": 300,
+ "n_train_paths": 256,
+ "n_flip_states": 1534,
+ "s11": {
+  "turn_miss_rate": 0.42,
+  "mean_abs_terr": 0.16474217381970635,
+  "mean_integral_err": 0.24794117647058822,
+  "n": 200
+ },
+ "s23": {
+  "turn_miss_rate": 0.405,
+  "mean_abs_terr": 0.20421734978170955,
+  "mean_integral_err": 0.24794117647058822,
+  "n": 200
+ },
+ "s47": {
+  "turn_miss_rate": 0.44,
+  "mean_abs_terr": 0.18852547236851283,
+  "mean_integral_err": 0.2585294117647059,
+  "n": 200
+ },
+ "s101": {
+  "turn_miss_rate": 0.38,
+  "mean_abs_terr": 0.16320136285597278,
+  "mean_integral_err": 0.21823529411764703,
+  "n": 200
+ },
+ "s202": {
+  "turn_miss_rate": 0.39,
+  "mean_abs_terr": 0.1965698492331583,
+  "mean_integral_err": 0.2347058823529412,
+  "n": 200
+ }
+}

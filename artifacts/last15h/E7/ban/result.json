@@ -1,0 +1,36 @@
+{
+ "arm": "ban",
+ "epochs": 300,
+ "n_train_paths": 256,
+ "n_flip_states": 1534,
+ "s11": {
+  "turn_miss_rate": 0.495,
+  "mean_abs_terr": 0.2852393424156869,
+  "mean_integral_err": 0.32647058823529407,
+  "n": 200
+ },
+ "s23": {
+  "turn_miss_rate": 0.44,
+  "mean_abs_terr": 0.28413867950439453,
+  "mean_integral_err": 0.33588235294117647,
+  "n": 200
+ },
+ "s47": {
+  "turn_miss_rate": 0.515,
+  "mean_abs_terr": 0.278055250030203,
+  "mean_integral_err": 0.34882352941176464,
+  "n": 200
+ },
+ "s101": {
+  "turn_miss_rate": 0.545,
+  "mean_abs_terr": 0.27028429639208446,
+  "mean_integral_err": 0.33882352941176463,
+  "n": 200
+ },
+ "s202": {
+  "turn_miss_rate": 0.44,
+  "mean_abs_terr": 0.2624729701450893,
+  "mean_integral_err": 0.32647058823529407,
+  "n": 200
+ }
+}

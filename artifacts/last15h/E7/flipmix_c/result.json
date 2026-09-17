@@ -1,0 +1,36 @@
+{
+ "arm": "flipmix_c",
+ "epochs": 300,
+ "n_train_paths": 256,
+ "n_flip_states": 1534,
+ "s11": {
+  "turn_miss_rate": 0.37,
+  "mean_abs_terr": 0.2236360822405134,
+  "mean_integral_err": 0.28911764705882353,
+  "n": 200
+ },
+ "s23": {
+  "turn_miss_rate": 0.455,
+  "mean_abs_terr": 0.20321823260106078,
+  "mean_integral_err": 0.2858823529411765,
+  "n": 200
+ },
+ "s47": {
+  "turn_miss_rate": 0.39,
+  "mean_abs_terr": 0.2073460563284452,
+  "mean_integral_err": 0.2614705882352941,
+  "n": 200
+ },
+ "s101": {
+  "turn_miss_rate": 0.425,
+  "mean_abs_terr": 0.20759834621263587,
+  "mean_integral_err": 0.26794117647058824,
+  "n": 200
+ },
+ "s202": {
+  "turn_miss_rate": 0.35,
+  "mean_abs_terr": 0.20444676325871394,
+  "mean_integral_err": 0.2652941176470588,
+  "n": 200
+ }
+}

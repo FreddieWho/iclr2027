@@ -1,0 +1,46 @@
+{
+ "arm": "antiflat_01",
+ "epochs": 300,
+ "n_train_paths": 256,
+ "n_flip_states": 1534,
+ "s11": {
+  "turn_miss_rate": 0.665,
+  "mean_abs_terr": 0.2146961724580224,
+  "mean_integral_err": 0.2814705882352941,
+  "n": 200,
+  "mean_inbracket_slope": 5.738436698913574,
+  "mean_outbracket_slope": 2.4722442626953125
+ },
+ "s23": {
+  "turn_miss_rate": 0.56,
+  "mean_abs_terr": 0.2509134465997869,
+  "mean_integral_err": 0.2855882352941176,
+  "n": 200,
+  "mean_inbracket_slope": 4.180906295776367,
+  "mean_outbracket_slope": 2.0719358921051025
+ },
+ "s47": {
+  "turn_miss_rate": 0.815,
+  "mean_abs_terr": 0.13612406962626689,
+  "mean_integral_err": 0.2788235294117647,
+  "n": 200,
+  "mean_inbracket_slope": 6.480334281921387,
+  "mean_outbracket_slope": 3.1855921745300293
+ },
+ "s101": {
+  "turn_miss_rate": 0.685,
+  "mean_abs_terr": 0.20347062368241567,
+  "mean_integral_err": 0.28411764705882353,
+  "n": 200,
+  "mean_inbracket_slope": 6.375844955444336,
+  "mean_outbracket_slope": 2.500105381011963
+ },
+ "s202": {
+  "turn_miss_rate": 0.605,
+  "mean_abs_terr": 0.22368708743324764,
+  "mean_integral_err": 0.2917647058823529,
+  "n": 200,
+  "mean_inbracket_slope": 6.3858747482299805,
+  "mean_outbracket_slope": 2.578795909881592
+ }
+}
