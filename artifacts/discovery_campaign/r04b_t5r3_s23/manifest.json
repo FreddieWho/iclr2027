@@ -8,6 +8,7 @@
   "lam": 1.0,
   "seed": 23,
   "n_flips": 369,
+  "source_match": "J03WN1",
   "base_ckpt": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/raw_single_channel_phase_gat_team_mean_seed23.pt",
   "results": {
     "cover": {

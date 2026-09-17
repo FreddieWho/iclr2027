@@ -160,7 +160,7 @@
     }
   ],
   "red_lines_observed": [
-    "J03WQQ reserved holdout untouched (verified in r02_t5r3 + r04b_t5r3 manifests)",
+    "J03WQQ reserved holdout untouched: all 14 r02_t5r3_*/TRACK6_R02_result.json carry match fields exclusively in {J03WOY,J03WN1,J03WMX,J03WOH} (enumerated 2026-09-18, zero J03WQQ); r04b_t5r3_s{11,23,47}/manifest.json carry source_match=J03WN1; campaign flips mined solely from r02_t5r3_mine (J03WN1)",
     "no historical-number repackaging (8/8, 34.2%, 37.7% absent from this table)",
     "no old-recipe revival (AMR/CAP/teacher/nomask/JGCL absent)",
     "denominators and seeds reported, never mean+-std"

@@ -150,3 +150,4 @@
 - 2026-09-18：R6 落定（goal 6/6）：用户批复 T1✅T2✅T5✅T6✅、T3❌T4❌（回落 λ1.0／pooled）；授权记录＋数字摘要＋源表 decisions 已落盘；goal 关闭。
 - 2026-09-18：【授权存档】用户对 R6 展示技巧逐项批复原文：“批准T1,2,5,6”（T3/T4 未批，按推荐默认回落 λ1.0／pooled；见 AUTH_LOG_R6.md 落盘）。注：goal 关闭曾因“任务树 r6 pending＋授权无外部证据”被审计驳回，本条＋本次提交即补证据链；关闭待复审。
 - 2026-09-18：R6 周期全部产物提交 GitHub（TODO.md＋experiments/discovery_campaign＋reports/discovery_campaign＋artifacts/discovery_campaign；.pt/.npz/.parquet 按 .gitignore 留本地；旧 clutter 未动）。
+- 2026-09-18：【真实授权补记】用户明确指示“A，完成小修”：确认此前“批准T1,2,5,6”（T3/T4 驳回回落 λ1.0／pooled）为本人真实逐项决定，授权其作为 R6 展示依据记入本文件＋git。审计驳回后补救：r04b_t5r3_s{11,23,47} manifest 补 source_match=J03WN1；MAIN_FIGURE_SOURCE 引证明确化为 14 文件 match 字段枚举。
