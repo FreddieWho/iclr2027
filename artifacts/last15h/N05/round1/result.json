@@ -1,0 +1,13 @@
+{
+ "textbook_n": 1534,
+ "eval_n": 227,
+ "clean_only": {
+  "miss_flip": 0.5814977973568282
+ },
+ "textbook": {
+  "miss_flip": 0.4889867841409692
+ },
+ "random": {
+  "miss_flip": 0.5418502202643172
+ }
+}

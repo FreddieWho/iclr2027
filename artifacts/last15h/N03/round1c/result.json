@@ -1,0 +1,10 @@
+{
+ "n_events": 189,
+ "n_controls": 200,
+ "cond_paths": 170,
+ "cond_path_miss_rate": 0.15294117647058825,
+ "mean_abs_entry_err": 0.15256244616709733,
+ "mean_abs_exit_err": 0.15256244616709733,
+ "full_path_correct_rate": 0.005291005291005291,
+ "control_false_alarm_rate": 0.195
+}

@@ -1,0 +1,42 @@
+{
+ "n_events": 189,
+ "n_controls": 200,
+ "cond_paths": 170,
+ "cond_path_miss_rate": 0.15294117647058825,
+ "mean_abs_entry_err": 0.15256244616709733,
+ "mean_abs_exit_err": 0.15256244616709733,
+ "full_path_correct_rate": 0.005291005291005291,
+ "control_false_alarm_rate": 0.195,
+ "per_pool": {
+  "eval_202": {
+   "n": 35,
+   "cond": 33,
+   "cond_miss": 0.18181818181818182,
+   "full_rate": 0.0
+  },
+  "recheck_404": {
+   "n": 40,
+   "cond": 35,
+   "cond_miss": 0.17142857142857143,
+   "full_rate": 0.0
+  },
+  "recheck_505": {
+   "n": 36,
+   "cond": 27,
+   "cond_miss": 0.14814814814814814,
+   "full_rate": 0.027777777777777776
+  },
+  "train_101": {
+   "n": 43,
+   "cond": 43,
+   "cond_miss": 0.06976744186046512,
+   "full_rate": 0.0
+  },
+  "recheck_606": {
+   "n": 35,
+   "cond": 32,
+   "cond_miss": 0.21875,
+   "full_rate": 0.0
+  }
+ }
+}

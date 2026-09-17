@@ -1,0 +1,24 @@
+{
+ "n_C1": 1534,
+ "n_C0": 1534,
+ "clean": {
+  "C1_miss": 0.8050847457627118,
+  "C0_false_alarm": 0.0,
+  "clean_err": 0.0
+ },
+ "flipmine": {
+  "C1_miss": 0.0,
+  "C0_false_alarm": 0.13624511082138202,
+  "clean_err": 0.0
+ },
+ "fliprand": {
+  "C1_miss": 0.06323337679269883,
+  "C0_false_alarm": 0.20795306388526727,
+  "clean_err": 0.0
+ },
+ "unifmatched": {
+  "C1_miss": 0.6923076923076923,
+  "C0_false_alarm": 0.009778357235984355,
+  "clean_err": 0.0
+ }
+}

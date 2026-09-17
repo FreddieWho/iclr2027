@@ -1,0 +1,11 @@
+{
+ "n_events": 2,
+ "n_controls": 254,
+ "both_endpoints_correct": 0,
+ "cond_event_n": 0,
+ "cond_miss_rate": null,
+ "mean_abs_entry_err": null,
+ "mean_abs_exit_err": null,
+ "full_path_correct_rate": 0.0,
+ "control_false_alarm_rate": 0.24015748031496062
+}

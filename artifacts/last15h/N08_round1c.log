@@ -1,0 +1,3 @@
+SAW: clean_acc=0.920 pixel_miss|flip=0.6901408450704225 (n=71, invis_skipped=8)
+NEXT: if pixel miss|flip high with good clean acc -> visual turn course trial; if render pipeline jams -> minimal fallback already in use
+CLAIM: observation-to-turn chain lives in pixels, not fitted rules

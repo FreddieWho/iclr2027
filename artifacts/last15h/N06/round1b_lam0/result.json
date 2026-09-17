@@ -1,0 +1,23 @@
+{
+ "clean": {
+  "n_scenes": 256,
+  "n_feasible": 139,
+  "invalid_rate": 0.30935251798561153,
+  "success_rate": 0.6906474820143885,
+  "mean_regret": 0.08603132504436328
+ },
+ "flipmine": {
+  "n_scenes": 256,
+  "n_feasible": 139,
+  "invalid_rate": 0.33093525179856115,
+  "success_rate": 0.6690647482014388,
+  "mean_regret": 0.07527265735211636
+ },
+ "unifmatched": {
+  "n_scenes": 256,
+  "n_feasible": 139,
+  "invalid_rate": 0.33093525179856115,
+  "success_rate": 0.6690647482014388,
+  "mean_regret": 0.08591727556352675
+ }
+}

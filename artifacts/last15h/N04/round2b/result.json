@@ -1,0 +1,31 @@
+{
+ "n_train_emergent": 230,
+ "n_eval_emergent": 547,
+ "clean_only_s11": {
+  "emergent_miss": 0.48080438756855576
+ },
+ "combo_cover_s11": {
+  "emergent_miss": 0.34186471663619744
+ },
+ "random_s11": {
+  "emergent_miss": 0.48628884826325414
+ },
+ "clean_only_s23": {
+  "emergent_miss": 0.37294332723948814
+ },
+ "combo_cover_s23": {
+  "emergent_miss": 0.28884826325411334
+ },
+ "random_s23": {
+  "emergent_miss": 0.30895795246800734
+ },
+ "clean_only_s47": {
+  "emergent_miss": 0.28153564899451555
+ },
+ "combo_cover_s47": {
+  "emergent_miss": 0.2687385740402194
+ },
+ "random_s47": {
+  "emergent_miss": 0.3053016453382084
+ }
+}

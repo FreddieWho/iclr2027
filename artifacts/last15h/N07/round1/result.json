@@ -1,0 +1,42 @@
+{
+ "pool_n": 1534,
+ "eval_flip_n": 202,
+ "arms": {
+  "cover_16": {
+   "miss_flip": 0.599009900990099,
+   "train_pairs": 16
+  },
+  "random_16": {
+   "miss_flip": 0.6138613861386139,
+   "train_pairs": 16
+  },
+  "cover_32": {
+   "miss_flip": 0.5396039603960396,
+   "train_pairs": 32
+  },
+  "random_32": {
+   "miss_flip": 0.599009900990099,
+   "train_pairs": 32
+  },
+  "cover_64": {
+   "miss_flip": 0.6089108910891089,
+   "train_pairs": 64
+  },
+  "random_64": {
+   "miss_flip": 0.599009900990099,
+   "train_pairs": 64
+  },
+  "cover_128": {
+   "miss_flip": 0.5297029702970297,
+   "train_pairs": 128
+  },
+  "random_128": {
+   "miss_flip": 0.5247524752475248,
+   "train_pairs": 128
+  },
+  "full_1534": {
+   "miss_flip": 0.4306930693069307,
+   "train_pairs": 1534
+  }
+ }
+}

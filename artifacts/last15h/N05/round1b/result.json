@@ -1,0 +1,31 @@
+{
+ "textbook_n": 1534,
+ "eval_n": 227,
+ "clean_only_s23": {
+  "miss_flip": 0.5066079295154186
+ },
+ "textbook_s23": {
+  "miss_flip": 0.29515418502202645
+ },
+ "random_s23": {
+  "miss_flip": 0.4713656387665198
+ },
+ "clean_only_s47": {
+  "miss_flip": 0.29515418502202645
+ },
+ "textbook_s47": {
+  "miss_flip": 0.29955947136563876
+ },
+ "random_s47": {
+  "miss_flip": 0.29515418502202645
+ },
+ "clean_only_s11": {
+  "miss_flip": 0.31718061674008813
+ },
+ "textbook_s11": {
+  "miss_flip": 0.28634361233480177
+ },
+ "random_s11": {
+  "miss_flip": 0.3700440528634361
+ }
+}

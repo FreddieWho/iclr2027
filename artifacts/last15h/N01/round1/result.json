@@ -1,0 +1,1187 @@
+{
+ "n_paths": 3072,
+ "single_turn": 128,
+ "multi_turn": 2,
+ "no_turn": 2942,
+ "status_counts": {
+  "missing": 108,
+  "late": 11,
+  "early": 9
+ },
+ "mean_abs_err": 0.24827728271484376,
+ "median_abs_err": 0.1894073486328125,
+ "matches": [
+  {
+   "t_star": 0.49858856201171875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 308,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.5489578247070312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 308,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.37953948974609375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 308,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.40047454833984375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 308,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.9553298950195312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 309,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.9363479614257812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 419,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.23833465576171875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 240,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.7129898071289062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 240,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.7129898071289062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 240,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.22270965576171875,
+   "t_theta": 0.8915023803710938,
+   "status": "late",
+   "error": 0.668792724609375,
+   "n_model_turns": 1,
+   "parent_id": 240,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.15816497802734375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 240,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.8439559936523438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 304,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.8375930786132812,
+   "t_theta": 0.5691299438476562,
+   "status": "early",
+   "error": -0.268463134765625,
+   "n_model_turns": 1,
+   "parent_id": 153,
+   "family": "random",
+   "cost": 0.32000000000000006
+  },
+  {
+   "t_star": 0.5238265991210938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 3,
+   "family": "pair",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.19219207763671875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 3,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.22782135009765625,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 3,
+   "family": "random",
+   "cost": 0.11999999999999998
+  },
+  {
+   "t_star": 0.6647109985351562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 3,
+   "family": "random",
+   "cost": 0.12000000000000001
+  },
+  {
+   "t_star": 0.9438552856445312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 30,
+   "family": "random",
+   "cost": 0.12
+  },
+  {
+   "t_star": 0.39900970458984375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 183,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.46837615966796875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 183,
+   "family": "pair",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.5583114624023438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 469,
+   "family": "pair",
+   "cost": 0.15999999999999998
+  },
+  {
+   "t_star": 0.5901870727539062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 469,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.31256866455078125,
+   "t_theta": 0.11103057861328125,
+   "status": "early",
+   "error": -0.2015380859375,
+   "n_model_turns": 1,
+   "parent_id": 489,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.5962295532226562,
+   "t_theta": 0.46009063720703125,
+   "status": "early",
+   "error": -0.136138916015625,
+   "n_model_turns": 1,
+   "parent_id": 128,
+   "family": "pair",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.8031539916992188,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 128,
+   "family": "pair",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.20403289794921875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 128,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.31760406494140625,
+   "t_theta": 0.34798431396484375,
+   "status": "late",
+   "error": 0.0303802490234375,
+   "n_model_turns": 1,
+   "parent_id": 128,
+   "family": "random",
+   "cost": 0.12
+  },
+  {
+   "t_star": 0.7027053833007812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 422,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.8374404907226562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 422,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.36455535888671875,
+   "t_theta": 0.49456024169921875,
+   "status": "late",
+   "error": 0.1300048828125,
+   "n_model_turns": 1,
+   "parent_id": 422,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.29917144775390625,
+   "t_theta": 0.7532882690429688,
+   "status": "late",
+   "error": 0.4541168212890625,
+   "n_model_turns": 1,
+   "parent_id": 422,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.6866683959960938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 389,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.8405075073242188,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 351,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.9925155639648438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 351,
+   "family": "random",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.22624969482421875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 351,
+   "family": "random",
+   "cost": 0.32000000000000006
+  },
+  {
+   "t_star": 0.7357864379882812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 135,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.5977554321289062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 135,
+   "family": "random",
+   "cost": 0.19999999999999998
+  },
+  {
+   "t_star": 0.5652847290039062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 402,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.7965164184570312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 248,
+   "family": "pair",
+   "cost": 0.09999999999999999
+  },
+  {
+   "t_star": 0.9182968139648438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 380,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.6931686401367188,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 380,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.6789016723632812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 291,
+   "family": "pair",
+   "cost": 0.09999999999999999
+  },
+  {
+   "t_star": 0.5375595092773438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 291,
+   "family": "random",
+   "cost": 0.19999999999999998
+  },
+  {
+   "t_star": 0.7685012817382812,
+   "t_theta": 0.9714584350585938,
+   "status": "late",
+   "error": 0.2029571533203125,
+   "n_model_turns": 1,
+   "parent_id": 399,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.6666183471679688,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 491,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.6628952026367188,
+   "t_theta": 0.7744522094726562,
+   "status": "late",
+   "error": 0.1115570068359375,
+   "n_model_turns": 1,
+   "parent_id": 427,
+   "family": "pair",
+   "cost": 0.15999999999999998
+  },
+  {
+   "t_star": 0.8015518188476562,
+   "t_theta": 0.8431015014648438,
+   "status": "late",
+   "error": 0.0415496826171875,
+   "n_model_turns": 1,
+   "parent_id": 294,
+   "family": "random",
+   "cost": 0.19999999999999998
+  },
+  {
+   "t_star": 0.5874252319335938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 384,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.23065948486328125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 190,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.9992752075195312,
+   "t_theta": 0.49628448486328125,
+   "status": "early",
+   "error": -0.50299072265625,
+   "n_model_turns": 1,
+   "parent_id": 298,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.24027252197265625,
+   "t_theta": 0.11757659912109375,
+   "status": "early",
+   "error": -0.1226959228515625,
+   "n_model_turns": 1,
+   "parent_id": 298,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.35337066650390625,
+   "t_theta": 0.17882537841796875,
+   "status": "early",
+   "error": -0.1745452880859375,
+   "n_model_turns": 1,
+   "parent_id": 298,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.41226959228515625,
+   "t_theta": 0.23584747314453125,
+   "status": "early",
+   "error": -0.176422119140625,
+   "n_model_turns": 1,
+   "parent_id": 298,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.6419754028320312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 110,
+   "family": "single",
+   "cost": 0.06
+  },
+  {
+   "t_star": 0.7781753540039062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 115,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.8019027709960938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 210,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.47463226318359375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 325,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.25002288818359375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 325,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.20766448974609375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 325,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.46675872802734375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 59,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.9138107299804688,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 59,
+   "family": "random",
+   "cost": 0.060000000000000005
+  },
+  {
+   "t_star": 0.7901687622070312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 463,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.9659805297851562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 1,
+   "parent_id": 463,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.42609405517578125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 82,
+   "family": "random",
+   "cost": 0.32000000000000006
+  },
+  {
+   "t_star": 0.9925003051757812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 102,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.5398941040039062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 102,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.8708419799804688,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 107,
+   "family": "pair",
+   "cost": 0.15999999999999998
+  },
+  {
+   "t_star": 0.40209197998046875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 239,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.39527130126953125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 239,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.5305862426757812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 239,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.9138717651367188,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 387,
+   "family": "pair",
+   "cost": 0.06
+  },
+  {
+   "t_star": 0.6430892944335938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 387,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.21778106689453125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 387,
+   "family": "random",
+   "cost": 0.19999999999999998
+  },
+  {
+   "t_star": 0.41918182373046875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 353,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.5551681518554688,
+   "t_theta": 0.9330673217773438,
+   "status": "late",
+   "error": 0.377899169921875,
+   "n_model_turns": 1,
+   "parent_id": 353,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.8608474731445312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 353,
+   "family": "pair",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.9202194213867188,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 316,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.14861297607421875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 316,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.33557891845703125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 316,
+   "family": "random",
+   "cost": 0.19999999999999998
+  },
+  {
+   "t_star": 0.14754486083984375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 316,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.21965789794921875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 364,
+   "family": "random",
+   "cost": 0.12000000000000001
+  },
+  {
+   "t_star": 0.9778213500976562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 500,
+   "family": "pair",
+   "cost": 0.15999999999999998
+  },
+  {
+   "t_star": 0.6387557983398438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 254,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.45583343505859375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 254,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.48415374755859375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 192,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.33597564697265625,
+   "t_theta": 0.5663070678710938,
+   "status": "late",
+   "error": 0.2303314208984375,
+   "n_model_turns": 1,
+   "parent_id": 237,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.33905792236328125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 236,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.8611373901367188,
+   "t_theta": 0.30060577392578125,
+   "status": "early",
+   "error": -0.5605316162109375,
+   "n_model_turns": 1,
+   "parent_id": 356,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.5670242309570312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 7,
+   "family": "pair",
+   "cost": 0.05999999999999999
+  },
+  {
+   "t_star": 0.28575897216796875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 7,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.13654327392578125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 7,
+   "family": "random",
+   "cost": 0.20000000000000004
+  },
+  {
+   "t_star": 0.5051651000976562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 7,
+   "family": "random",
+   "cost": 0.12
+  },
+  {
+   "t_star": 0.38690948486328125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 362,
+   "family": "random",
+   "cost": 0.31999999999999995
+  },
+  {
+   "t_star": 0.48168182373046875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 201,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.5731277465820312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 201,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.5013504028320312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 486,
+   "family": "single",
+   "cost": 0.06
+  },
+  {
+   "t_star": 0.29300689697265625,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 486,
+   "family": "pair",
+   "cost": 0.15999999999999998
+  },
+  {
+   "t_star": 0.7113876342773438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 486,
+   "family": "random",
+   "cost": 0.06
+  },
+  {
+   "t_star": 0.42955780029296875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 507,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.22100067138671875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 507,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.40187835693359375,
+   "t_theta": 0.5791549682617188,
+   "status": "late",
+   "error": 0.177276611328125,
+   "n_model_turns": 1,
+   "parent_id": 60,
+   "family": "pair",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.7957382202148438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 136,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.5654373168945312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 136,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.7787246704101562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 136,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.8234024047851562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 162,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.9016494750976562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 162,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.49524688720703125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 271,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.7197494506835938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 271,
+   "family": "random",
+   "cost": 0.12
+  },
+  {
+   "t_star": 0.7320938110351562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 271,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.10175323486328125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 100,
+   "family": "random",
+   "cost": 0.32000000000000006
+  },
+  {
+   "t_star": 0.18341827392578125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 100,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.8352127075195312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 319,
+   "family": "random",
+   "cost": 0.32000000000000006
+  },
+  {
+   "t_star": 0.42430877685546875,
+   "t_theta": 0.31027984619140625,
+   "status": "early",
+   "error": -0.1140289306640625,
+   "n_model_turns": 1,
+   "parent_id": 363,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.27223968505859375,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 166,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.49326324462890625,
+   "t_theta": 0.7765884399414062,
+   "status": "late",
+   "error": 0.2833251953125,
+   "n_model_turns": 1,
+   "parent_id": 166,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.47026824951171875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 166,
+   "family": "random",
+   "cost": 0.2
+  },
+  {
+   "t_star": 0.9870071411132812,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 23,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.36585235595703125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 13,
+   "family": "random",
+   "cost": 0.31999999999999995
+  },
+  {
+   "t_star": 0.7260818481445312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 173,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.7950973510742188,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 14,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.8926773071289062,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 106,
+   "family": "single",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.8754043579101562,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 106,
+   "family": "random",
+   "cost": 0.12
+  },
+  {
+   "t_star": 0.8701400756835938,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 122,
+   "family": "pair",
+   "cost": 0.1
+  },
+  {
+   "t_star": 0.6725692749023438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 122,
+   "family": "pair",
+   "cost": 0.15999999999999998
+  },
+  {
+   "t_star": 0.9609451293945312,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 122,
+   "family": "random",
+   "cost": 0.12
+  },
+  {
+   "t_star": 0.7013778686523438,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 505,
+   "family": "random",
+   "cost": 0.32
+  },
+  {
+   "t_star": 0.47504425048828125,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 84,
+   "family": "single",
+   "cost": 0.16
+  },
+  {
+   "t_star": 0.37963104248046875,
+   "status": "missing",
+   "error": null,
+   "n_model_turns": 0,
+   "parent_id": 84,
+   "family": "pair",
+   "cost": 0.16
+  }
+ ]
+}

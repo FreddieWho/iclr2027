@@ -1,0 +1,7 @@
+{
+ "atomic_acc": 0.83447265625,
+ "combo_err_uncond": 0.1505293846862053,
+ "combo_n": 6517,
+ "combo_err_given_both_atomics_correct": 0.029181105234360752,
+ "combo_cond_n": 5483
+}

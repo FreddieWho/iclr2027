@@ -1,0 +1,13 @@
+{
+ "n_train_emergent": 230,
+ "n_eval_emergent": 547,
+ "clean_only": {
+  "emergent_miss": 0.5685557586837294
+ },
+ "combo_cover": {
+  "emergent_miss": 0.5100548446069469
+ },
+ "random": {
+  "emergent_miss": 0.46983546617915906
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "n_train_paths": 256,
+ "n_bracket_states": 994,
+ "n_control_states": 994,
+ "n_eval_paths": 200,
+ "bracket_s11": {
+  "turn_miss_rate": 0.345,
+  "mean_abs_terr": 0.22950290359613548,
+  "mean_integral_err": 0.26941176470588235,
+  "n": 200
+ },
+ "flipmine_matched_s11": {
+  "turn_miss_rate": 0.505,
+  "mean_abs_terr": 0.14064195421006945,
+  "mean_integral_err": 0.2288235294117647,
+  "n": 200
+ },
+ "bracket_s23": {
+  "turn_miss_rate": 0.53,
+  "mean_abs_terr": 0.19093825969290226,
+  "mean_integral_err": 0.2679411764705882,
+  "n": 200
+ },
+ "flipmine_matched_s23": {
+  "turn_miss_rate": 0.435,
+  "mean_abs_terr": 0.14870972759955753,
+  "mean_integral_err": 0.23088235294117646,
+  "n": 200
+ },
+ "clean": {
+  "turn_miss_rate": 0.525,
+  "mean_abs_terr": 0.2933179353412829,
+  "mean_integral_err": 0.3585294117647059,
+  "n": 200
+ }
+}

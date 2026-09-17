@@ -1,0 +1,7 @@
+{
+ "clean_acc": 0.90625,
+ "n_train": 2048,
+ "n_eval": 512,
+ "pixel_flip_n": 30,
+ "pixel_miss_flip": 0.5666666666666667
+}

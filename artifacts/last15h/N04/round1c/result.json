@@ -1,0 +1,14 @@
+{
+ "atomic_acc": 0.83447265625,
+ "combo_err_uncond": 0.1505293846862053,
+ "combo_n": 6517,
+ "combo_err_given_both_atomics_correct": 0.029181105234360752,
+ "combo_cond_n": 5483,
+ "emergent_n": 114,
+ "emergent_miss_rate": 0.5701754385964912,
+ "emergent_cond_n": 66,
+ "emergent_cond_miss_rate": 0.9393939393939394,
+ "emergent_cost_median": 0.1952276869342912,
+ "matched_single_n": 98,
+ "matched_single_miss": 0.6530612244897959
+}

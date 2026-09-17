@@ -68,7 +68,8 @@
 | H：B30 头脑风暴 | 完成 | 30/30＋toplist＋verify-final；目标 `mu3wl782-yxuns1` 关闭。 |
 | I：Tier1 写作 | 当前执行 | 新事项 1（零训练成本）；TacticAI 全文＋五处冻结数为前置门。 |
 | J：10 轮训练预算 | 当前执行（剩 8 轮） | 新事项 2 独立记账；T2-1→T2-2→T2-4；T2-3 备选。 |
-| K：发现型探索 campaign（20260917 包） | 当前执行→优化轮 R1 | 优化目标 mu5qijtb-uoh83q（6 轮，路线冻结，胜率优先）；R1：R02 坐标深化 tuning 中（C 配置预算匹配胜出，confirm 后台运行）。旧红线零触碰。 |
+| K：发现型探索 campaign（20260917 包） | 完成（goal 手动关闭） | 优化目标 mu5qijtb-uoh83q 6 轮落定；R6 授权补救已推送 3ab758d。旧红线零触碰。 |
+| L：最后 15h 路线（20260918 包，N01–N10） | 首轮＋round2 收敛 | 终局见 reports/last15h/SELECTION.md：现象 6 项成立（N01-missing/N03/N04-emergent/N06/N08/N09 分解），新方法 5 项全死，方法位 flipmine-as-is；摘要草稿＋图源表已落盘。新输出 experiments/last15h＋artifacts/last15h＋reports/last15h，不覆盖旧证据。 |
 
 ## 变更记录
 
@@ -151,3 +152,5 @@
 - 2026-09-18：【授权存档】用户对 R6 展示技巧逐项批复原文：“批准T1,2,5,6”（T3/T4 未批，按推荐默认回落 λ1.0／pooled；见 AUTH_LOG_R6.md 落盘）。注：goal 关闭曾因“任务树 r6 pending＋授权无外部证据”被审计驳回，本条＋本次提交即补证据链；关闭待复审。
 - 2026-09-18：R6 周期全部产物提交 GitHub（TODO.md＋experiments/discovery_campaign＋reports/discovery_campaign＋artifacts/discovery_campaign；.pt/.npz/.parquet 按 .gitignore 留本地；旧 clutter 未动）。
 - 2026-09-18：【真实授权补记】用户明确指示“A，完成小修”：确认此前“批准T1,2,5,6”（T3/T4 驳回回落 λ1.0／pooled）为本人真实逐项决定，授权其作为 R6 展示依据记入本文件＋git。审计驳回后补救：r04b_t5r3_s{11,23,47} manifest 补 source_match=J03WN1；MAIN_FIGURE_SOURCE 引证明确化为 14 文件 match 字段枚举。
+- 2026-09-18：L 分支开火（last15h N01–N10）：共享路径模块 experiments/last15h/shared/paths.py 落盘；首轮 10 worker 并行（N01 边界夹逼／N02 法向夹角／N03 路径漏事件／N04 组合／N05 教材迁移／N06 行动选择／N07 转折覆盖／N08 视觉／N09 双向错误前沿／N10 变化检测），输出 artifacts/last15h＋reports/last15h。
+- 2026-09-18：L 分支收敛：主发现=静态对转折错（N01 84% missing＋N03 0.18＋N04 emergent 0.94＋N08 像素复现）；方法位 flipmine-as-is（5 新想法全死：N01v1/v2、N02、N04 课程、N05、N07、N09 法、N10 法）；后果=N06 行动崩塌（机制：置信非判断）；元发现=训练噪声地板 ±15pp＋三条口径纪律（FA 对齐/诚实分母/训练未见分池）。终局包 reports/last15h/{SELECTION,FIGURE_SOURCE,ABSTRACT_DRAFT}.md＋各 Nxx.md；holdout_303 未碰。
