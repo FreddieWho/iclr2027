@@ -40,9 +40,9 @@
 - **12 臂 60 训练，无一胜出。flipmine-as-is 是尝试过的局部最优。**
 
 ## 诊断量（训后 bracket 内平均斜率）
-antiflat_01 5.8 / antiflat_10 3.7 / tangent 4.0 / coupled 44.1（退化）/ globalgrad 2.7——斜率确 поднялись，积分反更差。
+antiflat_01 5.8 / antiflat_10 3.7 / tangent 4.0 / coupled 44.1（退化）/ globalgrad 2.7——斜率确实拉上去了，积分反更差。
 按 A-1 预注册 falsifier：**斜率不是 binding constraint**。\(ds/dt\) 拉上去，转折照样错位——瓶颈在表示或归纳偏置，不在监督。coupled 的 44.1 顺带证实 ratio loss 不稳定（brief 已预警）。
 
 ## E7 判决
 - v3 网全灭；E7 方法位空缺维持，进 future work（"转折位置需要别的机制——斜率/距离/稠密标签/蒸馏皆败，下一个假设应是表示侧而非监督侧"）。
-- 正资产：① flipmine-as-is 的 favorablе 对照网（史上最强"旧方法站得住"证据：5 机制＋3 对照全败）；② 三条工程纪律（梯度流通先验、λ sweep 前确认发火、长循环冻结代码）；③ Finlay 引文纠错已记 E7_background.md。
+- 正资产：① flipmine-as-is 的 favorable 对照网（史上最强"旧方法站得住"证据：5 机制＋3 对照全败）；② 三条工程纪律（梯度流通先验、λ sweep 前确认发火、长循环冻结代码）；③ Finlay 引文纠错已记 E7_background.md。
