@@ -1,0 +1,31 @@
+{
+ "n_tasks": 139,
+ "clean": {
+  "lam0": {
+   "endpoint_wrong_rate": 0.30935251798561153,
+   "mid_violated_rate": 0.0,
+   "success_rate": 0.6906474820143885,
+   "n": 139
+  },
+  "lam2": {
+   "endpoint_wrong_rate": 0.7697841726618705,
+   "mid_violated_rate": 0.0,
+   "success_rate": 0.2302158273381295,
+   "n": 139
+  }
+ },
+ "flipmine": {
+  "lam0": {
+   "endpoint_wrong_rate": 0.33093525179856115,
+   "mid_violated_rate": 0.0,
+   "success_rate": 0.6690647482014388,
+   "n": 139
+  },
+  "lam2": {
+   "endpoint_wrong_rate": 0.6834532374100719,
+   "mid_violated_rate": 0.0,
+   "success_rate": 0.31654676258992803,
+   "n": 139
+  }
+ }
+}

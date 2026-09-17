@@ -1,0 +1,23 @@
+{
+ "n_paths": 256,
+ "match": "J03WOY",
+ "seed": 23,
+ "frozen": {
+  "turn_miss": 0.3828125,
+  "mean_abs_terr": 0.1039240028284773,
+  "mean_integral": 0.14223345588235292,
+  "n": 256
+ },
+ "cover": {
+  "turn_miss": 0.18359375,
+  "mean_abs_terr": 0.09020924225948644,
+  "mean_integral": 0.09903492647058823,
+  "n": 256
+ },
+ "cleanonly": {
+  "turn_miss": 0.35546875,
+  "mean_abs_terr": 0.10491415948578806,
+  "mean_integral": 0.1360294117647059,
+  "n": 256
+ }
+}

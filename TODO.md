@@ -70,6 +70,7 @@
 | J：10 轮训练预算 | 当前执行（剩 8 轮） | 新事项 2 独立记账；T2-1→T2-2→T2-4；T2-3 备选。 |
 | K：发现型探索 campaign（20260917 包） | 完成（goal 手动关闭） | 优化目标 mu5qijtb-uoh83q 6 轮落定；R6 授权补救已推送 3ab758d。旧红线零触碰。 |
 | L：最后 15h 路线（20260918 包，N01–N10） | 首轮＋round2 收敛 | 终局见 reports/last15h/SELECTION.md：现象 6 项成立（N01-missing/N03/N04-emergent/N06/N08/N09 分解），新方法 5 项全死，方法位 flipmine-as-is；摘要草稿＋图源表已落盘。新输出 experiments/last15h＋artifacts/last15h＋reports/last15h，不覆盖旧证据。 |
+| M：真数据转折＋全路径＋joint（E2/E3/E4） | 当前执行 | E2=T5R3 版 N01/N03/N06（WOY valid，frozen/cover/cleanonly 三 checkpoint）；E3=坐标 N06 全路径（端点＋中途双条件，flipmine 最强修复）；E4=N10-joint（共享编码器 state+change，3 种子起步）。E6/E7 入 LEADS（L-006/L-007）暂缓。 |
 
 ## 变更记录
 
@@ -154,3 +155,5 @@
 - 2026-09-18：【真实授权补记】用户明确指示“A，完成小修”：确认此前“批准T1,2,5,6”（T3/T4 驳回回落 λ1.0／pooled）为本人真实逐项决定，授权其作为 R6 展示依据记入本文件＋git。审计驳回后补救：r04b_t5r3_s{11,23,47} manifest 补 source_match=J03WN1；MAIN_FIGURE_SOURCE 引证明确化为 14 文件 match 字段枚举。
 - 2026-09-18：L 分支开火（last15h N01–N10）：共享路径模块 experiments/last15h/shared/paths.py 落盘；首轮 10 worker 并行（N01 边界夹逼／N02 法向夹角／N03 路径漏事件／N04 组合／N05 教材迁移／N06 行动选择／N07 转折覆盖／N08 视觉／N09 双向错误前沿／N10 变化检测），输出 artifacts/last15h＋reports/last15h。
 - 2026-09-18：L 分支收敛：主发现=静态对转折错（N01 84% missing＋N03 0.18＋N04 emergent 0.94＋N08 像素复现）；方法位 flipmine-as-is（5 新想法全死：N01v1/v2、N02、N04 课程、N05、N07、N09 法、N10 法）；后果=N06 行动崩塌（机制：置信非判断）；元发现=训练噪声地板 ±15pp＋三条口径纪律（FA 对齐/诚实分母/训练未见分池）。终局包 reports/last15h/{SELECTION,FIGURE_SOURCE,ABSTRACT_DRAFT}.md＋各 Nxx.md；holdout_303 未碰。
+- 2026-09-18：新增 M 分支（E2/E3/E4 当前执行）：E2=T5R3 版转折实验；E3=坐标 N06 全路径；E4=N10-joint 三种子起步。E6/E7 记入 LEADS（L-006/L-007），待 E2 后再评估。
+- 2026-09-18：M 分支收敛：E2 三件套多种子同向（N01/N03/N06-hard）进主文，主文升级双数据故事；E3 关闭（库无重入动作）；E4 死（joint≡shuffled）。方法位=flipmine＋cover lr3e-4。见 reports/last15h/M_SELECTION.md。
