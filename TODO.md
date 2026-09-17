@@ -70,7 +70,7 @@
 | J：10 轮训练预算 | 当前执行（剩 8 轮） | 新事项 2 独立记账；T2-1→T2-2→T2-4；T2-3 备选。 |
 | K：发现型探索 campaign（20260917 包） | 完成（goal 手动关闭） | 优化目标 mu5qijtb-uoh83q 6 轮落定；R6 授权补救已推送 3ab758d。旧红线零触碰。 |
 | L：最后 15h 路线（20260918 包，N01–N10） | 首轮＋round2 收敛 | 终局见 reports/last15h/SELECTION.md：现象 6 项成立（N01-missing/N03/N04-emergent/N06/N08/N09 分解），新方法 5 项全死，方法位 flipmine-as-is；摘要草稿＋图源表已落盘。新输出 experiments/last15h＋artifacts/last15h＋reports/last15h，不覆盖旧证据。 |
-| M：真数据转折＋全路径＋joint（E2/E3/E4） | 当前执行 | E2=T5R3 版 N01/N03/N06（WOY valid，frozen/cover/cleanonly 三 checkpoint）；E3=坐标 N06 全路径（端点＋中途双条件，flipmine 最强修复）；E4=N10-joint（共享编码器 state+change，3 种子起步）。E6/E7 入 LEADS（L-006/L-007）暂缓。 |
+| M：真数据转折＋全路径＋joint（E2/E3/E4） | 收敛 | 双数据故事升级通过，见 reports/last15h/M_SELECTION.md：E2 三件套 3/3（N01/N03/N06-hard，多种子同向）进主文；E3 关闭（诚实 null，库无重入动作）；E4 死（3 种子全平）。方法位=flipmine＋cover。 |
 
 ## 变更记录
 
@@ -157,3 +157,5 @@
 - 2026-09-18：L 分支收敛：主发现=静态对转折错（N01 84% missing＋N03 0.18＋N04 emergent 0.94＋N08 像素复现）；方法位 flipmine-as-is（5 新想法全死：N01v1/v2、N02、N04 课程、N05、N07、N09 法、N10 法）；后果=N06 行动崩塌（机制：置信非判断）；元发现=训练噪声地板 ±15pp＋三条口径纪律（FA 对齐/诚实分母/训练未见分池）。终局包 reports/last15h/{SELECTION,FIGURE_SOURCE,ABSTRACT_DRAFT}.md＋各 Nxx.md；holdout_303 未碰。
 - 2026-09-18：新增 M 分支（E2/E3/E4 当前执行）：E2=T5R3 版转折实验；E3=坐标 N06 全路径；E4=N10-joint 三种子起步。E6/E7 记入 LEADS（L-006/L-007），待 E2 后再评估。
 - 2026-09-18：M 分支收敛：E2 三件套多种子同向（N01/N03/N06-hard）进主文，主文升级双数据故事；E3 关闭（库无重入动作）；E4 死（joint≡shuffled）。方法位=flipmine＋cover lr3e-4。见 reports/last15h/M_SELECTION.md。
+- 2026-09-18：E7 背景准备启动：4 并行 researcher（A 导数监督/B mixup 路径/C 蒸馏传边界/D 跨领域定位损失），各带 v1/v2/N02/N07/R04-minimax 死亡名单约束＋证伪实验要求；综合后写 reports/last15h/E7_background.md，关键引文再亲验。E2-N03 s23/s47 评价后台运行中。
+- 2026-09-18：E2 全关：N03 s23/s47 同向（cover 砍半 −18/−18pp），三件套皆三种子。M 分支彻底收敛，双数据故事证据齐。

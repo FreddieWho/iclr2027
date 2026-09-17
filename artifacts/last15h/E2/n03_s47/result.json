@@ -1,0 +1,30 @@
+{
+ "n_events": 200,
+ "n_controls": 200,
+ "match": "J03WOY",
+ "seed": 47,
+ "frozen": {
+  "cond_paths": 196,
+  "cond_path_miss": 0.3469387755102041,
+  "full_path_rate": 0.07,
+  "mean_abs_entry_err": 0.032692307692307694,
+  "mean_abs_exit_err": 0.032692307692307694,
+  "control_FA": 0.04
+ },
+ "cover": {
+  "cond_paths": 196,
+  "cond_path_miss": 0.1683673469387755,
+  "full_path_rate": 0.14,
+  "mean_abs_entry_err": 0.02048135913166588,
+  "mean_abs_exit_err": 0.02048135913166588,
+  "control_FA": 0.02
+ },
+ "cleanonly": {
+  "cond_paths": 199,
+  "cond_path_miss": 0.3417085427135678,
+  "full_path_rate": 0.06,
+  "mean_abs_entry_err": 0.025484439224897244,
+  "mean_abs_exit_err": 0.025484439224897244,
+  "control_FA": 0.035
+ }
+}
