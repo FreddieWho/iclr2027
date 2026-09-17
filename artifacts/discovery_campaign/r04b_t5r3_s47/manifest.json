@@ -1,0 +1,29 @@
+{
+  "methods": [
+    "cover",
+    "cleanonly"
+  ],
+  "epochs": 15,
+  "lr": 0.0001,
+  "lam": 1.0,
+  "seed": 47,
+  "n_flips": 369,
+  "base_ckpt": "artifacts/phase3/task_semantic_repair_v1/t5r3_sanity_v3/models/raw_single_channel_phase_gat_team_mean_seed47.pt",
+  "results": {
+    "cover": {
+      "final_loss": 4.424742221832275,
+      "clean_acc": 0.9824,
+      "clean_zone_f1": 0.9798,
+      "clean_cent_mae": 0.0315,
+      "clean_phase_acc": 0.7246
+    },
+    "cleanonly": {
+      "final_loss": 0.5619211196899414,
+      "clean_acc": 0.9707,
+      "clean_zone_f1": 0.9664,
+      "clean_cent_mae": 0.0311,
+      "clean_phase_acc": 0.748
+    }
+  },
+  "note": "phase labels anchor (spatial shift cannot change time-half)"
+}

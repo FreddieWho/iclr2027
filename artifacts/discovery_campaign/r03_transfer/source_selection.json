@@ -1,0 +1,55 @@
+{
+  "greedy": {
+    "1": [
+      0
+    ],
+    "2": [
+      0,
+      26
+    ],
+    "4": [
+      0,
+      26,
+      15,
+      21
+    ],
+    "8": [
+      0,
+      26,
+      15,
+      21,
+      16,
+      18
+    ]
+  },
+  "random_control": {
+    "1": [
+      23
+    ],
+    "2": [
+      31,
+      7
+    ],
+    "4": [
+      7,
+      8,
+      24,
+      31
+    ],
+    "8": [
+      22,
+      21,
+      13,
+      20,
+      23,
+      2,
+      3,
+      16
+    ]
+  },
+  "source": "artifacts/discovery_campaign/scenes/eval_202",
+  "slice": "0:256",
+  "source_model": "artifacts/discovery_campaign/models/mlpA_h64f32",
+  "eps": 0.1,
+  "coverage_def": "scene covered if ANY valid arm of ANY selected mode fails (offline-library sense; costs <=2k forwards/scene)"
+}

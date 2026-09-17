@@ -1,0 +1,21 @@
+{
+  "route_id": "R01",
+  "run_id": "t5r3_valid_zone_centroid",
+  "n_source": 128,
+  "n_target": 128,
+  "model_forward_calls": 393984,
+  "status": "true_negative_cross_arch_confirmed",
+  "artifacts": [
+    "risk_by_config.csv",
+    "law_definition.json"
+  ],
+  "primary_result": {
+    "name": "max_cross_law_zone_risk_gap",
+    "value": 0.004,
+    "baseline_value": 0.0,
+    "denominator": 128,
+    "unit": "rate"
+  },
+  "clean_anchor": "zone risk 0.000-0.031, centroid MSE 0.0026-0.0054 (manifest F1 0.97 consistent)",
+  "evidence_level": "64 modes, match-split, exact centroid preservation, rebuilt graphs"
+}

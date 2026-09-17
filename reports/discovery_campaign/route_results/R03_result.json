@@ -1,0 +1,35 @@
+{
+  "route_id": "R03",
+  "status": "bounded_secondary",
+  "evidence_level": "frozen_source_selection_three_archs",
+  "new_question": "Do few source-selected modes dominate target failures?",
+  "what_changed": "dedicated mini-run (was R01 byproduct)",
+  "source_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "data_splits": {
+    "train": "scenes/train_101 (512, seed 101)",
+    "eval": "scenes/eval_202 (512, seed 202)",
+    "holdout": "scenes/holdout_303 (256, seed 303, R05/pristine)",
+    "recheck": "scenes/recheck_{404,505,606} (512 each)"
+  },
+  "perturbation_contract": "bank-8 frozen templates, both-arm oracle validity",
+  "task_oracle": "core.relations.segment_relation, margin>=0.02",
+  "source_selection_or_target_whitebox": "greedy cover k=1,2,4,8 on source; random control same k",
+  "n_parent_scenes": 512,
+  "primary_result": {
+    "name": "union_coverage_gain_greedy_minus_random_k8",
+    "value": 0.0352,
+    "baseline_value": 0.0,
+    "denominator": 256,
+    "unit": "rate"
+  },
+  "compute": {
+    "oracle_evals": 71680
+  },
+  "key_counterevidence": "fixed-weight risk transfer is zero; coverage saturates at k=4",
+  "nearest_baseline": "seed-fixed random template sets, same k",
+  "next_conceptual_trial": "none (bounded)",
+  "paper_section_replaced": "none (supports A-story weakly)",
+  "artifacts": [
+    "artifacts/discovery_campaign/r03_transfer"
+  ]
+}

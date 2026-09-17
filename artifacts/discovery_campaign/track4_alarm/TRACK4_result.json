@@ -1,0 +1,19 @@
+{
+  "n": 123,
+  "miss_rate_A": 0.6667,
+  "auc_feat_dist": 0.4762,
+  "auc_motion_null_ratio": 0.5173,
+  "auc_margin_neg": 0.622,
+  "auc_input_norm": 0.3546,
+  "auc_logistic_combined": 0.6728,
+  "ensemble": {
+    "n": 123,
+    "miss_A": 0.6667,
+    "miss_B": 0.6748,
+    "miss_C": 0.626,
+    "miss_majority": 0.6585,
+    "disagreement_rate": 0.2033,
+    "miss_given_agree": 0.6939,
+    "miss_given_disagree": 0.52
+  }
+}

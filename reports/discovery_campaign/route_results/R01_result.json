@@ -1,0 +1,38 @@
+{
+  "route_id": "R01",
+  "status": "true_negative_bank4_and_bank8",
+  "evidence_level": "controlled_bank_two_sizes",
+  "new_question": "Does joint dependence move task risk at fixed marginals/energy?",
+  "what_changed": "bank 3 modes -> 35 modes; laws still flat",
+  "source_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "data_splits": {
+    "train": "scenes/train_101 (512, seed 101)",
+    "eval": "scenes/eval_202 (512, seed 202)",
+    "holdout": "scenes/holdout_303 (256, seed 303, R05/pristine)",
+    "recheck": "scenes/recheck_{404,505,606} (512 each)"
+  },
+  "perturbation_contract": "antithetic +/- pairs; plus_prob deviation max 1.1e-16",
+  "task_oracle": "core.relations.segment_relation, margin>=0.02",
+  "source_selection_or_target_whitebox": "Q_source_* from source scenes only; Q_whitebox reference",
+  "n_parent_scenes": 256,
+  "n_legal_pairs": 35,
+  "primary_result": {
+    "name": "max_cross_law_preserving_risk_gap",
+    "value": 0.0255,
+    "baseline_value": 0.0,
+    "denominator": 256,
+    "unit": "rate"
+  },
+  "compute": {
+    "forward_calls": 350208,
+    "note": "exact arithmetic: scenes×modes×arms×dirs×eps×models (bank8+bank4)"
+  },
+  "key_counterevidence": "whitebox curve grows with eps but is label-flip contaminated",
+  "nearest_baseline": "Q_ref uniform over same bank",
+  "next_conceptual_trial": "T5R3 message-passing checkpoints (probe passed)",
+  "paper_section_replaced": "none (negative boundary)",
+  "artifacts": [
+    "artifacts/discovery_campaign/r01_round1",
+    "artifacts/discovery_campaign/r01_round2_bank8"
+  ]
+}

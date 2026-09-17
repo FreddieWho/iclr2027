@@ -1,0 +1,37 @@
+{
+  "route_id": "R02",
+  "status": "confirmed_four_seeds_three_archs",
+  "evidence_level": "oracle_margin_floor_0.03_dual_rates",
+  "new_question": "Do real relation flips go unfollowed by model decisions?",
+  "what_changed": "recheck 3x512x3 reproduced round 1",
+  "source_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "data_splits": {
+    "train": "scenes/train_101 (512, seed 101)",
+    "eval": "scenes/eval_202 (512, seed 202)",
+    "holdout": "scenes/holdout_303 (256, seed 303, R05/pristine)",
+    "recheck": "scenes/recheck_{404,505,606} (512 each)"
+  },
+  "task_oracle": "core.relations.segment_relation, margin>=0.03",
+  "representation_layer": "penultimate + hidden (kNN worse)",
+  "n_parent_scenes": 5376,
+  "n_attempted": 5376,
+  "primary_result": {
+    "name": "unconditional_miss_rate_pooled_12_searches",
+    "value": 0.2958,
+    "baseline_value": 0.0,
+    "denominator": 5376,
+    "unit": "rate"
+  },
+  "compute": {
+    "oracle_evals": 1602048,
+    "note": "exact: scenes x 298 structured candidates"
+  },
+  "key_counterevidence": "stealth feat dist >> null: encoder moves, boundary not crossed (R05: same-cluster)",
+  "nearest_baseline": "label-preserving null edits at matched input norm",
+  "next_conceptual_trial": "none needed; phenomenon confirmed",
+  "paper_section_replaced": "abstract sentence 1 candidate",
+  "artifacts": [
+    "artifacts/discovery_campaign/r02_mlpA",
+    "artifacts/discovery_campaign/r02_recheck_404_mlpA"
+  ]
+}

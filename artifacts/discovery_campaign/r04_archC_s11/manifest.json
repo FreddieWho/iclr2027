@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "equal",
+    "clean"
+  ],
+  "lambda": 1.0,
+  "reg": 1.0,
+  "eps": 0.1,
+  "bank": "8 (35 modes)",
+  "epochs": 300,
+  "lr": 0.01,
+  "hidden": 128,
+  "feat": 32,
+  "n_train": 512,
+  "legal_coverage_mean": 0.8260044642857143,
+  "scenes_with_<2_legal_modes": 0,
+  "unif_legal_coverage_mean": 0.9124720982142858,
+  "global_pi": "one vector over 35 modes, per-batch DRO; per-scene conditioned on frozen legal masks",
+  "note": "illegal modes excluded, never zero-loss filled; all methods share masks + oracle arm labels"
+}

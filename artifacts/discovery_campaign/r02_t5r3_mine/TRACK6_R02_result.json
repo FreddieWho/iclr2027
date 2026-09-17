@@ -1,0 +1,22 @@
+{
+  "match": "J03WN1",
+  "floor": 0.03,
+  "max_shift": 0.4,
+  "per_model": {
+    "raw_single_channel_phase_gat_team_mean_seed11": {
+      "n_scenes": 425,
+      "n_flip": 369,
+      "frac_flip": 0.8682,
+      "n_miss": 79,
+      "miss_given_flip": 0.2141,
+      "unconditional_miss": 0.1859,
+      "stealth_feat_med": 32.1525,
+      "null_feat_med": 20.6991,
+      "stealthier_frac": 0.1681,
+      "clean_acc": 0.9741,
+      "margin_med": 0.03
+    }
+  },
+  "pooled_miss": 0.2141,
+  "note": "stealth defined vs equal-magnitude away-translation null"
+}

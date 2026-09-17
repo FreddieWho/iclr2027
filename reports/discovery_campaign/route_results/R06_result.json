@@ -1,0 +1,29 @@
+{
+  "route_id": "R06",
+  "status": "parked_model_quality_bound",
+  "evidence_level": "true_chaos_oracle_nonchaotic_learned_models",
+  "new_question": "Does dependence shift long-horizon rollout error?",
+  "what_changed": "spring(contractive)->scatter(true chaos, x24 oracle divergence)",
+  "source_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "perturbation_contract": "bank-4 on 4/5 particles, truly re-integrated",
+  "n_parent_scenes": 50,
+  "primary_result": {
+    "name": "max_cross_law_spread_at_t10",
+    "value": 0.0001,
+    "baseline_value": 0.0,
+    "denominator": 50,
+    "unit": "distance"
+  },
+  "compute": {
+    "true_sims": 90000,
+    "note": "model rollouts: scenes x modes x arms x 300 steps x 2 models"
+  },
+  "key_counterevidence": "learned dynamics non-chaotic; whitebox==clean from t10",
+  "nearest_baseline": "clean-initial rollout",
+  "next_conceptual_trial": "chaos-capable one-step models (needs GPU-scale training)",
+  "paper_section_replaced": "none (parked)",
+  "artifacts": [
+    "artifacts/discovery_campaign/r06_trial1",
+    "artifacts/discovery_campaign/r06_scatter_full"
+  ]
+}

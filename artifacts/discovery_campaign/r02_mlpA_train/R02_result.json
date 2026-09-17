@@ -1,0 +1,24 @@
+{
+  "n_scenes": 256,
+  "n_with_flip": 123,
+  "frac_with_flip": 0.48046875,
+  "n_model_miss_given_flip": 112,
+  "miss_rate_given_flip": 0.9105691056910569,
+  "unconditional_miss_rate": 0.4375,
+  "stealth_feat_median": 1.4314442873001099,
+  "null_feat_median": 0.2671522945165634,
+  "stealth_input_median": 0.31999999999999995,
+  "miss_stealthier_than_null_frac": 0.058333333333333334,
+  "flip_rate_by_family": {
+    "single": 0.009796142578125,
+    "pair": 0.0125732421875,
+    "global_trans": 0.0,
+    "global_rot": 0.0,
+    "global_scale": 0.0,
+    "random": 0.0389404296875
+  },
+  "model": "artifacts/discovery_campaign/models/mlpA_h64f32",
+  "scenes": "artifacts/discovery_campaign/scenes/train_101",
+  "slice": "0:256",
+  "min_margin": 0.03
+}

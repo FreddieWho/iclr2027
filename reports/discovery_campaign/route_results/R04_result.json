@@ -1,0 +1,37 @@
+{
+  "route_id": "R04",
+  "status": "confirmed_three_seeds_flipmine_final",
+  "evidence_level": "same_bank_same_budget_minimax_equal_adv_clean",
+  "new_question": "Does dependence-coverage training fix follow-rate?",
+  "what_changed": "flipmining beats equal/unif by ~10pp at 1/23 the pairs; minimax==equal==unif<<flipmine",
+  "source_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "data_splits": {
+    "train": "scenes/train_101 (512, seed 101)",
+    "eval": "scenes/eval_202 (512, seed 202)",
+    "holdout": "scenes/holdout_303 (256, seed 303, R05/pristine)",
+    "recheck": "scenes/recheck_{404,505,606} (512 each)"
+  },
+  "perturbation_contract": "bank-8 global weights conditioned on frozen legal masks",
+  "task_oracle": "oracle arm labels for ALL methods (no privileged labels)",
+  "n_parent_scenes": 512,
+  "primary_result": {
+    "name": "miss_rate_flipmine_vs_clean_seed11_23_47",
+    "value": 0.463,
+    "baseline_value": 0.65,
+    "denominator": 768,
+    "unit": "rate"
+  },
+  "compute": {
+    "note": "300 epochs full-batch; per-epoch forwards/seed: clean 512, others 512*(1+70)"
+  },
+  "key_counterevidence": "supmine==fliprand (support guides nothing); gain scales with flip-pair count",
+  "nearest_baseline": "clean-only 0.650; equal-bank 0.575; unif 0.594; fliprand-767 0.520; auxmargin/relfeat 0.618",
+  "next_conceptual_trial": "done; T5R3 transfer open (Track6)",
+  "paper_section_replaced": "methods sentence candidate",
+  "artifacts": [
+    "artifacts/discovery_campaign/r04_round1",
+    "artifacts/discovery_campaign/r04_seed23",
+    "artifacts/discovery_campaign/r04_seed47",
+    "artifacts/discovery_campaign/r04b_s11"
+  ]
+}

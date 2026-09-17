@@ -1,0 +1,24 @@
+{
+  "n_scenes": 512,
+  "n_with_flip": 254,
+  "frac_with_flip": 0.49609375,
+  "n_model_miss_given_flip": 149,
+  "miss_rate_given_flip": 0.5866141732283464,
+  "unconditional_miss_rate": 0.291015625,
+  "stealth_feat_median": 1.2769880890846252,
+  "null_feat_median": 0.30038654804229736,
+  "stealth_input_median": 0.31999999999999995,
+  "miss_stealthier_than_null_frac": 0.10358565737051793,
+  "flip_rate_by_family": {
+    "single": 0.0103302001953125,
+    "pair": 0.01239013671875,
+    "global_trans": 0.0,
+    "global_rot": 0.0,
+    "global_scale": 0.0,
+    "random": 0.03961181640625
+  },
+  "model": "artifacts/discovery_campaign/models/mlpC_h128f32",
+  "scenes": "artifacts/discovery_campaign/scenes/recheck_505",
+  "slice": "",
+  "min_margin": 0.03
+}

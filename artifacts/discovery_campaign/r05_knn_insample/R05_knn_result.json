@@ -1,0 +1,10 @@
+{
+  "n_flips": 115,
+  "head_follow_rate": 0.1391304347826087,
+  "nn1_follow_rate": 0.1391304347826087,
+  "nn5_follow_rate": 0.1391304347826087,
+  "head_miss_nn1_hit": 0.0,
+  "pool": "artifacts/discovery_campaign/scenes/train_101",
+  "flip_scenes": "artifacts/discovery_campaign/scenes/train_101",
+  "note": "Zero backbone updates; only the readout rule changes (fixed head vs kNN)."
+}

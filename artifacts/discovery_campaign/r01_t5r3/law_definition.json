@@ -1,0 +1,24 @@
+{
+  "laws": {
+    "Q_ref": "uniform",
+    "Q_coherent": "cross-team synchrony |<sH,sA>|/10 fixed",
+    "Q_source_greedy": "greedy k=2 on SOURCE match zone 0/1",
+    "Q_source_dro": "entropic DRO reg=1 on SOURCE match zone 0/1",
+    "Q_whitebox": "per-target-scene worst mode (reference)"
+  },
+  "n_modes": 64,
+  "directions": [
+    "vx",
+    "vy"
+  ],
+  "epsilons": [
+    0.05,
+    0.15
+  ],
+  "amp": "per-player amplitude eps/sqrt(20)",
+  "source_match": "J03WN1",
+  "target_match": "J03WOY",
+  "n_per_match": 128,
+  "graph_policy": "adjacency rebuilt per arm (deployment-faithful)",
+  "oracle": "zone thirds exact + centroid exact; all arms label-preserving by construction"
+}

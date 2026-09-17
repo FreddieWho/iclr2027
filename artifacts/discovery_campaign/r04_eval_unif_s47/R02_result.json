@@ -1,0 +1,24 @@
+{
+  "n_scenes": 256,
+  "n_with_flip": 123,
+  "frac_with_flip": 0.48046875,
+  "n_model_miss_given_flip": 73,
+  "miss_rate_given_flip": 0.5934959349593496,
+  "unconditional_miss_rate": 0.28515625,
+  "stealth_feat_median": 0.8641588687896729,
+  "null_feat_median": 0.25507140159606934,
+  "stealth_input_median": 0.2,
+  "miss_stealthier_than_null_frac": 0.08196721311475409,
+  "flip_rate_by_family": {
+    "single": 0.011688232421875,
+    "pair": 0.0157470703125,
+    "global_trans": 0.0,
+    "global_rot": 0.0,
+    "global_scale": 0.0,
+    "random": 0.04132080078125
+  },
+  "model": "/home/huyudi/012_conference/iclr2027/artifacts/discovery_campaign/r04_unif_s47/unif",
+  "scenes": "/home/huyudi/012_conference/iclr2027/artifacts/discovery_campaign/scenes/eval_202",
+  "slice": "256:512",
+  "min_margin": 0.03
+}

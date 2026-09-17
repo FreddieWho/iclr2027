@@ -1,0 +1,12 @@
+{
+  "name": "mlpC",
+  "hidden": 128,
+  "feat": 32,
+  "seed": 47,
+  "epochs": 1500,
+  "lr": 0.01,
+  "train_acc": 1.0,
+  "eval_acc": 0.84375,
+  "train_split": "artifacts/discovery_campaign/scenes/train_101",
+  "eval_split": "artifacts/discovery_campaign/scenes/eval_202"
+}

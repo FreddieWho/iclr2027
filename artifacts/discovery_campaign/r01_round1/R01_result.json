@@ -1,0 +1,178 @@
+{
+  "clean_target_acc": {
+    "artifacts/discovery_campaign/models/mlpA_h64f32": 0.8359375,
+    "artifacts/discovery_campaign/models/mlpB_h32f16": 0.84765625,
+    "artifacts/discovery_campaign/models/mlpC_h128f32": 0.828125
+  },
+  "max_marginal_plus_deviation": 1.1102230246251565e-16,
+  "keep_info": {
+    "vx/eps=0.02": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9674479166666666,
+          "orig_label_kept_fraction": 0.9674479166666666
+        },
+        "target": {
+          "valid_arm_fraction": 0.96875,
+          "orig_label_kept_fraction": 0.96875
+        }
+      }
+    },
+    "vx/eps=0.05": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9296875,
+          "orig_label_kept_fraction": 0.9264322916666666
+        },
+        "target": {
+          "valid_arm_fraction": 0.935546875,
+          "orig_label_kept_fraction": 0.9329427083333334
+        }
+      }
+    },
+    "vx/eps=0.1": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.900390625,
+          "orig_label_kept_fraction": 0.8821614583333334
+        },
+        "target": {
+          "valid_arm_fraction": 0.8951822916666666,
+          "orig_label_kept_fraction": 0.8704427083333334
+        }
+      }
+    },
+    "vy/eps=0.02": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9635416666666666,
+          "orig_label_kept_fraction": 0.9635416666666666
+        },
+        "target": {
+          "valid_arm_fraction": 0.9635416666666666,
+          "orig_label_kept_fraction": 0.9635416666666666
+        }
+      }
+    },
+    "vy/eps=0.05": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9322916666666666,
+          "orig_label_kept_fraction": 0.9264322916666666
+        },
+        "target": {
+          "valid_arm_fraction": 0.9303385416666666,
+          "orig_label_kept_fraction": 0.92578125
+        }
+      }
+    },
+    "vy/eps=0.1": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.8971354166666666,
+          "orig_label_kept_fraction": 0.8763020833333334
+        },
+        "target": {
+          "valid_arm_fraction": 0.9114583333333334,
+          "orig_label_kept_fraction": 0.8873697916666666
+        }
+      }
+    },
+    "vdiag/eps=0.02": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9576822916666666,
+          "orig_label_kept_fraction": 0.9576822916666666
+        },
+        "target": {
+          "valid_arm_fraction": 0.9654947916666666,
+          "orig_label_kept_fraction": 0.9654947916666666
+        }
+      }
+    },
+    "vdiag/eps=0.05": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9329427083333334,
+          "orig_label_kept_fraction": 0.927734375
+        },
+        "target": {
+          "valid_arm_fraction": 0.9303385416666666,
+          "orig_label_kept_fraction": 0.9270833333333334
+        }
+      }
+    },
+    "vdiag/eps=0.1": {
+      "n_modes_kept": 3,
+      "kept_idx": [
+        0,
+        1,
+        2
+      ],
+      "coverage": {
+        "source": {
+          "valid_arm_fraction": 0.9134114583333334,
+          "orig_label_kept_fraction": 0.8912760416666666
+        },
+        "target": {
+          "valid_arm_fraction": 0.890625,
+          "orig_label_kept_fraction": 0.8678385416666666
+        }
+      }
+    }
+  },
+  "n_rows": 243,
+  "notes": [
+    "All laws share one kept-mode bank fixed before law comparison.",
+    "Invalid (ambiguous) arms excluded per-scene; denominators recorded.",
+    "Q_source_* chosen on source scenes only; reported on target scenes."
+  ]
+}

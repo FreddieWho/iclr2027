@@ -1,0 +1,67 @@
+{
+  "laws": {
+    "Q_ref": "uniform over kept modes; no model/source access",
+    "Q_coherent": "team-block template (fixed, response-blind); no model access",
+    "Q_source_greedy": "greedy failure cover (k=2) on SOURCE scenes; black-box predictions",
+    "Q_source_dro": "entropic DRO (reg=1) on SOURCE pair losses",
+    "Q_whitebox": "per-TARGET-scene worst kept mode; reference only"
+  },
+  "bank": {
+    "n_nodes": 4,
+    "n_modes": 3,
+    "patterns": [
+      [
+        1.0,
+        1.0,
+        -1.0,
+        -1.0
+      ],
+      [
+        1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      [
+        1.0,
+        -1.0,
+        1.0,
+        -1.0
+      ]
+    ],
+    "coherence": [
+      4.0,
+      0.0,
+      0.0
+    ],
+    "coherent_weights": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "directions": {
+    "vx": [
+      1.0,
+      0.0
+    ],
+    "vy": [
+      0.0,
+      1.0
+    ],
+    "vdiag": [
+      0.7071067811865475,
+      0.7071067811865475
+    ]
+  },
+  "epsilons": [
+    0.02,
+    0.05,
+    0.1
+  ],
+  "min_margin": 0.02,
+  "source": "artifacts/discovery_campaign/scenes/eval_202",
+  "target": "artifacts/discovery_campaign/scenes/eval_202",
+  "n_source": 256,
+  "n_target": 256
+}

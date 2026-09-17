@@ -1,0 +1,48 @@
+{
+  "match": "J03WOY",
+  "floor": 0.03,
+  "max_shift": 0.4,
+  "per_model": {
+    "raw_single_channel_phase_gat_team_mean_seed11": {
+      "n_scenes": 256,
+      "n_flip": 235,
+      "frac_flip": 0.918,
+      "n_miss": 70,
+      "miss_given_flip": 0.2979,
+      "unconditional_miss": 0.2734,
+      "stealth_feat_med": 26.5472,
+      "null_feat_med": 18.5226,
+      "stealthier_frac": 0.1572,
+      "clean_acc": 0.9805,
+      "margin_med": 0.03
+    },
+    "raw_single_channel_phase_gat_team_mean_seed23": {
+      "n_scenes": 256,
+      "n_flip": 235,
+      "frac_flip": 0.918,
+      "n_miss": 80,
+      "miss_given_flip": 0.3404,
+      "unconditional_miss": 0.3125,
+      "stealth_feat_med": 26.3396,
+      "null_feat_med": 21.6327,
+      "stealthier_frac": 0.2707,
+      "clean_acc": 0.9805,
+      "margin_med": 0.03
+    },
+    "raw_single_channel_phase_gat_team_mean_seed47": {
+      "n_scenes": 256,
+      "n_flip": 235,
+      "frac_flip": 0.918,
+      "n_miss": 74,
+      "miss_given_flip": 0.3149,
+      "unconditional_miss": 0.2891,
+      "stealth_feat_med": 24.1856,
+      "null_feat_med": 19.5938,
+      "stealthier_frac": 0.2009,
+      "clean_acc": 0.9648,
+      "margin_med": 0.03
+    }
+  },
+  "pooled_miss": 0.3177,
+  "note": "stealth defined vs equal-magnitude away-translation null"
+}

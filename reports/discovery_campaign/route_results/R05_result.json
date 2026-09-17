@@ -1,0 +1,33 @@
+{
+  "route_id": "R05",
+  "status": "true_negative_frozen_mlp",
+  "evidence_level": "metric_knn_hiddenlayer_three_iterations",
+  "new_question": "Is flip info recoverable from frozen features?",
+  "what_changed": "metric->kNN->hidden layer, all zero",
+  "source_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "data_splits": {
+    "train": "scenes/train_101 (512, seed 101)",
+    "eval": "scenes/eval_202 (512, seed 202)",
+    "holdout": "scenes/holdout_303 (256, seed 303, R05/pristine)",
+    "recheck": "scenes/recheck_{404,505,606} (512 each)"
+  },
+  "task_oracle": "R02 flip pairs + oracle-verified nuisance edits",
+  "representation_layer": "penultimate (f=32) + hidden (h=64)",
+  "distance_metric": "low-rank PSD edit (rank 4) vs euclidean vs random-pair control",
+  "n_parent_scenes": 256,
+  "primary_result": {
+    "name": "holdout_pairwise_AUC_diagnostic_minus_euclidean",
+    "value": 0.0003,
+    "baseline_value": 0.0,
+    "denominator": 32640,
+    "unit": "auc_gap"
+  },
+  "key_counterevidence": "diagnostic eigenvalues 119/95/62/35 (directions exist, do not transfer)",
+  "nearest_baseline": "same-budget random-pair metric (identical AUC)",
+  "next_conceptual_trial": "none on small MLPs; big-encoder branch untested (no GPU)",
+  "paper_section_replaced": "none (boundary finding)",
+  "artifacts": [
+    "artifacts/discovery_campaign/r05_mlpA",
+    "artifacts/discovery_campaign/r05_knn_transfer"
+  ]
+}

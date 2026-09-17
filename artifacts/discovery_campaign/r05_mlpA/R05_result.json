@@ -1,0 +1,47 @@
+{
+  "n_semantic": 103,
+  "n_nuisance": 309,
+  "rank": 4,
+  "diag_eigenvalues": [
+    119.45364565484199,
+    94.82281343893938,
+    61.898559179856306,
+    35.09301091366788
+  ],
+  "diag_gains": [
+    0.9833961023833935,
+    0.9791281436202617,
+    0.9682027692513422,
+    0.9445876099175026
+  ],
+  "rand_eigenvalues": [
+    9.639018975367444,
+    4.999904860353236,
+    3.365840655354054,
+    3.222015873280546
+  ],
+  "metrics": {
+    "euclidean": {
+      "pairwise_AUC": 0.291850071253739,
+      "nn_loo_acc": 0.73046875,
+      "in_sample_flip_dist_med": 2.573361318178825,
+      "in_sample_nuisance_dist_med": 0.25886192689869414
+    },
+    "random_pairs": {
+      "pairwise_AUC": 0.29185349171555885,
+      "nn_loo_acc": 0.7265625,
+      "in_sample_flip_dist_med": 2.573801318702408,
+      "in_sample_nuisance_dist_med": 0.25889490994351794
+    },
+    "diagnostic": {
+      "pairwise_AUC": 0.29218829898383675,
+      "nn_loo_acc": 0.734375,
+      "in_sample_flip_dist_med": 2.5847547058367435,
+      "in_sample_nuisance_dist_med": 0.2600296562220352
+    }
+  },
+  "notes": [
+    "M fit on train-scene diagnostic pairs only; holdout never touched in fit.",
+    "Transfer rows are in-sample separation (labeled); cross-scene transfer needs R02-on-holdout, reserved."
+  ]
+}

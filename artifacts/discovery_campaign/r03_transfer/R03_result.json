@@ -1,0 +1,21 @@
+{
+  "ks": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "eps": 0.1,
+  "n_source": 256,
+  "n_target": 256,
+  "models": [
+    "mlpA_h64f32",
+    "mlpB_h32f16",
+    "mlpC_h128f32"
+  ],
+  "oracle_evals": 71680,
+  "notes": [
+    "Selection frozen on source; target is forward-only.",
+    "Union coverage is offline-library coverage, not single-draw failure rate."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "n_scenes": 256,
+  "n_with_flip": 123,
+  "frac_with_flip": 0.48046875,
+  "n_model_miss_given_flip": 59,
+  "miss_rate_given_flip": 0.4796747967479675,
+  "unconditional_miss_rate": 0.23046875,
+  "stealth_feat_median": 0.6096650958061218,
+  "null_feat_median": 0.07410154864192009,
+  "stealth_input_median": 0.2,
+  "miss_stealthier_than_null_frac": 0.05,
+  "flip_rate_by_family": {
+    "single": 0.011688232421875,
+    "pair": 0.0157470703125,
+    "global_trans": 0.0,
+    "global_rot": 0.0,
+    "global_scale": 0.0,
+    "random": 0.04132080078125
+  },
+  "model": "artifacts/discovery_campaign/r04b_s23/flipmine",
+  "scenes": "artifacts/discovery_campaign/scenes/eval_202",
+  "slice": "256:512",
+  "min_margin": 0.03
+}
