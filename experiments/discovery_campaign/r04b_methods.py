@@ -7,6 +7,8 @@ Mining (once, seed-fixed): up to 12 flips/scene via candidate protocol.
   flipmine : clean + mean BCE over ALL mined flips
   supmine  : clean + mean BCE over LOW-SUPPORT half (top d_new), tests Track0
   fliprand : clean + mean BCE over RANDOM half (same count control)
+  flip_f25/50/75 : nested fractions of mined flips (budget curve, rng-fixed order)
+  unifmatched    : N independent-sign edits, oracle-labeled (equal-count unif control)
   auxmargin: clean BCE + margin-regression head (oracle margins free)
   relfeat  : clean-only on relation features (sharpest arch test)
   clean    : clean-only raw reference (same seed)
@@ -66,6 +68,10 @@ def main() -> int:
     p.add_argument("--lam", type=float, default=1.0)
     p.add_argument("--seed", type=int, default=11)
     p.add_argument("--mine-seed", type=int, default=5)
+    p.add_argument("--flip-fracs", type=str, default="",
+                   help="comma fractions e.g. 0.25,0.5,0.75 -> methods flip_f25,... (nested, rng-fixed)")
+    p.add_argument("--unif-n", type=int, default=0,
+                   help="if >0, add unifmatched method with N oracle-labeled independent-sign edits")
     a = p.parse_args()
     if a.output.exists():
         p.error("--output must be a new directory")
@@ -89,6 +95,41 @@ def main() -> int:
     rand_idx = sorted(rrand.choice(K, K // 2, replace=False).tolist())
     sets = {"flipmine": list(range(K)), "supmine": sup_idx, "fliprand": rand_idx}
     print(f"mined {K} flips; sup/rand halves {len(sup_idx)}/{len(rand_idx)}", flush=True)
+    # nested budget fractions (rng-fixed order => smaller sets subset of larger)
+    rfrac = np.random.default_rng(a.seed + 999)
+    perm = rfrac.permutation(K).tolist()
+    frac_names = {}
+    if a.flip_fracs.strip():
+        for fs in a.flip_fracs.split(","):
+            f = float(fs)
+            nm = f"flip_f{int(round(f * 100))}"
+            take = sorted(perm[:max(1, int(round(f * K)))])
+            sets[nm] = take
+            frac_names[nm] = f
+    # equal-count independent-sign control (r02 random-family generator)
+    unif_sets = {}
+    if a.unif_n and a.unif_n > 0:
+        ru = np.random.default_rng(a.seed + 31337)
+        radii = [0.03, 0.06, 0.10, 0.16]
+        UE, US, UY = [], [], []
+        attempts = 0
+        while len(UE) < a.unif_n and attempts < a.unif_n * 60:
+            attempts += 1
+            i = int(ru.integers(0, N))
+            e = ru.normal(size=(4, 2))
+            e *= ru.choice(radii) * 2 / np.linalg.norm(e)
+            try:
+                o = segment_relation(X[i] + e)
+            except ValueError:
+                continue
+            if o["ambiguous"] or o["margin"] < 0.03:
+                continue
+            UE.append(e.astype(np.float32))
+            US.append(i)
+            UY.append(int(o["label"]))
+        unif_sets["unifmatched"] = (US, UE, UY)
+        print(f"unifmatched: {len(UE)}/{a.unif_n} oracle-valid, "
+              f"norm_med={float(np.median([np.linalg.norm(e) for e in UE])):.3f}", flush=True)
 
     def flip_tensors(idx):
         ii = np.array([mined[k]["scene"] for k in idx])
@@ -96,6 +137,14 @@ def main() -> int:
         Xf = torch.from_numpy((((X[ii] + ee).reshape(-1, 8) - mu8) / sd8).astype(np.float32))
         yf = torch.from_numpy(np.array([mined[k]["new"] for k in idx], dtype=np.float32))
         return Xf, yf
+
+    def unif_tensors():
+        US, UE, UY = unif_sets["unifmatched"]
+        ii = np.array(US)
+        ee = np.array(UE)
+        Xu = torch.from_numpy((((X[ii] + ee).reshape(-1, 8) - mu8) / sd8).astype(np.float32))
+        yu = torch.from_numpy(np.array(UY, dtype=np.float32))
+        return Xu, yu
 
     Xc = torch.from_numpy(((X.reshape(-1, 8) - mu8) / sd8))
     yc = torch.from_numpy(y)
@@ -124,6 +173,9 @@ def main() -> int:
                 loss = bce(logit, yc).mean() + a.lam * mse(mpred, torch.from_numpy(margins))
             elif name == "clean":
                 loss = bce(model(Xc), yc).mean()
+            elif name in unif_sets:
+                Xu, yu = unif_tensors()
+                loss = bce(model(Xc), yc).mean() + a.lam * bce(model(Xu), yu).mean()
             else:
                 Xf, yf = flip_tensors(sets[name])
                 loss = bce(model(Xc), yc).mean() + a.lam * bce(model(Xf), yf).mean()
@@ -147,6 +199,9 @@ def main() -> int:
         {"methods": a.methods, "n_mined_flips": K, "sup_half": len(sup_idx),
          "epochs": a.epochs, "lr": a.lr, "lam": a.lam, "seed": a.seed,
          "mine_seed": a.mine_seed, "n_train": N,
+         "flip_fracs": frac_names,
+         "unif_n_requested": a.unif_n,
+         "unif_n_valid": len(unif_sets["unifmatched"][0]) if unif_sets else 0,
          "note": "all flip sets oracle-labeled; supmine=top d_new half, fliprand=random half same count"},
         indent=2) + "\n")
     print("saved", a.output, flush=True)

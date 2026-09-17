@@ -22,3 +22,10 @@
 ## 判决
 - B 故事主角已上真数据；方法在真模型上复现（且效应更大：−56% 相对 frozen）。
 - 剩余：s23/s47 确认；phase 头部锚定说明已记 manifest。
+
+## R2 加强（新场景＋第二比赛＋margin 曲线＋零对照）
+- WOY1024（floor 0.03，新种子）：miss|flip 0.243/0.354/0.317，pooled 0.305；uncond pooled 0.293。
+- WN1 全 425（第二比赛）：miss|flip 0.214/0.366/0.407，pooled 0.329；uncond pooled 0.286。
+- Margin 曲线（pooled miss|flip）：0.03→0.31，0.06→0.154，0.10→0.038。效应集中在边界附近，大 margin 下模型基本跟随——诚实边界，剂量反应图可发表。
+- 零对照：away_flip_rate 全表 0.01–0.05（12 格），客队平移几乎不引起翻转，虚假敏感可忽略。
+- 产物：`r02_t5r3_WOY1024/`、`r02_t5r3_WN1all/`、`r02_t5r3_WOYf06/`、`r02_t5r3_WOYf10/`（TRACK6_R02_result.json＋flips.csv）。

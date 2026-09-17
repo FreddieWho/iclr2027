@@ -1,0 +1,51 @@
+{
+  "model": "artifacts/discovery_campaign/models/mlpA_h64f32",
+  "scenes": "artifacts/discovery_campaign/scenes/confirm_808",
+  "slice": "0:256",
+  "min_margin": 0.05,
+  "seed": 21,
+  "budget_cap": 298,
+  "configs": {
+    "C": {
+      "full": {
+        "n_scenes": 256,
+        "n_with_flip": 154,
+        "frac_with_flip": 0.6015625,
+        "n_model_miss_given_flip": 91,
+        "miss_rate_given_flip": 0.5909090909090909,
+        "unconditional_miss_rate": 0.35546875,
+        "stealth_feat_median": 0.9340163171291351,
+        "stealth_input_median": 0.32,
+        "stealth_margin_median": 0.06794857413931962,
+        "flip_rate_by_family": {
+          "single": 0.005401611328125,
+          "pair": 0.005859375,
+          "global_trans": 0.0,
+          "global_rot": 0.0,
+          "global_scale": 0.0,
+          "random": 0.028228759765625
+        },
+        "n_candidates_per_scene": 490
+      },
+      "budget_matched": {
+        "n_scenes": 256,
+        "n_with_flip": 145,
+        "frac_with_flip": 0.56640625,
+        "n_model_miss_given_flip": 81,
+        "miss_rate_given_flip": 0.5586206896551724,
+        "unconditional_miss_rate": 0.31640625,
+        "stealth_feat_median": 1.2346348762512207,
+        "stealth_input_median": 0.32,
+        "stealth_margin_median": 0.06723803392838201,
+        "flip_rate_by_family": {
+          "random": 0.02851768246802107,
+          "single": 0.005457913975264133,
+          "pair": 0.005933822789902444,
+          "global_trans": 0.0,
+          "global_scale": 0.0,
+          "global_rot": 0.0
+        }
+      }
+    }
+  }
+}

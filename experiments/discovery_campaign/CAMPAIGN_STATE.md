@@ -45,3 +45,11 @@
 - R06 散射：首版 rollout 漏 append（恒差 bug，已修）；修正后真发散（eps0.02→300 步 ×24）；全量 200/50/50 后台（MPNN 完全图 vs MLP）。
 - T5R3 探针通过：TaskModel strict 加载 OK，前向 9ms/快照 CPU，Jacobian 可用；R01-T5R3 适配成本低，排队等 R02/R04/R06 结果。
 - R04 首训作废重跑：pert 前向误包 no_grad 致四模型权重 bit-identical（损失不同但梯度只过 clean）；已修（grad 版 lp＋detached pi），smoke 验证四权重分化，坏数据已删、r04 全量重训中。
+
+## 优化轮活记录（goal mu5qijtb-uoh83q，路线层冻结）
+- R1（R02 坐标深化）：新场景 tune_707/confirm_808（512×2）；sweep（tune_707 前 256，mlpA）：A 0.576/0.297、B matched 0.559/0.352、C matched 0.628/0.363 → C（random-heavy）预算匹配下胜出；C@margin0.05 保持 0.614/0.348。confirm（confirm_808 前 256：A 校准＋C×3 模型×margin{0.03,0.05}，7 runs）后台运行中。后半 256 留给后轮。
+- R1 落定：C 在 confirm 新场景 3 模型×2 margin 全胜（主数字 C@0.03×mlpB miss|flip 0.665 full/0.632 matched）；结果卡 R1_R02_deepen_card.md；goal r1-r02coord 完成。
+- R2 落定：WOY1024 pooled 0.305、WN1 pooled 0.329；margin 曲线 0.31→0.154→0.038；away 零对照 0.01–0.05；goal r2-r02t5r3 完成。
+- R3 开火：flip 预算曲线{0.25,0.5,0.75}＋等数 unif（1534 对）＋λ{0.5,2.0}，3 训练成功；评价循环 shell 引号 bug（for pair in "a b" 单迭代致路径错配）→ 空目录已删，修引号重跑评价中。
+- R3 seed11 落定：预算曲线 f25 0.528→f50/f75 0.488→full 0.463（0.5 处饱和）；等数 unifmatched 0.626 vs flipmine-full 0.463（同 1534 对，gap 16pp）；λ{0.5:0.488, 1.0:0.463, 2.0:0.455}弱敏感。胜者（λ2.0 full＋unifmatched）seeds 23/47 确认后台运行中。
+- R4 就绪：r04b_t5r3.py 接口齐（--epochs/--lr/--lam），基线为 s11/s23/s47（lam1.0/ep15/lr1e-4）；待 R3 落定后开调参屏。

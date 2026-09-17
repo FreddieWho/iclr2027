@@ -1,0 +1,176 @@
+{
+  "audit_note": "Every number below is copied verbatim from the listed artifact file; no new computation, no cherry-picking. 'presentation_pick_proposed' entries are PROPOSALS ONLY — each requires explicit user authorization (see AUTH_LOG_R6.md). Default honest reporting = full range / pooled values.",
+  "generated_utc": "2026-09-18",
+  "rows": [
+    {
+      "denominator": "n=256 scenes, eval_202[256:512], margin>=0.03",
+      "figure": "main-fig-R02",
+      "metric": "miss|flip / unconditional",
+      "provenance": "artifacts/discovery_campaign/r02_mlpA/R02_result.json",
+      "seeds_models": "mlpA_h64f32, 1 seed",
+      "value_full": [
+        0.6667,
+        0.3203
+      ]
+    },
+    {
+      "denominator": "n=256 scenes, confirm_808[0:256], margin>=0.03, 490 cands",
+      "figure": "main-fig-R02",
+      "metric": "miss|flip / unconditional",
+      "provenance": "artifacts/discovery_campaign/r02_confirm_C_mlpB_h32f16/R02_deepen.json :: configs.C",
+      "seeds_models": "mlpB_h32f16, 1 seed",
+      "value_full": [
+        0.665,
+        0.418
+      ],
+      "value_matched_298": [
+        0.632,
+        0.375
+      ]
+    },
+    {
+      "denominator": "n=256 scenes each, confirm_808[0:256]",
+      "figure": "main-fig-R02",
+      "metric": "miss|flip range over 3 archs (C@0.03, full)",
+      "provenance": "artifacts/discovery_campaign/r02_confirm_C_{mlpA_h64f32,mlpB_h32f16,mlpC_h128f32}/R02_deepen.json",
+      "seeds_models": "mlpA/B/C, 1 seed each",
+      "value_full": [
+        0.596,
+        0.665
+      ]
+    },
+    {
+      "denominator": "n=1024 scenes J03WOY + 425 J03WN1 + 256 J03WMX + 256 J03WOH; 3 T5R3 seeds each",
+      "figure": "main-fig-R02-T5R3",
+      "metric": "pooled miss|flip per match",
+      "provenance": "artifacts/discovery_campaign/r02_t5r3_{WOY1024,WN1all,WMX,WOH}/TRACK6_R02_result.json :: pooled_miss",
+      "seeds_models": "raw_single_channel_phase_gat_team_mean seeds 11/23/47",
+      "value_full": {
+        "J03WN1": 0.3288,
+        "J03WMX": 0.3573,
+        "J03WOH": 0.3545,
+        "J03WOY": 0.3046
+      }
+    },
+    {
+      "denominator": "n=256 scenes J03WOY; 235 flips; 3 T5R3 seeds",
+      "figure": "main-fig-R02-T5R3",
+      "metric": "miss|flip per seed (floor 0.03)",
+      "provenance": "artifacts/discovery_campaign/r02_t5r3_WOY1024/TRACK6_R02_result.json :: per_model.*.miss_given_flip",
+      "seeds_models": "seeds 11/23/47",
+      "value_full": [
+        0.2429,
+        0.3537,
+        0.3171
+      ]
+    },
+    {
+      "denominator": "n=256 scenes, eval_202[256:512], margin>=0.03",
+      "figure": "main-fig-R04",
+      "metric": "miss|flip per seed, 1534 pairs",
+      "provenance": "reports/discovery_campaign/R3_flipmine_card.md :: 三种子确认表 (source: r04c_eval_* / R02_result.json)",
+      "seeds_models": "mlpA, seeds 11/23/47",
+      "value_full": {
+        "clean": [
+          0.675,
+          0.642,
+          0.634
+        ],
+        "flipmine_lambda1.0": [
+          0.463,
+          0.48,
+          0.447
+        ],
+        "flipmine_lambda2.0": [
+          0.455,
+          0.455,
+          0.439
+        ],
+        "unifmatched_1534": [
+          0.626,
+          0.577,
+          0.577
+        ]
+      }
+    },
+    {
+      "denominator": "n=256 scenes J03WOY; 235 flips",
+      "figure": "main-fig-R04-T5R3",
+      "metric": "miss|flip per seed",
+      "provenance": "reports/discovery_campaign/R4_t5r3tune_card.md (source: r02_t5r3_R4_* / TRACK6_R02_result.json + r04c_t5r3 manifests)",
+      "seeds_models": "raw_single_channel seeds 11/23/47",
+      "value_full": {
+        "cleanonly": [
+          0.217,
+          0.281,
+          0.302
+        ],
+        "cover_lambda1.0": [
+          0.132,
+          0.217,
+          0.157
+        ],
+        "cover_lr3e-4": [
+          0.0766,
+          0.1404,
+          0.1149
+        ],
+        "frozen": [
+          0.2979,
+          0.3404,
+          0.3149
+        ]
+      }
+    },
+    {
+      "denominator": "n=256 scenes J03WOY per floor; 3 T5R3 seeds",
+      "figure": "supp-fig-margin-curve",
+      "metric": "pooled miss|flip by oracle floor",
+      "provenance": "reports/discovery_campaign/TRACK6_card.md :: R2 margin curve (source: r02_t5r3_WOYf06, r02_t5r3_WOYf10)",
+      "seeds_models": "seeds 11/23/47",
+      "value_full": {
+        "floor_0.03": 0.31,
+        "floor_0.06": 0.154,
+        "floor_0.10": 0.038
+      }
+    },
+    {
+      "denominator": "n=256 scenes, eval_202[256:512], seed 11",
+      "figure": "supp-fig-budget-curve",
+      "metric": "miss|flip by flip-pair count",
+      "provenance": "reports/discovery_campaign/R3_flipmine_card.md (source: r04c_eval_r04c_budget_*)",
+      "seeds_models": "mlpA seed 11",
+      "value_full": {
+        "f25_384": 0.528,
+        "f50_767": 0.488,
+        "f75_1151": 0.488,
+        "full_1534": 0.463
+      }
+    },
+    {
+      "denominator": "n=256 scenes J03WOY per arm; 3 T5R3 seeds",
+      "figure": "methods-zero-control",
+      "metric": "away_flip_rate range (must stay ~0)",
+      "provenance": "artifacts/discovery_campaign/r02_t5r3_WOY1024/TRACK6_R02_result.json :: per_model.*.away_flip_rate",
+      "seeds_models": "seeds 11/23/47",
+      "value_full": [
+        0.0449,
+        0.0537
+      ]
+    }
+  ],
+  "red_lines_observed": [
+    "J03WQQ reserved holdout untouched (verified in r02_t5r3 + r04b_t5r3 manifests)",
+    "no historical-number repackaging (8/8, 34.2%, 37.7% absent from this table)",
+    "no old-recipe revival (AMR/CAP/teacher/nomask/JGCL absent)",
+    "denominators and seeds reported, never mean+-std"
+  ],
+  "presentation_decisions_20260918": {
+    "T1": "APPROVED: mlpB brightest main, full table appendix",
+    "T2": "APPROVED: WOY pooled main, 3 matches small table",
+    "T3": "REJECTED: use lambda1.0, lambda2.0 one sentence",
+    "T4": "REJECTED: use pooled miss 0.111 / uncond 0.102, s11 supplementary",
+    "T5": "APPROVED: main floor 0.03 only, rest appendix",
+    "T6": "APPROVED: negatives appendix, product-conservation not in appendix titles"
+  }
+}

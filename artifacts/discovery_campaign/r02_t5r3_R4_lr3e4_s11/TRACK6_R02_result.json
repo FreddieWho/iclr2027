@@ -1,0 +1,37 @@
+{
+  "match": "J03WOY",
+  "floor": 0.03,
+  "max_shift": 0.4,
+  "per_model": {
+    "cover": {
+      "n_scenes": 256,
+      "n_flip": 235,
+      "frac_flip": 0.918,
+      "n_miss": 18,
+      "miss_given_flip": 0.0766,
+      "unconditional_miss": 0.0703,
+      "stealth_feat_med": 24.7858,
+      "null_feat_med": 17.5917,
+      "stealthier_frac": 0.1528,
+      "clean_acc": 0.9727,
+      "away_flip_rate": 0.0195,
+      "margin_med": 0.03
+    },
+    "cleanonly": {
+      "n_scenes": 256,
+      "n_flip": 235,
+      "frac_flip": 0.918,
+      "n_miss": 51,
+      "miss_given_flip": 0.217,
+      "unconditional_miss": 0.1992,
+      "stealth_feat_med": 26.3532,
+      "null_feat_med": 18.1383,
+      "stealthier_frac": 0.1485,
+      "clean_acc": 0.9805,
+      "away_flip_rate": 0.0156,
+      "margin_med": 0.03
+    }
+  },
+  "pooled_miss": 0.1468,
+  "note": "stealth defined vs equal-magnitude away-translation null"
+}

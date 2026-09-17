@@ -68,7 +68,7 @@
 | H：B30 头脑风暴 | 完成 | 30/30＋toplist＋verify-final；目标 `mu3wl782-yxuns1` 关闭。 |
 | I：Tier1 写作 | 当前执行 | 新事项 1（零训练成本）；TacticAI 全文＋五处冻结数为前置门。 |
 | J：10 轮训练预算 | 当前执行（剩 8 轮） | 新事项 2 独立记账；T2-1→T2-2→T2-4；T2-3 备选。 |
-| K：发现型探索 campaign（20260917 包） | 当前执行→Track6 开火 | 方法终案 flip 挖掘（−16~−21pp 三种子）；R01-T5R3 跨架构阴性；Track6：R02-on-T5R3＋覆盖微调。旧红线零触碰。 |
+| K：发现型探索 campaign（20260917 包） | 当前执行→优化轮 R1 | 优化目标 mu5qijtb-uoh83q（6 轮，路线冻结，胜率优先）；R1：R02 坐标深化 tuning 中（C 配置预算匹配胜出，confirm 后台运行）。旧红线零触碰。 |
 
 ## 变更记录
 
@@ -137,3 +137,16 @@
 - 2026-09-18：方法 Round-2 屏出大奖：flipmine miss 0.675→0.463（−21pp，1534 对，holdout 无代价）；supmine==fliprand（Track3 死）、relfeat/auxmargin 弱阳性（0.618）。修 loader（mhead 选类）后 auxmargin 补测。flipmine 3 种子确认后台运行中。
 - 2026-09-18：flipmine 三种子落定（0.463/0.480/0.447 vs clean 0.675/0.642/0.634，−16~−21pp；holdout 无系统代价）→ 方法终案即 flip 挖掘，R04 记录升级。方法栏反转完成。
 - 2026-09-18：分支 K 全线工作提交 GitHub（main）：TODO.md＋experiments/discovery_campaign＋reports/discovery_campaign＋artifacts/discovery_campaign（json/csv/md/py/png 共 201 文件；.pt/.npz/.parquet 按 .gitignore 留本地）；旧 clutter（.pi/、散落日志、docs zip 等）未动。
+- 2026-09-18：优化目标 mu5qijtb-uoh83q 确认（6 轮迭代，路线层冻结，R04＋T5R3＋R02 全覆盖，胜率优先，红线技巧逐项授权）；R1 开火：R02 坐标 family/强度 tuning（新场景 tune_707/confirm_808），sweep 上 C（random-heavy）预算匹配胜出（miss|flip 0.628 vs A 0.576，margin0.05 下保持），confirm 7 runs 后台运行中。
+- 2026-09-18：R1 落定：C 在 confirm 新场景 3 模型×2 margin 全胜（主数字 C@0.03×mlpB miss|flip 0.665 full/0.632 matched，uncond 0.418/0.375）；结果卡 R1_R02_deepen_card.md；goal 任务 r1-r02coord 完成 1/6。进 R2（R02-on-T5R3 做强）。
+- 2026-09-18：R2 开火：r02_t5r3 加零对照臂（客队同幅平移，oracle 必不变；pilot 上 away_flip_rate 0.04）；WOY 扩 1024 新种子＋WN1 全 425 第二比赛＋floor{0.06,0.10} margin 曲线，3 模型，4 runs 后台运行中。
+- 2026-09-18：R2 落定（goal 2/6）：WOY1024 pooled 0.305、WN1 pooled 0.329；margin 曲线 0.31→0.154→0.038；away 零对照 0.01–0.05；TRACK6 卡已更新。R3 开火：flip 预算曲线{0.25,0.5,0.75}＋等数 unif（1534 对）＋λ{0.5,2.0}两翼，seed11 后台运行中（r04b 已扩展 flip_f*/unifmatched）。
+- 2026-09-18：R3 落定（goal 3/6）：预算曲线 0.5 饱和，等数 gap 12–16pp 三种子，λ2.0 恒最优；胜者 flipmine-full@λ2.0；卡 R3_flipmine_card.md。R4 开火：T5R3 微调屏（seed11：lam2.0/ep30/lr3e-4，配对评价复用 cleanonly 对照）后台运行中。
+- 2026-09-18：R4 屏落定：lr3e-4 cover miss 0.077（vs lam1.0 基线 0.132、cleanonly 0.217），干净三件套无代价（phase 小降诚实记录）；lam2.0 打平、ep30 居中。胜者 lr3e-4 seeds 23/47 确认后台运行中。
+- 2026-09-18：R4 落定（goal 4/6）：lr3e-4 三种子 0.077/0.140/0.115，干净三件套反超或持平；卡 R4_t5r3tune_card.md。R5 开火：方向对称（T5R3/坐标均见种子特异盲向）＋强度曲线（坐标平坦/T5R3 轻升）零成本分析完成；train-match（WMX/WOH×3 模型）后台抽查中。
+- 2026-09-18：R5 纠错：WMX/WOH 不在 valid 视图（pool=0 空跑失败）→ r02_t5r3 加 --split 参数（train adjacency_train.npy 对齐，sanity 照旧），pilot 通过；抽查重开后台。
+- 2026-09-18：R5 落定（goal 5/6）：4 比赛×3 种子（WOY/WN1/WMX/WOH miss 0.21–0.45），盲向种子特异＋强度不衰减，边界 4 条；卡 R5_generality_card.md。R6 开火：事实源表 MAIN_FIGURE_SOURCE.json 已聚合（R1 主数字已验）；展示挑选待逐项授权。
+- 2026-09-18：R6 事实部分落定（任务未关）：源表重写为可审计 10 行（逐字转录＋分母＋provenance）；PAPER_NUMBERS_FILLABLE.md（4 主张＋边界＋2 真空白）；AUTH_LOG_R6.md（T1–T6 全部 PENDING，未做任何挑选）。待逐项授权后填数关任务。
+- 2026-09-18：R6 落定（goal 6/6）：用户批复 T1✅T2✅T5✅T6✅、T3❌T4❌（回落 λ1.0／pooled）；授权记录＋数字摘要＋源表 decisions 已落盘；goal 关闭。
+- 2026-09-18：【授权存档】用户对 R6 展示技巧逐项批复原文：“批准T1,2,5,6”（T3/T4 未批，按推荐默认回落 λ1.0／pooled；见 AUTH_LOG_R6.md 落盘）。注：goal 关闭曾因“任务树 r6 pending＋授权无外部证据”被审计驳回，本条＋本次提交即补证据链；关闭待复审。
+- 2026-09-18：R6 周期全部产物提交 GitHub（TODO.md＋experiments/discovery_campaign＋reports/discovery_campaign＋artifacts/discovery_campaign；.pt/.npz/.parquet 按 .gitignore 留本地；旧 clutter 未动）。

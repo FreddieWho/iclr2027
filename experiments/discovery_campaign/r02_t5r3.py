@@ -64,6 +64,7 @@ def main() -> int:
     p.add_argument("--floor", type=float, default=0.03)
     p.add_argument("--max-shift", type=float, default=0.40)
     p.add_argument("--seed", type=int, default=5)
+    p.add_argument("--split", type=str, default="valid", choices=["valid", "train"])
     p.add_argument("--role", type=str, default="eval",
                    help="eval: metrics; mine: also dump flip scenes for finetuning")
     a = p.parse_args()
@@ -72,10 +73,10 @@ def main() -> int:
     a.output.mkdir(parents=True, exist_ok=False)
     rng = np.random.default_rng(a.seed)
 
-    raw = np.load(VIEW / "positions_raw_valid.npy").astype(np.float32)
-    team = np.load(VIEW / "team_slots_valid.npy").astype(np.int64)
-    index = pd.read_parquet(VIEW / "snapshot_index_valid.parquet")
-    adj_stored = np.load(T5R3 / "adjacency_valid.npy").astype(np.float32)
+    raw = np.load(VIEW / f"positions_raw_{a.split}.npy").astype(np.float32)
+    team = np.load(VIEW / f"team_slots_{a.split}.npy").astype(np.int64)
+    index = pd.read_parquet(VIEW / f"snapshot_index_{a.split}.parquet")
+    adj_stored = np.load(T5R3 / f"adjacency_{a.split}.npy").astype(np.float32)
     mids = index["source_match_id"].astype(str).to_numpy()
     home_cx_all = (raw * (team == 0)[..., None]).sum(1)[:, 0] / (team == 0).sum(1)
     zmap = {"defensive_third": 0, "middle_third": 1, "attacking_third": 2}
@@ -107,6 +108,12 @@ def main() -> int:
     Xf[:, home_idx, 0] += (shift * feasible)[:, None]
     Xn = X.copy()
     Xn[:, home_idx, 0] -= (shift * feasible)[:, None]
+    # zero-control arm: same-magnitude shift applied to AWAY team instead.
+    # Oracle zone (home-based) cannot change; any model flip here is spurious
+    # sensitivity, reported as a bound — not pooled into miss rates.
+    away_idx = np.where(team[0] == 1)[0]
+    Xa = X.copy()
+    Xa[:, away_idx, 0] += (shift * feasible)[:, None]
     hcx_f = hcx + shift * feasible
     hcx_n = hcx - shift * feasible
     zf = zone_of(hcx_f)
@@ -119,6 +126,7 @@ def main() -> int:
 
     adj_f = knn_adjacency_batch(Xf)
     adj_n = knn_adjacency_batch(Xn)
+    adj_a = knn_adjacency_batch(Xa)
     if a.role == "mine":
         keep = np.where(valid_flip)[0]
         np.savez_compressed(
@@ -137,6 +145,7 @@ def main() -> int:
         mname = Path(mpath).stem
         zp_f, _, zfeat_f = forward_all(model, Xf, T, adj_f)
         zp_n, _, zfeat_n = forward_all(model, Xn, T, adj_n)
+        zp_a, _, _ = forward_all(model, Xa, T, adj_a)
         zp_c, _, zfeat_c = forward_all(
             model, X, T, adj_stored[sel])
         miss = (zp_f != zf) & valid_flip
@@ -156,6 +165,7 @@ def main() -> int:
             "null_feat_med": round(float(np.median(fd_null[ok_null])), 4) if ok_null.sum() else None,
             "stealthier_frac": round(float(stealthier.sum() / ok_null.sum()), 4) if ok_null.sum() else None,
             "clean_acc": round(float((zp_c == z0).mean()), 4),
+            "away_flip_rate": round(float((zp_a != z0).mean()), 4),
             "margin_med": round(float(np.median(zone_margin(hcx_f[valid_flip]))), 4) if n_flip else None,
         }
         for i in np.where(valid_flip)[0]:
@@ -163,6 +173,7 @@ def main() -> int:
                              "orig": int(z0[i]), "new": int(zf[i]),
                              "shift": round(float(shift[i]), 4),
                              "pred": int(zp_f[i]), "miss": bool(miss[i]),
+                             "away_pred": int(zp_a[i]),
                              "feat_dist": round(float(fd_flip[i]), 4),
                              "null_feat_dist": round(float(fd_null[i]), 4)
                              if valid_null[i] else None})
