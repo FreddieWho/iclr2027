@@ -162,3 +162,4 @@
 - 2026-09-18：E7 背景综合完成（reports/last15h/E7_background.md）：4 researcher 并轨收敛（斜率/斜率场/距离值/稠密标签——皆约束插值函数）；引文亲验：S&F 等价、DSNT、RKD 成立，Finlay 1910.06922 错配已剔除。v3 falsification 网提案待开火。
 - 2026-09-18：E7 开火（L-007→执行中）：v3 falsification 网（flip-mix/anti-flatness/SDF/tangent/coupled-margin 5 实验臂＋vanilla-mixup/global-grad/BAN 3 对照），积分第一指标，5 种子，通过线直通 E6（L-006）。
 - 2026-09-18：E7 v3 网开跑（4 并行 batch，12 臂 × 5 种子 = 60 训练）：flipmine 基线、flipmix_u/c、vanilla-mixup、antiflat×2、SDF、tangent、noise-only、coupled、globalgrad、BAN。slope 计算向量化（逐点循环→每路径 2 forward）。判据：积分胜 flipmine 0.229 且 5 种子同向→E6，否则按臂 kill 线。
+- 2026-09-18：E7 v3 全灭收敛（12 臂×5 种子=60 训练）：flipmix/SDF/tangent/antiflat/coupled/vanilla/BAN 全败或持平；斜率非 binding constraint；E7 方法位空缺进 future。已推送。
