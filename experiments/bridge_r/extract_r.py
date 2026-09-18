@@ -97,7 +97,8 @@ def main():
             idx = range(s, min(s + a.batch, nq))
             imgs = []
             for qi in idx:
-                x, ea, eb = (d[f"q{qi}"][0], d[f"q{qi}"][1], d[f"q{qi}"][2])
+                qq = d[f"q{qi}"].reshape(3, 4, 2)
+                x, ea, eb = qq[0], qq[1], qq[2]
                 seed = NUISANCE_BASE[a.split] + int(qi)
                 for st in (x, x + ea, x + eb, x + ea + eb):
                     imgs.append(render_canonical(

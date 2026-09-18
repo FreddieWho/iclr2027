@@ -43,8 +43,8 @@ def build(holdout_npz, rng_seed=4242):
     # composition covariates
     comp = []
     for qi in range(nq):
-        q = d[f"q{qi}"]
-        x, ea, eb = q[0], q[1], q[2]
+        qq = d[f"q{qi}"].reshape(3, 4, 2)
+        x, ea, eb = qq[0], qq[1], qq[2]
         seed = NUISANCE_HOLDOUT + qi
         rb = render_canonical(x, np.random.default_rng(seed))
         rab = render_canonical(x + ea + eb, np.random.default_rng(seed))
@@ -56,8 +56,8 @@ def build(holdout_npz, rng_seed=4242):
     # candidate singles per quartet
     cands = []
     for qi in range(nq):
-        q = d[f"q{qi}"]
-        x = q[0]
+        qq = d[f"q{qi}"].reshape(3, 4, 2)
+        x = qq[0]
         try:
             y0, _, _ = oracle_at(x)
         except ValueError:
