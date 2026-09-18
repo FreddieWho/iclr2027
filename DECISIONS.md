@@ -450,3 +450,12 @@
 - 决定：TODO顶部 SCIENTIFIC_EXPLORATION:FROZEN；reports/FINAL_EVIDENCE_TABLE.md 为正文唯一数字来源；
   主headline切 fresh 151/176=85.8%；84.4%限定随机编辑分母（fresh瞄准44%并列，不平均）；
   paper标题→Knowing the Parts.../摘要引言已迁新线，02–08节重构待办。
+
+## D-20260918-ENV01：后续 HF 下载走镜像
+- 日期：2026-09-18
+- 事实：本机直连 huggingface.co 经 7890 代理缓慢且出现过下载僵死；`huggingface_hub` 认
+  `HF_ENDPOINT`（已验证覆盖默认 `https://huggingface.co`）。
+- 决定：`~/.bashrc`、`~/.profile`、`~/.zshrc` 均追加
+  `if [ -z "${HF_ENDPOINT:-}" ]; then export HF_ENDPOINT="https://hf-mirror.com"; fi`
+  （显式导出优先，不覆盖）；正在跑的 SigLIP2 下载不动，沿用官方源直至完成。
+- 复查触发：首次经镜像下载权重后核对 revision/sha 与 protocol lock 一致。
