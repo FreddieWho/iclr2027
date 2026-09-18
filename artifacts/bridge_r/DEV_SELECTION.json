@@ -30,5 +30,7 @@
   "config": "dinov2/R0_pooled/lr/n1000",
   "dev_atomic": 0.7276315789473684,
   "gate_B1": "FAIL (0.728 < 0.85 floor); readout: atomic-accessibility-insufficient, no composition claim from DINOv2"
- }
+ },
+ "renderer_version": "bridge_r_canonical_v1a",
+ "note": "curve/dinov2_* (no v1a prefix) are superseded v1-renderer diagnostics, kept for audit trail only"
 }
