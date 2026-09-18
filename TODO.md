@@ -187,3 +187,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-18：SCIENTIFIC_EXPLORATION bridge单线解冻（用户授权；改稿放后）。bridge pilot开跑：experiments/bridge/b01_pilot.py（224px nuisance-locked渲染→frozen DINOv2-B/CLIP ViT-B→linear probe，train-quartets训/eval 200测），判据atomic≥0.90才展开。后台运行中。
 - 2026-09-18：bridge pilot收敛（DINOv2-B/CLIP ViT-B frozen＋LR/CV/MLP probe）：atomic最高0.865未达0.90展开线（NOGO，全矩阵不开）；条件miss 0.20~0.43（85.8%→两三成，scale大缓解未消除）；MLP train 1.0而atomic不动＝表示侧瓶颈。报告reports/bridge/B01_PILOT.md。定位Level 2.5，标题降级仍欠账。
 - 2026-09-18：bridge提交GitHub（2脚本＋3 result.json＋B01_PILOT报告；feats.npz按.gitignore留本地）。
+- 2026-09-18：Bridge-R lock提交（规则冻结＋DINOv3 blocked记录）；DINOv2 train/dev提特征后台运行中，SigLIP2权重下载中。
