@@ -181,3 +181,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-18：U02_fixed落地（T clean 8.14/flipmine 8.43，“反信息”作废，U02.md＋证据表更新）；U03b_fixed落地（emerg五风格逐数不变，增益−18/−27/−12/−4/−15pp，U03.md＋证据表confirm，nuisance口径升级）；smoke audit通过（151/176、C1 130→86/248、C0、28/64、F4 lam2 0.75/0.625、静态0.180/0.107、X03b anti 0.27/0.23 vs 读出0.89/0.87，全部从artifact重算一致）。待：paper 02–08节重构；U03b额外2训练seed（clean＋pixflip）待批算力。
 - 2026-09-18：paper 02–08重构完成（新spine：02受控转义设定/03三失败模式/04 flip修复/04b足球/05像素/06失败了什么/07相关工作与局限/08可复现性；旧Action-Mode/Jacobian退为07半段背景）。U03b seed805落地（5风格全同向−8~−16pp，证据表＋05节更新）；s806后台运行中。
 - 2026-09-18：U03b s806落地（5风格全同向−16~−30pp）→ 像素跨风格修复立于3独立训练实例；证据表＋05/07节更新。审计闭合全部完成，科学工作彻底停止，剩余仅投稿行政与编译。
+- 2026-09-18：审计闭合提交GitHub（75e366a，25文件＋799/−317：3代码修＋paper全文＋证据表＋4 artifact result.json；cache.npz按.gitignore留本地）。
