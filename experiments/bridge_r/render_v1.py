@@ -15,13 +15,13 @@ from __future__ import annotations
 import numpy as np
 
 CANON = 512
-SAFE_SCALE = 0.80
-LINE_WIDTH = 10  # px at 512 (scales ~ linearly with the B01 6px@224)
+SAFE_SCALE = 0.88
+LINE_WIDTH = 16  # px at 512 (8px @256 post-resize; Am01: strokes must survive downsampling)
 BG_MEAN = 0.5
 BG_JITTER = 0.05
 COLORS = [(0.9, 0.1, 0.1)] * 2 + [(0.1, 0.1, 0.9)] * 2  # AB red, CD blue
 
-RENDERER_VERSION = "bridge_r_canonical_v1"
+RENDERER_VERSION = "bridge_r_canonical_v1a"
 RENDER_CONFIG = {
     "renderer_version": RENDERER_VERSION,
     "canonical_resolution": CANON,

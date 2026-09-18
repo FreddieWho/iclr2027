@@ -1,4 +1,12 @@
 {
+ "amendments": [
+  {
+   "file": "artifacts/bridge_r/BRIDGE_R_AMENDMENT_01.md",
+   "holdout_touched": false,
+   "id": "Am01",
+   "scope": "renderer only (SAFE_SCALE 0.80->0.88, LINE_WIDTH 10->16, v1->v1a)"
+  }
+ ],
  "dinov3_status": "BLOCKED_EXTERNAL_ACCESS (gated=manual, no token, no cache; fallback engaged, no bypass attempted)",
  "forbidden_posthoc": [
   "threshold tuning on holdout",
@@ -22,7 +30,7 @@
   "min_margin": 0.02
  },
  "git_commit": "50a0d454143bbb3fd5500eaaf57dd4509a7566b7",
- "lock_sha": "1f245d5262cef2b938a88221608d4211b14980a6a9fdab18da2ee5386ebe37c4",
+ "lock_sha": "cce7cd18068b414e3b2cc5238ea3af42cf45bc241d4849447cf386186a9cd844",
  "matching": {
   "candidates_per_quartet": 64,
   "covariates": [
