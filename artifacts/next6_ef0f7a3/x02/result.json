@@ -1,0 +1,23 @@
+{
+ "n_combos": 203,
+ "clean": {
+  "combo_miss_id": 0.6354679802955665,
+  "combo_miss_vote8": 0.6206896551724138,
+  "combo_miss_swap1": 0.6403940886699507,
+  "combo_miss_centered": 0.6059113300492611,
+  "combo_miss_jitter8": 0.6305418719211823,
+  "view_agree8": 0.3793103448275862,
+  "static_err_id": 0.169921875,
+  "static_err_vote8": 0.103515625
+ },
+ "flipmine": {
+  "combo_miss_id": 0.458128078817734,
+  "combo_miss_vote8": 0.39901477832512317,
+  "combo_miss_swap1": 0.4975369458128079,
+  "combo_miss_centered": 0.49261083743842365,
+  "combo_miss_jitter8": 0.4039408866995074,
+  "view_agree8": 0.3103448275862069,
+  "static_err_id": 0.123046875,
+  "static_err_vote8": 0.109375
+ }
+}

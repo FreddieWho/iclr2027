@@ -1,0 +1,27 @@
+{
+ "counts": {
+  "clean": 2048,
+  "pixflip": 2968,
+  "pixquartet": 2968
+ },
+ "flip_attempts": 947,
+ "n_eval_quartets": 547,
+ "clean": {
+  "emergent_miss": 0.5374771480804388,
+  "atomic_acc": 0.5356489945155393,
+  "cond_miss": 0.8361774744027304,
+  "static_err": 0.08984375
+ },
+ "pixflip": {
+  "emergent_miss": 0.3510054844606947,
+  "atomic_acc": 0.5027422303473492,
+  "cond_miss": 0.5927272727272728,
+  "static_err": 0.08984375
+ },
+ "pixquartet": {
+  "emergent_miss": 0.5722120658135283,
+  "atomic_acc": 0.583180987202925,
+  "cond_miss": 0.8307210031347962,
+  "static_err": 0.12890625
+ }
+}

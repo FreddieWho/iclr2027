@@ -1,0 +1,85 @@
+{
+ "n_train_quartets": 230,
+ "n_eval_quartets": 547,
+ "arm_sample_counts": {
+  "clean_only": 0,
+  "combo_endpoint": 230,
+  "random": 230,
+  "quartet": 920
+ },
+ "clean_only_s11": {
+  "emergent_miss": 0.5685557586837294,
+  "atomic_acc": 0.5886654478976234,
+  "static_err": 0.0,
+  "common_cond_miss": 0.975609756097561
+ },
+ "combo_endpoint_s11": {
+  "emergent_miss": 0.5100548446069469,
+  "atomic_acc": 0.5301645338208409,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9451219512195121
+ },
+ "random_s11": {
+  "emergent_miss": 0.46983546617915906,
+  "atomic_acc": 0.526508226691042,
+  "static_err": 0.0078125,
+  "common_cond_miss": 0.8963414634146342
+ },
+ "quartet_s11": {
+  "emergent_miss": 0.5045703839122486,
+  "atomic_acc": 0.5191956124314442,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9512195121951219
+ },
+ "common_n_s11": 164,
+ "clean_only_s23": {
+  "emergent_miss": 0.5411334552102377,
+  "atomic_acc": 0.546617915904936,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9696969696969697
+ },
+ "combo_endpoint_s23": {
+  "emergent_miss": 0.5118829981718465,
+  "atomic_acc": 0.5539305301645339,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9272727272727272
+ },
+ "random_s23": {
+  "emergent_miss": 0.48628884826325414,
+  "atomic_acc": 0.5868372943327239,
+  "static_err": 0.005859375,
+  "common_cond_miss": 0.9151515151515152
+ },
+ "quartet_s23": {
+  "emergent_miss": 0.5082266910420475,
+  "atomic_acc": 0.5429616087751371,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9757575757575757
+ },
+ "common_n_s23": 165,
+ "clean_only_s47": {
+  "emergent_miss": 0.5795246800731262,
+  "atomic_acc": 0.583180987202925,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9705882352941176
+ },
+ "combo_endpoint_s47": {
+  "emergent_miss": 0.4990859232175503,
+  "atomic_acc": 0.5521023765996343,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9470588235294117
+ },
+ "random_s47": {
+  "emergent_miss": 0.5045703839122486,
+  "atomic_acc": 0.5539305301645339,
+  "static_err": 0.013671875,
+  "common_cond_miss": 0.9235294117647059
+ },
+ "quartet_s47": {
+  "emergent_miss": 0.49725776965265084,
+  "atomic_acc": 0.5338208409506399,
+  "static_err": 0.0,
+  "common_cond_miss": 0.9705882352941176
+ },
+ "common_n_s47": 170
+}

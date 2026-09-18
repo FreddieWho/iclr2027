@@ -1,0 +1,25 @@
+{
+ "n_train_pairs": 450,
+ "n_test_pairs": 450,
+ "n_test_anti": 150,
+ "clean": {
+  "interchange_acc": 0.5444444444444444,
+  "interchange_anti": 0.14666666666666667,
+  "fullswap_acc": 0.4911111111111111,
+  "randsub_acc": 0.48444444444444446,
+  "randsub_anti": 0.14666666666666667,
+  "readout_acc": 0.6044444444444445,
+  "readout_anti": 0.54,
+  "base_acc": 0.8577777777777778
+ },
+ "flipmine": {
+  "interchange_acc": 0.5555555555555556,
+  "interchange_anti": 0.23333333333333334,
+  "fullswap_acc": 0.5,
+  "randsub_acc": 0.5266666666666666,
+  "randsub_anti": 0.16,
+  "readout_acc": 0.6711111111111111,
+  "readout_anti": 0.6466666666666666,
+  "base_acc": 0.8644444444444445
+ }
+}

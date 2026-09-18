@@ -1,0 +1,64 @@
+{
+ "n_train_quartets": 230,
+ "n_eval_quartets": 547,
+ "active_s11": {
+  "emergent_miss": 0.5283363802559415,
+  "active_sizes": [
+   195,
+   13,
+   114,
+   33,
+   122
+  ]
+ },
+ "control_s11": {
+  "emergent_miss": 0.5356489945155393,
+  "active_sizes": [
+   195,
+   13,
+   98,
+   34,
+   73
+  ]
+ },
+ "active_s23": {
+  "emergent_miss": 0.5319926873857403,
+  "active_sizes": [
+   183,
+   20,
+   116,
+   36,
+   115
+  ]
+ },
+ "control_s23": {
+  "emergent_miss": 0.526508226691042,
+  "active_sizes": [
+   183,
+   11,
+   105,
+   16,
+   80
+  ]
+ },
+ "active_s47": {
+  "emergent_miss": 0.48080438756855576,
+  "active_sizes": [
+   183,
+   22,
+   126,
+   31,
+   123
+  ]
+ },
+ "control_s47": {
+  "emergent_miss": 0.489945155393053,
+  "active_sizes": [
+   183,
+   15,
+   89,
+   30,
+   87
+  ]
+ }
+}

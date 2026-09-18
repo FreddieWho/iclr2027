@@ -1,0 +1,13 @@
+route,metric,value,num,den,condition_set,source,cost
+U01,emergent_miss_combo_endpoint,0.499-0.512,~273,547,unseen recheck quartets 3 seeds,artifacts/next6_ef0f7a3/u01/result.json,12 trainings x300ep CPU
+U01,emergent_miss_random,0.470-0.505,~264,547,same set same counts,artifacts/next6_ef0f7a3/u01/result.json,same run
+U01b,emergent_miss_active_vs_control,±0.01,,547,same unseen set 3 seeds,artifacts/next6_ef0f7a3/u01b/result.json,6 trainings x300ep CPU
+U02,refusal_clean_vs_flipmine,0.430/0.118,40/11,93,oracle-feasible test scenes lexico,artifacts/next6_ef0f7a3/u02/result.json,frozen inference cache
+U02,score_success_lam2_clean_vs_flip,0.172/0.258,16/24,93,same set,artifacts/next6_ef0f7a3/u02/result.json,same run
+U02,temperature_changed_frac_T2_lam0,0.17/0.46,,93,argmax-invariant rescale clean/flip,artifacts/next6_ef0f7a3/u02/result.json,zero new forwards
+U03,pixflip_emergent_miss,0.351,192,547,rendered unseen quartets same style,artifacts/next6_ef0f7a3/u03/result.json,3 CNN x20ep CPU
+U03b,pixflip_gain_5_styles,-18/-27/-12/-4/-15pp,,547,S0/S1/S2/S3/S4 same geometry,artifacts/next6_ef0f7a3/u03b/result.json,3 CNN x20ep + inference CPU
+X01,emergent_miss_raw_vs_bilinear,0.405/0.420,,547,budget-matched same data 3 seeds,artifacts/next6_ef0f7a3/x01/result.json + x01b,9+9 trainings CPU
+X02,combo_miss_vote8_vs_jitter8_flip,0.399/0.404,81/82,203,frozen flipmine emergent combos,artifacts/next6_ef0f7a3/x02/result.json,frozen inference only
+X02,view_agreement,0.310,,203,8 views same geometry,artifacts/next6_ef0f7a3/x02/result.json,same run
+X03b,interchange_anti_vs_readout_anti,0.23-0.27/0.87-0.89,35-41/131-134,150,anti-copy fresh bindings clean+flip,artifacts/next6_ef0f7a3/x03b/result.json,rank-4 patch 500ep CPU

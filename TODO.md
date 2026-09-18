@@ -164,3 +164,5 @@
 - 2026-09-18：E7 v3 网开跑（4 并行 batch，12 臂 × 5 种子 = 60 训练）：flipmine 基线、flipmix_u/c、vanilla-mixup、antiflat×2、SDF、tangent、noise-only、coupled、globalgrad、BAN。slope 计算向量化（逐点循环→每路径 2 forward）。判据：积分胜 flipmine 0.229 且 5 种子同向→E6，否则按臂 kill 线。
 - 2026-09-18：E7 v3 全灭收敛（12 臂×5 种子=60 训练）：flipmix/SDF/tangent/antiflat/coupled/vanilla/BAN 全败或持平；斜率非 binding constraint；E7 方法位空缺进 future。已推送。
 - 2026-09-18：E1 开封收敛（holdout_909 现铸，单次 battery）：F3/F4/F6 强确认，F2 方向确认，F1 方向确认但量级半（0.44 vs 0.84，归因随机-vs-瞄准分母差，headline 加限定）；0 方向反转。E1 通过，holdout_909 封存。见 E1_VERDICT.md。
+- 2026-09-18：next6 开工（基准 ef0f7a3）：U01（修 sd 覆盖 bug＋四元组课程）与 X02（关系参照系 TTA）并行首轮；X01 另路；U02/U03 复用四元组随后；X03 小机制首试独立。分支 N（next6）。
+- 2026-09-18：next6 六路收官：U01 park（固定＋在线双持平，bug 修完 verdict 不变）/ X01 park（等参对打＋1200ep 去混杂，乘法无系统差）/ X02 park（jitter 持平，框架敏感进讨论）/ X03 park（可解码≠可组合，anti 0.27 vs 读出 0.89）/ U02 continue 做分析（接口杠杆±16pp＋覆盖分解，阈值救不了）/ U03 continue（pixflip −19pp 且五风格全同向，quartet 有害 park）。交付 SIX_ROUTE_RESULTS/SELECTED_STORY/NUMBERS.csv。分支 N。

@@ -1,0 +1,78 @@
+{
+ "counts": {
+  "clean": 2048,
+  "pixflip": 2968,
+  "pixquartet": 2968
+ },
+ "n_eval_quartets": 547,
+ "S0_same": {
+  "clean": {
+   "emerg": 0.514,
+   "atom": 0.492
+  },
+  "pixflip": {
+   "emerg": 0.333,
+   "atom": 0.556
+  },
+  "pixquartet": {
+   "emerg": 0.466,
+   "atom": 0.642
+  }
+ },
+ "S1_lw3": {
+  "clean": {
+   "emerg": 0.622,
+   "atom": 0.589
+  },
+  "pixflip": {
+   "emerg": 0.349,
+   "atom": 0.519
+  },
+  "pixquartet": {
+   "emerg": 0.455,
+   "atom": 0.57
+  }
+ },
+ "S2_swap": {
+  "clean": {
+   "emerg": 0.426,
+   "atom": 0.305
+  },
+  "pixflip": {
+   "emerg": 0.305,
+   "atom": 0.245
+  },
+  "pixquartet": {
+   "emerg": 0.406,
+   "atom": 0.287
+  }
+ },
+ "S3_bright": {
+  "clean": {
+   "emerg": 0.389,
+   "atom": 0.325
+  },
+  "pixflip": {
+   "emerg": 0.349,
+   "atom": 0.548
+  },
+  "pixquartet": {
+   "emerg": 0.463,
+   "atom": 0.629
+  }
+ },
+ "S4_scale09": {
+  "clean": {
+   "emerg": 0.516,
+   "atom": 0.479
+  },
+  "pixflip": {
+   "emerg": 0.366,
+   "atom": 0.519
+  },
+  "pixquartet": {
+   "emerg": 0.527,
+   "atom": 0.609
+  }
+ }
+}
