@@ -1,0 +1,21 @@
+{
+ "backbone": "clip",
+ "model_id": "openai/clip-vit-base-patch16",
+ "C": 1.0,
+ "scale": false,
+ "n_train_quartets": 230,
+ "n_eval_quartets": 200,
+ "train_acc": 0.9728260869565217,
+ "atomic_acc": 0.79,
+ "single_acc": {
+  "base": 0.905,
+  "A": 0.805,
+  "B": 0.775,
+  "AB": 0.75
+ },
+ "cond_n": 131,
+ "cond_miss": 0.3511450381679389,
+ "comp_n": 131,
+ "comp_miss": 0.3511450381679389,
+ "go": false
+}

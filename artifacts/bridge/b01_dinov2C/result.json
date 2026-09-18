@@ -1,0 +1,21 @@
+{
+ "backbone": "dinov2",
+ "model_id": "facebook/dinov2-base",
+ "C": 0.5,
+ "scale": true,
+ "n_train_quartets": 230,
+ "n_eval_quartets": 200,
+ "train_acc": 1.0,
+ "atomic_acc": 0.8425,
+ "single_acc": {
+  "base": 0.97,
+  "A": 0.815,
+  "B": 0.87,
+  "AB": 0.795
+ },
+ "cond_n": 146,
+ "cond_miss": 0.2465753424657534,
+ "comp_n": 146,
+ "comp_miss": 0.2465753424657534,
+ "go": false
+}

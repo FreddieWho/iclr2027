@@ -1,11 +1,13 @@
-# TODO — ICLR 2027（探索已冻结，2026-09-18 审计闭合）
+# TODO — ICLR 2027（bridge 单线解冻，2026-09-18 用户授权）
 
 ```
-SCIENTIFIC_EXPLORATION: FROZEN
-Final route: transition/composition failure + diagnostic flip coverage
-No new model/route search permitted before submission.
-禁开：AMR / Jacobian扩展 / E7新loss / quartet-curriculum v3 / relation-arch v3 /
-X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic scene family.
+SCIENTIFIC_EXPLORATION: OPEN (bridge track only, 2026-09-18 用户授权解冻)
+Authorized: foundation-model bridge experiment (frozen backbones + probe, 零训练).
+  pilot 先行：S0风格 quartet四状态 → DINOv2-B/CLIP ViT-B frozen特征 → linear probe，
+  只看 atomic 准确率与分母；atomic≥90% 才展开全矩阵，否则停下重新设计。
+Still banned: AMR / Jacobian扩展 / E7新loss / quartet-curriculum v3 / relation-arch v3 /
+X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic scene family /
+第61个小MLP实验（禁新小模型训练；bridge pilot 的 probe 训练除外）。
 正文数字唯一来源：reports/FINAL_EVIDENCE_TABLE.md（不得跨条件混用）。
 ```
 
@@ -182,3 +184,5 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-18：paper 02–08重构完成（新spine：02受控转义设定/03三失败模式/04 flip修复/04b足球/05像素/06失败了什么/07相关工作与局限/08可复现性；旧Action-Mode/Jacobian退为07半段背景）。U03b seed805落地（5风格全同向−8~−16pp，证据表＋05节更新）；s806后台运行中。
 - 2026-09-18：U03b s806落地（5风格全同向−16~−30pp）→ 像素跨风格修复立于3独立训练实例；证据表＋05/07节更新。审计闭合全部完成，科学工作彻底停止，剩余仅投稿行政与编译。
 - 2026-09-18：审计闭合提交GitHub（75e366a，25文件＋799/−317：3代码修＋paper全文＋证据表＋4 artifact result.json；cache.npz按.gitignore留本地）。
+- 2026-09-18：SCIENTIFIC_EXPLORATION bridge单线解冻（用户授权；改稿放后）。bridge pilot开跑：experiments/bridge/b01_pilot.py（224px nuisance-locked渲染→frozen DINOv2-B/CLIP ViT-B→linear probe，train-quartets训/eval 200测），判据atomic≥0.90才展开。后台运行中。
+- 2026-09-18：bridge pilot收敛（DINOv2-B/CLIP ViT-B frozen＋LR/CV/MLP probe）：atomic最高0.865未达0.90展开线（NOGO，全矩阵不开）；条件miss 0.20~0.43（85.8%→两三成，scale大缓解未消除）；MLP train 1.0而atomic不动＝表示侧瓶颈。报告reports/bridge/B01_PILOT.md。定位Level 2.5，标题降级仍欠账。
