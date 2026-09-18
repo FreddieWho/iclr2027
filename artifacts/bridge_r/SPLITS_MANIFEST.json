@@ -1,0 +1,43 @@
+{
+ "generator": "make_relational_scenes",
+ "min_margin": 0.02,
+ "atomic_margin": 0.005,
+ "splits": {
+  "train": {
+   "generator_seed": 26091801,
+   "mine_rng_seed": 26099720,
+   "n_parents": 6000,
+   "n_quartets": 2164,
+   "margin_med": [
+    0.09688435749751254,
+    0.03599604857088564,
+    0.03541999871038201,
+    0.02180084507605584
+   ]
+  },
+  "dev": {
+   "generator_seed": 26091802,
+   "mine_rng_seed": 26099721,
+   "n_parents": 1800,
+   "n_quartets": 760,
+   "margin_med": [
+    0.09640478968128606,
+    0.0381239099708513,
+    0.035249375951872206,
+    0.02216789450212773
+   ]
+  },
+  "holdout": {
+   "generator_seed": 26091803,
+   "mine_rng_seed": 26099722,
+   "n_parents": 2600,
+   "n_quartets": 895,
+   "margin_med": [
+    0.09389510322754462,
+    0.034888988295489046,
+    0.03450205316839594,
+    0.021619057618663645
+   ]
+  }
+ }
+}

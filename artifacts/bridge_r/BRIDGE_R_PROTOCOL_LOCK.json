@@ -1,0 +1,130 @@
+{
+ "dinov3_status": "BLOCKED_EXTERNAL_ACCESS (gated=manual, no token, no cache; fallback engaged, no bypass attempted)",
+ "forbidden_posthoc": [
+  "threshold tuning on holdout",
+  "representation selection by comp miss",
+  "new metrics on holdout",
+  "tolerance changes after model results",
+  "extra backbones after R10",
+  "gate edits to cross observed values"
+ ],
+ "gates": {
+  "A": "10-item validity list (frozen backbone, official processor, pinned revisions, disjoint parents/RNG, quartet nuisance lock, no holdout in selection, frozen matching, one-shot holdout, explicit numerators)",
+  "B1": "atomic_mean>=0.85 AND both_frac>=0.60 AND both_n>=100 else atomic-accessibility-insufficient only",
+  "B2": "atomic_mean>=0.90 AND min_atom>=0.88 AND both_frac>=0.70; B1-only => supportive only",
+  "C0": "delta<0.05 or CI covers 0 => no composition-specific evidence",
+  "C1": "delta>=0.05 and CI lower>0 => modest residual gap",
+  "C2": "delta>=0.10 and CI lower>0 AND B2 => substantially attenuated but specifically elevated"
+ },
+ "generator": {
+  "atomic_margin": 0.005,
+  "fn": "make_relational_scenes",
+  "min_margin": 0.02
+ },
+ "git_commit": "50a0d454143bbb3fd5500eaaf57dd4509a7566b7",
+ "lock_sha": "1f245d5262cef2b938a88221608d4211b14980a6a9fdab18da2ee5386ebe37c4",
+ "matching": {
+  "candidates_per_quartet": 64,
+  "covariates": [
+   "edit_norm",
+   "endpoint_margin",
+   "pixel_change"
+  ],
+  "dpix": "mean-L1 canonical-512 renders, quartet own holdout nuisance seed",
+  "margin_min": 0.005,
+  "seed": 4242,
+  "tiers": [
+   0.5,
+   1.0,
+   1.5
+  ]
+ },
+ "metrics": [
+  "acc_base/A/B/AB",
+  "atomic_mean",
+  "min_atom",
+  "both_frac",
+  "both_n",
+  "comp_miss+n+d+Wilson95",
+  "matched_single_miss+n+d+Wilson95",
+  "delta_comp+bootstrap95(10000, quartet units)",
+  "RR optional"
+ ],
+ "models": {
+  "dinov2": {
+   "model_id": "facebook/dinov2-base",
+   "model_revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+   "processor_class": "BitImageProcessor",
+   "processor_revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415"
+  },
+  "siglip2": {
+   "model_id": "google/siglip2-large-patch16-384",
+   "model_revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178",
+   "processor_class": "SiglipImageProcessor",
+   "processor_revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178"
+  }
+ },
+ "nuisance_bases": {
+  "dev": 200000,
+  "holdout": 300000,
+  "train": 100000
+ },
+ "probes": {
+  "lr": {
+   "C": 1.0,
+   "max_iter": 5000
+  },
+  "mlp128": {
+   "hidden": [
+    128
+   ],
+   "max_iter": 2000,
+   "random_state": 0
+  }
+ },
+ "protocol": "Bridge-R v1",
+ "readouts": [
+  "R0_pooled",
+  "R1_mean_patch",
+  "R2_spatial2x2"
+ ],
+ "renderer": {
+  "background": "uniform(0.45, 0.55)",
+  "canonical_resolution": 512,
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  },
+  "line_width_px": 10,
+  "renderer_version": "bridge_r_canonical_v1",
+  "safe_scale": 0.8
+ },
+ "size_selection_rule": "prefer 2000; 1000 iff dev atomic within 1pp of 2000; selection on dev atomic competence ONLY, never on composition miss",
+ "splits": {
+  "dev": {
+   "generator_seed": 26091802,
+   "mine_rng": 26099721,
+   "n_parents": 1800,
+   "n_quartets": 760
+  },
+  "holdout": {
+   "generator_seed": 26091803,
+   "mine_rng": 26099722,
+   "n_parents": 2600,
+   "n_quartets": 895
+  },
+  "train": {
+   "generator_seed": 26091801,
+   "mine_rng": 26099720,
+   "n_parents": 6000,
+   "n_quartets": 2164
+  }
+ },
+ "timestamp": "2026-09-18T13:21:22.124596+00:00",
+ "train_sizes": [
+  230,
+  500,
+  1000,
+  2000
+ ]
+}
