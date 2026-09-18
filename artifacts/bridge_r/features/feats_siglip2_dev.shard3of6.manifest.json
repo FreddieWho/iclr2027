@@ -1,0 +1,48 @@
+{
+ "backbone": "siglip2",
+ "model_id": "google/siglip2-large-patch16-384",
+ "model_revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178",
+ "processor_revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178",
+ "processor_class": "SiglipImageProcessor",
+ "processor_config": {
+  "size": "SizeDict(height=384, width=384, longest_edge=None, shortest_edge=None, max_height=None, max_width=None)",
+  "crop_size": null,
+  "image_mean": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "image_std": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "do_resize": true,
+  "do_center_crop": null,
+  "do_rescale": true,
+  "do_normalize": true,
+  "resample": 2
+ },
+ "transformers_version": "5.6.2",
+ "torch_version": "2.11.0+cu130",
+ "split": "dev",
+ "n_quartets": 126,
+ "shard": "shard3of6",
+ "qid_range": [
+  380,
+  506
+ ],
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "nuisance_base": 200000,
+ "feature_sha256": "40a15ae9857aa900371c411533ca31ecedd6e0b778b11c7062cef4aeb63a20ca"
+}
