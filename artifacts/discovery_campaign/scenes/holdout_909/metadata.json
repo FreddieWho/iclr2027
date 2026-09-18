@@ -1,0 +1,22 @@
+{
+  "kind": "procedural_data_not_scientific_result",
+  "task": "proper_segment_crossing_AB_CD",
+  "seed": 909,
+  "n_parent_scenes": 512,
+  "class_counts": [
+    256,
+    256
+  ],
+  "min_margin": 0.02,
+  "roles": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "all_variants_of_parent_must_share_split": true,
+  "notes": [
+    "Label balancing is not a proof of all-cue balance.",
+    "No image renderer, pretrained model, accuracy, or metamer result is included."
+  ]
+}
