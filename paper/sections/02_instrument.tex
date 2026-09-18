@@ -1,30 +1,32 @@
-\section{Support-Reallocation Probing}
-% ROLE: 1 page. Formalize the instrument.
+\section{Controlled Setting: Semantic Transitions}
+\label{sec:setting}
 
-% SUBSEC 2.1 — Setup. Multi-entity state X in R^{n x d}, relation graph
-% (kNN, k=4), normalized representation \hat z = z/||z||. Response metric:
-% 1 - cos(z(x), z(x + delta)).
+We study scenes with oracle labels and edits with known effects. A base scene
+$x$ has oracle label $y(x) \in \{0,1\}$ with margin $m(x)$. An atomic edit $e$
+maps $x \mapsto x+e$ with known oracle outcome $(y(x+e), m(x+e))$; a composed
+edit $e_a+e_b$ has a known \emph{joint} outcome that may differ from either
+atomic outcome. The model's decision is judged twice: on the parts (each
+atomic edit classified correctly?) and on the change (the composed or
+boundary-crossing outcome classified correctly?). Static accuracy measures the
+former; our object of study is the latter.
 
-% SUBSEC 2.2 — The operator. Frozen protocol t5r5_support_reallocation_v1:
-% source support S (|S|=4, one team), unit base field (stable-seeded),
-% anchor = field on S at eps; control = SAME vector multiset reassigned to a
-% disjoint same-team support T (bijection enumerated, argmin spectral-match
-% selection), boundary-validity checked. Equal energy, equal multiset, equal
-% support size — only the ALLOCATION differs.
-% WORDING RULE: cite Morris elementary effects, Nettack, COMA as conceptual
-% ancestors; claim "novel combination", not "novel perturbation" (brief (b)).
+\paragraph{Coordinate scenes.} Synthetic two-segment scenes with a line-crossing
+oracle. Development uses fixed pools (\texttt{train\_101}, \texttt{eval\_202});
+all headline discovery numbers are re-tested on a freshly minted,
+pre-registered holdout (\texttt{holdout\_909}), evaluated once in a single
+uninterrupted run with fixed checkpoints and then archived as used
+(one-shot discipline; Sec.~\ref{sec:repro}).
 
-% SUBSEC 2.3 — Local geometry. J_f = d\hat z/d vec(X); G_f = J^T J;
-% Taylor: 1-cos ≈ 1/2 delta^T G delta. Block structure: 2x2 diagonal blocks
-% (self-sensitivity) vs off-diagonal (cross-node coupling).
-% WORDING RULE (review Part 4-A): state explicitly that as eps→0 the
-% prediction is definitional; the scientific content is (a) finite-eps
-% validity, (b) RANKING prediction, (c) transfer. Preempt: Gram = empirical
-% input-space NTK (Du et al. 2019 — must cite); Rayleigh = Dirichlet energy
-% (over-smoothing literature — must cite). Novelty = protocol + predictive
-% use, NOT the features.
+\paragraph{Real football.} IDSSE tracking data: turn (transition), event, and
+action-outcome tasks evaluated per match, with frozen vs.\ covered model
+variants across three training seeds (s11/s23/s47). There is no pristine
+football holdout (the reserve field saw development use), so football evidence
+is reported as three-seed same-direction confirmation with cross-field
+evaluation, and its limits are stated plainly (Sec.~\ref{sec:limits}).
 
-% SUBSEC 2.4 — Evaluation protocol (short; full in Sec.8/appendix):
-% match-level splits, task/baseline locks BEFORE model results, candidate
-% lock BEFORE the single reserved-match read, external lock BEFORE the
-% provider read. One read each; no re-selection after any read.
+\paragraph{Pixel observations.} The same quartet geometry rendered as
+$64\times64$ images and judged by a small CNN trained from scratch, clean vs.\
+pixflip (flip-augmented) vs.\ pixquartet arms, then evaluated on five unseen
+rendering styles. Within each evaluated quartet the three states share a fresh
+same-seed RNG, so background nuisance is locked and only geometric state
+varies (nuisance-lock rerun \texttt{u03b\_fixed}; Sec.~\ref{sec:pixel}).

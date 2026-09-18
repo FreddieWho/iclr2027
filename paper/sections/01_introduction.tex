@@ -1,35 +1,42 @@
 \section{Introduction}
-% ROLE: 1 page. Sell the question, not the domain.
-% MUST READ AS: general representation-learning contribution with soccer as
-% the instrumented testbed (per landscape brief: "sport is the evaluation
-% domain, not the contribution").
+% MIGRATED 2026-09-18 (audit closure): old Action-Mode/Jacobian scaffold retired
+% to background/appendix. New spine: static correctness != correct updating.
+% Full Sec.02--08 restructure still pending; this intro + abstract define the target.
 
-% PARA 1 — The gap. Invariance is usually defined per transformation OPERATOR
-% (translation, rotation). In multi-entity systems the semantics depend on how
-% the operator is DISTRIBUTED over entities: whole-team advance vs back-line
-% advance vs single-player step can have identical magnitude and different
-% meaning. Index = operator x support x task (blueprint Sec.1).
+Static correctness is not the same as correct updating. A model can classify
+every part of a scene correctly, respond strongly to change, and still fail to
+update its decision when those parts jointly change what the scene means.
+This paper documents that failure as a reproducible empirical fact, shows it
+in three observation regimes, shows a diagnostic repair, and reports an
+unusually wide set of failed alternatives that delimit what the defect is
+(and is not).
 
-% PARA 2 — What we do. (i) A controlled instrument: equal-energy displacement
-% reallocated across node supports (Sec.2). (ii) A phenomenon: responses are
-% architecture-dependent yet predictable from normalized local geometry
-% (Sec.3-4). (iii) A repair: task-semantic channel split with asymmetric
-% update allocation, confirmed on an independent provider (Sec.5-6).
+We work in a controlled setting with semantic transitions: scenes have oracle
+labels, edits have known atomic effects, and composed edits have known joint
+effects. Three failure modes recur. (i)~Transition blindness: paths crossing a
+semantic boundary induce no model transition---84\% among single-turn paths
+discovered by random edits (a rare, mostly tangential subpopulation), 44\% on
+directly targeted fresh paths. (ii)~Compositional blindness: when both atomic
+edits are judged correctly, their joint change is still missed in 151/176
+(85.8\%) of fresh-holdout cases. (iii)~Consequential blindness: the misses
+propagate into events and action selection (75.0\% invalid in hard fresh
+cases).
 
-% PARA 3 — Contributions (bullets):
-%  - support-reallocation probing protocol (novel instrument; position vs
-%    Morris elementary effects / budgeted attacks / COMA counterfactuals —
-%    see method-positioning brief (b): "novel combination, not novel
-%    perturbation")
-%  - local-geometry predictor with QUANTIFIED validity regime; honest margins
-%    over baselines (ledger P3-R10/R14)
-%  - evidence that coalition semantics live in coupling blocks and grow with
-%    coalition size (P3-R12); phenomenon is training-induced (P3-R11) and
-%    objective-family-robust (P3-R13)
-%  - externally confirmed repair with measured selective cost (P3-R9)
-%  - evaluation protocol: pre-registered-style locks, single-read holdout,
-%    full artifact hashing (Sec.8)
+A diagnostic flip coverage---adding oracle-mined boundary-crossing variations
+to training---significantly relieves all three: fresh C1 miss 52.4\%~$\to$~34.7\%,
+action invalid 75.0\%~$\to$~62.5\%, static error improving 18.0\%~$\to$~10.7\%,
+with same-direction turn, event, and action gains on real football tracking
+data across three seeds, and repaired pixel-observation decisions on unseen
+rendering styles. What failed matters as much: dense labels, slope
+supervision, SDF readouts, distillation, relational architectures, quartet
+curricula, and a rank-4 low-rank patch-map interchange (hybrid truth decodes
+from concatenated hidden states yet cannot be installed into the frozen
+classifier by the tested patch at that layer) all fail to remove the defect,
+ruling out a family of ``the model just cannot see it'' explanations. The
+defect is in updating, not in seeing.
 
-% FIGURE 1 HERE: concept figure — same-energy displacement on three supports
-% (whole team / line / single) → different representation responses; plus
-% geometry→response prediction scatter. [TODO: figure generation]
+% Contributions: (1) fresh-holdout-quantified compositional/transition miss
+% with denominator discipline; (2) diagnostic flip repair with consequence
+% metrics; (3) real-data (3-seed) + pixel confirmations; (4) failed-alternative
+% boundary (what does not fix it); (5) single evidence table + smoke-audited
+% numbers (reports/FINAL_EVIDENCE_TABLE.md).

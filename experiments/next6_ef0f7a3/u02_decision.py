@@ -84,7 +84,8 @@ def main():
 
         def closure():
             opt.zero_grad()
-            p = torch.sigmoid(torch.from_numpy(lg[dev_m]).float() / T.clamp(0.05, 20))
+            # feas=1 means class 0; P(y=0)=sigmoid(-logit), so fit T on -lg.
+            p = torch.sigmoid(-torch.from_numpy(lg[dev_m]).float() / T.clamp(0.05, 20))
             loss = nn.BCELoss()(p, torch.from_numpy(feas[dev_m]).float())
             loss.backward()
             return loss

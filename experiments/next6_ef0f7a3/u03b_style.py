@@ -52,6 +52,8 @@ def main():
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--seed", type=int, default=804)
     p.add_argument("--epochs", type=int, default=20)
+    p.add_argument("--arms", type=str, default="clean,pixflip,pixquartet",
+                   help="comma subset of arms to train (e.g. clean,pixflip)")
     a = p.parse_args()
     rng = np.random.default_rng(a.seed)
     a.out.mkdir(parents=True, exist_ok=True)
@@ -97,9 +99,12 @@ def main():
     def T(A):
         return torch.from_numpy(np.stack(A).astype(np.float32))
 
-    arms = {"clean": (R_clean, y_clean),
-            "pixflip": (R_clean + R_flip, y_clean + y_flip),
-            "pixquartet": (R_clean + R_q, y_clean + y_q)}
+    want = [w.strip() for w in a.arms.split(",") if w.strip()]
+    arms = {k: v for k, v in {
+        "clean": (R_clean, y_clean),
+        "pixflip": (R_clean + R_flip, y_clean + y_flip),
+        "pixquartet": (R_clean + R_q, y_clean + y_q)}.items() if k in want}
+    assert arms, f"no arms selected from {a.arms!r}"
     nets = {}
     for name, (R, yy) in arms.items():
         torch.manual_seed(a.seed)
@@ -126,12 +131,14 @@ def main():
         for qi, (q, m) in enumerate(QEV):
             x, ea, eb = q
             ya, yb, yc = (int(v) for v in m[1:4])
-            rs = np.random.default_rng(50000 + qi)
-            E_end.append(render_s(x + ea + eb, rs, **kw))
+            # Same-seed fresh RNG per state so background nuisance is locked
+            # within a quartet (cf. U03 first round render_q(state, qseed)).
+            seed = 50000 + qi
+            E_end.append(render_s(x + ea + eb, np.random.default_rng(seed), **kw))
             E_endy.append(yc)
-            E_a.append(render_s(x + ea, rs, **kw))
+            E_a.append(render_s(x + ea, np.random.default_rng(seed), **kw))
             E_ay.append(ya)
-            E_b.append(render_s(x + eb, rs, **kw))
+            E_b.append(render_s(x + eb, np.random.default_rng(seed), **kw))
             E_by.append(yb)
         E_endy = np.array(E_endy)
         row = {}

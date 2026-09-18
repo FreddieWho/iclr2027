@@ -432,3 +432,21 @@
 - 只读边界：禁新训练、禁改代码、禁碰保留场/外部；允许零成本重算已有artifact（注明输入哈希）
 - 训练侧并行：BUDGET_10R独立记账（剩8轮）；明显方向不等list可先开（需点名或预注册判据）
 - 台账：reports/research_b30/LEDGER.md；角度地图ANGLE_MAP.md（旧13份简报禁区已标出）
+
+## D-20260918-AUDIT01：第三方审计闭合——U02符号bug/U03b nuisance/X03措辞
+- 日期：2026-09-18
+- 事实：审计在 main@c1837e0 发现 u02_decision.py 校准拟合用 sigmoid(+lg/T) 拟合 feas(yy==0)，
+  而 P0=sigmoid(−lg)，符号反；u03b_style.py 同qi三状态复用同一RNG致背景nuisance不一致；
+  X03 实现为无约束低秩映射 BAᵀ 而非数学projection。
+- 决定：U02 修符号重跑 u02_fixed，“confidence anti-information”解释作废（score/lexico/u02b/argmax结论不受影响）；
+  U03b 改同seed新鲜RNG重跑 u03b_fixed，正文暂禁“nuisance完全锁死”口径；
+  X03 全库改“rank-4 low-rank patch map”，结论收窄为“该层该补丁装不上”（禁fundamentally cannot compose）。
+- 复查触发：u02_fixed/u03b_fixed 落地后更新 FINAL_EVIDENCE_TABLE pending行。
+
+## D-20260918-AUDIT02：科学探索冻结＋证据表＋论文迁移
+- 日期：2026-09-18
+- 事实：审计结论——科学探索可停；禁开路线：AMR/Jacobian扩展/E7新loss/quartet v3/relation v3/
+  X03换rank换layer/temperature sweep/action-rule续调/更多scene family。
+- 决定：TODO顶部 SCIENTIFIC_EXPLORATION:FROZEN；reports/FINAL_EVIDENCE_TABLE.md 为正文唯一数字来源；
+  主headline切 fresh 151/176=85.8%；84.4%限定随机编辑分母（fresh瞄准44%并列，不平均）；
+  paper标题→Knowing the Parts.../摘要引言已迁新线，02–08节重构待办。

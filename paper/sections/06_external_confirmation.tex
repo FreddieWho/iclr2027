@@ -1,28 +1,39 @@
-\section{External Confirmation on an Independent Provider}
-% ROLE: ~1 page. The differentiator (top reviewer pain point: external
-% validity).
+\section{External Confirmation: What We Tried}
+\label{sec:external}
 
-% SUBSEC 6.1 — Data: SoccerTrack-v2 (CC BY 4.0, pinned revision), 8 matches
-% (smoke matches excluded by pre-frozen rule), 44,401 snapshots / 7,534
-% natural pairs; same conversion rules, response-blind thresholds; per-half
-% team-side flips caught by the pre-registered identity-alignment logic.
-% Provider shift (professional league → university league, different
-% tracking system) IS the distribution-shift test.
+A discovery claim of this shape---``the model cannot update''---is most
+threatened by the objection ``it just cannot see.'' We therefore report, as
+primary evidence rather than appendix filler, an unusually wide set of failed
+removals. Each was a live hypothesis with a falsification bar; each failed,
+and each failure narrows what the defect can be:
 
-% SUBSEC 6.2 — Task confirmation (TABLE = reports/P3_HEADLINE_EFFECT_TABLE.md):
-% four primary metrics 8/8 (sign test p=0.0039, match-level bootstrap CIs):
-% zone +0.0054 [+0.0042,+0.0073]; pair +0.0092 [+0.0064,+0.0115];
-% geometry +0.0334 [+0.0280,+0.0394]; centroid MAE -34% [+0.0177,+0.0201];
-% auxiliary match-half -0.0827 (0/8, reported — Sec.5.4).
-% WORDING RULE: "small effects, consistent direction" — no magnitude
-% inflation. Weakest match (132877, full=0.421) stays in the table.
+\paragraph{Denser supervision and geometry readouts.} Dense per-point labels,
+slope supervision along paths, SDF-valued readouts, and distilling boundary
+proximity into the student all fail to remove the miss (E7 falsification net:
+12 arms $\times$ 5 seeds, 60 trainings; flip-mix, SDF, tangent, anti-flatness,
+coupled-margin, vanilla-mixup, and BAN all lose to or tie the flipmine
+baseline). Slopes are not the binding constraint.
 
-% SUBSEC 6.3 — Mechanism confirmation: per-match intervention full above
-% spectral baseline 8/8 (macro gap ≈ +0.53), direction accuracy 0.66-0.73.
-% Claim boundary (ledger): single independent provider ≠ cross-domain
-% generalization; 2:1 numerics ≠ universally optimal ratio.
+\paragraph{Architectures and curricula.} Relational variants (up to 1200-epoch
+deconfounded runs), attention readouts, margin--SupCon hybrids, and quartet
+curricula (pixel arm: emergent $0.572$, worse than clean $0.537$) all fail to
+fix the update. What looks like ``more compositional'' training data can hurt.
 
-% [SLOT: AMR positioning — PENDING USER DECISION (options A/B/C,
-% D-20260905-T5R6-002). Default per agent recommendation (A): one outlook
-% paragraph — Action-Mode Routing as gated future work, differentiated from
-% Partial G-CNNs (must cite) by routing on MEASURED response profiles.]
+\paragraph{Interchange patch (X03).} Hybrid truth (donor.AB + base.CD) readily
+decodes from concatenated frozen hidden states (readout anti-copy accuracy
+$0.87$--$0.89$), but a learned rank-4 low-rank patch map
+($z_b + (z_d-z_b)BA^\top$, no projection constraints) installed into the
+frozen classifier at the tested layer scores $0.23$--$0.27$ on anti-copy
+cases---no better than full-vector swap or a random subspace. Supported claim:
+decodable $\neq$ installable by the tested patch at this layer. Not supported:
+any statement of the form ``the representation fundamentally cannot
+compose.'' No rank/layer search was opened; the negative stands as scoped.
+
+\paragraph{Thresholds and temperatures.} Dev-selected thresholds and fitted
+temperatures do not rescue the feasible set (Sec.~\ref{sec:repair}); the
+problem is in the probabilities themselves, not the cutoff.
+
+The through-line: the model sees the parts (atomic accuracy is high),
+responds to change (temperature interventions move $10$--$50\%$ of action
+selections with argmax fixed), and still fails to update. The defect is in
+updating, not in seeing.

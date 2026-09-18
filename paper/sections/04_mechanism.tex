@@ -1,33 +1,23 @@
-\section{Local Geometry Predicts Intervention Response}
-% ROLE: ~2 pages. THE CORE SECTION.
+\section{Diagnostic Flip Coverage}
+\label{sec:repair}
 
-% SUBSEC 4.1 — Prediction, not definition (validity regime, P3-R10):
-% eps-sweep table (57 sets, 12 models): ranking Spearman decays with eps
-% (2:1: 0.83 / 0.76 / 0.56 / -0.00 at eps = .0625/.125/.25/.5); quadratic
-% relative error grows (0.26→0.73); eps=1.0 breaks protocol validity
-% (11/57 legal). Operating point eps=0.25 sits inside but near the regime
-% edge — justify the frozen choice (response-magnitude vs validity trade).
-% TABLE: eps x model-family rho + rel-err. [numbers: epsilon_sweep_v1]
+The repair is diagnostic, not a product: training on oracle-mined
+boundary-crossing variations (flipmine) tests whether exposing the model to
+the missing update shape removes the defect. On the fresh holdout it does,
+substantially: compositional C1 miss $52.4\% \to 34.7\%$ (C0 false alarm
+$26.2\% \to 23.8\%$, within $\pm 5$pp, so no alarm inflation); action invalid
+at $\lambda{=}2$, $75.0\% \to 62.5\%$; turn miss $43.8\% \to 31.3\%$; and
+static error \emph{improves}, $18.0\% \to 10.7\%$---there is no accuracy cost
+to report because there is none. The U02 decision-interface decomposition
+confirms the gain is coverage (feasible-set size $3.6\times$) that persists
+across score, lexicographic, and calibrated rules, while temperature
+rescaling at fixed threshold is provably a no-op on the feasible set
+(calibrated $\equiv$ lexicographic by construction) and fitted temperatures
+($T{=}8.1$ clean / $8.4$ flipmine) show ordinary overconfidence, corrected
+after a sign fix that invalidated an earlier ``anti-information'' reading.
 
-% SUBSEC 4.2 — Predictive strength and honest baselines (P3-R14 + P3-C1/C2):
-% retrospective/prospective Spearman 0.85/0.85 vs spectral baseline 0.12
-% (P3, 250 samples, 10 matches, 9 models); head-to-head on identical sets:
-% full 0.49 > gyration 0.35 > pairwise-dist 0.34 > spectral 0.11
-% (seed-consistent); spectral failure robust to k in {2,4,6,8}.
-% WORDING RULE (mandatory): "simple formation statistics carry about half the
-% signal; local differential geometry adds displacement-allocation
-% information beyond them" — NEVER "only our predictor works".
-
-% SUBSEC 4.3 — Where the information lives (P3-C3/C4 + P3-R12):
-% block/layer decomposition: diagonal contributes mainly, off-diagonal adds
-% info; heterogeneity localizes to network stages (input→message→pooling).
-% Support scaling (4 sizes x 60 snapshots x 6 models): full-diag gap grows
-% 0 → +0.2~0.27 with coalition size (both families); s=1 gives full≡diag
-% (construction check). HEADLINE: coalition semantics live in coupling
-% blocks, increasingly so as coalitions grow.
-
-% SUBSEC 4.4 — Causal handle (P3-C5, response shaping only):
-% matched-capacity pooling switch changes off-diagonal/full composition and
-% prospective response. WORDING: "response shaping via causal switch" — do
-% NOT claim task-Pareto repair here (P3-C6 NOT_SUPPORTED, must cite as the
-% motivation for Sec.5).
+The repair therefore has the three-step shape a discovery paper needs:
+\emph{find} the update failure, \emph{fix} it with targeted coverage,
+\emph{trace the consequence} into events and actions. What it does not do is
+explain \emph{why} the base model fails to update---that boundary is drawn in
+Sec.~\ref{sec:external}.

@@ -1,0 +1,57 @@
+{
+ "counts": {
+  "clean": 2048,
+  "pixflip": 2968
+ },
+ "n_eval_quartets": 547,
+ "S0_same": {
+  "clean": {
+   "emerg": 0.6,
+   "atom": 0.607
+  },
+  "pixflip": {
+   "emerg": 0.302,
+   "atom": 0.592
+  }
+ },
+ "S1_lw3": {
+  "clean": {
+   "emerg": 0.656,
+   "atom": 0.64
+  },
+  "pixflip": {
+   "emerg": 0.36,
+   "atom": 0.554
+  }
+ },
+ "S2_swap": {
+  "clean": {
+   "emerg": 0.464,
+   "atom": 0.318
+  },
+  "pixflip": {
+   "emerg": 0.307,
+   "atom": 0.256
+  }
+ },
+ "S3_bright": {
+  "clean": {
+   "emerg": 0.499,
+   "atom": 0.468
+  },
+  "pixflip": {
+   "emerg": 0.289,
+   "atom": 0.567
+  }
+ },
+ "S4_scale09": {
+  "clean": {
+   "emerg": 0.623,
+   "atom": 0.592
+  },
+  "pixflip": {
+   "emerg": 0.342,
+   "atom": 0.558
+  }
+ }
+}

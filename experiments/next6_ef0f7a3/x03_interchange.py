@@ -2,8 +2,10 @@
 """X03 round1: counterfactual internal variable swap (interchange).
 
 hybrid = donor.AB + base.CD (geometrically valid coord state).
-Frozen model hidden z (feat, 32-d): z_patch = z_b + A B^T (z_d - z_b),
-rank-r learned projection; frozen cls reads out. Target = hybrid TRUE label.
+Frozen model hidden z (feat, 32-d): z_patch = z_b + (z_d - z_b) @ B @ A.T,
+a rank<=r low-rank linear patch map (B @ A.T has no orthogonal/symmetric/
+idempotent constraint, so NOT a mathematical projection); frozen cls reads
+out. Target = hybrid TRUE label.
 Train pairs on train_101; test on FRESH eval_202 bindings, incl. anti-copy
 subset (base/donor same label, hybrid different).
 Controls: same-rank RANDOM fixed subspace; full swap (P=I);

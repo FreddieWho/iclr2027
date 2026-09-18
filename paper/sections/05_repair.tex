@@ -1,33 +1,24 @@
-\section{Task-Semantic Repair as a Test of the Diagnosis}
-% ROLE: ~1.5 pages. The repair is a FALSIFIABLE TEST of the diagnosis, not a
-% product (review Part 4-C). If the context/intrinsic conflation diagnosis is
-% right, separating the channels should remove the pathology.
+\section{Pixel-Observation Confirmation}
+\label{sec:pixel}
 
-% SUBSEC 5.1 — Diagnosis restated (P3-R1): the old task gate conflated
-% context signal with intrinsic nuisance; intrinsic objective must shape the
-% SHARED encoder, not only a terminal head (P3-R6, Round-1 negative control
-% routing_mode_head_only).
+The defect is not an artifact of coordinate inputs. Rendered as pixels and
+judged by a freshly trained CNN, the compositional (emergent) error is
+$0.537$ clean vs.\ $0.351$ pixflip ($-19$pp, static accuracy unchanged at
+$0.090$)---while the quartet-curriculum arm is \emph{worse} than clean
+($0.572$), a first warning that more compositional-looking data is not always
+better.
 
-% SUBSEC 5.2 — The repair: dual-channel encoder (context channel sees raw
-% deployment coordinates; intrinsic channel sees globally centered views),
-% plus ASYMMETRIC UPDATE ALLOCATION on the shared encoder (2:1), selected by
-% a bounded 2-round autoresearch under frozen rules (3:1 rejected for
-% seed-level geometry instability; search closed; no Round 3).
-% WORDING RULE: 2:1 is an INSTANCE of the principle "update allocation is a
-% substantive variable" (P3-R7), not a tuned hyperparameter claim.
-% [SLOT: ratio-sweep ablation 1:0/1:1 — PENDING USER DECISION (review 3.3);
-% if approved, dev-only post-hoc ablation, no new test reads.]
-
-% SUBSEC 5.3 — Single-read held-out confirmation (T5R5, J03WQQ):
-% task gate all-pass (pair -0.0026, geometry +0.0051, context non-inferior);
-% intervention full 0.63 vs baseline ~0; translation response near zero.
-% WORDING RULE (review Part 4-B, MANDATORY): z_mode translation near-zero is
-% BY CONSTRUCTION (input re-centered after translation) — present as design
-% guarantee + sanity check; the empirical content is context-channel
-% accessibility retention and the raw single-channel contrast (0.256).
-
-% SUBSEC 5.4 — The measured cost (P3-R9, MUST appear alongside the wins):
-% auxiliary match-half probe 0/8 against (F1 0.19 vs 0.27, -30%): update
-% allocation costs SELECTIVE context retention — spatial context (zone,
-% centroid) improves while temporal/period context degrades. This bounds the
-% context-preservation claim and is itself evidence that allocation matters.
+Across five unseen rendering styles (line width, color swap, bright
+background, $0.9\times$ scale, same-style replication), pixflip has the lowest
+emergent error in all five ($0.333/0.349/0.305/0.349/0.366$ vs.\ clean
+$0.514/0.622/0.426/0.389/0.516$; gains $-18/-27/-12/-4/-15$pp). Absolute
+levels are style-sensitive---under color swap all arms' atomic accuracy
+collapses to $0.25$--$0.31$ (the CNN binds color to segment identity)---but
+the relative gain is stable and same-signed $5/5$. After the nuisance-lock
+fix (same fresh seed per quartet state; rerun \texttt{u03b\_fixed}), emergent
+errors are numerically identical and atomic accuracies move by $\le 0.01$,
+confirming the comparison was fair and the repair survives exact nuisance
+locking. Two additional training seeds confirm the same pattern $5/5$ each:
+s805 gains $-10/-10/-16/-8/-11$pp, s806 gains $-30/-30/-16/-21/-28$pp.
+The cross-style repair now rests on three independent training instances,
+not one.

@@ -1,22 +1,29 @@
-\section{The Phenomenon: Heterogeneous but Real Support Sensitivity}
-% ROLE: ~1 page. Compressed P2 + training-induced evidence.
+\section{Three Failure Modes}
+\label{sec:phenomenon}
 
-% PARA 1 — Fracture responses (P2 frozen facts): equal-energy reallocation
-% produces non-trivial representation responses; exact-spectrum controls show
-% graph-frequency power alone cannot explain them (P2-C1); direction/magnitude
-% depend on architecture, graph, role, energy — frozen as
-% mixed_or_graph_specific (P2-C2). HONEST NEGATIVE: no universal
-% mid-frequency blind spot; role alliance not universally special (P2-C3).
+\paragraph{(i) Transition blindness.} Paths crossing a semantic boundary often
+induce no model transition at all. Among single-turn paths discovered by
+random edits, $108/128 = 84.4\%$ induce zero model transition; on directly
+targeted fresh paths the miss rate is $28/64 = 43.8\%$ (95\% CI
+$[0.32,0.56]$), with flipmine at $31.3\%$. Both numbers are true; their
+denominators differ. The random-edit screen over-samples rare tangential,
+grazing crossings---precisely the shape the model misses most---while the
+targeted sweep drives decisively across the boundary. The miss rate is
+therefore not a fixed percentage but depends on how a change approaches the
+semantic boundary. We report both, never averaged, always with denominators.
 
-% PARA 2 — Training-induced (P3-R11): untrained controls respond ~1e-6 vs
-% ~1e-1 trained (5 orders of magnitude) — support sensitivity is CREATED by
-% training. Untrained nets sit in the trivial linear regime (quad/actual ≈ 1);
-% training amplifies responses and pushes the map out of it.
-% WORDING RULE: untrained ΔR near float32 precision — use magnitude contrast
-% only, do not interpret its Spearman absolute value.
+\paragraph{(ii) Compositional blindness (headline).} When \emph{both} atomic
+edits of a scene are judged correctly, their joint compositional change is
+still missed in $151/176 = 85.8\%$ of fresh-holdout cases (discovery
+$62/66 = 93.9\%$, same direction). Matched single-edit controls miss far less
+($61.0\%$ clean), so the failure is specific to the composition, not to the
+edits. A model can know each part and still not know the change.
 
-% PARA 3 — Objective-family robustness (P3-R13): Barlow-Twins control (frozen
-% 2:1 recipe, loss swapped) shows the same support sensitivity and geometry
-% predictability (full rho 0.47-0.67, mean 0.59 ≈ contrastive 0.56).
-% BOUNDARY: same architecture/views; architecture generality (EGNN-class)
-% untested — Limitations.
+\paragraph{(iii) Consequential blindness.} The misses propagate. Fresh-holdout
+event detection shows matched misses; action selection under a fixed action
+library is invalid in $75.0\%$ of hard fresh cases ($\lambda{=}2$); the
+decomposition (C1/C0) shows a C1 miss of $52.4\%$ against a C0 false-alarm
+rate of $26.2\%$. Decision-interface analysis (U02) shows flipmine's gain is
+in feasible-set coverage (refusal $0.43 \to 0.12$) rather than non-refusal
+precision, and that the gain survives across scoring rules
+(see the evidence table, reports/FINAL_EVIDENCE_TABLE.md).

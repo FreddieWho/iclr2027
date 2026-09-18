@@ -1,4 +1,15 @@
-# TODO — ICLR 2027 Action-Mode Spectrum
+# TODO — ICLR 2027（探索已冻结，2026-09-18 审计闭合）
+
+```
+SCIENTIFIC_EXPLORATION: FROZEN
+Final route: transition/composition failure + diagnostic flip coverage
+No new model/route search permitted before submission.
+禁开：AMR / Jacobian扩展 / E7新loss / quartet-curriculum v3 / relation-arch v3 /
+X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic scene family.
+正文数字唯一来源：reports/FINAL_EVIDENCE_TABLE.md（不得跨条件混用）。
+```
+
+以下为历史区（B30 计划保留备查，不再执行；新动作见文末“闭合收尾”）:
 
 更新时间：2026-09-16（B30 重整版；旧 1–13 项已归档，见文末）
 
@@ -166,3 +177,7 @@
 - 2026-09-18：E1 开封收敛（holdout_909 现铸，单次 battery）：F3/F4/F6 强确认，F2 方向确认，F1 方向确认但量级半（0.44 vs 0.84，归因随机-vs-瞄准分母差，headline 加限定）；0 方向反转。E1 通过，holdout_909 封存。见 E1_VERDICT.md。
 - 2026-09-18：next6 开工（基准 ef0f7a3）：U01（修 sd 覆盖 bug＋四元组课程）与 X02（关系参照系 TTA）并行首轮；X01 另路；U02/U03 复用四元组随后；X03 小机制首试独立。分支 N（next6）。
 - 2026-09-18：next6 六路收官：U01 park（固定＋在线双持平，bug 修完 verdict 不变）/ X01 park（等参对打＋1200ep 去混杂，乘法无系统差）/ X02 park（jitter 持平，框架敏感进讨论）/ X03 park（可解码≠可组合，anti 0.27 vs 读出 0.89）/ U02 continue 做分析（接口杠杆±16pp＋覆盖分解，阈值救不了）/ U03 continue（pixflip −19pp 且五风格全同向，quartet 有害 park）。交付 SIX_ROUTE_RESULTS/SELECTED_STORY/NUMBERS.csv。分支 N。
+- 2026-09-18：第三方审计闭合启动：U02校准符号bug已修（sigmoid(+lg)→sigmoid(−lg)，重跑u02_fixed后台）；U03b nuisance锁定已修（同qi三状态各用新鲜同seed RNG，重跑u03b_fixed后台）；X03措辞收窄（low-rank patch map，禁projection/禁fundamentally cannot compose）；reports/FINAL_EVIDENCE_TABLE.md建立（正文唯一数字来源＋6条措辞红线）；TODO顶部SCIENTIFIC_EXPLORATION:FROZEN。待：重跑落地→更新证据表pending行→paper迁移（标题/摘要/引言已换新线，02–08节待重构）→smoke audit。
+- 2026-09-18：U02_fixed落地（T clean 8.14/flipmine 8.43，“反信息”作废，U02.md＋证据表更新）；U03b_fixed落地（emerg五风格逐数不变，增益−18/−27/−12/−4/−15pp，U03.md＋证据表confirm，nuisance口径升级）；smoke audit通过（151/176、C1 130→86/248、C0、28/64、F4 lam2 0.75/0.625、静态0.180/0.107、X03b anti 0.27/0.23 vs 读出0.89/0.87，全部从artifact重算一致）。待：paper 02–08节重构；U03b额外2训练seed（clean＋pixflip）待批算力。
+- 2026-09-18：paper 02–08重构完成（新spine：02受控转义设定/03三失败模式/04 flip修复/04b足球/05像素/06失败了什么/07相关工作与局限/08可复现性；旧Action-Mode/Jacobian退为07半段背景）。U03b seed805落地（5风格全同向−8~−16pp，证据表＋05节更新）；s806后台运行中。
+- 2026-09-18：U03b s806落地（5风格全同向−16~−30pp）→ 像素跨风格修复立于3独立训练实例；证据表＋05/07节更新。审计闭合全部完成，科学工作彻底停止，剩余仅投稿行政与编译。
