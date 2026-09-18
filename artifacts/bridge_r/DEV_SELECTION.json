@@ -24,6 +24,30 @@
   "dinov2/R2_spatial2x2/mlp128": {
    "train_n": 1000,
    "dev_atomic": 0.6631578947368422
+  },
+  "siglip2/R0_pooled/lr": {
+   "train_n": 2000,
+   "dev_atomic": 0.6328947368421052
+  },
+  "siglip2/R0_pooled/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.6223684210526317
+  },
+  "siglip2/R1_mean_patch/lr": {
+   "train_n": 2000,
+   "dev_atomic": 0.6309210526315789
+  },
+  "siglip2/R1_mean_patch/mlp128": {
+   "train_n": 1000,
+   "dev_atomic": 0.6375
+  },
+  "siglip2/R2_spatial2x2/lr": {
+   "train_n": 1000,
+   "dev_atomic": 0.6013157894736842
+  },
+  "siglip2/R2_spatial2x2/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.6190789473684211
   }
  },
  "best": {
@@ -32,5 +56,12 @@
   "gate_B1": "FAIL (0.728 < 0.85 floor); readout: atomic-accessibility-insufficient, no composition claim from DINOv2"
  },
  "renderer_version": "bridge_r_canonical_v1a",
- "note": "curve/dinov2_* (no v1a prefix) are superseded v1-renderer diagnostics, kept for audit trail only"
+ "note": "curve/dinov2_* (no v1a prefix) are superseded v1-renderer diagnostics, kept for audit trail only",
+ "siglip2_best": {
+  "config": "siglip2/R1_mean_patch/mlp128",
+  "train_n": 1000,
+  "dev_atomic": 0.6375,
+  "gate_B1": "FAIL; cross-family atomic-accessibility-insufficient"
+ },
+ "plateau_rule_applied": true
 }

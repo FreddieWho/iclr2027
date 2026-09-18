@@ -1,0 +1,21 @@
+{
+ "backbone": "siglip2",
+ "readout": "R1_mean_patch",
+ "probe": "lr",
+ "train_n": 1000,
+ "train_acc": 0.8775,
+ "dev": {
+  "acc": {
+   "base": 0.7828947368421053,
+   "A": 0.6092105263157894,
+   "B": 0.5815789473684211,
+   "AB": 0.5802631578947368
+  },
+  "atomic_mean": 0.5953947368421053,
+  "min_atom": 0.5815789473684211,
+  "both_frac": 0.44605263157894737,
+  "both_n": 339,
+  "comp_n": 339,
+  "comp_miss_dev_exploratory": 0.696165191740413
+ }
+}

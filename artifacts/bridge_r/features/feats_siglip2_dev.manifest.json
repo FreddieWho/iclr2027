@@ -1,0 +1,56 @@
+{
+ "backbone": "siglip2",
+ "model_id": "google/siglip2-large-patch16-384",
+ "model_revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178",
+ "processor_revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178",
+ "processor_class": "SiglipImageProcessor",
+ "processor_config": {
+  "size": "SizeDict(height=384, width=384, longest_edge=None, shortest_edge=None, max_height=None, max_width=None)",
+  "crop_size": null,
+  "image_mean": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "image_std": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "do_resize": true,
+  "do_center_crop": null,
+  "do_rescale": true,
+  "do_normalize": true,
+  "resample": 2
+ },
+ "transformers_version": "5.6.2",
+ "torch_version": "2.11.0+cu130",
+ "split": "dev",
+ "n_quartets": 760,
+ "shard": "merged-6",
+ "qid_range": [
+  0,
+  126
+ ],
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "nuisance_base": 200000,
+ "feature_sha256": "d1d39d57bd85807cec1196cb128a118f4477dcb8772ac110192a9cd76671a91f",
+ "shard_shas": [
+  "75b9008938a34702fbcfc4369c2f19b8616d899e916c08784e3da63965b28b54",
+  "7579e58e5bd949417f2a257bbe2b1fc3c2df6c143bffd5a39094749f3ca6f1cb",
+  "b7f063c4ab6de2cc081425c584f1f22f2b996852b7839b1d51d78c486bbc29f9",
+  "40a15ae9857aa900371c411533ca31ecedd6e0b778b11c7062cef4aeb63a20ca",
+  "30e904ae9a25c000089fb1313a865bdc6852d80b764f3cd4b0517face9a55eb4",
+  "2dfe417ed8e92974deb1fa491af409e87a030da18c478eb5e449ea0a7cc9851e"
+ ]
+}

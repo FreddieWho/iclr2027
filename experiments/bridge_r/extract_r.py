@@ -80,6 +80,10 @@ def main():
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--lock-sha", default=None)
     p.add_argument("--batch", type=int, default=8)
+    p.add_argument("--shard", default="0/1",
+                   help="i/n contiguous quartet shard; merged post-hoc")
+    p.add_argument("--limit", type=int, default=None,
+                   help="dev/test only: max quartets (refused for holdout)")
     a = p.parse_args()
     lock = json.load(open(ART / "BRIDGE_R_PROTOCOL_LOCK.json"))
     if a.split == "holdout":
@@ -87,14 +91,23 @@ def main():
             raise SystemExit("FATAL: holdout already used (fail-closed).")
         if a.lock_sha != lock["lock_sha"]:
             raise SystemExit("FATAL: --lock-sha does not match protocol lock.")
+        if a.limit is not None:
+            raise SystemExit("FATAL: --limit refused for holdout.")
+    si, sn = (int(x) for x in a.shard.split("/"))
     torch.set_num_threads(8)
     proc, net, cfg = load_pinned(a.backbone, lock)
     d = np.load(ART / f"quartets_{a.split}_v2.npz")
-    nq = len(d["meta"])
+    nq_all = len(d["meta"])
+    lo = (nq_all * si) // sn
+    hi = (nq_all * (si + 1)) // sn
+    if a.limit is not None:
+        hi = min(hi, lo + a.limit)
+    nq = hi - lo
+    tag = f"shard{si}of{sn}" if sn > 1 else "full"
     feats = {}
     with torch.no_grad():
-        for s in range(0, nq, a.batch):
-            idx = range(s, min(s + a.batch, nq))
+        for s in range(lo, hi, a.batch):
+            idx = range(s, min(s + a.batch, hi))
             imgs = []
             for qi in idx:
                 qq = d[f"q{qi}"].reshape(3, 4, 2)
@@ -108,7 +121,7 @@ def main():
             r = readouts_from_hidden(h, a.backbone)
             for k, v in r.items():
                 feats.setdefault(k, []).append(v)
-            print(f"FEAT {a.split} {min(s + a.batch, nq)}/{nq}", flush=True)
+            print(f"FEAT {a.split}[{tag}] {min(s + a.batch, hi) - lo}/{nq}", flush=True)
     a.out.mkdir(parents=True, exist_ok=True)
     import transformers
     meta = {"backbone": a.backbone, "model_id": cfg["model_id"],
@@ -121,23 +134,24 @@ def main():
                                   "do_normalize", "resample")},
             "transformers_version": transformers.__version__,
             "torch_version": torch.__version__,
-            "split": a.split, "n_quartets": nq,
+            "split": a.split, "n_quartets": nq, "shard": tag,
+            "qid_range": [lo, hi],
             "renderer": RENDER_CONFIG,
             "nuisance_base": NUISANCE_BASE[a.split]}
     blobs = {k: np.concatenate(v).astype(np.float32) for k, v in feats.items()}
-    np.savez(a.out / f"feats_{a.backbone}_{a.split}.npz",
+    np.savez(a.out / f"feats_{a.backbone}_{a.split}.{tag}.npz",
              **blobs, kinds=np.tile(["base", "A", "B", "AB"], nq),
-             labels=np.repeat(d["meta"], 1, axis=0).reshape(-1, 4)[
+             labels=np.repeat(d["meta"][lo:hi], 1, axis=0).reshape(-1, 4)[
                  :, [0, 1, 2, 3]].reshape(-1),
-             qid=np.repeat(np.arange(nq), 4))
+             qid=np.repeat(np.arange(lo, hi), 4))
     # sha over feature bytes for the manifest
     import io
     buf = io.BytesIO()
     np.savez(buf, **blobs)
     meta["feature_sha256"] = hashlib.sha256(buf.getvalue()).hexdigest()
-    json.dump(meta, open(a.out / f"feats_{a.backbone}_{a.split}.manifest.json",
+    json.dump(meta, open(a.out / f"feats_{a.backbone}_{a.split}.{tag}.manifest.json",
                          "w"), indent=1, default=str)
-    print(f"DONE extract {a.backbone}/{a.split} sha={meta['feature_sha256'][:12]}")
+    print(f"DONE extract {a.backbone}/{a.split}[{tag}] sha={meta['feature_sha256'][:12]}")
 
 
 if __name__ == "__main__":

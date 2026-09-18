@@ -1,0 +1,21 @@
+{
+ "backbone": "siglip2",
+ "readout": "R2_spatial2x2",
+ "probe": "lr",
+ "train_n": 230,
+ "train_acc": 1.0,
+ "dev": {
+  "acc": {
+   "base": 0.7131578947368421,
+   "A": 0.6144736842105263,
+   "B": 0.5881578947368421,
+   "AB": 0.5131578947368421
+  },
+  "atomic_mean": 0.6013157894736842,
+  "min_atom": 0.5881578947368421,
+  "both_frac": 0.506578947368421,
+  "both_n": 385,
+  "comp_n": 385,
+  "comp_miss_dev_exploratory": 0.8233766233766234
+ }
+}
