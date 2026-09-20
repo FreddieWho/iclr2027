@@ -1,0 +1,10 @@
+{
+ "backbone": "dinov3s",
+ "readout": "R5c",
+ "probe": "lr-fixed-Am03",
+ "train_n_quartets": 2000,
+ "n_dev_quartets": 760,
+ "feature_dim": 384,
+ "holdout_touched": false,
+ "note": "fixed-base ROI: one window per quartet from base state only"
+}

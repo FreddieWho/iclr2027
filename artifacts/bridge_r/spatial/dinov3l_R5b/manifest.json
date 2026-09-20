@@ -1,0 +1,10 @@
+{
+ "backbone": "dinov3l",
+ "readout": "R5b",
+ "probe": "lr-fixed-Am03",
+ "train_n_quartets": 2000,
+ "n_dev_quartets": 760,
+ "feature_dim": 2,
+ "holdout_touched": false,
+ "note": "position-only control: normalized ROI coords, no DINO features"
+}

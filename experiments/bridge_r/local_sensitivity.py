@@ -64,8 +64,10 @@ def main():
         for qi in range(nq):
             x, ea, eb = qd[f"q{qi}"].reshape(3, 4, 2)
             states = {"base": x, "A": x + ea, "B": x + eb, "AB": x + ea + eb}
-            rng = np.random.default_rng(NUISANCE_BASE["dev"] + int(qi))
-            imgs = {k: render_canonical(states[k], rng)
+            seed = NUISANCE_BASE["dev"] + int(qi)
+            # Fresh RNG per state: identical to extract_r.py feature inputs
+            # (backgrounds locked across the four states).
+            imgs = {k: render_canonical(states[k], np.random.default_rng(seed))
                     for k in ("base", "A", "B", "AB")}
             mm, _ = changed_mask(imgs["base"], imgs[e])
             m[qi] = mm

@@ -196,3 +196,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-19：转向 DINOv3（用户拍板停做 DINOv2，删任务 #12/#13）；DINOv3-S/B/L 权重经 hf CLI 落地并验快照完整；提特征 11 分片（S×2/B×3/L×6）并行开跑，机器 load 约 92 已打满。
 - 2026-09-20：DINOv3 S/B/L sweep收敛：最优S 0.768/B 0.750/L 0.726（plateau全选n2000），三档＋DINOv2-B全B1失败，呈反向size趋势；holdout 895继续封存；SIZE_SWEEP_REPORT落盘。科学探索除投稿行政外停止。
 - 2026-09-20：Bridge-R Task 2 收敛（Am03）：固定LR三档×六读出主表＋changed/unchanged灵敏度＋10k paired bootstrap；R3/R4显著伤、B/L的R5显著救但未达B1、size gap六读出全存、绝对响应L>B>S；verdict=LOCAL_INFO_PRESENT_LOCALIZATION_FAILURE；holdout继续封存。
+- 2026-09-20：Task 2 closure（审计控制）：R5b position-only三档同0.7882≥DINO-ROI、R5c固定base ROI≈R0，R5提升证伪为几何选择；mask背景RNG与feature对齐后ratio不变；verdict降级为LOCAL_INFORMATION_WEAK_OR_OOD；正文未动，holdout封存。

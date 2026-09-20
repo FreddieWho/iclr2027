@@ -22,8 +22,11 @@ All 18 cells: Gate B1 FAIL (no ATOMIC_ACCESSIBILITY_RESCUED; Task 2 stops here).
    (10k, quartet units): S -0.056 [-0.082,-0.030], B -0.058 [-0.088,-0.031],
    L -0.056 [-0.084,-0.027]. Finer uniform pooling strictly loses.
 2. **Does 7x7 continue recovery? No.** R4-R0: S -0.066, B -0.092, L -0.062,
-   all CIs below zero. More spatial bins + more parameters = worse linear
-   accessibility, at every scale.
+   all CIs below zero. Under the fixed linear readout and fixed training
+   budget, naively keeping more spatial bins does not improve readability
+   and hurts generalization instead. This is partly a high-dimensional
+   statistics effect (16C/49C dims on 8000 states at fixed C=1), not purely
+   a visual-organization mechanism.
 3. **Does privileged ROI restore competence? Partially, never fully.**
    R5-R0: S +0.024 [-0.002,+0.049] (marginal), B +0.034 [+0.007,+0.061],
    L +0.047 [+0.018,+0.075]. Oracle localization rescues 2-5pp with the
@@ -34,27 +37,51 @@ All 18 cells: Gate B1 FAIL (no ATOMIC_ACCESSIBILITY_RESCUED; Task 2 stops here).
    A_S-A_L paired CI: R0 +0.072 [+0.041,+0.104], R1 +0.047, R2 +0.070,
    R3 +0.072, R4 +0.068, R5 +0.049 — every CI excludes zero. The inverse
    size trend survives all six readouts.
-5. **Does changed-region response weaken S->B->L? No — absolute response
-   grows, relative ratio holds.** Mean d_cos on changed patches (edit AB):
-   S 0.0161, B 0.0442, L 0.0740; R_local (changed/unchanged): S 4.6-6.0,
-   B 5.6-7.0, L 5.9-7.2 across edits. Larger models' patches respond MORE
-   in absolute terms; the changed-vs-unchanged contrast (~6x) is
-   scale-invariant. The attention/invariance story in its naive form
-   ("large models don't register micro-edits") is rejected: they register
-   them more strongly, but organize them less accessibly.
+5. **Does changed-region response weaken S->B->L? No — but cross-size
+   magnitudes are not calibrated.** Within each representation space,
+   Large shows larger cosine displacement (AB: S 0.017, B 0.047, L 0.078);
+   feature geometry differs across sizes, so `0.078 > 0.017` must NOT be
+   read as a calibrated "L is 4.6x more sensitive than S". The firmer
+   half: all three sizes show a stable changed-vs-unchanged contrast
+   (S 4.9-7.2x, B 5.9-8.6x, L 6.2-8.7x across edits, backgrounds now
+   exactly locked to feature inputs). The naive "large models don't
+   register micro-edits" story is rejected; a universal-invariance claim
+   is not licensed.
 
-## Interpretation
+## Closure controls (audit-requested): R5 rescue was geometric selection
+
+R5 recomputed ROI per state from full geometry, so ROI position itself
+could carry label information. Two controls on the same patch cache:
+
+- **R5b position-only** (normalized ROI coords, same LR, no DINO
+  features): 0.7882 identically for S/B/L — at or above the DINO-ROI
+  scores (S 0.7914, B 0.7743, L 0.7421). R5-minus-R5b paired CI covers
+  zero for S/B and is significantly NEGATIVE for L (-0.046). DINO ROI
+  features add nothing over bare position; for L they add noise.
+- **R5c fixed-base ROI** (one window per quartet from the base state,
+  leakage-free within quartet): S 0.7684, B 0.7368, L 0.7039 — all
+  within noise of R0 (paired CIs cover zero). Without per-state
+  re-aiming, rescue disappears.
+
+Conclusion: the R5 lift came from privileged geometric selection, not
+from visual relation information decoded out of patches. The earlier
+R5-based "local information present" reading is withdrawn. What stands:
+(1)-(2) pooling-hurt results, (3) the size gap, (4) the sensitivity
+contrast (response, not task-usable information).
+
+## Interpretation (post-controls)
 
 - **SPATIAL_POOLING_EXPLAINS is rejected**: uniform finer pooling hurts,
-  it does not rescue.
-- **LOCAL_INFORMATION_WEAK_OR_OOD is rejected as stated**: changed-region
-  contrast ~6x at all scales; local features are not dead.
-- What remains: local information is present (sensitivity ratios, R5
-  rescue), ordinary readouts cannot localize/use it (R3/R4 losses), and
-  linear accessibility declines with size even though absolute local
-  response grows. I.e. a localization/organization failure with a
-  size-dependent accessibility gradient — not a pooling artifact, not
-  dead patches.
+  it does not rescue (with the fixed-budget statistical caveat above).
+- **The R5-based localization claim is withdrawn**: see closure controls.
+- What remains standing: ordinary readouts cannot access the relation
+  (R3/R4 losses); the S->B->L accessibility gap survives all readouts;
+  edited regions evoke a strong, specific patch response (~5-9x
+  contrast) whose absolute scale grows with size within each geometry.
+  I.e. patches register the edits, but no linear readout — global,
+  uniform-spatial, or leakage-free localized — converts that response
+  into task information. That is a weak-local-information (for this
+  task) finding, not a pooling artifact and not dead patches.
 
 ## Base-vs-atomic pattern (tracked per §19)
 
