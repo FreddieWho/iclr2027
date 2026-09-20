@@ -53,6 +53,9 @@ def main():
     np.savez(buf, **blobs)
     meta = dict(manifests[0])
     meta.update({"n_quartets": int(nq), "shard": f"merged-{a.n}",
+                 "qid_min": int(uq.min()),
+                 "qid_max_exclusive": int(uq.max()) + 1,
+                 "qid_range": [int(uq.min()), int(uq.max()) + 1],
                  "shard_shas": [m["feature_sha256"] for m in manifests],
                  "feature_sha256": hashlib.sha256(buf.getvalue()).hexdigest()})
     json.dump(meta, open(

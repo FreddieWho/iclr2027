@@ -10,6 +10,11 @@
    "file": "artifacts/bridge_r/BRIDGE_R_AMENDMENT_02.json",
    "holdout_touched": false,
    "id": "Am02"
+  },
+  {
+   "file": "artifacts/bridge_r/BRIDGE_R_AMENDMENT_03.json",
+   "holdout_touched": false,
+   "id": "Am03"
   }
  ],
  "dinov3_status": "BLOCKED_EXTERNAL_ACCESS (gated=manual, no token, no cache; fallback engaged, no bypass attempted)",
@@ -35,7 +40,7 @@
   "min_margin": 0.02
  },
  "git_commit": "50a0d454143bbb3fd5500eaaf57dd4509a7566b7",
- "lock_sha": "c95c26b0a8c200480cdf4ddab8d88b6b82a6dc94c4c7928fb65216d16d2c83ce",
+ "lock_sha": "fcdc34a528d41f6b169f2ff0e5a3a8238beee1c8d6623542d921de181b55a814",
  "matching": {
   "candidates_per_quartet": 64,
   "covariates": [

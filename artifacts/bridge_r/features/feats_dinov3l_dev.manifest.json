@@ -30,7 +30,7 @@
  "shard": "merged-6",
  "qid_range": [
   0,
-  126
+  760
  ],
  "renderer": {
   "renderer_version": "bridge_r_canonical_v1a",
@@ -52,5 +52,8 @@
   "75be36770edbc6af2431abec350a02b263751954ef7b18ab6a823154104e55cf",
   "5a2cf72d6cc385c4b6814c2cf011f587c1980baae7f3667bf8d9c3b2736ffff3",
   "8824eed9dced4553be42e26e91f6e5478cf75ae30678cb07bc3999fda909f0e1"
- ]
+ ],
+ "qid_min": 0,
+ "qid_max_exclusive": 760,
+ "provenance_note": "metadata repair only (qid_range corrected to full merged range); feature bytes and numerical results unaffected"
 }

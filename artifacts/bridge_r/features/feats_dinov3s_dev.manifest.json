@@ -30,7 +30,7 @@
  "shard": "merged-2",
  "qid_range": [
   0,
-  380
+  760
  ],
  "renderer": {
   "renderer_version": "bridge_r_canonical_v1a",
@@ -48,5 +48,8 @@
  "shard_shas": [
   "bba80d080ff2683470c2757b6997c8e58fd35557dfd05b405ece8210aa86070d",
   "663db07cb95d9bdd9ce6f89b979151cb69e781eb436435c9cace825dda1fbd4f"
- ]
+ ],
+ "qid_min": 0,
+ "qid_max_exclusive": 760,
+ "provenance_note": "metadata repair only (qid_range corrected to full merged range); feature bytes and numerical results unaffected"
 }
