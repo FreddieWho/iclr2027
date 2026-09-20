@@ -1,0 +1,25 @@
+{
+ "parent_overlap": {
+  "repair_trainxrepair_dev": 0,
+  "repair_trainxflipsup": 0,
+  "repair_trainxcompdev": 0,
+  "repair_devxflipsup": 0,
+  "repair_devxcompdev": 0,
+  "flipsupxcompdev": 0
+ },
+ "n": {
+  "repair_train": 2476,
+  "repair_dev": 633,
+  "flipsup": 1007,
+  "compdev": 451
+ },
+ "training_has_AB": false,
+ "training_sources": [
+  "semantic_delta/train.npz (single edits only)",
+  "repair_transfer/flipsup.npz (single flips only)"
+ ],
+ "repair_train_balance": {
+  "flip": 2000,
+  "noflip": 2000
+ }
+}

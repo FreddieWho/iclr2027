@@ -199,3 +199,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-20：Task 2 closure（审计控制）：R5b position-only三档同0.7882≥DINO-ROI、R5c固定base ROI≈R0，R5提升证伪为几何选择；mask背景RNG与feature对齐后ratio不变；verdict降级为LOCAL_INFORMATION_WEAK_OR_OOD；正文未动，holdout封存。
 - 2026-09-20：semantic-delta机制任务开工（用户授权，M0-M11）：DINOv3-L final层，matched flip/no-flip单编辑，dev门+一次性confirm，阴性即停；holdout继续封存。
 - 2026-09-20：semantic-delta阴性收敛：D0 0.497≈随机，不及control，confirm未开；verdict维持LOCAL_INFORMATION_WEAK_OR_OOD；机制救援停止。
+- 2026-09-20：Balanced Transition Repair开工（R0完成，接受85.8% headline＋DINO阴性背景）；复用semantic_delta＋新建flip补充/独立composition dev，holdout继续封存。
