@@ -1,0 +1,14 @@
+{
+ "parent_overlap": {
+  "train/dev": 0,
+  "train/confirm": 0,
+  "dev/confirm": 0
+ },
+ "base_unique": {
+  "train": 2476,
+  "dev": 633,
+  "confirm": 631
+ },
+ "baseedit_unique_cross": 6000,
+ "baseedit_total": 6000
+}
