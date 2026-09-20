@@ -1,0 +1,22 @@
+{
+ "backbone": "dinov3l",
+ "model_id": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+ "model_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+ "transformers_version": "5.6.2",
+ "job": "compdev",
+ "shard": "shard1of2",
+ "n_states": 2000,
+ "feature": "final-layer R0",
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "feature_sha256": "ddb18d637161cf0d463c87101f532459b3d267d7622ffc43804d82ffe5472fbc"
+}

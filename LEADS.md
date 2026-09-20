@@ -52,3 +52,8 @@ Bracket 双侧标签（v1）＋方向 margin（v2）在积分尺子下双种子�
 假设"Δz比z1更易读出语义翻转"在DINOv3-L final R0上被证伪：matched 4000/1000对、SMD全<0.08，D0准确率0.497≈随机，不及两个低级control；confirm未开。
 关闭原因不是数据不平衡，而是表示变化本身不携带线性可读的翻转信息。
 状态：已放弃（dev门未过即停，不再向复杂readout fishing）
+
+2026/9/20
+## L-011  frozen foundation repair（已关闭）
+Balanced Transition三臂pilot（DINOv3-L frozen R0＋残差adapter，3种子等预算）：balanced atomic最高0.684，P1门0.85全败；失败卡在atomic安装不是composition泛化。
+状态：已放弃（DINO_REPAIR_NEGATIVE，不做LoRA/finetune/search，不进Phase 2）
