@@ -5,6 +5,11 @@
    "holdout_touched": false,
    "id": "Am01",
    "scope": "renderer only (SAFE_SCALE 0.80->0.88, LINE_WIDTH 10->16, v1->v1a)"
+  },
+  {
+   "file": "artifacts/bridge_r/BRIDGE_R_AMENDMENT_02.json",
+   "holdout_touched": false,
+   "id": "Am02"
   }
  ],
  "dinov3_status": "BLOCKED_EXTERNAL_ACCESS (gated=manual, no token, no cache; fallback engaged, no bypass attempted)",
@@ -30,7 +35,7 @@
   "min_margin": 0.02
  },
  "git_commit": "50a0d454143bbb3fd5500eaaf57dd4509a7566b7",
- "lock_sha": "cce7cd18068b414e3b2cc5238ea3af42cf45bc241d4849447cf386186a9cd844",
+ "lock_sha": "c95c26b0a8c200480cdf4ddab8d88b6b82a6dc94c4c7928fb65216d16d2c83ce",
  "matching": {
   "candidates_per_quartet": 64,
   "covariates": [
@@ -64,6 +69,24 @@
    "model_revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
    "processor_class": "BitImageProcessor",
    "processor_revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415"
+  },
+  "dinov3b": {
+   "model_id": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+   "model_revision": "5931719e67bbdb9737e363e781fb0c67687896bc",
+   "processor_class": "DINOv3ViTImageProcessor",
+   "processor_revision": "5931719e67bbdb9737e363e781fb0c67687896bc"
+  },
+  "dinov3l": {
+   "model_id": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+   "model_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+   "processor_class": "DINOv3ViTImageProcessor",
+   "processor_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51"
+  },
+  "dinov3s": {
+   "model_id": "facebook/dinov3-vits16-pretrain-lvd1689m",
+   "model_revision": "114c1379950215c8b35dfcd4e90a5c251dde0d32",
+   "processor_class": "DINOv3ViTImageProcessor",
+   "processor_revision": "114c1379950215c8b35dfcd4e90a5c251dde0d32"
   },
   "siglip2": {
    "model_id": "google/siglip2-large-patch16-384",

@@ -48,14 +48,15 @@ def vision_forward(net, backbone, batch):
     return h
 
 
-def readouts_from_hidden(h, backbone):
+def readouts_from_hidden(h, backbone, n_register=0):
     """Return dict R0/R1/R2 from a model output. No grad.
-    dinov2: CLS at position 0. siglip vision tower: no CLS token."""
+    dinov2/dinov3: CLS at position 0 (+registers for dinov3).
+    siglip vision tower: no CLS token."""
     last = h.last_hidden_state  # [B, T, C]
     pool = h.pooler_output
-    has_cls = (backbone == "dinov2")
+    has_cls = backbone in ("dinov2", "dinov3s", "dinov3b", "dinov3l")
     R0 = pool if pool is not None else last[:, 0]
-    patches = last[:, 1:, :] if has_cls else last
+    patches = last[:, (1 + n_register if has_cls else 0):, :]
     R1 = patches.mean(dim=1)
     # 2x2 spatial: infer grid (square); DINOv2 37x37 -> 18/19 split
     n = patches.shape[1]
@@ -76,7 +77,7 @@ def readouts_from_hidden(h, backbone):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--split", choices=["train", "dev", "holdout"], required=True)
-    p.add_argument("--backbone", choices=["dinov2", "siglip2"], required=True)
+    p.add_argument("--backbone", choices=["dinov2", "siglip2", "dinov3s", "dinov3b", "dinov3l"], required=True)
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--lock-sha", default=None)
     p.add_argument("--batch", type=int, default=8)
@@ -96,6 +97,7 @@ def main():
     si, sn = (int(x) for x in a.shard.split("/"))
     torch.set_num_threads(8)
     proc, net, cfg = load_pinned(a.backbone, lock)
+    n_register = int(getattr(getattr(net, "config", None), "num_register_tokens", 0) or 0)
     d = np.load(ART / f"quartets_{a.split}_v2.npz")
     nq_all = len(d["meta"])
     lo = (nq_all * si) // sn
@@ -118,7 +120,7 @@ def main():
                         st, np.random.default_rng(seed)))
             batch = proc(images=imgs, return_tensors="pt")
             h = vision_forward(net, a.backbone, batch)
-            r = readouts_from_hidden(h, a.backbone)
+            r = readouts_from_hidden(h, a.backbone, n_register)
             for k, v in r.items():
                 feats.setdefault(k, []).append(v)
             print(f"FEAT {a.split}[{tag}] {min(s + a.batch, hi) - lo}/{nq}", flush=True)
