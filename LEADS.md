@@ -38,4 +38,4 @@ Bracket 双侧标签（v1）＋方向 margin（v2）在积分尺子下双种子�
 门禁未解（HF gated manual，无 token；GitHub 只给 Meta 接受页，绕不过；S/B/L ID 已确认）。
 若许可就绪，同一批 v2 数据、同一协议 S→B→L，B1 先行、holdout 一次性，禁 VLM prompting/finetune。
 最小验证：先通 S 的权重下载＋dev atomic。
-状态：待挖掘（blocked：外部许可；DINOv2 S/B/L sweep 先行，见 TODO）
+状态：已并入主线（2026-09-19 用户解禁：hf CLI 落地 S/B/L 快照；提特征 11 分片并行执行中，见 TODO #16）

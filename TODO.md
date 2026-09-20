@@ -1,11 +1,11 @@
-# TODO — ICLR 2027（bridge＋DINOv2 sweep 双线解冻，2026-09-19 用户授权）
+# TODO — ICLR 2027（bridge＋DINOv3 sweep 双线解冻，2026-09-19 用户授权）
 
 ```
-SCIENTIFIC_EXPLORATION: OPEN (bridge track + DINOv2 S/B/L size sweep, 用户授权)
+SCIENTIFIC_EXPLORATION: OPEN (bridge track + DINOv3 S/B/L size sweep, 用户授权)
 Authorized: (1) foundation-model bridge experiment (frozen backbones + probe, 零训练)；
-  (2) DINOv2 S/B/L 同家族 size sweep：同一批 v2 数据、同一渲染/processor/readout/probe 协议、
+  (2) DINOv3 S/B/L 同家族 size sweep：同一批 v2 数据、同一渲染/processor/readout/probe 协议、
   pinned revisions、frozen 权重；B1 先行（atomic≥0.85 才谈组合），holdout 非 B1 通过不开；
-  禁 VLM prompting/finetune/7B/架构搜索。DINOv3 进 LEADS L-008（等外部许可）。
+  禁 VLM prompting/finetune/7B/架构搜索。DINOv2 不再做（任务 #12/#13 已删）。
   pilot 先行：S0风格 quartet四状态 → DINOv2-B/CLIP ViT-B frozen特征 → linear probe，
   只看 atomic 准确率与分母；atomic≥90% 才展开全矩阵，否则停下重新设计。
 Still banned: AMR / Jacobian扩展 / E7新loss / quartet-curriculum v3 / relation-arch v3 /
@@ -193,3 +193,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-18：Bridge-R lock提交（规则冻结＋DINOv3 blocked记录）；DINOv2 train/dev提特征后台运行中，SigLIP2权重下载中。
 - 2026-09-19：Bridge-R全收敛并提交：DINOv2最优0.728/SigLIP2最优0.638，双B1失败→OOD_INCONCLUSIVE；matched-single按门禁跳过；holdout 895封存未动；三报告＋claim决策落盘。
 - 2026-09-19：DINOv3 进 LEADS L-008（门禁未解，blocked）；DINOv2 S/B/L sweep 开工（同批 v2 数据＋B1 先行，任务 #12–#14）；S/L 权重经镜像后台下载中。
+- 2026-09-19：转向 DINOv3（用户拍板停做 DINOv2，删任务 #12/#13）；DINOv3-S/B/L 权重经 hf CLI 落地并验快照完整；提特征 11 分片（S×2/B×3/L×6）并行开跑，机器 load 约 92 已打满。
