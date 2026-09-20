@@ -1,0 +1,21 @@
+{
+ "backbone": "dinov3l",
+ "readout": "R2_spatial2x2",
+ "probe": "mlp128",
+ "train_n": 500,
+ "train_acc": 0.977,
+ "dev": {
+  "acc": {
+   "base": 0.8447368421052631,
+   "A": 0.6197368421052631,
+   "B": 0.5960526315789474,
+   "AB": 0.6473684210526316
+  },
+  "atomic_mean": 0.6078947368421053,
+  "min_atom": 0.5960526315789474,
+  "both_frac": 0.5,
+  "both_n": 380,
+  "comp_n": 380,
+  "comp_miss_dev_exploratory": 0.631578947368421
+ }
+}

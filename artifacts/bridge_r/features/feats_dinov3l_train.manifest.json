@@ -1,0 +1,56 @@
+{
+ "backbone": "dinov3l",
+ "model_id": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+ "model_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+ "processor_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+ "processor_class": "DINOv3ViTImageProcessor",
+ "processor_config": {
+  "size": "SizeDict(height=224, width=224, longest_edge=None, shortest_edge=None, max_height=None, max_width=None)",
+  "crop_size": null,
+  "image_mean": [
+   0.485,
+   0.456,
+   0.406
+  ],
+  "image_std": [
+   0.229,
+   0.224,
+   0.225
+  ],
+  "do_resize": true,
+  "do_center_crop": null,
+  "do_rescale": true,
+  "do_normalize": true,
+  "resample": 2
+ },
+ "transformers_version": "5.6.2",
+ "torch_version": "2.11.0+cu130",
+ "split": "train",
+ "n_quartets": 2164,
+ "shard": "merged-6",
+ "qid_range": [
+  0,
+  360
+ ],
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "nuisance_base": 100000,
+ "feature_sha256": "1a62049449c1d0f00d10ec0dd7af5df16da1d94684f95602720d822a07822a60",
+ "shard_shas": [
+  "c77c523270cc1d90d7b061ec849b9b3aa740229ac7a664e2f37b02adf810b839",
+  "69f77dd07acd798c064c812b8c73c893e692b6b1bbdd85f49b562bc436d06df0",
+  "846a4cdc4c1754786fc61997845e9538492daedf5b23f86a3af31ae9536a3919",
+  "69a3e3e78059c06650213a4196f9a285e0a8d9f299c53a79f836a25e2cc56531",
+  "e7099981d20015d0a7de0c1d158fc092a583043f9775b59fb8f5375d4604c11f",
+  "7e54ca7a2d400a8e329020e49cf1d4a9eabc3f0713ab66b6ac6a3006c2d63c1c"
+ ]
+}

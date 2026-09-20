@@ -48,6 +48,78 @@
   "siglip2/R2_spatial2x2/mlp128": {
    "train_n": 2000,
    "dev_atomic": 0.6190789473684211
+  },
+  "dinov3b/R0_pooled/lr": {
+   "train_n": 1000,
+   "dev_atomic": 0.7342105263157894
+  },
+  "dinov3b/R0_pooled/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.75
+  },
+  "dinov3b/R1_mean_patch/lr": {
+   "train_n": 1000,
+   "dev_atomic": 0.7052631578947368
+  },
+  "dinov3b/R1_mean_patch/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.7342105263157894
+  },
+  "dinov3b/R2_spatial2x2/lr": {
+   "train_n": 1000,
+   "dev_atomic": 0.6934210526315789
+  },
+  "dinov3b/R2_spatial2x2/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.6802631578947369
+  },
+  "dinov3s/R0_pooled/lr": {
+   "train_n": 2000,
+   "dev_atomic": 0.7677631578947368
+  },
+  "dinov3s/R0_pooled/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.7309210526315789
+  },
+  "dinov3s/R1_mean_patch/lr": {
+   "train_n": 1000,
+   "dev_atomic": 0.7486842105263158
+  },
+  "dinov3s/R1_mean_patch/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.736842105263158
+  },
+  "dinov3s/R2_spatial2x2/lr": {
+   "train_n": 1000,
+   "dev_atomic": 0.7263157894736842
+  },
+  "dinov3s/R2_spatial2x2/mlp128": {
+   "train_n": 1000,
+   "dev_atomic": 0.7302631578947368
+  },
+  "dinov3l/R0_pooled/lr": {
+   "train_n": 2000,
+   "dev_atomic": 0.6953947368421053
+  },
+  "dinov3l/R0_pooled/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.7263157894736842
+  },
+  "dinov3l/R1_mean_patch/lr": {
+   "train_n": 2000,
+   "dev_atomic": 0.7
+  },
+  "dinov3l/R1_mean_patch/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.6907894736842105
+  },
+  "dinov3l/R2_spatial2x2/lr": {
+   "train_n": 2000,
+   "dev_atomic": 0.6546052631578947
+  },
+  "dinov3l/R2_spatial2x2/mlp128": {
+   "train_n": 2000,
+   "dev_atomic": 0.6434210526315789
   }
  },
  "best": {
@@ -63,5 +135,23 @@
   "dev_atomic": 0.6375,
   "gate_B1": "FAIL; cross-family atomic-accessibility-insufficient"
  },
- "plateau_rule_applied": true
+ "plateau_rule_applied": true,
+ "dinov3b_best": {
+  "config": "dinov3b/R0_pooled/mlp128",
+  "train_n": 2000,
+  "dev_atomic": 0.75,
+  "gate_B1": "FAIL"
+ },
+ "dinov3s_best": {
+  "config": "dinov3s/R0_pooled/lr",
+  "train_n": 2000,
+  "dev_atomic": 0.7677631578947368,
+  "gate_B1": "FAIL"
+ },
+ "dinov3l_best": {
+  "config": "dinov3l/R0_pooled/mlp128",
+  "train_n": 2000,
+  "dev_atomic": 0.7263157894736842,
+  "gate_B1": "FAIL"
+ }
 }
