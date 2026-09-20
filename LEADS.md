@@ -32,3 +32,10 @@ Bracket 双侧标签（v1）＋方向 margin（v2）在积分尺子下双种子�
 若成立就是主发现里唯一未解机制问题的新方法位；先做零训练诊断（转折处梯度/曲率结构分析），再谈训练，避免重蹈 v1/v2。
 最小验证：坐标单转折路径诊断小试，零训练，约 1h。
 状态：待挖掘（v3 网 2026-09-18 打完：12 臂×5 种子全败/持平，斜率非 binding constraint；下一假设应在表示侧而非监督侧，见 reports/last15h/E7_v3_verdict.md）
+
+2026/9/19
+## L-008  DINOv3 S/B/L 同家族 size sweep
+门禁未解（HF gated manual，无 token；GitHub 只给 Meta 接受页，绕不过；S/B/L ID 已确认）。
+若许可就绪，同一批 v2 数据、同一协议 S→B→L，B1 先行、holdout 一次性，禁 VLM prompting/finetune。
+最小验证：先通 S 的权重下载＋dev atomic。
+状态：待挖掘（blocked：外部许可；DINOv2 S/B/L sweep 先行，见 TODO）
