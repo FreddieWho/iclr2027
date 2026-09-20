@@ -1,0 +1,50 @@
+{
+  "recipe": {
+    "C": 1.0,
+    "penalty": "l2",
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "max_iter": 5000
+  },
+  "results": {
+    "C1_geom": {
+      "acc": 0.543,
+      "auroc": 0.535892,
+      "train_acc": 0.5175
+    },
+    "C2_pixel": {
+      "acc": 0.568,
+      "auroc": 0.586064,
+      "train_acc": 0.55525
+    },
+    "T0_endpoint": {
+      "acc": 0.598,
+      "auroc": 0.660488,
+      "train_acc": 0.8115
+    },
+    "D0_delta": {
+      "acc": 0.497,
+      "auroc": 0.5048079999999999,
+      "train_acc": 0.747
+    },
+    "D1_absdelta": {
+      "acc": 0.595,
+      "auroc": 0.6159239999999999,
+      "train_acc": 0.779
+    },
+    "T1_concat": {
+      "acc": 0.589,
+      "auroc": 0.627616,
+      "train_acc": 0.92525
+    },
+    "A_state": {
+      "acc": 0.732,
+      "auroc": 0.8049320000000001,
+      "train_acc": 0.88875
+    },
+    "D0_permuted": {
+      "acc": 0.523,
+      "auroc": 0.537336
+    }
+  }
+}

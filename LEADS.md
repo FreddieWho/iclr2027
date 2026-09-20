@@ -46,3 +46,9 @@ Bracket 双侧标签（v1）＋方向 margin（v2）在积分尺子下双种子�
 若成立才能把 verdict 从 WEAK_OR_OOD 往一般 scale 组织问题升级；若不成立则梯度锁死在抽象探针内，同样值钱。
 最小验证：先冻结自然刺激管线（刺激/标签/渲染口径/混杂控制）＋Am04预注册，holdout继续封存；只在"升级verdict"或"审稿人要求正控"时开。
 状态：待挖掘（Task 2 closure已定：只测OOD抽象梯度，不测一般scale问题；本期投稿不启动）
+
+2026/9/20
+## L-010  semantic-delta救援方向（已关闭）
+假设"Δz比z1更易读出语义翻转"在DINOv3-L final R0上被证伪：matched 4000/1000对、SMD全<0.08，D0准确率0.497≈随机，不及两个低级control；confirm未开。
+关闭原因不是数据不平衡，而是表示变化本身不携带线性可读的翻转信息。
+状态：已放弃（dev门未过即停，不再向复杂readout fishing）
