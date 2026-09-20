@@ -1,0 +1,10 @@
+{
+ "backbone": "dinov3b",
+ "readout": "R4",
+ "probe": "lr-fixed-Am03",
+ "train_n_quartets": 2000,
+ "n_dev_quartets": 760,
+ "feature_dim": 37632,
+ "holdout_touched": false,
+ "note": "dev diagnostic only; R5 uses privileged input geometry"
+}

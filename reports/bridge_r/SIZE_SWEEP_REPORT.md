@@ -14,8 +14,9 @@ R0/R1/R2 x LR/MLP-128 x {230,500,1000,2000}, plateau rule -> size selection.
 ## Reading
 Monotone INVERSE size trend within v3 (S>B>L); DINOv2-B lands with L.
 Bigger frozen encoders expose small abstract displacements LESS reliably
-under linear/MLP probes — consistent with stronger translation invariance
-from larger-scale pretraining, not with "more capacity reads finer detail".
+under linear/MLP probes — consistent with a size-dependent reduction in
+linear accessibility on these abstract edits; stronger invariance is one
+hypothesis to be tested.
 All four points fail Gate B1 (0.85); composition testing stays forbidden;
 holdout 895 remains sealed.
 

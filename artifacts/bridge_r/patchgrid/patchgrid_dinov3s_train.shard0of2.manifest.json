@@ -1,0 +1,36 @@
+{
+ "backbone": "dinov3s",
+ "model_id": "facebook/dinov3-vits16-pretrain-lvd1689m",
+ "model_revision": "114c1379950215c8b35dfcd4e90a5c251dde0d32",
+ "processor_revision": "114c1379950215c8b35dfcd4e90a5c251dde0d32",
+ "processor_class": "DINOv3ViTImageProcessor",
+ "transformers_version": "5.6.2",
+ "torch_version": "2.11.0+cu130",
+ "split": "train",
+ "n_quartets": 1082,
+ "shard": "shard0of2",
+ "qid_range": [
+  0,
+  1082
+ ],
+ "grid": "14x14 (patch tokens only; CLS+registers excluded)",
+ "shape": [
+  4328,
+  196,
+  384
+ ],
+ "dtype": "float32",
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "nuisance_base": 100000,
+ "feature_sha256": "708076b30bbeb524badd14e514112d8fc7b1a0a06c3821d1c709f44a8765720d"
+}
