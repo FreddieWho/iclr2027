@@ -215,3 +215,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：WP-D收敛：matched SMD结构性失败（ball_speed 2.65）；残差检查运动解释70-90%；verdict MOTION_CONFOUND_EXPLAINS_S2；S2降级为混杂观察；L-002完全消耗。
 - 2026-09-22：Round3四包全收敛：A干预双头NEGATIVE（trans零增益＋A6 1/3）/B transfer NEGATIVE（src11 hint 9.4pp不及bar＋target flag重复实验已如实更正）/C分区verified但repair完败ENGINEERING_ONLY/D运动混杂解释S2；正文零修改；无第六方向。
 - 2026-09-22：独立挖掘三件套落地：P1 Confident Blind Spots成立（坐标emergent 100%vs60%＋全量弱阳性＋足球三场×双模型复现＋修复抗性）；P2 coverage-not-precision统一段草稿；P3 CCM协议包装。均未动正文，待用户拍板。
+- 2026-09-22：P1三种子闭合（s23/s47 clean/flip同形，修复下移不压平）；单种子短板已补。

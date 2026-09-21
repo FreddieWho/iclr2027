@@ -32,4 +32,14 @@ the model "knows" best are the least updatable.
 `artifacts/confident_blindspots/FOOTBALL_CONF.json` + WP1 rows
 (confidence quartile × miss with margin bands, clean vs repair curves).
 Kill rule passed (no reversal in 3 matches × 2 models + coordinate 2 pops).
+
+## Multi-seed closure (s23/s47, same 512 parents, zero retraining)
+| seed | clean hi / lo | flip hi / lo |
+|---|---|---|
+| s11 | 1.00 / 0.59-0.73 | 0.88-1.00 / ~0.7 |
+| s23 | 0.98-1.00 / 0.58-0.77 | 0.85-0.98 / 0.53-0.57 |
+| s47 | 1.00 / 0.65-0.76 | 0.96-1.00 / 0.53-0.57 |
+3/3 seeds same direction; repair shifts the curve down (s23: 0.84→0.73)
+but never flattens it. Single-seed objection closed.
+
 Verdict: P1成立, 正文级候选 (new subsection + Figure panel).
