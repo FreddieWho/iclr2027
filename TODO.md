@@ -206,3 +206,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-20：Competence-First开工（C0：旧patchgrid不覆盖repair数据，需新提；C1协议已冻结：conv head＋30epoch＋dev选型＋C1门）。
 - 2026-09-20：Competence-First收敛：conv head atomic 0.68，C1 0/3；verdict FOUNDATION_COMPETENCE_NOT_ESTABLISHED；foundation repair永久PARK，正文不动，AB未开。
 - 2026-09-21：novelty upgrade campaign开工（用户授权）：Phase0审计完成（N02梯度-结果零判别已记入协议作审计约束；N04噪声地板±15pp记入WP5纪律；N06λc=0机制线记入WP4）；UPDATE_GEOMETRY_MASTER_PROTOCOL＋PROTOCOL_LOCK（confirm seed 26092201）＋NOVELTY_POSITIONING已冻结提交；正文未动。
+- 2026-09-21：WP1收敛：composition=missed update成立（111/111归因）；incidence law死亡（emergent平坦＋aimed匹配SMD结构性失败）；verdict UPDATE_GEOMETRY_NOT_SUPPORTED；WP3/WP5已杀，confirm继续封存，正文未动。
