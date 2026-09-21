@@ -74,3 +74,8 @@ WP1的111/111归因是discovery池（eval_202）证据；geometry_confirm从未�
 ## L-014  半径诊断R=r_m/r_s（保留观察，不施工）
 miss组R中位~1.9 vs hit组~0.8，三种子同向；分解证明全来自模型半径（oracle难度相同）。讨论段可留一行；不发展margin-matching loss。
 状态：待挖掘（仅审稿驱动）
+
+2026/9/22
+## L-014b  半径loss试点（已埋）
+RADIUS-PILOT-1：radius trans均值0.499 vs flipcov 0.450，三种子全反向；stay FA s23 spike 0.193；R机制检查radius≈flipcov。按门控掩埋，不调参、不开confirm。
+状态：已放弃（L-014诊断信号本身保留）

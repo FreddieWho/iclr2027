@@ -1,0 +1,24 @@
+{
+ "arms": {
+  "clean": "BCE on 512 base states only",
+  "flipcov": "BCE(base) + 1.0*BCE(750 flip endpoints)",
+  "radius": "BCE(base) + 1.0*(mean softplus(1-s*dF) over 750 flips + mean |dF| over 750 stays)"
+ },
+ "budget": "750 flip transitions each + same 512 base; radius stays are method-intrinsic (documented, not hidden)",
+ "eval": "eval_202 dev: static/trans/comp/action (WP4-style) + R-shift per arm",
+ "forbidden": [
+  "composition in training",
+  "loss search/tuning (m=1.0 lam=1.0 frozen)",
+  "fresh headline data",
+  "paper edits"
+ ],
+ "model": "CoordMLP(64,32) from scratch, Adam lr=1e-2, 300 epochs full-batch (r04b recipe)",
+ "pilot_gate": "radius vs flipcov: mean dTrans<=-10pp AND 3/3 same direction AND static cost<=+2pp AND R_miss median moves toward 1.0; pass -> propose confirm (no auto-run); fail -> bury",
+ "protocol_id": "RADIUS-PILOT-1",
+ "seeds": [
+  11,
+  23,
+  47
+ ],
+ "train_data": "train_101 states (mu/sd from train); 750+750 pairs subsampled from events_train.npz (fixed rng 7)"
+}
