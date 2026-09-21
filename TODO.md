@@ -205,3 +205,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-20：repair-transfer满数据重跑收敛：balanced atomic 0.69/0.72/0.63，P1仍未过；verdict DINO_REPAIR_NEGATIVE（有效数据上维持）；旧单shard数字作废。
 - 2026-09-20：Competence-First开工（C0：旧patchgrid不覆盖repair数据，需新提；C1协议已冻结：conv head＋30epoch＋dev选型＋C1门）。
 - 2026-09-20：Competence-First收敛：conv head atomic 0.68，C1 0/3；verdict FOUNDATION_COMPETENCE_NOT_ESTABLISHED；foundation repair永久PARK，正文不动，AB未开。
+- 2026-09-21：novelty upgrade campaign开工（用户授权）：Phase0审计完成（N02梯度-结果零判别已记入协议作审计约束；N04噪声地板±15pp记入WP5纪律；N06λc=0机制线记入WP4）；UPDATE_GEOMETRY_MASTER_PROTOCOL＋PROTOCOL_LOCK（confirm seed 26092201）＋NOVELTY_POSITIONING已冻结提交；正文未动。
