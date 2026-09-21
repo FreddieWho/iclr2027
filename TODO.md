@@ -211,3 +211,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：EventUpdater开工（用户授权）：G0定型坐标域＋冻结clean encoder(z=32)＋协议锁EVENT-UPDATER-1；G1数据/训练脚本就绪。
 - 2026-09-22：EventUpdater收敛：G2三种子0.67/0.68/0.72全踩停止线，主线EVENT_UPDATER_NEGATIVE；旁路C永久KILL；旁路D半径信号保留（miss需2倍模型位移）；总verdict SIDE_DIAGNOSTIC_ONLY；正文不动。
 - 2026-09-22：半径loss试点掩埋：radius三种子trans全差于flipcov（+4/+7/+4pp），门控反向失败；不调参不开confirm；R信号保留为诊断。
+- 2026-09-22：L-002试点收敛（WOY＋WMX）：主线传球弱null，S1埋（possession空列），S2争夺存在+7pp两场复现保留，S3球速梯度观察；lead已消耗。
