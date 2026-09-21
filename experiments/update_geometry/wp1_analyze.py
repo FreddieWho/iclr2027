@@ -34,7 +34,7 @@ def primary(rows):
             continue
         if r["incidence"] is None:
             continue
-        if (r["incidence_audit_rel"] or 1) > 1e-3:
+        if r["incidence_audit_rel"] is not None and r["incidence_audit_rel"] > 1e-3:
             continue
         out.append(r)
     return out
@@ -58,6 +58,7 @@ def binned_curve(rows, nb=5):
     ms = np.array([1 if outcome_of(r)[0].startswith("miss") else 0 for r in rows])
     edges = np.quantile(Is, np.linspace(0, 1, nb + 1))
     edges[0], edges[-1] = 0.0, 1.0
+    parents = np.array([r["parent_id"] for r in rows])
     out = []
     for b in range(nb):
         sel = (Is >= edges[b]) & (Is <= edges[b + 1] if b == nb - 1
@@ -65,8 +66,15 @@ def binned_curve(rows, nb=5):
         if sel.sum() == 0:
             continue
         x = ms[sel]
-        lo, hi = np.quantile(rng.choice(x, size=(10000, sel.sum())).mean(1),
-                             [0.025, 0.975])
+        # parent-cluster bootstrap: resample parents, take all their paths
+        ups = np.unique(parents[sel])
+        pmap = {u: np.nonzero(parents[sel] == u)[0] for u in ups}
+        boots = []
+        for _ in range(10000):
+            draw = rng.choice(ups, size=len(ups), replace=True)
+            idx = np.concatenate([pmap[u] for u in draw])
+            boots.append(x[idx].mean())
+        lo, hi = np.quantile(boots, [0.025, 0.975])
         out.append({"bin": [round(float(edges[b]), 3), round(float(edges[b + 1]), 3)],
                     "n": int(sel.sum()), "miss_rate": round(float(x.mean()), 4),
                     "ci": [round(float(lo), 4), round(float(hi), 4)]})
@@ -124,7 +132,7 @@ def matched_tangent_normal(rows):
                         max(1e-12, np.sqrt((a.var() + b.var()) / 2)))
     if pairs:
         d = np.array([r["tan_miss"] - r["nor_miss"] for r in rec])
-        lo, hi = np.quantile(rng.choice(d, size=(10000, len(d))).mean(0),
+        lo, hi = np.quantile(rng.choice(d, size=(10000, len(d))).mean(1),
                              [0.025, 0.975])
         res = {"n_tan": len(tan), "n_nor": len(nor), "pairs": len(pairs),
                "M_tan": round(float(np.mean([r["tan_miss"] for r in rec])), 4),

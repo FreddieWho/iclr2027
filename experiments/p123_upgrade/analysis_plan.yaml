@@ -1,0 +1,10 @@
+main_questions: [P1-confidence-vs-update-risk, P2-coverage-quality-split, P3-measurement-stability]
+splits:
+  exploration: [train_101, eval_202]
+  confirm: confirm_1007
+  never_open: [holdout_909, Bridge-R-895]
+primary_metrics:
+  P1: endpoint-wrong-given-start-correct-and-flipped by confidence rank; joint start-or-end wrong
+  P2: s_m=a_m*q_m with D_coverage/D_quality split; paired strata; equal-coverage curves
+  P3: own vs baseline-fixed vs common-correct repair deltas on one quartet bank
+budgets: {bootstrap_dev: 2000, bootstrap_final: 10000, confirm_parents: 1000}
