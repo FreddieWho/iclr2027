@@ -1,0 +1,21 @@
+{
+ "backbone": "dinov3l",
+ "tag": "flipsup.shard0of2",
+ "grid": "14x14 patch tokens only",
+ "dtype": "float32",
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "transformers_version": "5.6.2",
+ "feature_sha256": "d32d952a94d43bb60f0fdc369c6a927eb52efb2f61d8d969a57bcd8bd7c2b163",
+ "model_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+ "n_states": 2000
+}

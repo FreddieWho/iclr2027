@@ -1,0 +1,21 @@
+{
+ "backbone": "dinov3l",
+ "tag": "compdev_abb.shard1of2",
+ "grid": "14x14 patch tokens only",
+ "dtype": "float32",
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "transformers_version": "5.6.2",
+ "feature_sha256": "2d23a7c6a66e62b8c543534a32dfc36cd4a4f88094a313cbb664e56e7a0ea899",
+ "model_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+ "n_states": 1500
+}

@@ -203,3 +203,5 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-20：Balanced Transition阴性收敛：balanced atomic 0.60/0.68/0.49，P1未过；verdict DINO_REPAIR_NEGATIVE；foundation repair分支停止，正文不动。
 - 2026-09-20：repair-transfer发现load_pairs缩进bug（只用了最后1个shard，预算也不等）；已修＋加4000对断言，9个adapter作废重训，原DINO_REPAIR_NEGATIVE数字作废待重评。
 - 2026-09-20：repair-transfer满数据重跑收敛：balanced atomic 0.69/0.72/0.63，P1仍未过；verdict DINO_REPAIR_NEGATIVE（有效数据上维持）；旧单shard数字作废。
+- 2026-09-20：Competence-First开工（C0：旧patchgrid不覆盖repair数据，需新提；C1协议已冻结：conv head＋30epoch＋dev选型＋C1门）。
+- 2026-09-20：Competence-First收敛：conv head atomic 0.68，C1 0/3；verdict FOUNDATION_COMPETENCE_NOT_ESTABLISHED；foundation repair永久PARK，正文不动，AB未开。

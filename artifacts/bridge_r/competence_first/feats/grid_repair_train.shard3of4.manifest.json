@@ -1,0 +1,21 @@
+{
+ "backbone": "dinov3l",
+ "tag": "repair_train.shard3of4",
+ "grid": "14x14 patch tokens only",
+ "dtype": "float32",
+ "renderer": {
+  "renderer_version": "bridge_r_canonical_v1a",
+  "canonical_resolution": 512,
+  "safe_scale": 0.88,
+  "line_width_px": 16,
+  "background": "uniform(0.45, 0.55)",
+  "colors": {
+   "AB": "red",
+   "CD": "blue"
+  }
+ },
+ "transformers_version": "5.6.2",
+ "feature_sha256": "775ea5107acdddde01124441fac6d7183ae2ea3ebb76abfbf6ae24aee30b2a19",
+ "model_revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+ "n_states": 2000
+}

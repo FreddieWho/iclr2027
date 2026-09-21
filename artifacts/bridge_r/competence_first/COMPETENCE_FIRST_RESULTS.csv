@@ -1,0 +1,4 @@
+seed,dev_state_acc,base_acc,A_acc,B_acc,atomic_mean,min_atom,both_frac,both_n,composition_opened,composition_miss,composition_n
+11,0.74,0.866,0.711,0.669,0.69,0.669,0.57,570,False,,570
+23,0.7475,0.883,0.698,0.653,0.6755,0.653,0.547,547,False,,547
+47,0.76,0.889,0.708,0.662,0.685,0.662,0.554,554,False,,554

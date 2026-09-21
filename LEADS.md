@@ -57,3 +57,8 @@ Bracket 双侧标签（v1）＋方向 margin（v2）在积分尺子下双种子�
 ## L-011  frozen foundation repair（已关闭）
 Balanced Transition三臂pilot（DINOv3-L frozen R0＋残差adapter，3种子等预算）：balanced atomic最高0.684，P1门0.85全败；失败卡在atomic安装不是composition泛化。
 状态：已放弃（DINO_REPAIR_NEGATIVE，不做LoRA/finetune/search，不进Phase 2）
+
+2026/9/20
+## L-012  foundation repair分支（永久关闭）
+Competence-first：frozen DINOv3-L patch tokens＋conv spatial head，atomic仅0.68（门0.85），0/3通过；base好（0.88）edited差（0.65-0.71）签名依旧。AB从未提取。
+状态：已放弃（FOUNDATION_COMPETENCE_NOT_ESTABLISHED，不再设新rescue）
