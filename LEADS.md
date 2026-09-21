@@ -10,7 +10,7 @@ manifest 明确排除。其余 8 场的 GSR 结构若与 smoke 一致，parser �
 ## L-002  ball 轨迹与 BAS 事件暂未使用
 当前任务只需要 20 人位置；ball/BAS 可能支撑未来的事件对齐分析，但会引入新语义。
 最小验证：暂不做，等 T5R6 主线闭合后再评估。
-状态：已消耗（2026-09-22试点：主线弱null，S1埋，S2争夺存在+7pp两场复现保留appendix级，S3观察；见reports/l002_ball/）。数据审计完成：canonical frames含ball行（WOY 14万行全场连续）＋events表（Pass 743/Tackle 195/outcome标签齐）；SoccerTrack侧无ball/event。试点方向：ball连续变化＋真实事件标签喂场景级分析，见正文。
+状态：已消耗（2026-09-22试点：主线弱null，S1埋，S2争夺存在+7pp两场复现保留appendix级，S3观察；见reports/l002_ball/）。WP-D核查：matched SMD结构性失败，残差示运动解释70-90%，S2降级为混杂观察，lead完全消耗。数据审计完成：canonical frames含ball行（WOY 14万行全场连续）＋events表（Pass 743/Tackle 195/outcome标签齐）；SoccerTrack侧无ball/event。试点方向：ball连续变化＋真实事件标签喂场景级分析，见正文。
 
 2026/9/5
 ## L-005  GRF（Google Research Football）模拟干预臂
@@ -79,4 +79,3 @@ miss组R中位~1.9 vs hit组~0.8，三种子同向；分解证明全来自模型
 ## L-014b  半径loss试点（已埋）
 RADIUS-PILOT-1：radius trans均值0.499 vs flipcov 0.450，三种子全反向；stay FA s23 spike 0.193；R机制检查radius≈flipcov。按门控掩埋，不调参、不开confirm。
 状态：已放弃（L-014诊断信号本身保留）
-；S2争夺效应经运动匹配核查为运动混杂主导（70-90%），残差+2~7pp小且不稳定，lead完全消耗。
