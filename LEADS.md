@@ -79,3 +79,4 @@ miss组R中位~1.9 vs hit组~0.8，三种子同向；分解证明全来自模型
 ## L-014b  半径loss试点（已埋）
 RADIUS-PILOT-1：radius trans均值0.499 vs flipcov 0.450，三种子全反向；stay FA s23 spike 0.193；R机制检查radius≈flipcov。按门控掩埋，不调参、不开confirm。
 状态：已放弃（L-014诊断信号本身保留）
+；S2争夺效应经运动匹配核查为运动混杂主导（70-90%），残差+2~7pp小且不稳定，lead完全消耗。
