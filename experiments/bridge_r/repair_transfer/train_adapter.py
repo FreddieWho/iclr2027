@@ -41,11 +41,11 @@ def load_pairs(prefixes):
     for pre in prefixes:
         for nm in sorted(glob.glob(str(FEAT / f"{pre}.*.npz"))):
             d = np.load(nm)
-        z, y = d["z"].astype(np.float32), d["y"].astype(np.int64)
-        Z0.append(z[0::2])
-        Z1.append(z[1::2])
-        Y0.append(y[0::2])
-        Y1.append(y[1::2])
+            z, y = d["z"].astype(np.float32), d["y"].astype(np.int64)
+            Z0.append(z[0::2])
+            Z1.append(z[1::2])
+            Y0.append(y[0::2])
+            Y1.append(y[1::2])
     return (np.concatenate(Z0), np.concatenate(Z1),
             np.concatenate(Y0), np.concatenate(Y1))
 
@@ -61,6 +61,7 @@ def main():
     # ---- data per arm (protocol frozen) ----
     if a.arm == "static":
         Z0, Z1, Y0, Y1 = load_pairs(["repair_train"])
+        assert len(Y0) == 4000, f"static expects 4000 pairs, got {len(Y0)}"
         X = np.concatenate([Z0, Z1])
         Y = np.concatenate([Y0, Y1])
         pair_mode = False
@@ -75,9 +76,11 @@ def main():
         Y0 = np.concatenate([Y0t, Y0s])[f]
         Y1 = np.concatenate([Y1t, Y1s])[f]
         assert (Y0 != Y1).all()
+        assert len(Y0) == 4000, f"flip_only expects 4000 pairs, got {len(Y0)}"
         pair_mode = "flip"
     else:
         Z0, Z1, Y0, Y1 = load_pairs(["repair_train"])
+        assert len(Y0) == 4000, f"balanced expects 4000 pairs, got {len(Y0)}"
         pair_mode = "balanced"
     net = Adapter()
     opt = torch.optim.AdamW(net.parameters(), lr=1e-3, weight_decay=1e-4)
