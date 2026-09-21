@@ -62,3 +62,10 @@ Balanced Transition三臂pilot（DINOv3-L frozen R0＋残差adapter，3种子等
 ## L-012  foundation repair分支（永久关闭）
 Competence-first：frozen DINOv3-L patch tokens＋conv spatial head，atomic仅0.68（门0.85），0/3通过；base好（0.88）edited差（0.65-0.71）签名依旧。AB从未提取。
 状态：已放弃（FOUNDATION_COMPETENCE_NOT_ESTABLISHED，不再设新rescue）
+
+2026/9/21
+## L-013  composition-path fresh confirm额度（未用，留给审稿人）
+WP1的111/111归因是discovery池（eval_202）证据；geometry_confirm从未铸造，one-shot额度完整保留。
+若审稿人要求，可用seed 26092201铸新池＋冻结协议做一次性确认。
+最小验证：重跑wp1_paths＋attribution，不开新挖掘。
+状态：待挖掘（仅审稿驱动）
