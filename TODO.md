@@ -209,3 +209,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-21：WP1收敛：composition=missed update成立（111/111归因）；incidence law死亡（emergent平坦＋aimed匹配SMD结构性失败）；verdict UPDATE_GEOMETRY_NOT_SUPPORTED；WP3/WP5已杀，confirm继续封存，正文未动。
 - 2026-09-21：novelty campaign收敛终局：WP1 incidence死亡（composition-as-update成立111/111）→WP2 BOUNDARY_ASSOCIATION_ONLY（coverage+7.3pp）→WP3/WP5已杀→WP4 static完胜（0.94 vs 0.54，Level D被拒）；定级update一级残；confirm额度未用保留；正文零修改；回主线投稿，不再开第六方向。
 - 2026-09-22：EventUpdater开工（用户授权）：G0定型坐标域＋冻结clean encoder(z=32)＋协议锁EVENT-UPDATER-1；G1数据/训练脚本就绪。
+- 2026-09-22：EventUpdater收敛：G2三种子0.67/0.68/0.72全踩停止线，主线EVENT_UPDATER_NEGATIVE；旁路C永久KILL；旁路D半径信号保留（miss需2倍模型位移）；总verdict SIDE_DIAGNOSTIC_ONLY；正文不动。

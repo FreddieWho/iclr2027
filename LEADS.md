@@ -69,3 +69,8 @@ WP1的111/111归因是discovery池（eval_202）证据；geometry_confirm从未�
 若审稿人要求，可用seed 26092201铸新池＋冻结协议做一次性确认。
 最小验证：重跑wp1_paths＋attribution，不开新挖掘。
 状态：待挖掘（仅审稿驱动）
+
+2026/9/22
+## L-014  半径诊断R=r_m/r_s（保留观察，不施工）
+miss组R中位~1.9 vs hit组~0.8，三种子同向；分解证明全来自模型半径（oracle难度相同）。讨论段可留一行；不发展margin-matching loss。
+状态：待挖掘（仅审稿驱动）
