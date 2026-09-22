@@ -12,10 +12,10 @@
 ## B. P1 confidence (CONFIRM: confirm1007 bank + dev bank; coordinate only)
 | claim | number | artifact |
 |---|---|---|
-| update err by confidence | Q0 0.53-0.68 -> Q3 1.00 (6/6 models, dev+confirm) | p1b_res + p1b_confirm |
-| static err by confidence | Q0 0.36 -> Q3 0.02 (classic direction) | P1B.json |
+| update err by confidence | Q0 0.36-0.61 -> Q3 0.98-1.00 (12 splits; eleven 1.00, one 0.983) | p1b_res + p1b_confirm |
+| static err by confidence | Q0 0.27-0.51 -> Q3 0.02-0.06 (classic direction) | P1B.json |
 | retention top25 | flip 1.00 / preserve-update 0.00 | P1B.json |
-| grouped-CV conf AUC | 0.93-0.95 vs noconf 0.53-0.61 | P1B.json |
+| grouped-CV conf AUC | conf pooled 0.78-0.95 (clean 0.93-0.95); difficulty 0.42-0.61 | P1B.json grouped_cv |
 | repair residual paired CI | all exclude 0 (dev marginal s11/s23 touch 0) | P1G.json |
 | football P1 | floor/null (old numbers VOID, mapping bug) | p1football_*.json |
 

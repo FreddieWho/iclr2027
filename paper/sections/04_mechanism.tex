@@ -11,15 +11,16 @@ $75.0\% \to 62.5\%$; turn miss $43.8\% \to 31.3\%$; and static error
 \emph{improves}, $18.0\% \to 10.7\%$. The U02 decision-interface
 decomposition locates much of the action gain in coverage (feasible-set size
 $3.6\times$) that persists across score, lexicographic, and calibrated
-rules, while temperature rescaling at fixed threshold is provably a no-op
-on the feasible set (calibrated $\equiv$ lexicographic by construction) and
-fitted temperatures ($T{=}8.1$ clean / $8.4$ flipmine) show ordinary
-overconfidence, corrected after a sign fix that invalidated an earlier
-``anti-information'' reading. Decomposed by decision interface, repair
-gains separate into genuine component capability (static, single-flip,
-candidate recall and ranking, which an affine rescaling of clean logits
-cannot reproduce) and operating-point shifts (action coverage), with the
-split depending on the interface (Sec.~7).
+rules, while temperature rescaling at fixed threshold leaves the feasible set
+unchanged (calibrated $\equiv$ lexicographic by construction) and
+fitted temperatures ($T^*{=}8.41$ clean / $7.88$ flipmine, s11 dev) preserve ranks exactly. An affine rescaling of clean logits fitted on dev cannot reproduce the repair:
+action success (lexicographic, eval) is clean $0.14$--$0.20$ / affine
+$0.11$--$0.17$ / flip $0.17$--$0.24$, with paired affine-clean CIs all touching
+or crossing zero; analytic-affine behavior readouts are worse on static
+($0.18$--$0.20$ vs $0.15$--$0.17$) and no better on joint consistency. At matched
+coverage levels, quality given the same coverage favors the repaired model at
+higher cost. So the repair is not a pure operating-point shift; the
+capability/coverage split depends on the interface (Sec.~7).
 
 \paragraph{30.2 Endpoint repair is not full repair.} Targeted flip coverage
 improves several component and downstream metrics, but paired quartet
@@ -31,7 +32,7 @@ wrong---is $0.36$--$0.40$ (parent-cluster CIs; Fig.~3). Joint consistency
 $J = P(111)$ barely moves ($0.05$--$0.06 \to 0.06$--$0.08$), and on the
 common-correct set the repair direction is inconsistent across seeds
 (including one reversal). A preserve-balanced retraining pilot with matched
-loss weights does not reduce migration. Core sentence: most endpoint gains do not restore the original atomic
+loss weights does not reduce migration. Recorded outcome: most endpoint gains do not restore the original atomic
 competencies jointly with the composed outcome (Fig.~\ref{fig:migration}).
 
 \begin{figure}[t]
@@ -49,9 +50,7 @@ $0.16$--$0.23$ (fresh parent-disjoint confirmation), $3/3$ seeds, with mean
 $\Delta J \ge 5$pp and \emph{improved} static accuracy ($0.15$--$0.17 \to
 0.06$), so the gain is not bought by static degradation. Combined
 relational-plus-flip training reaches $J$ $0.38$--$0.47$ with full repair $0.45$--$0.50$ exceeding migration $0.25$--$0.30$ on confirmation---the
-reverse of the raw-flipmine pattern. This suggests the representation of
-relations, not simply additional flip coverage, matters for preserving
-atomic and joint correctness together. The features are hand-designed and
-relation-aware by construction; we claim an existence proof for joint
-consistency, not a general architecture principle, and open no further
-relation-architecture search.
+reverse of the raw-flipmine pattern. Boundary: the features are hand-designed and
+relation-aware by construction; this is an existence proof for joint
+consistency, not a general architecture principle, and no further
+relation-architecture search is opened.

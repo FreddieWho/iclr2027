@@ -1,12 +1,11 @@
 \section{Pixel-Observation Confirmation}
 \label{sec:pixel}
 
-The defect is not an artifact of coordinate inputs. Rendered as pixels and
-judged by a freshly trained CNN, the compositional (emergent) error is
+The same quartet comparison rendered as pixels and
+judged by a freshly trained CNN gives a compositional (emergent) error of
 $0.537$ clean vs.\ $0.351$ pixflip ($-19$pp, static accuracy unchanged at
-$0.090$)---while the quartet-curriculum arm is \emph{worse} than clean
-($0.572$), a first warning that more compositional-looking data is not always
-better.
+$0.090$)---while the quartet-curriculum arm scores \emph{worse} than clean
+($0.572$).
 
 Across five unseen rendering styles (line width, color swap, bright
 background, $0.9\times$ scale, same-style replication), pixflip has the lowest

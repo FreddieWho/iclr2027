@@ -8,7 +8,7 @@ studies correctness under controlled change, where scenes have oracle
 labels, edits have known atomic effects, and composed edits have known
 joint effects that may differ from either part.
 
-Three failure modes recur. (i)~Transition blindness: paths crossing a
+Three failure modes recur, each stated with denominators. (i)~Transition blindness: paths crossing a
 semantic boundary induce no model transition---$28/64 = 43.8\%$ miss on
 directly targeted fresh paths, $108/128 = 84.4\%$ among single-turn paths
 found by a random-edit screen (different denominators, never averaged).
@@ -23,17 +23,18 @@ hard fresh cases at $\lambda{=}2$).
 Our new insight concerns confidence. A confidence score that is reassuring
 for current correctness becomes misleading for true semantic transitions:
 within currently correct states, higher pre-change confidence predicts
-\emph{lower} static error ($0.36 \to 0.02$) yet \emph{higher} update error
-($0.53$--$0.68 \to 1.00$) across confidence quartiles, confirmed on fresh
-parent-disjoint data in coordinate scenes.
+lower static error ($0.27$--$0.51 \to 0.02$--$0.06$ across quartiles) yet higher update error
+($0.36$--$0.61 \to 0.98$--$1.00$) across confidence quartiles, confirmed on fresh
+parent-disjoint data in coordinate scenes. Grouped-by-parent cross-validation
+gives confidence-only pooled AUC $0.78$--$0.95$ against difficulty-only
+$0.42$--$0.61$; repair leaves residual error $0.53$--$0.84$ on confirmation
+high-confidence misses.
 
-Repair is not one-dimensional. Targeted flip coverage improves several
-component and downstream metrics---static error $18.0\% \to 10.7\%$,
+Repair changes several component and downstream metrics---static error $18.0\% \to 10.7\%$,
 single-flip C1 miss $52.4\% \to 34.7\%$, action invalid $75.0\% \to 62.5\%$.
-But paired quartet analysis shows endpoint improvement
-($R_{\mathrm{endpoint}}$ $0.43$--$0.48$) is dominated by error migration
-($0.36$--$0.40$): most AB endpoint gains do not restore the original atomic
-competencies jointly with the composed outcome (full repair $0.03$--$0.10$).
+Paired quartet analysis decomposes the endpoint improvement
+($R_{\mathrm{endpoint}}$ $0.43$--$0.48$) into full repair ($0.03$--$0.10$) and error migration
+($0.36$--$0.40$).
 
 \paragraph{Contributions.} (C1)~A controlled-change analysis of
 static-correct update failures: transitions, atomic-conditioned
