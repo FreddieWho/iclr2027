@@ -1,0 +1,98 @@
+{
+ "groups": [
+  "A_insert",
+  "B_remove_near",
+  "C_remove_far"
+ ],
+ "n_insert": 40,
+ "seeds": {
+  "2001": {
+   "baseline": {
+    "mean_terr": 0.167,
+    "miss": 0.4,
+    "n": 200
+   },
+   "A_insert": {
+    "mean_terr": 0.1503,
+    "miss": 0.445,
+    "rel_change": -0.1
+   },
+   "B_remove_near": {
+    "mean_terr": 0.1786,
+    "miss": 0.43,
+    "rel_change": 0.0695
+   },
+   "C_remove_far": {
+    "mean_terr": 0.1769,
+    "miss": 0.46,
+    "rel_change": 0.0593
+   }
+  },
+  "2002": {
+   "baseline": {
+    "mean_terr": 0.1541,
+    "miss": 0.415,
+    "n": 200
+   },
+   "A_insert": {
+    "mean_terr": 0.1706,
+    "miss": 0.41,
+    "rel_change": 0.1071
+   },
+   "B_remove_near": {
+    "mean_terr": 0.1879,
+    "miss": 0.405,
+    "rel_change": 0.2193
+   },
+   "C_remove_far": {
+    "mean_terr": 0.1711,
+    "miss": 0.425,
+    "rel_change": 0.1103
+   }
+  },
+  "2003": {
+   "baseline": {
+    "mean_terr": 0.1795,
+    "miss": 0.415,
+    "n": 200
+   },
+   "A_insert": {
+    "mean_terr": 0.1735,
+    "miss": 0.46,
+    "rel_change": -0.0334
+   },
+   "B_remove_near": {
+    "mean_terr": 0.184,
+    "miss": 0.4,
+    "rel_change": 0.0251
+   },
+   "C_remove_far": {
+    "mean_terr": 0.1905,
+    "miss": 0.45,
+    "rel_change": 0.0613
+   }
+  },
+  "2004": {
+   "baseline": {
+    "mean_terr": 0.1831,
+    "miss": 0.39,
+    "n": 200
+   },
+   "A_insert": {
+    "mean_terr": 0.1455,
+    "miss": 0.495,
+    "rel_change": -0.2054
+   },
+   "B_remove_near": {
+    "mean_terr": 0.1548,
+    "miss": 0.4,
+    "rel_change": -0.1546
+   },
+   "C_remove_far": {
+    "mean_terr": 0.1629,
+    "miss": 0.435,
+    "rel_change": -0.1103
+   }
+  }
+ }
+}
