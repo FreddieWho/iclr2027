@@ -1,0 +1,72 @@
+{
+ "seeds": {
+  "s2001": {
+   "n_hit_final": 117,
+   "lock_median_per_path": 125.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.001645,
+   "early": true
+  },
+  "s2002": {
+   "n_hit_final": 120,
+   "lock_median_per_path": 175.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.005172,
+   "early": false
+  },
+  "s2003": {
+   "n_hit_final": 102,
+   "lock_median_per_path": 150.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.008893,
+   "early": false
+  },
+  "s2004": {
+   "n_hit_final": 120,
+   "lock_median_per_path": 125.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.004078,
+   "early": true
+  },
+  "s2005": {
+   "n_hit_final": 112,
+   "lock_median_per_path": 125.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.002123,
+   "early": true
+  },
+  "s2006": {
+   "n_hit_final": 123,
+   "lock_median_per_path": 150.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.003062,
+   "early": false
+  },
+  "s2007": {
+   "n_hit_final": 105,
+   "lock_median_per_path": 150.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.016927,
+   "early": false
+  },
+  "s2008": {
+   "n_hit_final": 107,
+   "lock_median_per_path": 150.0,
+   "lock_frac_resolved": 1.0,
+   "conv_epoch_full_objective": 300,
+   "final_full_loss": 0.005302,
+   "early": false
+  }
+ },
+ "criterion": "seed median per-path lock < 50% of seed full-objective convergence epoch, in >=6/8 seeds",
+ "n_early_seeds": 3,
+ "criterion_met": false,
+ "verdict": "drift/late"
+}

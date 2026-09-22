@@ -33,7 +33,7 @@ from r04b_methods import mine_flips  # noqa: E402
 
 ART = ROOT / "artifacts" / "discovery_campaign"
 WAVE = ROOT / "artifacts" / "next_novelty" / "l007_wave"
-OUT = ROOT / "artifacts" / "next_novelty" / "l007_tracin"
+OUT = ROOT / "artifacts" / "next_novelty" / "l007_tracin_v2"
 SEEDS = [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008]
 CKPTS = [0, 50, 100, 150, 200, 250, 300]
 ETA = 1e-2
@@ -125,27 +125,38 @@ def main():
             gp = grad_vec(model, lambda: bce(
                 model(PX_t).reshape(-1), PY_t).mean())
             # clean states
+            # loss weights: mean clean BCE (1/512) + lam * mean flip BCE
+            # (1/1534); per-state gradients must carry those weights or the
+            # scene ranking is wrong (review item C8).
+            w_clean = 1.0 / float(N)
+            w_flip = 1.0 / float(len(ii))
             for i in range(N):
                 gi = grad_vec(model, lambda i=i: bce(
                     model(Xc_t[i:i + 1]).reshape(-1),
                     torch.from_numpy(y[i:i + 1])).mean())
-                infl[i] += ETA * float(gi @ gp)
+                infl[i] += ETA * w_clean * float(gi @ gp)
             # flip states
             yf_t = torch.from_numpy(yf)
             for k in range(len(ii)):
                 gk = grad_vec(model, lambda k=k: bce(
                     model(Xf_t[k:k + 1]).reshape(-1),
                     yf_t[k:k + 1]).mean())
-                infl[N + k] += ETA * float(gk @ gp)
+                infl[N + k] += ETA * w_flip * float(gk @ gp)
         # aggregate per scene
         scene_score = np.zeros(N)
         scene_score += infl[:N]
         for k, s in enumerate(ii):
             scene_score[s] += infl[N + k]
-        order = np.argsort(-np.abs(scene_score))
+        order_abs = np.argsort(-np.abs(scene_score))
+        order_pos = np.argsort(-scene_score)
+        order_neg = np.argsort(scene_score)
         out["seeds"][str(seed)] = {
-            "ranked_scenes": [int(v) for v in order[:40]],
-            "top_abs": round(float(np.abs(scene_score[order[:10]]).mean()), 6),
+            "ranked_scenes": [int(v) for v in order_abs[:40]],
+            "top_positive": [int(v) for v in order_pos[:20]],
+            "top_negative": [int(v) for v in order_neg[:20]],
+            "top_abs": round(float(np.abs(scene_score[order_abs[:10]]).mean()), 6),
+            "loss_weights": {"clean": round(w_clean, 8),
+                             "flip": round(w_flip, 8)},
         }
         print("s%d: top scenes %s" % (seed, order[:10].tolist()), flush=True)
     a.out.mkdir(parents=True, exist_ok=True)

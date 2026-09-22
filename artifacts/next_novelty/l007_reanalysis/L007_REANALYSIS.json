@@ -1,0 +1,294 @@
+{
+ "note": "average-rank Spearman over finite pairs; old = ordinal-rank (argsort twice) for delta only",
+ "families": {
+  "s11": {
+   "n_hit": 123,
+   "n_all": 200,
+   "features": {
+    "ORACLE": {
+     "t_star": {
+      "rho": -0.1797,
+      "n": 123,
+      "rho_old": -0.1799
+     },
+     "min_margin_win": {
+      "rho": 0.0894,
+      "n": 123,
+      "rho_old": 0.0889
+     },
+     "margin_slope": {
+      "rho": 0.0365,
+      "n": 123,
+      "rho_old": 0.0367
+     },
+     "cost": {
+      "rho": -0.1997,
+      "n": 123,
+      "rho_old": -0.1998
+     }
+    },
+    "SCORE": {
+     "max_slope": {
+      "rho": -0.1757,
+      "n": 123,
+      "rho_old": -0.1757
+     },
+     "max_curv": {
+      "rho": -0.2867,
+      "n": 123,
+      "rho_old": -0.2867
+     },
+     "trans_width": {
+      "rho": 0.1889,
+      "n": 123,
+      "rho_old": 0.1974
+     },
+     "slope_asym": {
+      "rho": -0.2052,
+      "n": 123,
+      "rho_old": -0.2051
+     },
+     "min_abs_logit": {
+      "rho": 0.8482,
+      "n": 123,
+      "rho_old": 0.8482
+     }
+    },
+    "REPR": {
+     "speed_conc": {
+      "rho": -0.2361,
+      "n": 123,
+      "rho_old": -0.2361
+     },
+     "max_angle": {
+      "rho": 0.1951,
+      "n": 123,
+      "rho_old": 0.1949
+     },
+     "hyper_dist": {
+      "rho": 0.4963,
+      "n": 123,
+      "rho_old": 0.4963
+     },
+     "z_length": {
+      "rho": -0.2995,
+      "n": 123,
+      "rho_old": -0.2995
+     }
+    }
+   }
+  },
+  "s23": {
+   "n_hit": 122,
+   "n_all": 200,
+   "features": {
+    "ORACLE": {
+     "t_star": {
+      "rho": -0.1969,
+      "n": 122,
+      "rho_old": -0.1977
+     },
+     "min_margin_win": {
+      "rho": -0.0975,
+      "n": 122,
+      "rho_old": -0.098
+     },
+     "margin_slope": {
+      "rho": 0.0985,
+      "n": 122,
+      "rho_old": 0.0989
+     },
+     "cost": {
+      "rho": -0.2192,
+      "n": 122,
+      "rho_old": -0.2198
+     }
+    },
+    "SCORE": {
+     "max_slope": {
+      "rho": -0.1422,
+      "n": 122,
+      "rho_old": -0.1422
+     },
+     "max_curv": {
+      "rho": -0.3159,
+      "n": 122,
+      "rho_old": -0.3159
+     },
+     "trans_width": {
+      "rho": 0.0947,
+      "n": 122,
+      "rho_old": 0.0975
+     },
+     "slope_asym": {
+      "rho": -0.2476,
+      "n": 122,
+      "rho_old": -0.2474
+     },
+     "min_abs_logit": {
+      "rho": 0.7778,
+      "n": 122,
+      "rho_old": 0.7778
+     }
+    },
+    "REPR": {
+     "speed_conc": {
+      "rho": -0.1273,
+      "n": 122,
+      "rho_old": -0.1273
+     },
+     "max_angle": {
+      "rho": -0.0009,
+      "n": 122,
+      "rho_old": -0.001
+     },
+     "hyper_dist": {
+      "rho": 0.6143,
+      "n": 122,
+      "rho_old": 0.6143
+     },
+     "z_length": {
+      "rho": -0.236,
+      "n": 122,
+      "rho_old": -0.236
+     }
+    }
+   }
+  },
+  "s47": {
+   "n_hit": 106,
+   "n_all": 200,
+   "features": {
+    "ORACLE": {
+     "t_star": {
+      "rho": -0.2415,
+      "n": 106,
+      "rho_old": -0.2425
+     },
+     "min_margin_win": {
+      "rho": -0.1048,
+      "n": 106,
+      "rho_old": -0.1072
+     },
+     "margin_slope": {
+      "rho": 0.0583,
+      "n": 106,
+      "rho_old": 0.0581
+     },
+     "cost": {
+      "rho": -0.2582,
+      "n": 106,
+      "rho_old": -0.2588
+     }
+    },
+    "SCORE": {
+     "max_slope": {
+      "rho": -0.1188,
+      "n": 106,
+      "rho_old": -0.1188
+     },
+     "max_curv": {
+      "rho": -0.3155,
+      "n": 106,
+      "rho_old": -0.3155
+     },
+     "trans_width": {
+      "rho": -0.0217,
+      "n": 106,
+      "rho_old": -0.0219
+     },
+     "slope_asym": {
+      "rho": -0.3571,
+      "n": 106,
+      "rho_old": -0.3566
+     },
+     "min_abs_logit": {
+      "rho": 0.852,
+      "n": 106,
+      "rho_old": 0.852
+     }
+    },
+    "REPR": {
+     "speed_conc": {
+      "rho": -0.2018,
+      "n": 106,
+      "rho_old": -0.2018
+     },
+     "max_angle": {
+      "rho": -0.0014,
+      "n": 106,
+      "rho_old": -0.0008
+     },
+     "hyper_dist": {
+      "rho": 0.6691,
+      "n": 106,
+      "rho_old": 0.6691
+     },
+     "z_length": {
+      "rho": -0.2194,
+      "n": 106,
+      "rho_old": -0.2194
+     }
+    }
+   }
+  }
+ },
+ "kink_gray_zone": {
+  "s11": {
+   "kink_dist_rho": 0.149,
+   "kink_dist_n": 113,
+   "kink_count_rho": -0.2277,
+   "kink_count_n": 123,
+   "kink_count_rho_old": -0.2192,
+   "n_hit": 123,
+   "n_all": 200
+  },
+  "s23": {
+   "kink_dist_rho": 0.0581,
+   "kink_dist_n": 117,
+   "kink_count_rho": -0.3002,
+   "kink_count_n": 122,
+   "kink_count_rho_old": -0.289,
+   "n_hit": 122,
+   "n_all": 200
+  },
+  "s47": {
+   "kink_dist_rho": 0.1697,
+   "kink_dist_n": 97,
+   "kink_count_rho": -0.2902,
+   "kink_count_n": 106,
+   "kink_count_rho_old": -0.2787,
+   "n_hit": 106,
+   "n_all": 200
+  }
+ },
+ "grazing": {
+  "s11": {
+   "woa_rho": 0.1175,
+   "woa_n": 118,
+   "width_rho_k1": 0.1786,
+   "width_n_k1": 118,
+   "n_hit": 123,
+   "n_all": 200,
+   "woa_rho_old": 0.1175
+  },
+  "s23": {
+   "woa_rho": -0.0632,
+   "woa_n": 100,
+   "width_rho_k1": -0.0334,
+   "width_n_k1": 100,
+   "n_hit": 122,
+   "n_all": 200,
+   "woa_rho_old": -0.0632
+  },
+  "s47": {
+   "woa_rho": -0.1005,
+   "woa_n": 94,
+   "width_rho_k1": -0.109,
+   "width_n_k1": 94,
+   "n_hit": 106,
+   "n_all": 200,
+   "woa_rho_old": -0.1005
+  }
+ }
+}

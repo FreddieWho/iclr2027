@@ -1,0 +1,175 @@
+{
+  "stats_equal_11_23": {
+    "mu": true,
+    "sd": true
+  },
+  "raw_vs_std_activation_different_fraction": 0.073089599609375,
+  "raw_matching": {
+    "function_preservation_max_abs_logit": 4.57763671875e-05,
+    "loss_curve": [
+      {
+        "alpha": 0.0,
+        "clean": 0.007075832225382328,
+        "flip": 0.007457206025719643,
+        "total": 0.01453303825110197
+      },
+      {
+        "alpha": 0.125,
+        "clean": 0.10060270130634308,
+        "flip": 0.45282015204429626,
+        "total": 0.5534228533506393
+      },
+      {
+        "alpha": 0.25,
+        "clean": 0.19400367140769958,
+        "flip": 0.9194617867469788,
+        "total": 1.1134654581546783
+      },
+      {
+        "alpha": 0.375,
+        "clean": 0.23728543519973755,
+        "flip": 0.9126386642456055,
+        "total": 1.149924099445343
+      },
+      {
+        "alpha": 0.5,
+        "clean": 0.27807819843292236,
+        "flip": 0.7232227325439453,
+        "total": 1.0013009309768677
+      },
+      {
+        "alpha": 0.625,
+        "clean": 0.3028234839439392,
+        "flip": 0.5629278421401978,
+        "total": 0.865751326084137
+      },
+      {
+        "alpha": 0.75,
+        "clean": 0.29441407322883606,
+        "flip": 0.45014718174934387,
+        "total": 0.7445612549781799
+      },
+      {
+        "alpha": 0.875,
+        "clean": 0.2600352168083191,
+        "flip": 0.30709102749824524,
+        "total": 0.5671262443065643
+      },
+      {
+        "alpha": 1.0,
+        "clean": 0.3002358675003052,
+        "flip": 0.17988857626914978,
+        "total": 0.48012444376945496
+      }
+    ],
+    "barrier_relative": {
+      "clean": 0.008618611977236207,
+      "total": 1.3950542705497222
+    }
+  },
+  "standardized_matching": {
+    "function_preservation_max_abs_logit": 4.57763671875e-05,
+    "loss_curve": [
+      {
+        "alpha": 0.0,
+        "clean": 0.007075832225382328,
+        "flip": 0.007457206025719643,
+        "total": 0.01453303825110197
+      },
+      {
+        "alpha": 0.125,
+        "clean": 0.08481097966432571,
+        "flip": 0.3207051157951355,
+        "total": 0.4055160954594612
+      },
+      {
+        "alpha": 0.25,
+        "clean": 0.2147735059261322,
+        "flip": 0.6806089878082275,
+        "total": 0.8953824937343597
+      },
+      {
+        "alpha": 0.375,
+        "clean": 0.291667640209198,
+        "flip": 0.7160077691078186,
+        "total": 1.0076754093170166
+      },
+      {
+        "alpha": 0.5,
+        "clean": 0.3505887985229492,
+        "flip": 0.5986399054527283,
+        "total": 0.9492287039756775
+      },
+      {
+        "alpha": 0.625,
+        "clean": 0.363677442073822,
+        "flip": 0.45938241481781006,
+        "total": 0.8230598568916321
+      },
+      {
+        "alpha": 0.75,
+        "clean": 0.33995288610458374,
+        "flip": 0.3472169041633606,
+        "total": 0.6871697902679443
+      },
+      {
+        "alpha": 0.875,
+        "clean": 0.2979365289211273,
+        "flip": 0.2456768900156021,
+        "total": 0.5436134189367294
+      },
+      {
+        "alpha": 1.0,
+        "clean": 0.3002358376979828,
+        "flip": 0.17988857626914978,
+        "total": 0.48012441396713257
+      }
+    ],
+    "barrier_relative": {
+      "clean": 0.2113059015947898,
+      "total": 1.0987797745815069
+    }
+  },
+  "seed_wave_final_equality": {
+    "2001": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2002": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2003": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2004": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2005": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2006": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2007": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    },
+    "2008": {
+      "all_state_equal": true,
+      "max_abs_weight_difference": 0.0
+    }
+  },
+  "n01_import_thread_effect": {
+    "before": 4,
+    "after": 2
+  },
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "numpy": "1.26.4"
+  }
+}

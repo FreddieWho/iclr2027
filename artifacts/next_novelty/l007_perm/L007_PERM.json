@@ -1,0 +1,59 @@
+{
+ "n_paths": 200,
+ "n_perms": 8,
+ "criterion": "inequivalent := root spread > 0.03 OR hit status not unanimous; support if >=2/3 models have parent-clustered CI lower bound > 0.10",
+ "oracle_invariance": {
+  "s11": 0.0,
+  "s23": 0.0,
+  "s47": 0.0
+ },
+ "models": {
+  "s11": {
+   "inequiv_frac": 0.91,
+   "ci_parent_cluster": [
+    0.855,
+    0.955
+   ],
+   "ci_path_level": [
+    0.87,
+    0.95
+   ],
+   "n_parents": 100,
+   "root_spread_median": 0.2832,
+   "mixed_hit_frac": 0.705,
+   "tstar_spread_max": 0.0
+  },
+  "s23": {
+   "inequiv_frac": 0.955,
+   "ci_parent_cluster": [
+    0.915,
+    0.99
+   ],
+   "ci_path_level": [
+    0.925,
+    0.98
+   ],
+   "n_parents": 100,
+   "root_spread_median": 0.3019,
+   "mixed_hit_frac": 0.79,
+   "tstar_spread_max": 0.0
+  },
+  "s47": {
+   "inequiv_frac": 0.915,
+   "ci_parent_cluster": [
+    0.86,
+    0.965
+   ],
+   "ci_path_level": [
+    0.875,
+    0.95
+   ],
+   "n_parents": 100,
+   "root_spread_median": 0.2726,
+   "mixed_hit_frac": 0.76,
+   "tstar_spread_max": 0.0
+  }
+ },
+ "criterion_met": true,
+ "verdict": "representation-sensitivity supported"
+}
