@@ -1,1 +1,0 @@
-{"record_type":"phase_status","phase":"p2_confirmation","status":"NOT_RUN","reason":"P1 was not run after the P0 technical stop; no confirmation histories or scores are claimed.","p0_compression_manifest":"work/v4_fast_decision_20260913/p0_b4096_live/compression_manifest.json","scoring_rows_present":false}

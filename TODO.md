@@ -1,20 +1,23 @@
-# TODO — ICLR 2027（bridge＋DINOv3 sweep 双线解冻，2026-09-19 用户授权）
+# TODO — ICLR 2027（PAPER POLISH / 投稿行政，2026-09-22 起）
 
 ```
-SCIENTIFIC_EXPLORATION: OPEN (bridge track + DINOv3 S/B/L size sweep, 用户授权)
-Authorized: (1) foundation-model bridge experiment (frozen backbones + probe, 零训练)；
-  (2) DINOv3 S/B/L 同家族 size sweep：同一批 v2 数据、同一渲染/processor/readout/probe 协议、
-  pinned revisions、frozen 权重；B1 先行（atomic≥0.85 才谈组合），holdout 非 B1 通过不开；
-  禁 VLM prompting/finetune/7B/架构搜索。DINOv2 不再做（任务 #12/#13 已删）。
-  pilot 先行：S0风格 quartet四状态 → DINOv2-B/CLIP ViT-B frozen特征 → linear probe，
-  只看 atomic 准确率与分母；atomic≥90% 才展开全矩阵，否则停下重新设计。
+SCIENTIFIC_EXPLORATION: CLOSED（2026-09-22 终局裁决 #15；新方向需用户单独授权）
+当前唯一工作：投稿行政与写作打磨——
+  (1) OpenReview 资料冻结（机构邮箱 profile/互审资格/作者名单）；
+  (2) 官方 ICLR 2027 样式替换 paper/main.tex 占位 preamble；references 11→40+；
+  (3) Figure 1 概念图；正文 prose 打磨（按 MASTER_CLAIM_LEDGER 措辞红线）。
+正文数字唯一来源：reports/final_closure/MASTER_CLAIM_LEDGER.md
+  （旧 reports/FINAL_EVIDENCE_TABLE.md 为 9-18 历史版，已被 final_closure 9-22 版取代）。
+终局状态：reports/final_closure/FINAL_PROJECT_VERDICT.md（P1-STRONG/P2-MAIN_SCOPED/P3-METHOD）。
+封存资源（二次读取=新协议事件，需用户授权）：holdout_909 / confirm_1007 / bridge holdout_895。
 Still banned: AMR / Jacobian扩展 / E7新loss / quartet-curriculum v3 / relation-arch v3 /
-X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic scene family /
-第61个小MLP实验（禁新小模型训练；bridge pilot 的 probe 训练除外）。
-正文数字唯一来源：reports/FINAL_EVIDENCE_TABLE.md（不得跨条件混用）。
+X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic scene family / 第61个小MLP实验。
 ```
 
-以下为历史区（B30 计划保留备查，不再执行；新动作见文末“闭合收尾”）:
+> 结构导航（2026-09-22 整理）：入口 `README.md`；叙事→目录映射 `PROJECT_MAP.md`；
+> reports/experiments/artifacts/docs 各目录内有 INDEX.md。
+
+以下为历史区（探索期全部计划保留备查，不再执行；各分支结局见文末“分支记录”与“变更记录”）:
 
 更新时间：2026-09-16（B30 重整版；旧 1–13 项已归档，见文末）
 
@@ -221,3 +224,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-23：P123总控收官：P1确认池CONFIRMED（3种子×双臂同形）/P2分解Discussion定位/P3测量贡献成立（common集s23反转）；纠错8项；单元测试10/10；PAPER_INSERTS+LEDGER+REPRODUCE交付。
 - 2026-09-22：新一轮收官：P1-STRONG（确认池）/P3-PHENOMENON（keepbal阴性）/P2-MAIN scoped；纠错V2；单元测试10/10；PAPER_INSERTS+LEDGER+REPRODUCE交付；paper/未动。
 - 2026-09-23：终局后复检补遗（a13e5bd）：全轮次重扫——正文禁用语零残留（incidence仅存一句明确撤回）、LaTeX括号/环境全平衡、Fig2/Fig3已接线、E1/P3/N01关键数与ledger/产物逐项对上、测试20/20；修复：删根目录4个空垃圾文件、p3d_eval --ckptdir与paired_compare preprocess重构落盘、relfeat mined/checkpoint＋P1中间结果＋P2_AFFINE_BEHAV归档推送。终局结论不变，仍处POLISH阶段。
+- 2026-09-22：项目结构整理（用户委托，无科学内容变更）：重写 README 为最终叙事前门；新建 PROJECT_MAP.md（叙事→目录映射）；STATUS 改写为 POLISH 状态；本文件顶部替换为 closure 状态块；PLAN/ROADMAP/CLAIM_LEDGER 加历史横幅；docs/legacy/ 收编根目录历史一次性文件（MASTER_AGENT_PROMPT/QA/PROJECT_PACKAGE_CONSOLIDATED/P1_FORMAL_TASK_HANDOFF/AUTORESEARCH_P3_GOAL_PROMPT/MANIFEST_SHA256）；删除根目录 5 个 0 字节垃圾文件（frozen/global/mode/pooled/same）；submission/（Memory Pilot 外部项目）移出 git 跟踪并加 WARNING；新增 reports/experiments/artifacts/docs 四处 INDEX.md。TODO 事项本身无增删，分支记录不变。

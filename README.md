@@ -1,103 +1,107 @@
-# ICLR 2027 项目方案包：Action-Mode Spectrum
+# ICLR 2027 — Compositional and Transitional Blind Spots
 
-> 一句话摘要：研究多构件表征是否看见了“谁和谁一起变化”；以足球/篮球阵型作为显式结构仪器，以中国书法作为隐式结构检验，发现并控制模型在共同、子群和局部作用模式上的敏感度错配。
+> **当前状态（2026-09-22 起）：EXPLORATORY PHASE CLOSED，PAPER POLISH 阶段。**
+> 终局裁决见 `reports/final_closure/FINAL_PROJECT_VERDICT.md`。
+> 全文截止 2026-09-25 AOE。新方向需用户单独授权。
 
-## 0. 项目范围
+## 这个项目最终是什么
 
-- **核心科学对象**：Action-Mode Spectrum，作用模式谱。
-- **核心现象候选**：等能量扰动下，模型对整体位移的反应大于对结构破坏的反应；或在子群协同对应的中频出现异常盲区。
-- **核心方法贡献**：**AMR（Action-Mode Routing，作用模式路由）**。它在关系图谱坐标中，按任务学习“哪些模式应不变、哪些模式应等变/可恢复”，并保留独立的全局上下文通道。
-- **主实验域**：足球阵型。
-- **重复验证域**：3×3 篮球阵型。
-- **跨域预测与旗舰案例**：中国书法。
-- **技术 fallback**：手写数学公式 MathWriting。
-- **明确不做**：体育视频跟踪算法、3D 姿态、审美打分、大型 VLM 训练、从零构建书法专家标注集。
+最终论文：**"Knowing the Parts Does Not Mean Knowing the Change:
+Compositional and Transitional Blind Spots in Learned Representations"**
+（`paper/main.tex`，双盲匿名）。
 
-## 1. 为什么值得做
+一句话故事：**模型此刻可以是对的，却在意含变化时不会更新，并且看起来被修复了
+却没有恢复一致的能力。** 静态置信、端点正确、完全组合一致性和下游成功，
+是"变化下的可靠性"的四个不同概念。
 
-现有表示学习通常按“变换算子”定义不变性，例如平移不变、旋转不变；但在多构件系统里，语义更依赖**变换如何分配给构件**：全队一起移动、后卫线一起移动、单人移动，虽然位移算子相同，含义完全不同。书法中的整页移动、偏旁移动、单笔移动也是同一个结构。
+三大贡献（终局裁决 #10）：
+1. **P1 置信反转**——高置信样本在真变化下错误率反而最高（坐标域，确认池 CONFIRMED）；
+2. **P3 错误迁移主导**——修复把错误从组合失效迁移到别处，relflip 转向 full consistency；
+3. **P2 能力/操作点分离**——覆盖而非精度主导，规则依赖。
 
-本文不主张删除全局信息。通用表征应把：
+Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 151/176（85.8%）漏检；
+单语义边界穿越漏检 43.8%→修复后 31.3%；置信最高组更新错误率 0.98–1.00。
 
-1. 全局上下文；
-2. 内部构型；
-3. 子群协同与局部偏离；
+## 论文与数字的唯一权威来源
 
-分成可被简单读出器分别访问的模式，而不是让训练目标提前把某些模式永久压掉。
+| 用途 | 唯一权威文件 | 说明 |
+|---|---|---|
+| 论文正文 | `paper/main.tex` + `paper/sections/` | 已迁移到最终叙事（02 受控设定→08 可复现性） |
+| 正文每个数字 | `reports/final_closure/MASTER_CLAIM_LEDGER.md` | the ONLY source for paper numbers |
+| 证据总表 | `reports/final_closure/FINAL_EVIDENCE_TABLE.md` | 2026-09-22 重建版，取代根下旧表 |
+| 终局裁决 | `reports/final_closure/FINAL_PROJECT_VERDICT.md` | 15 问 15 答，含已删除的旧贡献清单 |
+| 一键复算 | `reports/final_closure/REPRODUCE_FINAL.md` | 每个正文数字的重算命令 |
+| P1/P2/P3 收官 | `reports/final_closure/P{1,2,3}_CLOSURE_REPORT.md` | 各线终局报告 |
+| 纠错记录 | `reports/final_closure/EVIDENCE_CORRECTIONS_FINAL.md` | 8 项已确认纠错（旧数作废在此登记） |
 
-## 2. 从哪里开始
+⚠️ 根目录 `CLAIM_LEDGER.md`、`reports/FINAL_EVIDENCE_TABLE.md`（9-18 版）、
+`paper/EVIDENCE_MAP.md` 均为**历史版本**，措辞与数字以 final_closure 为准。
 
-建议依次阅读：
+## 推荐阅读顺序
 
-1. `docs/01_SCIENTIFIC_BLUEPRINT.md`：科学问题、假设、贡献边界。
-2. `docs/02_METHOD_SPEC_AMR.md`：AMR 方法的完整规格。
-3. `docs/03_EXPERIMENTS_CHECKPOINTS_AND_FIGURES.md`：实验、探索检查点和 Figure 规划。
-4. `docs/04_DATA_AND_ENVIRONMENT_GUIDE.md`：数据下载、许可与环境。
-5. `docs/05_AGENT_EXECUTION_MANUAL.md`：多 agent 施工协议。
-6. `docs/06_REVIEW_DECISIONS.md`：五份评审建议的接受与拒绝。
-7. `MASTER_AGENT_PROMPT.md`：可直接交给总控 agent 的启动 prompt。
-8. `QA.md`：模型架构、技术路线和科学问题的持续问答记录。
-9. `reports/p0-overview.html`：快速查看 P0 原始样本、干预和 embedding。
+**Reviewer / 快速了解（30 分钟）：**
+1. 本文件 → 2. `reports/final_closure/FINAL_PROJECT_VERDICT.md`（终局 15 问）
+→ 3. `paper/sections/00_abstract.tex` + `01_introduction.tex`
+→ 4. `reports/final_closure/MASTER_CLAIM_LEDGER.md`（每个数字的分母与边界）。
 
-当前执行状态（2026-09-04）：P0/P1 已完成；provenance-locked 的 P2 rigid formal v2、独立 fracture continuity 和 P2-H1 有界异质性诊断均已闭合。P2 的冻结结论仍是 `mixed_or_graph_specific`：部分方向跨比赛稳定，但幅度和方向依赖 architecture、graph、role、energy，且它是 representation response，不是下游任务性能。项目仍在既有 `P3_CAUSAL_MECHANISM`；原 T0–T5 只得到“表示塑形”证据，旧 task gate 未闭合，且旧 heldout 已在候选循环中暴露，只能作 exploratory audit。当前授权的是有界的 `P3-T5R` task-semantic repair，不是新 Phase，也不是直接训练 AMR。由于 SNGAR 暂时不可访问，已固定由 IDSSE 暂代 T5R 开发数据角色；该替代不改变 P2/P3 历史，也不把 IDSSE 同时写成独立外部确认。其目标是把需要保留绝对部署信息的 context task 与要求全局平移稳健的 intrinsic task 分开，并在 match-level 保留方案上检验固定双通道表示。权威 P2 证据见 `artifacts/phase2/` 与 P2 reports；P3 证据见 `artifacts/phase3/`、`configs/phase3_support_geometry_v1.yaml` 和 `reports/P3_SUPPORT_CONDITIONED_GEOMETRY.md`。
+**新 agent 接手（半天）：**
+1. 本文件 → 2. `STATUS.md`（当前状态）→ 3. `PROJECT_MAP.md`（叙事→目录全映射）
+→ 4. `reports/final_closure/REPRODUCE_FINAL.md`（复算链）
+→ 5. `TODO.md` 顶部状态块与文末变更记录（完整行动史）。
 
-P3 不否定 Action-Mode Spectrum，而把它保留为跨条件的边缘汇总，并补上 support/relationship-conditioned local geometry 机制层：先检验归一化 embedding 的 Jacobian 与 \(G_f=J_f^\top J_f\) 能否预测 fracture response，再做 prospective、layer-wise 定位和一个证据选择的因果开关。只有出现预测、定位、因果开关和客观任务联系，才进入 P4 AMR；M1/M2 不得先行。
+## 目录速览
 
-## 3. 当前启动动作：P3-T5R
+| 目录 | 角色 | 状态 |
+|---|---|---|
+| `paper/` | 最终论文（LaTeX） | **当前** |
+| `reports/final_closure/` | 终局权威包（ verdict/ledger/证据表/复算/纠错 ） | **当前** |
+| `experiments/` | 全部实验代码（16 个子目录，按时代） | 当前+历史混合，见 `experiments/INDEX.md` |
+| `artifacts/` | 全部实验产物（23 个子目录，36G 本地） | 当前+历史混合，见 `artifacts/INDEX.md` |
+| `reports/` | 全部报告（按时代），索引见 `reports/INDEX.md` | 当前+历史混合 |
+| `docs/` | 各时代方案包与蓝图文档，索引见 `docs/INDEX.md` | 历史为主 |
+| `docs/legacy/` | 根目录移出的历史一次性文件 | 历史 |
+| `configs/` | 各期 config 锁与 data manifest | 历史冻结 |
+| `scripts/`、`tests/` | 各期脚本与单测（P0→终局全跨度） | 历史冻结+当前 |
+| `data/` | 原始数据（48G，gitignore） | 本地 |
+| `submission/` | ⚠️ **另一个项目（Memory Pilot）误入，与本论文无关，已移出 git 跟踪** | 忽略 |
+| `templates/` | 报告模板 | 工具 |
 
-当前唯一启动动作是先完成协议/文档迁移，再获取开发数据：
+治理文档（项目根）：`PLAN.md` / `ROADMAP.md` / `CLAIM_LEDGER.md` 保留为
+**历史档案**（顶部有横幅标注其对应时代）；当前状态以 `STATUS.md`、
+`TODO.md`、`reports/final_closure/` 为准。
 
-1. 读取 `docs/ICLR2027_P3_REPAIR_PACKAGE_20260902/` 全部说明；
-2. 完成 `P3-T5R0`，更新 canonical docs/configs 和 current-state audit；
-3. 核验并转换本地 IDSSE，暂代 SNGAR 的开发数据；SNGAR 保留为恢复分支；
-4. 构建 context/intrinsic task 与 fixed dual-channel baseline；
-5. 只有 sanity gate 支持后，才允许最多两轮 bounded autoresearch。
+## 为什么会有这么多"旧线"目录（路线调整简史）
 
-旧 heldout 标记为 `EXPOSED_DURING_CANDIDATE_SEARCH`，不再作为确认集。P4 AMR 继续 blocked，书法不参与体育端机制选择。
-截至 2026-09-04，IDSSE 官方 revision、raw 文件清单、23/23 SHA-256、7 场 canonical conversion、逐场 QC、match-level split、T5R2 task/baseline lock、T5R3 fixed dual-channel sanity 和 T5R4 两轮 bounded autoresearch 已完成（Round 2 按冻结规则选出 `update_ratio_2to1`，搜索已关闭）。语义 addendum（match-half context probe、intrinsic structural accessibility proxy）已冻结。T5R5 candidate lock、干预协议锁与 shadow lock 已创建并审计通过；一次性 `J03WQQ` 读取已完成（verdict `T5R5_PASS_STRONG`，路由 A：T5R6 独立确认）；SNGAR 访问仍为 `BLOCKED_EXTERNAL_ACCESS`，保留为后续独立样本/确认恢复分支。
+本项目是探索性研究，经历了六次路线调整，最终叙事在 2026-09-18 才确立。
+每个时代的产物全部保留（provenance 纪律），按时间排列：
 
-## 4. 历史/基础准备
+| 时代 | 时间 | 主线 | 结局 |
+|---|---|---|---|
+| 0 蓝图 | 08-18→08-31 | Action-Mode Spectrum 立项（体育阵型+书法+AMR 方法） | P0/P1 完成 |
+| 1 P2 | 08-31→09-01 | fracture continuity 测量 | mixed_or_graph_specific |
+| 2 P3-T5R | 09-01→09-05 | support-conditioned 几何可预测+任务语义修复+SoccerTrack 外部确认 | CONFIRMED，但仅是表示塑形 |
+| 3 P4-AMR | 09-05→09-16 | AMR 方法线 v1–v6 | 15 连败后 H1 过但≈CAP，方法位放弃 |
+| 4 转折 | 09-17→09-18 | discovery campaign→last15h→next6：**发现更新失败现象**，85.8% headline，flipmine 修复 | **最终叙事诞生** |
+| 5 外部确认 | 09-18→09-20 | foundation model（DINOv2/v3/CLIP/SigLIP2）桥接 | 全阴性，进论文 §6 |
+| 6 终局 | 09-21→09-23 | P1/P2/P3 三线收官+确认池 | **EXPLORATORY CLOSED** |
 
-```bash
-cd ICLR_ActionMode_Project_Pack_20260818
-bash scripts/bootstrap_env.sh
-bash scripts/download_public_data.sh --core
-python scripts/verify_data.py --manifest configs/data_manifest.yaml
-bash scripts/run_phase0_smoke.sh
-```
+各时代目录归属详见 `PROJECT_MAP.md`。旧 Action-Mode/Jacobian/AMR 线在论文中
+退为 §7 半段背景，相关证据仍有效（被引用处见 ledger），但不构成主线。
 
-该段命令属于历史基础准备，不是当前 T5R 启动动作。原 `--core` 只下载低成本、无需审批的数据；当前 IDSSE 替代分支、SNGAR 恢复分支和 SoccerTrack 的 split/candidate-lock 规则以 `configs/data_manifest.yaml`、`configs/phase3_task_semantic_repair_v1.yaml`、`STATUS.md` 和 `TODO.md` 为准。不得把未登记的数据或未完成的转换写成已完成证据。
+## 不要先读什么（常见的坑）
 
-旧 P3 结果继续使用同一批 250 个 canonical samples、9 个冻结点集模型和 P2 provenance 链；其 heldout 只能作为 exploratory audit。P3-T5R 允许在既有阶段内扩充独立比赛并修复任务语义，但不访问、修改或重建 `infra/bioinf-data-index/`。只有 T5R gate 闭合后，才重新考虑 P4 AMR。
+- ❌ `docs/01–10` 蓝图文档：立项时的 AMR/书法叙事，**已被路线调整取代**（历史价值在 `docs/INDEX.md` 说明）。
+- ❌ `docs/legacy/PROJECT_PACKAGE_CONSOLIDATED.md`：旧方案包合并版。
+- ❌ `STATUS.md` 以外的任何"P4 AMR 进行中"描述：P4 已终结（v6≈CAP，方法位放弃）。
+- ❌ `submission/`：另一个项目。
+- ❌ 任何单一目录名猜测归属：`radius_loss`、`l002_ball`、`event_updater` 等均为
+  终局期的已关闭旁路，先看 `PROJECT_MAP.md` 再读。
 
-## 5. 研究原则与探索空间
+## 硬纪律（任何新工作必须遵守）
 
-- **等能量扰动是测量条件**：比较不同模式时，应在坐标能量或像素感知能量上配平。
-- 对单调低通、非单调凹陷和组织性差异分别进行同频语义联盟与随机联盟对照，避免把不同现象混为一谈。
-- 假设、band 划分、模型和路线都可以随探索结果迭代；记录每轮实际采用的版本、选择理由与结果。
-- 除 probe 外，结合 quotient retrieval、自然任务和表示距离排序，逐步判断信息是否真正可访问。
-- 已知构件支持统一标为 intervention-supervised 或 known structural support，不将其描述为 self-supervised。
-- CAP 作为 baseline；方法探索从 AMR-Fixed 开始，并根据结果决定是否推进 AMR-Learned。
-- 算力按当前瓶颈和信息增益决定；需要 GPU 时记录 workload、成本和替代方案。
-
-## 6. 时间边界
-
-ICLR 2027 官方节点：
-
-- 摘要：2026-09-18 AOE
-- 全文：2026-09-25 AOE
-- 主文：9 页
-
-项目日程已写入 `configs/project.yaml`。延期时可根据实际发现动态重排阶段、扩展探索或收缩范围。
-
-## 7. 最小成功形态
-
-探索性研究的高价值结果不是“体育和书法都提高准确率”，而是：
-
-1. 一个可复用的等能量 Action-Mode Probe；
-2. 一个不能被普通谱偏置解释的反直觉规律；
-3. 一个能开关或移动该规律的因果机制；
-4. 一个有独立方法价值的 AMR 变体；
-5. 体育端形成可解释规律，并在书法端检验其跨域可迁移性。
-
-若某一候选规律不成立，就据此调整问题表述、模型范围或跨域路线；阴性结果本身也应作为探索性发现记录。
+1. 正文数字只能来自 `reports/final_closure/MASTER_CLAIM_LEDGER.md`；
+   discovery 数与 fresh/confirm 数不得混用分母。
+2. `holdout_909`（坐标）、`confirm_1007`（P1 池）、`holdout_895`（bridge）均已
+   **单次消耗并封存**；任何二次读取是新的协议事件，需用户显式授权。
+3. 禁开方向清单见 `TODO.md` 顶部（AMR/Jacobian 扩展/E7 新 loss/第 61 个小 MLP 等）。
+4. 大文件（.pt/.npy/.npz/.parquet）按 `.gitignore` 留本地；sha 校验见各 artifact manifest。

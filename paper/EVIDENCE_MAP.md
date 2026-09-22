@@ -1,3 +1,9 @@
+> ⚠️ **已取代（旧论文骨架的证据映射，2026-09-05）**：本表对应的是机制先行旧稿
+> （AMR/T5R 叙事）。论文已于 2026-09-18 迁移到最终叙事（见
+> `reports/final_closure/PAPER_MIGRATION_AUDIT.md`）。当前正文数字唯一来源：
+> `reports/final_closure/MASTER_CLAIM_LEDGER.md`；证据表：
+> `reports/final_closure/FINAL_EVIDENCE_TABLE.md`。本文件保留作历史。
+
 # 证据映射：手稿每一节的数字与措辞规则 → 冻结 artifact
 
 手稿纪律：正文里每个数字必须能在此表找到唯一来源；措辞规则（WORDING RULE）

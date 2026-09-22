@@ -1,3 +1,7 @@
+# ⚠️ 历史快照（P3 时代，2026-09-05 止更）：下方 active_phase/current_route 等字段
+# 反映的是路线调整前状态，不代表当前项目。当前状态入口：STATUS.md；
+# 叙事与目录导航：README.md + PROJECT_MAP.md（2026-09-22 结构整理）。
+# 本文件仅被历史审计脚本 scripts/audit_current_state_consistency.py 读取。
 project:
   name: action-mode-spectrum
   working_title: "Who Moved Together? Action-Mode Spectra in Structured Representations"

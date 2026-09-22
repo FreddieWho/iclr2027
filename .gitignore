@@ -22,3 +22,10 @@ artifacts/**/*.pth
 .codex/
 .agents/
 .understand-anything/
+
+# Foreign project directory (Memory Pilot), not part of this repo —
+# kept on disk for its own nested .git, untracked here since 2026-09-22.
+submission/
+
+# Pi agent runtime state (session-local, never commit)
+.pi/

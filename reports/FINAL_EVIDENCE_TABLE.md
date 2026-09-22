@@ -1,3 +1,8 @@
+> ⚠️ **已被取代（2026-09-22）**：`reports/final_closure/FINAL_EVIDENCE_TABLE.md`
+> （9-22 重建版）取代本表；其文首已声明“supersedes reports/FINAL_EVIDENCE_TABLE.md
+> for new claims; old file kept as history”。当前正文数字唯一来源：
+> `reports/final_closure/MASTER_CLAIM_LEDGER.md`。本表保留作历史（9-18 审计闭合版）。
+
 # FINAL_EVIDENCE_TABLE（正文数字唯一来源，2026-09-18）
 
 规则：正文只允许从本表取数字。条件（discovery vs fresh vs 真数据）不得混用。
