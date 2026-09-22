@@ -18,7 +18,7 @@
 - [ ] 1. OpenReview 行政：机构邮箱 profile（审核可长达 2 周，**最优先**）、作者名单、互审资格
 - [ ] 2. 官方 ICLR 2027 样式文件替换 `main.tex` 占位 preamble（现 geometry 1in 占位）
 - [ ] 3. **AI-use 披露章节缺失**——占位注释要求 mandatory disclosure，正文尚未写（双盲格式）
-- [ ] 4. `references.bib` 11 条 → 40+ 条（related work 柔道四段依赖）
+- [ ] 4. `references.bib` 已由 11 → 22：§7 点名文献已 web 核实并接上 `\citep`（见 `paper/refs_research/VERIFIED_REFS.md`）。仍需扩至 40+（related work 邻域仅各 1 条 canonical，未覆盖全部对照线）
 - [ ] 5. Figure 1 概念图（§1）未生成；fig2/fig3 仅有
 - [ ] 6. 页数核验：主文 ≤9 页（换官方样式后实测；当前无本地 LaTeX 环境，需在有 TeX 的机器编译）
 - [ ] 7. 双盲扫描：正文/补充/figures 元数据无作者身份痕迹（当前 Anonymous ✓，换样式后复查）
