@@ -15,11 +15,11 @@
 
 ## ⬜ 剩余动作（投稿前；按阻塞顺序）
 
-- [ ] 1. OpenReview 行政：机构邮箱 profile（审核可长达 2 周，**最优先**）、作者名单、互审资格
+- [x] 1. OpenReview 行政：机构邮箱 profile、作者名单、互审资格、摘要注册——用户已完成 ✅
 - [x] 2. 官方 ICLR 2027 样式包已装（`paper/iclr2027_conference.sty/.bst`，官方站下载；`main.tex` 已接线）。首次编译仍待 TeX 机
 - [ ] 3. **AI-use 披露为草稿**（`main.tex` 注释块，覆盖探索/代码/分析/审计/写作，需作者核准；不计页）
 - [ ] 4. `references.bib` 已由 11 → 22：§7 点名文献已 web 核实并接上 `\citep`（见 `paper/refs_research/VERIFIED_REFS.md`）。仍需扩至 40+（related work 邻域仅各 1 条 canonical，未覆盖全部对照线）
-- [ ] 5. Figure 1 概念图（§1）未生成（槽位空留，无虚假完成声明）；fig2/fig3 已重生成验证，fig4 四臂图新建
+- [ ] 5. Figure 1 概念图（§1）未生成（槽位空留，无虚假完成声明）；fig2/fig3 已重生成验证，fig4 四臂图已切 U1/U2 数据源并加 J/H panel（c）
 - [x] 6. 页数核验：主文 8 页 ≤9 页 ✓（2026-09-22 本机 TinyTeX 实测；参考文献+附录另 3 页不计入；Table 1 overfull 已修，零错误零未定义引用）
 - [ ] 7. 双盲扫描：正文/补充/figures 元数据无作者身份痕迹（当前 Anonymous ✓，换样式后复查）
 - [ ] 8. **【最后执行】sha256 锁重新部署**：scripts/ 已物理分区，冻结 configs 内

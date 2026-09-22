@@ -20,7 +20,12 @@ repair is 0.03--0.10 while error migration is 0.36--0.40. Combining
 label-free relational input features with the same flip coverage shifts
 joint consistency to 0.38--0.42 (dev) and 0.44--0.47 (confirmation), with
 full repair exceeding migration on the confirmation bank---a bounded
-positive instance, not a general architecture. On real football tracking,
+positive instance, not a general architecture. The combination is
+super-additive on the joint scale (+17--25pp over the additive expectation
+on dev, directionally confirmed on a second bank): the representation
+improves state separability while flip coverage mainly realizes it at a
+fixed threshold, and the effective repair lowers but does not remove the
+confidence inversion on later flips. On real football tracking,
 controlled edits and natural turns support transition and repair behavior
 but do not reproduce the confidence inversion; the pixel-observation arm
 evaluates repair behavior only and does not test confidence. Correctness

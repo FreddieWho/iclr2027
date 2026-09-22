@@ -4,7 +4,7 @@
 SCIENTIFIC_EXPLORATION: CLOSED（2026-09-22 终局裁决 #15）→ 02 定向探索升级已由用户单独授权执行
 （范围：U1/U2/U3 必做，U4 可选且不超过两种小表示对照；仍禁 02 §2 所列新方向）。
 当前工作：02 探索升级（U1/U2/U3；U4 视判据可选）＋投稿行政与写作打磨（用户预告：可能还有几轮补充优化，结构已就绪）——
-  (1) OpenReview 资料冻结（机构邮箱 profile/互审资格/作者名单）；
+  (1) OpenReview/作者/摘要注册（用户已完成 ✅）；官方样式已装；references 22→40+ 待扩；
   (2) 官方 ICLR 2027 样式替换 paper/main.tex 占位 preamble；references 11→40+；
   (3) Figure 1 概念图；正文 prose 打磨（按 MASTER_CLAIM_LEDGER 措辞红线）；
   (4) 【最后执行】全部补充优化完成后重新部署 sha256 锁：scripts/ 已于 2026-09-22

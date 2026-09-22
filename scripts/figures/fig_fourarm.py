@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Fig4: four-arm joint consistency (dev + confirmation banks) + full-repair/migration
-decomposition on H (baseline-110). Data only from archived frozen JSONs.
+decomposition on H (baseline-110) + J/H ordering panel. Data only from archived
+frozen JSONs and U1/U2 re-derivations (bit-verified against the archives).
 
 Sources:
-- dev bank (n_q=237): raw/relfeat arms  artifacts/next_novelty/relfeat/RELFEAT.json
-                     raw+flip J          artifacts/next_novelty/p3/P3_FINAL.json (J_repair)
-                     relflip dev J + H decomposition  artifacts/next_novelty/relflip/RELFLIP_MIG.json
+- dev bank (n_q=237): four-arm J + H decomposition
+                     artifacts/next_novelty/u1_factorial/U1_SUMMARY.json
+                     (asserted bit-equal to RELFEAT.json / p3/P3_FINAL.json /
+                      relflip/RELFLIP_MIG.json before plotting)
+- dev J/H ordering:  artifacts/next_novelty/u2_ordering/U2_SUMMARY.json
 - confirm bank (n_q=509, bank confirm1007):
                      all four arms       artifacts/next_novelty/relflip_v2/RELFLIP_CONFIRM.json
                      H decomposition     same file, migration block
@@ -19,21 +22,37 @@ import matplotlib.pyplot as plt
 SEEDS = ["s11", "s23", "s47"]
 X = np.arange(4)
 W = 0.16
+U1ARM = {"raw": "raw_clean", "raw+flip": "raw_flipmine",
+         "relational": "relfeat", "relational+flip": "relflip"}
 
-# --- load dev bank ---
+# --- load dev bank from U1 re-derivation ---
+u1 = json.load(open("artifacts/next_novelty/u1_factorial/U1_SUMMARY.json"))
+u2 = json.load(open("artifacts/next_novelty/u2_ordering/U2_SUMMARY.json"))
+
+# --- provenance assertions: U1 must reproduce the frozen archives ---
 rf = json.load(open("artifacts/next_novelty/relfeat/RELFEAT.json"))
 p3 = json.load(open("artifacts/next_novelty/p3/P3_FINAL.json"))
 rl = json.load(open("artifacts/next_novelty/relflip/RELFLIP_MIG.json"))
-dev_J = {
-    "raw":            [rf[f"{s}_raw"]["J"] for s in SEEDS],
-    "raw+flip":       [p3[s]["metrics"]["J_repair"][0] for s in SEEDS],
-    "relational":     [rf[f"{s}_relfeat"]["J"] for s in SEEDS],
-    "relational+flip":[rl[s]["J_relflip"] for s in SEEDS],
-}
-dev_flow = {  # on H baseline-110
-    "raw+flip":       [(p3[s]["metrics"]["R_full"][0], p3[s]["metrics"]["M_migrate"][0]) for s in SEEDS],
-    "relational+flip":[(rl[s]["R_full"][0], rl[s]["M"][0]) for s in SEEDS],
-}
+for s in SEEDS:
+    a = u1["seeds"][s]["arms"]
+    assert a["raw_clean"]["J"] == rf[f"{s}_raw"]["J"], s
+    assert a["raw_flipmine"]["J"] == p3[s]["metrics"]["J_repair"][0], s
+    assert a["relfeat"]["J"] == rf[f"{s}_relfeat"]["J"], s
+    assert a["relflip"]["J"] == rl[s]["J_relflip"], s
+    h = u1["seeds"][s]["repair_vs_rawclean_H"]["relflip"]
+    assert h["R_full"][0] == rl[s]["R_full"][0], s
+    assert h["M_migrate"][0] == rl[s]["M"][0], s
+
+dev_J = {k: [u1["seeds"][s]["arms"][v]["J"] for s in SEEDS]
+         for k, v in U1ARM.items()}
+dev_H = {k: [u2["seeds"][s]["arms"][v]["H"] for s in SEEDS]
+         for k, v in U1ARM.items()}
+dev_flow = {}
+for key, uarm in (("raw+flip", "raw_flipmine"),
+                  ("relational+flip", "relflip")):
+    dev_flow[key] = [(u1["seeds"][s]["repair_vs_rawclean_H"][uarm]["R_full"][0],
+                      u1["seeds"][s]["repair_vs_rawclean_H"][uarm]["M_migrate"][0])
+                     for s in SEEDS]
 
 # --- load confirmation bank ---
 rc = json.load(open("artifacts/next_novelty/relflip_v2/RELFLIP_CONFIRM.json"))
@@ -46,7 +65,8 @@ conf_J = {
 }
 conf_flow = [(rc["migration"][s]["R_full"][0], rc["migration"][s]["M"][0]) for s in SEEDS]
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.2), gridspec_kw={"width_ratios": [1.35, 1]})
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 4.2),
+                                    gridspec_kw={"width_ratios": [1.35, 1, 1.1]})
 
 # Panel A: four-arm J, dev (solid) and confirmation (hatched), grouped by seed
 for i, s in enumerate(SEEDS):
@@ -96,6 +116,21 @@ ax2.set_ylabel("share of baseline-110 ($H$: A,B correct, AB wrong)")
 ax2.set_title("(b) Endpoint repair decomposes on $H$ ($R_{\\mathrm{endpoint}}=R_{\\mathrm{full}}+M$)", fontsize=9.5)
 ax2.legend(fontsize=7.5, loc="upper right")
 ax2.set_ylim(0, 0.9)
+
+# Panel C: J (fixed threshold) vs H (oracle separability) on dev
+order = ["raw", "raw+flip", "relational", "relational+flip"]
+for i, s in enumerate(SEEDS):
+    jj = [dev_J[k][i] for k in order]
+    hh = [dev_H[k][i] for k in order]
+    ax3.plot(order, jj, marker="o", ms=4, lw=1.2, color=f"C{i}",
+             label=f"{s} $J$ (fixed thr.)")
+    ax3.plot(order, hh, marker="s", ms=4, lw=1.2, ls="--", color=f"C{i}",
+             label=f"{s} $H$ (oracle sep.)")
+ax3.set_ylabel("rate on dev bank (n=237)")
+ax3.set_title("(c) Fixed-threshold $J$ vs oracle separability $H$", fontsize=9.5)
+ax3.legend(fontsize=7, loc="upper left", ncol=2)
+ax3.set_ylim(0, 1.0)
+ax3.tick_params(axis="x", labelsize=8)
 
 fig.tight_layout()
 fig.savefig("paper/figures/fig4_fourarm.pdf")
