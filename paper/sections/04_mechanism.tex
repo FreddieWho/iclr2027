@@ -68,7 +68,19 @@ scale: $I=(J_{\mathrm{relflip}}-J_{\mathrm{relfeat}})-(J_{\mathrm{rawflip}}-J_{\
 is $+17$--$+25$pp on dev (paired parent-cluster intervals exclude zero)
 and $+11$--$+22$pp on confirmation (same-bank point estimates)---an
 exploratory interaction with directional confirmation, not a universal
-synergy law. Ordering analysis bounds the mechanism (Fig.~\ref{fig:fourarm}c):
+synergy law. Both quantities are robust to the task's own symmetry:
+under all eight relabelings of the four input points (the oracle is
+invariant; verified by recomputation on both banks), the interaction stays
+positive in $24/24$ seed$\times$relabeling combinations on dev
+($+9.7$ to $+36.7$pp) and $24/24$ on the confirmation bank
+($+10.8$ to $+27.5$pp). The identity labeling used throughout is not the
+maximum in most cells; where it is (one arm in each bank) we say so rather
+than average it away. The same sweep suggests why relational input helps:
+joint consistency for raw coordinates swings by $75$--$133\%$ of its mean
+across relabelings, versus $15$--$29\%$ for relational input with flip
+coverage---the ten relational features are only permuted among themselves
+under relabeling, so they carry the task's symmetry that raw coordinates
+do not. Ordering analysis bounds the mechanism (Fig.~\ref{fig:fourarm}c):
 the representation improves state separability $H$ ($0.54$--$0.57 \to
 0.81$--$0.87$), while flip coverage on relational input mainly realizes
 that separability at the fixed threshold rather than creating new

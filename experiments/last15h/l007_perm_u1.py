@@ -84,6 +84,30 @@ def main():
         labels.append((la, lb, m1["yAB"]))
     out = {"bank": a.bank, "n_quartets": len(quads), "arms": list(ARMS),
            "per_seed": {}}
+    # --- oracle invariance re-verification on relabeled configurations ---
+    # (pre-registered in PREREG_C1C_CONFIRM.md: recompute, do not assume)
+    sys.path.insert(0, str(ROOT / "docs" / "iclr2027_discovery_campaign_20260917"))
+    from core.relations import segment_relation  # noqa: E402
+    mism = 0
+    checked = 0
+    for p_ in PERMS:
+        idx = perm_idx(p_)
+        Xp = Qx0[:, idx, :]
+        Ep = Qe0[:, idx, :]
+        for qid, (i1, m1), (i2, m2) in quads:
+            la = m1["yA"] if m1["ptype"] == "A" else m1["yB"]
+            lb = m2["yA"] if m2["ptype"] == "A" else m2["yB"]
+            for xx, want in ((Xp[i1], la), (Xp[i2], lb),
+                             (Xp[i1] + Ep[i1], m1["yAB"])):
+                try:
+                    got = int(segment_relation(np.asarray(xx, float))["label"])
+                except Exception:
+                    continue
+                checked += 1
+                if got != int(want):
+                    mism += 1
+    out["oracle_invariance_check"] = {"checked": checked, "mismatches": mism}
+    assert mism == 0, "oracle labels are NOT invariant under the relabelings"
     for seed in (11, 23, 47):
         models = {}
         for arm in ARMS:
