@@ -29,6 +29,7 @@
 ## D. P3 migration / joint consistency (dev bank + confirm bank)
 | claim | number | artifact |
 |---|---|---|
+| R_endpoint (baseline-110) | dev 0.43-0.48 | P3_FINAL.json metrics.R_endpoint |
 | R_full (baseline-110) | dev 0.03-0.10; relflip confirm 0.45-0.50 | P3_FINAL.json; RELFLIP_CONFIRM.json |
 | M migration | dev 0.36-0.40; relflip confirm 0.25-0.30 | same |
 | J joint consistency | clean 0.05; flipmine 0.06-0.08; relfeat 0.13-0.23; relflip 0.38-0.47 | P3_FINAL / RELFEAT / RELFLIP_CONFIRM |

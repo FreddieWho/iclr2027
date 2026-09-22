@@ -21,7 +21,7 @@ python3 experiments/next_novelty/p1b_analysis.py \
   --freeze artifacts/next_novelty/p1_freeze.json
 python3 experiments/next_novelty/p1g_repair.py \
   --indir artifacts/next_novelty/p1_unified_confirm \
-  --out artifacts/next_novelty/p1g_confirm --freeze <top-quartile-thr-json>
+  --out artifacts/next_novelty/p1g_confirm --freeze artifacts/next_novelty/p1_freeze.json
 
 ## P3 migration (dev bank; parent-cluster CIs)
 python3 experiments/ccm_audit/p3_final.py --bank dev512

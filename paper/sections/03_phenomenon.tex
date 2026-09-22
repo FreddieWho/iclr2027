@@ -28,7 +28,7 @@ track the change.
 \paragraph{Confidence is reliable for states, unreliable for true changes.}
 Within currently correct coordinate states, pre-change confidence predicts
 static error in the classical direction (quartile error $0.27$--$0.51 \to
-0.02$--$0.06$ on dev, same shape on confirmation)
+$0.02$--$0.05$ on dev; $0.02$--$0.06$ pooled with confirmation)
 and semantics-preserving error likewise, yet predicts update error in
 reverse: endpoint error after a true semantic flip rises $0.36$--$0.61 \to
 0.98$--$1.00$ (twelve model-seed combinations: eleven reach $1.00$ in the top
@@ -38,26 +38,28 @@ AUC $0.78$--$0.95$ (clean models $0.93$--$0.95) against difficulty-only
 $0.42$--$0.61$; oracle difficulty and geometric covariates carry approximately
 no held-out signal. On retained high-confidence misses, repair reduces endpoint
 error $1.00 \to 0.53$--$0.84$ on confirmation (paired CIs exclude zero; dev
-paired CIs touch zero), leaving a residual majority still wrong.
+paired CIs touch zero in two of three seeds, s47 excludes), leaving a residual majority still wrong.
 Stricter trust in high-confidence states lowers current error while
-concentrating update failures (top-25\% retention: $\sim$5\% static error vs 100\% conditional update error). Natural football turns
+concentrating update failures (top-25\% retention, s11 clean, $n{=}101/271$ retained: $\sim$5\% static error and $0.00$ preserve-update error vs 100\% conditional update error). Natural football turns
 show no such inversion after correction (floor effects); the claim is
 coordinate-only (Fig.~\ref{fig:p1}).
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\linewidth]{../figures/fig2_p1_dual.pdf}
-\caption{Confidence versus static error (left) and update error (right),
-s11 clean on the dev bank. Error bars are parent-cluster bootstrap intervals.}
+\caption{Confidence versus static, preserve, and update error in one panel,
+s11 clean on the dev bank. Three series with per-bin parent-cluster bootstrap
+intervals.}
 \label{fig:p1}
 \end{figure}
 
 \paragraph{(iii) Consequential blindness.} The misses propagate. Fresh-holdout
 event detection is thin ($1/24$ clean conditional misses) and reported
 without inflation; action selection under a fixed action library is invalid
-in $75.0\%$ of hard fresh cases ($\lambda{=}2$); the single-flip
+in $75.0\%$ of hard fresh cases ($n{=}144$, $\lambda{=}2$); the single-flip
 decomposition (C1/C0) shows a C1 miss of $52.4\%$ against a C0 false-alarm
 rate of $26.2\%$. Decision-interface analysis (U02, $93$ oracle-feasible scenes of $171$) shows flipmine's gain is
-in feasible-set coverage (refusal $0.43 \to 0.12$) rather than non-refusal
-precision ($0.23$ vs $0.22$), and that the gain survives across scoring rules
+in refusal reduction (refusal $0.43 \to 0.12$, $3.6\times$ fewer refusals;
+non-refusal coverage $0.57 \to 0.88$) rather than non-refusal
+precision ($0.23$ vs $0.22$ on the 93-scene hard subset), and that the gain survives across scoring rules
 (see the evidence table, reports/final_closure/MASTER_CLAIM_LEDGER.md).

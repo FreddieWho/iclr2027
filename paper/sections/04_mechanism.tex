@@ -15,9 +15,10 @@ rules, while temperature rescaling at fixed threshold leaves the feasible set
 unchanged (calibrated $\equiv$ lexicographic by construction) and
 fitted temperatures ($T^*{=}8.41$ clean / $7.88$ flipmine, s11 dev) preserve ranks exactly. An affine rescaling of clean logits fitted on dev cannot reproduce the repair:
 action success (lexicographic, eval) is clean $0.14$--$0.20$ / affine
-$0.11$--$0.17$ / flip $0.17$--$0.24$, with paired affine-clean CIs all touching
-or crossing zero; analytic-affine behavior readouts are worse on static
-($0.18$--$0.20$ vs $0.15$--$0.17$) and no better on joint consistency. At matched
+$0.11$--$0.17$ / flip $0.17$--$0.25$, with paired affine-clean CIs all touching
+or crossing zero; analytic-affine behavior readouts (dev bank, $n{=}237$ quartets) are worse on static
+($0.18$--$0.20$ vs $0.15$--$0.17$) and no better on joint consistency
+(clean $0.05$, affine $0.05$--$0.06$; all three paired J CIs span zero). At matched
 coverage levels, quality given the same coverage favors the repaired model at
 higher cost. So the repair is not a pure operating-point shift; the
 capability/coverage split depends on the interface (Sec.~7).
@@ -28,11 +29,14 @@ analysis reveals that endpoint repair substantially overstates recovery of
 full compositional consistency. On baseline-110 quartets (both atomics
 correct, AB wrong under clean), full repair ($110 \to 111$) is only
 $0.03$--$0.10$ while error migration---AB correct \emph{but} an atomic newly
-wrong---is $0.36$--$0.40$ (parent-cluster CIs; Fig.~3). Joint consistency
-$J = P(111)$ barely moves ($0.05$--$0.06 \to 0.06$--$0.08$), and on the
+wrong---is $0.36$--$0.40$ (parent-cluster CIs; Fig.~\ref{fig:migration}). Joint consistency
+$J = P(111)$ barely moves ($0.05 \to 0.06$--$0.08$), and on the
 common-correct set the repair direction is inconsistent across seeds
 (including one reversal). A preserve-balanced retraining pilot with matched
-loss weights does not reduce migration. Recorded outcome: most endpoint gains do not restore the original atomic
+loss weights does not reduce migration. For reference, the flipmine arm's
+own-conditional emergent rate on the fresh holdout is $109/141 = 77.3\%$ on a
+different denominator ($141$ vs $176$, non-paired)---descriptive only, not a
+repair delta. Recorded outcome: most endpoint gains do not restore the original atomic
 competencies jointly with the composed outcome (Fig.~\ref{fig:migration}).
 
 \begin{figure}[t]

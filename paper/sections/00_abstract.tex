@@ -11,9 +11,11 @@ semantics-preserving correctness yet reverses under true semantic change:
 endpoint error rises from 0.36--0.61 to 0.98--1.00 across confidence quartiles,
 confirmed on fresh parent-disjoint data. Targeted flip coverage improves
 static error (18.0\%~$\to$~10.7\%), single-flip C1 miss (52.4\%~$\to$~34.7\%),
-and downstream action outcomes. Yet paired quartet analysis shows most AB
+and downstream action outcomes on the fresh holdout (paired same-sample
+comparisons). Yet paired quartet analysis shows most AB
 endpoint gains do not restore full atomic-plus-joint consistency: full
-repair is 0.03--0.10 while error migration is 0.36--0.40. Real football
+repair is 0.03--0.10 while error migration is 0.36--0.40 (dev bank,
+baseline-110 quartets, parent-cluster CIs). Real football
 tracking and pixel renderings support transition and repair behavior, but
 not the confidence inversion. Correctness under change cannot be summarized
 by static accuracy or endpoint repair alone.

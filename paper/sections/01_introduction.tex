@@ -14,25 +14,27 @@ directly targeted fresh paths, $108/128 = 84.4\%$ among single-turn paths
 found by a random-edit screen (different denominators, never averaged).
 (ii)~Compositional blindness: when both atomic edits are judged correctly,
 their joint change is still missed in $151/176 = 85.8\%$ of fresh-holdout
-cases; continuous path decomposition shows compositional misses unfold as
+cases ($n{=}176$; discovery $62/66 = 93.9\%$); continuous path decomposition shows compositional misses unfold as
 missed semantic updates along $A \to AB$ and $B \to AB$ (111/111 AB-miss
 quartets contain a zero-transition path). (iii)~Consequential blindness:
 the misses propagate into events and action selection ($75.0\%$ invalid in
-hard fresh cases at $\lambda{=}2$).
+hard fresh cases, $n{=}144$, at $\lambda{=}2$).
 
 Our new insight concerns confidence. A confidence score that is reassuring
 for current correctness becomes misleading for true semantic transitions:
 within currently correct states, higher pre-change confidence predicts
-lower static error ($0.27$--$0.51 \to 0.02$--$0.06$ across quartiles) yet higher update error
+lower static error ($0.27$--$0.51 \to 0.02$--$0.05$ on dev, $0.02$--$0.06$ pooled) yet higher update error
 ($0.36$--$0.61 \to 0.98$--$1.00$) across confidence quartiles, confirmed on fresh
 parent-disjoint data in coordinate scenes. Grouped-by-parent cross-validation
 gives confidence-only pooled AUC $0.78$--$0.95$ against difficulty-only
 $0.42$--$0.61$; repair leaves residual error $0.53$--$0.84$ on confirmation
 high-confidence misses.
 
-Repair changes several component and downstream metrics---static error $18.0\% \to 10.7\%$,
+Repair changes several component and downstream metrics on the fresh holdout
+(paired same-sample comparisons; $n{=}512/248/144$)---static error $18.0\% \to 10.7\%$,
 single-flip C1 miss $52.4\% \to 34.7\%$, action invalid $75.0\% \to 62.5\%$.
-Paired quartet analysis decomposes the endpoint improvement
+Paired quartet analysis on the dev bank (baseline-110 quartets,
+parent-cluster CIs) decomposes the endpoint improvement
 ($R_{\mathrm{endpoint}}$ $0.43$--$0.48$) into full repair ($0.03$--$0.10$) and error migration
 ($0.36$--$0.40$).
 
