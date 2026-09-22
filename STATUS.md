@@ -40,5 +40,5 @@ ROADMAP  探索期关闭；02 定向探索升级已授权（U1/U2/U3＋可选 U4
 - 核心文件：`docs/last3day/02_EXPLORATION_AND_UPGRADE_PLAN.md`；`paper/main.tex`＋`paper/sections/`；权威数字 `reports/final_closure/MASTER_CLAIM_LEDGER.md`；升级输出 `reports/caea817_review/`。
 - 复算入口：`reports/final_closure/REPRODUCE_FINAL.md`（先 `export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH`）。
 - 最近决策：用户授权执行 02 探索升级（U1/U2/U3 必做，U4 可选）；D-20260918-AUDIT02 探索冻结仍有效，新确认读取=新协议事件。
-- 下一步：四臂图数据源切换＋J/H panel＋摘要替换句；同步投稿行政清单。
+- 下一步：TODO-A 区（W1 引用→W2 Fig1→W3 AI-use→W5/W6→W7 重锁）；实验想法全部 PARKED（TODO-B＋LEADS），需单独授权。
 - 目录导航：`README.md`（前门）＋`PROJECT_MAP.md`（叙事→目录全映射）＋各目录 INDEX.md。

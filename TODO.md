@@ -1,15 +1,8 @@
-# TODO — ICLR 2027（02 探索升级已授权执行＋投稿行政，2026-09-22 起）
+# TODO — ICLR 2027（投稿收尾：写作＋行政，2026-09-22 起）
 
 ```
-SCIENTIFIC_EXPLORATION: CLOSED（2026-09-22 终局裁决 #15）→ 02 定向探索升级已由用户单独授权执行
-（范围：U1/U2/U3 必做，U4 可选且不超过两种小表示对照；仍禁 02 §2 所列新方向）。
-当前工作：02 探索升级（U1/U2/U3；U4 视判据可选）＋投稿行政与写作打磨（用户预告：可能还有几轮补充优化，结构已就绪）——
-  (1) OpenReview/作者/摘要注册（用户已完成 ✅）；官方样式已装；references 22→40+ 待扩；
-  (2) 官方 ICLR 2027 样式替换 paper/main.tex 占位 preamble；references 11→40+；
-  (3) Figure 1 概念图；正文 prose 打磨（按 MASTER_CLAIM_LEDGER 措辞红线）；
-  (4) 【最后执行】全部补充优化完成后重新部署 sha256 锁：scripts/ 已于 2026-09-22
-      物理分区（scripts/INDEX.md），冻结 config 内 path/sha256 字段对应分区前布局；
-      重锁范围=scripts/*/*/  + 受影响 configs + artifacts 侧 manifest。
+终局状态：叙事冻结，证据链闭合；02 探索升级收敛＋确认池 2×2 挖掘完成。
+当前只剩论文写作/行政（A 区）；任何实验想法均为 PARKED（B 区），需用户单独授权才执行。
 正文数字唯一来源：reports/final_closure/MASTER_CLAIM_LEDGER.md
   （旧 reports/e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md 为 9-18 历史版，已被取代）。
 终局状态：reports/final_closure/FINAL_PROJECT_VERDICT.md（P1-STRONG/P2-MAIN_SCOPED/P3-METHOD）。
@@ -23,49 +16,47 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 
 以下为历史区（探索期全部计划保留备查，不再执行；各分支结局见文末“分支记录”与“变更记录”）:
 
-更新时间：2026-09-16（B30 重整版；旧 1–13 项已归档，见文末）
+更新时间：2026-09-22（投稿收尾重整版；旧事项 0–4 已裁决，见下方历史事项裁决表）
 
-## 研究结论一句话（为什么是这份清单）
+## 当前结论（一句话，为什么只剩写作）
 
-- B30 头脑风暴 30/30 完成：`reports/research_b30/` 34 文件（W1-M1–M10 / W2-A1–A10 / W3-S1–S10＋ANGLE_MAP/LEDGER/SYNTHESIS_TOPLIST/VERIFY_FINAL），目标 `mu3wl782-yxuns1` 已关闭。
-- VERIFY_FINAL 复核 18 项主来源：17 项维持、仅 SimCLR 长 schedule 降级为 B（方向可信、量级弱）；5 项淘汰维持禁令；开火顺序冻结。
-- 含义：写作侧 6 项零训练成本先行；训练侧剩 8 轮只打 T2-1→T2-2→T2-4；Tier3 只按 non-claim 口径取用；行政 deadline（摘要 9/18、全文 9/25）阻塞其余。
+- 三大贡献＋两复现线＋基础模型阴性全部闭合；02 探索升级（U1–U4）＋确认池 2×2 挖掘完成，稿件增量 A＋B 已接线，主文 8 页编译通过。
+- 剩余工作全是零证据风险的写作/行政；实验侧除 rebuttal 弹药外无必做项。
 
-## 接下来要做（按执行顺序和重要程度排列）
+## A. 论文写作/行政（按执行顺序排列）
 
-- [ ] 0. 行政与冻结——阻塞其余全部，今天必须启动          子项须串行，a 不定则 b/c 返工
-    - [ ] a OpenReview 资料冻结：机构邮箱 profile（审核可长达 2 周）、互审资格、作者名单——9/18 摘要截止前冻结
-    - [ ] b 论文形状冻结：机制先行 9 页；AMR/书法/篮球明确进 future work
-    - [ ] c 样式与引用基建：官方 ICLR 2027 样式替换占位 preamble；references 11 条→40+ 条
+- [ ] W1 references 22→30+（genuine 接线；40 为软目标，不凑数）
+- [ ] W2 Figure 1 概念图（§1；须从统计总体采样真实受控示例，禁示意造数）
+- [ ] W3 AI-use 披露定稿（main.tex 注释草稿，需作者核准措辞）
+- [ ] W4 rebuttal 预备答辩（可选；T5R6 reserve＋NO_NEW_CLAIM 已有，成文则另起）
+- [ ] W5 双盲扫描（正文/补充/figures 元数据）
+- [ ] W6 匿名打包（git 快照；data/48G、artifacts/36G 不入包）
+- [ ] W7 【最后执行】sha256 锁重新部署（scripts/*/*/＋受影响 configs＋artifacts manifest）
 
-- [ ] 1. Tier1 写作六件套（零训练成本，推荐开工顺序即此序）   子项可并行，但 a/b 先行
-    - [ ] a T1-2 前置复核 1 小时：TacticAI PDF 全文 D2 细节复核（B＋升 A 的唯一门）
-    - [ ] b T1-3 前置 source-check：split/外部集/基线/种子/算力五处冻结数核对
-    - [ ] c T1-1 标题摘要机制先行重构（S3 方案 A，写作半天）
-    - [ ] d T1-2 related-work 柔道四段（写作半天，依赖 a）
-    - [ ] e T1-4 claim 分级制＋全表 min–max 化（写作半天；禁 mean±std、禁 winner 语言）
-    - [ ] f T1-3 rebuttal 十大异议＋现成答案（写作 1 天，依赖 b）
-    - [ ] g T1-5 证伪 K1–K3 预注册（K1 permutation null 为 CPU 小任务；K2/K3 先注册再跑）
-    - [ ] h T1-6 图表三件套：证伪 ledger 表＋validity-regime 图＋机制 panel（作图 1–2 天；Spec A 轴范围从 epsilon/support 日志锁定）
+## B. 待挖实验想法（全部 PARKED；细节见 LEADS.md，需用户单独授权）
 
-- [ ] 2. 训练开火（10 轮预算剩 8 轮，独立记账）              子项 T2-1 与 T2-2 可并行（改动正交）；T2-4 待前两项判据
-    - [ ] a T2-1 margin–SupCon 混合＋τ sweep（首选开火，1 轮；τ∈{0.07,0.1,0.2}×m∈{0.1,0.2,0.3}，τ=0.1×m=0.2 起步）
-    - [ ] b T2-2 attention readout（次选，1 轮；mean＋att＋max＋energy concat，α-entropy 防塌）
-    - [ ] c T2-4 结构等变分离路线 D1→D2→D3（占 1–2 轮；novelty 野心最大，需新架构＋审计）
-    - [ ] d T2-3 长 schedule 备选（seed-23 单跑 2–3×＋cosine；叙事包装成收敛修正）
+- [ ] E1 L-007 转折位置精度的零训练诊断（最便宜的未试项，约 1h；下一篇第一候选）
+- [ ] E2 L-005 GRF 模拟干预臂（1–2 天；rebuttal/下一篇）
+- [ ] E3 L-006 10 seeds/arm 确认门（仅审稿驱动）
+- [ ] E4 L-009 / L-013 / L-014（仅审稿驱动）
+- [ ] E5 U1 确认池 paired-CI（需封存重跑授权；rebuttal 弹药，见 U1_CONFIRM_ADDENDUM）
 
-- [ ] 3. Tier3 按需取用（non-claim 口径，不占主线）          子项可并行，随手稿进度取用
-    - [ ] a W-1 书法 outlook 一段＋定性图（不 eval）
-    - [ ] b W-5 B1 probe-discipline audit 进贡献（禁 leaderboard 承诺）
-    - [ ] c W-2/W-3/W-4 进 broader impact／related 段落（禁 adversarial/certificate 词；Rank 3 禁入正文）
-    - [ ] d W-7 层级探针 E1–E3 零成本重算已有 checkpoint（机制深度证据）
-    - [ ] e W-8 耦合标度律 240 点拟合（只许 2 参数饱和形＋hold-out 审计）
+## 历史事项裁决（2026-09-22 整理；原文见 git 历史，分支记录与变更记录不变）
 
-- [ ] 4. 手稿组装（骨架已有：`paper/main.tex`＋8 节＋EVIDENCE_MAP） 子项可并行，依赖事项 0 的 b/c
-    - [ ] a 摘要初稿复核（`paper/sections/00_abstract.tex`，用户暂缓后重启）
-    - [ ] b 正文 prose 填充（按 EVIDENCE_MAP 措辞规则；11d 措辞修正随此执行）
-    - [ ] c Figure 1 概念图生成
-    - [ ] d §4.5 证伪表述＋淘汰项诚实声明（X1–X5 禁复活；μ 重做禁返工）
+| 事项 | 裁决 | 说明 |
+|---|---|---|
+| 0a OpenReview/作者/摘要 | ✅ 完成 | 用户已完成 |
+| 0b 论文形状冻结 | ✅ 完成 | 正文 8 页，样式已装，编译通过 |
+| 0c 样式＋引用 | 部分完成 | 样式✅；引用→W1 |
+| 1a TacticAI 复核 / 1b source-check | 🚫 被取代 | 旧 related-work 框架已随 Lane C 重写作废；数字以对齐审计为准 |
+| 1c 标题摘要 / 1d related-work / 1e claim 分级 | ✅ 完成 | Lane C＋R8＋ledger/claim-map |
+| 1f rebuttal 十大异议 | ➖ 部分 | reserve 文档已有；成文→W4 可选 |
+| 1g K1–K3 预注册 | 🚫 终止 | E7 已死 |
+| 1h 图表三件套 | 部分完成 | fig2/3/4✅；Fig1→W2 |
+| 2a–d 训练开火 | 🚫 终止 | 探索关闭＋02 上限；U4 已执行完毕 |
+| 3a–e Tier3 | 🚫 终止 | non-claim 口径；禁令维持 |
+| 4a 摘要 / 4b prose / 4d §4.5 证伪 | ✅ 完成 | Lane C；失败目录已入附录 |
+| 4c Figure 1 | → W2 | 唯一遗留写作项 |
 
 ## 历史完成归档（2026-09-04—09-16，不再执行，仅留审计线索）
 
@@ -240,3 +231,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：首次本地编译通过（本机 TinyTeX：pdflatex→bibtex→pdflatex×2，零错误、零未定义引用，15/15 引用解析）：Table 1 改 footnotesize＋精简长单元格，消除 29.8pt overfull；正文 8 页（abstract→conclusion），符合 9 页限制；参考文献＋附录另 3 页。LaTeX 中间产物入 .gitignore（figures/*.pdf 除外）。
 - 2026-09-22：用户授权执行 02 探索升级：入口状态由 PAPER POLISH 改为“02 探索升级已授权执行＋投稿行政”；新增分支 N；U1/U2/U3 进入执行，U4 按“可解释第一轮/不硬追”判据评估是否执行。
 - 2026-09-22：02 探索升级收敛（U1/U2/U3＋可选 U4 全部执行）：U1 四臂交互 I=+16–25pp（parent-cluster CI 全不含零，exploratory）；U2 限定机制（表示改善排序、flip 改善阈值实现）；U3 修复降低 P1 水平但保留反转形状；U4 排除平移 nuisance、确认半径冗余。交付 UPGRADE_FINDINGS.md＋NO_NEW_CLAIM_WITHOUT_EVIDENCE.md＋三份独立报告；新测试 10 项；全量测试 198 通过。稿件决策 A＋B 两项增量就绪（四臂图数据源切 U1_SUMMARY.json；J/H panel；摘要替换句）。
+- 2026-09-22：TODO 投稿收尾重整：旧事项 0–4 全部裁决（完成/终止/被取代，见历史事项裁决表），当前清单只剩 A 区写作行政 7 项（W1–W7）＋B 区 PARKED 实验想法 5 项（E1–E5，细节回 LEADS）；LEADS L-007 追注 U1–U4 未覆盖转折位置精度。
