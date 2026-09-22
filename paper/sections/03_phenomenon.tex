@@ -63,3 +63,11 @@ in refusal reduction (refusal $0.43 \to 0.12$, $3.6\times$ fewer refusals;
 non-refusal coverage $0.57 \to 0.88$) rather than non-refusal
 precision ($0.23$ vs $0.22$ on the 93-scene hard subset), and that the gain survives across scoring rules
 (see the evidence table, reports/final_closure/MASTER_CLAIM_LEDGER.md).
+Two honesty constraints on this consequence module: across six training arms on
+the dev pool, arm-level downstream invalidity is tracked better by static error
+than by update metrics (Spearman $0.94$ vs $0.54$), and at scene level the raw
+association is confounded (missed-update scenes tend to be static-correct
+scenes; once static correctness is held fixed, a missed transition still adds
+$+0.46$ log-odds of an invalid action). We therefore keep all
+transition/consequence language descriptive, never causal (discovery-grade,
+single-seed arms).

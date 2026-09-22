@@ -22,6 +22,13 @@ or crossing zero; analytic-affine behavior readouts (dev bank, $n{=}237$ quartet
 coverage levels, quality given the same coverage favors the repaired model at
 higher cost. So the repair is not a pure operating-point shift; the
 capability/coverage split depends on the interface (Sec.~\ref{sec:external}).
+The same coverage-not-precision pattern holds at the decision-boundary level:
+on $1301$ oracle single-crossings (dev pool, frozen checkpoints, matching
+radius $r{=}0.025$), clean models place a decision root near only $9.6\%$ of
+oracle boundary points; flip coverage raises this to $16.9\%$ ($+7.3$pp,
+parent-cluster CI $[0.020,0.128]$) with offset and signed alignment unchanged
+---a boundary-coverage shift, not boundary alignment (discovery-grade, no
+fresh confirmation).
 
 \paragraph{Endpoint repair is not full repair.} Targeted flip coverage
 improves several component and downstream metrics, but paired quartet
@@ -53,7 +60,8 @@ alone could not: joint consistency rises to $0.13$--$0.21$ (dev) and
 $0.16$--$0.23$ (fresh parent-disjoint confirmation), $3/3$ seeds, with mean
 $\Delta J \ge 5$pp and \emph{reduced} static error ($0.15$--$0.17 \to
 0.06$), so the gain is not bought by static degradation. Combined
-relational-plus-flip training reaches $J$ $0.38$--$0.47$ with full repair $0.45$--$0.50$ exceeding migration $0.25$--$0.30$ on confirmation---the
+relational-plus-flip training reaches $J$ $0.38$--$0.42$ on dev and $0.44$--$0.47$ on
+fresh confirmation, where full repair $0.45$--$0.50$ exceeds migration $0.25$--$0.30$---the
 reverse of the raw-flipmine pattern. Boundary: the features are hand-designed and
 relation-aware by construction; this is an existence proof for joint
 consistency, not a general architecture principle, and no further
