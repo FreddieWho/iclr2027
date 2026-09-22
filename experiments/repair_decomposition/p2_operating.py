@@ -58,20 +58,21 @@ def main():
             idx = np.nonzero(d["scene_of"] == s)[0]
             P0 = 1 / (1 + np.exp(lg[idx]))
             return float(P0.max())
-        # coverage staircase: scene acts if max P0 >= tau
-        taus = np.quantile([maxP0(lgc, s) for s in dev], np.linspace(0, 1, 21))
-        taus = sorted(set([round(float(t), 4) for t in taus]))
-        covc = {t: float(np.mean([maxP0(lgc, s) >= t for s in dev])) for t in taus}
-        covf = {t: float(np.mean([maxP0(lgf, s) >= t for s in dev])) for t in taus}
-        # common achievable levels: flipmine taus whose dev coverage is within
-        # 3pp of some clean-tau dev coverage
+        # coverage staircases: EACH model owns its staircase (dev scenes)
+        taus_c = sorted(set([round(float(t), 4) for t in
+                             np.quantile([maxP0(lgc, s) for s in dev], np.linspace(0, 1, 21))]))
+        taus_f = sorted(set([round(float(t), 4) for t in
+                             np.quantile([maxP0(lgf, s) for s in dev], np.linspace(0, 1, 21))]))
+        covc = {t: float(np.mean([maxP0(lgc, s) >= t for s in dev])) for t in taus_c}
+        covf = {t: float(np.mean([maxP0(lgf, s) >= t for s in dev])) for t in taus_f}
+        # common achievable levels: pairs within 3pp dev coverage; report gap
         levels = []
-        for tf in taus:
-            diffs = [(abs(covf[tf] - c), tc) for tc, c in covc.items()]
-            diffs.sort()
+        for tf in taus_f:
+            diffs = sorted([(abs(covf[tf] - c), tc) for tc, c in covc.items()])
             if diffs[0][0] <= 0.03:
-                levels.append((tf, diffs[0][1], covf[tf]))
-        R["equal_cov_levels"] = [{"tau_f": t[0], "tau_c": t[1], "dev_cov": round(t[2], 4)} for t in levels[:6]]
+                levels.append((tf, diffs[0][1], covf[tf], round(diffs[0][0], 4)))
+        R["equal_cov_levels"] = [{"tau_f": t[0], "tau_c": t[1], "dev_cov": round(t[2], 4),
+                                      "dev_cov_gap": t[3]} for t in levels[:6]]
 
         def succ_at(lg, tau, S):
             P0 = 1 / (1 + np.exp(lg))
@@ -88,16 +89,42 @@ def main():
                 suc += feas[j]
                 cost.append(float(rc[j]))
             return ok, suc, cost
+        def q_at(lg, tau, S):
+            # per-scene quality (None if scene doesn't act): paired unit = scene
+            P0 = 1 / (1 + np.exp(lg))
+            out = {}
+            for x in S:
+                idx = np.nonzero(d["scene_of"] == x)[0]
+                cand = idx[P0[idx] >= tau]
+                if len(cand) == 0:
+                    out[x] = None
+                else:
+                    rc = d["costs"][d["act_idx"]]
+                    j = cand[int(np.argmin(rc[cand]))]
+                    out[x] = float(feas[j])
+            return out
         R["equal_cov_eval"] = []
-        for tf, tc, _ in levels[:6]:
+        for tf, tc, _, gap in levels[:6]:
             okc, sc, cc = succ_at(lgc, tc, ev)
             okf, sf, cf = succ_at(lgf, tf, ev)
+            qc = q_at(lgc, tc, ev)
+            qf = q_at(lgf, tf, ev)
+            both = [x for x in ev if qc[x] is not None and qf[x] is not None]
+            dv = np.array([qf[x] - qc[x] for x in both])
+            if len(dv):
+                boots = [rng.choice(dv, size=len(dv), replace=True).mean() for _ in range(2000)]
+                qq = np.quantile(boots, [0.025, 0.975])
+                qci = [round(float(qq[0]), 4), round(float(qq[1]), 4)]
+            else:
+                qci = None
             R["equal_cov_eval"].append({
-                "tau_c": tc, "tau_f": tf,
+                "tau_c": tc, "tau_f": tf, "dev_cov_gap": gap,
                 "clean": {"n": okc, "q": round(sc / okc, 4) if okc else None,
                           "cost": round(float(np.mean(cc)), 4) if cc else None},
                 "repair": {"n": okf, "q": round(sf / okf, 4) if okf else None,
-                           "cost": round(float(np.mean(cf)), 4) if cf else None}})
+                           "cost": round(float(np.mean(cf)), 4) if cf else None},
+                "paired_n": len(both),
+                "quality_diff_ci": qci})
         # candidate P/R at matched coverage (micro, eval)
         # ---- B: affine-clean fit on dev ----
         # match repair coverage (lexico tau .5 act rate) + mean P0 prevalence
@@ -107,8 +134,10 @@ def main():
             return act, float(P0.mean())
         tcov, tprev = dev_stats(lgf)
         best, bk = 1e9, None
+        # FROZEN wide grid (§18): chosen before seeing eval; do not widen post-hoc
         for alpha in (0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0):
-            for b in (-3.0, -2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0, 3.0):
+            for b in (-8.0, -6.0, -4.0, -3.0, -2.0, -1.0, -0.5, 0.0,
+                      0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 8.0):
                 lga = alpha * lgc + b
                 acov, aprev = dev_stats(lga)
                 loss = abs(acov - tcov) + abs(aprev - tprev)
