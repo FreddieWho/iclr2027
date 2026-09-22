@@ -1,0 +1,201 @@
+{
+ "n_quartets": 237,
+ "s11": {
+  "cells": {
+   "both": {
+    "n": 72,
+    "clean_ABerr": 0.9306,
+    "repair_ABerr": 0.8472,
+    "fixed": 7,
+    "broken": 1
+   },
+   "clean_only": {
+    "n": 51,
+    "clean_ABerr": 0.8431,
+    "repair_ABerr": 0.0588,
+    "fixed": 40,
+    "broken": 0
+   },
+   "repair_only": {
+    "n": 25,
+    "clean_ABerr": 0.0,
+    "repair_ABerr": 0.8,
+    "fixed": 0,
+    "broken": 20
+   },
+   "neither": {
+    "n": 89,
+    "clean_ABerr": 0.0449,
+    "repair_ABerr": 0.0,
+    "fixed": 4,
+    "broken": 0
+   }
+  },
+  "denoms": {
+   "own_clean": [
+    0.8943,
+    123
+   ],
+   "own_repair": [
+    0.8351,
+    97
+   ],
+   "baseline_fixed_clean": [
+    0.8943,
+    123
+   ],
+   "baseline_fixed_repair": [
+    0.5203,
+    123
+   ],
+   "common_clean": [
+    0.9306,
+    72
+   ],
+   "common_repair": [
+    0.8472,
+    72
+   ]
+  },
+  "overall": {
+   "clean_ABerr": 0.481,
+   "repair_ABerr": 0.3544,
+   "clean_atomic_pass": 0.519,
+   "repair_atomic_pass": 0.4093
+  }
+ },
+ "s23": {
+  "cells": {
+   "both": {
+    "n": 75,
+    "clean_ABerr": 0.92,
+    "repair_ABerr": 0.9467,
+    "fixed": 3,
+    "broken": 5
+   },
+   "clean_only": {
+    "n": 57,
+    "clean_ABerr": 0.8947,
+    "repair_ABerr": 0.0526,
+    "fixed": 48,
+    "broken": 0
+   },
+   "repair_only": {
+    "n": 33,
+    "clean_ABerr": 0.0303,
+    "repair_ABerr": 0.697,
+    "fixed": 0,
+    "broken": 22
+   },
+   "neither": {
+    "n": 72,
+    "clean_ABerr": 0.0417,
+    "repair_ABerr": 0.0556,
+    "fixed": 1,
+    "broken": 2
+   }
+  },
+  "denoms": {
+   "own_clean": [
+    0.9091,
+    132
+   ],
+   "own_repair": [
+    0.8704,
+    108
+   ],
+   "baseline_fixed_clean": [
+    0.9091,
+    132
+   ],
+   "baseline_fixed_repair": [
+    0.5606,
+    132
+   ],
+   "common_clean": [
+    0.92,
+    75
+   ],
+   "common_repair": [
+    0.9467,
+    75
+   ]
+  },
+  "overall": {
+   "clean_ABerr": 0.5232,
+   "repair_ABerr": 0.4262,
+   "clean_atomic_pass": 0.557,
+   "repair_atomic_pass": 0.4557
+  }
+ },
+ "s47": {
+  "cells": {
+   "both": {
+    "n": 71,
+    "clean_ABerr": 0.9155,
+    "repair_ABerr": 0.8169,
+    "fixed": 11,
+    "broken": 4
+   },
+   "clean_only": {
+    "n": 52,
+    "clean_ABerr": 0.8654,
+    "repair_ABerr": 0.0577,
+    "fixed": 42,
+    "broken": 0
+   },
+   "repair_only": {
+    "n": 16,
+    "clean_ABerr": 0.0625,
+    "repair_ABerr": 0.6875,
+    "fixed": 0,
+    "broken": 10
+   },
+   "neither": {
+    "n": 98,
+    "clean_ABerr": 0.0306,
+    "repair_ABerr": 0.0408,
+    "fixed": 3,
+    "broken": 4
+   }
+  },
+  "denoms": {
+   "own_clean": [
+    0.8943,
+    123
+   ],
+   "own_repair": [
+    0.7931,
+    87
+   ],
+   "baseline_fixed_clean": [
+    0.8943,
+    123
+   ],
+   "baseline_fixed_repair": [
+    0.4959,
+    123
+   ],
+   "common_clean": [
+    0.9155,
+    71
+   ],
+   "common_repair": [
+    0.8169,
+    71
+   ]
+  },
+  "overall": {
+   "clean_ABerr": 0.481,
+   "repair_ABerr": 0.3207,
+   "clean_atomic_pass": 0.519,
+   "repair_atomic_pass": 0.3671
+  }
+ },
+ "unit_test": {
+  "note": "AB predictions identical; only atomic-pass changes",
+  "own_miss_clean": 1.0,
+  "own_miss_repair": 0.25,
+  "pass": true
+ }
+}
