@@ -38,7 +38,7 @@ from r04b_methods import mine_flips  # noqa: E402
 
 ART = ROOT / "artifacts" / "discovery_campaign"
 SEEDDIR = ROOT / "artifacts" / "next_novelty" / "l007_seed"
-OUT = ROOT / "artifacts" / "next_novelty" / "l007_conn_v2"
+OUT = ROOT / "artifacts" / "next_novelty" / "l007_conn_v3"
 PAIRS = [("r04b11", "r04b23"), ("r04b11", "s2001"), ("r04b23", "s2005"),
          ("s2001", "s2002"), ("s2006", "s2007")]
 ALPHAS = [round(i / 16, 4) for i in range(17)]
@@ -64,6 +64,19 @@ def greedy_perm(C):
                 break
     assert (perm >= 0).all()
     return perm
+
+
+def assert_function_preserving(st_a, st_b, trunk_b, W_eff_b, b_eff_b, Xs):
+    """Loud check: aligned B must compute B's own logits."""
+    def lg(trunk, we, be, xx):
+        h = torch.relu(xx @ trunk["net.0.weight"].T + trunk["net.0.bias"])
+        h = torch.relu(h @ trunk["net.2.weight"].T + trunk["net.2.bias"])
+        return h @ we + be
+    tb0, wb0, bb0 = canonical(st_b)
+    with torch.no_grad():
+        d = float((lg(tb0, wb0, bb0, Xs) - lg(trunk_b, W_eff_b, b_eff_b, Xs)).abs().max())
+    assert d < 1e-3, "alignment is not function-preserving (max logit diff %.4g)" % d
+    return d
 
 
 def match_corr(Aa, Ab):
@@ -100,7 +113,9 @@ def align_trunk(st_a, st_b, Xs):
     trunk_b["net.0.weight"] = W1b[P1]
     trunk_b["net.0.bias"] = b1b[P1]
     trunk_b["net.2.weight"] = trunk_b["net.2.weight"][:, P1]
-    W_eff_b = W_eff_b[P1]
+    # W_eff is indexed by LAYER-2 units; layer-1 reindexing leaves h2's
+    # values untouched, so applying P1 here would break the
+    # function-preserving property (verified: it shifted B's logits by 110).
     A1b2 = torch.relu(Xs @ trunk_b["net.0.weight"].T + trunk_b["net.0.bias"])
     W2a, b2a = trunk_a["net.2.weight"], trunk_a["net.2.bias"]
     A2a = torch.relu(A1a @ W2a.T + b2a)
@@ -205,6 +220,10 @@ def main():
         ta, wa, ba = canonical(states[pa])
         tb, wb, bb = canonical(states[pb])
         tb_al, wb_al, bb_al = align_trunk(states[pa], states[pb], Xs)
+        fp = assert_function_preserving(states[pa], states[pb], tb_al, wb_al,
+                                        bb_al, Xs)
+        print("  %s-%s alignment function-preserving (max|dlogit|=%.2e)"
+              % (pa, pb, fp), flush=True)
         for mode, (tb_m, wb_m, bb_m) in (("naive", (tb, wb, bb)),
                                          ("aligned", (tb_al, wb_al, bb_al))):
             entry = {"pair": pa, "pairb": pb, "mode": mode,

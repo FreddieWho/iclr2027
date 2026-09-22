@@ -40,7 +40,7 @@ from paths import locate_model_turns, locate_oracle_turns, scan_linear  # noqa: 
 from common import load_model, preprocess  # noqa: E402
 
 ART = ROOT / "artifacts" / "discovery_campaign"
-OUT = ROOT / "artifacts" / "next_novelty" / "l007_perm"
+OUT = ROOT / "artifacts" / "next_novelty" / "l007_perm_v2"
 SEEDS = [11, 23, 47]
 # 8 permutations: (swap AB, swap CD, swap segments)
 PERMS = [(sab, scd, sseg) for sab in (0, 1) for scd in (0, 1)
@@ -146,7 +146,19 @@ def main():
         boots_p = [flag[rng.choice(len(flag), len(flag), replace=True)].mean()
                    for _ in range(2000)]
         lo_p, hi_p = np.quantile(boots_p, [0.025, 0.975])
+        # dispersion decomposition: labeling-induced spread vs oracle error
+        d_oracle, d_label = [], []
+        for r in rows:
+            if len(r["roots"]) >= 2:
+                ts = float(np.mean(r["tstars"]))
+                d_oracle.append(np.mean([abs(x - ts) for x in r["roots"]]))
+                d_label.append(float(np.std(r["roots"])))
         out["models"]["s%d" % seed] = {
+            "rows": rows,
+            "mean_abs_err_vs_oracle": round(float(np.mean(d_oracle)), 4)
+            if d_oracle else None,
+            "labeling_induced_std": round(float(np.mean(d_label)), 4)
+            if d_label else None,
             "inequiv_frac": round(float(flag.mean()), 4),
             "ci_parent_cluster": [round(float(lo), 4), round(float(hi), 4)],
             "ci_path_level": [round(float(lo_p), 4), round(float(hi_p), 4)],

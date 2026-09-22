@@ -20,7 +20,7 @@ Arms (4 seeds 2001-2004, identical init per seed):
       number of removed flip states (not on raw distance alone).
 
 PRE-REGISTERED criterion: A_turn reduces full-path miss OR raises
-P(root within 0.05) relative to BOTH BASE and A_offturn, in >=3/4 seeds,
+P(root within 0.05) relative to BOTH BASE and A_offturn, in >=6/8 seeds,
 with parent-clustered paired CIs excluding 0 = pinning supported. Else the
 pinning hypothesis is not supported by this design.
 
@@ -46,7 +46,7 @@ from r04b_methods import mine_flips  # noqa: E402
 
 ART = ROOT / "artifacts" / "discovery_campaign"
 OUT = ROOT / "artifacts" / "next_novelty" / "l007_pin_v2"
-SEEDS = [2001, 2002, 2003, 2004]
+SEEDS = list(range(2001, 2009))
 N_INSERT = 40
 EPS_LIST = (0.02, 0.05, 0.10)
 
