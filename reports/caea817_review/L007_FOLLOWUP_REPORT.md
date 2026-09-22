@@ -39,6 +39,20 @@ w 为 |logit| −k→+k 的 Δt）确与其正交——但结果阴性：
 分辨率；谱偏置解释关闭。连带推论：S3 的 Fourier 特征重训失去动机
 （它以 kink 阳性为前提），保持 park。
 
+## P5：mode connectivity（inconclusive，1 个弱阳性实例）
+
+脚本 `experiments/last15h/l007_connectivity.py`（11 个现有 flipmine 权重，
+5 对 × 9 个 α，naive＋贪心激活匹配双跑）；输出
+`artifacts/next_novelty/l007_conn/`。判据：对齐后相对 barrier <5% 且 |terr|
+极差 >1σ_seed（0.0149），≥3/5 对=通过。
+
+- 仅 r04b11-r04b23 对齐成功（barrier 0.9%），|terr| 极差 0.053（≈3.5σ，弱阳性实例）。
+- 其余 4 对贪心对齐后 barrier 仍巨大（0.56–1626），检验作废——
+  这不证明"精度跟随损失"，只证明该检验在此无判决力（matcher 弱 vs 真不可连，无法区分）。
+- 附带发现：跨 era（r04b vs 2001+种子）几乎不可连，配方逐字相同——
+  不同 init 落入的 basin 差异比预期大；与种子方差"纯 init 噪声"结论一致。
+- 判决：inconclusive。exact-Hungarian 跟进性价比低（最好情况也只是第二个弱实例），park。
+
 ## 累计排除清单（转折位置精度）
 
 监督侧：斜率下限、平坦性、mixup、稠密标签、SDF、tangent、coupled-margin、

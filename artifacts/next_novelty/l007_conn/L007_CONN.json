@@ -1,0 +1,58 @@
+{
+ "pairs": {
+  "r04b11-r04b23-naive": {
+   "barrier_rel": 0.5717,
+   "terr_range": 0.1766,
+   "win": false
+  },
+  "r04b11-r04b23-aligned": {
+   "barrier_rel": 0.0086,
+   "terr_range": 0.0534,
+   "win": true
+  },
+  "r04b11-s2001-naive": {
+   "barrier_rel": 146.8943,
+   "terr_range": 0.1639,
+   "win": false
+  },
+  "r04b11-s2001-aligned": {
+   "barrier_rel": 114.1655,
+   "terr_range": 0.039,
+   "win": false
+  },
+  "r04b23-s2005-naive": {
+   "barrier_rel": 2.0732,
+   "terr_range": 0.2656,
+   "win": false
+  },
+  "r04b23-s2005-aligned": {
+   "barrier_rel": 0.561,
+   "terr_range": 0.0357,
+   "win": false
+  },
+  "s2001-s2002-naive": {
+   "barrier_rel": 548.751,
+   "terr_range": 0.1904,
+   "win": false
+  },
+  "s2001-s2002-aligned": {
+   "barrier_rel": 1626.2847,
+   "terr_range": 0.0393,
+   "win": false
+  },
+  "s2006-s2007-naive": {
+   "barrier_rel": 130.1876,
+   "terr_range": 0.1405,
+   "win": false
+  },
+  "s2006-s2007-aligned": {
+   "barrier_rel": 179.9243,
+   "terr_range": 0.0442,
+   "win": false
+  }
+ },
+ "sigma_seed": 0.0149,
+ "criterion": "aligned: relative barrier < 5% AND |terr| range > 1 sigma_seed in >=3/5 pairs",
+ "criterion_met": false,
+ "verdict": "inconclusive: only r04b11-r04b23 aligns (barrier 0.9%, weak positive instance); other pairs high-barrier even after greedy matching, which voids the test there rather than proving precision tracks loss"
+}

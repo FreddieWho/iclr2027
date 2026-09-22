@@ -28,3 +28,23 @@ def test_crossing_width_narrower_band_smaller():
     w1 = crossing_width(t, lg, 0.5, k=1.0)
     w2 = crossing_width(t, lg, 0.5, k=2.0)
     assert w1 < w2
+
+
+def test_greedy_assignment_matches_diagonal():
+    from l007_connectivity import linear_sum_assignment
+    rng = np.random.default_rng(0)
+    C = np.eye(8) + 0.01 * rng.normal(size=(8, 8))
+    perm = linear_sum_assignment(-C)
+    assert sorted(perm.tolist()) == list(range(8))
+    assert (perm == np.arange(8)).all()
+
+
+def test_greedy_assignment_beats_identity():
+    from l007_connectivity import linear_sum_assignment, match_corr
+    rng = np.random.default_rng(2)
+    A = rng.normal(size=(200, 16))
+    P0 = rng.permutation(16)
+    B = A[:, P0] + 0.05 * rng.normal(size=(200, 16))
+    perm = match_corr(A, B)
+    # B[:, j] ~= A[:, P0[j]] so perm[i] must equal inverse-permutation
+    assert (perm == np.argsort(P0)).all()
