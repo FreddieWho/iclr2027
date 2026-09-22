@@ -15,7 +15,10 @@ oracle. Development uses fixed pools (\texttt{train\_101}, \texttt{eval\_202});
 all headline discovery numbers are re-tested on a freshly minted,
 pre-registered holdout (\texttt{holdout\_909}), evaluated once in a single
 uninterrupted run with fixed checkpoints and then archived as used
-(one-shot discipline; Sec.~\ref{sec:repro}).
+(one-shot discipline; Sec.~\ref{sec:repro}). Follow-up mechanism analyses
+use frozen sample banks (\texttt{bank\_dev512}, plus parent-disjoint
+\texttt{bank\_confirm1007}) in which every model reads identical edits;
+thresholds and analysis settings are frozen on dev before confirmation.
 
 \paragraph{Real football.} IDSSE tracking data: turn (transition), event, and
 action-outcome tasks evaluated per match, with frozen vs.\ covered model
@@ -23,6 +26,8 @@ variants across three training seeds (s11/s23/s47). There is no pristine
 football holdout (the reserve field saw development use), so football evidence
 is reported as three-seed same-direction confirmation with cross-field
 evaluation, and its limits are stated plainly (Sec.~\ref{sec:limits}).
+Natural-snapshot confidence analyses show floor effects and are excluded
+from the confidence claim, which is coordinate-only.
 
 \paragraph{Pixel observations.} The same quartet geometry rendered as
 $64\times64$ images and judged by a small CNN trained from scratch, clean vs.\

@@ -7,20 +7,33 @@ alignment); ours differs in using input-space reallocation and semantic
 composition as the prediction target. Sensitivity analysis (Morris elementary
 effects; budgeted perturbations) supplies the screening metaphor, but our
 screen is semantic: edits with known oracle outcomes, not random directions.
-Compositional generalization benchmarks test unseen combinations at the
-\emph{data} level; we test unseen joint outcomes at the \emph{decision-update}
-level, conditioned on correct atomic judgments---a strictly harder bar that
-static-accuracy evaluations miss by construction. Prior probing literature
-(Jacobian geometry, spectral readouts, equivariance measurement) motivates our
-diagnostic instruments but is background, not claim: an earlier line of this
-project on support-reallocation probing and Jacobian-Gram prediction is
-retained only as methodological context, superseded by the update-failure
-results above.
+On compositional generalization we do not originate conditional-on-atomics
+measurement: the compositionality gap (correct sub-problems, failed
+composition) is established for language models (Press et al.), with a
+stricter double-gated variant for factual composition (Composition Collapse,
+2026). Our differences: (1)~controlled semantic change with known
+boundaries; (2)~same-instance transition structure (paths, not just
+endpoints); (3)~confidence meaning reversal under semantic flips;
+(4)~repair error migration inside the same quartet; (5)~downstream
+consequence. On calibration and selective classification
+(Guo et al.; Geifman \& El-Yaniv) our contrast is explicit: both concern
+\emph{current} correctness, while our inversion concerns reliability
+\emph{after} a true semantic change. Excessive invariance (adversarial
+vulnerability from over-robust features) is adjacent in flavor but distinct
+in object: fixed-decision robustness versus failure to change decisions.
+Counterfactual and hard-positive repair, positive-congruent updates, and
+task-oriented prediction are the right neighborhoods for our flip coverage;
+we claim no priority on preserve constraints, only the instance-level
+migration measurement and the coverage/quality decomposition. Prior probing
+literature (Jacobian geometry, spectral readouts, equivariance measurement)
+motivates our diagnostic instruments but is background, not claim.
 
 \paragraph{Limitations (all evidenced, none hidden).}
-(i)~Single-frame snapshots; no temporal modeling.
-(ii)~One coordinate encoder family plus one small CNN pixel family;
-architecture generality untested.
+(i)~P1 strong evidence is currently coordinate-only; natural football turns
+show floor/null for confidence inversion.
+(ii)~Models remain small task-trained models plus one small CNN pixel
+family; the foundation bridge never established atomic competence, so
+architecture generality is untested.
 (iii)~Synthetic coordinate scenes are not real tactical changes; distance to
 tactical semantics unmeasured.
 (iv)~Football evidence is three-seed same-direction without a pristine
@@ -28,5 +41,8 @@ holdout; the single-read proof lives on the coordinate side.
 (v)~Pixel cross-style repair rests on three training seeds, all same-direction $5/5$;
 absolute pixel levels are style-sensitive (color-swap collapse reported).
 (vi)~The X03 negative is scoped to one layer and one rank-4 patch form.
-(vii)~Small-effect magnitudes on real data are reported without inflation;
-the weakest seed stays in every table.
+(vii)~P3 joint-consistency absolute values are low (single-digit to
+$\sim$0.45 even with relational features); small-effect magnitudes on real
+data are reported without inflation; the weakest seed stays in every table.
+(viii)~Relational features are hand-designed and relation-aware by
+construction; no universal mechanism is claimed.

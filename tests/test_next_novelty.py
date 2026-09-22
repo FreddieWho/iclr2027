@@ -41,13 +41,14 @@ def test_ties_merged_not_ranked():
 
 def test_same_edit_hash_per_model():
     import hashlib
-    b = np.load(ROOT / "artifacts" / "p123_upgrade" / "bank" / "bank_dev512.npz",
-                allow_pickle=True)
-    h = hashlib.sha256(b["Qe"]).hexdigest()
+    npz = ROOT / "artifacts" / "p123_upgrade" / "bank" / "bank_dev512.npz"
+    h = hashlib.sha256(open(npz, "rb").read()).hexdigest()
     assert h == json.load(open(ROOT / "artifacts" / "p123_upgrade" / "bank" /
-                               "bank_dev512.manifest.json"))["sha256"] or True
+                               "bank_dev512.manifest.json"))["sha256"]
     # bank is the single edit source: models never resample
+    b = np.load(npz, allow_pickle=True)
     assert b["Qx"].shape[0] == len(json.loads(str(b["Qmeta"])))
+    assert b["Qe"].shape[0] == len(json.loads(str(b["Qmeta"])))
 
 
 def test_bootstrap_axis_and_cluster():

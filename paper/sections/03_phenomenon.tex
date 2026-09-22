@@ -1,4 +1,4 @@
-\section{Three Failure Modes}
+\section{Three Failure Modes, Plus Confidence}
 \label{sec:phenomenon}
 
 \paragraph{(i) Transition blindness.} Paths crossing a semantic boundary often
@@ -6,24 +6,52 @@ induce no model transition at all. Among single-turn paths discovered by
 random edits, $108/128 = 84.4\%$ induce zero model transition; on directly
 targeted fresh paths the miss rate is $28/64 = 43.8\%$ (95\% CI
 $[0.32,0.56]$), with flipmine at $31.3\%$. Both numbers are true; their
-denominators differ. The random-edit screen over-samples rare tangential,
-grazing crossings---precisely the shape the model misses most---while the
-targeted sweep drives decisively across the boundary. The miss rate is
-therefore not a fixed percentage but depends on how a change approaches the
-semantic boundary. We report both, never averaged, always with denominators.
+denominators differ because the screens sample different path populations:
+the random screen over-samples rare grazing single-turn crossings while the
+targeted sweep drives decisively across the boundary. We report both, never
+averaged, always with denominators. (An earlier draft attributed the gap to
+crossing angle; a preregistered incidence analysis found no such law, so we
+retract that interpretation and keep only the sampling description.)
 
 \paragraph{(ii) Compositional blindness (headline).} When \emph{both} atomic
 edits of a scene are judged correctly, their joint compositional change is
 still missed in $151/176 = 85.8\%$ of fresh-holdout cases (discovery
-$62/66 = 93.9\%$, same direction). Matched single-edit controls miss far less
-($61.0\%$ clean), so the failure is specific to the composition, not to the
-edits. A model can know each part and still not know the change.
+$62/66 = 93.9\%$, same direction). Matched single-edit controls miss less
+($61.0\%$ clean on fresh data), but the two rates use different denominators
+($176$ vs $251$) and different screens, so their arithmetic difference
+($24.8$pp fresh) is descriptive, not a causal composition-specific effect.
+Path decomposition shows the miss unfolding as missed updates: $111/111$
+AB-miss quartets contain a zero-transition path along $A \to AB$ or
+$B \to AB$, with no recrossing. A model can know each part and still not
+track the change.
+
+\paragraph{Confidence is reliable for states, unreliable for true changes.}
+Within currently correct coordinate states, pre-change confidence predicts
+static error in the classical direction ($0.36 \to 0.02$ across quartiles)
+and semantics-preserving error likewise, yet predicts update error in
+reverse: endpoint error after a true semantic flip rises $0.53$--$0.68 \to
+1.00$ (six model-seed combinations; fresh parent-disjoint confirmation).
+Stricter trust in high-confidence states lowers current error while
+concentrating update failures (top-25\% retention: $\sim$5\% static error vs 100\% conditional update error). Whether this is good policy depends on the
+change composition of the deployment environment. Natural football turns
+show no such inversion after correction (floor effects); the claim is
+coordinate-only (Fig.~\ref{fig:p1}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{../figures/fig2_p1_dual.pdf}
+\caption{Confidence predicts static correctness yet reverses under true
+semantic change (s11 clean, dev bank). Shaded structure: same rank policy,
+parent-cluster intervals.}
+\label{fig:p1}
+\end{figure}
 
 \paragraph{(iii) Consequential blindness.} The misses propagate. Fresh-holdout
-event detection shows matched misses; action selection under a fixed action
-library is invalid in $75.0\%$ of hard fresh cases ($\lambda{=}2$); the
+event detection is thin ($1/24$ clean conditional misses) and reported
+without inflation; action selection under a fixed action library is invalid
+in $75.0\%$ of hard fresh cases ($\lambda{=}2$); the single-flip
 decomposition (C1/C0) shows a C1 miss of $52.4\%$ against a C0 false-alarm
 rate of $26.2\%$. Decision-interface analysis (U02) shows flipmine's gain is
 in feasible-set coverage (refusal $0.43 \to 0.12$) rather than non-refusal
 precision, and that the gain survives across scoring rules
-(see the evidence table, reports/FINAL_EVIDENCE_TABLE.md).
+(see the evidence table, reports/final_closure/MASTER_CLAIM_LEDGER.md).

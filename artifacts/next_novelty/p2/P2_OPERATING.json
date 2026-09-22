@@ -1,0 +1,588 @@
+{
+ "n_dev": 43,
+ "n_eval": 96,
+ "s11": {
+  "seed": 11,
+  "equal_cov_levels": [
+   {
+    "tau_f": 0.0,
+    "tau_c": 0.0,
+    "dev_cov": 1.0,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9901,
+    "tau_c": 0.0001,
+    "dev_cov": 0.8837,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9998,
+    "tau_c": 0.0007,
+    "dev_cov": 0.8605,
+    "dev_cov_gap": 0.0233
+   },
+   {
+    "tau_f": 0.9999,
+    "tau_c": 0.0007,
+    "dev_cov": 0.814,
+    "dev_cov_gap": 0.0233
+   }
+  ],
+  "equal_cov_eval": [
+   {
+    "tau_c": 0.0,
+    "tau_f": 0.0,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 96,
+     "q": 0.0,
+     "cost": 0.0
+    },
+    "repair": {
+     "n": 96,
+     "q": 0.0,
+     "cost": 0.0
+    },
+    "paired_n": 96,
+    "quality_diff_ci": [
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "tau_c": 0.0001,
+    "tau_f": 0.9901,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 82,
+     "q": 0.1707,
+     "cost": 0.064
+    },
+    "repair": {
+     "n": 70,
+     "q": 0.2714,
+     "cost": 0.1038
+    },
+    "paired_n": 62,
+    "quality_diff_ci": [
+     0.0,
+     0.1774
+    ]
+   },
+   {
+    "tau_c": 0.0007,
+    "tau_f": 0.9998,
+    "dev_cov_gap": 0.0233,
+    "clean": {
+     "n": 77,
+     "q": 0.1948,
+     "cost": 0.0702
+    },
+    "repair": {
+     "n": 64,
+     "q": 0.4688,
+     "cost": 0.1306
+    },
+    "paired_n": 53,
+    "quality_diff_ci": [
+     0.2075,
+     0.4528
+    ]
+   },
+   {
+    "tau_c": 0.0007,
+    "tau_f": 0.9999,
+    "dev_cov_gap": 0.0233,
+    "clean": {
+     "n": 77,
+     "q": 0.1948,
+     "cost": 0.0702
+    },
+    "repair": {
+     "n": 63,
+     "q": 0.4762,
+     "cost": 0.1313
+    },
+    "paired_n": 53,
+    "quality_diff_ci": [
+     0.1887,
+     0.4528
+    ]
+   }
+  ],
+  "affine_fit": {
+   "alpha": 1.0,
+   "b": -8.0,
+   "dev_loss": 0.1515,
+   "dev_cov_repair": 0.9302
+  },
+  "lex_clean": {
+   "a": 0.5729,
+   "q": 0.3455,
+   "s": 0.1979,
+   "prec": 0.3735,
+   "rec": 0.419
+  },
+  "score_clean": {
+   "s": 0.25,
+   "n": 96
+  },
+  "lex_affine": {
+   "a": 0.8229,
+   "q": 0.2025,
+   "s": 0.1667,
+   "prec": 0.2842,
+   "rec": 0.6305
+  },
+  "score_affine": {
+   "s": 0.1771,
+   "n": 96
+  },
+  "lex_flip": {
+   "a": 0.875,
+   "q": 0.2857,
+   "s": 0.25,
+   "prec": 0.3769,
+   "rec": 0.6619
+  },
+  "score_flip": {
+   "s": 0.3021,
+   "n": 96
+  },
+  "paired_ci": {
+   "lex_s_flip-clean": [
+    -0.0625,
+    0.1771
+   ],
+   "lex_s_affine-clean": [
+    -0.1354,
+    0.0729
+   ]
+  }
+ },
+ "s23": {
+  "seed": 23,
+  "equal_cov_levels": [
+   {
+    "tau_f": 0.0362,
+    "tau_c": 0.0,
+    "dev_cov": 0.9767,
+    "dev_cov_gap": 0.0233
+   },
+   {
+    "tau_f": 0.7777,
+    "tau_c": 0.0001,
+    "dev_cov": 0.8837,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.8708,
+    "tau_c": 0.0011,
+    "dev_cov": 0.8372,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9327,
+    "tau_c": 0.0054,
+    "dev_cov": 0.7907,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9558,
+    "tau_c": 0.0111,
+    "dev_cov": 0.7442,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9866,
+    "tau_c": 0.1071,
+    "dev_cov": 0.6977,
+    "dev_cov_gap": 0.0
+   }
+  ],
+  "equal_cov_eval": [
+   {
+    "tau_c": 0.0,
+    "tau_f": 0.0362,
+    "dev_cov_gap": 0.0233,
+    "clean": {
+     "n": 96,
+     "q": 0.0,
+     "cost": 0.0
+    },
+    "repair": {
+     "n": 94,
+     "q": 0.1277,
+     "cost": 0.0325
+    },
+    "paired_n": 94,
+    "quality_diff_ci": [
+     0.0638,
+     0.2021
+    ]
+   },
+   {
+    "tau_c": 0.0001,
+    "tau_f": 0.7777,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 80,
+     "q": 0.175,
+     "cost": 0.0725
+    },
+    "repair": {
+     "n": 76,
+     "q": 0.3026,
+     "cost": 0.1036
+    },
+    "paired_n": 64,
+    "quality_diff_ci": [
+     -0.0156,
+     0.2344
+    ]
+   },
+   {
+    "tau_c": 0.0011,
+    "tau_f": 0.8708,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 72,
+     "q": 0.2083,
+     "cost": 0.078
+    },
+    "repair": {
+     "n": 68,
+     "q": 0.3382,
+     "cost": 0.1054
+    },
+    "paired_n": 54,
+    "quality_diff_ci": [
+     -0.0556,
+     0.2037
+    ]
+   },
+   {
+    "tau_c": 0.0054,
+    "tau_f": 0.9327,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 65,
+     "q": 0.1846,
+     "cost": 0.0757
+    },
+    "repair": {
+     "n": 62,
+     "q": 0.3871,
+     "cost": 0.1086
+    },
+    "paired_n": 45,
+    "quality_diff_ci": [
+     -0.0222,
+     0.2889
+    ]
+   },
+   {
+    "tau_c": 0.0111,
+    "tau_f": 0.9558,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 65,
+     "q": 0.2154,
+     "cost": 0.0827
+    },
+    "repair": {
+     "n": 57,
+     "q": 0.386,
+     "cost": 0.1079
+    },
+    "paired_n": 42,
+    "quality_diff_ci": [
+     -0.0476,
+     0.3333
+    ]
+   },
+   {
+    "tau_c": 0.1071,
+    "tau_f": 0.9866,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 59,
+     "q": 0.2712,
+     "cost": 0.0899
+    },
+    "repair": {
+     "n": 48,
+     "q": 0.3958,
+     "cost": 0.1131
+    },
+    "paired_n": 36,
+    "quality_diff_ci": [
+     -0.0833,
+     0.25
+    ]
+   }
+  ],
+  "affine_fit": {
+   "alpha": 0.5,
+   "b": -3.0,
+   "dev_loss": 0.0806,
+   "dev_cov_repair": 0.907
+  },
+  "lex_clean": {
+   "a": 0.5208,
+   "q": 0.3,
+   "s": 0.1562,
+   "prec": 0.3747,
+   "rec": 0.4086
+  },
+  "score_clean": {
+   "s": 0.1875,
+   "n": 96
+  },
+  "lex_affine": {
+   "a": 0.6875,
+   "q": 0.1667,
+   "s": 0.1146,
+   "prec": 0.3099,
+   "rec": 0.5543
+  },
+  "score_affine": {
+   "s": 0.2292,
+   "n": 96
+  },
+  "lex_flip": {
+   "a": 0.8646,
+   "q": 0.2771,
+   "s": 0.2396,
+   "prec": 0.3163,
+   "rec": 0.5962
+  },
+  "score_flip": {
+   "s": 0.3438,
+   "n": 96
+  },
+  "paired_ci": {
+   "lex_s_flip-clean": [
+    -0.0312,
+    0.1979
+   ],
+   "lex_s_affine-clean": [
+    -0.1354,
+    0.0521
+   ]
+  }
+ },
+ "s47": {
+  "seed": 47,
+  "equal_cov_levels": [
+   {
+    "tau_f": 0.0056,
+    "tau_c": 0.0,
+    "dev_cov": 0.9767,
+    "dev_cov_gap": 0.0233
+   },
+   {
+    "tau_f": 0.8517,
+    "tau_c": 0.0001,
+    "dev_cov": 0.7907,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9355,
+    "tau_c": 0.0037,
+    "dev_cov": 0.7442,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9778,
+    "tau_c": 0.0116,
+    "dev_cov": 0.6977,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9889,
+    "tau_c": 0.2197,
+    "dev_cov": 0.6512,
+    "dev_cov_gap": 0.0
+   },
+   {
+    "tau_f": 0.9942,
+    "tau_c": 0.4669,
+    "dev_cov": 0.6047,
+    "dev_cov_gap": 0.0
+   }
+  ],
+  "equal_cov_eval": [
+   {
+    "tau_c": 0.0,
+    "tau_f": 0.0056,
+    "dev_cov_gap": 0.0233,
+    "clean": {
+     "n": 96,
+     "q": 0.0,
+     "cost": 0.0
+    },
+    "repair": {
+     "n": 94,
+     "q": 0.0532,
+     "cost": 0.0146
+    },
+    "paired_n": 94,
+    "quality_diff_ci": [
+     0.0106,
+     0.1064
+    ]
+   },
+   {
+    "tau_c": 0.0001,
+    "tau_f": 0.8517,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 79,
+     "q": 0.1139,
+     "cost": 0.0596
+    },
+    "repair": {
+     "n": 75,
+     "q": 0.3333,
+     "cost": 0.085
+    },
+    "paired_n": 64,
+    "quality_diff_ci": [
+     0.0938,
+     0.3594
+    ]
+   },
+   {
+    "tau_c": 0.0037,
+    "tau_f": 0.9355,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 69,
+     "q": 0.1884,
+     "cost": 0.066
+    },
+    "repair": {
+     "n": 70,
+     "q": 0.3429,
+     "cost": 0.0968
+    },
+    "paired_n": 54,
+    "quality_diff_ci": [
+     0.0,
+     0.2593
+    ]
+   },
+   {
+    "tau_c": 0.0116,
+    "tau_f": 0.9778,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 65,
+     "q": 0.2,
+     "cost": 0.0694
+    },
+    "repair": {
+     "n": 65,
+     "q": 0.3538,
+     "cost": 0.1112
+    },
+    "paired_n": 46,
+    "quality_diff_ci": [
+     -0.0217,
+     0.2609
+    ]
+   },
+   {
+    "tau_c": 0.2197,
+    "tau_f": 0.9889,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 59,
+     "q": 0.2203,
+     "cost": 0.0856
+    },
+    "repair": {
+     "n": 61,
+     "q": 0.3443,
+     "cost": 0.1134
+    },
+    "paired_n": 41,
+    "quality_diff_ci": [
+     0.0,
+     0.2927
+    ]
+   },
+   {
+    "tau_c": 0.4669,
+    "tau_f": 0.9942,
+    "dev_cov_gap": 0.0,
+    "clean": {
+     "n": 55,
+     "q": 0.2182,
+     "cost": 0.0913
+    },
+    "repair": {
+     "n": 56,
+     "q": 0.3214,
+     "cost": 0.1172
+    },
+    "paired_n": 37,
+    "quality_diff_ci": [
+     -0.027,
+     0.2973
+    ]
+   }
+  ],
+  "affine_fit": {
+   "alpha": 0.5,
+   "b": -3.0,
+   "dev_loss": 0.1349,
+   "dev_cov_repair": 0.8837
+  },
+  "lex_clean": {
+   "a": 0.5729,
+   "q": 0.2364,
+   "s": 0.1354,
+   "prec": 0.362,
+   "rec": 0.4048
+  },
+  "score_clean": {
+   "s": 0.1458,
+   "n": 96
+  },
+  "lex_affine": {
+   "a": 0.7292,
+   "q": 0.2143,
+   "s": 0.1562,
+   "prec": 0.3056,
+   "rec": 0.5638
+  },
+  "score_affine": {
+   "s": 0.2188,
+   "n": 96
+  },
+  "lex_flip": {
+   "a": 0.8542,
+   "q": 0.1951,
+   "s": 0.1667,
+   "prec": 0.3133,
+   "rec": 0.6848
+  },
+  "score_flip": {
+   "s": 0.2812,
+   "n": 96
+  },
+  "paired_ci": {
+   "lex_s_flip-clean": [
+    -0.0625,
+    0.125
+   ],
+   "lex_s_affine-clean": [
+    -0.0628,
+    0.1146
+   ]
+  }
+ }
+}

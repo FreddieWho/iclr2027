@@ -1,42 +1,44 @@
 \section{Introduction}
-% MIGRATED 2026-09-18 (audit closure): old Action-Mode/Jacobian scaffold retired
-% to background/appendix. New spine: static correctness != correct updating.
-% Full Sec.02--08 restructure still pending; this intro + abstract define the target.
+\label{sec:intro}
 
-Static correctness is not the same as correct updating. A model can classify
-every part of a scene correctly, respond strongly to change, and still fail to
-update its decision when those parts jointly change what the scene means.
-This paper documents that failure as a reproducible empirical fact, shows it
-in three observation regimes, shows a diagnostic repair, and reports an
-unusually wide set of failed alternatives that delimit what the defect is
-(and is not).
+Static correctness is not the same as reliable updating. Real systems must
+maintain correct judgments as states change: a scene correctly classified
+now must still be classified correctly after the world moves. This paper
+studies correctness under controlled change, where scenes have oracle
+labels, edits have known atomic effects, and composed edits have known
+joint effects that may differ from either part.
 
-We work in a controlled setting with semantic transitions: scenes have oracle
-labels, edits have known atomic effects, and composed edits have known joint
-effects. Three failure modes recur. (i)~Transition blindness: paths crossing a
-semantic boundary induce no model transition---84\% among single-turn paths
-discovered by random edits (a rare, mostly tangential subpopulation), 44\% on
-directly targeted fresh paths. (ii)~Compositional blindness: when both atomic
-edits are judged correctly, their joint change is still missed in 151/176
-(85.8\%) of fresh-holdout cases. (iii)~Consequential blindness: the misses
-propagate into events and action selection (75.0\% invalid in hard fresh
-cases).
+Three failure modes recur. (i)~Transition blindness: paths crossing a
+semantic boundary induce no model transition---$28/64 = 43.8\%$ miss on
+directly targeted fresh paths, $108/128 = 84.4\%$ among single-turn paths
+found by a random-edit screen (different denominators, never averaged).
+(ii)~Compositional blindness: when both atomic edits are judged correctly,
+their joint change is still missed in $151/176 = 85.8\%$ of fresh-holdout
+cases; continuous path decomposition shows compositional misses unfold as
+missed semantic updates along $A \to AB$ and $B \to AB$ (111/111 AB-miss
+quartets contain a zero-transition path). (iii)~Consequential blindness:
+the misses propagate into events and action selection ($75.0\%$ invalid in
+hard fresh cases at $\lambda{=}2$).
 
-A diagnostic flip coverage---adding oracle-mined boundary-crossing variations
-to training---significantly relieves all three: fresh C1 miss 52.4\%~$\to$~34.7\%,
-action invalid 75.0\%~$\to$~62.5\%, static error improving 18.0\%~$\to$~10.7\%,
-with same-direction turn, event, and action gains on real football tracking
-data across three seeds, and repaired pixel-observation decisions on unseen
-rendering styles. What failed matters as much: dense labels, slope
-supervision, SDF readouts, distillation, relational architectures, quartet
-curricula, and a rank-4 low-rank patch-map interchange (hybrid truth decodes
-from concatenated hidden states yet cannot be installed into the frozen
-classifier by the tested patch at that layer) all fail to remove the defect,
-ruling out a family of ``the model just cannot see it'' explanations. The
-defect is in updating, not in seeing.
+Our new insight concerns confidence. A confidence score that is reassuring
+for current correctness becomes misleading for true semantic transitions:
+within currently correct states, higher pre-change confidence predicts
+\emph{lower} static error ($0.36 \to 0.02$) yet \emph{higher} update error
+($0.53$--$0.68 \to 1.00$) across confidence quartiles, confirmed on fresh
+parent-disjoint data in coordinate scenes.
 
-% Contributions: (1) fresh-holdout-quantified compositional/transition miss
-% with denominator discipline; (2) diagnostic flip repair with consequence
-% metrics; (3) real-data (3-seed) + pixel confirmations; (4) failed-alternative
-% boundary (what does not fix it); (5) single evidence table + smoke-audited
-% numbers (reports/FINAL_EVIDENCE_TABLE.md).
+Repair is not one-dimensional. Targeted flip coverage improves several
+component and downstream metrics---static error $18.0\% \to 10.7\%$,
+single-flip C1 miss $52.4\% \to 34.7\%$, action invalid $75.0\% \to 62.5\%$.
+But paired quartet analysis shows endpoint improvement
+($R_{\mathrm{endpoint}}$ $0.43$--$0.48$) is dominated by error migration
+($0.36$--$0.40$): most AB endpoint gains do not restore the original atomic
+competencies jointly with the composed outcome (full repair $0.03$--$0.10$).
+
+\paragraph{Contributions.} (C1)~A controlled-change analysis of
+static-correct update failures: transitions, atomic-conditioned
+composition, and consequences. (C2)~Confidence--update reliability
+inversion in coordinate controlled-change settings with fresh confirmation.
+(C3)~Paired repair decomposition separating endpoint repair, full repair,
+error migration, and joint consistency. (C4)~Cross-observation evidence
+(football, pixels) and decision consequences, with stated boundaries.

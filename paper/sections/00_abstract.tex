@@ -1,22 +1,19 @@
-Models that judge static scenes correctly can still fail to update their
-judgments when the scene changes. We document a systematic form of this
-failure across three observation regimes---coordinate scenes, real football
-tracking data, and pixel renderings. The headline result comes from a
-pre-registered fresh holdout: when both atomic edits of a scene are judged
-correctly, their joint compositional change is still missed in 151/176
-(85.8\%) of cases. The same blind spot appears for single semantic-boundary
-crossings (28/64~=~44\% miss on directly targeted fresh paths; 108/128~=~84\%
-of single-turn paths discovered by random edits induce no model transition, a
-rarer tangential subpopulation) and propagates into downstream consequences:
-action selection is invalid in 75.0\% of hard cases and event detection shows
-matched misses. A simple diagnostic flip augmentation---training on
-boundary-crossing variations mined by the same oracle---reduces the fresh
-compositional C1 miss from 52.4\% to 34.7\% at no static cost (static error
-18.0\%~$\to$~10.7\%), with same-direction improvements on real football data
-across three seeds (transitions, events, and action outcomes) and on unseen
-pixel styles. Extensive failed alternatives (dense labels, slope supervision,
-SDF readouts, distillation, relational architectures, quartet curricula, and a
-rank-4 low-rank patch-map interchange that decodes but cannot install hybrid
-truth into the frozen classifier at the tested layer) bound the claim: the
-defect is in updating, not in seeing. Static accuracy hides failures to
-update.
+Static correctness does not guarantee reliable updating under change. In a
+controlled setting with oracle labels and edits of known effect, we show
+that when both atomic edits of a scene are judged correctly, their joint
+compositional change is still missed in 151/176 (85.8\%) of fresh-holdout
+cases. The same blind spot appears on single semantic-boundary crossings:
+28/64 (43.8\%) miss on directly targeted fresh paths, versus 108/128
+(84.4\%) of single-turn paths found by a random-edit screen---two true
+rates from different denominators, never averaged. Within currently
+correct states, pre-change confidence predicts static and
+semantics-preserving correctness yet reverses under true semantic change:
+endpoint error rises from 0.53--0.68 to 1.00 across confidence quartiles,
+confirmed on fresh parent-disjoint data. Targeted flip coverage improves
+static error (18.0\%~$\to$~10.7\%), single-flip C1 miss (52.4\%~$\to$~34.7\%),
+and downstream action outcomes. Yet paired quartet analysis shows most AB
+endpoint gains do not restore full atomic-plus-joint consistency: full
+repair is 0.03--0.10 while error migration is 0.36--0.40. Real football
+tracking and pixel renderings support transition and repair behavior, but
+not the confidence inversion. Correctness under change cannot be summarized
+by static accuracy or endpoint repair alone.

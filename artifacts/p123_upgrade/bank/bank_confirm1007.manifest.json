@@ -1,0 +1,9 @@
+{
+ "tag": "confirm1007",
+ "pool": "confirm_1007",
+ "seed": 778,
+ "n_parents": 1000,
+ "n_paths": 1018,
+ "n_singles": 246792,
+ "sha256": "28365ae385b3634446f628a4c9830da25db5d9094746d3b4465a81769e6f6844"
+}

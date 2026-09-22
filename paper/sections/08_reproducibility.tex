@@ -7,15 +7,23 @@ uninterrupted run with fixed checkpoints, and archived as used; no new metric
 has been or will be run on it. Discovery numbers and fresh numbers are never
 averaged and always labeled with denominators.
 
-\paragraph{Single evidence table.} Every number in the main text is drawn from
-\texttt{reports/FINAL\_EVIDENCE\_TABLE.md}, which records numerator,
-denominator, dataset, split, seeds, status, and artifact path per claim, plus
-six wording red-lines (fresh-headline rule, F1 denominator discipline, X03
-term ban, U02 anti-information retraction, U03b nuisance wording, football
-holdout caveat). A smoke audit re-derived all headline numbers from artifacts.
+\paragraph{Reporting protocol for repair comparisons.} Any repair comparison
+in this line of work should report, on the same quartets: own-conditional,
+baseline-fixed, and common-correct composition miss; overall AB endpoint
+error; atomic pass rate; joint consistency $J$; full repair and error
+migration; matched-single controls. Rationale: conditioning changes when a
+repair changes atomic correctness, so single-denominator repair deltas can
+mislead. We claim no priority for conditional measurement itself.
+
+\paragraph{Sample banks and confirmation.} Mechanism analyses read frozen
+sample banks (\texttt{bank\_dev512}, \texttt{bank\_confirm1007}; every model
+reads identical edits) with settings frozen on dev before confirmation.
+Thresholds, covariates, metrics, and bootstrap units are recorded in
+\texttt{reports/final\_closure/}; parent-cluster resampling is used
+throughout. A smoke audit re-derived all headline numbers from artifacts.
 
 \paragraph{Artifacts.} Code, scene pools, mined flips, checkpoints metadata,
 rendering scripts, and SHA-256 manifests are versioned with the paper;
 restricted-access football derivatives are described with hashes and
 conversion receipts. Seeds 11/23/47 are used throughout; match is the unit of
-independence on the football side.
+independence on the football side; parent is the unit on the coordinate side.

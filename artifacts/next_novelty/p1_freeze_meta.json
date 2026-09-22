@@ -1,0 +1,5 @@
+{
+ "note": "frozen 2026-09-22 BEFORE confirm rerun: rank thresholds per model (p1_freeze.json), covariates [logconf, m_start, m_end, cross_dist, edit_norm, start_lab + top8 fams], metrics [endpoint+update reliability, R_update, R_joint, groupedCV-AUC, matched delta, thresh AUC], bootstrap unit = parent",
+ "dev_bank": "bank_dev512",
+ "confirm_bank": "bank_confirm1007"
+}

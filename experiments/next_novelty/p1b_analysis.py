@@ -93,11 +93,16 @@ def analyze_model(paths, singles, out_thr=None):
                 "err": round(float(1 - ok[sel].mean()), 4) if sel.sum() else None,
                 "ci": cluster_ci(par[sel], 1 - ok[sel]) if sel.sum() else None})
         R[name + "_by_bin"] = rows
-    # --- C/D: retention + rho scan ---
+    # --- C/D: retention + rho scan (mixed AND uniformly-conditioned) ---
     R["retention_rho"] = []
+    R["retention_update"] = []
     fall = [(r["parent"], r["confidence"], r["end_correct"]) for r in paths if r["start_correct"] and r["semantic_change"] == 1] + \
            [(r["parent"], r["conf0"], r["correct1"]) for r in singles if r["correct0"] == 1 and r["flip"] == 1]
     pall = [(r["parent"], r["conf0"], r["correct1"]) for r in singles if r["y1"] == r["y0"]]
+    pall_u = [(r["parent"], r["conf0"], r["correct1"]) for r in singles
+              if r["y1"] == r["y0"] and r["correct0"] == 1]
+    jall = [(r["parent"], r["confidence"], r["start_correct"], r["end_correct"]) for r in paths] + \
+           [(r["parent"], r["conf0"], r["correct0"], r["correct1"]) for r in singles]
     for frac, cutoff in (("top25", t25), ("top50", t50), ("top75", t75), ("all", -1e18)):
         fsel = [1 - o for _, c, o in fall if c >= cutoff]
         psel = [1 - o for _, c, o in pall if c >= cutoff]
@@ -108,11 +113,51 @@ def analyze_model(paths, singles, out_thr=None):
             if fsel and psel:
                 row["R_rho_%.2f" % rho] = round(float((1 - rho) * np.mean(psel) + rho * np.mean(fsel)), 4)
         R["retention_rho"].append(row)
+        # uniformly conditioned: preserve ALSO requires start-correct
+        usel = [1 - o for _, c, o in pall_u if c >= cutoff]
+        # joint: start wrong OR post-change wrong, same retained set
+        # (retained = start states above cutoff; joint over starts+their ends)
+        urow = {"retain": frac, "n_flip": len(fsel), "n_prv_u": len(usel),
+                "flip_err": round(float(np.mean(fsel)), 4) if fsel else None,
+                "prv_update_err": round(float(np.mean(usel)), 4) if usel else None}
+        for rho in (0.0, 0.1, 0.25, 0.5, 0.75, 1.0):
+            if fsel and usel:
+                urow["Rupd_rho_%.2f" % rho] = round(float((1 - rho) * np.mean(usel) + rho * np.mean(fsel)), 4)
+        jsel = [1 if (not sc) or (not ec) else 0 for _, c, sc, ec in jall if c >= cutoff]
+        urow["n_joint"] = len(jsel)
+        urow["R_joint"] = round(float(np.mean(jsel)), 4) if jsel else None
+        R["retention_update"].append(urow)
     # --- E: regularized logistic + collinearity ---
     R["confound"] = confound(flp)
+    # --- E2: matched support check on flip subset ---
+    R["matched"] = matched_check(
+        [r for r in paths if r["start_correct"] and r["semantic_change"] == 1] +
+        [r for r in singles if r["correct0"] == 1 and r["flip"] == 1])
     # --- F: threshold control ---
     R["threshold_ctrl"] = thresh_ctrl([r for r in paths if r["start_correct"]])
+    # --- temperature fit (dev singles NLL) ---
+    R["temperature"] = temp_fit(singles)
     return R, thr
+
+
+def temp_fit(singles):
+    import math
+    from scipy.optimize import minimize_scalar
+    cf = np.array([r["conf0"] for r in singles])
+    y = np.array([r["correct0"] for r in singles]).astype(float)
+    # model P(correct) = sigmoid(a*conf + b) is saturated; temperature form:
+    # P = sigmoid(conf / T) with T fit by NLL
+    def nll(T):
+        p = 1 / (1 + np.exp(-cf / max(T, 1e-9)))
+        p = np.clip(p, 1e-9, 1 - 1e-9)
+        return float(-(y * np.log(p) + (1 - y) * np.log(1 - p)).mean())
+    r = minimize_scalar(nll, bounds=(0.05, 200.0), method="bounded")
+    p = 1 / (1 + np.exp(-cf / r.x))
+    brier = float(((p - y) ** 2).mean())
+    base = float(-(y * np.log(y.mean()) + (1 - y) * np.log(1 - y.mean())).mean())
+    return {"T_star": round(float(r.x), 3), "NLL": round(float(r.fun), 4),
+            "NLL_null": round(base, 4), "Brier": round(brier, 4),
+            "note": "ranks invariant under T>0 by construction"}
 
 
 def confound(flp):
@@ -127,7 +172,10 @@ def confound(flp):
     X, y, par = [], [], []
     for r in rows:
         cf = r.get("confidence", r.get("conf0", 0)) or 0
-        v = [math.log1p(cf), r.get("m0", 0) or 0,
+        # P1-C1: true PATH-start margin (m_start), never base m0 for paths
+        m_start = r.get("m_start", r.get("m0", 0)) or 0
+        m_end = r.get("m_end", r.get("m1", 0)) or 0
+        v = [math.log1p(cf), m_start, m_end,
              r.get("cross_dist", 0) or 0, r.get("edit_norm", 0) or 0,
              float(r.get("start_lab", r.get("y0", 0)))]
         ef = r.get("edit_fam", r.get("fam", "?"))
@@ -163,13 +211,112 @@ def confound(flp):
         except Exception:
             pass
     ci = [round(float(x), 4) for x in np.quantile(gains, [0.025, 0.975])] if gains else None
+    cv = grouped_cv(X, y, np.array(par))
     return {"n": len(y), "n_feat": X.shape[1],
+            "grouped_cv": cv,
             "max_abs_corr": round(float(np.abs(C - np.eye(C.shape[0])).max()), 3),
             "auc_conf_only": auc(m_conf, Zs[:, [0]]),
             "auc_noconf": auc(m_noconf, Zs[:, 1:]),
             "auc_full": auc(m_full, Zs),
             "auc_gain_ci": ci,
             "coef_full": [round(float(c), 3) for c in m_full.coef_[0][:5]]}
+
+
+def grouped_cv(X, y, par, k=5, n_boot=500):
+    """5-fold grouped-by-parent CV; refit per bootstrap resample."""
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import roc_auc_score
+    ups = np.unique(par)
+    folds = np.array_split(rng.permutation(ups), k)
+    out = {}
+    for name, cols in (("conf", [0]), ("noconf", list(range(1, X.shape[1]))),
+                       ("full", list(range(X.shape[1])))):
+        aucs = []
+        oof = np.full(len(y), np.nan)
+        for f in range(k):
+            te = np.isin(par, folds[f])
+            tr = ~te
+            if len(np.unique(y[tr])) < 2 or len(np.unique(y[te])) < 2:
+                continue
+            mu, sd = X[tr][:, cols].mean(0), X[tr][:, cols].std(0) + 1e-12
+            m = LogisticRegression(C=1.0, max_iter=5000).fit(
+                (X[tr][:, cols] - mu) / sd, y[tr])
+            p = m.predict_proba((X[te][:, cols] - mu) / sd)[:, 1]
+            oof[te] = p
+            try:
+                aucs.append(roc_auc_score(y[te], p))
+            except Exception:
+                pass
+        ok = ~np.isnan(oof)
+        try:
+            pooled = round(float(roc_auc_score(y[ok], oof[ok])), 4)
+        except Exception:
+            pooled = None
+        # parent bootstrap with FULL refit per resample
+        gains = []
+        for _ in range(n_boot):
+            draw = rng.choice(ups, size=len(ups), replace=True)
+            idx = np.concatenate([np.nonzero(par == u)[0] for u in draw])
+            Xa, ya = X[idx], y[idx]
+            if len(np.unique(ya)) < 2:
+                continue
+            mua, sda = Xa.mean(0), Xa.std(0) + 1e-12
+            try:
+                ma = LogisticRegression(C=1.0, max_iter=2000).fit(
+                    (Xa - mua) / sda, ya)
+                gains.append(roc_auc_score(ya, ma.predict_proba((Xa - mua) / sda)[:, 1]))
+            except Exception:
+                pass
+        ci = ([round(float(x), 4) for x in np.quantile(gains, [0.025, 0.975])]
+              if gains else None)
+        out[name] = {"pooled_oof_auc": pooled,
+                     "fold_aucs": [round(float(a), 4) for a in aucs],
+                     "refit_boot_ci": ci}
+    return out
+
+
+def matched_check(rows):
+    """Coarsened matching on (start-margin tertile, norm tertile, class);
+    reports matched n + SMDs; flags unresolved support."""
+    import math
+    recs = []
+    for r in rows:
+        cf = r.get("confidence", r.get("conf0", 0)) or 0
+        recs.append((r["parent"],
+                     r.get("m_start", r.get("m0", 0)) or 0,
+                     r.get("edit_norm", 0) or 0,
+                     int(r.get("start_lab", r.get("y0", 0))),
+                     math.log1p(cf),
+                     1 - int(r["end_correct"] if "end_correct" in r else r["correct1"])))
+    if len(recs) < 100:
+        return {"n": len(recs), "note": "too few"}
+    mg = np.array([x[1] for x in recs])
+    nm = np.array([x[2] for x in recs])
+    mt = np.quantile(mg, [1 / 3, 2 / 3])
+    nt = np.quantile(nm, [1 / 3, 2 / 3])
+    cells = {}
+    for i, (p, m, n, c, f, y) in enumerate(recs):
+        key = (int(np.digitize(m, mt)), int(np.digitize(n, nt)), c)
+        cells.setdefault(key, []).append((f, y, p))
+    deltas, ws, smds = [], [], []
+    for key, v in cells.items():
+        if len(v) < 10:
+            continue
+        f = np.array([x[0] for x in v])
+        med = np.median(f)
+        hi = [x for x in v if x[0] >= med]
+        lo = [x for x in v if x[0] < med]
+        if len(hi) < 3 or len(lo) < 3:
+            continue
+        deltas.append((np.mean([x[1] for x in hi]) - np.mean([x[1] for x in lo]),
+                       len(v)))
+        ws.append(len(v))
+    if not deltas or sum(ws) < 100:
+        return {"n_cells": len(deltas), "n_matched": int(sum(ws)),
+                "note": "support too thin: UNRESOLVED confound"}
+    est = float(np.average([d for d, _ in deltas], weights=ws))
+    return {"n_cells": len(deltas), "n_matched": int(sum(ws)),
+            "matched_delta": round(est, 4), "note": "ok"}
 
 
 def thresh_ctrl(sub):

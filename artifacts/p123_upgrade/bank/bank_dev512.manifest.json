@@ -1,0 +1,9 @@
+{
+ "tag": "dev512",
+ "pool": "eval_202",
+ "seed": 777,
+ "n_parents": 512,
+ "n_paths": 474,
+ "n_singles": 126151,
+ "sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac"
+}
