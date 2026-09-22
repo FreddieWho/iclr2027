@@ -219,3 +219,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-23：P123审计落地：EVIDENCE_CORRECTIONS.md（8项确认：足球映射bug作废旧数、 manif 分母拆分、rng4非配对、C1正名、统计修复）；样本银行dev512冻结；确认池confirm_1007封存；证据表C5行已修正。
 - 2026-09-23：P123终局：P1坐标成立/足球修正归零；P2分解（覆盖正质量负3/3＋score规则质量增益＋等覆盖不可行）；P3配对真修复~35pp＋分母 churn建档＋NOVELTY_MATRIX（首条件化已死）；7单元测试全过；PAPER_INSERTS三段＋ledger＋复算uze落地；确认池未拆。
 - 2026-09-23：P123总控收官：P1确认池CONFIRMED（3种子×双臂同形）/P2分解Discussion定位/P3测量贡献成立（common集s23反转）；纠错8项；单元测试10/10；PAPER_INSERTS+LEDGER+REPRODUCE交付。
+- 2026-09-22：新一轮收官：P1-STRONG（确认池）/P3-PHENOMENON（keepbal阴性）/P2-MAIN scoped；纠错V2；单元测试10/10；PAPER_INSERTS+LEDGER+REPRODUCE交付；paper/未动。

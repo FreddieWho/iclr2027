@@ -1,0 +1,13 @@
+# analysis_plan.yaml (frozen 2026-09-22; round: P1/P2/P3 deepening)
+main_questions: [P1-confidence-vs-update-reliability, P3-full-vs-migrated-repair, P2-operating-point-vs-capability]
+data_splits:
+  dev_bank: bank_dev512 (eval_202, seed 777, sha 21786139...)   # exploration + threshold fixing
+  confirm_bank: bank_confirm1007 (seed 778, sha 28365ae3...)     # frozen; primary-metric confirm only
+  sealed: [holdout_909, Bridge-R-895]
+primary_metrics:
+  P1: R_flip by confidence rank on start-correct flipped subset; R_current/R_preserve on same parents; R(tau,rho) scan
+  P3: J, R_full, R_endpoint, M + paired CIs, 3 seeds
+  P2: quality|same-coverage; affine-clean vs flipmine; rule-dependent split
+comparisons: [clean-vs-flipmine same-bank+same-edits, confidence-rank within-model, coverage-matched]
+budgets: {bootstrap_dev: 2000, bootstrap_final: 10000, retrain: s23/s47-flipmine-missing-only-if-needed}
+frozen_gates: {P1_confirm: unified-effect + no-single-confound + selection-substance, P3_method: migration-dominant-evidence}
