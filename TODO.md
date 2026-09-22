@@ -220,3 +220,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-23：P123终局：P1坐标成立/足球修正归零；P2分解（覆盖正质量负3/3＋score规则质量增益＋等覆盖不可行）；P3配对真修复~35pp＋分母 churn建档＋NOVELTY_MATRIX（首条件化已死）；7单元测试全过；PAPER_INSERTS三段＋ledger＋复算uze落地；确认池未拆。
 - 2026-09-23：P123总控收官：P1确认池CONFIRMED（3种子×双臂同形）/P2分解Discussion定位/P3测量贡献成立（common集s23反转）；纠错8项；单元测试10/10；PAPER_INSERTS+LEDGER+REPRODUCE交付。
 - 2026-09-22：新一轮收官：P1-STRONG（确认池）/P3-PHENOMENON（keepbal阴性）/P2-MAIN scoped；纠错V2；单元测试10/10；PAPER_INSERTS+LEDGER+REPRODUCE交付；paper/未动。
+- 2026-09-23：终局后复检补遗（a13e5bd）：全轮次重扫——正文禁用语零残留（incidence仅存一句明确撤回）、LaTeX括号/环境全平衡、Fig2/Fig3已接线、E1/P3/N01关键数与ledger/产物逐项对上、测试20/20；修复：删根目录4个空垃圾文件、p3d_eval --ckptdir与paired_compare preprocess重构落盘、relfeat mined/checkpoint＋P1中间结果＋P2_AFFINE_BEHAV归档推送；huyudi名下codex进程已停（他人进程未动）。终局结论不变，仍处POLISH阶段。
