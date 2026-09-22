@@ -1,0 +1,7 @@
+{
+ "set": "flipmine",
+ "target": "seed11",
+ "seed": 11,
+ "n_repair": 150,
+ "final_loss": 0.001010605599731207
+}

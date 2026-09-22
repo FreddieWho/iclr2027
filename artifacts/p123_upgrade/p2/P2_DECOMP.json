@@ -1,0 +1,511 @@
+{
+ "n_feasible": 139,
+ "n_eval": 96,
+ "s11": {
+  "seed": 11,
+  "score_lam0_clean": {
+   "a": 1.0,
+   "q": 0.75,
+   "s": 0.75,
+   "n": 96
+  },
+  "score_lam0_flip": {
+   "a": 1.0,
+   "q": 0.8229,
+   "s": 0.8229,
+   "n": 96
+  },
+  "lexico_lam0_clean": {
+   "a": 0.5729,
+   "q": 0.3455,
+   "s": 0.1979,
+   "n": 96
+  },
+  "lexico_lam0_flip": {
+   "a": 0.875,
+   "q": 0.2857,
+   "s": 0.25,
+   "n": 96
+  },
+  "score_lam1_clean": {
+   "a": 1.0,
+   "q": 0.2917,
+   "s": 0.2917,
+   "n": 96
+  },
+  "score_lam1_flip": {
+   "a": 1.0,
+   "q": 0.3333,
+   "s": 0.3333,
+   "n": 96
+  },
+  "lexico_lam1_clean": {
+   "a": 0.5729,
+   "q": 0.3455,
+   "s": 0.1979,
+   "n": 96
+  },
+  "lexico_lam1_flip": {
+   "a": 0.875,
+   "q": 0.2857,
+   "s": 0.25,
+   "n": 96
+  },
+  "score_lam2_clean": {
+   "a": 1.0,
+   "q": 0.25,
+   "s": 0.25,
+   "n": 96
+  },
+  "score_lam2_flip": {
+   "a": 1.0,
+   "q": 0.3021,
+   "s": 0.3021,
+   "n": 96
+  },
+  "lexico_lam2_clean": {
+   "a": 0.5729,
+   "q": 0.3455,
+   "s": 0.1979,
+   "n": 96
+  },
+  "lexico_lam2_flip": {
+   "a": 0.875,
+   "q": 0.2857,
+   "s": 0.25,
+   "n": 96
+  },
+  "score_lam5_clean": {
+   "a": 1.0,
+   "q": 0.0833,
+   "s": 0.0833,
+   "n": 96
+  },
+  "score_lam5_flip": {
+   "a": 1.0,
+   "q": 0.1042,
+   "s": 0.1042,
+   "n": 96
+  },
+  "lexico_lam5_clean": {
+   "a": 0.5729,
+   "q": 0.3455,
+   "s": 0.1979,
+   "n": 96
+  },
+  "lexico_lam5_flip": {
+   "a": 0.875,
+   "q": 0.2857,
+   "s": 0.25,
+   "n": 96
+  },
+  "strata_lex_lam2": {
+   "both": {
+    "n": 50,
+    "clean_suc": 16,
+    "repair_suc": 8
+   },
+   "clean_only": {
+    "n": 5,
+    "clean_suc": 3,
+    "repair_suc": 0
+   },
+   "repair_only": {
+    "n": 34,
+    "clean_suc": 0,
+    "repair_suc": 16
+   },
+   "neither": {
+    "n": 7,
+    "clean_suc": 0,
+    "repair_suc": 0
+   }
+  },
+  "split": {
+   "D_coverage": 0.0953,
+   "D_quality": -0.0433,
+   "total": 0.0521
+  },
+  "cand_clean": {
+   "prec": 0.3735,
+   "rec": 0.419
+  },
+  "cand_flip": {
+   "prec": 0.3769,
+   "rec": 0.6619
+  },
+  "common_act": {
+   "n": 50,
+   "clean_ok": 16,
+   "repair_ok": 8
+  },
+  "interface_2cell": {
+   "clean_set": {
+    "n": 55,
+    "suc": 18,
+    "rate": 0.3273
+   },
+   "repair_set": {
+    "n": 84,
+    "suc": 23,
+    "rate": 0.2738
+   }
+  },
+  "interface_note": "lexico score stage = cheapest cost, model-independent: 4-cell collapses to set-only comparison by definition (verified: identical selections).",
+  "equal_cov": {
+   "dev_cov_clean_tau05": 0.4302,
+   "dev_cov_flip_tau05": 0.7326
+  },
+  "temp_T0.5": {
+   "lexico_set_invariant": true,
+   "score_selection_shift_frac": 0.1042
+  },
+  "temp_T2.0": {
+   "lexico_set_invariant": true,
+   "score_selection_shift_frac": 0.0833
+  },
+  "P1link": {
+   "n_high": 14,
+   "clean_high_suc": 0.0714,
+   "repair_high_suc": 0.0
+  }
+ },
+ "s23": {
+  "seed": 23,
+  "score_lam0_clean": {
+   "a": 1.0,
+   "q": 0.7812,
+   "s": 0.7812,
+   "n": 96
+  },
+  "score_lam0_flip": {
+   "a": 1.0,
+   "q": 0.8021,
+   "s": 0.8021,
+   "n": 96
+  },
+  "lexico_lam0_clean": {
+   "a": 0.5208,
+   "q": 0.3,
+   "s": 0.1562,
+   "n": 96
+  },
+  "lexico_lam0_flip": {
+   "a": 0.8646,
+   "q": 0.2771,
+   "s": 0.2396,
+   "n": 96
+  },
+  "score_lam1_clean": {
+   "a": 1.0,
+   "q": 0.2604,
+   "s": 0.2604,
+   "n": 96
+  },
+  "score_lam1_flip": {
+   "a": 1.0,
+   "q": 0.4375,
+   "s": 0.4375,
+   "n": 96
+  },
+  "lexico_lam1_clean": {
+   "a": 0.5208,
+   "q": 0.3,
+   "s": 0.1562,
+   "n": 96
+  },
+  "lexico_lam1_flip": {
+   "a": 0.8646,
+   "q": 0.2771,
+   "s": 0.2396,
+   "n": 96
+  },
+  "score_lam2_clean": {
+   "a": 1.0,
+   "q": 0.1875,
+   "s": 0.1875,
+   "n": 96
+  },
+  "score_lam2_flip": {
+   "a": 1.0,
+   "q": 0.3438,
+   "s": 0.3438,
+   "n": 96
+  },
+  "lexico_lam2_clean": {
+   "a": 0.5208,
+   "q": 0.3,
+   "s": 0.1562,
+   "n": 96
+  },
+  "lexico_lam2_flip": {
+   "a": 0.8646,
+   "q": 0.2771,
+   "s": 0.2396,
+   "n": 96
+  },
+  "score_lam5_clean": {
+   "a": 1.0,
+   "q": 0.0521,
+   "s": 0.0521,
+   "n": 96
+  },
+  "score_lam5_flip": {
+   "a": 1.0,
+   "q": 0.0417,
+   "s": 0.0417,
+   "n": 96
+  },
+  "lexico_lam5_clean": {
+   "a": 0.5208,
+   "q": 0.3,
+   "s": 0.1562,
+   "n": 96
+  },
+  "lexico_lam5_flip": {
+   "a": 0.8646,
+   "q": 0.2771,
+   "s": 0.2396,
+   "n": 96
+  },
+  "strata_lex_lam2": {
+   "both": {
+    "n": 45,
+    "clean_suc": 12,
+    "repair_suc": 9
+   },
+   "clean_only": {
+    "n": 5,
+    "clean_suc": 3,
+    "repair_suc": 0
+   },
+   "repair_only": {
+    "n": 38,
+    "clean_suc": 0,
+    "repair_suc": 14
+   },
+   "neither": {
+    "n": 8,
+    "clean_suc": 0,
+    "repair_suc": 0
+   }
+  },
+  "split": {
+   "D_coverage": 0.0992,
+   "D_quality": -0.0159,
+   "total": 0.0834
+  },
+  "cand_clean": {
+   "prec": 0.3747,
+   "rec": 0.4086
+  },
+  "cand_flip": {
+   "prec": 0.3163,
+   "rec": 0.5962
+  },
+  "common_act": {
+   "n": 45,
+   "clean_ok": 12,
+   "repair_ok": 9
+  },
+  "interface_2cell": {
+   "clean_set": {
+    "n": 50,
+    "suc": 11,
+    "rate": 0.22
+   },
+   "repair_set": {
+    "n": 83,
+    "suc": 22,
+    "rate": 0.2651
+   }
+  },
+  "interface_note": "lexico score stage = cheapest cost, model-independent: 4-cell collapses to set-only comparison by definition (verified: identical selections).",
+  "equal_cov": {
+   "dev_cov_clean_tau05": 0.3837,
+   "dev_cov_flip_tau05": 0.7093
+  },
+  "temp_T0.5": {
+   "lexico_set_invariant": true,
+   "score_selection_shift_frac": 0.0625
+  },
+  "temp_T2.0": {
+   "lexico_set_invariant": true,
+   "score_selection_shift_frac": 0.1146
+  },
+  "P1link": {
+   "n_high": 13,
+   "clean_high_suc": 0.0769,
+   "repair_high_suc": 0.0769
+  }
+ },
+ "s47": {
+  "seed": 47,
+  "score_lam0_clean": {
+   "a": 1.0,
+   "q": 0.7292,
+   "s": 0.7292,
+   "n": 96
+  },
+  "score_lam0_flip": {
+   "a": 1.0,
+   "q": 0.8125,
+   "s": 0.8125,
+   "n": 96
+  },
+  "lexico_lam0_clean": {
+   "a": 0.5729,
+   "q": 0.2364,
+   "s": 0.1354,
+   "n": 96
+  },
+  "lexico_lam0_flip": {
+   "a": 0.8542,
+   "q": 0.1951,
+   "s": 0.1667,
+   "n": 96
+  },
+  "score_lam1_clean": {
+   "a": 1.0,
+   "q": 0.1562,
+   "s": 0.1562,
+   "n": 96
+  },
+  "score_lam1_flip": {
+   "a": 1.0,
+   "q": 0.3646,
+   "s": 0.3646,
+   "n": 96
+  },
+  "lexico_lam1_clean": {
+   "a": 0.5729,
+   "q": 0.2364,
+   "s": 0.1354,
+   "n": 96
+  },
+  "lexico_lam1_flip": {
+   "a": 0.8542,
+   "q": 0.1951,
+   "s": 0.1667,
+   "n": 96
+  },
+  "score_lam2_clean": {
+   "a": 1.0,
+   "q": 0.1458,
+   "s": 0.1458,
+   "n": 96
+  },
+  "score_lam2_flip": {
+   "a": 1.0,
+   "q": 0.2812,
+   "s": 0.2812,
+   "n": 96
+  },
+  "lexico_lam2_clean": {
+   "a": 0.5729,
+   "q": 0.2364,
+   "s": 0.1354,
+   "n": 96
+  },
+  "lexico_lam2_flip": {
+   "a": 0.8542,
+   "q": 0.1951,
+   "s": 0.1667,
+   "n": 96
+  },
+  "score_lam5_clean": {
+   "a": 1.0,
+   "q": 0.0521,
+   "s": 0.0521,
+   "n": 96
+  },
+  "score_lam5_flip": {
+   "a": 1.0,
+   "q": 0.0833,
+   "s": 0.0833,
+   "n": 96
+  },
+  "lexico_lam5_clean": {
+   "a": 0.5729,
+   "q": 0.2364,
+   "s": 0.1354,
+   "n": 96
+  },
+  "lexico_lam5_flip": {
+   "a": 0.8542,
+   "q": 0.1951,
+   "s": 0.1667,
+   "n": 96
+  },
+  "strata_lex_lam2": {
+   "both": {
+    "n": 49,
+    "clean_suc": 9,
+    "repair_suc": 7
+   },
+   "clean_only": {
+    "n": 6,
+    "clean_suc": 4,
+    "repair_suc": 0
+   },
+   "repair_only": {
+    "n": 33,
+    "clean_suc": 0,
+    "repair_suc": 9
+   },
+   "neither": {
+    "n": 8,
+    "clean_suc": 0,
+    "repair_suc": 0
+   }
+  },
+  "split": {
+   "D_coverage": 0.0607,
+   "D_quality": -0.0295,
+   "total": 0.0313
+  },
+  "cand_clean": {
+   "prec": 0.362,
+   "rec": 0.4048
+  },
+  "cand_flip": {
+   "prec": 0.3133,
+   "rec": 0.6848
+  },
+  "common_act": {
+   "n": 49,
+   "clean_ok": 9,
+   "repair_ok": 7
+  },
+  "interface_2cell": {
+   "clean_set": {
+    "n": 55,
+    "suc": 11,
+    "rate": 0.2
+   },
+   "repair_set": {
+    "n": 82,
+    "suc": 16,
+    "rate": 0.1951
+   }
+  },
+  "interface_note": "lexico score stage = cheapest cost, model-independent: 4-cell collapses to set-only comparison by definition (verified: identical selections).",
+  "equal_cov": {
+   "dev_cov_clean_tau05": 0.3721,
+   "dev_cov_flip_tau05": 0.7093
+  },
+  "temp_T0.5": {
+   "lexico_set_invariant": true,
+   "score_selection_shift_frac": 0.0521
+  },
+  "temp_T2.0": {
+   "lexico_set_invariant": true,
+   "score_selection_shift_frac": 0.1354
+  },
+  "P1link": {
+   "n_high": 14,
+   "clean_high_suc": 0.0,
+   "repair_high_suc": 0.1429
+  }
+ }
+}

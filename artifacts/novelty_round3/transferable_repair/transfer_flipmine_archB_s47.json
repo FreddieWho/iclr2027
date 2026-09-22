@@ -1,0 +1,7 @@
+{
+ "set": "flipmine",
+ "target": "archB",
+ "seed": 47,
+ "n_repair": 150,
+ "final_loss": 0.024334188550710678
+}

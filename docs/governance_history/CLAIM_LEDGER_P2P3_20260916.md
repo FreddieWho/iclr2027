@@ -1,5 +1,6 @@
 > ⚠️ **历史档案（P2/P3 时代，2026-09-16 止更）**：本 ledger 覆盖旧线（Action-Mode
-> Spectrum / P3 几何 / P4-AMR）claim。最终论文数字的唯一权威来源是
+> Spectrum / P3 几何 / P4-AMR）claim，2026-09-22 从根目录退休至
+> `docs/governance_history/`。最终论文数字的唯一权威来源是
 > `reports/final_closure/MASTER_CLAIM_LEDGER.md`（2026-09-22）；证据总表以
 > `reports/final_closure/FINAL_EVIDENCE_TABLE.md` 为准。本文件保留作历史溯源。
 

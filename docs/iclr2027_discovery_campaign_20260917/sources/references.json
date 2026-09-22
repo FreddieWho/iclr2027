@@ -1,0 +1,114 @@
+[
+  {
+    "id": "S1",
+    "title": "The Lie Derivative for Measuring Learned Equivariance",
+    "year": "2023",
+    "url": "https://arxiv.org/abs/2210.02984",
+    "checked": "已读摘要/元数据",
+    "relevance": "微分测量等变性已有先例；不能把Jacobian诊断单独当创新。"
+  },
+  {
+    "id": "S2",
+    "title": "Improving Robustness of 3D Point Cloud Recognition from a Fourier Perspective",
+    "year": "2024",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/7e0af0d1bc0ec2a90fc294be2e00447e-Paper-Conference.pdf",
+    "checked": "已读正文3.3/3.4及截图第1/5页",
+    "relevance": "图傅里叶loss梯度敏感性及频域对抗训练FAT；R01/R04需越过此近邻。"
+  },
+  {
+    "id": "S3",
+    "title": "Excessive Invariance Causes Adversarial Vulnerability",
+    "year": "2018/2019",
+    "url": "https://arxiv.org/abs/1811.00401",
+    "checked": "已读摘要/元数据",
+    "relevance": "任务相关变化被忽略已有先例；R02必须增加受控协同与新后果。"
+  },
+  {
+    "id": "S4",
+    "title": "Exploiting Excessive Invariance caused by Norm-Bounded Adversarial Robustness",
+    "year": "2019",
+    "url": "https://arxiv.org/abs/1903.10484",
+    "checked": "已读摘要/元数据",
+    "relevance": "降低敏感性可能增加不当不变性；R04须同时检验两类表现。"
+  },
+  {
+    "id": "S5",
+    "title": "Model metamers reveal divergent invariances between biological and artificial neural networks",
+    "year": "2023",
+    "url": "https://www.nature.com/articles/s41593-023-01442-0",
+    "checked": "已读期刊页面摘要与研究描述",
+    "relevance": "metamer已有成熟传统；不能把activation matching重新命名成发现。"
+  },
+  {
+    "id": "S6",
+    "title": "PointCloud Saliency Maps",
+    "year": "2019",
+    "url": "https://arxiv.org/abs/1812.01687",
+    "checked": "已读摘要",
+    "relevance": "梯度定位关键点/片段；单点重要性必须是强对照而非刻意弱化。"
+  },
+  {
+    "id": "S7",
+    "title": "Universal adversarial perturbations",
+    "year": "2016/2017",
+    "url": "https://arxiv.org/abs/1610.08401",
+    "checked": "已读摘要/元数据",
+    "relevance": "共享扰动跨输入已有先例；R03不能以universality自身宣称新。"
+  },
+  {
+    "id": "S8",
+    "title": "Rethinking Transferable Adversarial Attacks on Point Clouds from a Compact Subspace Perspective",
+    "year": "2026",
+    "url": "https://arxiv.org/html/2601.23102v1",
+    "checked": "已读摘要与方法4.1–4.3；预印本",
+    "relevance": "CoSA使用prototype与低秩空间做迁移；R03需明确同边际合同和角色迁移差异。未核验代码发布。"
+  },
+  {
+    "id": "S9",
+    "title": "Neural Relational Inference for Interacting Systems",
+    "year": "2018",
+    "url": "https://arxiv.org/abs/1802.04687",
+    "checked": "已读摘要及官方repo说明",
+    "relevance": "相互作用与动态预测已有框架；R06的新问题是同边际依赖风险，非首次做多体预测。"
+  },
+  {
+    "id": "S10",
+    "title": "Distributionally Robust Portfolio Optimization under Marginal and Copula Ambiguity",
+    "year": "2024",
+    "url": "https://link.springer.com/article/10.1007/s10957-024-02550-y",
+    "checked": "已读期刊摘要；非本任务方法复现",
+    "relevance": "边际与依赖不确定性已有正式框架；只作理论邻域，不借用其应用结论。"
+  },
+  {
+    "id": "S11",
+    "title": "Structured ambiguity sets for distributionally robust optimization",
+    "year": "2023",
+    "url": "https://arxiv.org/html/2310.20657v1",
+    "checked": "已读摘要与问题定义",
+    "relevance": "利用独立结构的DRO及已知边际邻域；不能宣称联合分布鲁棒优化是新算法。"
+  },
+  {
+    "id": "S12",
+    "title": "A Kernel Classification Framework for Metric Learning",
+    "year": "2013",
+    "url": "https://arxiv.org/abs/1309.5823",
+    "checked": "已读摘要/元数据",
+    "relevance": "涵盖LMNN/ITML与成对/三元组监督的度量学习；R05必须对比普通metric learning。"
+  },
+  {
+    "id": "S13",
+    "title": "DINOv2 official README/model entry",
+    "year": "checked 2026-09-17",
+    "url": "https://github.com/facebookresearch/dinov2",
+    "checked": "已通过GitHub读取README及S/14权重链接",
+    "relevance": "可用冻结视觉模型入口；没有在本次下载权重/测试设备。"
+  },
+  {
+    "id": "S14",
+    "title": "NRI official implementation README",
+    "year": "checked 2026-09-17",
+    "url": "https://github.com/ethanfetaya/NRI",
+    "checked": "已通过GitHub读取README",
+    "relevance": "有spring/charged数据生成入口；老依赖不能假装现代即装即用。"
+  }
+]

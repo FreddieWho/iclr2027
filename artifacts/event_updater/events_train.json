@@ -1,0 +1,8 @@
+{
+ "tag": "train",
+ "pool": "train_101",
+ "n_each": 2000,
+ "seed": 101,
+ "n_parents_stay": 9,
+ "n_parents_flip": 165
+}

@@ -1,0 +1,8 @@
+=== AMR v5cap seed=23 threads=8 ===
+seed=23 epoch=1/80 ctx=0.9191 pair=0.0600 active=0.385 eqv=0.0000 vicvar=0.0009 mu=0.000 wr=0.00 elapsed=23s
+seed=23 epoch=20/80 ctx=0.4905 pair=0.0021 active=0.037 eqv=0.0000 vicvar=0.0000 mu=0.000 wr=0.00 elapsed=426s
+seed=23 epoch=40/80 ctx=0.3461 pair=0.1477 active=0.816 eqv=1.0099 vicvar=0.0041 mu=0.353 wr=2.00 elapsed=906s
+seed=23 epoch=60/80 ctx=0.2421 pair=0.1609 active=0.787 eqv=1.0154 vicvar=0.0027 mu=0.340 wr=2.00 elapsed=1553s
+seed=23 epoch=80/80 ctx=0.1389 pair=0.1676 active=0.857 eqv=1.0027 vicvar=0.0055 mu=0.351 wr=2.00 elapsed=2251s
+seed=23 valid zone=0.9720 pair=0.6509
+seed=23 intervention full rho=0.846 total=2299s

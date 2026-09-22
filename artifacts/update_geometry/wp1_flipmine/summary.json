@@ -1,0 +1,8 @@
+{
+ "n_parents": 512,
+ "n_quartets": 229,
+ "n_paths": 458,
+ "n_single_cross": 458,
+ "n_with_incidence": 407,
+ "n_bad_audit": 0
+}

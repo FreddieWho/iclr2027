@@ -1,0 +1,35 @@
+{
+  "t5r3_turn_miss": {
+    "before_mean": 0.332,
+    "after_mean": 0.163,
+    "reduction_pp": 16.900000000000002,
+    "relative_reduction": 0.5090361445783133,
+    "note": "computed from rounded per-seed report; not new experiments"
+  },
+  "t5r3_event_miss": {
+    "before_mean": 0.3213333333333333,
+    "after_mean": 0.1466666666666667,
+    "reduction_pp": 17.46666666666666,
+    "relative_reduction": 0.5435684647302903,
+    "note": "computed from rounded per-seed report; not new experiments"
+  },
+  "t5r3_action_invalid_lambda2": {
+    "before_mean": 0.35566666666666663,
+    "after_mean": 0.1423333333333333,
+    "reduction_pp": 21.333333333333332,
+    "relative_reduction": 0.5998125585754452,
+    "note": "computed from rounded per-seed report; not new experiments"
+  },
+  "holdout909_path_integral": {
+    "before": 0.28584558823529416,
+    "after": 0.16268382352941177,
+    "relative_reduction": 0.43086816720257237
+  },
+  "holdout909_conditional_composition": {
+    "clean": 0.8579545454545454,
+    "flipmine": 0.7730496453900709,
+    "matched_clean": 0.6095617529880478,
+    "difference_within_clean_pp": 24.83927924664976,
+    "note": "different conditioning and sampling protocols; descriptive contrast, not identified causal effect"
+  }
+}

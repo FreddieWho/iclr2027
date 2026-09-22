@@ -1,0 +1,8 @@
+{
+ "tag": "dev",
+ "pool": "eval_202",
+ "n_each": 1000,
+ "seed": 102,
+ "n_parents_stay": 5,
+ "n_parents_flip": 56
+}

@@ -1,0 +1,58 @@
+{
+ "n_pairs": 468,
+ "smd": {
+  "ball_speed": 2.6508,
+  "ball_accel": 1.7538,
+  "p_mean_disp": 1.8668,
+  "p_max_disp": 0.869,
+  "cent_disp": 1.4843,
+  "spread_change": 0.6155,
+  "ball_x": 0.2885,
+  "ball_y": 0.0484,
+  "match_t": 0.376,
+  "entropy": 0.0841
+ },
+ "smd_pass": false,
+ "S": {
+  "J03WOY_frozen": {
+   "n": 217,
+   "P_event": 0.2488,
+   "P_control": 0.1244,
+   "S": 0.1244,
+   "CI": [
+    0.1163,
+    0.1355
+   ]
+  },
+  "J03WOY_cover": {
+   "n": 217,
+   "P_event": 0.2673,
+   "P_control": 0.1336,
+   "S": 0.1336,
+   "CI": [
+    0.1216,
+    0.144
+   ]
+  },
+  "J03WMX_frozen": {
+   "n": 251,
+   "P_event": 0.1873,
+   "P_control": 0.0518,
+   "S": 0.1355,
+   "CI": [
+    0.1267,
+    0.1448
+   ]
+  },
+  "J03WMX_cover": {
+   "n": 251,
+   "P_event": 0.1952,
+   "P_control": 0.0518,
+   "S": 0.1434,
+   "CI": [
+    0.1349,
+    0.1518
+   ]
+  }
+ }
+}

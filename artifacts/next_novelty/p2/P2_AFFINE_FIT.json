@@ -1,0 +1,17 @@
+{
+ "fits": {
+  "s11": {
+   "alpha": 1.0,
+   "b": -8.0
+  },
+  "s23": {
+   "alpha": 0.5,
+   "b": -3.0
+  },
+  "s47": {
+   "alpha": 0.5,
+   "b": -3.0
+  }
+ },
+ "note": "from frozen P2_OPERATING wide-grid run"
+}

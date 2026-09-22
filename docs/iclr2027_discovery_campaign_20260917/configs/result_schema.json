@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Discovery campaign route result",
+  "description": "Minimal recording schema, not a scientific success criterion; null means not measured.",
+  "type": "object",
+  "required": [
+    "route_id",
+    "status",
+    "evidence_level",
+    "primary_result",
+    "artifacts"
+  ],
+  "properties": {
+    "route_id": {
+      "type": "string",
+      "enum": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "evidence_level": {
+      "type": "string"
+    },
+    "new_question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "what_changed": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "data_splits": {
+      "type": "object"
+    },
+    "perturbation_contract": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task_oracle": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "representation_layer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "distance_metric": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_selection_or_target_whitebox": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "n_parent_scenes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "n_clean_correct": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "n_attempted": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "n_legal_pairs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "primary_result": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "baseline_value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "denominator": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "baseline_value",
+        "denominator",
+        "unit"
+      ],
+      "additionalProperties": true
+    },
+    "compute": {
+      "type": "object",
+      "properties": {
+        "wall_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "forward_calls": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "backward_calls": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "paid_cost": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "key_counterevidence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nearest_baseline": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_conceptual_trial": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "paper_section_replaced": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

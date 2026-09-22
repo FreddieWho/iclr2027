@@ -1,0 +1,69 @@
+{
+  "base_commit": "ef0f7a34b13ab7029736096975625ef9d0353dba",
+  "tasks": [
+    {
+      "id": "U01",
+      "type": "existing",
+      "base": [
+        "N04"
+      ],
+      "hypothesis": "model-conditioned quartet coverage improves unseen compositions",
+      "status": "NOT_RUN",
+      "priority": 1
+    },
+    {
+      "id": "U02",
+      "type": "existing",
+      "base": [
+        "N06",
+        "E2-N06"
+      ],
+      "hypothesis": "goal feasibility and calibrated costs separate decision-interface from representation effects",
+      "status": "NOT_RUN",
+      "priority": 3
+    },
+    {
+      "id": "U03",
+      "type": "existing",
+      "base": [
+        "N08"
+      ],
+      "hypothesis": "structural training repairs pixel errors across unseen styles",
+      "status": "NOT_RUN",
+      "priority": 3
+    },
+    {
+      "id": "X01",
+      "type": "new",
+      "base": [
+        "E7-negative",
+        "N04"
+      ],
+      "hypothesis": "learned explicit interactions outperform flat representations with fixed supervision",
+      "status": "NOT_RUN",
+      "priority": 1
+    },
+    {
+      "id": "X02",
+      "type": "new",
+      "base": [
+        "N04",
+        "N08"
+      ],
+      "hypothesis": "relation-centered test-time frames repair part of compositional failure",
+      "status": "NOT_RUN",
+      "priority": 2
+    },
+    {
+      "id": "X03",
+      "type": "new",
+      "base": [
+        "N04",
+        "R05-negative"
+      ],
+      "hypothesis": "intervenable constituent states predict compositional reliability",
+      "status": "NOT_RUN",
+      "priority": 4
+    }
+  ]
+}

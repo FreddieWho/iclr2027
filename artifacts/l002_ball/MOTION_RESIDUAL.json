@@ -1,0 +1,24 @@
+{
+ "J03WOY": {
+  "n_event": 217,
+  "n_nonevent": 5481,
+  "obs": 0.2488,
+  "motion_pred": 0.175,
+  "excess": 0.0738,
+  "excess_ci": [
+   0.0653,
+   0.0812
+  ]
+ },
+ "J03WMX": {
+  "n_event": 251,
+  "n_nonevent": 5585,
+  "obs": 0.1873,
+  "motion_pred": 0.1699,
+  "excess": 0.0174,
+  "excess_ci": [
+   0.0094,
+   0.0257
+  ]
+ }
+}

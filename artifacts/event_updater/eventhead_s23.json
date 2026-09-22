@@ -1,0 +1,5 @@
+{
+ "seed": 23,
+ "best_dev_acc": 0.679,
+ "best_epoch": 3
+}

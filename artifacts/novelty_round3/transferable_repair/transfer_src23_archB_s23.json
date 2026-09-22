@@ -1,0 +1,7 @@
+{
+ "set": "src23",
+ "target": "archB",
+ "seed": 23,
+ "n_repair": 143,
+ "final_loss": 0.02053716778755188
+}

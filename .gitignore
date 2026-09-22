@@ -23,9 +23,14 @@ artifacts/**/*.pth
 .agents/
 .understand-anything/
 
-# Foreign project directory (Memory Pilot), not part of this repo —
-# kept on disk for its own nested .git, untracked here since 2026-09-22.
+# Foreign project directory (Memory Pilot): untracked 2026-09-22, then physically
+# moved out of this repo to ../memory_pilot_submission/. Entry kept defensively.
 submission/
 
 # Pi agent runtime state (session-local, never commit)
 .pi/
+
+# Large intermediate JSONs (6-13MB each, 111MB total): P1 unified dumps.
+# Tracked by sha in artifacts/SHA256SUMS_UNTRACKED.txt; kept local to avoid repo bloat.
+artifacts/next_novelty/p1_unified/
+artifacts/next_novelty/p1_unified_confirm/

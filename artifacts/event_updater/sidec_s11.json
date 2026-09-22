@@ -1,0 +1,16 @@
+{
+ "seed": 11,
+ "n_quartets": 64,
+ "dlogit": {
+  "n_hit": 4,
+  "n_miss": 60,
+  "med_hit": 0.75002,
+  "med_miss": 0.61066
+ },
+ "dhid": {
+  "n_hit": 4,
+  "n_miss": 60,
+  "med_hit": 0.32096,
+  "med_miss": 0.26114
+ }
+}

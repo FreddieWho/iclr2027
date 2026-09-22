@@ -29,6 +29,8 @@
 
 ## 其他
 
+- `governance_history/` — **退休的项目级治理文档**（旧 PLAN/ROADMAP/CLAIM_LEDGER，
+  2026-09-22 从根目录移入；现行状态文档为根目录 STATUS/TODO/DECISIONS/LEADS）
 - `review/review_0918_01.md` — 2026-09-18 评审
 - `ai_galaxy_remote_pitfalls/` — 远端执行环境坑记录（infra 笔记）
 - `legacy/` — 2026-09-22 结构整理时从根目录移出的历史一次性文件
@@ -37,5 +39,5 @@
 ## 投稿行政备忘（分散在 TODO/评审中，汇总于此）
 
 - OpenReview 资料冻结、官方样式替换、references 扩充：见 `TODO.md` 顶部清单。
-- 投稿胜算评审：`reports/PUBLICATION_REVIEW_ICLR2027.md`（9-05）＋
+- 投稿胜算评审：`reports/e3_p4_amr/PUBLICATION_REVIEW_ICLR2027.md`（9-05）＋
   `reports/research_briefs_20260905/`。

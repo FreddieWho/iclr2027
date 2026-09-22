@@ -5,6 +5,15 @@
 > 根目录 `PROJECT_MAP.md`。时代：E0–E1 蓝图/P2 / E2 P3-T5R / E3 P4-AMR /
 > E4 转折发现 / E5 外部确认 / E6 终局。
 
+## ⚠️ 本地未跟踪文件（clone 后不存在）
+
+- **12 个 P1 unified 大 JSON**（`next_novelty/p1_unified*/`，各 6–13MB，合计 111MB）：
+  P1 复算链的直接输入/输出，因体积经 `.gitignore` 留本地；完整性清单
+  **`artifacts/SHA256SUMS_UNTRACKED.txt`**（`sha256sum -c` 核对）。
+- 小型证据文件（约 275 个 json/txt/csv，33MB）已于 2026-09-22 入库。
+- 二进制（.pt/.npy/.npz/.parquet）按 `.gitignore` 政策留本地；复算链所需冻结输入
+  （银行/场景/模型）见 `reports/final_closure/REPRODUCE_FINAL.md` 首部说明。
+
 ## ⭐ 终局叙事证据（E4–E6）
 
 | 目录 | 时代 | 内容与地位 |

@@ -1,0 +1,68 @@
+{
+ "J03WOY": {
+  "frozen": {
+   "n": 2341,
+   "miss": 0.8616,
+   "confQ0_miss": 0.5956,
+   "confQ3_miss": 0.97,
+   "near_hi": 0.9049,
+   "near_lo": 0.6722,
+   "far_hi": 0.9886,
+   "far_lo": 0.8889
+  },
+  "cover": {
+   "n": 2341,
+   "miss": 0.856,
+   "confQ0_miss": 0.5571,
+   "confQ3_miss": 0.9741,
+   "near_hi": 0.9224,
+   "near_lo": 0.6403,
+   "far_hi": 0.9896,
+   "far_lo": 0.8571
+  }
+ },
+ "J03WMX": {
+  "frozen": {
+   "n": 2511,
+   "miss": 0.8658,
+   "confQ0_miss": 0.6143,
+   "confQ3_miss": 0.9715,
+   "near_hi": 0.9104,
+   "near_lo": 0.656,
+   "far_hi": 0.9919,
+   "far_lo": 1.0
+  },
+  "cover": {
+   "n": 2511,
+   "miss": 0.875,
+   "confQ0_miss": 0.6025,
+   "confQ3_miss": 0.9729,
+   "near_hi": 0.9107,
+   "near_lo": 0.6683,
+   "far_hi": 0.9952,
+   "far_lo": 1.0
+  }
+ },
+ "J03WOH": {
+  "frozen": {
+   "n": 2540,
+   "miss": 0.8717,
+   "confQ0_miss": 0.617,
+   "confQ3_miss": 0.9728,
+   "near_hi": 0.914,
+   "near_lo": 0.6606,
+   "far_hi": 0.9942,
+   "far_lo": 1.0
+  },
+  "cover": {
+   "n": 2540,
+   "miss": 0.8874,
+   "confQ0_miss": 0.6433,
+   "confQ3_miss": 0.9819,
+   "near_hi": 0.9392,
+   "near_lo": 0.6784,
+   "far_hi": 0.9984,
+   "far_lo": 1.0
+  }
+ }
+}

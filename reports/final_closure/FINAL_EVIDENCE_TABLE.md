@@ -1,4 +1,4 @@
-# FINAL_EVIDENCE_TABLE (rebuilt 2026-09-22; supersedes reports/FINAL_EVIDENCE_TABLE.md for new claims; old file kept as history)
+# FINAL_EVIDENCE_TABLE (rebuilt 2026-09-22; supersedes reports/e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md for new claims; old file kept as history)
 
 ## A. Headline phenomenon (confirm: fresh holdout_909, sealed)
 | claim | number | artifact |

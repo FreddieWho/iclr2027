@@ -1,0 +1,7 @@
+{
+ "set": "random",
+ "target": "archB",
+ "seed": 11,
+ "n_repair": 150,
+ "final_loss": 0.00021329177252482623
+}

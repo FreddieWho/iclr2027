@@ -1,0 +1,47 @@
+{
+  "name": "iclr2027_discovery_campaign",
+  "date": "2026-09-17",
+  "baseline_commit": "f86dbdf6107bad3d156b250a3c23bd5dcd8bb9d2",
+  "objective": "Find new phenomena and mechanisms that can replace the paper main claim; no routine parameter search or revalidation of closed conclusions.",
+  "priority_override": [
+    "B30 training sweeps",
+    "previous review audit-first schedule",
+    "old AMR approval gates"
+  ],
+  "default_active_routes": [
+    "R01",
+    "R02",
+    "R05"
+  ],
+  "early_secondary_routes": [
+    "R06",
+    "R03",
+    "R04"
+  ],
+  "compute": {
+    "max_heavy_workers": 3,
+    "exclusive_gpu_training": true,
+    "paid_spend_authorized_by_this_pack": false,
+    "use_existing_explicit_authorization": true
+  },
+  "pilot_defaults": {
+    "scenes": 64,
+    "models": 3,
+    "mode_pairs_per_scene": 64,
+    "interpretation": "editable scheduling defaults, not scientific acceptance thresholds"
+  },
+  "selection": {
+    "required_p_value": null,
+    "required_seeds": null,
+    "mandatory_effect_size": null,
+    "preregistration_required": false,
+    "rounds_fixed_in_advance": false,
+    "main_story_count": 1,
+    "main_method_count": 1
+  },
+  "output_root": "artifacts/discovery_campaign",
+  "experiment_root": "experiments/discovery_campaign",
+  "report_root": "reports/discovery_campaign",
+  "reference_contract": "balanced_antithetic_equal_marginal",
+  "no_claims_yet": true
+}

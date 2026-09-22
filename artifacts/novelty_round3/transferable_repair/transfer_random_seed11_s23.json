@@ -1,0 +1,7 @@
+{
+ "set": "random",
+ "target": "seed11",
+ "seed": 23,
+ "n_repair": 150,
+ "final_loss": 6.909506191732362e-05
+}

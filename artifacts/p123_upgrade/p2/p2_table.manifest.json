@@ -1,0 +1,14 @@
+{
+ "n_scenes": 256,
+ "n_actions": 49,
+ "models": [
+  "s11_clean",
+  "s11_flipmine",
+  "s23_clean",
+  "s23_flipmine",
+  "s47_clean",
+  "s47_flipmine"
+ ],
+ "source": "u02 cache frames/feas (2026-09-18)",
+ "sha256": "e7ee314b66baeafbcd3027be3a54a64c6ba7438e613ebd2c3bad72b29453c2c8"
+}

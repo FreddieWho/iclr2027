@@ -1,0 +1,7 @@
+{
+ "set": "diverse",
+ "target": "archB",
+ "seed": 23,
+ "n_repair": 150,
+ "final_loss": 0.009654771536588669
+}

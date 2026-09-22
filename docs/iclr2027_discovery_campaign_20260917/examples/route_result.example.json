@@ -1,0 +1,37 @@
+{
+  "route_id": "R01",
+  "run_id": null,
+  "status": "not_started",
+  "evidence_level": "not_measured",
+  "new_question": null,
+  "what_changed": null,
+  "source_commit": null,
+  "data_splits": {},
+  "perturbation_contract": null,
+  "task_oracle": null,
+  "representation_layer": null,
+  "distance_metric": null,
+  "source_selection_or_target_whitebox": null,
+  "n_parent_scenes": null,
+  "n_clean_correct": null,
+  "n_attempted": null,
+  "n_legal_pairs": null,
+  "primary_result": {
+    "name": null,
+    "value": null,
+    "baseline_value": null,
+    "denominator": null,
+    "unit": null
+  },
+  "compute": {
+    "wall_seconds": null,
+    "forward_calls": null,
+    "backward_calls": null,
+    "paid_cost": null
+  },
+  "key_counterevidence": null,
+  "nearest_baseline": null,
+  "next_conceptual_trial": null,
+  "paper_section_replaced": null,
+  "artifacts": []
+}

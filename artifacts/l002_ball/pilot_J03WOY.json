@@ -1,0 +1,54 @@
+{
+ "n_snaps": 5702,
+ "n_ball_hit": 5702,
+ "pass_successfullyCompleted": {
+  "n": 639,
+  "frozen": 0.146,
+  "cover": 0.153
+ },
+ "pass_unsuccessful": {
+  "n": 205,
+  "frozen": 0.176,
+  "cover": 0.195
+ },
+ "S1_ballstatus_flip": {
+  "n": 224,
+  "frozen": 0.022,
+  "cover": 0.031
+ },
+ "S1_ballstatus_stable": {
+  "n": 1091,
+  "frozen": 0.03,
+  "cover": 0.036
+ },
+ "S2_baseline": {
+  "n": 219,
+  "frozen": 0.169,
+  "cover": 0.192
+ },
+ "S2_contested_presence": {
+  "n": 219,
+  "frozen": 0.251,
+  "cover": 0.265
+ },
+ "S3_speedQ0": {
+  "n": 2550,
+  "frozen": 0.02,
+  "cover": 0.022
+ },
+ "S3_speedQ1": {
+  "n": 2851,
+  "frozen": 0.021,
+  "cover": 0.023
+ },
+ "S3_speedQ2": {
+  "n": 1426,
+  "frozen": 0.039,
+  "cover": 0.041
+ },
+ "S3_speedQ3": {
+  "n": 1426,
+  "frozen": 0.048,
+  "cover": 0.053
+ }
+}

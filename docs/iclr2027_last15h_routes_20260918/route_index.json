@@ -1,0 +1,88 @@
+{
+  "review_commit": "3ab758d65d68aca9204736e04dcb7c60e5a8f6ad",
+  "date": "2026-09-18",
+  "budget_hours": 15,
+  "new_experiments_executed": false,
+  "routes": [
+    {
+      "id": "N01",
+      "title": "决策边界夹逼：教会模型在正确的位置改判",
+      "priority": "最高",
+      "worker": "W1",
+      "file": "routes/N01.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N02",
+      "title": "从响应大小改为语义方向：局部边界法向监督",
+      "priority": "高，方法创新候选",
+      "worker": "W1",
+      "file": "routes/N02.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N03",
+      "title": "起终点都正确，中途却漏事件：路径级失察",
+      "priority": "最高，发现型主打",
+      "worker": "W2",
+      "file": "routes/N03.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N04",
+      "title": "见过每个局部动作，仍不懂它们的组合",
+      "priority": "高，组合泛化",
+      "worker": "W2",
+      "file": "routes/N04.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N05",
+      "title": "迁移的是修复教材，而不是攻击方向",
+      "priority": "高，低新增工程",
+      "worker": "W3",
+      "file": "routes/N05.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N06",
+      "title": "让模型选择行动：高准确率是否仍给出错误建议",
+      "priority": "最高，重要性提升",
+      "worker": "W4",
+      "file": "routes/N06.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N07",
+      "title": "不是更多反例，而是覆盖更多种语义转折的小教材",
+      "priority": "中高，效率型大数字",
+      "worker": "W3",
+      "file": "routes/N07.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N08",
+      "title": "坐标不再直接给模型：视觉关系与视觉转折",
+      "priority": "高上限，中等工程风险",
+      "worker": "W5",
+      "file": "routes/N08.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N09",
+      "title": "同时防误报与漏报：正确语义边界下的稳健性权衡",
+      "priority": "中高，叙事有张力",
+      "worker": "W4",
+      "file": "routes/N09.md",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "id": "N10",
+      "title": "将“判断是否发生变化”作为独立学习目标",
+      "priority": "高风险，结构性方法备选",
+      "worker": "W6",
+      "file": "routes/N10.md",
+      "status": "PROPOSED_NOT_RUN"
+    }
+  ]
+}

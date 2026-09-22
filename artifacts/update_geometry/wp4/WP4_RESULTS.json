@@ -1,0 +1,79 @@
+{
+ "model_table": {
+  "clean": {
+   "static_err": 0.1699,
+   "trans_miss": 0.5576,
+   "trans_n": 217,
+   "comp_cond": 0.8281,
+   "comp_n": 64,
+   "action_invalid": 0.7698,
+   "action_feas": 139
+  },
+  "flipmine": {
+   "static_err": 0.123,
+   "trans_miss": 0.2903,
+   "trans_n": 217,
+   "comp_cond": 0.8302,
+   "comp_n": 53,
+   "action_invalid": 0.6835,
+   "action_feas": 139
+  },
+  "fliprand": {
+   "static_err": 0.125,
+   "trans_miss": 0.424,
+   "trans_n": 217,
+   "comp_cond": 0.8254,
+   "comp_n": 63,
+   "action_invalid": 0.705,
+   "action_feas": 139
+  },
+  "supmine": {
+   "static_err": 0.1641,
+   "trans_miss": 0.4424,
+   "trans_n": 217,
+   "comp_cond": 0.7091,
+   "comp_n": 55,
+   "action_invalid": 0.6978,
+   "action_feas": 139
+  },
+  "auxmargin": {
+   "static_err": 0.1797,
+   "trans_miss": 0.5161,
+   "trans_n": 217,
+   "comp_cond": 0.831,
+   "comp_n": 71,
+   "action_invalid": 0.8129,
+   "action_feas": 139
+  },
+  "relfeat": {
+   "static_err": 0.0586,
+   "trans_miss": 0.447,
+   "trans_n": 217,
+   "comp_cond": 0.7778,
+   "comp_n": 81,
+   "action_invalid": 0.518,
+   "action_feas": 139
+  }
+ },
+ "spearman": {
+  "static_vs_action": 0.9429,
+  "trans_vs_action": 0.5429,
+  "comp_vs_action": 0.5429
+ },
+ "scene_level": {
+  "P_invalid_given_transmiss": 0.6334,
+  "n1": 401,
+  "P_invalid_given_transhit": 0.7431,
+  "n0": 397,
+  "risk_diff": -0.1097,
+  "risk_diff_ci": [
+   -0.1886,
+   -0.0322
+  ],
+  "odds_ratio": 0.5974,
+  "logistic_coef": [
+   -2.7143,
+   0.4577
+  ]
+ }
+}

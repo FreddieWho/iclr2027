@@ -1,0 +1,12 @@
+sets rebuilt deterministically: 108
+v5 seed=11: 74 rows
+v5cap seed=11: 74 rows
+v5 seed=23: 74 rows
+v5cap seed=23: 74 rows
+v5 seed=47: 74 rows
+v5cap seed=47: 74 rows
+v5 {"n": 222, "base_rate": 0.8784, "spearman_success_conc": -0.0117, "logit_std_coef_conc": 0.0384, "logit_std_coef_ci95": [-0.3859361423404637, 0.5448753843373216], "auc": 0.4976, "auc_ci95": [0.4028860139915037, 0.6005986241408122], "youden_threshold": 0.4452}
+v5cap {"n": 222, "base_rate": 0.8198, "spearman_success_conc": -0.0503, "logit_std_coef_conc": -0.3257, "logit_std_coef_ci95": [-0.6158794673619159, 0.11956305457763995], "auc": 0.3988, "auc_ci95": [0.3015592432259099, 0.5081727888998061], "youden_threshold": 0.8195}
+all {"n": 444, "base_rate": 0.8491, "spearman_success_conc": -0.0363, "logit_std_coef_conc": -0.1731, "logit_std_coef_ci95": [-0.42506606561202376, 0.1855093696723223], "auc": 0.4404, "auc_ci95": [0.36363001051038213, 0.5256614219801296], "youden_threshold": 0.4195}
+figure skipped: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /opt/anaconda3/lib/python3.11/site-packages/matplotlib/_path.cpython-311-x86_64-linux-gnu.so)
+{"status": "MU_THRESHOLD_ANALYSIS_COMPLETE", "rows": 444}

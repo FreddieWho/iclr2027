@@ -1,0 +1,17 @@
+{
+  "evidence_level": "engineering_only",
+  "scientific_claims": [],
+  "description": "Synthetic matrix/oracle identities only; no trained model or project data loaded.",
+  "checks": {
+    "marginal_plus_probability_difference_max": 0.0,
+    "arm_energy_error_max": 1.3877787807814457e-17,
+    "group1_displacement_sum_max": 0.0,
+    "group2_displacement_sum_max": 0.0,
+    "quadratic_identity_absolute_error": 2.7755575615628914e-17,
+    "metric_min_eigenvalue": 0.9999999999999999,
+    "oracle_class_counts": [
+      16,
+      16
+    ]
+  }
+}

@@ -59,30 +59,27 @@
 | `calligraphy_pilot/` | E0 | 书法试点（EXPLORATORY_FROZEN，不进本期论文） | 历史冻结 |
 | `remote/` | E0 | 远端书法/检索运行收据 | 历史 |
 
-## 4. reports/（散落报告按时代归类；子目录详见 `reports/INDEX.md`）
+## 4. reports/（已按时代物理分区；子目录详见 `reports/INDEX.md`）
 
 - **E6 终局权威**：`final_closure/`（全部）、`next_novelty/`、`p123_upgrade/`、
-  `confident_blindspots/`、`repair_decomposition/`（如有）、`exploration_log.yaml`
+  `confident_blindspots/`、`exploration_log.yaml`
 - **E4 转折**：`last15h/`、`discovery_campaign/`、`next6_ef0f7a3/`、
-  `FINAL_EVIDENCE_TABLE.md`（9-18 版，已被 final_closure 版取代）
+  `e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md`（9-18 版，已被 final_closure 版取代）
 - **E5 外部确认**：`bridge/`、`bridge_r/`
-- **E3 P4-AMR**：`P4_*.md`、`GOAL_R*.md`、`N4_HEADTOHEAD_DRAFT.md`、`research_p4*/`、
-  `research_b30/`、`research_briefs_20260905/`
-- **E2 P3-T5R**：`P3_*.md`（SUPPORT_CONDITIONED_GEOMETRY 为该期主报告）
-- **E0–E1 蓝图/P2**：`PHASE0_REPORT.md`、`P2_*.md`、`EXPLORATION_CHECKPOINT*.md`、
-  `PUBLICATION_REVIEW_ICLR2027.md`、`p0-overview.html`
-- **书法（EXPLORATORY_FROZEN）**：`CALLIGRAPHY_*.md`
+- **E3 P4-AMR**：`e3_p4_amr/`（P4_*、GOAL_R*、N4_HEADTOHEAD_DRAFT、PUBLICATION_REVIEW）、
+  `research_p4*/`、`research_b30/`、`research_briefs_20260905/`
+- **E2 P3-T5R**：`e2_p3_t5r/`（P3_SUPPORT_CONDITIONED_GEOMETRY 为该期主报告）
+- **E0–E1 蓝图/P2**：`e0e1_blueprint/`（PHASE0/P2_*/EXPLORATION_CHECKPOINT*/CALLIGRAPHY_*）
 - **E6 关闭旁路**：`update_geometry/`、`event_updater/`、`l002_ball/`、`radius_loss/`、
   `novelty_round3/`、`next_novelty/FINAL_NOVELTY_DECISION.md`
-- 历史发布记录：`RELEASE_CHANGELOG_20260901.md`
 
 ## 5. 文档对照：权威 vs 历史（避免双"唯一来源"混淆）
 
 | 主题 | ✅ 当前权威 | ⛔ 历史版本（勿再引用数字） |
 |---|---|---|
 | 正文数字 | `reports/final_closure/MASTER_CLAIM_LEDGER.md` | `CLAIM_LEDGER.md`（P2/P3 时代）、`paper/EVIDENCE_MAP.md`（旧论文骨架） |
-| 证据总表 | `reports/final_closure/FINAL_EVIDENCE_TABLE.md`（9-22 重建） | `reports/FINAL_EVIDENCE_TABLE.md`（9-18，该文件顶部已标 superseded） |
-| 项目状态 | `STATUS.md`（POLISH） | `configs/project.yaml`（P3 时代字段）、`PLAN.md`/`ROADMAP.md`（P4 时代） |
+| 证据总表 | `reports/final_closure/FINAL_EVIDENCE_TABLE.md`（9-22 重建） | `reports/e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md`（9-18，该文件顶部已标 superseded） |
+| 项目状态 | `STATUS.md`（POLISH） | `configs/project.yaml`（P3 时代字段）、`docs/governance_history/`（旧 PLAN/ROADMAP/CLAIM_LEDGER） |
 | 行动史 | `TODO.md` 变更记录（最新在文末） | TODO 中部 B30 清单（已标历史区） |
 | 复算入口 | `reports/final_closure/REPRODUCE_FINAL.md` | 各时代报告内的运行命令（仅溯源用） |
 | 决策史 | `DECISIONS.md`（追加至 9-18）+ TODO 变更记录（9-18 后） | — |

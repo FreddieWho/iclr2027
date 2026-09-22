@@ -1,6 +1,7 @@
 > ⚠️ **历史档案（P4-AMR 时代，2026-09-05）**：本 ROADMAP 已终结（P4-N1–N4 完成，
-> N5/N6 未授权即随路线调整关闭）。最终叙事与收官节点见
-> `reports/final_closure/FINAL_PROJECT_VERDICT.md`；当前状态见 `STATUS.md`。
+> N5/N6 未授权即随路线调整关闭），2026-09-22 从根目录退休至
+> `docs/governance_history/`。最终叙事与收官节点见
+> `reports/final_closure/FINAL_PROJECT_VERDICT.md`；当前状态见根目录 `STATUS.md`。
 > 以下原文保留作历史。
 
 # ROADMAP — P4 AMR-Fixed（M1）全周期

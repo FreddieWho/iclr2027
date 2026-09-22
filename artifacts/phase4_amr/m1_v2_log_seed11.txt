@@ -1,0 +1,8 @@
+=== AMR M1 seed=11 threads=8 ===
+seed=11 epoch=1/80 ctx=0.9052 pair=0.1038 route=2.2108 inv=0.49617 eqv=1.92833 elapsed=9s
+seed=11 epoch=20/80 ctx=1.7576 pair=0.1111 route=0.0320 inv=2.29721 eqv=0.47119 elapsed=173s
+seed=11 epoch=40/80 ctx=1.7643 pair=0.2000 route=0.0704 inv=0.99955 eqv=0.18539 elapsed=353s
+seed=11 epoch=60/80 ctx=1.7485 pair=0.2000 route=0.0060 inv=0.83552 eqv=0.33394 elapsed=534s
+seed=11 epoch=80/80 ctx=1.7592 pair=0.1994 route=0.0129 inv=0.56256 eqv=0.26816 elapsed=714s
+seed=11 valid zone=0.2529 pair=0.0016 z_mode_translation=0.0000
+seed=11 intervention full rho=1.0 total=752s

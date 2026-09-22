@@ -1,0 +1,16 @@
+{
+ "tag": "src23",
+ "source": "r04b_s23/clean",
+ "K": 256,
+ "kept": 143,
+ "n_missing": 67,
+ "n_false": 76,
+ "n_queries": 58606,
+ "fams": {
+  "global_trans": 5,
+  "pair": 18,
+  "random": 39,
+  "single": 79,
+  "global_rot": 2
+ }
+}

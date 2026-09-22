@@ -1,0 +1,75 @@
+{
+  "dependency_semantics": "required interface, not success/approval gate",
+  "tasks": [
+    {
+      "id": "T00",
+      "owner": "controller",
+      "depends_on": [],
+      "action": "Read latest local state, inventory assets, write short campaign state; do not run old audits."
+    },
+    {
+      "id": "T01",
+      "owner": "W0",
+      "depends_on": [
+        "T00"
+      ],
+      "action": "Implement minimal adapters, shared sign-pair bank and task oracle. Toy runs may start before real adapter is ready."
+    },
+    {
+      "id": "R01",
+      "owner": "W1",
+      "depends_on": [
+        "T01"
+      ],
+      "action": "Dependence-only distribution comparison with real task outcomes."
+    },
+    {
+      "id": "R02",
+      "owner": "W2",
+      "depends_on": [
+        "T01"
+      ],
+      "action": "Structured relational metamers with oracle and all-attempt denominator."
+    },
+    {
+      "id": "R05",
+      "owner": "W5",
+      "depends_on": [
+        "T01"
+      ],
+      "action": "Frozen representation edit and equal-feedback selection comparison; may use generated pairs before R02."
+    },
+    {
+      "id": "R06",
+      "owner": "W6",
+      "depends_on": [
+        "T00"
+      ],
+      "action": "Small simulator and predictor; implement counterfactual re-simulation and dependence-shift trial."
+    },
+    {
+      "id": "R03",
+      "owner": "W3",
+      "depends_on": [
+        "T01"
+      ],
+      "action": "Source template selection and target-only evaluation. Reuse R01 caches if available, but not dependent on its positive result."
+    },
+    {
+      "id": "R04",
+      "owner": "W4",
+      "depends_on": [
+        "T01"
+      ],
+      "action": "Equal-marginal distributional training versus equal-weight and relevant strong baselines. No significance gate."
+    },
+    {
+      "id": "SYNTH",
+      "owner": "controller",
+      "depends_on": [
+        "T00"
+      ],
+      "action": "At first substantial results, select strongest story/method; unfinished or blocked routes do not block this decision."
+    }
+  ]
+}

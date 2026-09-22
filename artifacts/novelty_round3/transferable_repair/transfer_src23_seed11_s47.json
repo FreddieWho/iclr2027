@@ -1,0 +1,7 @@
+{
+ "set": "src23",
+ "target": "seed11",
+ "seed": 47,
+ "n_repair": 143,
+ "final_loss": 0.01219221018254757
+}

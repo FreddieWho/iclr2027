@@ -1,0 +1,8 @@
+=== AMR v6 seed=23 threads=8 ===
+seed=23 epoch=1/80 ctx=0.8943 pair=0.0954 active=0.510 eqv=0.0000 vicvar=0.0003 mu=0.000 wr=0.00 elapsed=26s
+seed=23 epoch=20/80 ctx=0.4823 pair=0.0059 active=0.123 eqv=0.0000 vicvar=0.0000 mu=0.000 wr=0.00 elapsed=455s
+seed=23 epoch=40/80 ctx=0.3305 pair=0.0071 active=0.125 eqv=0.1260 vicvar=0.0000 mu=0.201 wr=1.00 elapsed=957s
+seed=23 epoch=60/80 ctx=0.2300 pair=0.0035 active=0.094 eqv=0.0803 vicvar=0.0000 mu=0.192 wr=1.00 elapsed=1502s
+seed=23 epoch=80/80 ctx=0.1339 pair=0.0028 active=0.082 eqv=0.0762 vicvar=0.0000 mu=0.140 wr=1.00 elapsed=2024s
+seed=23 valid zone=0.9817 pair=0.8019
+seed=23 intervention full rho=0.883 total=2069s

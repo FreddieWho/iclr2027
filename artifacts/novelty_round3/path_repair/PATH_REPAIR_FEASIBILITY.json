@@ -1,0 +1,12 @@
+{
+ "n_paths": 64,
+ "n_single": 4,
+ "median_regions": 5.0,
+ "constancy_ok_frac": 1.0,
+ "pilot": {
+  "seen_point": 0.0407,
+  "seen_path": 0.2345,
+  "unseen_point": NaN,
+  "unseen_path": NaN
+ }
+}

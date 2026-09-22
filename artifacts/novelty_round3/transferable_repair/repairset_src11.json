@@ -1,0 +1,16 @@
+{
+ "tag": "src11",
+ "source": "r04b_s11/clean",
+ "K": 256,
+ "kept": 149,
+ "n_missing": 62,
+ "n_false": 87,
+ "n_queries": 81705,
+ "fams": {
+  "single": 73,
+  "global_trans": 3,
+  "pair": 14,
+  "random": 55,
+  "global_rot": 4
+ }
+}

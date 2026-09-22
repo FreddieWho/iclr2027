@@ -1,0 +1,8 @@
+=== barlow_twins_2to1 seed=11 threads=8 ===
+[barlow_twins_2to1] seed=11 epoch=1/80 context=0.86144 bt=34.59672 elapsed=3s
+[barlow_twins_2to1] seed=11 epoch=20/80 context=0.62037 bt=22.06969 elapsed=67s
+[barlow_twins_2to1] seed=11 epoch=40/80 context=0.46009 bt=19.08494 elapsed=135s
+[barlow_twins_2to1] seed=11 epoch=60/80 context=0.24408 bt=18.87116 elapsed=204s
+[barlow_twins_2to1] seed=11 epoch=80/80 context=0.12389 bt=18.79870 elapsed=272s
+seed=11 valid zone=0.9695 pair=0.9518
+seed=11 intervention full rho=0.636 total=299s

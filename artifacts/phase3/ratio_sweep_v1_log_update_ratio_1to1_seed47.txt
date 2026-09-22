@@ -1,0 +1,8 @@
+=== update_ratio_1to1 (210/210) seed=47 threads=8 ===
+seed=47 epoch=1/80 context=0.92560 intrinsic=0.10090 elapsed=7s
+seed=47 epoch=20/80 context=0.47421 intrinsic=0.01534 elapsed=116s
+seed=47 epoch=40/80 context=0.29289 intrinsic=0.00822 elapsed=236s
+seed=47 epoch=60/80 context=0.18107 intrinsic=0.00380 elapsed=355s
+seed=47 epoch=80/80 context=0.09666 intrinsic=0.00384 elapsed=450s
+update_ratio_1to1 seed=47 valid zone=0.9799 pair=0.9100
+update_ratio_1to1 seed=47 intervention full rho=0.438 total=492s

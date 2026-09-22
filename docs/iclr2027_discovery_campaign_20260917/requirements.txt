@@ -1,0 +1,3 @@
+numpy>=1.24
+# Pack kernels use NumPy and the Python standard library only.
+# Neural runners reuse the repository environment; do not reinstall its torch stack here.

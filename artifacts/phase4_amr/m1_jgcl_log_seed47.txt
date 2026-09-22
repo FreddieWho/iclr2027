@@ -1,0 +1,8 @@
+=== AMR jgcl seed=47 threads=8 ===
+seed=47 epoch=1/80 ctx=0.9256 info=0.0000 embstd=0.00000 mu=0.000 w=0.00 elapsed=2s
+seed=47 epoch=20/80 ctx=0.5015 info=0.0000 embstd=0.00000 mu=0.000 w=0.00 elapsed=41s
+seed=47 epoch=40/80 ctx=0.3904 info=0.1682 embstd=0.75165 mu=0.348 w=1.00 elapsed=918s
+seed=47 epoch=60/80 ctx=0.2658 info=0.1202 embstd=0.77664 mu=0.341 w=1.00 elapsed=1711s
+seed=47 epoch=80/80 ctx=0.1758 info=0.1066 embstd=0.79181 mu=0.358 w=1.00 elapsed=2504s
+seed=47 valid zone=0.9785 pair=0.6345
+seed=47 intervention full rho=0.692 total=2554s

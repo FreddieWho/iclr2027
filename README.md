@@ -34,7 +34,8 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 | P1/P2/P3 收官 | `reports/final_closure/P{1,2,3}_CLOSURE_REPORT.md` | 各线终局报告 |
 | 纠错记录 | `reports/final_closure/EVIDENCE_CORRECTIONS_FINAL.md` | 8 项已确认纠错（旧数作废在此登记） |
 
-⚠️ 根目录 `CLAIM_LEDGER.md`、`reports/FINAL_EVIDENCE_TABLE.md`（9-18 版）、
+⚠️ `docs/governance_history/CLAIM_LEDGER_P2P3_20260916.md`、
+`reports/e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md`（9-18 版）、
 `paper/EVIDENCE_MAP.md` 均为**历史版本**，措辞与数字以 final_closure 为准。
 
 ## 推荐阅读顺序
@@ -61,14 +62,15 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 | `docs/` | 各时代方案包与蓝图文档，索引见 `docs/INDEX.md` | 历史为主 |
 | `docs/legacy/` | 根目录移出的历史一次性文件 | 历史 |
 | `configs/` | 各期 config 锁与 data manifest | 历史冻结 |
-| `scripts/`、`tests/` | 各期脚本与单测（P0→终局全跨度） | 历史冻结+当前 |
+| `scripts/`、`tests/` | 各期脚本与单测（P0→终局全跨度；**平铺是有意的**——冻结 config/lock 字节级锁定脚本路径与哈希，时代归属见 `scripts/INDEX.md`） | 历史冻结+当前 |
 | `data/` | 原始数据（48G，gitignore） | 本地 |
-| `submission/` | ⚠️ **另一个项目（Memory Pilot）误入，与本论文无关，已移出 git 跟踪** | 忽略 |
+| `data/` | 原始数据（48G，gitignore） | 本地 |
+| ~~`submission/`~~ | ⚠️ 另一个项目（Memory Pilot）误入，2026-09-22 已移出跟踪并**物理移出本仓库**（现位于 `../memory_pilot_submission/`） | 已移除 |
 | `templates/` | 报告模板 | 工具 |
 
-治理文档（项目根）：`PLAN.md` / `ROADMAP.md` / `CLAIM_LEDGER.md` 保留为
-**历史档案**（顶部有横幅标注其对应时代）；当前状态以 `STATUS.md`、
-`TODO.md`、`reports/final_closure/` 为准。
+治理文档：根目录只留当前态——`STATUS.md`（状态）、`TODO.md`（待办/变更记录）、
+`DECISIONS.md`（决策史）、`LEADS.md`（探索线索）。旧 PLAN/ROADMAP/CLAIM_LEDGER
+已退休至 `docs/governance_history/`（2026-09-22，顶部横幅标注时代）。
 
 ## 为什么会有这么多"旧线"目录（路线调整简史）
 
@@ -92,8 +94,8 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 
 - ❌ `docs/01–10` 蓝图文档：立项时的 AMR/书法叙事，**已被路线调整取代**（历史价值在 `docs/INDEX.md` 说明）。
 - ❌ `docs/legacy/PROJECT_PACKAGE_CONSOLIDATED.md`：旧方案包合并版。
-- ❌ `STATUS.md` 以外的任何"P4 AMR 进行中"描述：P4 已终结（v6≈CAP，方法位放弃）。
-- ❌ `submission/`：另一个项目。
+- ❌ `STATUS.md` 以外的任何“P4 AMR 进行中”描述：P4 已终结（v6≈CAP，方法位放弃）；旧 PLAN/ROADMAP 在 `docs/governance_history/`。
+- ❌ `submission/`：另一个项目（已物理移出本仓库至 `../memory_pilot_submission/`）。
 - ❌ 任何单一目录名猜测归属：`radius_loss`、`l002_ball`、`event_updater` 等均为
   终局期的已关闭旁路，先看 `PROJECT_MAP.md` 再读。
 

@@ -1,0 +1,11 @@
+metric,value
+n_primary,3508
+matched_pairs,73
+M_tan,0.7534
+M_nor,0.6164
+delta_M,0.137
+delta_CI,"[0.128, 0.1473]"
+smd_pass,False
+ab_miss,202
+path_miss_frac,0.9851
+path_abnormal_frac,0.0149

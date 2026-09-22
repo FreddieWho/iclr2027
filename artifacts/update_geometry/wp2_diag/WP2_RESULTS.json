@@ -1,0 +1,32 @@
+{
+ "search_radius": 0.025,
+ "clean": {
+  "n": 1301,
+  "A_mean": -0.0029,
+  "A_median": -0.0045,
+  "|A|_mean": 0.5904,
+  "coverage": 0.0961,
+  "offset_median": 0.01208,
+  "offset_n": 125,
+  "Ab_mean": -0.049,
+  "Ab_n": 125
+ },
+ "flip": {
+  "n": 1301,
+  "A_mean": -0.0073,
+  "A_median": -0.2372,
+  "|A|_mean": 0.7589,
+  "coverage": 0.1691,
+  "offset_median": 0.01135,
+  "offset_n": 220,
+  "Ab_mean": 0.0383,
+  "Ab_n": 220
+ },
+ "paired_dA": {
+  "mean": -0.0044,
+  "ci": [
+   -0.0112,
+   0.0023
+  ]
+ }
+}

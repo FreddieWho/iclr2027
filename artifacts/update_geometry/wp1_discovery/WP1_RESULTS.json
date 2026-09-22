@@ -1,0 +1,96 @@
+{
+ "n_rows": 458,
+ "n_primary": 237,
+ "miss_curve": [
+  {
+   "bin": [
+    0.0,
+    0.232
+   ],
+   "n": 48,
+   "miss_rate": 0.875,
+   "ci": [
+    0.7708,
+    0.9583
+   ]
+  },
+  {
+   "bin": [
+    0.232,
+    0.329
+   ],
+   "n": 47,
+   "miss_rate": 0.8085,
+   "ci": [
+    0.6809,
+    0.9149
+   ]
+  },
+  {
+   "bin": [
+    0.329,
+    0.415
+   ],
+   "n": 47,
+   "miss_rate": 0.8723,
+   "ci": [
+    0.766,
+    0.9574
+   ]
+  },
+  {
+   "bin": [
+    0.415,
+    0.526
+   ],
+   "n": 47,
+   "miss_rate": 0.7872,
+   "ci": [
+    0.6596,
+    0.8936
+   ]
+  },
+  {
+   "bin": [
+    0.526,
+    1.0
+   ],
+   "n": 48,
+   "miss_rate": 0.7917,
+   "ci": [
+    0.6667,
+    0.8958
+   ]
+  }
+ ],
+ "logistic": {
+  "coef": -0.38513235777051136,
+  "intercept": 1.7111325269778908
+ },
+ "lag_n": 41,
+ "lag_median": 0.0196,
+ "matched": {
+  "n_tan": 57,
+  "n_nor": 4,
+  "pairs": 4,
+  "M_tan": 0.5,
+  "M_nor": 1.0,
+  "delta": -0.5,
+  "delta_ci": [
+   -0.5049,
+   -0.4947
+  ],
+  "smd": {
+   "edit_norm": 1.4142,
+   "start_margin": 1.886,
+   "endpoint_margin": 1.5661
+  },
+  "smd_pass": false
+ },
+ "composition_attribution": {
+  "ab_miss": 111,
+  "ab_hit": 17,
+  "path_miss_frac": 1.0,
+  "path_abnormal_frac": 0.0
+ }
+}

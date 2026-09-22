@@ -1,0 +1,26 @@
+{
+ "s11": {
+  "dev_cov_clean": 0.4302,
+  "tau_flip": 0.95,
+  "dev_cov_flip": 0.6279,
+  "eval_clean": 0.34545454545454546,
+  "eval_flip_matched": 0.26666666666666666,
+  "eval_flip_tau05": 0.2857142857142857
+ },
+ "s23": {
+  "dev_cov_clean": 0.3837,
+  "tau_flip": 0.95,
+  "dev_cov_flip": 0.5233,
+  "eval_clean": 0.3,
+  "eval_flip_matched": 0.3793103448275862,
+  "eval_flip_tau05": 0.27710843373493976
+ },
+ "s47": {
+  "dev_cov_clean": 0.3721,
+  "tau_flip": 0.95,
+  "dev_cov_flip": 0.5,
+  "eval_clean": 0.23636363636363636,
+  "eval_flip_matched": 0.34285714285714286,
+  "eval_flip_tau05": 0.1951219512195122
+ }
+}
