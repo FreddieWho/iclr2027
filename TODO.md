@@ -233,3 +233,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：02 探索升级收敛（U1/U2/U3＋可选 U4 全部执行）：U1 四臂交互 I=+16–25pp（parent-cluster CI 全不含零，exploratory）；U2 限定机制（表示改善排序、flip 改善阈值实现）；U3 修复降低 P1 水平但保留反转形状；U4 排除平移 nuisance、确认半径冗余。交付 UPGRADE_FINDINGS.md＋NO_NEW_CLAIM_WITHOUT_EVIDENCE.md＋三份独立报告；新测试 10 项；全量测试 198 通过。稿件决策 A＋B 两项增量就绪（四臂图数据源切 U1_SUMMARY.json；J/H panel；摘要替换句）。
 - 2026-09-22：TODO 投稿收尾重整：旧事项 0–4 全部裁决（完成/终止/被取代，见历史事项裁决表），当前清单只剩 A 区写作行政 7 项（W1–W7）＋B 区 PARKED 实验想法 5 项（E1–E5，细节回 LEADS）；LEADS L-007 追注 U1–U4 未覆盖转折位置精度。
 - 2026-09-22：L007 零训练诊断执行完毕（阴性→边界）：冻结 flipmine 三种子基线复现 E7 量级；判据字面触发但消融推翻实质解读（全部可预测成分来自预测邻接量；隐空间/输入几何零增量）。交付 L007_DIAGNOSTIC_REPORT.md；新测试 5 项；全量测试 203 通过。TODO-B 区 E1 消耗，LEADS L-007 状态更新为已执行。
+- 2026-09-22：文献线独立检索回执（5个零训练候选：掠射交互/带宽/kink/分歧/离路褶皱，research.md存档）：当即处决其二——掠射角×带宽交互（w/a相关<0.2且符号不一致）与kink密度（方向全对但<0.3线，s23的-0.29不追）；分歧分解与训练线撞车（好兆头，训练线已覆盖）；S3 Fourier重训因kink阴性失去动机。交付L007_FOLLOWUP_REPORT.md；新测试3项；全量206通过。训练线（8新种子+ensemble）仍在跑，不碰其文件。

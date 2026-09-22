@@ -1,0 +1,44 @@
+{
+ "n_paths": 200,
+ "seeds": [
+  2001,
+  2002,
+  2003,
+  2004,
+  2005,
+  2006,
+  2007,
+  2008
+ ],
+ "mean_pairwise_spearman": 0.4097,
+ "pairwise_n_mean": 89.4,
+ "across_seed_var_mean": 0.007768,
+ "between_path_var": 0.010876,
+ "single_seed_mean_terr": {
+  "2001": 0.1548,
+  "2002": 0.1609,
+  "2003": 0.1691,
+  "2004": 0.1824,
+  "2005": 0.1623,
+  "2006": 0.1984,
+  "2007": 0.1956,
+  "2008": 0.1757
+ },
+ "mean_single_terr": 0.1749,
+ "best_single_terr": 0.1548,
+ "ensemble_mean_terr": 0.1604,
+ "ensemble_improvement_vs_mean": 0.0829,
+ "miss_single": {
+  "2001": 0.415,
+  "2002": 0.4,
+  "2003": 0.49,
+  "2004": 0.4,
+  "2005": 0.44,
+  "2006": 0.385,
+  "2007": 0.475,
+  "2008": 0.465
+ },
+ "miss_ens": 0.395,
+ "criterion_met": false,
+ "verdict": "noise-dominated, mechanism search closed"
+}

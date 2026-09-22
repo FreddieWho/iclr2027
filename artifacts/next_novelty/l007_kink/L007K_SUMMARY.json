@@ -1,0 +1,31 @@
+{
+ "seeds": {
+  "s11": {
+   "n": 123,
+   "sp_kink_dist": 0.1488,
+   "sp_kink_count": -0.2192,
+   "theta_on_kink_rate": 0.2035,
+   "miss_kink_count_mean": 4.0779,
+   "hit_kink_count_mean": 4.3902
+  },
+  "s23": {
+   "n": 122,
+   "sp_kink_dist": 0.0578,
+   "sp_kink_count": -0.289,
+   "theta_on_kink_rate": 0.1453,
+   "miss_kink_count_mean": 3.0897,
+   "hit_kink_count_mean": 4.3033
+  },
+  "s47": {
+   "n": 106,
+   "sp_kink_dist": 0.1694,
+   "sp_kink_count": -0.2787,
+   "theta_on_kink_rate": 0.1649,
+   "miss_kink_count_mean": 3.4574,
+   "hit_kink_count_mean": 4.3491
+  }
+ },
+ "criterion": "|Spearman| >= 0.3 same direction in 3/3 seeds for kink-distance (+) or kink-count (-) vs |terr|",
+ "criterion_met": false,
+ "verdict": "no kink signal (spectral-bias closed)"
+}

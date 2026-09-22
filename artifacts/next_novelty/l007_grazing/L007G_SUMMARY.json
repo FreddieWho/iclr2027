@@ -1,0 +1,25 @@
+{
+ "seeds": {
+  "s11": {
+   "n": 123,
+   "sp_woa": 0.1175,
+   "sp_width": 0.1786,
+   "sp_angle": 0.1504
+  },
+  "s23": {
+   "n": 122,
+   "sp_woa": -0.0632,
+   "sp_width": -0.0376,
+   "sp_angle": 0.0647
+  },
+  "s47": {
+   "n": 106,
+   "sp_woa": -0.1005,
+   "sp_width": -0.103,
+   "sp_angle": 0.0386
+  }
+ },
+ "criterion": "Spearman(w/a, |terr|) >= 0.3 same sign in 3/3 seeds",
+ "criterion_met": false,
+ "verdict": "no interaction (dead)"
+}
