@@ -34,3 +34,13 @@ submission/
 # Tracked by sha in artifacts/SHA256SUMS_UNTRACKED.txt; kept local to avoid repo bloat.
 artifacts/next_novelty/p1_unified/
 artifacts/next_novelty/p1_unified_confirm/
+
+# LaTeX build artifacts (regenerable via pdflatex+bibtex in paper/)
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.pdf
+!paper/figures/*.pdf

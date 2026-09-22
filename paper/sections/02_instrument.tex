@@ -58,20 +58,20 @@ images judged by a small CNN trained from scratch per arm.
 
 \begin{table}[t]
 \centering
-\small
+\footnotesize
 \begin{tabular}{@{}llll@{}}
 \toprule
 Domain & Input & Model & Training \\
 \midrule
 Coordinate & 8 coords (4 pts $\times$ 2) & MLP 64-64-32-feat, linear head &
-flip/cover variants, seeds 11/23/47 \\
+flip/cover, seeds 11/23/47 \\
 Relational & 10 dims: 6 pairwise distances + &
 MLP 64-64-32 (same trunk) & same protocol \\
 & 4 centroid radii (label-free) & & \\
 Pixel & $64\times64$ RGB render & CNN 16-32-32 (3 conv) & from scratch per arm \\
-Football & 20 tracked positions & graph encoder (hidden 128, &
-frozen T5R3 line; \\
-& (kNN adjacency) & kNN message passing) & Adam, 80 epochs \\
+Football & 20 tracked positions & graph encoder (hidden 128) &
+frozen T5R3 line \\
+& (kNN adjacency) & kNN message passing & Adam, 80 epochs \\
 \bottomrule
 \end{tabular}
 \caption{Setup summary. Coordinate and relational models share one trunk;
