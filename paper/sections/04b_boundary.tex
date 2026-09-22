@@ -1,24 +1,79 @@
-\section{Real-Data Confirmation: Football}
+\section{External Observations and Decision Interfaces}
+\label{sec:external}
+
+This section reports behavior checks in other observation domains. Each
+domain is labeled by how its changes arise: controlled edits constructed
+on real coordinates (football E2), actual match events (football natural
+turns), or controlled renders (pixel). None of these domains re-runs the
+coordinate confidence analysis; their non-claims are stated separately.
+
+\subsection{Real football tracking}
 \label{sec:football}
 
-The same three failure-and-repair shapes recur on IDSSE real football tracking
-data, evaluated cross-field over three training seeds (s11/s23/s47):
+The same failure-and-repair shapes recur on IDSSE real tracking data,
+evaluated cross-field over three training seeds (s11/s23/s47). Two edit
+types must be distinguished. \emph{Controlled crossings} (E2 protocol) are
+single-turn zone crossings constructed on real coordinates with oracle
+labels; \emph{natural turns} are actual match events.
 
-\paragraph{Transitions.} Turn miss, frozen $\to$ covered: s11
-$0.277 \to 0.129$, s23 $0.383 \to 0.184$, s47 $0.336 \to 0.176$---halved in all
-three seeds, with integral and accuracy metrics moving the same way.
+\paragraph{Controlled crossings (E2).} Turn miss, frozen $\to$ covered:
+s11 $0.277 \to 0.129$, s23 $0.383 \to 0.184$, s47 $0.336 \to 0.176$---
+halved in all three seeds, with integral and accuracy metrics moving the
+same way. Conditional event miss, frozen $\to$ covered: s11 $0.255 \to
+0.092$, s23 $0.362 \to 0.180$, s47 $0.347 \to 0.168$. Hard action-invalid
+rate ($\lambda{=}2$), frozen $\to$ covered: s11 $0.309 \to 0.102$, s23
+$0.410 \to 0.184$, s47 $0.348 \to 0.141$; at $\lambda{=}0$ all three
+models sit near zero.
 
-\paragraph{Events.} Conditional event miss, frozen $\to$ covered: s11
-$0.255 \to 0.092$, s23 $0.362 \to 0.180$, s47 $0.347 \to 0.168$.
-
-\paragraph{Actions.} Hard action-invalid rate ($\lambda{=}2$), frozen $\to$
-covered: s11 $0.309 \to 0.102$, s23 $0.410 \to 0.184$, s47 $0.348 \to 0.141$;
-at $\lambda{=}0$ all three models sit near zero.
+\paragraph{Natural turns.} Natural-snapshot confidence analyses show floor
+effects and, after correction, null inversion results. The confidence
+finding of Sec.~\ref{sec:phenomenon} is therefore coordinate-only: it is
+not reproduced on natural football turns, and no pixel-domain confidence
+claim is made either way.
 
 No pristine football holdout exists, so this is three-seed same-direction
-confirmation, not single-read proof; the coordinate fresh holdout carries the
-confirmatory weight and football carries the external-reality weight, as the
-per-claim labels state. Football supports transition
-repair and event/action behavior; the confidence-inversion finding does
-\emph{not} generalize here---natural-turn analyses show floor/null effects
-after correction, so Sec.~3's confidence claim stays coordinate-only.
+confirmation, not single-read proof; the coordinate fresh holdout carries
+the confirmatory weight and football carries the external-reality weight.
+Football supports transition and repair behavior; it does not validate the
+confidence inversion, the migration decomposition, or the relational-arm
+claims.
+
+\subsection{Pixel observations}
+\label{sec:pixel}
+
+The same quartet comparison rendered as $64\times64$ pixels and judged by
+a freshly trained CNN gives an emergent (joint-boundary) error of $0.537$
+clean vs.\ $0.351$ pixflip ($-19$pp), with static error unchanged at
+$0.090$ in both arms---while the quartet-curriculum arm scores
+\emph{worse} than clean ($0.572$). Style transfer uses one same-style
+replication control plus four altered styles (line width, color swap,
+bright background, $0.9\times$ scale): pixflip has the lowest emergent
+error on all five ($0.333/0.349/0.305/0.349/0.366$ vs.\ clean
+$0.514/0.622/0.426/0.389/0.516$), and two additional training seeds
+confirm the same-signed pattern ($5/5$ each; gains $-8$ to $-30$pp).
+Absolute levels are style-sensitive---under color swap all arms' atomic
+accuracy collapses ($0.25$--$0.31$; the CNN binds color to segment
+identity)---but the relative gain is stable. This arm measures emergent
+\emph{endpoint} improvement only: full compositional consistency ($J$,
+full repair vs migration) is not measured in pixels, and no confidence
+claim is made.
+
+\subsection{Decision interfaces}
+\label{sec:interfaces}
+
+How much of the repair benefit survives when the classifier feeds a
+decision procedure rather than a naked threshold? On oracle-feasible
+hard scenes ($93$ of $171$), the gain concentrates in refusal reduction
+and coverage rather than precision:
+%FILL-P2-INTERFACE%
+Two scale-related facts delimit what this analysis can exclude. First,
+argmax-preserving temperature rescaling ($T>0$) changes no classification
+decision; that action selections can shift substantially under such
+rescaling shows the action rule is sensitive to the score scale, not that
+the model perceives the input change. Second, dev-selected thresholds
+coinciding with the lexicographic rule is an algebraic consequence of the
+shared ranking at that operating point, not an empirical exclusion of all
+thresholding schemes. Appendix~\ref{sec:failures} catalogs the failed
+removal attempts---denser supervision, architecture and curriculum
+variants, and an interchange patch---each reported with its falsification
+bar and scope.

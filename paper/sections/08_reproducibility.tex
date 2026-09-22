@@ -1,29 +1,39 @@
 \section{Evaluation Protocol and Reproducibility}
 \label{sec:repro}
 
-\paragraph{One-shot fresh holdout.} \texttt{holdout\_909} was minted after all
-discovery, pre-registered (E1\_PREREG), evaluated once in a single
-uninterrupted run with fixed checkpoints, and archived as used; no new metric
-has been or will be run on it. Discovery numbers and fresh numbers are never
-averaged and always labeled with denominators.
+\paragraph{One-shot fresh holdout.} \texttt{holdout\_909} was minted after
+all discovery, pre-registered (E1\_PREREG), evaluated once in a single
+uninterrupted run with fixed checkpoints, and archived as used; no new
+metric has been or will be run on it. Discovery numbers and fresh numbers
+are reported side by side with denominators and are never pooled.
 
-\paragraph{Reporting protocol for repair comparisons.} Any repair comparison
-in this line of work should report, on the same quartets: own-conditional,
-baseline-fixed, and common-correct composition miss; overall AB endpoint
-error; atomic pass rate; joint consistency $J$; full repair and error
-migration; matched-single controls. Rationale: conditioning changes when a
-repair changes atomic correctness, so single-denominator repair deltas can
-mislead. We claim no priority for conditional measurement itself.
+\paragraph{Reporting protocol for repair comparisons.} Any repair
+comparison in this line of work should report, on the same quartets:
+own-conditional, baseline-fixed, and common-correct composition miss;
+overall AB endpoint error; atomic pass rate; joint consistency $J$; full
+repair and error migration (with the identity
+$R_{\mathrm{endpoint}} = R_{\mathrm{full}} + M$); and matched-single
+controls. Rationale: conditioning changes when a repair changes atomic
+correctness, so single-denominator repair deltas can mislead. We claim no
+priority for conditional measurement itself.
 
-\paragraph{Sample banks and confirmation.} Mechanism analyses read frozen
-sample banks (\texttt{bank\_dev512}, \texttt{bank\_confirm1007}; every model
-reads identical edits) with settings frozen on dev before confirmation.
-Thresholds, covariates, metrics, and bootstrap units are recorded in
+\paragraph{Sample banks and confirmation usage.} Mechanism analyses read
+frozen sample banks (\texttt{bank\_dev512}, \texttt{bank\_confirm1007};
+every model reads identical edits) with settings frozen on dev before
+confirmation. The confirmation bank's per-claim first-read status is
+recorded in the claim-source map
+(\texttt{reports/caea817\_review/CONFIRMATION\_USAGE.md}): P1 analyses
+first, relational-arm evaluation later; reading archived outputs is
+tracked separately from training-time exposure. Thresholds, covariates,
+metrics, and bootstrap units are recorded in
 \texttt{reports/final\_closure/}; parent-cluster resampling is used
-throughout. A smoke audit re-derived all headline numbers from artifacts.
+throughout; a start appearing in several quartets is counted once per
+parent, not once per row.
 
-\paragraph{Artifacts.} Code, scene pools, mined flips, checkpoints metadata,
-rendering scripts, and SHA-256 manifests are versioned with the paper;
-restricted-access football derivatives are described with hashes and
-conversion receipts. Seeds 11/23/47 are used throughout; match is the unit of
-independence on the football side; parent is the unit on the coordinate side.
+\paragraph{Artifacts.} Code, scene pools, mined flips, checkpoint
+metadata, rendering scripts, and SHA-256 manifests are versioned with the
+paper; restricted-access football derivatives are described with hashes
+and conversion receipts. Seeds 11/23/47 are used throughout; match is the
+unit of independence on the football side; parent is the unit on the
+coordinate side. One-command recomputation entries are given in
+\texttt{reports/final\_closure/REPRODUCE\_FINAL.md}.

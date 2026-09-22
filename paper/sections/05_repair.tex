@@ -1,25 +1,50 @@
-\section{Pixel-Observation Confirmation}
-\label{sec:pixel}
+\section{Related Work}
+\label{sec:related}
 
-The same quartet comparison rendered as pixels and
-judged by a freshly trained CNN gives a compositional (emergent) error of
-$0.537$ clean vs.\ $0.351$ pixflip ($-19$pp, static error unchanged at
-$0.090$)---while the quartet-curriculum arm scores \emph{worse} than clean
-($0.572$).
+Intervention-based evaluation has lineage in causal abstractions and
+interchange analysis (activation swaps for causal-model alignment;
+\citep{geiger2021causal}); ours differs in using input-space reallocation
+and semantic composition as the prediction target. Sensitivity analysis
+(Morris elementary effects; \citep{morris1991factorial}) supplies the
+screening metaphor, but our screen is semantic: edits with known oracle
+outcomes, not random directions.
 
-Across five unseen rendering styles (line width, color swap, bright
-background, $0.9\times$ scale, same-style replication), pixflip has the lowest
-emergent error in all five ($0.333/0.349/0.305/0.349/0.366$ vs.\ clean
-$0.514/0.622/0.426/0.389/0.516$; gains $-18/-27/-12/-4/-15$pp). Absolute
-levels are style-sensitive---under color swap all arms' atomic accuracy
-collapses to $0.25$--$0.31$ (the CNN binds color to segment identity)---but
-the relative gain is stable and same-signed $5/5$. After the nuisance-lock
-fix (same fresh seed per quartet state; rerun \texttt{u03b\_fixed}), emergent
-errors are numerically identical and atomic accuracies move by $\le 0.01$,
-confirming the comparison was fair and the repair survives exact nuisance
-locking. Two additional training seeds confirm the same pattern $5/5$ each:
-s805 gains $-10/-10/-16/-8/-11$pp, s806 gains $-30/-30/-16/-21/-28$pp.
-The cross-style repair now rests on three independent training instances,
-not one. Pixel evidence supports compositional/update repair across visual
-nuisance; it does not test the confidence-inversion or migration claims,
-which rest on coordinate analyses.
+On compositional generalization we do not originate conditional-on-atomics
+measurement: the compositionality gap (correct sub-problems, failed
+composition) is established for language models
+\citep{press2023measuring}, with a stricter double-gated variant for
+factual composition \citep{yu2026compositioncollapse}. Our differences:
+(1)~controlled semantic change with known boundaries;
+(2)~same-instance transition structure (paths, not just endpoints);
+(3)~confidence meaning reversal under semantic flips;
+(4)~repair error migration inside the same quartet; (5)~downstream
+association. Hard-positive mining in vision--language composition (Kamath
+et al., 2024) trades coverage against precision and can hurt the hard
+positives it targets; our quartet analysis measures the analogous
+trade-off inside the same instance rather than across disjoint positive
+sets.
+
+On calibration and selective classification
+\citep{guo2017calibration,geifman2017selective}, and on the disparity
+risks of confidence-based rejection more broadly (Jones et al., 2021),
+our contrast is explicit: selective prediction concerns \emph{current}
+correctness, while our inversion concerns reliability \emph{after} a true
+semantic change, measured with known label transformations. Excessive
+invariance is directly adjacent: \citet{jacobsen2019excessive} show that
+classifiers can be invariant precisely along task-relevant directions of
+variation, which is the failure family our transition blindness
+instantiates under known edits; our object adds oracle-known composition
+and the repair/migration accounting. Counterfactually augmented data
+\citep{kaushik2020learning} and positive-congruent, regression-free model
+updates \citep{yan2021positive} are the closest repair neighborhoods; we
+claim no priority on preserve constraints, only the instance-level
+migration measurement and the coverage/quality decomposition. Task-based
+end-to-end learning in stochastic optimization (Donti et al., 2017)
+bounds the decision-interface literature our P2 analysis touches; we use
+fixed action libraries rather than learned surrogates. Label-free
+relational features follow a long line of geometric invariance work
+\citep{lenc2015understanding} and scalar-equivariant representation
+building blocks (Villar et al., 2021); our contribution is the
+joint-repair evidence under this input, not the features. Prior probing
+literature \citep{belinkov2022probing} motivates our diagnostic
+instruments but is background, not claim.

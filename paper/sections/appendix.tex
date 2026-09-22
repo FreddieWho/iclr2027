@@ -1,0 +1,34 @@
+\section{Audit History and Estimand Map}
+\label{sec:audit}
+
+\paragraph{Corrections during preparation.} This paper was prepared under
+an internal audit trail; three corrections are material to reading the
+text. (i)~A transition-rate gap between screens was initially attributed
+to crossing angle; a preregistered incidence analysis found no such law,
+and the text retains only the sampling explanation
+(Sec.~\ref{sec:phenomenon}). (ii)~The P1G high-risk repair analysis
+originally read dev thresholds through a stale key and silently fell back
+to confirmation-pool quantiles; the analysis is re-run with the frozen dev
+thresholds, and the residual-error statement in
+Sec.~\ref{sec:phenomenon} carries the corrected numbers (marked pending
+in this version until the re-run lands). (iii)~A
+decision-interface calibration fit had a sign error; the corrected fit
+replaces an earlier ``anti-information'' reading, and the interface
+section reports coverage/precision decomposition only. Per-item
+rectification records: \texttt{reports/caea817\_review/RECTIFICATION\_LOG.md}.
+
+\paragraph{Estimand map.} The paper keeps two reliability notions
+separated throughout: endpoint reliability (preserve/flip error over
+unscreened starts) and conditional update reliability (both conditioned on
+start correctness). $R(\tau, \rho)$ retention curves are
+risk-reweightings of a retained population with mixing weight $\rho$,
+not unselected deployment incidences; a bootstrap interval of $[1,1]$
+reflects no observed variation in the retained set, not a population-level
+proof of certainty. Where denominators differ across screens
+($176$ vs $251$; $141$ vs $176$), contrasts are labeled descriptive.
+
+\paragraph{Domain change labels.} Coordinate scenes: synthetic controlled
+edits. Football E2: controlled crossings constructed on real tracking
+coordinates. Football natural turns: actual match events. Pixel:
+controlled renders, one same-style replication plus four altered styles.
+No cross-domain substitution is made between these categories.

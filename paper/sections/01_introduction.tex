@@ -8,40 +8,50 @@ studies correctness under controlled change, where scenes have oracle
 labels, edits have known atomic effects, and composed edits have known
 joint effects that may differ from either part.
 
-Three failure modes recur, each stated with denominators. (i)~Transition blindness: paths crossing a
-semantic boundary induce no model transition---$28/64 = 43.8\%$ miss on
-directly targeted fresh paths, $108/128 = 84.4\%$ among single-turn paths
-found by a random-edit screen (different denominators, never averaged).
-(ii)~Compositional blindness: when both atomic edits are judged correctly,
-their joint change is still missed in $151/176 = 85.8\%$ of fresh-holdout
-cases ($n{=}176$; discovery $62/66 = 93.9\%$); continuous path decomposition shows compositional misses unfold as
-missed semantic updates along $A \to AB$ and $B \to AB$ (111/111 AB-miss
+Three failure modes recur. (i)~Transition blindness: paths crossing a
+semantic boundary are missed---$28/64 = 43.8\%$ on directly targeted fresh
+paths, $108/128 = 84.4\%$ among single-turn paths found by a random-edit
+screen (different path populations; Sec.~\ref{sec:setting} states our
+reporting convention once). (ii)~Compositional blindness: when both atomic
+edits of a scene are judged correctly, their joint change is still missed
+in $151/176 = 85.8\%$ of fresh-holdout cases (discovery $62/66 = 93.9\%$,
+same direction); path decomposition shows compositional misses unfold as
+missed semantic updates along $A \to AB$ and $B \to AB$ ($111/111$ AB-miss
 quartets contain a zero-transition path). (iii)~Consequential blindness:
-the misses propagate into events and action selection ($75.0\%$ invalid in
-hard fresh cases, $n{=}144$, at $\lambda{=}2$).
+the misses co-occur with downstream failures---hard action selections are
+invalid in $75.0\%$ of fresh cases ($n{=}144$, $\lambda{=}2$)---and we
+keep this association descriptive rather than causal
+(Sec.~\ref{sec:phenomenon}).
 
-Our new insight concerns confidence. A confidence score that is reassuring
-for current correctness becomes misleading for true semantic transitions:
-within currently correct states, higher pre-change confidence predicts
-lower static error ($0.27$--$0.51 \to 0.02$--$0.05$ on dev, $0.02$--$0.06$ pooled) yet higher update error
-($0.36$--$0.61 \to 0.98$--$1.00$) across confidence quartiles, confirmed on fresh
-parent-disjoint data in coordinate scenes. Grouped-by-parent cross-validation
-gives confidence-only pooled AUC $0.78$--$0.95$ against difficulty-only
-$0.42$--$0.61$; repair leaves residual error $0.53$--$0.84$ on confirmation
-high-confidence misses.
+Our central descriptive finding concerns confidence. A score that is
+reassuring for current-state correctness becomes misleading for true
+semantic transitions: pre-change confidence predicts current-state error in
+the classical direction, yet predicts update error in reverse---endpoint
+error after a true semantic flip rises $0.36$--$0.61 \to 0.98$--$1.00$
+across confidence quartiles (six trained models on dev and parent-disjoint
+confirmation banks; coordinate scenes). The finding is domain-limited:
+natural football turns show floor/null effects after correction, and the
+pixel arm does not evaluate confidence.
 
-Repair changes several component and downstream metrics on the fresh holdout
-(paired same-sample comparisons; $n{=}512/248/144$)---static error $18.0\% \to 10.7\%$,
-single-flip C1 miss $52.4\% \to 34.7\%$, action invalid $75.0\% \to 62.5\%$.
-Paired quartet analysis on the dev bank (baseline-110 quartets,
-parent-cluster CIs) decomposes the endpoint improvement
-($R_{\mathrm{endpoint}}$ $0.43$--$0.48$) into full repair ($0.03$--$0.10$) and error migration
-($0.36$--$0.40$).
+Repair tells a subtler story. Targeted flip coverage improves several
+component and downstream metrics on the fresh holdout, but paired quartet
+analysis on frozen banks shows endpoint repair substantially overstates
+recovery of full compositional consistency: full repair is $0.03$--$0.10$
+while error migration---AB correct \emph{but} an atomic newly wrong---is
+$0.36$--$0.40$. One intervention changes this picture within its stated
+bounds: label-free relational input features combined with the same flip
+coverage move joint consistency to $0.38$--$0.47$ across banks, with full
+repair exceeding migration on the confirmation bank.
 
-\paragraph{Contributions.} (C1)~A controlled-change analysis of
-static-correct update failures: transitions, atomic-conditioned
-composition, and consequences. (C2)~Confidence--update reliability
-inversion in coordinate controlled-change settings with fresh confirmation.
-(C3)~Paired repair decomposition separating endpoint repair, full repair,
-error migration, and joint consistency. (C4)~Cross-observation evidence
-(football, pixels) and decision consequences, with stated boundaries.
+\paragraph{Contributions.} (C1)~A controlled-change evaluation separating
+static correctness from update reliability: transition, compositional, and
+consequential failure rates with oracle-known edits, re-tested on a
+freshly minted pre-registered holdout. (C2)~A confidence--update
+reliability separation in coordinate scenes, confirmed on parent-disjoint
+data, with explicit domain limits. (C3)~A paired quartet analysis
+distinguishing endpoint repair, full repair, and error migration, plus a
+bounded positive instance---relational input $\times$ flip coverage---that
+moves joint consistency toward full repair on both banks without claiming a
+general architecture. Football and pixel observations provide
+cross-observation behavior checks; the decision-interface analysis
+supports, rather than anchors, the repair claims.

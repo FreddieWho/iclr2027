@@ -1,40 +1,44 @@
-\section{External Confirmation: What We Tried}
-\label{sec:external}
+\section{Failed Removals and Scoped Negatives}
+\label{sec:failures}
 
-A discovery claim of this shape---``the model cannot update''---is most
-threatened by the objection ``it just cannot see.'' We therefore report, as
-primary evidence rather than appendix filler, an unusually wide set of failed
-removals. Each was a live hypothesis with a falsification bar; each failed,
-and each failure narrows what the defect can be:
+Each entry was a live hypothesis with a falsification bar; each failed, and
+each failure narrows what the defect can be. None is used to claim that all
+mechanisms of a family are excluded.
 
-\paragraph{Denser supervision and geometry readouts.} Dense per-point labels,
-slope supervision along paths, SDF-valued readouts, and distilling boundary
-proximity into the student all fail to remove the miss (E7 falsification net:
-12 arms $\times$ 5 seeds, 60 trainings; flip-mix, SDF, tangent, anti-flatness,
-coupled-margin, vanilla-mixup, and BAN all lose to or tie the flipmine
-baseline). Slopes are not the binding constraint.
+\paragraph{Denser supervision and geometry readouts.} Dense per-point
+labels, slope supervision along paths, SDF-valued readouts, and distilling
+boundary proximity into the student all fail to remove the miss (E7
+falsification net: 12 arms $\times$ 5 seeds, 60 trainings; flip-mix, SDF,
+tangent, anti-flatness, coupled-margin, vanilla-mixup, and BAN all lose to
+or tie the flipmine baseline). Slopes are not the binding constraint.
 
-\paragraph{Architectures and curricula.} Relational variants (up to 1200-epoch
-deconfounded runs), attention readouts, margin--SupCon hybrids, and quartet
-curricula (pixel arm: emergent $0.572$, worse than clean $0.537$) all fail to
-fix the update. What looks like ``more compositional'' training data can hurt.
+\paragraph{Architecture and curriculum variants (earlier relation
+variants).} Before the relational-input result of
+Sec.~\ref{sec:repair}, relation-pooling and attention-readout variants
+(1200-epoch deconfounded runs), margin--SupCon hybrids, and quartet
+curricula all failed on the same joint-consistency metrics (pixel arm:
+emergent $0.572$, worse than clean $0.537$). These are architecture-level
+variants; the label-free relational \emph{input} of
+Sec.~\ref{sec:repair} is a different intervention and is reported
+separately---its positive evidence does not retroactively absolve the
+earlier variants, and their failure does not bound it.
 
-\paragraph{Interchange patch (X03, rank-4 narrowed run x03b).} Hybrid truth
-(donor.AB + base.CD) decodes from concatenated frozen hidden states at
-readout anti-copy accuracy $0.87$--$0.89$ (clean/flipmine, $n{=}150$ anti-only),
-while the learned rank-4 patch map installed into the frozen classifier at the
-tested layer scores interchange-anti $0.27$/$0.23$ (random-subspace anti
-$0.15$/$0.13$; full-swap overall $0.47$/$0.51$ on $n{=}450$). Supported claim:
-decodable $\neq$ installable by the tested patch at this layer. Not supported:
-any statement of the form ``the representation fundamentally cannot
-compose.'' No rank/layer search was opened; the negative stands as scoped.
+\paragraph{Interchange patch (X03, rank-4 narrowed run x03b).} Hybrid
+truth (donor.AB + base.CD) decodes from concatenated frozen hidden states
+at readout anti-copy accuracy $0.87$--$0.89$ (clean/flipmine, $n{=}150$
+anti-only), while the learned rank-4 patch map installed into the frozen
+classifier at the tested layer scores interchange-anti $0.27$/$0.23$
+(random-subspace anti $0.15$/$0.13$; full-swap overall $0.47$/$0.51$ on
+$n{=}450$). Supported claim: decodable $\neq$ installable by the tested
+patch at this layer. Not supported: any statement of the form ``the
+representation fundamentally cannot compose.'' No rank/layer search was
+opened; the negative stands as scoped.
 
-\paragraph{Thresholds and temperatures.} Dev-selected thresholds and fitted
-temperatures do not rescue the feasible set (Sec.~\ref{sec:repair}); the
-problem is in the probabilities themselves, not the cutoff.
-
-Recorded pattern: the model sees the parts (atomic accuracy is high),
-responds to change (temperature interventions at $T{=}0.5/2.0$ move $10$--$50\%$ of action
-selections with argmax fixed), and still fails to update on the hard
-constructions---while the failures above delimit, rather than explain, the
-defect.
+\paragraph{Thresholds and temperatures (scope).} Argmax-preserving
+temperature rescaling ($T>0$) changes no classification decision, so its
+invariance properties are algebraic, not empirical exclusions; dev-selected
+thresholds coinciding with the lexicographic rule at one operating point
+share the same ranking by construction. The interface analysis of
+Sec.~\ref{sec:interfaces} is therefore reported as coverage/precision
+decomposition plus scale-sensitivity, not as an empirical elimination of
+all calibration schemes.

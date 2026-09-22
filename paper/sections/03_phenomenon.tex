@@ -1,73 +1,79 @@
-\section{Three Failure Modes, Plus Confidence}
+\section{Failure and Confidence Under Change}
 \label{sec:phenomenon}
 
-\paragraph{(i) Transition blindness.} Paths crossing a semantic boundary often
-induce no model transition at all. Among single-turn paths discovered by
-random edits, $108/128 = 84.4\%$ induce zero model transition; on directly
-targeted fresh paths the miss rate is $28/64 = 43.8\%$ (95\% CI
-$[0.32,0.56]$), with flipmine at $31.3\%$. Both numbers are true; their
-denominators differ because the screens sample different path populations:
-the random screen over-samples rare grazing single-turn crossings while the
-targeted sweep drives decisively across the boundary. We report both, never
-averaged, always with denominators. (An earlier draft attributed the gap to
-crossing angle; a preregistered incidence analysis found no such law, so we
-retract that interpretation and keep only the sampling description.)
+\paragraph{(i) Transition blindness.} Paths crossing a semantic boundary
+often induce no model transition at all. Among single-turn paths
+discovered by random edits, $108/128 = 84.4\%$ miss the turn ($107$ of the
+$108$ show no transition at any scanned point; one turns with wrong
+timing); on directly targeted fresh paths the miss rate is $28/64 =
+43.8\%$ (95\% CI $[0.32,0.56]$), with flip coverage at $31.3\%$. The two
+screens sample different path populations---the random screen over-samples
+rare grazing single-turn crossings while the targeted sweep drives
+decisively across the boundary---so the rates are reported side by side,
+not averaged. The sampling explanation replaces an earlier crossing-angle
+account, which a preregistered incidence analysis did not support
+(audit history: Appendix~\ref{sec:audit}).
 
-\paragraph{(ii) Compositional blindness (headline).} When \emph{both} atomic
-edits of a scene are judged correctly, their joint compositional change is
-still missed in $151/176 = 85.8\%$ of fresh-holdout cases (discovery
-$62/66 = 93.9\%$, same direction). Matched single-edit controls miss less
-($61.0\%$ clean on fresh data), but the two rates use different denominators
-($176$ vs $251$) and different screens, so their arithmetic difference
-($24.8$pp fresh) is descriptive, not a causal composition-specific effect.
-Path decomposition shows the miss unfolding as missed updates: $111/111$
-AB-miss quartets contain a zero-transition path along $A \to AB$ or
-$B \to AB$, with no recrossing. A model can know each part and still not
-track the change.
+\paragraph{(ii) Compositional blindness (headline).} When \emph{both}
+atomic edits of a scene are judged correctly, their joint compositional
+change is still missed in $151/176 = 85.8\%$ of fresh-holdout cases
+(discovery $62/66 = 93.9\%$, same direction). Matched single-edit controls
+miss less ($61.0\%$ clean on fresh data, $n{=}251$), but the two rates use
+different denominators ($176$ vs $251$) and different screens, so their
+arithmetic difference ($24.8$pp fresh) is a descriptive contrast, not a
+causal composition-specific effect. Path decomposition shows the miss
+unfolding as missed updates: $111/111$ AB-miss quartets contain a
+zero-transition path along $A \to AB$ or $B \to AB$, with no recrossing.
+A model can know each part and still not track the change.
 
-\paragraph{Confidence is reliable for states, unreliable for true changes.}
-Within currently correct coordinate states, pre-change confidence predicts
-static error in the classical direction (quartile error $0.27$--$0.51 \to
-$0.02$--$0.05$ on dev; $0.02$--$0.06$ pooled with confirmation)
-and semantics-preserving error likewise, yet predicts update error in
-reverse: endpoint error after a true semantic flip rises $0.36$--$0.61 \to
-0.98$--$1.00$ (twelve model-seed combinations: eleven reach $1.00$ in the top
-quartile, one reaches $0.983$; fresh parent-disjoint confirmation).
-Grouped-by-parent 5-fold cross-validation, pooled out-of-fold: confidence-only
-AUC $0.78$--$0.95$ (clean models $0.93$--$0.95) against difficulty-only
-$0.42$--$0.61$; oracle difficulty and geometric covariates carry approximately
-no held-out signal. On retained high-confidence misses, repair reduces endpoint
-error $1.00 \to 0.53$--$0.84$ on confirmation (paired CIs exclude zero; dev
-paired CIs touch zero in two of three seeds, s47 excludes), leaving a residual majority still wrong.
-Stricter trust in high-confidence states lowers current error while
-concentrating update failures (top-25\% retention, s11 clean, $n{=}101/271$ retained: $\sim$4\% static error and $0.00$ preserve-update error vs 100\% conditional update error). Natural football turns
-show no such inversion after correction (floor effects); the claim is
-coordinate-only (Fig.~\ref{fig:p1}).
+\paragraph{Confidence is reliable for current states, unreliable for true
+changes.} Pre-change confidence predicts current-state error in the
+classical direction (quartile error $0.27$--$0.51 \to 0.02$--$0.06$ over
+unscreened starts, dev and confirmation banks showing the same shape) and
+semantics-preserving error likewise. Conditioned on start correctness, the
+same confidence ordering predicts update error in reverse: endpoint error
+after a true semantic flip rises $0.36$--$0.61 \to 0.98$--$1.00$ across
+confidence quartiles---six trained models (three seeds $\times$ clean and
+flipmine arms) evaluated on two frozen banks: eleven of the twelve
+model$\times$bank curves reach $1.00$ in the top quartile, one reaches
+$0.983$. Grouped-by-parent cross-validation separates the two readings:
+%FILL-P1-CV%
+On retained high-confidence misses, repair reduces endpoint error but
+leaves a residual majority still wrong
+%FILL-P1G-RESIDUAL%
+Risk-reweighted retention makes the trade-off explicit: keeping the
+top-confidence quarter (a dev-set reference quantile; actual retained
+fractions vary by pool and subpopulation) yields near-zero current and
+preserve-update error on the retained population while concentrating
+conditional update error ($100\%$ among retained flips; s11 clean,
+$n{=}101/271$ retained). This is a reweighting of a selected population,
+not an unselected deployment incidence. Natural football turns show no such
+inversion after correction (floor effects); the claim is coordinate-only
+(Fig.~\ref{fig:p1}).
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.9\linewidth]{../figures/fig2_p1_dual.pdf}
+\includegraphics[width=0.9\linewidth]{figures/fig2_p1_dual.pdf}
 \caption{Confidence versus static, preserve, and update error in one panel,
-s11 clean on the dev bank. Three series with per-bin parent-cluster bootstrap
-intervals.}
+s11 clean on the dev bank; confirmation-bank curves show the same
+separation. Three series with per-bin parent-cluster bootstrap intervals;
+current-state error is computed over unscreened starts, update error
+conditioned on start correctness.}
 \label{fig:p1}
 \end{figure}
 
-\paragraph{(iii) Consequential blindness.} The misses propagate. Fresh-holdout
-event detection is thin ($1/24$ clean conditional misses) and reported
-without inflation; action selection under a fixed action library is invalid
-in $75.0\%$ of hard fresh cases ($n{=}144$, $\lambda{=}2$); the single-flip
-decomposition (C1/C0) shows a C1 miss of $52.4\%$ against a C0 false-alarm
-rate of $26.2\%$. Decision-interface analysis (U02, $93$ oracle-feasible scenes of $171$) shows flipmine's gain is
-in refusal reduction (refusal $0.43 \to 0.12$, $3.6\times$ fewer refusals;
-non-refusal coverage $0.57 \to 0.88$) rather than non-refusal
-precision ($0.23$ vs $0.22$ on the 93-scene hard subset), and that the gain survives across scoring rules
-(see the evidence table, reports/final_closure/MASTER_CLAIM_LEDGER.md).
-Two honesty constraints on this consequence module: across six training arms on
-the dev pool, arm-level downstream invalidity is tracked better by static error
-than by update metrics (Spearman $0.94$ vs $0.54$), and at scene level the raw
-association is confounded (missed-update scenes tend to be static-correct
-scenes; once static correctness is held fixed, a missed transition still adds
-$+0.46$ log-odds of an invalid action). We therefore keep all
-transition/consequence language descriptive, never causal (discovery-grade,
-single-seed arms).
+\paragraph{(iii) Consequential blindness, stated as association.} The
+misses co-occur with downstream failures, and we do not claim a causal
+propagation chain. Fresh-holdout event detection is thin ($1/24$ clean
+conditional misses) and reported without inflation; action selection under
+a fixed action library is invalid in $75.0\%$ of hard fresh cases
+($n{=}144$, $\lambda{=}2$); the single-flip decomposition (C1/C0) shows a
+C1 miss of $52.4\%$ against a C0 false-alarm rate of $26.2\%$. Two
+honesty constraints bound any stronger reading: across six training arms on
+the dev pool, arm-level downstream invalidity is tracked better by static
+error than by update metrics (Spearman $0.94$ vs $0.54$), and at scene
+level the raw miss$\to$invalidity association is confounded (missed-update
+scenes tend to be static-correct scenes; once static correctness is held
+fixed, a missed transition still adds $+0.46$ log-odds of an invalid
+action). We therefore keep all transition/consequence language descriptive
+(discovery-grade, single-seed arms).
