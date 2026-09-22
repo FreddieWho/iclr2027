@@ -35,11 +35,12 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 
 ## B. 待挖实验想法（全部 PARKED；细节见 LEADS.md，需用户单独授权）
 
-- [x] E1 L-007 转折位置精度的零训练诊断（已执行，阴性→边界；见 L007_DIAGNOSTIC_REPORT.md）
+- [x] E1 L-007 转折位置精度（已执行并封存：零训练诊断＋三张训练牌＋审计后的修正复算；见 `L007_CORRECTED_RESULTS.md`）
 - [ ] E2 L-005 GRF 模拟干预臂（1–2 天；rebuttal/下一篇）
 - [ ] E3 L-006 10 seeds/arm 确认门（仅审稿驱动）
 - [ ] E4 L-009 / L-013 / L-014（仅审稿驱动）
 - [ ] E5 U1 确认池 paired-CI（需封存重跑授权；rebuttal 弹药，见 U1_CONFIRM_ADDENDUM）
+- [ ] E6 **新增（C1 衍生）：标号敏感性作为独立方向**——重标号下 91–95% 路径根位不等价、42–48% 四元组 J 状态翻转；下一发散问题：置换等变架构（或置换增广训练）能否同时抬高 J 并消除标号依赖？零训练版本已做，训练版本需授权（LEADS L-015）
 
 ## 历史事项裁决（2026-09-22 整理；原文见 git 历史，分支记录与变更记录不变）
 
@@ -238,3 +239,6 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：P5 mode connectivity执行完毕（inconclusive）：11个flipmine权重5对×9α，naive+贪心激活匹配双跑；仅r04b11-r04b23对齐成功（barrier 0.9%，|terr|极差0.053弱阳性实例），其余4对barrier巨大检验作废（不等价于"精度跟随损失"）；跨era几乎不可连（配方逐字相同，init basin差异大）。exact-Hungarian跟进性价比低，park。发现并修复贪心匹配索引bug（测试补2项）；全量212通过。
 - 2026-09-22：三张训练牌全打完且全阴，L007正式封存：P1锁定动力学（中位锁定287.5 vs 收敛300，drift/late，关键期关闭）；P2 LOO（top-k/随机比值0.85/0.84/0.17，数据决定论死，TracIn降格描述性）；P3几何钉位（A仅2/4、C 0/4且sham亦动±6–11%，钉位死；中途抓获B/C删集相同bug，已修+断言）。交付L007_TRAIN_REPORT.md；全量212通过。TODO-B区E1-E5不再有可执行项（E5 paired-CI仍为rebuttal弹药需授权）。
 - 2026-09-22：GPT6astra-high通道故障（openai-codex端WebSocket连续失败3次、零token消耗，属基础设施故障）：codex-exec不支持model override，researcher+GPT6astra-high派发后传输层失败。按用户选择改为交付自包含评审prompt文档（reports/caea817_review/CODE_REVIEW_PROMPT_GPT6ASTRA.md：9条阴性数表+bug史B1-B5+审计靶点T1-T8+A/B/C/D输出要求），由用户自行执行。待用户带回意见后再对表。
+- 2026-09-22：**GPT6astra审计回执并执行全轮修正**（基准 3fcbf1f）：审计方指控（P3用eval派生样本训练、P5 barrier只用clean BCE、P5对齐用raw输入、未处理线性尾、P1锁定统计与契约不符、LOO是6次单删、TracIn权重错、并列秩Spearman、E7的BAN对照名不副实、E7与r04b基线不同构、线程不一致）经本人逐条复验**全部属实**；总控另自行发现自身5个实现错误（含一个制造“5/5全胜”假阳性的对齐bug）。
+- 2026-09-22：修正后复算完成（`L007_CORRECTED_RESULTS.md`）：P1 v2逐路径锁定中位125–175（中段，判据卡刀锋→未决）；剂量LOO不成立（比值6.8达标但Δsucc仅−0.19pp，判据实现缺口已补正）；C2尺度重启动阴性但有功效；P3 v2(train-only+匹配sham)不成立（miss 0/8、P 1/8，且定向插oracle态反而略伤）；P5 v3无支持实例（barrier 2.37–1828）。**撤回七条排除性声明**（见 `CORRECTION_AFTER_GPT6ASTRA.md`）。
+- 2026-09-22：**新增两条更硬的结果**：C1 等价表示敏感性成立（91.0/95.5/91.5%路径在重标号下不等价，标号诱导σ≈0.13 vs oracle误差≈0.17，70–79%命中状态翻转；oracle不变性经重算5688次零错）；C1c 交互对称群稳健性（预注册 `e7f9850`，dev 24/24 + confirm 24/24 全正，+9.7~+27.5pp，oracle重算12216次零错），且J的标号敏感性按臂单调递减（raw 75–133% → 关系＋flip 15–29%）。正文§4已写稳健性句＋机制句，§7新增限制(xi)披露标号约定，摘要补一句；编译后正文仍8页。confirm1007读取已登记为CONFIRMATION_USAGE第5条。新增 TODO-B 区 E6（标号敏感性作为独立方向）。
