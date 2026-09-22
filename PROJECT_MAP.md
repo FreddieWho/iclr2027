@@ -55,7 +55,7 @@
 | `bridge/` `bridge_r/` | E5 | foundation model 特征与评价（holdout_895 **封存**） | 阴性证据，冻结 |
 | `p123_upgrade/` | E6 | dev512 银行（sha 21786139…）+ P1/P2/P3 中间产物 | **主线输入**，冻结 |
 | `next_novelty/` | E6 | P1 unified/confirm、p1b/p1g、p3、relflip/relfeat、p3d_fair | **主线证据**，冻结 |
-| `confident_blindspots/` | E6 | 足球 P1（FOOTBALL_CONF.json） | 主线辅助 |
+| `confident_blindspots/` | E6 | 足球 P1：`FOOTBALL_CONF.json` 为 **VOID/历史错误产物**（映射 bug 旧数，已作废）；修正后的自然转折置信分析结论为 **negative**（floor/null，不作主线复现，仅作 P1 不跨域的边界证据） | 历史（仅审计） |
 | `update_geometry/` `event_updater/` `l002_ball/` `radius_loss/` `novelty_round3/` | E6 | 已关闭旁路产物 | 关闭，仅审计 |
 | `calligraphy_pilot/` | E0 | 书法试点（EXPLORATORY_FROZEN，不进本期论文） | 历史冻结 |
 | `remote/` | E0 | 远端书法/检索运行收据 | 历史 |

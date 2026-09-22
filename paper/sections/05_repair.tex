@@ -18,15 +18,14 @@ factual composition \citep{yu2026compositioncollapse}. Our differences:
 (2)~same-instance transition structure (paths, not just endpoints);
 (3)~confidence meaning reversal under semantic flips;
 (4)~repair error migration inside the same quartet; (5)~downstream
-association. Hard-positive mining in vision--language composition (Kamath
-et al., 2024) trades coverage against precision and can hurt the hard
+association. Hard-positive mining in vision--language composition \citep{kamath2024hard} trades coverage against precision and can hurt the hard
 positives it targets; our quartet analysis measures the analogous
 trade-off inside the same instance rather than across disjoint positive
 sets.
 
 On calibration and selective classification
 \citep{guo2017calibration,geifman2017selective}, and on the disparity
-risks of confidence-based rejection more broadly (Jones et al., 2021),
+risks of confidence-based rejection more broadly \citep{jones2021selective},
 our contrast is explicit: selective prediction concerns \emph{current}
 correctness, while our inversion concerns reliability \emph{after} a true
 semantic change, measured with known label transformations. Excessive
@@ -39,12 +38,12 @@ and the repair/migration accounting. Counterfactually augmented data
 updates \citep{yan2021positive} are the closest repair neighborhoods; we
 claim no priority on preserve constraints, only the instance-level
 migration measurement and the coverage/quality decomposition. Task-based
-end-to-end learning in stochastic optimization (Donti et al., 2017)
+end-to-end learning in stochastic optimization \citep{donti2017task}
 bounds the decision-interface literature our P2 analysis touches; we use
 fixed action libraries rather than learned surrogates. Label-free
 relational features follow a long line of geometric invariance work
 \citep{lenc2015understanding} and scalar-equivariant representation
-building blocks (Villar et al., 2021); our contribution is the
+building blocks \citep{villar2021scalars}; our contribution is the
 joint-repair evidence under this input, not the features. Prior probing
 literature \citep{belinkov2022probing} motivates our diagnostic
 instruments but is background, not claim.

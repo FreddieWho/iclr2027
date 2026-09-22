@@ -37,10 +37,16 @@ confidence quartiles---six trained models (three seeds $\times$ clean and
 flipmine arms) evaluated on two frozen banks: eleven of the twelve
 model$\times$bank curves reach $1.00$ in the top quartile, one reaches
 $0.983$. Grouped-by-parent cross-validation separates the two readings:
-%FILL-P1-CV%
+paired out-of-fold AUC differences (identical parent draws) favor the
+confidence model by $+0.30$--$+0.48$ on dev and $+0.20$--$+0.37$ on
+confirmation (all parent-cluster CIs exclude zero, conditioned on the CV
+fit); pooled OOF AUC is $0.77$--$0.96$ versus $0.35$--$0.63$ difficulty-only
+on dev and $0.77$--$0.95$ versus $0.52$--$0.63$ on confirmation.
 On retained high-confidence misses, repair reduces endpoint error but
-leaves a residual majority still wrong
-%FILL-P1G-RESIDUAL%
+leaves a residual majority still wrong: with corrected frozen thresholds the
+confirm residual falls from $1.00$ to $0.32$--$0.62$ (paired CIs exclude zero
+in all three seeds; repair adds $26$/$26$/$52$ start errors, reported rather
+than screened).
 Risk-reweighted retention makes the trade-off explicit: keeping the
 top-confidence quarter (a dev-set reference quantile; actual retained
 fractions vary by pool and subpopulation) yields near-zero current and

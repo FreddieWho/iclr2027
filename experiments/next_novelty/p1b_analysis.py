@@ -103,10 +103,18 @@ def analyze_model(paths, singles, out_thr=None):
               if r["y1"] == r["y0"] and r["correct0"] == 1]
     jall = [(r["parent"], r["confidence"], r["start_correct"], r["end_correct"]) for r in paths] + \
            [(r["parent"], r["conf0"], r["correct0"], r["correct1"]) for r in singles]
+    R["_retention_rho_note"] = (
+        "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the "
+        "retained subset; it is a mixed risk under an explicit reweighting of the "
+        "retained population, NOT an unselected deployment change rate. "
+        "flip cohort = start-correct semantic-change rows; preserve cohort = "
+        "semantics-preserving singles (unscreened start correctness).")
     for frac, cutoff in (("top25", t25), ("top50", t50), ("top75", t75), ("all", -1e18)):
         fsel = [1 - o for _, c, o in fall if c >= cutoff]
         psel = [1 - o for _, c, o in pall if c >= cutoff]
         row = {"retain": frac, "n_flip": len(fsel), "n_prv": len(psel),
+               "retained_frac_flip_cohort": round(len(fsel) / len(fall), 4) if fall else None,
+               "retained_frac_preserve_cohort": round(len(psel) / len(pall), 4) if pall else None,
                "flip_err": round(float(np.mean(fsel)), 4) if fsel else None,
                "prv_err": round(float(np.mean(psel)), 4) if psel else None}
         for rho in (0.0, 0.1, 0.25, 0.5, 0.75, 1.0):
@@ -129,10 +137,23 @@ def analyze_model(paths, singles, out_thr=None):
         R["retention_update"].append(urow)
     # --- E: regularized logistic + collinearity ---
     R["confound"] = confound(flp)
-    # --- E2: matched support check on flip subset ---
-    R["matched"] = matched_check(
+    # --- E2: stratified high-vs-low confidence comparison on flip subset ---
+    R["stratified"] = stratified_check(
         [r for r in paths if r["start_correct"] and r["semantic_change"] == 1] +
         [r for r in singles if r["correct0"] == 1 and r["flip"] == 1])
+    # kept under the old name for backward compatibility of artifacts
+    R["matched"] = R["stratified"]
+    # --- E3: coverage + population accounting + sensitivity (R2.2/R2.3) ---
+    R["population"] = population_stats(paths, singles)
+    R["coverage"] = coverage_report(paths, singles, (t25, t50, t75))
+    R["sensitivity_stratified_cap"] = sensitivity_stratified_cap(
+        [r for r in paths if r["start_correct"] and r["semantic_change"] == 1] +
+        [r for r in singles if r["correct0"] == 1 and r["flip"] == 1],
+        caps=(10, 20, 40))
+    R["sensitivity_equal_parent"] = sensitivity_equal_parent_weight(
+        [r for r in paths if r["start_correct"] and r["semantic_change"] == 1] +
+        [r for r in singles if r["correct0"] == 1 and r["flip"] == 1])
+    R["edit_family_distribution"] = edit_family_distribution(paths, singles)
     # --- F: threshold control ---
     R["threshold_ctrl"] = thresh_ctrl([r for r in paths if r["start_correct"]])
     # --- temperature fit (dev singles NLL) ---
@@ -172,9 +193,14 @@ def confound(flp):
     X, y, par = [], [], []
     for r in rows:
         cf = r.get("confidence", r.get("conf0", 0)) or 0
-        # P1-C1: true PATH-start margin (m_start), never base m0 for paths
-        m_start = r.get("m_start", r.get("m0", 0)) or 0
-        m_end = r.get("m_end", r.get("m1", 0)) or 0
+        # P1-C1: true PATH-start margin (m_start), never base m0 for paths;
+        # 0 is a legitimate margin value (tied logit), not a missing marker,
+        # so we do not coerce it. Rows lacking the field get m0 only if
+        # their record is a single (which carries the base margin).
+        m_start = r.get("m_start") if r.get("m_start") is not None else r.get("m0", 0.0)
+        m_end = r.get("m_end") if r.get("m_end") is not None else r.get("m1", 0.0)
+        m_start = float(m_start) if m_start is not None else 0.0
+        m_end = float(m_end) if m_end is not None else 0.0
         v = [math.log1p(cf), m_start, m_end,
              r.get("cross_dist", 0) or 0, r.get("edit_norm", 0) or 0,
              float(r.get("start_lab", r.get("y0", 0)))]
@@ -223,16 +249,25 @@ def confound(flp):
 
 
 def grouped_cv(X, y, par, k=5, n_boot=500):
-    """5-fold grouped-by-parent CV; refit per bootstrap resample."""
+    """5-fold grouped-by-parent CV (R2.1).
+
+    Pooled OOF predictions are computed once per column-set (train-fold
+    standardization only). Bootstrap CIs are PAIRED intervals of OOF AUC
+    differences on identical parent resamples (conf-vs-noconf,
+    full-vs-noconf), so the intervals are comparable per draw. A separate
+    in-sample diagnostic (in_sample_diagnostic) is reported and must never
+    be mixed with held-out numbers.
+    """
     from sklearn.linear_model import LogisticRegression
     from sklearn.metrics import roc_auc_score
     ups = np.unique(par)
     folds = np.array_split(rng.permutation(ups), k)
     out = {}
+    oof = {}
     for name, cols in (("conf", [0]), ("noconf", list(range(1, X.shape[1]))),
                        ("full", list(range(X.shape[1])))):
         aucs = []
-        oof = np.full(len(y), np.nan)
+        oo = np.full(len(y), np.nan)
         for f in range(k):
             te = np.isin(par, folds[f])
             tr = ~te
@@ -242,42 +277,78 @@ def grouped_cv(X, y, par, k=5, n_boot=500):
             m = LogisticRegression(C=1.0, max_iter=5000).fit(
                 (X[tr][:, cols] - mu) / sd, y[tr])
             p = m.predict_proba((X[te][:, cols] - mu) / sd)[:, 1]
-            oof[te] = p
+            oo[te] = p
             try:
                 aucs.append(roc_auc_score(y[te], p))
             except Exception:
                 pass
-        ok = ~np.isnan(oof)
+        ok = ~np.isnan(oo)
         try:
-            pooled = round(float(roc_auc_score(y[ok], oof[ok])), 4)
+            pooled = round(float(roc_auc_score(y[ok], oo[ok])), 4)
         except Exception:
             pooled = None
-        # parent bootstrap with FULL refit per resample
-        gains = []
-        for _ in range(n_boot):
-            draw = rng.choice(ups, size=len(ups), replace=True)
-            idx = np.concatenate([np.nonzero(par == u)[0] for u in draw])
-            Xa, ya = X[idx], y[idx]
-            if len(np.unique(ya)) < 2:
-                continue
-            mua, sda = Xa.mean(0), Xa.std(0) + 1e-12
-            try:
-                ma = LogisticRegression(C=1.0, max_iter=2000).fit(
-                    (Xa - mua) / sda, ya)
-                gains.append(roc_auc_score(ya, ma.predict_proba((Xa - mua) / sda)[:, 1]))
-            except Exception:
-                pass
-        ci = ([round(float(x), 4) for x in np.quantile(gains, [0.025, 0.975])]
-              if gains else None)
+        # in-sample diagnostic (NEVER reported as held-out)
+        mu_a, sd_a = X[:, cols].mean(0), X[:, cols].std(0) + 1e-12
+        m_a = LogisticRegression(C=1.0, max_iter=5000).fit(
+            (X[:, cols] - mu_a) / sd_a, y)
+        in_sample = round(float(roc_auc_score(
+            y, m_a.predict_proba((X[:, cols] - mu_a) / sd_a)[:, 1])), 4)
+        oof[name] = (oo, cols)
         out[name] = {"pooled_oof_auc": pooled,
                      "fold_aucs": [round(float(a), 4) for a in aucs],
-                     "refit_boot_ci": ci}
+                     "in_sample_diagnostic": in_sample}
+    # paired OOF difference intervals on identical parent draws
+    def _auc_on(mask, pred):
+        yy = y[mask]
+        try:
+            return roc_auc_score(yy, pred[mask])
+        except Exception:
+            return None
+    for pair, (a_nm, b_nm) in (("oof_auc_diff_conf_vs_noconf", ("conf", "noconf")),
+                               ("oof_auc_diff_full_vs_noconf", ("full", "noconf"))):
+        pa, pb = oof[a_nm][0], oof[b_nm][0]
+        ok = ~np.isnan(pa) & ~np.isnan(pb)
+        # parent-cluster resampling on the commonly-scored rows
+        par_ok = par[ok]
+        ups_ok = np.unique(par_ok)
+        pmap = {u: np.nonzero(par_ok == u)[0] for u in ups_ok}
+        diffs = []
+        for _ in range(n_boot):
+            draw = rng.choice(ups_ok, size=len(ups_ok), replace=True)
+            idx = np.concatenate([pmap[u] for u in draw])
+            ia = _auc_on(ok, pa)
+            ib = _auc_on(ok, pb)
+            if ia is None or ib is None:
+                continue
+            # recompute AUC on the bootstrapped row subset
+            yy = y[ok][idx]
+            try:
+                aa = roc_auc_score(yy, pa[ok][idx])
+                bb = roc_auc_score(yy, pb[ok][idx])
+                diffs.append(aa - bb)
+            except Exception:
+                pass
+        ci = ([round(float(x), 4) for x in np.quantile(diffs, [0.025, 0.975])]
+              if diffs else None)
+        pt = _auc_on(ok, pa); p2 = _auc_on(ok, pb)
+        out[pair] = {"point_diff": round(float(pt - p2), 4) if pt is not None and p2 is not None else None,
+                     "paired_oof_diff_ci": ci,
+                     "n_common": int(ok.sum())}
+    out["_note"] = ("Pooled OOF AUCs with train-fold standardization; paired CI "
+                    "conditions on this CV fit (parent-cluster resampling of "
+                    "commonly-scored OOF rows); in_sample_diagnostic is not held-out.")
     return out
 
 
-def matched_check(rows):
-    """Coarsened matching on (start-margin tertile, norm tertile, class);
-    reports matched n + SMDs; flags unresolved support."""
+def stratified_check(rows):
+    """Stratified high-vs-low confidence comparison (formerly 'matched_check').
+
+    Coarsens (start-margin tertile, norm tertile, class) and compares
+    above/below-median confidence WITHIN each cell. This is a stratified
+    analysis, not matched matching: we report per-cell balance (n per arm,
+    standardized mean difference on log1p-confidence) and a support note.
+    Large n does not imply common support or a matched cohort.
+    """
     import math
     recs = []
     for r in rows:
@@ -298,7 +369,7 @@ def matched_check(rows):
     for i, (p, m, n, c, f, y) in enumerate(recs):
         key = (int(np.digitize(m, mt)), int(np.digitize(n, nt)), c)
         cells.setdefault(key, []).append((f, y, p))
-    deltas, ws, smds = [], [], []
+    deltas, ws, per_cell = [], [], []
     for key, v in cells.items():
         if len(v) < 10:
             continue
@@ -308,15 +379,129 @@ def matched_check(rows):
         lo = [x for x in v if x[0] < med]
         if len(hi) < 3 or len(lo) < 3:
             continue
+        f_hi = np.array([x[0] for x in hi])
+        f_lo = np.array([x[0] for x in lo])
+        smd = float((f_hi.mean() - f_lo.mean()) /
+                    np.sqrt((f_hi.var() + f_lo.var()) / 2 + 1e-12))
         deltas.append((np.mean([x[1] for x in hi]) - np.mean([x[1] for x in lo]),
                        len(v)))
         ws.append(len(v))
+        per_cell.append({"cell": [int(k) for k in key], "n": len(v),
+                         "n_hi": len(hi), "n_lo": len(lo),
+                         "smd_log_conf": round(smd, 3)})
     if not deltas or sum(ws) < 100:
         return {"n_cells": len(deltas), "n_matched": int(sum(ws)),
-                "note": "support too thin: UNRESOLVED confound"}
+                "cells": per_cell,
+                "note": "support too thin: UNRESOLVED stratified comparison"}
     est = float(np.average([d for d, _ in deltas], weights=ws))
     return {"n_cells": len(deltas), "n_matched": int(sum(ws)),
-            "matched_delta": round(est, 4), "note": "ok"}
+            "stratified_delta": round(est, 4),
+            "cells": per_cell,
+            "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"}
+
+
+# alias so older artifacts/tests referencing matched_check still import
+matched_check = stratified_check
+
+
+def population_stats(paths, singles):
+    """R2.2: row / distinct-start / quartet / parent counts (parent = CI unit)."""
+    path_parents = set(r["parent"] for r in paths)
+    sing_parents = set(r["parent"] for r in singles)
+    starts = set()
+    for r in paths:
+        starts.add((r["parent"], r.get("ptype", "")))
+    for r in singles:
+        starts.add((r["parent"], r.get("eid", "")))
+    return {"n_path_rows": len(paths),
+            "n_single_rows": len(singles),
+            "n_quartet_parents": len(path_parents),
+            "n_single_parents": len(sing_parents),
+            "n_distinct_starts": len(starts),
+            "n_parents_total": len(path_parents | sing_parents),
+            "ci_unit": "parent"}
+
+
+def coverage_report(paths, singles, thr3):
+    """R2.3: top25 is a DEV reference threshold; report ACTUAL retained coverage."""
+    t25, t50, t75 = thr3
+    pops = {
+        "paths_start_states": [(r["parent"], r["confidence"]) for r in paths],
+        "singles_start_states": [(r["parent"], r["conf0"]) for r in singles],
+    }
+    out = {"thresholds": {"t25": round(float(t25), 4),
+                          "t50": round(float(t50), 4),
+                          "t75": round(float(t75), 4)},
+           "note": "top25 = dev reference quantile; actual retained coverage below",
+           "actual_coverage": {}}
+    for name, items in pops.items():
+        cf = np.array([c for _, c in items])
+        out["actual_coverage"][name] = {
+            "n": len(cf),
+            "retained_at_t25": int((cf >= t25).sum()),
+            "share_at_t25": round(float((cf >= t25).mean()), 4),
+            "retained_at_t50": int((cf >= t50).sum()),
+            "retained_at_t75": int((cf >= t75).sum()),
+        }
+    return out
+
+
+def sensitivity_stratified_cap(rows, caps=(10, 20, 40)):
+    """R2.2: truncation sensitivity — keep at most cap rows per parent."""
+    import collections
+    res = {}
+    for cap in caps:
+        seen = collections.defaultdict(int)
+        kept = []
+        for r in rows:
+            p = r["parent"]
+            if seen[p] < cap:
+                seen[p] += 1
+                kept.append(r)
+        errs = [(r["parent"],
+                 1 - int(r["end_correct"] if "end_correct" in r else r["correct1"]))
+                for r in kept]
+        if errs:
+            y = np.array([e for _, e in errs])
+            res[f"cap{cap}"] = {"n": len(y),
+                                "flip_err_overall": round(float(y.mean()), 4),
+                                "n_parents": len(seen)}
+        else:
+            res[f"cap{cap}"] = {"n": 0}
+    return res
+
+
+def sensitivity_equal_parent_weight(rows):
+    """R2.2: each parent contributes one vote (mean of its rows)."""
+    import collections
+    byp = collections.defaultdict(list)
+    for r in rows:
+        byp[r["parent"]].append(
+            1 - int(r["end_correct"] if "end_correct" in r else r["correct1"]))
+    if not byp:
+        return {"n": 0}
+    per_parent = np.array([float(np.mean(v)) for v in byp.values()])
+    return {"n_parents": len(byp),
+            "flip_err_parent_weighted": round(float(per_parent.mean()), 4)}
+
+
+def edit_family_distribution(paths, singles):
+    """R2.2: edit-family/node/displacement distributions for the manuscript."""
+    import collections
+    def _dist(rows, fam_key):
+        c = collections.Counter()
+        nrm = []
+        for r in rows:
+            f = r.get(fam_key, r.get("edit_fam", r.get("fam", "?")))
+            c[f] += 1
+            nrm.append(float(r.get("edit_norm", 0) or 0))
+        nrm = np.array(nrm)
+        return {"families": dict(c.most_common()),
+                "edit_norm": {"mean": round(float(nrm.mean()), 4),
+                              "p25": round(float(np.quantile(nrm, 0.25)), 4),
+                              "median": round(float(np.quantile(nrm, 0.5)), 4),
+                              "p75": round(float(np.quantile(nrm, 0.75)), 4)}}
+    return {"paths": _dist(paths, "edit_fam"), "singles": _dist(singles, "fam")}
 
 
 def thresh_ctrl(sub):

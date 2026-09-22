@@ -1,41 +1,90 @@
 % ============================================================================
-% PLACEHOLDER PREAMBLE — replace with official ICLR 2027 style files
-% (iclr2027.sty) when packaging for submission. 9 pages main text at
-% submission, 10 at rebuttal/camera-ready; references unlimited.
-% Strict double-blind: no author identities anywhere (incl. supplementary).
-% Mandatory AI-use disclosure section (excluded from page limit).
+% ICLR 2027 submission — official style kit (iclr2027_conference.sty et al.)
+% downloaded 2026-09-22 from the official media server
+% (https://media.iclr.cc/Conferences/ICLR2027/iclr-2027-style-files.zip,
+%  linked from https://iclr.cc/Conferences/2027/AuthorGuidelines).
+% Page limit: 9 pages main text at submission; references unlimited;
+% AI-use statement required, excluded from the page limit (see draft below).
+% Strict double-blind: \iclrfinalcopy stays commented out.
+% TODO-FIG1: no Figure-1 environment exists yet — must be REAL controlled
+%   quartet/path examples (oracle vs model prediction) sampled from the
+%   statistical population; do not claim it before generation.
+% TODO-COMPILE: no LaTeX toolchain on this machine (pdflatex/xelatex/
+%   latexmk/tectonic all absent) — first compile must happen on a machine
+%   with TeX; check missing figures / undefined refs / overfull / page count.
 % ============================================================================
-\documentclass{article}
-\usepackage[margin=1in]{geometry}
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2027_conference,times}
+
+% Optional math commands (shipped with the official kit).
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{hyperref}
+\graphicspath{{figures/}}
 \usepackage{natbib}
 
 \title{Knowing the Parts Does Not Mean Knowing the Change:
 Compositional and Transitional Blind Spots in Learned Representations}
 
+% Authors must not appear in the submitted version.
 \author{Anonymous}
 
 \begin{document}
+
 \maketitle
 
 \begin{abstract}
 \input{sections/00_abstract}
 \end{abstract}
 
-\input{sections/01_introduction}
-\input{sections/02_instrument}
-\input{sections/03_phenomenon}
-\input{sections/04_mechanism}
-\input{sections/04b_boundary}
-\input{sections/05_repair}
-\input{sections/06_external_confirmation}
-\input{sections/07_related_limitations}
-\input{sections/08_reproducibility}
+\input{sections/01_introduction}   % §1 Introduction        (sec:intro)
+\input{sections/02_instrument}     % §2 Controlled changes  (sec:setting, tab:setup)
+\input{sections/03_phenomenon}     % §3 Failure & confidence(sec:phenomenon, fig:p1)
+\input{sections/04_mechanism}      % §4 Repair/migration/relational (sec:repair, tab:fourarm, fig:migration, fig:fourarm)
+\input{sections/04b_boundary}      % §5 External observations (sec:football, sec:pixel, sec:interfaces)
+\input{sections/05_repair}         % §6 Related Work        (sec:related)
+\input{sections/discussion}        % §7 Discussion & Limitations (sec:discussion, sec:limits)
+\input{sections/conclusion}        % §8 Conclusion          (sec:conclusion)
 
 \bibliographystyle{plainnat}
 \bibliography{../references}
+
+\appendix
+\input{sections/08_reproducibility}       % App. protocol (sec:repro)
+\input{sections/06_external_confirmation} % App. failure catalogue (sec:failures)
+\input{sections/appendix}                 % App. audit history & estimand map (sec:audit)
+
+% ----------------------------------------------------------------------------
+% DRAFT — AI-USE STATEMENT (for owner approval; NOT final wording).
+% Required by the ICLR 2027 AI Policy for Authors; excluded from page limit.
+% Reflects the project's actual usage across exploration, code, analysis,
+% audit, and writing (never default to "language polish only"):
+%
+%   "AI systems were used in this work as research assistants, not as authors.
+%   Their roles included: (i) exploratory literature scanning and
+%   brainstorming of experimental routes; (ii) drafting and refactoring
+%   analysis/training code, with human review of every merged change;
+%   (iii) running predefined statistical analyses and formatting results;
+%   (iv) independent audit passes that checked numbers against archived
+%   artifacts and flagged discrepancies (all findings were human-verified);
+%   and (v) drafting and iteratively editing manuscript text, which the
+%   authors reviewed, corrected, and take full responsibility for. All
+%   experimental claims, numbers, and scientific judgments were made and
+%   verified by the authors; AI outputs were treated as proposals subject
+%   to the project's frozen-evidence and holdout-discipline protocols."
+%
+% ANONYMIZATION CHECKLIST for the camera-ready/anon supplement package:
+%   [ ] no .git directory or git history in the package
+%   [ ] no author names / emails / affiliations anywhere (tex, bib, logs)
+%   [ ] no repo-owner direct links (github.com/<owner>) in any file
+%   [ ] no absolute machine paths (/home/<user>) in tex/logs/manifests
+%   [ ] no log identity fields (user/host names in .out/.aux/.log if shipped)
+%   [ ] PDF metadata scrubbed (pdftk/pdftk-java or exiftool if available)
+%   [ ] figure binary metadata checked (PNG/PDF producer strings)
+% ----------------------------------------------------------------------------
 
 \end{document}

@@ -1,0 +1,4824 @@
+{
+ "thresholds": {
+  "s11_clean": {
+   "t25": 20.7555,
+   "t50": 13.3901,
+   "t75": 6.254
+  },
+  "s11_flipmine": {
+   "t25": 28.5929,
+   "t50": 9.7668,
+   "t75": 5.0628
+  },
+  "s23_clean": {
+   "t25": 22.1445,
+   "t50": 12.9339,
+   "t75": 6.6932
+  },
+  "s23_flipmine": {
+   "t25": 10.2977,
+   "t50": 4.4803,
+   "t75": 2.0483
+  },
+  "s47_clean": {
+   "t25": 20.7557,
+   "t50": 13.1416,
+   "t75": 6.6217
+  },
+  "s47_flipmine": {
+   "t25": 13.4143,
+   "t50": 5.093,
+   "t75": 2.2749
+  }
+ },
+ "s11_clean": {
+  "n_paths": 1018,
+  "n_singles": 40000,
+  "n_rankbase": 2018,
+  "tie_share": 0.3712,
+  "thresholds": {
+   "t25": 20.7555,
+   "t50": 13.3901,
+   "t75": 6.254
+  },
+  "current_by_bin": [
+   {
+    "bin": 0,
+    "n": 8001,
+    "err": 0.3538,
+    "ci": [
+     0.2903,
+     0.4187
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 9439,
+    "err": 0.2192,
+    "ci": [
+     0.1682,
+     0.2732
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 8194,
+    "err": 0.1328,
+    "ci": [
+     0.0898,
+     0.1803
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 15384,
+    "err": 0.0447,
+    "ci": [
+     0.0253,
+     0.068
+    ]
+   }
+  ],
+  "flip_by_bin": [
+   {
+    "bin": 0,
+    "n": 323,
+    "err": 0.5325,
+    "ci": [
+     0.4371,
+     0.6296
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 463,
+    "err": 0.9503,
+    "ci": [
+     0.9266,
+     0.9713
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 277,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 271,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "preserve_by_bin": [
+   {
+    "bin": 0,
+    "n": 7423,
+    "err": 0.366,
+    "ci": [
+     0.3168,
+     0.4191
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 8847,
+    "err": 0.2196,
+    "ci": [
+     0.1677,
+     0.2774
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 7813,
+    "err": 0.1259,
+    "ci": [
+     0.0815,
+     0.1753
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 15040,
+    "err": 0.0408,
+    "ci": [
+     0.0224,
+     0.0615
+    ]
+   }
+  ],
+  "retention_rho": [
+   {
+    "retain": "top25",
+    "n_flip": 271,
+    "n_prv": 15040,
+    "retained_frac_flip_cohort": 0.2031,
+    "retained_frac_preserve_cohort": 0.3844,
+    "flip_err": 1.0,
+    "prv_err": 0.0408,
+    "R_rho_0.00": 0.0408,
+    "R_rho_0.10": 0.1367,
+    "R_rho_0.25": 0.2806,
+    "R_rho_0.50": 0.5204,
+    "R_rho_0.75": 0.7602,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top50",
+    "n_flip": 548,
+    "n_prv": 22853,
+    "retained_frac_flip_cohort": 0.4108,
+    "retained_frac_preserve_cohort": 0.5841,
+    "flip_err": 1.0,
+    "prv_err": 0.0699,
+    "R_rho_0.00": 0.0699,
+    "R_rho_0.10": 0.1629,
+    "R_rho_0.25": 0.3024,
+    "R_rho_0.50": 0.535,
+    "R_rho_0.75": 0.7675,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top75",
+    "n_flip": 1011,
+    "n_prv": 31700,
+    "retained_frac_flip_cohort": 0.7579,
+    "retained_frac_preserve_cohort": 0.8103,
+    "flip_err": 0.9773,
+    "prv_err": 0.1117,
+    "R_rho_0.00": 0.1117,
+    "R_rho_0.10": 0.1983,
+    "R_rho_0.25": 0.3281,
+    "R_rho_0.50": 0.5445,
+    "R_rho_0.75": 0.7609,
+    "R_rho_1.00": 0.9773
+   },
+   {
+    "retain": "all",
+    "n_flip": 1334,
+    "n_prv": 39123,
+    "retained_frac_flip_cohort": 1.0,
+    "retained_frac_preserve_cohort": 1.0,
+    "flip_err": 0.8696,
+    "prv_err": 0.16,
+    "R_rho_0.00": 0.16,
+    "R_rho_0.10": 0.2309,
+    "R_rho_0.25": 0.3374,
+    "R_rho_0.50": 0.5148,
+    "R_rho_0.75": 0.6922,
+    "R_rho_1.00": 0.8696
+   }
+  ],
+  "retention_update": [
+   {
+    "retain": "top25",
+    "n_flip": 271,
+    "n_prv_u": 14426,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 15384,
+    "R_joint": 0.0623
+   },
+   {
+    "retain": "top50",
+    "n_flip": 548,
+    "n_prv_u": 21255,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 23578,
+    "R_joint": 0.0985
+   },
+   {
+    "retain": "top75",
+    "n_flip": 1011,
+    "n_prv_u": 28162,
+    "flip_err": 0.9773,
+    "prv_update_err": 0.0012,
+    "Rupd_rho_0.00": 0.0012,
+    "Rupd_rho_0.10": 0.0988,
+    "Rupd_rho_0.25": 0.2452,
+    "Rupd_rho_0.50": 0.4892,
+    "Rupd_rho_0.75": 0.7332,
+    "Rupd_rho_1.00": 0.9773,
+    "n_joint": 33017,
+    "R_joint": 0.1473
+   },
+   {
+    "retain": "all",
+    "n_flip": 1334,
+    "n_prv_u": 33009,
+    "flip_err": 0.8696,
+    "prv_update_err": 0.019,
+    "Rupd_rho_0.00": 0.019,
+    "Rupd_rho_0.10": 0.1041,
+    "Rupd_rho_0.25": 0.2317,
+    "Rupd_rho_0.50": 0.4443,
+    "Rupd_rho_0.75": 0.6569,
+    "Rupd_rho_1.00": 0.8696,
+    "n_joint": 41018,
+    "R_joint": 0.2063
+   }
+  ],
+  "_retention_rho_note": "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the retained subset; it is a mixed risk under an explicit reweighting of the retained population, NOT an unselected deployment change rate. flip cohort = start-correct semantic-change rows; preserve cohort = semantics-preserving singles (unscreened start correctness).",
+  "confound": {
+   "n": 1334,
+   "n_feat": 14,
+   "grouped_cv": {
+    "conf": {
+     "pooled_oof_auc": 0.9391,
+     "fold_aucs": [
+      0.9341,
+      0.9453,
+      0.9428,
+      0.9351,
+      0.9363
+     ],
+     "in_sample_diagnostic": 0.9402
+    },
+    "noconf": {
+     "pooled_oof_auc": 0.6132,
+     "fold_aucs": [
+      0.6176,
+      0.6493,
+      0.6119,
+      0.5426,
+      0.6531
+     ],
+     "in_sample_diagnostic": 0.6835
+    },
+    "full": {
+     "pooled_oof_auc": 0.9454,
+     "fold_aucs": [
+      0.944,
+      0.9496,
+      0.954,
+      0.9403,
+      0.9435
+     ],
+     "in_sample_diagnostic": 0.9545
+    },
+    "oof_auc_diff_conf_vs_noconf": {
+     "point_diff": 0.326,
+     "paired_oof_diff_ci": [
+      0.2525,
+      0.4051
+     ],
+     "n_common": 1334
+    },
+    "oof_auc_diff_full_vs_noconf": {
+     "point_diff": 0.3322,
+     "paired_oof_diff_ci": [
+      0.2614,
+      0.4046
+     ],
+     "n_common": 1334
+    },
+    "_note": "Pooled OOF AUCs with train-fold standardization; paired CI conditions on this CV fit (parent-cluster resampling of commonly-scored OOF rows); in_sample_diagnostic is not held-out."
+   },
+   "max_abs_corr": 0.362,
+   "auc_conf_only": 0.9402,
+   "auc_noconf": 0.6835,
+   "auc_full": 0.9545,
+   "auc_gain_ci": [
+    0.2043,
+    0.3354
+   ],
+   "coef_full": [
+    2.404,
+    -0.389,
+    -0.455,
+    0.142,
+    -0.258
+   ]
+  },
+  "stratified": {
+   "n_cells": 16,
+   "n_matched": 1325,
+   "stratified_delta": 0.2563,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 19,
+     "n_hi": 10,
+     "n_lo": 9,
+     "smd_log_conf": 2.762
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 182,
+     "n_hi": 91,
+     "n_lo": 91,
+     "smd_log_conf": 2.413
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 135,
+     "n_hi": 68,
+     "n_lo": 67,
+     "smd_log_conf": 2.415
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 49,
+     "n_hi": 25,
+     "n_lo": 24,
+     "smd_log_conf": 2.431
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 96,
+     "n_hi": 48,
+     "n_lo": 48,
+     "smd_log_conf": 2.559
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 166,
+     "n_hi": 83,
+     "n_lo": 83,
+     "smd_log_conf": 2.548
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 164,
+     "n_hi": 82,
+     "n_lo": 82,
+     "smd_log_conf": 2.406
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 74,
+     "n_hi": 37,
+     "n_lo": 37,
+     "smd_log_conf": 2.26
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 122,
+     "n_hi": 61,
+     "n_lo": 61,
+     "smd_log_conf": 2.115
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 33,
+     "n_hi": 18,
+     "n_lo": 15,
+     "smd_log_conf": 4.029
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 22,
+     "n_hi": 11,
+     "n_lo": 11,
+     "smd_log_conf": 4.151
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 14,
+     "n_hi": 7,
+     "n_lo": 7,
+     "smd_log_conf": 1.611
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 179,
+     "n_hi": 90,
+     "n_lo": 89,
+     "smd_log_conf": 2.235
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 20,
+     "n_hi": 10,
+     "n_lo": 10,
+     "smd_log_conf": 3.034
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 2.554
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 14,
+     "n_hi": 7,
+     "n_lo": 7,
+     "smd_log_conf": 3.463
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "matched": {
+   "n_cells": 16,
+   "n_matched": 1325,
+   "stratified_delta": 0.2563,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 19,
+     "n_hi": 10,
+     "n_lo": 9,
+     "smd_log_conf": 2.762
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 182,
+     "n_hi": 91,
+     "n_lo": 91,
+     "smd_log_conf": 2.413
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 135,
+     "n_hi": 68,
+     "n_lo": 67,
+     "smd_log_conf": 2.415
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 49,
+     "n_hi": 25,
+     "n_lo": 24,
+     "smd_log_conf": 2.431
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 96,
+     "n_hi": 48,
+     "n_lo": 48,
+     "smd_log_conf": 2.559
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 166,
+     "n_hi": 83,
+     "n_lo": 83,
+     "smd_log_conf": 2.548
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 164,
+     "n_hi": 82,
+     "n_lo": 82,
+     "smd_log_conf": 2.406
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 74,
+     "n_hi": 37,
+     "n_lo": 37,
+     "smd_log_conf": 2.26
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 122,
+     "n_hi": 61,
+     "n_lo": 61,
+     "smd_log_conf": 2.115
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 33,
+     "n_hi": 18,
+     "n_lo": 15,
+     "smd_log_conf": 4.029
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 22,
+     "n_hi": 11,
+     "n_lo": 11,
+     "smd_log_conf": 4.151
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 14,
+     "n_hi": 7,
+     "n_lo": 7,
+     "smd_log_conf": 1.611
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 179,
+     "n_hi": 90,
+     "n_lo": 89,
+     "smd_log_conf": 2.235
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 20,
+     "n_hi": 10,
+     "n_lo": 10,
+     "smd_log_conf": 3.034
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 2.554
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 14,
+     "n_hi": 7,
+     "n_lo": 7,
+     "smd_log_conf": 3.463
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "population": {
+   "n_path_rows": 1018,
+   "n_single_rows": 40000,
+   "n_quartet_parents": 193,
+   "n_single_parents": 1000,
+   "n_distinct_starts": 40386,
+   "n_parents_total": 1000,
+   "ci_unit": "parent"
+  },
+  "coverage": {
+   "thresholds": {
+    "t25": 20.7555,
+    "t50": 13.3901,
+    "t75": 6.254
+   },
+   "note": "top25 = dev reference quantile; actual retained coverage below",
+   "actual_coverage": {
+    "paths_start_states": {
+     "n": 1018,
+     "retained_at_t25": 184,
+     "share_at_t25": 0.1807,
+     "retained_at_t50": 378,
+     "retained_at_t75": 697
+    },
+    "singles_start_states": {
+     "n": 40000,
+     "retained_at_t25": 15200,
+     "share_at_t25": 0.38,
+     "retained_at_t50": 23200,
+     "retained_at_t75": 32320
+    }
+   }
+  },
+  "sensitivity_stratified_cap": {
+   "cap10": {
+    "n": 1186,
+    "flip_err_overall": 0.8634,
+    "n_parents": 223
+   },
+   "cap20": {
+    "n": 1331,
+    "flip_err_overall": 0.8693,
+    "n_parents": 223
+   },
+   "cap40": {
+    "n": 1334,
+    "flip_err_overall": 0.8696,
+    "n_parents": 223
+   }
+  },
+  "sensitivity_equal_parent": {
+   "n_parents": 223,
+   "flip_err_parent_weighted": 0.8242
+  },
+  "edit_family_distribution": {
+   "paths": {
+    "families": {
+     "shift_AB": 172,
+     "shift_CD": 168,
+     "rot_AB": 166,
+     "rot_CD": 159,
+     "move_node2": 105,
+     "move_node0": 89,
+     "move_node3": 86,
+     "move_node1": 73
+    },
+    "edit_norm": {
+     "mean": 0.1253,
+     "p25": 0.1,
+     "median": 0.1366,
+     "p75": 0.1414
+    }
+   },
+   "singles": {
+    "families": {
+     "single": 40000
+    },
+    "edit_norm": {
+     "mean": 0.0755,
+     "p25": 0.03,
+     "median": 0.06,
+     "p75": 0.1
+    }
+   }
+  },
+  "threshold_ctrl": {
+   "n": 743,
+   "auc_conf": 0.9323,
+   "auc_norm": 0.9884,
+   "auc_joint": 0.9862,
+   "coef_joint": [
+    0.4872,
+    5.1983
+   ]
+  },
+  "temperature": {
+   "T_star": 8.796,
+   "NLL": 0.3827,
+   "NLL_null": 0.4397,
+   "Brier": 0.1208,
+   "note": "ranks invariant under T>0 by construction"
+  }
+ },
+ "s11_flipmine": {
+  "n_paths": 1018,
+  "n_singles": 40000,
+  "n_rankbase": 2018,
+  "tie_share": 0.385,
+  "thresholds": {
+   "t25": 28.5929,
+   "t50": 9.7668,
+   "t75": 5.0628
+  },
+  "current_by_bin": [
+   {
+    "bin": 0,
+    "n": 6364,
+    "err": 0.4269,
+    "ci": [
+     0.3543,
+     0.5031
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 7900,
+    "err": 0.1532,
+    "ci": [
+     0.107,
+     0.2048
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 11276,
+    "err": 0.1182,
+    "ci": [
+     0.0811,
+     0.1539
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 15478,
+    "err": 0.0183,
+    "ci": [
+     0.0057,
+     0.0324
+    ]
+   }
+  ],
+  "flip_by_bin": [
+   {
+    "bin": 0,
+    "n": 437,
+    "err": 0.3822,
+    "ci": [
+     0.2901,
+     0.4697
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 334,
+    "err": 0.7425,
+    "ci": [
+     0.6413,
+     0.8264
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 306,
+    "err": 0.8464,
+    "ci": [
+     0.7893,
+     0.8979
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 71,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "preserve_by_bin": [
+   {
+    "bin": 0,
+    "n": 5574,
+    "err": 0.3891,
+    "ci": [
+     0.3339,
+     0.4432
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 7410,
+    "err": 0.1459,
+    "ci": [
+     0.1018,
+     0.1904
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 10792,
+    "err": 0.1079,
+    "ci": [
+     0.0749,
+     0.1445
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 15347,
+    "err": 0.0146,
+    "ci": [
+     0.0046,
+     0.0283
+    ]
+   }
+  ],
+  "retention_rho": [
+   {
+    "retain": "top25",
+    "n_flip": 71,
+    "n_prv": 15347,
+    "retained_frac_flip_cohort": 0.0618,
+    "retained_frac_preserve_cohort": 0.3923,
+    "flip_err": 1.0,
+    "prv_err": 0.0146,
+    "R_rho_0.00": 0.0146,
+    "R_rho_0.10": 0.1131,
+    "R_rho_0.25": 0.2609,
+    "R_rho_0.50": 0.5073,
+    "R_rho_0.75": 0.7536,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top50",
+    "n_flip": 377,
+    "n_prv": 26139,
+    "retained_frac_flip_cohort": 0.3284,
+    "retained_frac_preserve_cohort": 0.6681,
+    "flip_err": 0.8753,
+    "prv_err": 0.0531,
+    "R_rho_0.00": 0.0531,
+    "R_rho_0.10": 0.1353,
+    "R_rho_0.25": 0.2587,
+    "R_rho_0.50": 0.4642,
+    "R_rho_0.75": 0.6698,
+    "R_rho_1.00": 0.8753
+   },
+   {
+    "retain": "top75",
+    "n_flip": 711,
+    "n_prv": 33549,
+    "retained_frac_flip_cohort": 0.6193,
+    "retained_frac_preserve_cohort": 0.8575,
+    "flip_err": 0.8129,
+    "prv_err": 0.0736,
+    "R_rho_0.00": 0.0736,
+    "R_rho_0.10": 0.1475,
+    "R_rho_0.25": 0.2584,
+    "R_rho_0.50": 0.4433,
+    "R_rho_0.75": 0.6281,
+    "R_rho_1.00": 0.8129
+   },
+   {
+    "retain": "all",
+    "n_flip": 1148,
+    "n_prv": 39123,
+    "retained_frac_flip_cohort": 1.0,
+    "retained_frac_preserve_cohort": 1.0,
+    "flip_err": 0.649,
+    "prv_err": 0.1185,
+    "R_rho_0.00": 0.1185,
+    "R_rho_0.10": 0.1716,
+    "R_rho_0.25": 0.2512,
+    "R_rho_0.50": 0.3838,
+    "R_rho_0.75": 0.5164,
+    "R_rho_1.00": 0.649
+   }
+  ],
+  "retention_update": [
+   {
+    "retain": "top25",
+    "n_flip": 71,
+    "n_prv_u": 15123,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 15478,
+    "R_joint": 0.0229
+   },
+   {
+    "retain": "top50",
+    "n_flip": 377,
+    "n_prv_u": 24760,
+    "flip_err": 0.8753,
+    "prv_update_err": 0.001,
+    "Rupd_rho_0.00": 0.001,
+    "Rupd_rho_0.10": 0.0884,
+    "Rupd_rho_0.25": 0.2196,
+    "Rupd_rho_0.50": 0.4382,
+    "Rupd_rho_0.75": 0.6568,
+    "Rupd_rho_1.00": 0.8753,
+    "n_joint": 26754,
+    "R_joint": 0.0737
+   },
+   {
+    "retain": "top75",
+    "n_flip": 711,
+    "n_prv_u": 31116,
+    "flip_err": 0.8129,
+    "prv_update_err": 0.0038,
+    "Rupd_rho_0.00": 0.0038,
+    "Rupd_rho_0.10": 0.0847,
+    "Rupd_rho_0.25": 0.2061,
+    "Rupd_rho_0.50": 0.4084,
+    "Rupd_rho_0.75": 0.6107,
+    "Rupd_rho_1.00": 0.8129,
+    "n_joint": 34654,
+    "R_joint": 0.1017
+   },
+   {
+    "retain": "all",
+    "n_flip": 1148,
+    "n_prv_u": 34326,
+    "flip_err": 0.649,
+    "prv_update_err": 0.0153,
+    "Rupd_rho_0.00": 0.0153,
+    "Rupd_rho_0.10": 0.0787,
+    "Rupd_rho_0.25": 0.1737,
+    "Rupd_rho_0.50": 0.3321,
+    "Rupd_rho_0.75": 0.4905,
+    "Rupd_rho_1.00": 0.649,
+    "n_joint": 41018,
+    "R_joint": 0.1661
+   }
+  ],
+  "_retention_rho_note": "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the retained subset; it is a mixed risk under an explicit reweighting of the retained population, NOT an unselected deployment change rate. flip cohort = start-correct semantic-change rows; preserve cohort = semantics-preserving singles (unscreened start correctness).",
+  "confound": {
+   "n": 1148,
+   "n_feat": 14,
+   "grouped_cv": {
+    "conf": {
+     "pooled_oof_auc": 0.7722,
+     "fold_aucs": [
+      0.8148,
+      0.7686,
+      0.6642,
+      0.8378,
+      0.7507
+     ],
+     "in_sample_diagnostic": 0.7821
+    },
+    "noconf": {
+     "pooled_oof_auc": 0.5679,
+     "fold_aucs": [
+      0.587,
+      0.628,
+      0.6571,
+      0.5631,
+      0.5643
+     ],
+     "in_sample_diagnostic": 0.6468
+    },
+    "full": {
+     "pooled_oof_auc": 0.8303,
+     "fold_aucs": [
+      0.8341,
+      0.846,
+      0.7779,
+      0.8422,
+      0.8038
+     ],
+     "in_sample_diagnostic": 0.8558
+    },
+    "oof_auc_diff_conf_vs_noconf": {
+     "point_diff": 0.2043,
+     "paired_oof_diff_ci": [
+      0.1366,
+      0.267
+     ],
+     "n_common": 1148
+    },
+    "oof_auc_diff_full_vs_noconf": {
+     "point_diff": 0.2623,
+     "paired_oof_diff_ci": [
+      0.2088,
+      0.3138
+     ],
+     "n_common": 1148
+    },
+    "_note": "Pooled OOF AUCs with train-fold standardization; paired CI conditions on this CV fit (parent-cluster resampling of commonly-scored OOF rows); in_sample_diagnostic is not held-out."
+   },
+   "max_abs_corr": 0.488,
+   "auc_conf_only": 0.7821,
+   "auc_noconf": 0.6468,
+   "auc_full": 0.8558,
+   "auc_gain_ci": [
+    0.1579,
+    0.2562
+   ],
+   "coef_full": [
+    1.759,
+    -0.27,
+    -0.399,
+    -0.025,
+    -0.379
+   ]
+  },
+  "stratified": {
+   "n_cells": 17,
+   "n_matched": 1147,
+   "stratified_delta": 0.4571,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 2.617
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 36,
+     "n_hi": 19,
+     "n_lo": 17,
+     "smd_log_conf": 2.988
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 49,
+     "n_hi": 25,
+     "n_lo": 24,
+     "smd_log_conf": 2.028
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 146,
+     "n_hi": 74,
+     "n_lo": 72,
+     "smd_log_conf": 2.356
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 40,
+     "n_hi": 20,
+     "n_lo": 20,
+     "smd_log_conf": 2.481
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 103,
+     "n_hi": 52,
+     "n_lo": 51,
+     "smd_log_conf": 2.708
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 120,
+     "n_hi": 62,
+     "n_lo": 58,
+     "smd_log_conf": 2.567
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 68,
+     "n_hi": 34,
+     "n_lo": 34,
+     "smd_log_conf": 2.254
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 114,
+     "n_hi": 57,
+     "n_lo": 57,
+     "smd_log_conf": 2.666
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 90,
+     "n_hi": 47,
+     "n_lo": 43,
+     "smd_log_conf": 2.595
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 128,
+     "n_hi": 64,
+     "n_lo": 64,
+     "smd_log_conf": 2.451
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 45,
+     "n_hi": 23,
+     "n_lo": 22,
+     "smd_log_conf": 2.556
+    },
+    {
+     "cell": [
+      1,
+      0,
+      0
+     ],
+     "n": 14,
+     "n_hi": 7,
+     "n_lo": 7,
+     "smd_log_conf": 2.763
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 38,
+     "n_hi": 19,
+     "n_lo": 19,
+     "smd_log_conf": 3.421
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 30,
+     "n_hi": 15,
+     "n_lo": 15,
+     "smd_log_conf": 1.942
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 58,
+     "n_hi": 29,
+     "n_lo": 29,
+     "smd_log_conf": 2.43
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 32,
+     "n_hi": 17,
+     "n_lo": 15,
+     "smd_log_conf": 3.409
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "matched": {
+   "n_cells": 17,
+   "n_matched": 1147,
+   "stratified_delta": 0.4571,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 2.617
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 36,
+     "n_hi": 19,
+     "n_lo": 17,
+     "smd_log_conf": 2.988
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 49,
+     "n_hi": 25,
+     "n_lo": 24,
+     "smd_log_conf": 2.028
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 146,
+     "n_hi": 74,
+     "n_lo": 72,
+     "smd_log_conf": 2.356
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 40,
+     "n_hi": 20,
+     "n_lo": 20,
+     "smd_log_conf": 2.481
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 103,
+     "n_hi": 52,
+     "n_lo": 51,
+     "smd_log_conf": 2.708
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 120,
+     "n_hi": 62,
+     "n_lo": 58,
+     "smd_log_conf": 2.567
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 68,
+     "n_hi": 34,
+     "n_lo": 34,
+     "smd_log_conf": 2.254
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 114,
+     "n_hi": 57,
+     "n_lo": 57,
+     "smd_log_conf": 2.666
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 90,
+     "n_hi": 47,
+     "n_lo": 43,
+     "smd_log_conf": 2.595
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 128,
+     "n_hi": 64,
+     "n_lo": 64,
+     "smd_log_conf": 2.451
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 45,
+     "n_hi": 23,
+     "n_lo": 22,
+     "smd_log_conf": 2.556
+    },
+    {
+     "cell": [
+      1,
+      0,
+      0
+     ],
+     "n": 14,
+     "n_hi": 7,
+     "n_lo": 7,
+     "smd_log_conf": 2.763
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 38,
+     "n_hi": 19,
+     "n_lo": 19,
+     "smd_log_conf": 3.421
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 30,
+     "n_hi": 15,
+     "n_lo": 15,
+     "smd_log_conf": 1.942
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 58,
+     "n_hi": 29,
+     "n_lo": 29,
+     "smd_log_conf": 2.43
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 32,
+     "n_hi": 17,
+     "n_lo": 15,
+     "smd_log_conf": 3.409
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "population": {
+   "n_path_rows": 1018,
+   "n_single_rows": 40000,
+   "n_quartet_parents": 193,
+   "n_single_parents": 1000,
+   "n_distinct_starts": 40386,
+   "n_parents_total": 1000,
+   "ci_unit": "parent"
+  },
+  "coverage": {
+   "thresholds": {
+    "t25": 28.5929,
+    "t50": 9.7668,
+    "t75": 5.0628
+   },
+   "note": "top25 = dev reference quantile; actual retained coverage below",
+   "actual_coverage": {
+    "paths_start_states": {
+     "n": 1018,
+     "retained_at_t25": 78,
+     "share_at_t25": 0.0766,
+     "retained_at_t50": 314,
+     "retained_at_t75": 614
+    },
+    "singles_start_states": {
+     "n": 40000,
+     "retained_at_t25": 15400,
+     "share_at_t25": 0.385,
+     "retained_at_t50": 26440,
+     "retained_at_t75": 34040
+    }
+   }
+  },
+  "sensitivity_stratified_cap": {
+   "cap10": {
+    "n": 1022,
+    "flip_err_overall": 0.6429,
+    "n_parents": 205
+   },
+   "cap20": {
+    "n": 1146,
+    "flip_err_overall": 0.6483,
+    "n_parents": 205
+   },
+   "cap40": {
+    "n": 1148,
+    "flip_err_overall": 0.649,
+    "n_parents": 205
+   }
+  },
+  "sensitivity_equal_parent": {
+   "n_parents": 205,
+   "flip_err_parent_weighted": 0.6207
+  },
+  "edit_family_distribution": {
+   "paths": {
+    "families": {
+     "shift_AB": 172,
+     "shift_CD": 168,
+     "rot_AB": 166,
+     "rot_CD": 159,
+     "move_node2": 105,
+     "move_node0": 89,
+     "move_node3": 86,
+     "move_node1": 73
+    },
+    "edit_norm": {
+     "mean": 0.1253,
+     "p25": 0.1,
+     "median": 0.1366,
+     "p75": 0.1414
+    }
+   },
+   "singles": {
+    "families": {
+     "single": 40000
+    },
+    "edit_norm": {
+     "mean": 0.0755,
+     "p25": 0.03,
+     "median": 0.06,
+     "p75": 0.1
+    }
+   }
+  },
+  "threshold_ctrl": {
+   "n": 634,
+   "auc_conf": 0.8122,
+   "auc_norm": 0.9792,
+   "auc_joint": 0.975,
+   "coef_joint": [
+    0.5582,
+    8.1156
+   ]
+  },
+  "temperature": {
+   "T_star": 8.25,
+   "NLL": 0.3308,
+   "NLL_null": 0.3845,
+   "Brier": 0.0993,
+   "note": "ranks invariant under T>0 by construction"
+  }
+ },
+ "s23_clean": {
+  "n_paths": 1018,
+  "n_singles": 40000,
+  "n_rankbase": 2018,
+  "tie_share": 0.3712,
+  "thresholds": {
+   "t25": 22.1445,
+   "t50": 12.9339,
+   "t75": 6.6932
+  },
+  "current_by_bin": [
+   {
+    "bin": 0,
+    "n": 8207,
+    "err": 0.4279,
+    "ci": [
+     0.3568,
+     0.4973
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 7589,
+    "err": 0.2472,
+    "ci": [
+     0.1882,
+     0.306
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 10817,
+    "err": 0.1169,
+    "ci": [
+     0.0793,
+     0.1571
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 14405,
+    "err": 0.0351,
+    "ci": [
+     0.017,
+     0.0546
+    ]
+   }
+  ],
+  "flip_by_bin": [
+   {
+    "bin": 0,
+    "n": 359,
+    "err": 0.5571,
+    "ci": [
+     0.459,
+     0.644
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 316,
+    "err": 0.9525,
+    "ci": [
+     0.9184,
+     0.9792
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 484,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 201,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "preserve_by_bin": [
+   {
+    "bin": 0,
+    "n": 7645,
+    "err": 0.416,
+    "ci": [
+     0.3648,
+     0.4625
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 7116,
+    "err": 0.2434,
+    "ci": [
+     0.1817,
+     0.3089
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 10218,
+    "err": 0.1126,
+    "ci": [
+     0.0765,
+     0.1504
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 14144,
+    "err": 0.0315,
+    "ci": [
+     0.0153,
+     0.0498
+    ]
+   }
+  ],
+  "retention_rho": [
+   {
+    "retain": "top25",
+    "n_flip": 201,
+    "n_prv": 14144,
+    "retained_frac_flip_cohort": 0.1478,
+    "retained_frac_preserve_cohort": 0.3615,
+    "flip_err": 1.0,
+    "prv_err": 0.0315,
+    "R_rho_0.00": 0.0315,
+    "R_rho_0.10": 0.1283,
+    "R_rho_0.25": 0.2736,
+    "R_rho_0.50": 0.5157,
+    "R_rho_0.75": 0.7579,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top50",
+    "n_flip": 685,
+    "n_prv": 24362,
+    "retained_frac_flip_cohort": 0.5037,
+    "retained_frac_preserve_cohort": 0.6227,
+    "flip_err": 1.0,
+    "prv_err": 0.0655,
+    "R_rho_0.00": 0.0655,
+    "R_rho_0.10": 0.159,
+    "R_rho_0.25": 0.2991,
+    "R_rho_0.50": 0.5328,
+    "R_rho_0.75": 0.7664,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top75",
+    "n_flip": 1001,
+    "n_prv": 31478,
+    "retained_frac_flip_cohort": 0.736,
+    "retained_frac_preserve_cohort": 0.8046,
+    "flip_err": 0.985,
+    "prv_err": 0.1057,
+    "R_rho_0.00": 0.1057,
+    "R_rho_0.10": 0.1937,
+    "R_rho_0.25": 0.3255,
+    "R_rho_0.50": 0.5454,
+    "R_rho_0.75": 0.7652,
+    "R_rho_1.00": 0.985
+   },
+   {
+    "retain": "all",
+    "n_flip": 1360,
+    "n_prv": 39123,
+    "retained_frac_flip_cohort": 1.0,
+    "retained_frac_preserve_cohort": 1.0,
+    "flip_err": 0.8721,
+    "prv_err": 0.1663,
+    "R_rho_0.00": 0.1663,
+    "R_rho_0.10": 0.2369,
+    "R_rho_0.25": 0.3428,
+    "R_rho_0.50": 0.5192,
+    "R_rho_0.75": 0.6956,
+    "R_rho_1.00": 0.8721
+   }
+  ],
+  "retention_update": [
+   {
+    "retain": "top25",
+    "n_flip": 201,
+    "n_prv_u": 13699,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 14405,
+    "R_joint": 0.049
+   },
+   {
+    "retain": "top50",
+    "n_flip": 685,
+    "n_prv_u": 22767,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 25222,
+    "R_joint": 0.0974
+   },
+   {
+    "retain": "top75",
+    "n_flip": 1001,
+    "n_prv_u": 28164,
+    "flip_err": 0.985,
+    "prv_update_err": 0.0008,
+    "Rupd_rho_0.00": 0.0008,
+    "Rupd_rho_0.10": 0.0992,
+    "Rupd_rho_0.25": 0.2469,
+    "Rupd_rho_0.50": 0.4929,
+    "Rupd_rho_0.75": 0.739,
+    "Rupd_rho_1.00": 0.985,
+    "n_joint": 32811,
+    "R_joint": 0.1419
+   },
+   {
+    "retain": "all",
+    "n_flip": 1360,
+    "n_prv_u": 32500,
+    "flip_err": 0.8721,
+    "prv_update_err": 0.0167,
+    "Rupd_rho_0.00": 0.0167,
+    "Rupd_rho_0.10": 0.1023,
+    "Rupd_rho_0.25": 0.2306,
+    "Rupd_rho_0.50": 0.4444,
+    "Rupd_rho_0.75": 0.6582,
+    "Rupd_rho_1.00": 0.8721,
+    "n_joint": 41018,
+    "R_joint": 0.2167
+   }
+  ],
+  "_retention_rho_note": "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the retained subset; it is a mixed risk under an explicit reweighting of the retained population, NOT an unselected deployment change rate. flip cohort = start-correct semantic-change rows; preserve cohort = semantics-preserving singles (unscreened start correctness).",
+  "confound": {
+   "n": 1360,
+   "n_feat": 14,
+   "grouped_cv": {
+    "conf": {
+     "pooled_oof_auc": 0.9482,
+     "fold_aucs": [
+      0.9564,
+      0.9891,
+      0.9533,
+      0.9426,
+      0.9298
+     ],
+     "in_sample_diagnostic": 0.9508
+    },
+    "noconf": {
+     "pooled_oof_auc": 0.579,
+     "fold_aucs": [
+      0.6126,
+      0.5021,
+      0.4522,
+      0.7673,
+      0.5849
+     ],
+     "in_sample_diagnostic": 0.6664
+    },
+    "full": {
+     "pooled_oof_auc": 0.9482,
+     "fold_aucs": [
+      0.9523,
+      0.9761,
+      0.9391,
+      0.9591,
+      0.9399
+     ],
+     "in_sample_diagnostic": 0.958
+    },
+    "oof_auc_diff_conf_vs_noconf": {
+     "point_diff": 0.3692,
+     "paired_oof_diff_ci": [
+      0.2895,
+      0.4579
+     ],
+     "n_common": 1360
+    },
+    "oof_auc_diff_full_vs_noconf": {
+     "point_diff": 0.3692,
+     "paired_oof_diff_ci": [
+      0.2938,
+      0.4532
+     ],
+     "n_common": 1360
+    },
+    "_note": "Pooled OOF AUCs with train-fold standardization; paired CI conditions on this CV fit (parent-cluster resampling of commonly-scored OOF rows); in_sample_diagnostic is not held-out."
+   },
+   "max_abs_corr": 0.352,
+   "auc_conf_only": 0.9508,
+   "auc_noconf": 0.6664,
+   "auc_full": 0.958,
+   "auc_gain_ci": [
+    0.2233,
+    0.355
+   ],
+   "coef_full": [
+    2.47,
+    -0.305,
+    -0.256,
+    0.475,
+    -0.355
+   ]
+  },
+  "stratified": {
+   "n_cells": 16,
+   "n_matched": 1352,
+   "stratified_delta": 0.2522,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 15,
+     "n_hi": 8,
+     "n_lo": 7,
+     "smd_log_conf": 2.476
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 22,
+     "n_hi": 12,
+     "n_lo": 10,
+     "smd_log_conf": 2.998
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 33,
+     "n_hi": 17,
+     "n_lo": 16,
+     "smd_log_conf": 2.956
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 187,
+     "n_hi": 94,
+     "n_lo": 93,
+     "smd_log_conf": 2.696
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 142,
+     "n_hi": 71,
+     "n_lo": 71,
+     "smd_log_conf": 2.573
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 51,
+     "n_hi": 26,
+     "n_lo": 25,
+     "smd_log_conf": 2.094
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 96,
+     "n_hi": 48,
+     "n_lo": 48,
+     "smd_log_conf": 2.688
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 172,
+     "n_hi": 87,
+     "n_lo": 85,
+     "smd_log_conf": 1.889
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 159,
+     "n_hi": 82,
+     "n_lo": 77,
+     "smd_log_conf": 2.382
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 74,
+     "n_hi": 38,
+     "n_lo": 36,
+     "smd_log_conf": 2.513
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 124,
+     "n_hi": 62,
+     "n_lo": 62,
+     "smd_log_conf": 2.48
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 20,
+     "n_hi": 10,
+     "n_lo": 10,
+     "smd_log_conf": 2.692
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 197,
+     "n_hi": 100,
+     "n_lo": 97,
+     "smd_log_conf": 2.27
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 23,
+     "n_hi": 12,
+     "n_lo": 11,
+     "smd_log_conf": 3.307
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 14,
+     "n_hi": 8,
+     "n_lo": 6,
+     "smd_log_conf": 3.053
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 23,
+     "n_hi": 12,
+     "n_lo": 11,
+     "smd_log_conf": 2.364
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "matched": {
+   "n_cells": 16,
+   "n_matched": 1352,
+   "stratified_delta": 0.2522,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 15,
+     "n_hi": 8,
+     "n_lo": 7,
+     "smd_log_conf": 2.476
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 22,
+     "n_hi": 12,
+     "n_lo": 10,
+     "smd_log_conf": 2.998
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 33,
+     "n_hi": 17,
+     "n_lo": 16,
+     "smd_log_conf": 2.956
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 187,
+     "n_hi": 94,
+     "n_lo": 93,
+     "smd_log_conf": 2.696
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 142,
+     "n_hi": 71,
+     "n_lo": 71,
+     "smd_log_conf": 2.573
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 51,
+     "n_hi": 26,
+     "n_lo": 25,
+     "smd_log_conf": 2.094
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 96,
+     "n_hi": 48,
+     "n_lo": 48,
+     "smd_log_conf": 2.688
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 172,
+     "n_hi": 87,
+     "n_lo": 85,
+     "smd_log_conf": 1.889
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 159,
+     "n_hi": 82,
+     "n_lo": 77,
+     "smd_log_conf": 2.382
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 74,
+     "n_hi": 38,
+     "n_lo": 36,
+     "smd_log_conf": 2.513
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 124,
+     "n_hi": 62,
+     "n_lo": 62,
+     "smd_log_conf": 2.48
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 20,
+     "n_hi": 10,
+     "n_lo": 10,
+     "smd_log_conf": 2.692
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 197,
+     "n_hi": 100,
+     "n_lo": 97,
+     "smd_log_conf": 2.27
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 23,
+     "n_hi": 12,
+     "n_lo": 11,
+     "smd_log_conf": 3.307
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 14,
+     "n_hi": 8,
+     "n_lo": 6,
+     "smd_log_conf": 3.053
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 23,
+     "n_hi": 12,
+     "n_lo": 11,
+     "smd_log_conf": 2.364
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "population": {
+   "n_path_rows": 1018,
+   "n_single_rows": 40000,
+   "n_quartet_parents": 193,
+   "n_single_parents": 1000,
+   "n_distinct_starts": 40386,
+   "n_parents_total": 1000,
+   "ci_unit": "parent"
+  },
+  "coverage": {
+   "thresholds": {
+    "t25": 22.1445,
+    "t50": 12.9339,
+    "t75": 6.6932
+   },
+   "note": "top25 = dev reference quantile; actual retained coverage below",
+   "actual_coverage": {
+    "paths_start_states": {
+     "n": 1018,
+     "retained_at_t25": 125,
+     "share_at_t25": 0.1228,
+     "retained_at_t50": 462,
+     "retained_at_t75": 731
+    },
+    "singles_start_states": {
+     "n": 40000,
+     "retained_at_t25": 14280,
+     "share_at_t25": 0.357,
+     "retained_at_t50": 24760,
+     "retained_at_t75": 32080
+    }
+   }
+  },
+  "sensitivity_stratified_cap": {
+   "cap10": {
+    "n": 1213,
+    "flip_err_overall": 0.8648,
+    "n_parents": 223
+   },
+   "cap20": {
+    "n": 1357,
+    "flip_err_overall": 0.8718,
+    "n_parents": 223
+   },
+   "cap40": {
+    "n": 1360,
+    "flip_err_overall": 0.8721,
+    "n_parents": 223
+   }
+  },
+  "sensitivity_equal_parent": {
+   "n_parents": 223,
+   "flip_err_parent_weighted": 0.838
+  },
+  "edit_family_distribution": {
+   "paths": {
+    "families": {
+     "shift_AB": 172,
+     "shift_CD": 168,
+     "rot_AB": 166,
+     "rot_CD": 159,
+     "move_node2": 105,
+     "move_node0": 89,
+     "move_node3": 86,
+     "move_node1": 73
+    },
+    "edit_norm": {
+     "mean": 0.1253,
+     "p25": 0.1,
+     "median": 0.1366,
+     "p75": 0.1414
+    }
+   },
+   "singles": {
+    "families": {
+     "single": 40000
+    },
+    "edit_norm": {
+     "mean": 0.0755,
+     "p25": 0.03,
+     "median": 0.06,
+     "p75": 0.1
+    }
+   }
+  },
+  "threshold_ctrl": {
+   "n": 740,
+   "auc_conf": 0.9473,
+   "auc_norm": 0.9909,
+   "auc_joint": 0.9879,
+   "coef_joint": [
+    0.8366,
+    4.8168
+   ]
+  },
+  "temperature": {
+   "T_star": 8.868,
+   "NLL": 0.3718,
+   "NLL_null": 0.459,
+   "Brier": 0.1183,
+   "note": "ranks invariant under T>0 by construction"
+  }
+ },
+ "s23_flipmine": {
+  "n_paths": 1018,
+  "n_singles": 40000,
+  "n_rankbase": 2018,
+  "tie_share": 0.3712,
+  "thresholds": {
+   "t25": 10.2977,
+   "t50": 4.4803,
+   "t75": 2.0483
+  },
+  "current_by_bin": [
+   {
+    "bin": 0,
+    "n": 7170,
+    "err": 0.4086,
+    "ci": [
+     0.3391,
+     0.4809
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 9744,
+    "err": 0.2047,
+    "ci": [
+     0.157,
+     0.2586
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 9905,
+    "err": 0.1391,
+    "ci": [
+     0.0992,
+     0.1866
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 14199,
+    "err": 0.0261,
+    "ci": [
+     0.0113,
+     0.0437
+    ]
+   }
+  ],
+  "flip_by_bin": [
+   {
+    "bin": 0,
+    "n": 450,
+    "err": 0.4356,
+    "ci": [
+     0.349,
+     0.5248
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 453,
+    "err": 0.8344,
+    "ci": [
+     0.7765,
+     0.8851
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 168,
+    "err": 0.9226,
+    "ci": [
+     0.8483,
+     0.9779
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 59,
+    "err": 0.9831,
+    "ci": [
+     0.9454,
+     1.0
+    ]
+   }
+  ],
+  "preserve_by_bin": [
+   {
+    "bin": 0,
+    "n": 6407,
+    "err": 0.3969,
+    "ci": [
+     0.3447,
+     0.4497
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 9063,
+    "err": 0.1945,
+    "ci": [
+     0.1488,
+     0.2437
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 9560,
+    "err": 0.1247,
+    "ci": [
+     0.0861,
+     0.1692
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 14093,
+    "err": 0.0228,
+    "ci": [
+     0.0096,
+     0.0387
+    ]
+   }
+  ],
+  "retention_rho": [
+   {
+    "retain": "top25",
+    "n_flip": 59,
+    "n_prv": 14093,
+    "retained_frac_flip_cohort": 0.0522,
+    "retained_frac_preserve_cohort": 0.3602,
+    "flip_err": 0.9831,
+    "prv_err": 0.0228,
+    "R_rho_0.00": 0.0228,
+    "R_rho_0.10": 0.1188,
+    "R_rho_0.25": 0.2628,
+    "R_rho_0.50": 0.5029,
+    "R_rho_0.75": 0.743,
+    "R_rho_1.00": 0.9831
+   },
+   {
+    "retain": "top50",
+    "n_flip": 227,
+    "n_prv": 23653,
+    "retained_frac_flip_cohort": 0.2009,
+    "retained_frac_preserve_cohort": 0.6046,
+    "flip_err": 0.9383,
+    "prv_err": 0.064,
+    "R_rho_0.00": 0.064,
+    "R_rho_0.10": 0.1514,
+    "R_rho_0.25": 0.2826,
+    "R_rho_0.50": 0.5011,
+    "R_rho_0.75": 0.7197,
+    "R_rho_1.00": 0.9383
+   },
+   {
+    "retain": "top75",
+    "n_flip": 680,
+    "n_prv": 32716,
+    "retained_frac_flip_cohort": 0.6018,
+    "retained_frac_preserve_cohort": 0.8362,
+    "flip_err": 0.8691,
+    "prv_err": 0.1001,
+    "R_rho_0.00": 0.1001,
+    "R_rho_0.10": 0.177,
+    "R_rho_0.25": 0.2924,
+    "R_rho_0.50": 0.4846,
+    "R_rho_0.75": 0.6769,
+    "R_rho_1.00": 0.8691
+   },
+   {
+    "retain": "all",
+    "n_flip": 1130,
+    "n_prv": 39123,
+    "retained_frac_flip_cohort": 1.0,
+    "retained_frac_preserve_cohort": 1.0,
+    "flip_err": 0.6965,
+    "prv_err": 0.1487,
+    "R_rho_0.00": 0.1487,
+    "R_rho_0.10": 0.2035,
+    "R_rho_0.25": 0.2857,
+    "R_rho_0.50": 0.4226,
+    "R_rho_0.75": 0.5595,
+    "R_rho_1.00": 0.6965
+   }
+  ],
+  "retention_update": [
+   {
+    "retain": "top25",
+    "n_flip": 59,
+    "n_prv_u": 13769,
+    "flip_err": 0.9831,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.0983,
+    "Rupd_rho_0.25": 0.2458,
+    "Rupd_rho_0.50": 0.4915,
+    "Rupd_rho_0.75": 0.7373,
+    "Rupd_rho_1.00": 0.9831,
+    "n_joint": 14199,
+    "R_joint": 0.0302
+   },
+   {
+    "retain": "top50",
+    "n_flip": 227,
+    "n_prv_u": 22128,
+    "flip_err": 0.9383,
+    "prv_update_err": 0.0005,
+    "Rupd_rho_0.00": 0.0005,
+    "Rupd_rho_0.10": 0.0943,
+    "Rupd_rho_0.25": 0.235,
+    "Rupd_rho_0.50": 0.4694,
+    "Rupd_rho_0.75": 0.7039,
+    "Rupd_rho_1.00": 0.9383,
+    "n_joint": 24104,
+    "R_joint": 0.0819
+   },
+   {
+    "retain": "top75",
+    "n_flip": 680,
+    "n_prv_u": 29424,
+    "flip_err": 0.8691,
+    "prv_update_err": 0.0028,
+    "Rupd_rho_0.00": 0.0028,
+    "Rupd_rho_0.10": 0.0894,
+    "Rupd_rho_0.25": 0.2194,
+    "Rupd_rho_0.50": 0.436,
+    "Rupd_rho_0.75": 0.6525,
+    "Rupd_rho_1.00": 0.8691,
+    "n_joint": 33848,
+    "R_joint": 0.1305
+   },
+   {
+    "retain": "all",
+    "n_flip": 1130,
+    "n_prv_u": 33214,
+    "flip_err": 0.6965,
+    "prv_update_err": 0.0175,
+    "Rupd_rho_0.00": 0.0175,
+    "Rupd_rho_0.10": 0.0854,
+    "Rupd_rho_0.25": 0.1872,
+    "Rupd_rho_0.50": 0.357,
+    "Rupd_rho_0.75": 0.5267,
+    "Rupd_rho_1.00": 0.6965,
+    "n_joint": 41018,
+    "R_joint": 0.196
+   }
+  ],
+  "_retention_rho_note": "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the retained subset; it is a mixed risk under an explicit reweighting of the retained population, NOT an unselected deployment change rate. flip cohort = start-correct semantic-change rows; preserve cohort = semantics-preserving singles (unscreened start correctness).",
+  "confound": {
+   "n": 1130,
+   "n_feat": 14,
+   "grouped_cv": {
+    "conf": {
+     "pooled_oof_auc": 0.7966,
+     "fold_aucs": [
+      0.7814,
+      0.8328,
+      0.7738,
+      0.8734,
+      0.7839
+     ],
+     "in_sample_diagnostic": 0.8026
+    },
+    "noconf": {
+     "pooled_oof_auc": 0.5384,
+     "fold_aucs": [
+      0.6102,
+      0.564,
+      0.556,
+      0.5341,
+      0.5126
+     ],
+     "in_sample_diagnostic": 0.6189
+    },
+    "full": {
+     "pooled_oof_auc": 0.8216,
+     "fold_aucs": [
+      0.8053,
+      0.8357,
+      0.7886,
+      0.9252,
+      0.793
+     ],
+     "in_sample_diagnostic": 0.843
+    },
+    "oof_auc_diff_conf_vs_noconf": {
+     "point_diff": 0.2583,
+     "paired_oof_diff_ci": [
+      0.1953,
+      0.3092
+     ],
+     "n_common": 1130
+    },
+    "oof_auc_diff_full_vs_noconf": {
+     "point_diff": 0.2833,
+     "paired_oof_diff_ci": [
+      0.2344,
+      0.3315
+     ],
+     "n_common": 1130
+    },
+    "_note": "Pooled OOF AUCs with train-fold standardization; paired CI conditions on this CV fit (parent-cluster resampling of commonly-scored OOF rows); in_sample_diagnostic is not held-out."
+   },
+   "max_abs_corr": 0.338,
+   "auc_conf_only": 0.8026,
+   "auc_noconf": 0.6189,
+   "auc_full": 0.843,
+   "auc_gain_ci": [
+    0.1719,
+    0.2688
+   ],
+   "coef_full": [
+    1.733,
+    -0.118,
+    -0.055,
+    0.249,
+    -0.425
+   ]
+  },
+  "stratified": {
+   "n_cells": 17,
+   "n_matched": 1129,
+   "stratified_delta": 0.4244,
+   "cells": [
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 48,
+     "n_hi": 25,
+     "n_lo": 23,
+     "smd_log_conf": 2.078
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 36,
+     "n_hi": 20,
+     "n_lo": 16,
+     "smd_log_conf": 2.358
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 131,
+     "n_hi": 67,
+     "n_lo": 64,
+     "smd_log_conf": 3.003
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 39,
+     "n_hi": 20,
+     "n_lo": 19,
+     "smd_log_conf": 3.878
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 69,
+     "n_hi": 35,
+     "n_lo": 34,
+     "smd_log_conf": 2.549
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 121,
+     "n_hi": 61,
+     "n_lo": 60,
+     "smd_log_conf": 3.398
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 119,
+     "n_hi": 61,
+     "n_lo": 58,
+     "smd_log_conf": 2.955
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 105,
+     "n_hi": 55,
+     "n_lo": 50,
+     "smd_log_conf": 2.978
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 43,
+     "n_hi": 22,
+     "n_lo": 21,
+     "smd_log_conf": 3.375
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 84,
+     "n_hi": 42,
+     "n_lo": 42,
+     "smd_log_conf": 3.039
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 135,
+     "n_hi": 70,
+     "n_lo": 65,
+     "smd_log_conf": 2.518
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 43,
+     "n_hi": 22,
+     "n_lo": 21,
+     "smd_log_conf": 2.874
+    },
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 31,
+     "n_hi": 16,
+     "n_lo": 15,
+     "smd_log_conf": 1.958
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 26,
+     "n_hi": 13,
+     "n_lo": 13,
+     "smd_log_conf": 1.845
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 52,
+     "n_hi": 26,
+     "n_lo": 26,
+     "smd_log_conf": 2.444
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 37,
+     "n_hi": 20,
+     "n_lo": 17,
+     "smd_log_conf": 2.516
+    },
+    {
+     "cell": [
+      1,
+      0,
+      0
+     ],
+     "n": 10,
+     "n_hi": 5,
+     "n_lo": 5,
+     "smd_log_conf": 2.675
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "matched": {
+   "n_cells": 17,
+   "n_matched": 1129,
+   "stratified_delta": 0.4244,
+   "cells": [
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 48,
+     "n_hi": 25,
+     "n_lo": 23,
+     "smd_log_conf": 2.078
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 36,
+     "n_hi": 20,
+     "n_lo": 16,
+     "smd_log_conf": 2.358
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 131,
+     "n_hi": 67,
+     "n_lo": 64,
+     "smd_log_conf": 3.003
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 39,
+     "n_hi": 20,
+     "n_lo": 19,
+     "smd_log_conf": 3.878
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 69,
+     "n_hi": 35,
+     "n_lo": 34,
+     "smd_log_conf": 2.549
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 121,
+     "n_hi": 61,
+     "n_lo": 60,
+     "smd_log_conf": 3.398
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 119,
+     "n_hi": 61,
+     "n_lo": 58,
+     "smd_log_conf": 2.955
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 105,
+     "n_hi": 55,
+     "n_lo": 50,
+     "smd_log_conf": 2.978
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 43,
+     "n_hi": 22,
+     "n_lo": 21,
+     "smd_log_conf": 3.375
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 84,
+     "n_hi": 42,
+     "n_lo": 42,
+     "smd_log_conf": 3.039
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 135,
+     "n_hi": 70,
+     "n_lo": 65,
+     "smd_log_conf": 2.518
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 43,
+     "n_hi": 22,
+     "n_lo": 21,
+     "smd_log_conf": 2.874
+    },
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 31,
+     "n_hi": 16,
+     "n_lo": 15,
+     "smd_log_conf": 1.958
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 26,
+     "n_hi": 13,
+     "n_lo": 13,
+     "smd_log_conf": 1.845
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 52,
+     "n_hi": 26,
+     "n_lo": 26,
+     "smd_log_conf": 2.444
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 37,
+     "n_hi": 20,
+     "n_lo": 17,
+     "smd_log_conf": 2.516
+    },
+    {
+     "cell": [
+      1,
+      0,
+      0
+     ],
+     "n": 10,
+     "n_hi": 5,
+     "n_lo": 5,
+     "smd_log_conf": 2.675
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "population": {
+   "n_path_rows": 1018,
+   "n_single_rows": 40000,
+   "n_quartet_parents": 193,
+   "n_single_parents": 1000,
+   "n_distinct_starts": 40386,
+   "n_parents_total": 1000,
+   "ci_unit": "parent"
+  },
+  "coverage": {
+   "thresholds": {
+    "t25": 10.2977,
+    "t50": 4.4803,
+    "t75": 2.0483
+   },
+   "note": "top25 = dev reference quantile; actual retained coverage below",
+   "actual_coverage": {
+    "paths_start_states": {
+     "n": 1018,
+     "retained_at_t25": 39,
+     "share_at_t25": 0.0383,
+     "retained_at_t50": 224,
+     "retained_at_t75": 568
+    },
+    "singles_start_states": {
+     "n": 40000,
+     "retained_at_t25": 14160,
+     "share_at_t25": 0.354,
+     "retained_at_t50": 23880,
+     "retained_at_t75": 33280
+    }
+   }
+  },
+  "sensitivity_stratified_cap": {
+   "cap10": {
+    "n": 1026,
+    "flip_err_overall": 0.6891,
+    "n_parents": 203
+   },
+   "cap20": {
+    "n": 1130,
+    "flip_err_overall": 0.6965,
+    "n_parents": 203
+   },
+   "cap40": {
+    "n": 1130,
+    "flip_err_overall": 0.6965,
+    "n_parents": 203
+   }
+  },
+  "sensitivity_equal_parent": {
+   "n_parents": 203,
+   "flip_err_parent_weighted": 0.6716
+  },
+  "edit_family_distribution": {
+   "paths": {
+    "families": {
+     "shift_AB": 172,
+     "shift_CD": 168,
+     "rot_AB": 166,
+     "rot_CD": 159,
+     "move_node2": 105,
+     "move_node0": 89,
+     "move_node3": 86,
+     "move_node1": 73
+    },
+    "edit_norm": {
+     "mean": 0.1253,
+     "p25": 0.1,
+     "median": 0.1366,
+     "p75": 0.1414
+    }
+   },
+   "singles": {
+    "families": {
+     "single": 40000
+    },
+    "edit_norm": {
+     "mean": 0.0755,
+     "p25": 0.03,
+     "median": 0.06,
+     "p75": 0.1
+    }
+   }
+  },
+  "threshold_ctrl": {
+   "n": 624,
+   "auc_conf": 0.8346,
+   "auc_norm": 0.9707,
+   "auc_joint": 0.9687,
+   "coef_joint": [
+    0.2635,
+    5.8909
+   ]
+  },
+  "temperature": {
+   "T_star": 3.857,
+   "NLL": 0.3733,
+   "NLL_null": 0.4347,
+   "Brier": 0.1175,
+   "note": "ranks invariant under T>0 by construction"
+  }
+ },
+ "s47_clean": {
+  "n_paths": 1018,
+  "n_singles": 40000,
+  "n_rankbase": 2018,
+  "tie_share": 0.3712,
+  "thresholds": {
+   "t25": 20.7557,
+   "t50": 13.1416,
+   "t75": 6.6217
+  },
+  "current_by_bin": [
+   {
+    "bin": 0,
+    "n": 8265,
+    "err": 0.3566,
+    "ci": [
+     0.2933,
+     0.4209
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 7130,
+    "err": 0.2471,
+    "ci": [
+     0.1853,
+     0.3118
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 9340,
+    "err": 0.1505,
+    "ci": [
+     0.1064,
+     0.1974
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 16283,
+    "err": 0.0571,
+    "ci": [
+     0.0351,
+     0.0806
+    ]
+   }
+  ],
+  "flip_by_bin": [
+   {
+    "bin": 0,
+    "n": 304,
+    "err": 0.6086,
+    "ci": [
+     0.5263,
+     0.6847
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 299,
+    "err": 0.9465,
+    "ci": [
+     0.9065,
+     0.9786
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 326,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 376,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "preserve_by_bin": [
+   {
+    "bin": 0,
+    "n": 7721,
+    "err": 0.3731,
+    "ci": [
+     0.3217,
+     0.4293
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 6678,
+    "err": 0.2409,
+    "ci": [
+     0.1813,
+     0.3025
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 8892,
+    "err": 0.1444,
+    "ci": [
+     0.103,
+     0.1885
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 15832,
+    "err": 0.0539,
+    "ci": [
+     0.0339,
+     0.0779
+    ]
+   }
+  ],
+  "retention_rho": [
+   {
+    "retain": "top25",
+    "n_flip": 376,
+    "n_prv": 15832,
+    "retained_frac_flip_cohort": 0.2881,
+    "retained_frac_preserve_cohort": 0.4047,
+    "flip_err": 1.0,
+    "prv_err": 0.0539,
+    "R_rho_0.00": 0.0539,
+    "R_rho_0.10": 0.1485,
+    "R_rho_0.25": 0.2905,
+    "R_rho_0.50": 0.527,
+    "R_rho_0.75": 0.7635,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top50",
+    "n_flip": 702,
+    "n_prv": 24724,
+    "retained_frac_flip_cohort": 0.5379,
+    "retained_frac_preserve_cohort": 0.632,
+    "flip_err": 1.0,
+    "prv_err": 0.0865,
+    "R_rho_0.00": 0.0865,
+    "R_rho_0.10": 0.1778,
+    "R_rho_0.25": 0.3149,
+    "R_rho_0.50": 0.5432,
+    "R_rho_0.75": 0.7716,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top75",
+    "n_flip": 1001,
+    "n_prv": 31402,
+    "retained_frac_flip_cohort": 0.767,
+    "retained_frac_preserve_cohort": 0.8026,
+    "flip_err": 0.984,
+    "prv_err": 0.1193,
+    "R_rho_0.00": 0.1193,
+    "R_rho_0.10": 0.2058,
+    "R_rho_0.25": 0.3355,
+    "R_rho_0.50": 0.5517,
+    "R_rho_0.75": 0.7678,
+    "R_rho_1.00": 0.984
+   },
+   {
+    "retain": "all",
+    "n_flip": 1305,
+    "n_prv": 39123,
+    "retained_frac_flip_cohort": 1.0,
+    "retained_frac_preserve_cohort": 1.0,
+    "flip_err": 0.8966,
+    "prv_err": 0.1694,
+    "R_rho_0.00": 0.1694,
+    "R_rho_0.10": 0.2421,
+    "R_rho_0.25": 0.3512,
+    "R_rho_0.50": 0.533,
+    "R_rho_0.75": 0.7148,
+    "R_rho_1.00": 0.8966
+   }
+  ],
+  "retention_update": [
+   {
+    "retain": "top25",
+    "n_flip": 376,
+    "n_prv_u": 14978,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 16283,
+    "R_joint": 0.0801
+   },
+   {
+    "retain": "top50",
+    "n_flip": 702,
+    "n_prv_u": 22586,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 25623,
+    "R_joint": 0.1185
+   },
+   {
+    "retain": "top75",
+    "n_flip": 1001,
+    "n_prv_u": 27655,
+    "flip_err": 0.984,
+    "prv_update_err": 0.0006,
+    "Rupd_rho_0.00": 0.0006,
+    "Rupd_rho_0.10": 0.099,
+    "Rupd_rho_0.25": 0.2465,
+    "Rupd_rho_0.50": 0.4923,
+    "Rupd_rho_0.75": 0.7382,
+    "Rupd_rho_1.00": 0.984,
+    "n_joint": 32753,
+    "R_joint": 0.1557
+   },
+   {
+    "retain": "all",
+    "n_flip": 1305,
+    "n_prv_u": 32669,
+    "flip_err": 0.8966,
+    "prv_update_err": 0.0185,
+    "Rupd_rho_0.00": 0.0185,
+    "Rupd_rho_0.10": 0.1063,
+    "Rupd_rho_0.25": 0.238,
+    "Rupd_rho_0.50": 0.4575,
+    "Rupd_rho_0.75": 0.677,
+    "Rupd_rho_1.00": 0.8966,
+    "n_joint": 41018,
+    "R_joint": 0.215
+   }
+  ],
+  "_retention_rho_note": "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the retained subset; it is a mixed risk under an explicit reweighting of the retained population, NOT an unselected deployment change rate. flip cohort = start-correct semantic-change rows; preserve cohort = semantics-preserving singles (unscreened start correctness).",
+  "confound": {
+   "n": 1305,
+   "n_feat": 14,
+   "grouped_cv": {
+    "conf": {
+     "pooled_oof_auc": 0.9311,
+     "fold_aucs": [
+      0.9577,
+      0.8664,
+      0.9283,
+      0.9601,
+      0.9642
+     ],
+     "in_sample_diagnostic": 0.9354
+    },
+    "noconf": {
+     "pooled_oof_auc": 0.6344,
+     "fold_aucs": [
+      0.5101,
+      0.6895,
+      0.7595,
+      0.5769,
+      0.7328
+     ],
+     "in_sample_diagnostic": 0.6992
+    },
+    "full": {
+     "pooled_oof_auc": 0.9433,
+     "fold_aucs": [
+      0.9491,
+      0.9183,
+      0.9685,
+      0.9544,
+      0.975
+     ],
+     "in_sample_diagnostic": 0.9588
+    },
+    "oof_auc_diff_conf_vs_noconf": {
+     "point_diff": 0.2967,
+     "paired_oof_diff_ci": [
+      0.2153,
+      0.3788
+     ],
+     "n_common": 1305
+    },
+    "oof_auc_diff_full_vs_noconf": {
+     "point_diff": 0.3089,
+     "paired_oof_diff_ci": [
+      0.2348,
+      0.3692
+     ],
+     "n_common": 1305
+    },
+    "_note": "Pooled OOF AUCs with train-fold standardization; paired CI conditions on this CV fit (parent-cluster resampling of commonly-scored OOF rows); in_sample_diagnostic is not held-out."
+   },
+   "max_abs_corr": 0.353,
+   "auc_conf_only": 0.9354,
+   "auc_noconf": 0.6992,
+   "auc_full": 0.9588,
+   "auc_gain_ci": [
+    0.1891,
+    0.3264
+   ],
+   "coef_full": [
+    2.459,
+    -0.615,
+    -0.325,
+    0.734,
+    -0.418
+   ]
+  },
+  "stratified": {
+   "n_cells": 16,
+   "n_matched": 1295,
+   "stratified_delta": 0.1912,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 13,
+     "n_hi": 7,
+     "n_lo": 6,
+     "smd_log_conf": 1.816
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 173,
+     "n_hi": 87,
+     "n_lo": 86,
+     "smd_log_conf": 2.818
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 135,
+     "n_hi": 68,
+     "n_lo": 67,
+     "smd_log_conf": 2.365
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 49,
+     "n_hi": 25,
+     "n_lo": 24,
+     "smd_log_conf": 2.314
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 96,
+     "n_hi": 49,
+     "n_lo": 47,
+     "smd_log_conf": 2.341
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 164,
+     "n_hi": 84,
+     "n_lo": 80,
+     "smd_log_conf": 2.677
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 156,
+     "n_hi": 80,
+     "n_lo": 76,
+     "smd_log_conf": 2.552
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 72,
+     "n_hi": 41,
+     "n_lo": 31,
+     "smd_log_conf": 2.237
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 33,
+     "n_hi": 18,
+     "n_lo": 15,
+     "smd_log_conf": 2.455
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 23,
+     "n_hi": 13,
+     "n_lo": 10,
+     "smd_log_conf": 2.595
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 17,
+     "n_hi": 12,
+     "n_lo": 5,
+     "smd_log_conf": 2.449
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 119,
+     "n_hi": 60,
+     "n_lo": 59,
+     "smd_log_conf": 2.847
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 182,
+     "n_hi": 93,
+     "n_lo": 89,
+     "smd_log_conf": 2.391
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 21,
+     "n_hi": 13,
+     "n_lo": 8,
+     "smd_log_conf": 1.619
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 26,
+     "n_hi": 13,
+     "n_lo": 13,
+     "smd_log_conf": 2.437
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 16,
+     "n_hi": 8,
+     "n_lo": 8,
+     "smd_log_conf": 2.299
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "matched": {
+   "n_cells": 16,
+   "n_matched": 1295,
+   "stratified_delta": 0.1912,
+   "cells": [
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 13,
+     "n_hi": 7,
+     "n_lo": 6,
+     "smd_log_conf": 1.816
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 173,
+     "n_hi": 87,
+     "n_lo": 86,
+     "smd_log_conf": 2.818
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 135,
+     "n_hi": 68,
+     "n_lo": 67,
+     "smd_log_conf": 2.365
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 49,
+     "n_hi": 25,
+     "n_lo": 24,
+     "smd_log_conf": 2.314
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 96,
+     "n_hi": 49,
+     "n_lo": 47,
+     "smd_log_conf": 2.341
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 164,
+     "n_hi": 84,
+     "n_lo": 80,
+     "smd_log_conf": 2.677
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 156,
+     "n_hi": 80,
+     "n_lo": 76,
+     "smd_log_conf": 2.552
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 72,
+     "n_hi": 41,
+     "n_lo": 31,
+     "smd_log_conf": 2.237
+    },
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 33,
+     "n_hi": 18,
+     "n_lo": 15,
+     "smd_log_conf": 2.455
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 23,
+     "n_hi": 13,
+     "n_lo": 10,
+     "smd_log_conf": 2.595
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 17,
+     "n_hi": 12,
+     "n_lo": 5,
+     "smd_log_conf": 2.449
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 119,
+     "n_hi": 60,
+     "n_lo": 59,
+     "smd_log_conf": 2.847
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 182,
+     "n_hi": 93,
+     "n_lo": 89,
+     "smd_log_conf": 2.391
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 21,
+     "n_hi": 13,
+     "n_lo": 8,
+     "smd_log_conf": 1.619
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 26,
+     "n_hi": 13,
+     "n_lo": 13,
+     "smd_log_conf": 2.437
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 16,
+     "n_hi": 8,
+     "n_lo": 8,
+     "smd_log_conf": 2.299
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "population": {
+   "n_path_rows": 1018,
+   "n_single_rows": 40000,
+   "n_quartet_parents": 193,
+   "n_single_parents": 1000,
+   "n_distinct_starts": 40386,
+   "n_parents_total": 1000,
+   "ci_unit": "parent"
+  },
+  "coverage": {
+   "thresholds": {
+    "t25": 20.7557,
+    "t50": 13.1416,
+    "t75": 6.6217
+   },
+   "note": "top25 = dev reference quantile; actual retained coverage below",
+   "actual_coverage": {
+    "paths_start_states": {
+     "n": 1018,
+     "retained_at_t25": 243,
+     "share_at_t25": 0.2387,
+     "retained_at_t50": 463,
+     "retained_at_t75": 753
+    },
+    "singles_start_states": {
+     "n": 40000,
+     "retained_at_t25": 16040,
+     "share_at_t25": 0.401,
+     "retained_at_t50": 25160,
+     "retained_at_t75": 32000
+    }
+   }
+  },
+  "sensitivity_stratified_cap": {
+   "cap10": {
+    "n": 1158,
+    "flip_err_overall": 0.8903,
+    "n_parents": 220
+   },
+   "cap20": {
+    "n": 1302,
+    "flip_err_overall": 0.8963,
+    "n_parents": 220
+   },
+   "cap40": {
+    "n": 1305,
+    "flip_err_overall": 0.8966,
+    "n_parents": 220
+   }
+  },
+  "sensitivity_equal_parent": {
+   "n_parents": 220,
+   "flip_err_parent_weighted": 0.8642
+  },
+  "edit_family_distribution": {
+   "paths": {
+    "families": {
+     "shift_AB": 172,
+     "shift_CD": 168,
+     "rot_AB": 166,
+     "rot_CD": 159,
+     "move_node2": 105,
+     "move_node0": 89,
+     "move_node3": 86,
+     "move_node1": 73
+    },
+    "edit_norm": {
+     "mean": 0.1253,
+     "p25": 0.1,
+     "median": 0.1366,
+     "p75": 0.1414
+    }
+   },
+   "singles": {
+    "families": {
+     "single": 40000
+    },
+    "edit_norm": {
+     "mean": 0.0755,
+     "p25": 0.03,
+     "median": 0.06,
+     "p75": 0.1
+    }
+   }
+  },
+  "threshold_ctrl": {
+   "n": 734,
+   "auc_conf": 0.9509,
+   "auc_norm": 0.9943,
+   "auc_joint": 0.9903,
+   "coef_joint": [
+    0.8995,
+    4.7606
+   ]
+  },
+  "temperature": {
+   "T_star": 10.14,
+   "NLL": 0.4074,
+   "NLL_null": 0.4543,
+   "Brier": 0.1288,
+   "note": "ranks invariant under T>0 by construction"
+  }
+ },
+ "s47_flipmine": {
+  "n_paths": 1018,
+  "n_singles": 40000,
+  "n_rankbase": 2018,
+  "tie_share": 0.3712,
+  "thresholds": {
+   "t25": 13.4143,
+   "t50": 5.093,
+   "t75": 2.2749
+  },
+  "current_by_bin": [
+   {
+    "bin": 0,
+    "n": 5995,
+    "err": 0.4157,
+    "ci": [
+     0.3377,
+     0.4915
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 9374,
+    "err": 0.2155,
+    "ci": [
+     0.1654,
+     0.2687
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 11492,
+    "err": 0.1299,
+    "ci": [
+     0.0907,
+     0.1684
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 14157,
+    "err": 0.0309,
+    "ci": [
+     0.0135,
+     0.0519
+    ]
+   }
+  ],
+  "flip_by_bin": [
+   {
+    "bin": 0,
+    "n": 316,
+    "err": 0.4462,
+    "ci": [
+     0.354,
+     0.5433
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 480,
+    "err": 0.7688,
+    "ci": [
+     0.6859,
+     0.8396
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 293,
+    "err": 0.9249,
+    "ci": [
+     0.8659,
+     0.9718
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 73,
+    "err": 1.0,
+    "ci": [
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "preserve_by_bin": [
+   {
+    "bin": 0,
+    "n": 5405,
+    "err": 0.3943,
+    "ci": [
+     0.3401,
+     0.4498
+    ]
+   },
+   {
+    "bin": 1,
+    "n": 8680,
+    "err": 0.2134,
+    "ci": [
+     0.1652,
+     0.2686
+    ]
+   },
+   {
+    "bin": 2,
+    "n": 11017,
+    "err": 0.1195,
+    "ci": [
+     0.0841,
+     0.1576
+    ]
+   },
+   {
+    "bin": 3,
+    "n": 14021,
+    "err": 0.0267,
+    "ci": [
+     0.0111,
+     0.0433
+    ]
+   }
+  ],
+  "retention_rho": [
+   {
+    "retain": "top25",
+    "n_flip": 73,
+    "n_prv": 14021,
+    "retained_frac_flip_cohort": 0.0628,
+    "retained_frac_preserve_cohort": 0.3584,
+    "flip_err": 1.0,
+    "prv_err": 0.0267,
+    "R_rho_0.00": 0.0267,
+    "R_rho_0.10": 0.124,
+    "R_rho_0.25": 0.27,
+    "R_rho_0.50": 0.5133,
+    "R_rho_0.75": 0.7567,
+    "R_rho_1.00": 1.0
+   },
+   {
+    "retain": "top50",
+    "n_flip": 366,
+    "n_prv": 25038,
+    "retained_frac_flip_cohort": 0.315,
+    "retained_frac_preserve_cohort": 0.64,
+    "flip_err": 0.9399,
+    "prv_err": 0.0675,
+    "R_rho_0.00": 0.0675,
+    "R_rho_0.10": 0.1547,
+    "R_rho_0.25": 0.2856,
+    "R_rho_0.50": 0.5037,
+    "R_rho_0.75": 0.7218,
+    "R_rho_1.00": 0.9399
+   },
+   {
+    "retain": "top75",
+    "n_flip": 846,
+    "n_prv": 33718,
+    "retained_frac_flip_cohort": 0.7281,
+    "retained_frac_preserve_cohort": 0.8618,
+    "flip_err": 0.8428,
+    "prv_err": 0.105,
+    "R_rho_0.00": 0.105,
+    "R_rho_0.10": 0.1788,
+    "R_rho_0.25": 0.2895,
+    "R_rho_0.50": 0.4739,
+    "R_rho_0.75": 0.6584,
+    "R_rho_1.00": 0.8428
+   },
+   {
+    "retain": "all",
+    "n_flip": 1162,
+    "n_prv": 39123,
+    "retained_frac_flip_cohort": 1.0,
+    "retained_frac_preserve_cohort": 1.0,
+    "flip_err": 0.7349,
+    "prv_err": 0.145,
+    "R_rho_0.00": 0.145,
+    "R_rho_0.10": 0.204,
+    "R_rho_0.25": 0.2925,
+    "R_rho_0.50": 0.44,
+    "R_rho_0.75": 0.5875,
+    "R_rho_1.00": 0.7349
+   }
+  ],
+  "retention_update": [
+   {
+    "retain": "top25",
+    "n_flip": 73,
+    "n_prv_u": 13647,
+    "flip_err": 1.0,
+    "prv_update_err": 0.0,
+    "Rupd_rho_0.00": 0.0,
+    "Rupd_rho_0.10": 0.1,
+    "Rupd_rho_0.25": 0.25,
+    "Rupd_rho_0.50": 0.5,
+    "Rupd_rho_0.75": 0.75,
+    "Rupd_rho_1.00": 1.0,
+    "n_joint": 14157,
+    "R_joint": 0.036
+   },
+   {
+    "retain": "top50",
+    "n_flip": 366,
+    "n_prv_u": 23353,
+    "flip_err": 0.9399,
+    "prv_update_err": 0.0011,
+    "Rupd_rho_0.00": 0.0011,
+    "Rupd_rho_0.10": 0.095,
+    "Rupd_rho_0.25": 0.2358,
+    "Rupd_rho_0.50": 0.4705,
+    "Rupd_rho_0.75": 0.7052,
+    "Rupd_rho_1.00": 0.9399,
+    "n_joint": 25649,
+    "R_joint": 0.0897
+   },
+   {
+    "retain": "top75",
+    "n_flip": 846,
+    "n_prv_u": 30227,
+    "flip_err": 0.8428,
+    "prv_update_err": 0.0044,
+    "Rupd_rho_0.00": 0.0044,
+    "Rupd_rho_0.10": 0.0883,
+    "Rupd_rho_0.25": 0.214,
+    "Rupd_rho_0.50": 0.4236,
+    "Rupd_rho_0.75": 0.6332,
+    "Rupd_rho_1.00": 0.8428,
+    "n_joint": 35023,
+    "R_joint": 0.137
+   },
+   {
+    "retain": "all",
+    "n_flip": 1162,
+    "n_prv_u": 33414,
+    "flip_err": 0.7349,
+    "prv_update_err": 0.0167,
+    "Rupd_rho_0.00": 0.0167,
+    "Rupd_rho_0.10": 0.0885,
+    "Rupd_rho_0.25": 0.1962,
+    "Rupd_rho_0.50": 0.3758,
+    "Rupd_rho_0.75": 0.5554,
+    "Rupd_rho_1.00": 0.7349,
+    "n_joint": 41018,
+    "R_joint": 0.1915
+   }
+  ],
+  "_retention_rho_note": "R(tau,rho) = (1-rho)*mean(preserve errors) + rho*mean(flip errors) on the retained subset; it is a mixed risk under an explicit reweighting of the retained population, NOT an unselected deployment change rate. flip cohort = start-correct semantic-change rows; preserve cohort = semantics-preserving singles (unscreened start correctness).",
+  "confound": {
+   "n": 1162,
+   "n_feat": 14,
+   "grouped_cv": {
+    "conf": {
+     "pooled_oof_auc": 0.7853,
+     "fold_aucs": [
+      0.6694,
+      0.8659,
+      0.7837,
+      0.8158,
+      0.765
+     ],
+     "in_sample_diagnostic": 0.7887
+    },
+    "noconf": {
+     "pooled_oof_auc": 0.5241,
+     "fold_aucs": [
+      0.5613,
+      0.4994,
+      0.5386,
+      0.5936,
+      0.4889
+     ],
+     "in_sample_diagnostic": 0.6429
+    },
+    "full": {
+     "pooled_oof_auc": 0.8071,
+     "fold_aucs": [
+      0.8169,
+      0.8247,
+      0.8207,
+      0.8437,
+      0.7336
+     ],
+     "in_sample_diagnostic": 0.853
+    },
+    "oof_auc_diff_conf_vs_noconf": {
+     "point_diff": 0.2613,
+     "paired_oof_diff_ci": [
+      0.1795,
+      0.3386
+     ],
+     "n_common": 1162
+    },
+    "oof_auc_diff_full_vs_noconf": {
+     "point_diff": 0.2831,
+     "paired_oof_diff_ci": [
+      0.2202,
+      0.3453
+     ],
+     "n_common": 1162
+    },
+    "_note": "Pooled OOF AUCs with train-fold standardization; paired CI conditions on this CV fit (parent-cluster resampling of commonly-scored OOF rows); in_sample_diagnostic is not held-out."
+   },
+   "max_abs_corr": 0.372,
+   "auc_conf_only": 0.7887,
+   "auc_noconf": 0.6429,
+   "auc_full": 0.853,
+   "auc_gain_ci": [
+    0.1577,
+    0.2683
+   ],
+   "coef_full": [
+    1.701,
+    -0.003,
+    -0.336,
+    0.076,
+    -0.332
+   ]
+  },
+  "stratified": {
+   "n_cells": 16,
+   "n_matched": 1152,
+   "stratified_delta": 0.3363,
+   "cells": [
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 46,
+     "n_hi": 24,
+     "n_lo": 22,
+     "smd_log_conf": 3.212
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 3.038
+    },
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 34,
+     "n_hi": 17,
+     "n_lo": 17,
+     "smd_log_conf": 2.99
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 149,
+     "n_hi": 75,
+     "n_lo": 74,
+     "smd_log_conf": 2.591
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 111,
+     "n_hi": 56,
+     "n_lo": 55,
+     "smd_log_conf": 2.449
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 69,
+     "n_hi": 35,
+     "n_lo": 34,
+     "smd_log_conf": 2.74
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 117,
+     "n_hi": 59,
+     "n_lo": 58,
+     "smd_log_conf": 2.78
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 2.113
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 88,
+     "n_hi": 44,
+     "n_lo": 44,
+     "smd_log_conf": 2.633
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 38,
+     "n_hi": 20,
+     "n_lo": 18,
+     "smd_log_conf": 2.656
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 53,
+     "n_hi": 27,
+     "n_lo": 26,
+     "smd_log_conf": 2.236
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 127,
+     "n_hi": 64,
+     "n_lo": 63,
+     "smd_log_conf": 2.604
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 138,
+     "n_hi": 69,
+     "n_lo": 69,
+     "smd_log_conf": 2.578
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 23,
+     "n_hi": 12,
+     "n_lo": 11,
+     "smd_log_conf": 2.372
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 55,
+     "n_hi": 29,
+     "n_lo": 26,
+     "smd_log_conf": 2.994
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 32,
+     "n_hi": 17,
+     "n_lo": 15,
+     "smd_log_conf": 3.098
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "matched": {
+   "n_cells": 16,
+   "n_matched": 1152,
+   "stratified_delta": 0.3363,
+   "cells": [
+    {
+     "cell": [
+      0,
+      1,
+      0
+     ],
+     "n": 46,
+     "n_hi": 24,
+     "n_lo": 22,
+     "smd_log_conf": 3.212
+    },
+    {
+     "cell": [
+      0,
+      0,
+      0
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 3.038
+    },
+    {
+     "cell": [
+      2,
+      1,
+      0
+     ],
+     "n": 34,
+     "n_hi": 17,
+     "n_lo": 17,
+     "smd_log_conf": 2.99
+    },
+    {
+     "cell": [
+      1,
+      1,
+      1
+     ],
+     "n": 149,
+     "n_hi": 75,
+     "n_lo": 74,
+     "smd_log_conf": 2.591
+    },
+    {
+     "cell": [
+      0,
+      0,
+      1
+     ],
+     "n": 111,
+     "n_hi": 56,
+     "n_lo": 55,
+     "smd_log_conf": 2.449
+    },
+    {
+     "cell": [
+      1,
+      0,
+      1
+     ],
+     "n": 69,
+     "n_hi": 35,
+     "n_lo": 34,
+     "smd_log_conf": 2.74
+    },
+    {
+     "cell": [
+      0,
+      1,
+      1
+     ],
+     "n": 117,
+     "n_hi": 59,
+     "n_lo": 58,
+     "smd_log_conf": 2.78
+    },
+    {
+     "cell": [
+      2,
+      0,
+      1
+     ],
+     "n": 36,
+     "n_hi": 18,
+     "n_lo": 18,
+     "smd_log_conf": 2.113
+    },
+    {
+     "cell": [
+      1,
+      2,
+      1
+     ],
+     "n": 88,
+     "n_hi": 44,
+     "n_lo": 44,
+     "smd_log_conf": 2.633
+    },
+    {
+     "cell": [
+      1,
+      1,
+      0
+     ],
+     "n": 38,
+     "n_hi": 20,
+     "n_lo": 18,
+     "smd_log_conf": 2.656
+    },
+    {
+     "cell": [
+      0,
+      2,
+      1
+     ],
+     "n": 53,
+     "n_hi": 27,
+     "n_lo": 26,
+     "smd_log_conf": 2.236
+    },
+    {
+     "cell": [
+      2,
+      1,
+      1
+     ],
+     "n": 127,
+     "n_hi": 64,
+     "n_lo": 63,
+     "smd_log_conf": 2.604
+    },
+    {
+     "cell": [
+      2,
+      2,
+      1
+     ],
+     "n": 138,
+     "n_hi": 69,
+     "n_lo": 69,
+     "smd_log_conf": 2.578
+    },
+    {
+     "cell": [
+      0,
+      2,
+      0
+     ],
+     "n": 23,
+     "n_hi": 12,
+     "n_lo": 11,
+     "smd_log_conf": 2.372
+    },
+    {
+     "cell": [
+      2,
+      2,
+      0
+     ],
+     "n": 55,
+     "n_hi": 29,
+     "n_lo": 26,
+     "smd_log_conf": 2.994
+    },
+    {
+     "cell": [
+      1,
+      2,
+      0
+     ],
+     "n": 32,
+     "n_hi": 17,
+     "n_lo": 15,
+     "smd_log_conf": 3.098
+    }
+   ],
+   "note": "stratified (within-cell high-vs-low), NOT matched; see per-cell SMD"
+  },
+  "population": {
+   "n_path_rows": 1018,
+   "n_single_rows": 40000,
+   "n_quartet_parents": 193,
+   "n_single_parents": 1000,
+   "n_distinct_starts": 40386,
+   "n_parents_total": 1000,
+   "ci_unit": "parent"
+  },
+  "coverage": {
+   "thresholds": {
+    "t25": 13.4143,
+    "t50": 5.093,
+    "t75": 2.2749
+   },
+   "note": "top25 = dev reference quantile; actual retained coverage below",
+   "actual_coverage": {
+    "paths_start_states": {
+     "n": 1018,
+     "retained_at_t25": 77,
+     "share_at_t25": 0.0756,
+     "retained_at_t50": 289,
+     "retained_at_t75": 663
+    },
+    "singles_start_states": {
+     "n": 40000,
+     "retained_at_t25": 14080,
+     "share_at_t25": 0.352,
+     "retained_at_t50": 25360,
+     "retained_at_t75": 34360
+    }
+   }
+  },
+  "sensitivity_stratified_cap": {
+   "cap10": {
+    "n": 1036,
+    "flip_err_overall": 0.722,
+    "n_parents": 198
+   },
+   "cap20": {
+    "n": 1162,
+    "flip_err_overall": 0.7349,
+    "n_parents": 198
+   },
+   "cap40": {
+    "n": 1162,
+    "flip_err_overall": 0.7349,
+    "n_parents": 198
+   }
+  },
+  "sensitivity_equal_parent": {
+   "n_parents": 198,
+   "flip_err_parent_weighted": 0.7028
+  },
+  "edit_family_distribution": {
+   "paths": {
+    "families": {
+     "shift_AB": 172,
+     "shift_CD": 168,
+     "rot_AB": 166,
+     "rot_CD": 159,
+     "move_node2": 105,
+     "move_node0": 89,
+     "move_node3": 86,
+     "move_node1": 73
+    },
+    "edit_norm": {
+     "mean": 0.1253,
+     "p25": 0.1,
+     "median": 0.1366,
+     "p75": 0.1414
+    }
+   },
+   "singles": {
+    "families": {
+     "single": 40000
+    },
+    "edit_norm": {
+     "mean": 0.0755,
+     "p25": 0.03,
+     "median": 0.06,
+     "p75": 0.1
+    }
+   }
+  },
+  "threshold_ctrl": {
+   "n": 656,
+   "auc_conf": 0.7754,
+   "auc_norm": 0.9869,
+   "auc_joint": 0.9875,
+   "coef_joint": [
+    -0.1629,
+    7.2159
+   ]
+  },
+  "temperature": {
+   "T_star": 4.523,
+   "NLL": 0.3684,
+   "NLL_null": 0.4262,
+   "Brier": 0.1148,
+   "note": "ranks invariant under T>0 by construction"
+  }
+ }
+}

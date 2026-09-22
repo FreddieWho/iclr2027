@@ -2,6 +2,13 @@
 """RelFeat closure (§13): raw clean vs relfeat clean, s11/s23/s47.
 Metrics: static, atomic A/B, atomic-pass, AB endpoint, conditional comp
 miss, J, single-flip, preserve FA. Dev bank. load_model (featurize-aware).
+
+R3 parameterized entry: --bank {dev512,confirm1007} selects the sample
+bank; --model-map overrides checkpoint dirs as JSON
+{"raw": ".../r04b_s{seed}/clean", "relfeat": "..."} with {seed}
+placeholder; defaults reproduce the historical dev-bank run exactly.
+Outputs record bank tag + bank sha256 + per-arm model sha256 so every
+number is traceable to frozen inputs.
 """
 import argparse
 import json
@@ -30,8 +37,27 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--out", type=Path, default=OUT)
     p.add_argument("--extra", default="")
+    p.add_argument("--bank", default="dev512", choices=["dev512", "confirm1007"])
+    p.add_argument("--model-map", default="",
+                   help='JSON {"raw": ".../r04b_s{seed}/clean", "relfeat": "..."}'
+                        ' path templates with {seed} placeholder; override defaults')
     a = p.parse_args()
-    b = np.load(BANK / "bank_dev512.npz", allow_pickle=True)
+
+    def resolve(tag, seed):
+        if tag == "relflip":
+            return ROOT / "artifacts" / "next_novelty" / "relflip" / ("s%d" % seed)
+        if a.model_map:
+            overrides = json.loads(a.model_map)
+            if tag in overrides:
+                return Path(overrides[tag].format(seed=seed))
+        if tag == "relfeat":
+            return CKPTS["relfeat_s%d" % seed]
+        return ART / ("r04b_s%d" % seed) / "clean"
+
+    import hashlib
+    bank_path = BANK / ("bank_%s.npz" % a.bank)
+    bank_sha = hashlib.sha256(bank_path.read_bytes()).hexdigest()
+    b = np.load(bank_path, allow_pickle=True)
     Qx, Qe = b["Qx"], b["Qe"]
     Qmeta = json.loads(str(b["Qmeta"]))
     Sx, Se = b["Sx"], b["Se"]
@@ -44,9 +70,7 @@ def main():
     tags = ("raw", "relfeat") if not a.extra else ("relflip",)
     for seed in (11, 23, 47):
         for tag in tags:
-            mp = (ROOT / "artifacts" / "next_novelty" / "relflip" / ("s%d" % seed) if tag == "relflip"
-                  else (CKPTS["relfeat_s%d" % seed] if tag == "relfeat"
-                        else ART / ("r04b_s%d" % seed) / "clean"))
+            mp = resolve(tag, seed)
             model, stats = load_model(mp)
             model.eval()
 
@@ -86,17 +110,29 @@ def main():
             single_err = float((p1[fl] != y1[fl]).mean())
             st = (~fl) & (p0 == y0)
             fa = float((p1[st] != p0[st]).mean()) if st.sum() else None
-            res[f"s{seed}_{tag}"] = {
+            entry = {
                 "n_q": n, "static": round(static_err, 4),
                 "atomicA": round(aA, 4), "atomicB": round(aB, 4),
                 "atomic_pass": round(apass, 4), "AB_end": round(ab, 4),
                 "cond_comp_miss": round(cond, 4) if cond is not None else None,
                 "cond_n": len(own), "J": round(J, 4),
                 "single": round(single_err, 4),
-                "preserve_FA": round(fa, 4) if fa is not None else None}
+                "preserve_FA": round(fa, 4) if fa is not None else None,
+                "model_dir": str(mp.relative_to(ROOT)),
+                "model_sha256": hashlib.sha256((mp / "model.pt").read_bytes()).hexdigest()}
+            res[f"s{seed}_{tag}"] = entry
             print("s%d %s: %s" % (seed, tag, res[f"s{seed}_{tag}"]), flush=True)
     a.out.mkdir(parents=True, exist_ok=True)
-    json.dump(res, open(a.out / ("RELFLIP.json" if a.extra else "RELFEAT.json"), "w"), indent=1)
+    out_name = "RELFLIP.json" if a.extra else "RELFEAT.json"
+    res["_provenance"] = {
+        "bank": a.bank, "bank_sha256": bank_sha,
+        "model_map": a.model_map or None,
+        "feature_boundary": "relfeat arm uses hand-designed label-free relational "
+                            "features (six ordered pair distances + four centroid "
+                            "radii); node-pair identity is part of the input; "
+                            "task-aware deterministic representation, not a new "
+                            "foundation model and not oracle-free."}
+    json.dump(res, open(a.out / out_name, "w"), indent=1)
     print("DONE ->", a.out)
 
 

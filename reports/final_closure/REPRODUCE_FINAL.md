@@ -25,17 +25,23 @@ python3 experiments/next_novelty/p1g_repair.py \
 
 ## P3 migration (dev bank; parent-cluster CIs)
 python3 experiments/ccm_audit/p3_final.py --bank dev512
-# keepbal fair control (fresh training, 3 seeds):
-python3 experiments/ccm_audit/p3d_fair.py --seed {11,23,47} --epochs 300
+# keepbal fair control (fresh training, 3 seeds; run per seed, outputs are per-seed):
+for s in 11 23 47; do
+  python3 experiments/ccm_audit/p3d_fair.py --seed $s --epochs 300
+done
 python3 experiments/ccm_audit/p3d_eval.py \
   --ckptdir artifacts/next_novelty/p3d_fair --out artifacts/next_novelty/p3d_fair_eval
-# relfeat closure + conditional extension:
+# relfeat closure + conditional extension (train per seed; output dir matches seed):
 python3 experiments/discovery_campaign/r04b_methods.py \
   --train artifacts/discovery_campaign/scenes/train_101 \
-  --output artifacts/discovery_campaign/r04b_s{23,47}_relfeat \
-  --methods relfeat --seed {23,47}
+  --output artifacts/discovery_campaign/r04b_s23_relfeat --methods relfeat --seed 23
+python3 experiments/discovery_campaign/r04b_methods.py \
+  --train artifacts/discovery_campaign/scenes/train_101 \
+  --output artifacts/discovery_campaign/r04b_s47_relfeat --methods relfeat --seed 47
 python3 experiments/ccm_audit/relfeat_eval.py
-python3 experiments/ccm_audit/relflip_train.py --seed {11,23,47}
+for s in 11 23 47; do
+  python3 experiments/ccm_audit/relflip_train.py --seed $s
+done
 python3 experiments/ccm_audit/relfeat_eval.py --extra relflip \
   --out artifacts/next_novelty/relflip_eval
 

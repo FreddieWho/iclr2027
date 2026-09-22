@@ -1,0 +1,225 @@
+{
+ "bank": "confirm1007",
+ "bank_sha256": "28365ae385b3634446f628a4c9830da25db5d9094746d3b4465a81769e6f6844",
+ "bank_manifest": {
+  "tag": "confirm1007",
+  "pool": "confirm_1007",
+  "seed": 778,
+  "n_parents": 1000,
+  "n_paths": 1018,
+  "n_singles": 246792,
+  "sha256": "28365ae385b3634446f628a4c9830da25db5d9094746d3b4465a81769e6f6844"
+ },
+ "provenance": {
+  "raw_prediction_source": "frozen checkpoints (model.pt) via common.load_model",
+  "aggregation_source": "experiments/ccm_audit/relflip_confirm_eval.py",
+  "feature_boundary": "relfeat/relflip arms use hand-designed label-free relational features: six ordered pair distances + four centroid radii; node-pair identity is part of the input; task-aware deterministic representation, not a new foundation model and not oracle-free."
+ },
+ "arms": {
+  "relflip": {
+   "s11": {
+    "n_q": 509,
+    "atomic_pass": 0.7092,
+    "AB_correct": 0.7623,
+    "cond_comp_miss": 0.3324,
+    "cond_n": 361,
+    "J": 0.4735,
+    "model_dir": "artifacts/next_novelty/relflip/s11",
+    "model_sha256": "dca6fb715bfcfde662eed5a5876872c0c6f4aa96e0e6bbc49ec5e1eec81a1d54"
+   },
+   "s23": {
+    "n_q": 509,
+    "atomic_pass": 0.6798,
+    "AB_correct": 0.7642,
+    "cond_comp_miss": 0.341,
+    "cond_n": 346,
+    "J": 0.4479,
+    "model_dir": "artifacts/next_novelty/relflip/s23",
+    "model_sha256": "32662eb5488e86abfa2d6fbfef872cebc4e13a8e6f63da3f5eef8a3b9a727f06"
+   },
+   "s47": {
+    "n_q": 509,
+    "atomic_pass": 0.6601,
+    "AB_correct": 0.7642,
+    "cond_comp_miss": 0.3393,
+    "cond_n": 336,
+    "J": 0.4361,
+    "model_dir": "artifacts/next_novelty/relflip/s47",
+    "model_sha256": "c9f2be9c33102033e12b85060d71e5812b67525375a069e2c2c750cc8cf98d4d"
+   }
+  },
+  "raw_clean": {
+   "s11": {
+    "n_q": 509,
+    "atomic_pass": 0.7014,
+    "AB_correct": 0.3438,
+    "cond_comp_miss": 0.916,
+    "cond_n": 357,
+    "J": 0.0589,
+    "model_dir": "artifacts/discovery_campaign/r04b_s11/clean",
+    "model_sha256": "8b20dfeee6b6269697664e42d4b3c73caf2f8baee091a1aec4cb88e128956fb8"
+   },
+   "s23": {
+    "n_q": 509,
+    "atomic_pass": 0.6896,
+    "AB_correct": 0.3301,
+    "cond_comp_miss": 0.9316,
+    "cond_n": 351,
+    "J": 0.0472,
+    "model_dir": "artifacts/discovery_campaign/r04b_s23/clean",
+    "model_sha256": "cf09fd3a9fef6bdc0362640ceaf2ab05244d3058866b306c1ef1e1cc7fa868dd"
+   },
+   "s47": {
+    "n_q": 509,
+    "atomic_pass": 0.6896,
+    "AB_correct": 0.3202,
+    "cond_comp_miss": 0.9402,
+    "cond_n": 351,
+    "J": 0.0413,
+    "model_dir": "artifacts/discovery_campaign/r04b_s47/clean",
+    "model_sha256": "d50ee48788fbe83b4045f4e6b3f97ee49ce4fbf39bc44f5d498c4fc420769903"
+   }
+  },
+  "raw_flipmine": {
+   "s11": {
+    "n_q": 509,
+    "atomic_pass": 0.5619,
+    "AB_correct": 0.5717,
+    "cond_comp_miss": 0.7343,
+    "cond_n": 286,
+    "J": 0.1493,
+    "model_dir": "artifacts/discovery_campaign/r04b_s11/flipmine",
+    "model_sha256": "8b566fa3607f03ceb56eba63ed18952f555f00d9e6f2a8c5738f46f4cb8c2688"
+   },
+   "s23": {
+    "n_q": 509,
+    "atomic_pass": 0.5403,
+    "AB_correct": 0.5737,
+    "cond_comp_miss": 0.7673,
+    "cond_n": 275,
+    "J": 0.1257,
+    "model_dir": "artifacts/discovery_campaign/r04b_s23/flipmine",
+    "model_sha256": "d7051dcc1ef83017e13f94d5c799a87ad5f4a9546a3581e20d4a80db90a55c31"
+   },
+   "s47": {
+    "n_q": 509,
+    "atomic_pass": 0.6012,
+    "AB_correct": 0.5285,
+    "cond_comp_miss": 0.7614,
+    "cond_n": 306,
+    "J": 0.1434,
+    "model_dir": "artifacts/discovery_campaign/r04b_s47/flipmine",
+    "model_sha256": "48dbf9209c6da6aaf213c0a526d54c8a14e2ac3c472d1fa5b34f1768ac658b72"
+   }
+  },
+  "relfeat": {
+   "s11": {
+    "n_q": 509,
+    "atomic_pass": 0.7014,
+    "AB_correct": 0.4538,
+    "cond_comp_miss": 0.7675,
+    "cond_n": 357,
+    "J": 0.1631,
+    "model_dir": "artifacts/discovery_campaign/r04b_s11/relfeat",
+    "model_sha256": "da47c9293cc0c2500a7a7a70d4ba238300d3047a9a6433e31c9990cd09d8e36d"
+   },
+   "s23": {
+    "n_q": 509,
+    "atomic_pass": 0.7308,
+    "AB_correct": 0.4872,
+    "cond_comp_miss": 0.6962,
+    "cond_n": 372,
+    "J": 0.222,
+    "model_dir": "artifacts/discovery_campaign/r04b_s23_relfeat/relfeat",
+    "model_sha256": "568392fd1eaf2bd0dcd4bc7608c9aa53045220bfb56d4ea05950456b63157d1e"
+   },
+   "s47": {
+    "n_q": 509,
+    "atomic_pass": 0.7466,
+    "AB_correct": 0.4715,
+    "cond_comp_miss": 0.6974,
+    "cond_n": 380,
+    "J": 0.2259,
+    "model_dir": "artifacts/discovery_campaign/r04b_s47_relfeat/relfeat",
+    "model_sha256": "6c5ae437b92cd1b36c45f2588c74f1334c154cc4dc4e1b309ee8a4f834a73355"
+   }
+  }
+ },
+ "migration": {
+  "s11": {
+   "n110": 327,
+   "R_full": [
+    0.4954,
+    [
+     0.4091,
+     0.5888
+    ]
+   ],
+   "R_endpoint": [
+    0.7462,
+    [
+     0.6708,
+     0.8176
+    ]
+   ],
+   "M": [
+    0.2508,
+    [
+     0.1661,
+     0.3443
+    ]
+   ],
+   "M_over_R_endpoint": 0.3361
+  },
+  "s23": {
+   "n110": 327,
+   "R_full": [
+    0.4709,
+    [
+     0.3787,
+     0.5586
+    ]
+   ],
+   "R_endpoint": [
+    0.7615,
+    [
+     0.6785,
+     0.8308
+    ]
+   ],
+   "M": [
+    0.2905,
+    [
+     0.1894,
+     0.3864
+    ]
+   ],
+   "M_over_R_endpoint": 0.3815
+  },
+  "s47": {
+   "n110": 330,
+   "R_full": [
+    0.4485,
+    [
+     0.3543,
+     0.5419
+    ]
+   ],
+   "R_endpoint": [
+    0.7485,
+    [
+     0.6727,
+     0.8224
+    ]
+   ],
+   "M": [
+    0.3,
+    [
+     0.204,
+     0.3944
+    ]
+   ],
+   "M_over_R_endpoint": 0.4008
+  }
+ }
+}

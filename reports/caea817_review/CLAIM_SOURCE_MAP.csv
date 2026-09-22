@@ -1,0 +1,26 @@
+claim,paper_location,ledger_row,artifact,script,status
+headline conditional comp miss 151/176,§1+§3,E1 result.json row,artifacts/last15h/E1/holdout_909/result.json,frozen single-run,CONFIRM-kept
+targeted transition miss 28/64->20/64,§1+§3,E1 result.json row,artifacts/last15h/E1/holdout_909/result.json,frozen single-run,CONFIRM-kept
+random-screen turn miss 108/128,§1+§3,E1/discovery row,artifacts/last15h/N01 + E1_VERDICT denominator note,experiments/last15h/n01_scan.py,discovery-kept
+matched single control 61.0% vs 85.8%,§3,E1 matched row,artifacts/last15h/E1/holdout_909/result.json,—,descriptive-only-kept
+path decomposition 111/111,§1+§3,WP1 row,reports/update_geometry/WP1_DISCOVERY_REPORT.md,—,discovery-kept
+P1 update reversal Q0 0.36-0.61 -> Q3 0.98-1.00,§1+§3,P1B.json rows,artifacts/next_novelty/p1b_res+P1B + p1b_confirm+P1B,experiments/next_novelty/p1b_analysis.py,CONFIRM-kept
+P1 static direction Q0 0.27-0.51 -> Q3 0.02-0.05 dev / 0.02-0.06 pooled,§1+§3,P1B.json rows,artifacts/next_novelty/p1b_res+P1B + p1b_confirm+P1B,experiments/next_novelty/p1b_analysis.py,CONFIRM-kept
+P1 grouped-CV paired AUC-difference,§3,MASTER row updated 2026-09-22,artifacts/next_novelty/p1b_res_v2+p1b_confirm_v2,experiments/next_novelty/p1b_analysis.py (paired refit),CORRECTED-replaces-old-interval
+P1 repair residual 0.32-0.62 (was 0.53-0.84),§3,MASTER row updated 2026-09-22,artifacts/next_novelty/p1g_confirm/P1G_CORRECTED.json (old P1G.json kept as history),experiments/next_novelty/p1g_repair.py (production loader),CORRECTED-old-voided
+P1 selection top25 + actual coverage caveat,§3,MASTER row updated 2026-09-22,artifacts/next_novelty/p1b_res+P1B,experiments/next_novelty/p1b_analysis.py,CONFIRM-kept-with-caveat
+P3 R_full 0.03-0.10 / M 0.36-0.40 / R_endpoint 0.43-0.48 / J,§1+§4,P3_FINAL.json rows,artifacts/next_novelty/p3/P3_FINAL.json + p3_v2 (15/15 match),experiments/ccm_audit/p3_final_v2.py,CONFIRM-kept
+P3 migration share 79-94%,§4,p3_v2 re-verified,artifacts/next_novelty/p3_v2/P3_FINAL.json,experiments/ccm_audit/p3_final_v2.py,REVERIFIED-kept
+relfeat J dev 0.13-0.21 confirm 0.16-0.23 + static,§4,RELFEAT.json row (+static fields),artifacts/next_novelty/relfeat/RELFEAT.json,experiments/ccm_audit/relfeat_eval.py (parameterized),CONFIRM-kept
+relflip J/R_full/M confirm,§4,RELFLIP_CONFIRM.json rows,artifacts/next_novelty/relflip_v2 (recomputed, point-consistent),experiments/ccm_audit/relflip_confirm_eval.py,REPRODUCIBLE-kept
+P2 affine/operating (s11 edge stated),§4b,P2_OPERATING.json rows,artifacts/next_novelty/p2/P2_OPERATING.json (+p2_v2 pending),experiments/repair_decomposition/p2_operating_v2.py,PARTIAL-v2-pending
+U02 interface 0.43->0.118 / 0.57->0.88 / 0.23v0.22,§3+§4b,U02 row,artifacts/next6_ef0f7a3/u02_fixed/result.json,frozen,CONFIRM-kept
+U02 temperature move 10-50%,§6 App-failures,U02 row (new),artifacts/next6_ef0f7a3/u02/result.json temperature_mechanism + U02.md,—,discovery-kept
+football transitions/events/actions 3-seed,§5,M_SELECTION + HEADLINE_FREEZE rows,artifacts/last15h/E2,experiments/last15h/e2_*,confirm-sd-kept
+football P1 floor/null (excluded),§3+§7,M row,artifacts/confident_blindspots/FOOTBALL_CONF.json,—,negative-kept
+pixel emerg 0.537->0.351 + 5 styles + seeds,§5,U03 rows,artifacts/next6_ef0f7a3/u03+u03b*_fixed,frozen,CONFIRM-kept
+X03 scoped negative,§6 App-failures,X03 row,artifacts/next6_ef0f7a3/x03b/result.json,frozen,park-kept
+E7 falsification 12x5,§6 App-failures,E7 row,reports/last15h/E7_v3_verdict.md,frozen,negative-kept
+WP2 boundary coverage +7.3pp,§4,MASTER row (new),reports/update_geometry/WP2_DIAGNOSTIC_REPORT.md,—,discovery-footnote
+WP4 static dominance 0.94 vs 0.54,§3,MASTER row (new),reports/update_geometry/WP4_REPORT.md,—,discovery-constraint
+T5R6 SoccerTrack CONFIRMED,reserve-only,REBUTTAL_RESERVE_T5R6.md,artifacts/data_v2+soccertrack + T5R6 report,frozen,reserve-not-in-paper
