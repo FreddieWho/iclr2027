@@ -36,6 +36,7 @@ def pfwd(model, stats, xs):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--out", type=Path, default=OUT)
+    p.add_argument("--ckptdir", default=str(P3D))
     a = p.parse_args()
     b = np.load(BANK / "bank_dev512.npz", allow_pickle=True)
     Qx, Qe = b["Qx"], b["Qe"]
@@ -49,7 +50,7 @@ def main():
     res = {}
     for seed in (11, 23, 47):
         for arm in ("fliprep", "fliphalf", "keepbal"):
-            ck = torch.load(P3D / ("s%d_%s" % (seed, arm)) / "model.pt",
+            ck = torch.load(Path(a.ckptdir) / ("s%d_%s" % (seed, arm)) / "model.pt",
                             map_location="cpu", weights_only=False)
             model = CoordMLP(ck["hidden"], ck["feat"], ck.get("in_dim", 8))
             model.load_state_dict(ck["state"])
@@ -102,7 +103,7 @@ def main():
             C[qid] = (int(p[0] == la), int(p[1] == lb), int(p[2] == m1["yAB"]))
         base110 = [q for q in C if C[q] == (1, 1, 0)]
         for arm in ("fliprep", "fliphalf", "keepbal"):
-            ck = torch.load(P3D / ("s%d_%s" % (seed, arm)) / "model.pt",
+            ck = torch.load(Path(a.ckptdir) / ("s%d_%s" % (seed, arm)) / "model.pt",
                             map_location="cpu", weights_only=False)
             model2 = CoordMLP(ck["hidden"], ck["feat"], ck.get("in_dim", 8))
             model2.load_state_dict(ck["state"])

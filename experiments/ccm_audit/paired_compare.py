@@ -53,8 +53,7 @@ def main():
                 with torch.no_grad():
                     out = []
                     for s in range(0, len(xs), 256):
-                        out.append(model(torch.from_numpy(
-                            ((xs[s:s + 256].reshape(-1, 8) - mu) / sd).astype(np.float32))).numpy().reshape(-1))
+                        out.append(model(preprocess(xs[s:s + 256], stats)).numpy().reshape(-1))
                 return (np.concatenate(out) > 0).astype(int)
             # per quartet: need x+A, x+B states: reconstruct from path A (x=x+A? no:
             # path A: start = x+ea, edit = eb. xa = start; xb = x+eb unknown directly.

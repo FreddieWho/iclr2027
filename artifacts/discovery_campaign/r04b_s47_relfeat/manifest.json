@@ -1,0 +1,17 @@
+{
+  "methods": [
+    "relfeat"
+  ],
+  "n_mined_flips": 1534,
+  "sup_half": 767,
+  "epochs": 300,
+  "lr": 0.01,
+  "lam": 1.0,
+  "seed": 47,
+  "mine_seed": 5,
+  "n_train": 512,
+  "flip_fracs": {},
+  "unif_n_requested": 0,
+  "unif_n_valid": 0,
+  "note": "all flip sets oracle-labeled; supmine=top d_new half, fliprand=random half same count"
+}
