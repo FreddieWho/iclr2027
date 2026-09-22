@@ -1,0 +1,126 @@
+{
+ "baseline": {
+  "s11": {
+   "n_single_turn": 200,
+   "turn_miss_rate": 0.385,
+   "mean_abs_terr": 0.1565
+  },
+  "s23": {
+   "n_single_turn": 200,
+   "turn_miss_rate": 0.39,
+   "mean_abs_terr": 0.1551
+  },
+  "s47": {
+   "n_single_turn": 200,
+   "turn_miss_rate": 0.47,
+   "mean_abs_terr": 0.1778
+  }
+ },
+ "seeds": {
+  "s11": {
+   "ORACLE": {
+    "cv_r2": -0.0776,
+    "spearman": {
+     "t_star": -0.1799,
+     "min_margin_win": 0.0889,
+     "margin_slope": 0.0367,
+     "cost": -0.1998
+    },
+    "n": 123
+   },
+   "SCORE": {
+    "cv_r2": 0.5505,
+    "spearman": {
+     "max_slope": -0.1757,
+     "max_curv": -0.2867,
+     "trans_width": 0.1974,
+     "slope_asym": -0.2051,
+     "min_abs_logit": 0.8482
+    },
+    "n": 123
+   },
+   "REPR": {
+    "cv_r2": 0.4782,
+    "spearman": {
+     "speed_conc": -0.2361,
+     "max_angle": 0.1949,
+     "hyper_dist": 0.4963,
+     "z_length": -0.2995
+    },
+    "n": 123
+   },
+   "repr_minus_oracle": 0.5558
+  },
+  "s23": {
+   "ORACLE": {
+    "cv_r2": -0.0044,
+    "spearman": {
+     "t_star": -0.1977,
+     "min_margin_win": -0.098,
+     "margin_slope": 0.0989,
+     "cost": -0.2198
+    },
+    "n": 122
+   },
+   "SCORE": {
+    "cv_r2": 0.526,
+    "spearman": {
+     "max_slope": -0.1422,
+     "max_curv": -0.3159,
+     "trans_width": 0.0975,
+     "slope_asym": -0.2474,
+     "min_abs_logit": 0.7778
+    },
+    "n": 122
+   },
+   "REPR": {
+    "cv_r2": 0.3851,
+    "spearman": {
+     "speed_conc": -0.1273,
+     "max_angle": -0.001,
+     "hyper_dist": 0.6143,
+     "z_length": -0.236
+    },
+    "n": 122
+   },
+   "repr_minus_oracle": 0.3895
+  },
+  "s47": {
+   "ORACLE": {
+    "cv_r2": -0.1474,
+    "spearman": {
+     "t_star": -0.2425,
+     "min_margin_win": -0.1072,
+     "margin_slope": 0.0581,
+     "cost": -0.2588
+    },
+    "n": 106
+   },
+   "SCORE": {
+    "cv_r2": 0.5548,
+    "spearman": {
+     "max_slope": -0.1188,
+     "max_curv": -0.3155,
+     "trans_width": -0.0219,
+     "slope_asym": -0.3566,
+     "min_abs_logit": 0.852
+    },
+    "n": 106
+   },
+   "REPR": {
+    "cv_r2": 0.4803,
+    "spearman": {
+     "speed_conc": -0.2018,
+     "max_angle": -0.0008,
+     "hyper_dist": 0.6691,
+     "z_length": -0.2194
+    },
+    "n": 106
+   },
+   "repr_minus_oracle": 0.6277
+  }
+ },
+ "criterion": "REPR family CV-R^2 must exceed ORACLE by >=0.05 in >=2/3 seeds",
+ "criterion_met": true,
+ "verdict": "representation-side signal"
+}

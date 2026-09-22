@@ -35,7 +35,7 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 
 ## B. 待挖实验想法（全部 PARKED；细节见 LEADS.md，需用户单独授权）
 
-- [ ] E1 L-007 转折位置精度的零训练诊断（最便宜的未试项，约 1h；下一篇第一候选）
+- [x] E1 L-007 转折位置精度的零训练诊断（已执行，阴性→边界；见 L007_DIAGNOSTIC_REPORT.md）
 - [ ] E2 L-005 GRF 模拟干预臂（1–2 天；rebuttal/下一篇）
 - [ ] E3 L-006 10 seeds/arm 确认门（仅审稿驱动）
 - [ ] E4 L-009 / L-013 / L-014（仅审稿驱动）
@@ -232,3 +232,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：用户授权执行 02 探索升级：入口状态由 PAPER POLISH 改为“02 探索升级已授权执行＋投稿行政”；新增分支 N；U1/U2/U3 进入执行，U4 按“可解释第一轮/不硬追”判据评估是否执行。
 - 2026-09-22：02 探索升级收敛（U1/U2/U3＋可选 U4 全部执行）：U1 四臂交互 I=+16–25pp（parent-cluster CI 全不含零，exploratory）；U2 限定机制（表示改善排序、flip 改善阈值实现）；U3 修复降低 P1 水平但保留反转形状；U4 排除平移 nuisance、确认半径冗余。交付 UPGRADE_FINDINGS.md＋NO_NEW_CLAIM_WITHOUT_EVIDENCE.md＋三份独立报告；新测试 10 项；全量测试 198 通过。稿件决策 A＋B 两项增量就绪（四臂图数据源切 U1_SUMMARY.json；J/H panel；摘要替换句）。
 - 2026-09-22：TODO 投稿收尾重整：旧事项 0–4 全部裁决（完成/终止/被取代，见历史事项裁决表），当前清单只剩 A 区写作行政 7 项（W1–W7）＋B 区 PARKED 实验想法 5 项（E1–E5，细节回 LEADS）；LEADS L-007 追注 U1–U4 未覆盖转折位置精度。
+- 2026-09-22：L007 零训练诊断执行完毕（阴性→边界）：冻结 flipmine 三种子基线复现 E7 量级；判据字面触发但消融推翻实质解读（全部可预测成分来自预测邻接量；隐空间/输入几何零增量）。交付 L007_DIAGNOSTIC_REPORT.md；新测试 5 项；全量测试 203 通过。TODO-B 区 E1 消耗，LEADS L-007 状态更新为已执行。
