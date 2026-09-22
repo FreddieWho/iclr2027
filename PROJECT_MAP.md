@@ -14,7 +14,8 @@
 | §4 flip 诊断修复 | flipmine（oracle 挖掘边界穿越样本训练）；P1 置信反转；P3 错误迁移 | `experiments/discovery_campaign/`（R02/R04）、`experiments/next_novelty/`（p1_unified/p1b/p1g）、`experiments/ccm_audit/`（p3_final/p3d_fair/relflip_train） | `artifacts/next_novelty/p1_unified{,_confirm}`、`p1b_*`、`p1g_*`、`p3/`、`relflip*/`、`relfeat/` | `reports/discovery_campaign/R3_flipmine_card.md`、`reports/final_closure/P1_CLOSURE_REPORT.md`、`P3_CLOSURE_REPORT.md` |
 | §4b 足球真实数据 | IDSSE 三场×三种子复现三失败+修复（坐标→真数据） | `experiments/last15h/`（E2）、`experiments/confident_blindspots{,_v2}/` | `artifacts/phase3/task_semantic_repair_v1/`（T5R3 冻结模型）、`artifacts/confident_blindspots/` | `reports/last15h/E2_N01.md E2_N03.md E2_N06.md`、`reports/confident_blindspots/P1_REPORT.md` |
 | §5 像素确认 | 同 quartet 渲染为像素+CNN；五风格全同向 | `experiments/last15h/`（N08）、`experiments/next6_ef0f7a3/`（U03 pixflip） | `artifacts/last15h/`、`artifacts/next6_ef0f7a3/` | `reports/last15h/N08.md`、`reports/next6_ef0f7a3/U03.md` |
-| §6 外部确认（阴性） | DINOv2-B/CLIP pilot→DINOv3 S/B/L sweep→读出/语义Δ/均衡修复/competence，全阴性 | `experiments/bridge/`、`experiments/bridge_r/` | `artifacts/bridge/`、`artifacts/bridge_r/` | `reports/bridge/B01_PILOT.md`、`reports/bridge_r/*.md`（BRIDGE_R_FINAL_REPORT 为总） |
+| §6 失败移除（外部确认尝试） | E7 证伪网（12 臂×5 种子）、X03 interchange patch、架构/课程变体、阈值与温度 | `experiments/last15h/`（E7）、`experiments/next6_ef0f7a3/`（X03/U02） | `artifacts/last15h/`、`artifacts/next6_ef0f7a3/` | `reports/last15h/E7_v3_verdict.md`、`reports/next6_ef0f7a3/{X03,U02}.md` |
+| §7 limitation 一句 | foundation model（DINOv2-B/CLIP→DINOv3 S/B/L→读出/语义Δ/均衡修复/competence）全阴性 | `experiments/bridge/`、`experiments/bridge_r/` | `artifacts/bridge/`、`artifacts/bridge_r/` | `reports/bridge/B01_PILOT.md`、`reports/bridge_r/*.md`（BRIDGE_R_FINAL_REPORT 为总） |
 | §7 相关工作+局限 | 旧 Action-Mode/Jacobian 线退为半段背景；局限清单 | （历史线，见 §2 下表） | — | — |
 | §8 可复现性 | 五层锁/单次读取/预注册/审计链 | `scripts/p3_t5r/audit_*.py` | 各 artifact 的 lock/manifest/SHA256SUMS | `reports/final_closure/REPRODUCE_FINAL.md` |
 

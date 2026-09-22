@@ -1,7 +1,7 @@
 \section{Diagnostic Flip Coverage}
 \label{sec:repair}
 
-\paragraph{30.1 Component improvements.} The repair is diagnostic, not a
+\paragraph{Component improvements.} The repair is diagnostic, not a
 product: training on oracle-mined boundary-crossing variations (flipmine)
 tests whether exposing the model to the missing update shape changes
 behavior. On the fresh holdout: single-flip C1 miss $52.4\% \to 34.7\%$
@@ -21,9 +21,9 @@ or crossing zero; analytic-affine behavior readouts (dev bank, $n{=}237$ quartet
 (clean $0.05$, affine $0.05$--$0.06$; all three paired J CIs span zero). At matched
 coverage levels, quality given the same coverage favors the repaired model at
 higher cost. So the repair is not a pure operating-point shift; the
-capability/coverage split depends on the interface (Sec.~7).
+capability/coverage split depends on the interface (Sec.~\ref{sec:external}).
 
-\paragraph{30.2 Endpoint repair is not full repair.} Targeted flip coverage
+\paragraph{Endpoint repair is not full repair.} Targeted flip coverage
 improves several component and downstream metrics, but paired quartet
 analysis reveals that endpoint repair substantially overstates recovery of
 full compositional consistency. On baseline-110 quartets (both atomics
@@ -47,11 +47,11 @@ quartets (dev bank, parent-cluster intervals). Most gains migrate.}
 \label{fig:migration}
 \end{figure}
 
-\paragraph{30.3 Representation lead: relational features.} Explicit
+\paragraph{Representation lead: relational features.} Explicit
 label-free relational input features change the picture where flip coverage
 alone could not: joint consistency rises to $0.13$--$0.21$ (dev) and
 $0.16$--$0.23$ (fresh parent-disjoint confirmation), $3/3$ seeds, with mean
-$\Delta J \ge 5$pp and \emph{improved} static accuracy ($0.15$--$0.17 \to
+$\Delta J \ge 5$pp and \emph{reduced} static error ($0.15$--$0.17 \to
 0.06$), so the gain is not bought by static degradation. Combined
 relational-plus-flip training reaches $J$ $0.38$--$0.47$ with full repair $0.45$--$0.50$ exceeding migration $0.25$--$0.30$ on confirmation---the
 reverse of the raw-flipmine pattern. Boundary: the features are hand-designed and

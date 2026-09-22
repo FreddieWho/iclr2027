@@ -21,7 +21,7 @@
 | P3 common reversal | s23 0.920 -> 0.947 | — | 75 | coord | dev bank | s23 | dev | P3_FINAL.json | direction inconsistent | stable gain |
 | path decomposition | 111/111 AB-miss quartets contain zero-transition path, no recrossing | 111 | 111 | coord | discovery attribution | s11 | discovery | WP1_DISCOVERY_REPORT.md | composition unfolds as missed update | causal mechanism |
 | matched single control | 61.0% miss clean (n=251) vs 85.8% (n=176); 24.8pp descriptive only | 153 | 251 | coord | holdout_909 fresh | s11 clean | confirm | E1 result.json matched | different denominators/screens | causal composition effect |
-| relfeat J | dev 0.13-0.21; confirm 0.16-0.23 | — | 237/509 | coord | dev+confirm1007 | 3 seeds | CONFIRM | RELFEAT.json | hand-designed relation-aware input | architectures solve it |
+| relfeat J | dev 0.13-0.21; confirm 0.16-0.23; static err 0.15-0.17 -> 0.06 | — | 237/509 | coord | dev+confirm1007 | 3 seeds | CONFIRM | RELFEAT.json | hand-designed relation-aware input | architectures solve it |
 | relflip J/R_full/M (dev) | J 0.38-0.42; R_full 0.36-0.44; M 0.32-0.42 | — | 237 | coord | dev bank | 3 seeds | dev | RELFLIP_MIG.json | moves toward full consistency | universal method |
 | relflip J/R_full/M (confirm) | J 0.44-0.47; R_full 0.45-0.50; M 0.25-0.30 | — | 509 | coord | confirm1007 | 3 seeds | CONFIRM | RELFLIP_CONFIRM.json | full repair exceeds migration | universal method |
 | P1 grouped-CV conf AUC | conf-only pooled OOF 0.78-0.95 (clean models 0.93-0.95); difficulty-only 0.42-0.61 | — | dev+confirm banks | coord | dev+confirm | 6 models | CONFIRM | P1B.json grouped_cv | difficulty carries ~nothing held-out | causal mechanism |
@@ -33,8 +33,9 @@
 | P2 equal coverage | repair quality higher at higher cost | — | matched levels | coord | U02 scenes | 3 seeds | dev | P2_OPERATING.json | quality\|same-coverage | — |
 | football transitions | s11 0.277->0.129 etc. | — | per match | football | cross-field | 3 seeds | confirm-sd | HEADLINE_FREEZE | same-direction, no pristine holdout | single-read proof |
 | football events/actions | events + actions same-direction | — | per match | football | cross-field | 3 seeds | confirm-sd | HEADLINE_FREEZE | limits stated | P1 inversion |
-| pixel emerg | 0.537->0.351; 5 styles same-signed | — | 547/style | pixel | unseen styles | 3 train seeds | confirm | u03b_* | relative gain stable; absolute style-sensitive | P1/migration claims |
+| pixel emerg | 0.537->0.351; static err 0.0898 both arms unchanged; 5 styles same-signed | — | 547/style | pixel | unseen styles | 3 train seeds | confirm | u03 + u03b_* | relative gain stable; absolute style-sensitive | P1/migration claims; static as accuracy (0.090 is the error) |
 | U02 coverage | refusal 0.43->0.118 (3.6x fewer refusals); non-refusal coverage 0.57->0.88 | 93 | coord | dev/test | s11 | discovery | u02 result.json + U02.md | feasible-set coverage | 3.6x set-size multiplier |
+| U02 temperature move | T0.5/T2.0 move 10-50% of action selections, argmax asserted unchanged | — | 93 | coord | eval_202 test | s11 | discovery | u02 result.json temperature_mechanism + U02.md | interface is an independent lever | temperatures rescue the feasible set; 0-51% unsourced range |
 | X03 scoped negative (x03b rank-4) | readout_anti 0.87-0.89 (n=150); patch interchange_anti 0.23-0.27; randsub_anti 0.13-0.15 | 150/450 | coord | fresh bindings | s11 clean+flipmine | park | x03b result.json | decodable != installable by tested patch | fundamentally cannot compose; no-better-than-randsub |
 | E7 falsification | 12 arms x 5 seeds all lose/tie | — | 60 trainings | coord | dev | 5 seeds | negative | E7 verdict | slopes not binding | — |
 | football P1 | floor/null after correction | — | 6 matches x 3 seeds | football | views | 6 models | negative | p1football_*.json | excluded from P1 | generalized inversion |

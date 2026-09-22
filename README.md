@@ -84,7 +84,7 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 | 2 P3-T5R | 09-01→09-05 | support-conditioned 几何可预测+任务语义修复+SoccerTrack 外部确认 | CONFIRMED，但仅是表示塑形 |
 | 3 P4-AMR | 09-05→09-16 | AMR 方法线 v1–v6 | 15 连败后 H1 过但≈CAP，方法位放弃 |
 | 4 转折 | 09-17→09-18 | discovery campaign→last15h→next6：**发现更新失败现象**，85.8% headline，flipmine 修复 | **最终叙事诞生** |
-| 5 外部确认 | 09-18→09-20 | foundation model（DINOv2/v3/CLIP/SigLIP2）桥接 | 全阴性，进论文 §6 |
+| 5 外部确认 | 09-18→09-20 | foundation model（DINOv2/v3/CLIP/SigLIP2）桥接 | 全阴性，压缩为 §7 limitation 一句 |
 | 6 终局 | 09-21→09-23 | P1/P2/P3 三线收官+确认池 | **EXPLORATORY CLOSED** |
 
 各时代目录归属详见 `PROJECT_MAP.md`。旧 Action-Mode/Jacobian/AMR 线在论文中
