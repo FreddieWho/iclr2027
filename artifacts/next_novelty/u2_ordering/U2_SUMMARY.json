@@ -1,0 +1,395 @@
+{
+ "bank": "dev512",
+ "seeds": {
+  "s11": {
+   "arms": {
+    "raw_clean": {
+     "n": 237,
+     "J_t0": 0.0549,
+     "H": 0.5654,
+     "G_le0_frac": 0.4346,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.5444,
+       "J": 0.0667
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.6316,
+       "J": 0.0175
+      }
+     }
+    },
+    "raw_flipmine": {
+     "n": 237,
+     "J_t0": 0.0675,
+     "H": 0.73,
+     "G_le0_frac": 0.27,
+     "boundary_frac": 0.0084,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.7389,
+       "J": 0.0722
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.7018,
+       "J": 0.0526
+      }
+     }
+    },
+    "relfeat": {
+     "n": 237,
+     "J_t0": 0.1308,
+     "H": 0.8734,
+     "G_le0_frac": 0.1266,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.9167,
+       "J": 0.1611
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.7368,
+       "J": 0.0351
+      }
+     }
+    },
+    "relflip": {
+     "n": 237,
+     "J_t0": 0.384,
+     "H": 0.8734,
+     "G_le0_frac": 0.1266,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.9111,
+       "J": 0.4444
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.7544,
+       "J": 0.193
+      }
+     }
+    }
+   },
+   "separability_change_vs_rawclean": {
+    "raw_flipmine": {
+     "stay_sep": 118,
+     "become_sep": 55,
+     "become_unsep": 16,
+     "stay_unsep": 48
+    },
+    "relfeat": {
+     "stay_sep": 118,
+     "become_sep": 89,
+     "become_unsep": 16,
+     "stay_unsep": 14
+    },
+    "relflip": {
+     "stay_sep": 120,
+     "become_sep": 87,
+     "become_unsep": 14,
+     "stay_unsep": 16
+    }
+   },
+   "threshold_transfer_parent_split": {
+    "raw_clean": {
+     "dev_half_J": 0.0826,
+     "eval_half_J": 0.0259,
+     "eval_half_H": 0.5948,
+     "n_sel_parents": 121,
+     "n_eval_parents": 116
+    },
+    "raw_flipmine": {
+     "dev_half_J": 0.124,
+     "eval_half_J": 0.1293,
+     "eval_half_H": 0.8017,
+     "n_sel_parents": 121,
+     "n_eval_parents": 116
+    },
+    "relfeat": {
+     "dev_half_J": 0.281,
+     "eval_half_J": 0.3362,
+     "eval_half_H": 0.8793,
+     "n_sel_parents": 121,
+     "n_eval_parents": 116
+    },
+    "relflip": {
+     "dev_half_J": 0.3554,
+     "eval_half_J": 0.4655,
+     "eval_half_H": 0.8966,
+     "n_sel_parents": 121,
+     "n_eval_parents": 116
+    }
+   }
+  },
+  "s23": {
+   "arms": {
+    "raw_clean": {
+     "n": 237,
+     "J_t0": 0.0506,
+     "H": 0.5443,
+     "G_le0_frac": 0.4557,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.5222,
+       "J": 0.05
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.614,
+       "J": 0.0526
+      }
+     }
+    },
+    "raw_flipmine": {
+     "n": 237,
+     "J_t0": 0.0591,
+     "H": 0.6709,
+     "G_le0_frac": 0.3291,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.6889,
+       "J": 0.05
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.614,
+       "J": 0.0877
+      }
+     }
+    },
+    "relfeat": {
+     "n": 237,
+     "J_t0": 0.1688,
+     "H": 0.8101,
+     "G_le0_frac": 0.1899,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.8278,
+       "J": 0.1778
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.7544,
+       "J": 0.1404
+      }
+     }
+    },
+    "relflip": {
+     "n": 237,
+     "J_t0": 0.4219,
+     "H": 0.9198,
+     "G_le0_frac": 0.0802,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.9333,
+       "J": 0.4833
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.8772,
+       "J": 0.2281
+      }
+     }
+    }
+   },
+   "separability_change_vs_rawclean": {
+    "raw_flipmine": {
+     "stay_sep": 107,
+     "become_sep": 52,
+     "become_unsep": 22,
+     "stay_unsep": 56
+    },
+    "relfeat": {
+     "stay_sep": 111,
+     "become_sep": 81,
+     "become_unsep": 18,
+     "stay_unsep": 27
+    },
+    "relflip": {
+     "stay_sep": 123,
+     "become_sep": 95,
+     "become_unsep": 6,
+     "stay_unsep": 13
+    }
+   },
+   "threshold_transfer_parent_split": {
+    "raw_clean": {
+     "dev_half_J": 0.084,
+     "eval_half_J": 0.0424,
+     "eval_half_H": 0.5763,
+     "n_sel_parents": 119,
+     "n_eval_parents": 118
+    },
+    "raw_flipmine": {
+     "dev_half_J": 0.1345,
+     "eval_half_J": 0.1186,
+     "eval_half_H": 0.6356,
+     "n_sel_parents": 119,
+     "n_eval_parents": 118
+    },
+    "relfeat": {
+     "dev_half_J": 0.2689,
+     "eval_half_J": 0.1441,
+     "eval_half_H": 0.7966,
+     "n_sel_parents": 119,
+     "n_eval_parents": 118
+    },
+    "relflip": {
+     "dev_half_J": 0.521,
+     "eval_half_J": 0.3136,
+     "eval_half_H": 0.8814,
+     "n_sel_parents": 119,
+     "n_eval_parents": 118
+    }
+   }
+  },
+  "s47": {
+   "arms": {
+    "raw_clean": {
+     "n": 237,
+     "J_t0": 0.0549,
+     "H": 0.5443,
+     "G_le0_frac": 0.4557,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.5333,
+       "J": 0.0556
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.5789,
+       "J": 0.0526
+      }
+     }
+    },
+    "raw_flipmine": {
+     "n": 237,
+     "J_t0": 0.0759,
+     "H": 0.692,
+     "G_le0_frac": 0.308,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.7056,
+       "J": 0.0667
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.6491,
+       "J": 0.1053
+      }
+     }
+    },
+    "relfeat": {
+     "n": 237,
+     "J_t0": 0.211,
+     "H": 0.8608,
+     "G_le0_frac": 0.1392,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.8833,
+       "J": 0.2667
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.7895,
+       "J": 0.0351
+      }
+     }
+    },
+    "relflip": {
+     "n": 237,
+     "J_t0": 0.3966,
+     "H": 0.8819,
+     "G_le0_frac": 0.1181,
+     "boundary_frac": 0.0,
+     "per_class": {
+      "yAB_0": {
+       "n": 180,
+       "H": 0.9,
+       "J": 0.4444
+      },
+      "yAB_1": {
+       "n": 57,
+       "H": 0.8246,
+       "J": 0.2456
+      }
+     }
+    }
+   },
+   "separability_change_vs_rawclean": {
+    "raw_flipmine": {
+     "stay_sep": 102,
+     "become_sep": 62,
+     "become_unsep": 27,
+     "stay_unsep": 46
+    },
+    "relfeat": {
+     "stay_sep": 119,
+     "become_sep": 85,
+     "become_unsep": 10,
+     "stay_unsep": 23
+    },
+    "relflip": {
+     "stay_sep": 117,
+     "become_sep": 92,
+     "become_unsep": 12,
+     "stay_unsep": 16
+    }
+   },
+   "threshold_transfer_parent_split": {
+    "raw_clean": {
+     "dev_half_J": 0.112,
+     "eval_half_J": 0.0268,
+     "eval_half_H": 0.5,
+     "n_sel_parents": 125,
+     "n_eval_parents": 112
+    },
+    "raw_flipmine": {
+     "dev_half_J": 0.136,
+     "eval_half_J": 0.0357,
+     "eval_half_H": 0.7232,
+     "n_sel_parents": 125,
+     "n_eval_parents": 112
+    },
+    "relfeat": {
+     "dev_half_J": 0.344,
+     "eval_half_J": 0.3036,
+     "eval_half_H": 0.8482,
+     "n_sel_parents": 125,
+     "n_eval_parents": 112
+    },
+    "relflip": {
+     "dev_half_J": 0.48,
+     "eval_half_J": 0.3393,
+     "eval_half_H": 0.875,
+     "n_sel_parents": 125,
+     "n_eval_parents": 112
+    }
+   }
+  }
+ }
+}

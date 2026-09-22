@@ -1,0 +1,576 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "n_quartets": 237,
+ "model_sha256": {
+  "raw_clean_s11": "8b20dfeee6b6269697664e42d4b3c73caf2f8baee091a1aec4cb88e128956fb8",
+  "raw_flipmine_s11": "8b566fa3607f03ceb56eba63ed18952f555f00d9e6f2a8c5738f46f4cb8c2688",
+  "relfeat_s11": "da47c9293cc0c2500a7a7a70d4ba238300d3047a9a6433e31c9990cd09d8e36d",
+  "relflip_s11": "dca6fb715bfcfde662eed5a5876872c0c6f4aa96e0e6bbc49ec5e1eec81a1d54",
+  "raw_clean_s23": "cf09fd3a9fef6bdc0362640ceaf2ab05244d3058866b306c1ef1e1cc7fa868dd",
+  "raw_flipmine_s23": "d7051dcc1ef83017e13f94d5c799a87ad5f4a9546a3581e20d4a80db90a55c31",
+  "relfeat_s23": "568392fd1eaf2bd0dcd4bc7608c9aa53045220bfb56d4ea05950456b63157d1e",
+  "relflip_s23": "32662eb5488e86abfa2d6fbfef872cebc4e13a8e6f63da3f5eef8a3b9a727f06",
+  "raw_clean_s47": "d50ee48788fbe83b4045f4e6b3f97ee49ce4fbf39bc44f5d498c4fc420769903",
+  "raw_flipmine_s47": "48dbf9209c6da6aaf213c0a526d54c8a14e2ac3c472d1fa5b34f1768ac658b72",
+  "relfeat_s47": "6c5ae437b92cd1b36c45f2588c74f1334c154cc4dc4e1b309ee8a4f834a73355",
+  "relflip_s47": "c9f2be9c33102033e12b85060d71e5812b67525375a069e2c2c750cc8cf98d4d"
+ },
+ "seeds": {
+  "s11": {
+   "arms": {
+    "raw_clean": {
+     "J": 0.0549,
+     "J_ci_parent": [
+      0.0167,
+      0.0978
+     ],
+     "atomic_A": 0.5485,
+     "atomic_B": 0.5443,
+     "atomic_pass": 0.519,
+     "AB_correct": 0.519
+    },
+    "raw_flipmine": {
+     "J": 0.0675,
+     "J_ci_parent": [
+      0.0348,
+      0.107
+     ],
+     "atomic_A": 0.4641,
+     "atomic_B": 0.4937,
+     "atomic_pass": 0.4093,
+     "AB_correct": 0.6456
+    },
+    "relfeat": {
+     "J": 0.1308,
+     "J_ci_parent": [
+      0.081,
+      0.1863
+     ],
+     "atomic_A": 0.7173,
+     "atomic_B": 0.7468,
+     "atomic_pass": 0.6751,
+     "AB_correct": 0.4515
+    },
+    "relflip": {
+     "J": 0.384,
+     "J_ci_parent": [
+      0.2902,
+      0.4721
+     ],
+     "atomic_A": 0.6709,
+     "atomic_B": 0.7215,
+     "atomic_pass": 0.5949,
+     "AB_correct": 0.7637
+    }
+   },
+   "paired_J_diff": {
+    "raw_flipmine_minus_raw_clean": [
+     0.0127,
+     [
+      -0.0345,
+      0.0608
+     ]
+    ],
+    "relfeat_minus_raw_clean": [
+     0.0759,
+     [
+      0.0084,
+      0.1434
+     ]
+    ],
+    "relflip_minus_raw_clean": [
+     0.3291,
+     [
+      0.2351,
+      0.4231
+     ]
+    ],
+    "relfeat_minus_raw_flipmine": [
+     0.0633,
+     [
+      0.0081,
+      0.1244
+     ]
+    ],
+    "relflip_minus_raw_flipmine": [
+     0.3165,
+     [
+      0.2227,
+      0.4151
+     ]
+    ],
+    "relflip_minus_relfeat": [
+     0.2532,
+     [
+      0.1674,
+      0.3389
+     ]
+    ]
+   },
+   "interaction_I": [
+    0.2405,
+    [
+     0.1342,
+     0.3463
+    ]
+   ],
+   "repair_vs_rawclean_H": {
+    "raw_flipmine": {
+     "n_H": 110,
+     "R_full": [
+      0.0636,
+      [
+       0.0189,
+       0.1262
+      ]
+     ],
+     "R_endpoint": [
+      0.4273,
+      [
+       0.2991,
+       0.5785
+      ]
+     ],
+     "M_migrate": [
+      0.3636,
+      [
+       0.2365,
+       0.5096
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.4146,
+     "AB_regression": 0.1707
+    },
+    "relfeat": {
+     "n_H": 110,
+     "R_full": [
+      0.1364,
+      [
+       0.0708,
+       0.23
+      ]
+     ],
+     "R_endpoint": [
+      0.3909,
+      [
+       0.2545,
+       0.5321
+      ]
+     ],
+     "M_migrate": [
+      0.2545,
+      [
+       0.1271,
+       0.3894
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.252,
+     "AB_regression": 0.4878
+    },
+    "relflip": {
+     "n_H": 110,
+     "R_full": [
+      0.3727,
+      [
+       0.2615,
+       0.4912
+      ]
+     ],
+     "R_endpoint": [
+      0.7455,
+      [
+       0.6346,
+       0.8436
+      ]
+     ],
+     "M_migrate": [
+      0.3727,
+      [
+       0.2136,
+       0.5167
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.374,
+     "AB_regression": 0.2114
+    }
+   },
+   "n_H_rawclean": 110
+  },
+  "s23": {
+   "arms": {
+    "raw_clean": {
+     "J": 0.0506,
+     "J_ci_parent": [
+      0.0129,
+      0.1016
+     ],
+     "atomic_A": 0.6076,
+     "atomic_B": 0.6076,
+     "atomic_pass": 0.557,
+     "AB_correct": 0.4768
+    },
+    "raw_flipmine": {
+     "J": 0.0591,
+     "J_ci_parent": [
+      0.0273,
+      0.0965
+     ],
+     "atomic_A": 0.5063,
+     "atomic_B": 0.5274,
+     "atomic_pass": 0.4557,
+     "AB_correct": 0.5738
+    },
+    "relfeat": {
+     "J": 0.1688,
+     "J_ci_parent": [
+      0.113,
+      0.2308
+     ],
+     "atomic_A": 0.7511,
+     "atomic_B": 0.7679,
+     "atomic_pass": 0.6962,
+     "AB_correct": 0.4684
+    },
+    "relflip": {
+     "J": 0.4219,
+     "J_ci_parent": [
+      0.3246,
+      0.5187
+     ],
+     "atomic_A": 0.7215,
+     "atomic_B": 0.73,
+     "atomic_pass": 0.6709,
+     "AB_correct": 0.7468
+    }
+   },
+   "paired_J_diff": {
+    "raw_flipmine_minus_raw_clean": [
+     0.0084,
+     [
+      -0.0551,
+      0.0687
+     ]
+    ],
+    "relfeat_minus_raw_clean": [
+     0.1181,
+     [
+      0.0354,
+      0.1973
+     ]
+    ],
+    "relflip_minus_raw_clean": [
+     0.3713,
+     [
+      0.2712,
+      0.4699
+     ]
+    ],
+    "relfeat_minus_raw_flipmine": [
+     0.1097,
+     [
+      0.0468,
+      0.1758
+     ]
+    ],
+    "relflip_minus_raw_flipmine": [
+     0.3629,
+     [
+      0.2607,
+      0.4608
+     ]
+    ],
+    "relflip_minus_relfeat": [
+     0.2532,
+     [
+      0.1435,
+      0.3607
+     ]
+    ]
+   },
+   "interaction_I": [
+    0.2447,
+    [
+     0.121,
+     0.3766
+    ]
+   ],
+   "repair_vs_rawclean_H": {
+    "raw_flipmine": {
+     "n_H": 120,
+     "R_full": [
+      0.025,
+      [
+       0.0,
+       0.0574
+      ]
+     ],
+     "R_endpoint": [
+      0.425,
+      [
+       0.2913,
+       0.5684
+      ]
+     ],
+     "M_migrate": [
+      0.4,
+      [
+       0.2645,
+       0.5385
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.4318,
+     "AB_regression": 0.2566
+    },
+    "relfeat": {
+     "n_H": 120,
+     "R_full": [
+      0.2333,
+      [
+       0.1443,
+       0.3333
+      ]
+     ],
+     "R_endpoint": [
+      0.4,
+      [
+       0.2703,
+       0.5338
+      ]
+     ],
+     "M_migrate": [
+      0.1667,
+      [
+       0.082,
+       0.264
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.1667,
+     "AB_regression": 0.4602
+    },
+    "relflip": {
+     "n_H": 120,
+     "R_full": [
+      0.4417,
+      [
+       0.3203,
+       0.5753
+      ]
+     ],
+     "R_endpoint": [
+      0.7583,
+      [
+       0.6579,
+       0.8496
+      ]
+     ],
+     "M_migrate": [
+      0.3167,
+      [
+       0.1735,
+       0.4621
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.303,
+     "AB_regression": 0.2478
+    }
+   },
+   "n_H_rawclean": 120
+  },
+  "s47": {
+   "arms": {
+    "raw_clean": {
+     "J": 0.0549,
+     "J_ci_parent": [
+      0.0221,
+      0.0948
+     ],
+     "atomic_A": 0.5612,
+     "atomic_B": 0.5696,
+     "atomic_pass": 0.519,
+     "AB_correct": 0.519
+    },
+    "raw_flipmine": {
+     "J": 0.0759,
+     "J_ci_parent": [
+      0.0367,
+      0.1256
+     ],
+     "atomic_A": 0.4177,
+     "atomic_B": 0.4093,
+     "atomic_pass": 0.3671,
+     "AB_correct": 0.6793
+    },
+    "relfeat": {
+     "J": 0.211,
+     "J_ci_parent": [
+      0.1415,
+      0.2837
+     ],
+     "atomic_A": 0.7468,
+     "atomic_B": 0.7679,
+     "atomic_pass": 0.7089,
+     "AB_correct": 0.4937
+    },
+    "relflip": {
+     "J": 0.3966,
+     "J_ci_parent": [
+      0.3077,
+      0.4911
+     ],
+     "atomic_A": 0.692,
+     "atomic_B": 0.6709,
+     "atomic_pass": 0.6034,
+     "AB_correct": 0.789
+    }
+   },
+   "paired_J_diff": {
+    "raw_flipmine_minus_raw_clean": [
+     0.0211,
+     [
+      -0.0328,
+      0.0823
+     ]
+    ],
+    "relfeat_minus_raw_clean": [
+     0.1561,
+     [
+      0.0901,
+      0.226
+     ]
+    ],
+    "relflip_minus_raw_clean": [
+     0.3418,
+     [
+      0.2447,
+      0.4375
+     ]
+    ],
+    "relfeat_minus_raw_flipmine": [
+     0.135,
+     [
+      0.0516,
+      0.2213
+     ]
+    ],
+    "relflip_minus_raw_flipmine": [
+     0.3207,
+     [
+      0.2205,
+      0.4231
+     ]
+    ],
+    "relflip_minus_relfeat": [
+     0.1857,
+     [
+      0.0975,
+      0.2773
+     ]
+    ]
+   },
+   "interaction_I": [
+    0.1646,
+    [
+     0.0658,
+     0.264
+    ]
+   ],
+   "repair_vs_rawclean_H": {
+    "raw_flipmine": {
+     "n_H": 110,
+     "R_full": [
+      0.1,
+      [
+       0.0348,
+       0.1837
+      ]
+     ],
+     "R_endpoint": [
+      0.4818,
+      [
+       0.3333,
+       0.6372
+      ]
+     ],
+     "M_migrate": [
+      0.3818,
+      [
+       0.2362,
+       0.5313
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.4228,
+     "AB_regression": 0.1463
+    },
+    "relfeat": {
+     "n_H": 110,
+     "R_full": [
+      0.1545,
+      [
+       0.0732,
+       0.2474
+      ]
+     ],
+     "R_endpoint": [
+      0.3545,
+      [
+       0.2276,
+       0.4911
+      ]
+     ],
+     "M_migrate": [
+      0.2,
+      [
+       0.0865,
+       0.3415
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.1951,
+     "AB_regression": 0.374
+    },
+    "relflip": {
+     "n_H": 110,
+     "R_full": [
+      0.3636,
+      [
+       0.2333,
+       0.5102
+      ]
+     ],
+     "R_endpoint": [
+      0.7818,
+      [
+       0.6727,
+       0.8739
+      ]
+     ],
+     "M_migrate": [
+      0.4182,
+      [
+       0.2453,
+       0.5767
+      ]
+     ],
+     "identity_ok": true,
+     "atomic_regression": 0.3902,
+     "AB_regression": 0.1951
+    }
+   },
+   "n_H_rawclean": 110
+  }
+ },
+ "descriptive_mean_J": {
+  "raw_clean": 0.0535,
+  "raw_flipmine": 0.0675,
+  "relfeat": 0.1702,
+  "relflip": 0.4008
+ }
+}

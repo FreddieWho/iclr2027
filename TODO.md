@@ -1,8 +1,9 @@
-# TODO — ICLR 2027（PAPER POLISH / 投稿行政，2026-09-22 起）
+# TODO — ICLR 2027（02 探索升级已授权执行＋投稿行政，2026-09-22 起）
 
 ```
-SCIENTIFIC_EXPLORATION: CLOSED（2026-09-22 终局裁决 #15；新方向需用户单独授权）
-当前唯一工作：投稿行政与写作打磨（用户预告：可能还有几轮补充优化，结构已就绪）——
+SCIENTIFIC_EXPLORATION: CLOSED（2026-09-22 终局裁决 #15）→ 02 定向探索升级已由用户单独授权执行
+（范围：U1/U2/U3 必做，U4 可选且不超过两种小表示对照；仍禁 02 §2 所列新方向）。
+当前工作：02 探索升级（U1/U2/U3；U4 视判据可选）＋投稿行政与写作打磨（用户预告：可能还有几轮补充优化，结构已就绪）——
   (1) OpenReview 资料冻结（机构邮箱 profile/互审资格/作者名单）；
   (2) 官方 ICLR 2027 样式替换 paper/main.tex 占位 preamble；references 11→40+；
   (3) Figure 1 概念图；正文 prose 打磨（按 MASTER_CLAIM_LEDGER 措辞红线）；
@@ -93,6 +94,7 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 | K：发现型探索 campaign（20260917 包） | 完成（goal 手动关闭） | 优化目标 mu5qijtb-uoh83q 6 轮落定；R6 授权补救已推送 3ab758d。旧红线零触碰。 |
 | L：最后 15h 路线（20260918 包，N01–N10） | 首轮＋round2 收敛 | 终局见 reports/last15h/SELECTION.md：现象 6 项成立（N01-missing/N03/N04-emergent/N06/N08/N09 分解），新方法 5 项全死，方法位 flipmine-as-is；摘要草稿＋图源表已落盘。新输出 experiments/last15h＋artifacts/last15h＋reports/last15h，不覆盖旧证据。 |
 | M：真数据转折＋全路径＋joint（E2/E3/E4） | 收敛 | 双数据故事升级通过，见 reports/last15h/M_SELECTION.md：E2 三件套 3/3（N01/N03/N06-hard，多种子同向）进主文；E3 关闭（诚实 null，库无重入动作）；E4 死（3 种子全平）。方法位=flipmine＋cover。 |
+| N：02 定向探索升级（U1/U2/U3＋可选 U4） | 当前执行 | 用户已授权执行 docs/last3day/02_EXPLORATION_AND_UPGRADE_PLAN.md；U1/U2 复用已有模型与缓存，U3 只新增前向/重分析，U4 最多两种小表示对照；仍禁 DINO/L002/EventUpdater/自然图 Task3/边界角度/其他关系族。 |
 
 ## 变更记录
 
@@ -235,3 +237,6 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：文献接线完成（kimi-for-coding researcher 核实，VERIFIED_REFS.md 入库）：11 条新 bib（Press 更正为 Findings of EMNLP 2023 而非 ICLR 2023；Composition Collapse 落实为 Yu et al. 2026 arXiv:2605.26789，preprint）；§7 全部点名改为 \citep；"task-oriented prediction" 无 canonical 对应，按核查建议删除，邻域收为 counterfactual repair + positive-congruent training。references 11→22，40+ 目标仍在投稿清单第 4 项。
 - 2026-09-22：整改 Wave-1 收敛：Lane C 一次完成（主稿重组 e6a75f0）；Lane A/B 超时后窄范围收尾完成——P1G 修正版落盘（残留 0.32–0.62 替代旧 0.53–0.84）、paired OOF 区间、relflip 复算入口、P3 8×8 矩阵与配对 CI、P2 v2（s23/s47 落盘待定，后台运行中）。%FILL% 三槽已填；R8 文献四组官方页核实入库（references 22→26）；终局文档 reports/caea817_review/（RECTIFICATION_LOG/CLAIM_SOURCE_MAP/CONFIRMATION_USAGE）已建。待 Wave-2（R7 图表+可编译主稿、R9 复算资源）与 P2 v2 JSON 落盘复核。
 - 2026-09-22：整改 Wave-2 收敛（R7+R9）：官方 ICLR 2027 style kit 已装（paper/*.sty/.bst）；main.tex 按新 7 段+附录接线；fig4 四臂图生成，fig2/fig3 重生成验证；REPRODUCE.md 新建，REPRODUCE_FINAL.md bash 修复；RELEASE_MANIFEST_NEW.md 新建；PROJECT_MAP FOOTBALL_CONF 标 VOID。P2 v2 三种子落盘，affine 句与 v2 全种子一致（clean 0.14-0.20/affine 0.11-0.17/flip 0.17-0.25，配对 CI 全触/跨零，s11 贴边确认）。全量测试 188 通过。遗留：本机无 LaTeX（首次编译待 TeX 机：页数/overfull/refs）；Fig1 未生成（槽位空）；AI-use 为草稿待作者批；匿名包未打包。
+- 2026-09-22：首次本地编译通过（本机 TinyTeX：pdflatex→bibtex→pdflatex×2，零错误、零未定义引用，15/15 引用解析）：Table 1 改 footnotesize＋精简长单元格，消除 29.8pt overfull；正文 8 页（abstract→conclusion），符合 9 页限制；参考文献＋附录另 3 页。LaTeX 中间产物入 .gitignore（figures/*.pdf 除外）。
+- 2026-09-22：用户授权执行 02 探索升级：入口状态由 PAPER POLISH 改为“02 探索升级已授权执行＋投稿行政”；新增分支 N；U1/U2/U3 进入执行，U4 按“可解释第一轮/不硬追”判据评估是否执行。
+- 2026-09-22：02 探索升级收敛（U1/U2/U3＋可选 U4 全部执行）：U1 四臂交互 I=+16–25pp（parent-cluster CI 全不含零，exploratory）；U2 限定机制（表示改善排序、flip 改善阈值实现）；U3 修复降低 P1 水平但保留反转形状；U4 排除平移 nuisance、确认半径冗余。交付 UPGRADE_FINDINGS.md＋NO_NEW_CLAIM_WITHOUT_EVIDENCE.md＋三份独立报告；新测试 10 项；全量测试 198 通过。稿件决策 A＋B 两项增量就绪（四臂图数据源切 U1_SUMMARY.json；J/H panel；摘要替换句）。

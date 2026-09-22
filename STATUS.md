@@ -1,6 +1,6 @@
 # Current Status
 
-更新时间：2026-09-22（结构整理；科学状态自 2026-09-22 终局未变）
+更新时间：2026-09-22（整改 Wave-1/2 收敛＋首次本地编译通过；02 探索升级已授权执行）
 
 ## 第一部分：给人读的进展
 
@@ -9,33 +9,34 @@
 更新；修复只是把错误从组合失效迁移到别处。三大贡献——P1 置信反转（确认池
 CONFIRMED）、P3 错误迁移主导＋relflip 转向完全一致、P2 能力/操作点分离——
 均已多种子/确认池闭合。足球真实数据与像素观察两条复现线同向。基础模型
-（DINOv2/v3/CLIP/SigLIP2）外部确认全部为阴性，已诚实写入论文 §6。
+（DINOv2/v3/CLIP/SigLIP2）外部确认全部为阴性，已诚实写入论文 §6。整改 R1–R9
+与首次本地编译已完成（正文 8 页，零错误、零未定义引用）。
 
-**正在做什么。** PAPER POLISH / 投稿行政：正文 prose 打磨、Figure 1 概念图、
-样式与引用基建、OpenReview 资料。全文截止 2026-09-25 AOE。
+**正在做什么。** 02 探索升级已收敛（U1/U2/U3/U4 报告＋终局合成已落盘）；
+回到投稿行政：四臂图数据源切换、J/H panel、摘要替换句、Figure 1、AI-use 定稿、匿名包。全文截止 2026-09-25 AOE。
 
-**卡在哪里。** 无科学阻塞。行政风险点：OpenReview profile 审核周期、
-references 条目数（11→40+）、官方样式替换（`paper/main.tex` 目前为占位 preamble）。
+**卡在哪里。** 无科学阻塞。纪律：新确认读取需授权，探索期新对比先标 exploratory；
+行政遗留：Figure 1 未生成、AI-use 为草稿、匿名包未打包。
 
-**准备怎么解决。** 按 TODO.md 顶部"当前唯一工作"清单执行投稿行政；任何新
-科学方向需用户单独授权。
+**准备怎么解决。** 按 TODO.md 顶部执行 02 探索升级与投稿行政；任何新机制
+主张必须过证据门，不硬追统一故事。
 
 ```
 2026/9/22
-ROADMAP  探索期路线全部关闭（P4-AMR 旧 ROADMAP 已退休至 docs/governance_history/）
+ROADMAP  探索期关闭；02 定向探索升级已授权（U1/U2/U3＋可选 U4）
 最终叙事  [##########] 证据链 10/10 闭合（终局裁决 #14：无必须完成的新实验）
-本周投入  科学问题 ░░░░░░░░░░ 0%（已关闭）   投稿行政 ██████████ 100%
+本周投入  科学问题 ███░░░░░░░ 30%（02 探索已收敛）   投稿行政 ███████░░░ 70%
 
 偏离程度  无
-偏离位置  无（终局裁决 #15 宣告探索期关闭后，全部工作限于写作与审稿响应）
-建议      投稿后按 LEADS.md 待挖掘项（L-005 GRF 等）评估下一篇。
+偏离位置  无（02 探索为用户单独授权的定向升级，非重开探索期）
+建议     只争取最多两项增量；任一路线不支持新 claim 就保留已确认结果。
 ```
 
 ## 第二部分：给 agent 的接手信息
 
-- 当前阶段：PAPER POLISH；无活跃科学节点。
-- 核心文件：`paper/main.tex`＋`paper/sections/`；权威数字 `reports/final_closure/MASTER_CLAIM_LEDGER.md`；终局 `reports/final_closure/FINAL_PROJECT_VERDICT.md`。
+- 当前阶段：02 探索升级收敛；稿件增量 A＋B 就绪，转投稿行政收尾。
+- 核心文件：`docs/last3day/02_EXPLORATION_AND_UPGRADE_PLAN.md`；`paper/main.tex`＋`paper/sections/`；权威数字 `reports/final_closure/MASTER_CLAIM_LEDGER.md`；升级输出 `reports/caea817_review/`。
 - 复算入口：`reports/final_closure/REPRODUCE_FINAL.md`（先 `export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH`）。
-- 最近决策：D-20260918-AUDIT02（探索冻结＋论文迁移）；此后以 TODO.md 变更记录为准（9-18→9-23 全部收敛条目）。
-- 下一步：TODO.md 顶部投稿行政清单；新方向需用户授权。
+- 最近决策：用户授权执行 02 探索升级（U1/U2/U3 必做，U4 可选）；D-20260918-AUDIT02 探索冻结仍有效，新确认读取=新协议事件。
+- 下一步：四臂图数据源切换＋J/H panel＋摘要替换句；同步投稿行政清单。
 - 目录导航：`README.md`（前门）＋`PROJECT_MAP.md`（叙事→目录全映射）＋各目录 INDEX.md。

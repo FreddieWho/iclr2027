@@ -1,0 +1,15 @@
+{
+ "rep": "sixdist",
+ "methods": [
+  "clean",
+  "flipmine"
+ ],
+ "epochs": 300,
+ "lr": 0.01,
+ "lam": 1.0,
+ "seed": 47,
+ "mine_seed": 5,
+ "n_train": 512,
+ "n_flips": 1534,
+ "flip_list_sha256": "abf78112b2d1ac5934f7ac8e56d0069ac12dbb344dad817b9785e178dcd30a35"
+}
