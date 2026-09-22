@@ -3,29 +3,31 @@
 
 \paragraph{Related work.} Intervention-based evaluation has lineage in causal
 abstractions and interchange analysis (activation swaps for causal-model
-alignment); ours differs in using input-space reallocation and semantic
+alignment; \citep{geiger2021causal}); ours differs in using input-space reallocation and semantic
 composition as the prediction target. Sensitivity analysis (Morris elementary
-effects; budgeted perturbations) supplies the screening metaphor, but our
+effects; \citep{morris1991factorial}) supplies the screening metaphor, but our
 screen is semantic: edits with known oracle outcomes, not random directions.
 On compositional generalization we do not originate conditional-on-atomics
 measurement: the compositionality gap (correct sub-problems, failed
-composition) is established for language models (Press et al.), with a
-stricter double-gated variant for factual composition (Composition Collapse,
-2026). Our differences: (1)~controlled semantic change with known
+composition) is established for language models
+\citep{press2023measuring}, with a
+stricter double-gated variant for factual composition
+\citep{yu2026compositioncollapse}. Our differences: (1)~controlled semantic change with known
 boundaries; (2)~same-instance transition structure (paths, not just
 endpoints); (3)~confidence meaning reversal under semantic flips;
 (4)~repair error migration inside the same quartet; (5)~downstream
 consequence. On calibration and selective classification
-(Guo et al.; Geifman \& El-Yaniv) our contrast is explicit: both concern
+\citep{guo2017calibration,geifman2017selective} our contrast is explicit: both concern
 \emph{current} correctness, while our inversion concerns reliability
 \emph{after} a true semantic change. Excessive invariance (adversarial
-vulnerability from over-robust features) is adjacent in flavor but distinct
+vulnerability from over-robust features; \citep{jacobsen2019excessive}) is adjacent in flavor but distinct
 in object: fixed-decision robustness versus failure to change decisions.
-Counterfactual and hard-positive repair, positive-congruent updates, and
-task-oriented prediction are the right neighborhoods for our flip coverage;
+Counterfactual repair and positive-congruent (regression-free) updates
+\citep{kaushik2020learning,yan2021positive} are the right neighborhoods for our flip coverage;
 we claim no priority on preserve constraints, only the instance-level
 migration measurement and the coverage/quality decomposition. Prior probing
-literature (Jacobian geometry, spectral readouts, equivariance measurement)
+literature (Jacobian geometry, spectral readouts, equivariance measurement;
+\citep{belinkov2022probing,lenc2015understanding})
 motivates our diagnostic instruments but is background, not claim.
 
 \paragraph{Limitations (all evidenced, none hidden).}
