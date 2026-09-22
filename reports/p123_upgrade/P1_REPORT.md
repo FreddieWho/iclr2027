@@ -27,6 +27,17 @@ Dual test, same models:
   any confidence -> reversal is not a logical necessity (sanity only).
 Grade: 校正后支持 (coordinate).
 
+## Confirm (confirm_1007 bank, sha 28365ae3, parent-disjoint, frozen settings)
+n~730-745 start-correct/model (3x dev). Update err by confidence rank:
+- s11 clean: Q0 0.61 -> Q1 0.95 -> Q2/Q3 1.00
+- s23 clean: Q0 0.62 -> Q1 0.99 -> Q2/Q3 1.00
+- s47 clean: Q0 0.68 -> Q1 0.99 -> Q2/Q3 1.00
+Flipmine: lower overall, shape preserved (top bins 0.93-0.97).
+Repair residual on clean-fixed high-risk: clean 1.00 -> repair 0.53-0.84,
+paired CIs exclude 0 (s11 [0.24,0.38], s23 [0.39,0.56], s47 [0.10,0.22]).
+Grade upgraded: CONFIRMED on fresh parent-disjoint data.
+
+
 ## Football (rewrite with start-correct + arrival + time windows)
 Corrected analysis: update miss 0.6-2.8% (vs old 86% artifact). Confidence
 separation at floor (adjQ3 0-6% vs adjQ0 0-1%), lead definitions inconsistent

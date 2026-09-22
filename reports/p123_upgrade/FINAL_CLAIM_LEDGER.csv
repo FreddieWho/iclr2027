@@ -1,16 +1,9 @@
-claim_id,question,result,denominator,split,seeds,status,artifact_or_note
-P1-coord-dual,static trust vs update risk,static Q0 0.36->Q3 0.02 BUT update Q0 0.34-0.54->Q3 0.93-1.00,n~200-290/model start-correct+flipped,eval_202 bank_dev512,s11/s23/s47 x clean/flipmine,supported-coordinate-only,artifacts/p123_upgrade/p1/P1_COORD.json
-P1-coord-selection,retain top-25% confident,conditional update-err 1.00 clean / 0.93 flip at ~2% static err,same screen retained subset,eval_202 bank,s11,P1-C holds (single-seed screen; multi-seed overlay in JSON),P1_COORD.json selection
-P1-coord-repair-residual,clean-fixed high-risk group,clean 1.00 -> repair 0.83-0.92 paired CI excl 0,paired same-quartet 49-55 high-risk,eval_202 bank,s11/s23/s47,means improve residual high,P1_COORD.json
-P1-football,confidence separation on natural turns,miss 0.6-2.8% floor no separation,577-754 start-correct events 6 matches,dev+train views (exploration),s11/s23/s47,NOT SUPPORTED (old signal was mapping artifact),p1football_s*.json
-P2-lexico-split,coverage vs quality,D_cov +0.06..+0.10 D_q -0.02..-0.04 total +0.03..+0.08,170 feasible eval scenes,U02 cache scenes,s11/s23/s47,stable 3/3,P2_DECOMP.json
-P2-common-act,same acted scenes,clean_ok > repair_ok 16v8 12v9 9v7,n=45-50 common-act,dev scenes,s11/s23/s47,not-quality 3/3,P2_DECOMP.json
-P2-cand,feasible candidate sets,prec flat/down rec 0.40-0.42->0.60-0.68,same 170 scenes,dev,s11/s23/s47,recall gain 3/3,P2_DECOMP.json
-P2-score-rule,forced choice quality,0.15-0.25 -> 0.28-0.34,n=96 eval scenes,dev,s11/s23/s47,rule-dependent gain 3/3,P2_DECOMP.json
-P2-P1link,coverage reaches high-conf scenes,no (success ~0 both arms n=13-14),tiny-n analogue,dev,s11/s23/s47,descriptive only,P2_DECOMP.json
-P3-paired-fixed,genuine repair on fixed set,0.89-0.91 -> 0.50-0.56 (~35-40pp),123-132 clean-pass quartets,bank_dev512,s11/s23/s47,paired genuine 3/3,P3_PAIRED.json
-P3-churn,denominator churn,exit 51-57 hard + enter 16-33 mixed,cells by atomic-pass,same bank,s11/s23/s47,documented,P3_PAIRED.json
-P3-common,common-correct,s11 0.931->0.847 s23 0.920->0.947 s47 0.916->0.817,n=71-75,same bank,s11/s23/s47,no sorting change,P3_PAIRED.json
-P3-unit,selection artifact demo,own 1.00 vs 0.40 identical AB; fixed invariant,synthetic 200,none,none,metric property PASS,P3_PAIRED.json unit_test
-E1-headline-unchanged,151/176 compositional miss,0.8579 n=176,holdout_909 (sealed),fixed E1,CONFIRMED history,holdout_909/result.json
-E1-repair-split,109/141 vs C1 130/248->86/248,non-paired vs paired-same-sample,same holdout,same models,CORRECTED LABELS (C5/C7),result.json
+claim,status,number,denominator_n,split,models,artifact,notes
+headline conditional composition miss,kept (history),151/176 = 0.8579,176,holdout_909 (sealed),r04b_s11 clean,E1 result.json,single model; non-paired vs repair
+repair emergent conditional,corrected,109/141 = 0.7730,141,holdout_909 (sealed),r04b_s11 flipmine,E1 result.json,was mislabeled denom 176; non-paired
+C1 single-flip miss,kept (renamed),130/248 -> 86/248,248,holdout_909 (sealed),clean/flipmine PAIRED,E1 result.json,single-edit test NOT headline composition
+P1 confident blind spots,CONFIRMED new,see P1_REPORT,confirm_1007 ~740/model,6 models (3x2),p1_confirm/,fresh parent-disjoint; dual test + selection + residual
+P1 football,VOID then NULL,miss 0.6-2.8% floor,6 matches x 3 seeds,p1football_*.json,old 86% was mapping bug + any-change counting
+P2 repair decomposition,new (Discussion),D_cov +0.06..0.10 / D_q -0.02..-0.04,170 eval scenes,3x2,P2_DECOMP.json,rule-dependent; score rule shows quality gain
+P3 paired repair story,new (measurement),common-set unstable + s23 reversal,237 quartets bank,3x2,P3_PAIRED.json,denominator-driven; unit test passes
+matched-single fresh gap,kept arithmetic,24.84pp (0.8579-0.6096),176 vs 251,holdout_909,clean,E1 result.json,NOT causal pure-composition effect

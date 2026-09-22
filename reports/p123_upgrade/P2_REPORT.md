@@ -1,7 +1,8 @@
 # P2_REPORT (2026-09-23): repair gain decomposition, 3 seeds
 
 Immutable table p2_table.npz (sha e7ee314b, U02 cache frames/feas + 6 logit
-vectors). Eval = 170 feasible scenes (dev 86 order-fixed for thresholds).
+vectors). Eval = 96 feasible scenes (139 feasible total; dev = first 86 of all 256
+scenes order-fixed; eval = feasible scenes not in dev).
 
 ## Lexicographic rule, lam=2 (refusal gate)
 Symmetric split of net success gain (total +0.03..+0.08):

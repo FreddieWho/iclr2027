@@ -108,14 +108,16 @@ def main():
         res["s%d" % seed] = {"cells": out, "denoms": out.pop("denoms"), "overall": out.pop("overall")}
         print("SAW s%d cells=%s" % (seed, {k: v["n"] for k, v in out.items()}), flush=True)
     # unit test: AB fixed, atomics vary -> own-rate moves (metric property)
-    ab = np.zeros(100, dtype=int)  # AB always correct
-    a_c = np.random.default_rng(0).random(100) < 0.5
-    a_f = np.random.default_rng(1).random(100) < 0.8
-    own_c = ab[a_c].mean() if a_c.sum() else float("nan")
-    own_f = ab[a_f].mean() if a_f.sum() else float("nan")
+    # AB predictions IDENTICAL across models; only atomic-pass sets differ.
+    ab_ok = np.array([0] * 50 + [1] * 50)  # 1 = AB correct; fixed for both
+    a_c = np.array([True] * 30 + [False] * 70)   # clean passes first 30
+    a_f = np.array([True] * 10 + [False] * 40 + [True] * 30 + [False] * 20)
+    own_c = 1 - ab_ok[a_c].mean()
+    own_f = 1 - ab_ok[a_f].mean()
     res["unit_test"] = {"note": "AB predictions identical; only atomic-pass changes",
-                        "own_rate_clean": float(1 - own_c), "own_rate_repair": float(1 - own_f),
-                        "pass": bool(abs((1 - own_c) - (1 - own_f)) > 0) or True}
+                        "own_miss_clean": round(float(own_c), 4),
+                        "own_miss_repair": round(float(own_f), 4),
+                        "pass": bool(abs(own_c - own_f) > 0.2)}
     a.out.mkdir(parents=True, exist_ok=True)
     json.dump(res, open(a.out / "P3_PAIRED.json", "w"), indent=1)
     print("DONE paired_compare")
