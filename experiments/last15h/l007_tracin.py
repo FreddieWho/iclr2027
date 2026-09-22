@@ -158,7 +158,7 @@ def main():
             "loss_weights": {"clean": round(w_clean, 8),
                              "flip": round(w_flip, 8)},
         }
-        print("s%d: top scenes %s" % (seed, order[:10].tolist()), flush=True)
+        print("s%d: top-|I| scenes %s" % (seed, order_abs[:10].tolist()), flush=True)
     a.out.mkdir(parents=True, exist_ok=True)
     json.dump(out, open(a.out / "TRACIN.json", "w"), indent=1)
     print("DONE ->", a.out)

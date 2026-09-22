@@ -82,9 +82,14 @@ def main():
     mu_t, sd_t = torch.from_numpy(mu8), torch.from_numpy(sd8)
 
     # ---- build matched insert sets from TRAIN parents ----
+    # aimed construction (closest-point axis), same recipe as n01_brackets,
+    # so that a 0->1 crossing is actually reachable from train parents.
+    from paths import _seg_closest
     rng = np.random.default_rng(20260926)
     train_turns = []          # (x, e, t_star) on train parents
-    for k in rng.permutation(len(X)):
+    order = np.argsort(np.linalg.norm(X.reshape(-1, 8), axis=1) * 0 +
+                       rng.random(len(X)))
+    for k in order:
         if len(train_turns) >= N_INSERT * 3:
             break
         x = X[k].astype(float)
@@ -93,28 +98,34 @@ def main():
                 continue
         except ValueError:
             continue
-        # aimed edit: move CD toward AB (same construction as n01_brackets)
-        d = rng.normal(size=2)
-        d /= (np.linalg.norm(d) + 1e-12)
-        e = np.zeros((4, 2))
-        e[2] = 0.4 * d
-        e[3] = 0.4 * d
-        tg = np.linspace(0, 1, 65)
-        lab = []
-        for tt in tg:
-            try:
-                lab.append(oracle_at(x + tt * e)[0])
-            except ValueError:
-                lab.append(-1)
-        lab = np.array(lab)
-        chg = np.where((lab[:-1] == 0) & (lab[1:] == 1))[0]
-        if len(chg) == 0:
+        q_ab, q_cd = _seg_closest(x[0], x[1], x[2], x[3])
+        gap = float(np.linalg.norm(q_ab - q_cd))
+        if gap < 1e-6:
             continue
-        ts = float(tg[chg[0]])
-        if ts < 0.1 or ts > 0.9:
-            continue
-        train_turns.append((x, e, ts))
-    train_turns = train_turns[:N_INSERT * 3]
+        axis = (q_ab - q_cd) / gap
+        for over in (0.15, 0.30, 0.45):
+            e = np.zeros((4, 2))
+            e[2] = (gap + over) * axis
+            e[3] = (gap + over) * axis
+            tg = np.linspace(0, 1, 65)
+            lab = []
+            for tt in tg:
+                try:
+                    lab.append(oracle_at(x + tt * e)[0])
+                except ValueError:
+                    lab.append(-1)
+            lab = np.array(lab)
+            chg = np.where((lab[:-1] == 0) & (lab[1:] == 1))[0]
+            if len(chg) == 0:
+                continue
+            ts = float(tg[chg[0]])
+            if not (0.05 <= ts <= 0.95):
+                continue
+            train_turns.append((x, e, ts))
+            break
+        if len(train_turns) >= N_INSERT * 3:
+            break
+    print("train turns found: %d" % len(train_turns), flush=True)
     assert len(train_turns) >= N_INSERT, "not enough train turns"
 
     def build_insert(mode):
@@ -175,7 +186,10 @@ def main():
         model = CoordMLP(64, 32)
         opt = torch.optim.Adam(model.parameters(), lr=1e-2)
         bce = nn.BCEWithLogitsLoss()
-        if group in ("B_remove_near", "C_remove_far"):
+        if group == "BASE":
+            Xc0, yc0 = X, y
+            Xf0, yf0 = (X[scenes] + ee), yf
+        elif group in ("B_remove_near", "C_remove_far"):
             drop = groups[group]
             kc = [i for i in range(len(X)) if i not in drop]
             Xc0, yc0 = X[kc], y[kc]
