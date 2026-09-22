@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "run_phase1_pipeline.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "p0p1" / "run_phase1_pipeline.py"
 SPEC = importlib.util.spec_from_file_location("phase1_pipeline", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None

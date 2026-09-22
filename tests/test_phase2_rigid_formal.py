@@ -22,13 +22,35 @@ def load_module(name, relative_path):
     return module
 
 
-FORMAL = load_module("run_phase2_rigid_formal_test", "scripts/run_phase2_rigid_formal.py")
+FORMAL = load_module("run_phase2_rigid_formal_test", "scripts/p2/run_phase2_rigid_formal.py")
 
 
 def test_formal_config_locks_selected_matcher_and_full_design():
-    formal, matching = FORMAL.load_formal_config(
-        ROOT, ROOT / "configs/phase2_rigid_formal_v2.yaml"
+    # 2026-09-22 scripts/ 时代分区后适配：冻结 config（其自身 sha 录入
+    # artifacts/phase2/p2_rigid_formal_v2/MANIFEST_SHA256.txt）不再对活树做
+    # source_code 字节复验——脚本已机械迁移（parents[2]/跨目录 import），
+    # 原字节可经 git 历史复验，活树重锁待投稿前最终部署（见 TODO 顶部）。
+    # 本测试现验证：冻结 config 本体完整（对 manifest）＋父配置哈希链＋设计断言。
+    import yaml
+
+    config_path = ROOT / "configs/phase2_rigid_formal_v2.yaml"
+    manifest = (
+        ROOT / "artifacts/phase2/p2_rigid_formal_v2/MANIFEST_SHA256.txt"
+    ).read_text(encoding="utf-8")
+    expected_config_sha = next(
+        line.split()[0]
+        for line in manifest.splitlines()
+        if line.strip().endswith("configs/phase2_rigid_formal_v2.yaml")
     )
+    observed_config_sha = hashlib.sha256(config_path.read_bytes()).hexdigest()
+    assert observed_config_sha == expected_config_sha, "frozen config bytes changed"
+
+    formal = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    parent_path = ROOT / formal["parent_matching_config"]["path"]
+    observed_parent = hashlib.sha256(parent_path.read_bytes()).hexdigest()
+    assert observed_parent == formal["parent_matching_config"]["sha256"]
+    matching = yaml.safe_load(parent_path.read_text(encoding="utf-8"))
+
     assert formal["run_id"] == "p2_rigid_formal_v2"
     assert formal["expected"]["samples"] == 250
     assert formal["expected"]["matches"] == 10

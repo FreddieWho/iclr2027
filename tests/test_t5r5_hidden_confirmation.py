@@ -4,7 +4,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
-RUNNER = Path(__file__).parents[1] / "scripts" / "run_t5r5_hidden_confirmation.py"
+RUNNER = Path(__file__).parents[1] / "scripts" / "p3_t5r" / "run_t5r5_hidden_confirmation.py"
 SPEC = importlib.util.spec_from_file_location("run_t5r5_hidden_for_tests", RUNNER)
 assert SPEC is not None and SPEC.loader is not None
 MODULE = importlib.util.module_from_spec(SPEC)

@@ -47,7 +47,7 @@ python3 experiments/repair_decomposition/p2_affine_atoms.py
 python3 -m pytest tests/test_next_novelty.py tests/test_p123_upgrade.py -q
 
 ## Figures (data only from frozen JSONs)
-python3 scripts/fig_p1_p3.py  # -> paper/figures/fig2_p1_dual.pdf, fig3_p3_migration.pdf
+python3 scripts/figures/fig_p1_p3.py  # -> paper/figures/fig2_p1_dual.pdf, fig3_p3_migration.pdf
 
 ## Manuscript numbers
 Every number in paper/ traces to reports/final_closure/MASTER_CLAIM_LEDGER.md;

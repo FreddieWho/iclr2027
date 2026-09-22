@@ -20,9 +20,9 @@ def load_module(name, relative_path):
     return module
 
 
-ADAPTER = load_module("p2_point_model_adapter_test", "scripts/p2_point_model_adapter.py")
-SMOKE = load_module("run_phase2_response_smoke_test", "scripts/run_phase2_response_smoke.py")
-RESOURCE = load_module("run_phase2_resource_gate_test", "scripts/run_phase2_resource_gate.py")
+ADAPTER = load_module("p2_point_model_adapter_test", "scripts/p2/p2_point_model_adapter.py")
+SMOKE = load_module("run_phase2_response_smoke_test", "scripts/p2/run_phase2_response_smoke.py")
+RESOURCE = load_module("run_phase2_resource_gate_test", "scripts/p2/run_phase2_resource_gate.py")
 
 
 def test_hash_verification_fails_closed(tmp_path):

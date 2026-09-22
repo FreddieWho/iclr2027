@@ -19,7 +19,7 @@ def load_module(name, relative_path):
     return module
 
 
-STATS = load_module("p2_statistics_test", "scripts/p2_statistics.py")
+STATS = load_module("p2_statistics_test", "scripts/p2/p2_statistics.py")
 
 
 def response_set(set_id, match_id, model_id="m_seed11", seed=11, complete=True):

@@ -1,58 +1,38 @@
-# scripts/ INDEX — 脚本按时代速查（物理布局保持平铺）
+# scripts/ INDEX — 脚本按时代分区（2026-09-22 物理重组）
 
-> **为什么不平铺改分区**（2026-09-22 结构整理的决定）：8 个 configs（phase2/phase3/t5r 系列）
-> 与 7 个 AMR config lock 以 **sha256 字节级锁死**脚本内容与路径（如
-> `configs/phase2_rigid_formal_v2.yaml` 的 `source_code.*.sha256`，且配置自身 sha 又录入
-> `artifacts/phase2/p2_rigid_formal_v2/MANIFEST_SHA256.txt`）。物理移动会迫使修改脚本字节
-> （`parents[1]→[2]`、跨目录 import），从而不可逆地破坏全部时代锁的现场可复验性。
-> 因此脚本**保持平铺、字节不动**，时代归属由本索引承担。
-> 若要重跑某时代的冻结审计链，请使用该时代布局（git 历史中 2026-09-22 前的任意提交）。
+> **布局史**：scripts/ 长期平铺；2026-09-22 首批整理时发现 8 个 configs + 7 个 AMR lock
+> 以 sha256 字节级锁定脚本（锁死路径与内容），故暂保持平铺。同日用户授权
+> **"sha256 可在整理完后重新部署"**，遂执行物理分区。冻结 config 内的
+> `source_code.path/sha256` 字段从此对应**分区前布局与原字节**（历史真实，
+> 可经 git 历史复验）；活树的最终重锁在投稿前部署（见根 `TODO.md` 顶部清单）。
+> 机械迁移改动仅限：`parents[1]→[2]`（目录加深一级）、跨时代 `sys.path`/load_module
+> 路径补全；无任何逻辑变更，tests 166/166 通过。
 
-## E6 终局/当前（论文图表）
+## 分区总览
 
-- `fig_p1_p3.py` — Fig2（P1 双曲线）＋Fig3（P3 迁移条），仅读冻结 JSON（REPRODUCE_FINAL §图）
+| 子目录 | 时代 | 内容 | 文件数 |
+|---|---|---|---|
+| `figures/` | E6 终局/当前 | `fig_p1_p3.py`——Fig2（P1 双曲线）＋Fig3（P3 迁移条），仅读冻结 JSON | 1 |
+| `p0p1/` | E0–E1 蓝图/P0/P1 | 环境/数据/bootstrap、phase0/phase1 管线、书法 probe、谱萌芽 | 11 |
+| `p2/` | E1 P2 fracture | p2_* 核心模块＋run_phase2_* 管线（被 `configs/phase2_*.yaml` 历史锁定） | 12 |
+| `p3_t5r/` | E2 P3-T5R | p3_* 几何/定位、T5R 运行与审计链、IDSSE/SoccerTrack 数据制备、扫掠 | 28 |
+| `p4_amr/` | E3 P4-AMR（已放弃） | amr_model v1–v6、run_amr_*、audit_amr_*_lock、谱缓存/μ 阈值分析 | 21 |
 
-## E0–E1 蓝图/P0/P1（Action-Mode 旧线）
+## 跨时代引用关系（已在新布局下接通）
 
-- 环境/数据：`bootstrap_env.sh`、`download_public_data.sh`、`verify_data.py`、`initialize_research_repo.sh`
-- P0/P1 管线：`run_phase0_smoke.sh`、`run_phase0_pipeline.py`、`run_phase1_pipeline.py`、`build_p0_overview.py`
-- 书法/谱萌芽：`run_calligraphy_probe.py`、`spectral_smoke.py`、`write_point_mainline_checkpoint.py`
+- `p4_amr/amr_model*` → `from run_t5r3_sanity import GraphEncoder, team_pool`
+  （经 `sys.path.insert(parent.parent / "p3_t5r")` 接通 E2 编码器）
+- `p3_t5r/` 扫掠脚本 → `load_module(ROOT/"scripts"/"p3_t5r"/...)` 与
+  `ROOT/"scripts"/"p2"/p2_fracture_controls.py`
+- `p2/` 管线内部互调（`sys.path.insert(SCRIPT_DIR)`，同代同目录）
+- `tests/` → `from scripts.p2.<mod> import`、`load_module("scripts/<era>/xxx.py")`、
+  `sys.path.insert(ROOT/"scripts"/"<era>")`
 
-## E1 P2（fracture continuity，冻结证据链）
+## 注意
 
-- 核心：`p2_statistics.py`、`p2_fracture_controls.py`、`p2_fracture_statistics.py`、
-  `p2_matched_controls.py`、`p2_matching_diagnostics.py`、`p2_point_model_adapter.py`、
-  `p2_heterogeneity_diagnosis.py`
-- 管线：`run_phase2_pipeline.py`、`run_phase2_fracture_formal.py`、`run_phase2_rigid_formal.py`、
-  `run_phase2_response_smoke.py`、`run_phase2_resource_gate.py`
-- ⚠️ 本组全部被 `configs/phase2_*.yaml` 字节级锁定，禁止任何改动。
-
-## E2 P3-T5R（几何可预测＋任务语义修复＋外部确认）
-
-- 核心：`p3_support_geometry.py`、`p3_candidate_search.py`、`p3_causal_switch.py`、
-  `p3_node_localization.py`、`p3_task_localization.py`
-- 数据：`prepare_idsse_t5r2.py`、`prepare_soccertrack_t5r6.py`、`download_soccertrack_v2.py`
-- 运行：`run_t5r3_sanity.py`、`run_t5r4_round{1,2}.py`、`run_t5r5_hidden_confirmation.py`、
-  `run_t5r6_external_confirmation.py`
-- 扫掠/对照：`run_p3_epsilon_sweep.py`、`run_p3_support_scaling.py`、`run_predictor_baselines.py`、
-  `run_ratio_sweep.py`、`run_ssl_family_control.py`、`build_headline_table.py`
-- 审计：`audit_idsse_t5r2.py`、`audit_t5r3_sanity.py`、`audit_t5r4_round{1,2}.py`、
-  `audit_t5r5_candidate_lock.py`、`audit_t5r5_hidden_confirmation.py`、`audit_t5r6_confirmation.py`、
-  `compute_t5r5_prelock_audit.py`、`audit_current_state_consistency.py`
-  （⚠️ 最后一个硬编码引用根目录旧治理文档路径，随治理退休已失效，保留作历史工具）
-
-## E3 P4-AMR（方法线，已放弃；全部被 `artifacts/phase4_amr/*config_lock.json` 锁定）
-
-- 模型：`amr_model.py`、`amr_model_v4.py`、`amr_model_v5.py`、`amr_model_v5cap.py`、`amr_model_v6.py`
-- 运行：`run_amr_m1{,_v4,_v5,_v5cap,_v6,_jgcl}.py`、`run_amr_cap_baseline.py`、`build_spectral_cache_v4.py`
-- 分析：`analyze_mu_threshold.py`、`plot_mu_threshold_svg.py`
-- 审计：`audit_amr_m1{,_v4,_v5,_v5cap,_v6,_jgcl}_lock.py`
-  （⚠️ 锁文件的 `code_hashes` 键为 `"scripts/amr_model_v6.py"` 等历史路径字符串，
-  属冻结数据，重跑审计需检出该时代提交）
-
-## 跨时代引用关系（移动会破坏的耦合）
-
-- p4_amr 各 `amr_model*` → `from run_t5r3_sanity import GraphEncoder, team_pool`（E2 编码器）
-- p3_t5r 扫掠脚本 → `load_module(ROOT/"scripts"/"run_t5r3_sanity.py" …)` 与 p2 模块
-- p2 管线内部 → 同代 `p2_*` 互调（`sys.path.insert(SCRIPT_DIR)`）
-- tests/ → `from scripts.p2_* import`、`load_module("scripts/xxx.py")`、`sys.path.insert(ROOT/"scripts")`
+- `p3_t5r/audit_current_state_consistency.py` 硬编码引用根目录旧治理文档
+  （STATUS.md/CLAIM_LEDGER.md 原路径），随治理退休与分区已失效，保留作历史工具。
+- `p4_amr/audit_amr_*_lock.py` 中 `code_hashes` 的键（`"scripts/amr_model_v6.py"` 等）
+  是冻结锁数据，未改动；重跑这些审计需检出分区前提交（`bc3b169` 及以前）。
+- 冻结 configs（`configs/phase2_*`、`phase3_*`、`t5r*`）内的脚本路径字段对应
+  分区前布局，勿按字段直接寻址；现行位置以本 INDEX 为准。

@@ -2,10 +2,13 @@
 
 ```
 SCIENTIFIC_EXPLORATION: CLOSED（2026-09-22 终局裁决 #15；新方向需用户单独授权）
-当前唯一工作：投稿行政与写作打磨——
+当前唯一工作：投稿行政与写作打磨（用户预告：可能还有几轮补充优化，结构已就绪）——
   (1) OpenReview 资料冻结（机构邮箱 profile/互审资格/作者名单）；
   (2) 官方 ICLR 2027 样式替换 paper/main.tex 占位 preamble；references 11→40+；
-  (3) Figure 1 概念图；正文 prose 打磨（按 MASTER_CLAIM_LEDGER 措辞红线）。
+  (3) Figure 1 概念图；正文 prose 打磨（按 MASTER_CLAIM_LEDGER 措辞红线）；
+  (4) 【最后执行】全部补充优化完成后重新部署 sha256 锁：scripts/ 已于 2026-09-22
+      物理分区（scripts/INDEX.md），冻结 config 内 path/sha256 字段对应分区前布局；
+      重锁范围=scripts/*/*/  + 受影响 configs + artifacts 侧 manifest。
 正文数字唯一来源：reports/final_closure/MASTER_CLAIM_LEDGER.md
   （旧 reports/e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md 为 9-18 历史版，已被取代）。
 终局状态：reports/final_closure/FINAL_PROJECT_VERDICT.md（P1-STRONG/P2-MAIN_SCOPED/P3-METHOD）。
@@ -226,3 +229,4 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-23：终局后复检补遗（a13e5bd）：全轮次重扫——正文禁用语零残留（incidence仅存一句明确撤回）、LaTeX括号/环境全平衡、Fig2/Fig3已接线、E1/P3/N01关键数与ledger/产物逐项对上、测试20/20；修复：删根目录4个空垃圾文件、p3d_eval --ckptdir与paired_compare preprocess重构落盘、relfeat mined/checkpoint＋P1中间结果＋P2_AFFINE_BEHAV归档推送。终局结论不变，仍处POLISH阶段。
 - 2026-09-22：项目结构整理（用户委托，无科学内容变更）：重写 README 为最终叙事前门；新建 PROJECT_MAP.md（叙事→目录映射）；STATUS 改写为 POLISH 状态；本文件顶部替换为 closure 状态块；PLAN/ROADMAP/CLAIM_LEDGER 加历史横幅；docs/legacy/ 收编根目录历史一次性文件（MASTER_AGENT_PROMPT/QA/PROJECT_PACKAGE_CONSOLIDATED/P1_FORMAL_TASK_HANDOFF/AUTORESEARCH_P3_GOAL_PROMPT/MANIFEST_SHA256）；删除根目录 5 个 0 字节垃圾文件（frozen/global/mode/pooled/same）；submission/（Memory Pilot 外部项目）移出 git 跟踪并加 WARNING；新增 reports/experiments/artifacts/docs 四处 INDEX.md。TODO 事项本身无增删，分支记录不变。
 - 2026-09-22：结构整理第二批（Tier1+Tier2，用户授权）：删 tmp/cache 垃圾 ~180MB；submission/（Memory Pilot）物理移出仓库至 ../memory_pilot_submission/；docs 三个 E4 campaign 包与 review/ 入 git 跟踪；artifacts/ 未跟踪文件生成 SHA256SUMS_UNTRACKED.txt（291 文件/145MB）；PLAN/ROADMAP/CLAIM_LEDGER 退休至 docs/governance_history/；reports/ 散落报告物理分区为 e0e1_blueprint/e2_p3_t5r/e3_p4_amr/e4_discovery（历史报告内相对路径引用不再解析，见 reports/INDEX.md 声明）。重要发现：scripts/ 被 8 个 configs 与 7 个 AMR lock 字节级 sha256 锁定，物理分区会破坏全部时代锁的现场可复验性，故 scripts/ 保持平铺、时代归属由 scripts/INDEX.md 承担。无科学内容变更，TODO 事项与分支记录不变。
+- 2026-09-22：结构整理第三批（投稿就绪化，用户授权 sha256 锁事后重部署）：scripts/ 完成物理时代分区（p0p1/p2/p3_t5r/p4_amr/figures，跨时代 import 已接通，机械改动仅 parents 深度与路径补全）；test_phase2_rigid_formal 的 config 锁测试语义由"活树字节复验"改为"冻结 config 对 manifest 完整性＋设计断言"；tests 166/166 通过。新增 configs/README.md、paper/SUBMISSION_CHECKLIST.md；REPRODUCE_FINAL 与导航文档引用同步。顶部清单新增事项 (4)：全部补充优化完成后重新部署 sha256 锁。scripts/INDEX.md 重写为物理布局版（含分区前提交 bc3b169 供时代审计复验）。

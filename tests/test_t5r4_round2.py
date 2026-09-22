@@ -6,7 +6,7 @@ import sys
 
 import numpy as np
 
-SCRIPT = Path(__file__).parents[1] / "scripts" / "run_t5r4_round2.py"
+SCRIPT = Path(__file__).parents[1] / "scripts" / "p3_t5r" / "run_t5r4_round2.py"
 SPEC = spec_from_file_location("run_t5r4_round2", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 MODULE = module_from_spec(SPEC)

@@ -21,9 +21,9 @@ def load_module(name, relative_path):
     return module
 
 
-P2 = load_module("p2_matched_controls_optimization_test", "scripts/p2_matched_controls.py")
-PIPE = load_module("run_phase2_pipeline_optimization_test", "scripts/run_phase2_pipeline.py")
-DIAG = load_module("p2_matching_diagnostics_test", "scripts/p2_matching_diagnostics.py")
+P2 = load_module("p2_matched_controls_optimization_test", "scripts/p2/p2_matched_controls.py")
+PIPE = load_module("run_phase2_pipeline_optimization_test", "scripts/p2/run_phase2_pipeline.py")
+DIAG = load_module("p2_matching_diagnostics_test", "scripts/p2/p2_matching_diagnostics.py")
 
 
 def test_boundary_slack_is_positive_at_margin_and_negative_outside():

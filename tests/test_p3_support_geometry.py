@@ -10,7 +10,7 @@ import torch
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "scripts" / "p3_t5r"))
 import p3_support_geometry as p3  # noqa: E402
 
 

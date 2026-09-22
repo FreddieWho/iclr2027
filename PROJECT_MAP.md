@@ -16,7 +16,7 @@
 | §5 像素确认 | 同 quartet 渲染为像素+CNN；五风格全同向 | `experiments/last15h/`（N08）、`experiments/next6_ef0f7a3/`（U03 pixflip） | `artifacts/last15h/`、`artifacts/next6_ef0f7a3/` | `reports/last15h/N08.md`、`reports/next6_ef0f7a3/U03.md` |
 | §6 外部确认（阴性） | DINOv2-B/CLIP pilot→DINOv3 S/B/L sweep→读出/语义Δ/均衡修复/competence，全阴性 | `experiments/bridge/`、`experiments/bridge_r/` | `artifacts/bridge/`、`artifacts/bridge_r/` | `reports/bridge/B01_PILOT.md`、`reports/bridge_r/*.md`（BRIDGE_R_FINAL_REPORT 为总） |
 | §7 相关工作+局限 | 旧 Action-Mode/Jacobian 线退为半段背景；局限清单 | （历史线，见 §2 下表） | — | — |
-| §8 可复现性 | 五层锁/单次读取/预注册/审计链 | `scripts/audit_*.py` | 各 artifact 的 lock/manifest/SHA256SUMS | `reports/final_closure/REPRODUCE_FINAL.md` |
+| §8 可复现性 | 五层锁/单次读取/预注册/审计链 | `scripts/p3_t5r/audit_*.py` | 各 artifact 的 lock/manifest/SHA256SUMS | `reports/final_closure/REPRODUCE_FINAL.md` |
 
 正文每个数字的分母/边界/禁用措辞：`reports/final_closure/MASTER_CLAIM_LEDGER.md`。
 

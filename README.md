@@ -54,7 +54,7 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 
 | 目录 | 角色 | 状态 |
 |---|---|---|
-| `paper/` | 最终论文（LaTeX） | **当前** |
+| `paper/` | 最终论文（LaTeX）＋ `SUBMISSION_CHECKLIST.md`（投稿就绪清单） | **当前** |
 | `reports/final_closure/` | 终局权威包（ verdict/ledger/证据表/复算/纠错 ） | **当前** |
 | `experiments/` | 全部实验代码（16 个子目录，按时代） | 当前+历史混合，见 `experiments/INDEX.md` |
 | `artifacts/` | 全部实验产物（23 个子目录，36G 本地） | 当前+历史混合，见 `artifacts/INDEX.md` |
@@ -62,7 +62,7 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 | `docs/` | 各时代方案包与蓝图文档，索引见 `docs/INDEX.md` | 历史为主 |
 | `docs/legacy/` | 根目录移出的历史一次性文件 | 历史 |
 | `configs/` | 各期 config 锁与 data manifest | 历史冻结 |
-| `scripts/`、`tests/` | 各期脚本与单测（P0→终局全跨度；**平铺是有意的**——冻结 config/lock 字节级锁定脚本路径与哈希，时代归属见 `scripts/INDEX.md`） | 历史冻结+当前 |
+| `scripts/`、`tests/` | 各期脚本与单测（P0→终局全跨度；scripts/ 已按时代物理分区：p0p1/p2/p3_t5r/p4_amr/figures，见 `scripts/INDEX.md`） | 历史冻结+当前 |
 | `data/` | 原始数据（48G，gitignore） | 本地 |
 | `data/` | 原始数据（48G，gitignore） | 本地 |
 | ~~`submission/`~~ | ⚠️ 另一个项目（Memory Pilot）误入，2026-09-22 已移出跟踪并**物理移出本仓库**（现位于 `../memory_pilot_submission/`） | 已移除 |

@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from scripts.p2_fracture_controls import (
+from scripts.p2.p2_fracture_controls import (
     boundary_valid, deterministic_tie_break, enumerate_target_supports,
     enumerate_vector_bijections, make_fracture_anchor, reassigned_vector_field,
     scale_displacement_field, spectral_topology_features_2d, stable_seed,

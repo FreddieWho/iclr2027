@@ -6,7 +6,7 @@ from pathlib import Path
 
 import torch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "p4_amr"))
 import amr_model_v5 as v5  # noqa: E402
 
 

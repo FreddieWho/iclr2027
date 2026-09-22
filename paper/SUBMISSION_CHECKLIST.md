@@ -1,0 +1,35 @@
+# SUBMISSION CHECKLIST — ICLR 2027 投稿就绪状态
+
+> 生成：2026-09-22（结构整理收口）。截止：全文 2026-09-25 AOE，主文 9 页。
+> 本清单分"结构侧（已就绪）"与"剩余动作（待执行）"。每次补充优化后更新本表。
+
+## ✅ 结构侧（2026-09-22 已就绪）
+
+- [x] 论文骨架：`paper/main.tex` + `sections/00–08`（最终叙事 spine）
+- [x] 正文数字唯一来源：`reports/final_closure/MASTER_CLAIM_LEDGER.md`（措辞红线内置）
+- [x] 一键复算：`reports/final_closure/REPRODUCE_FINAL.md`（路径已对齐 scripts/ 分区）
+- [x] 测试：166/166 通过（含冻结证据完整性测试——config sha 对 manifest）
+- [x] 仓库导航：README.md（前门）→ PROJECT_MAP.md（叙事→目录）→ 各目录 INDEX.md
+- [x] Fig2（P1 双曲线）/Fig3（P3 迁移）已接线（`paper/figures/`，`scripts/figures/fig_p1_p3.py` 可重生成）
+- [x] 证据完整性：大文件 sha 清单 `artifacts/SHA256SUMS_UNTRACKED.txt`；封存资源清单见 PROJECT_MAP §6
+
+## ⬜ 剩余动作（投稿前；按阻塞顺序）
+
+- [ ] 1. OpenReview 行政：机构邮箱 profile（审核可长达 2 周，**最优先**）、作者名单、互审资格
+- [ ] 2. 官方 ICLR 2027 样式文件替换 `main.tex` 占位 preamble（现 geometry 1in 占位）
+- [ ] 3. **AI-use 披露章节缺失**——占位注释要求 mandatory disclosure，正文尚未写（双盲格式）
+- [ ] 4. `references.bib` 11 条 → 40+ 条（related work 柔道四段依赖）
+- [ ] 5. Figure 1 概念图（§1）未生成；fig2/fig3 仅有
+- [ ] 6. 页数核验：主文 ≤9 页（换官方样式后实测；当前无本地 LaTeX 环境，需在有 TeX 的机器编译）
+- [ ] 7. 双盲扫描：正文/补充/figures 元数据无作者身份痕迹（当前 Anonymous ✓，换样式后复查）
+- [ ] 8. **【最后执行】sha256 锁重新部署**：scripts/ 已物理分区，冻结 configs 内
+      path/sha256 字段对应分区前布局；全部补充优化完成后重锁（范围见根 TODO.md 顶部 (4)）
+
+## 投稿打包注意
+
+- 补充材料若含代码：用 git 快照（匿名化），不要直接打包工作树（`data/` 48G、
+  `artifacts/` 36G 本地大文件不入包；sha 清单随包）。
+- `references.bib` 在仓库根，`main.tex` 以 `../references` 引用——打包时保持
+  相对结构或内联 `.bbl`。
+- 封存资源（holdout_909/confirm_1007/holdout_895/J03WQQ/SoccerTrack-v2）的任何
+  二次读取是新协议事件，需用户显式授权。

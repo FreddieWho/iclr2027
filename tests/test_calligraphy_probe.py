@@ -9,7 +9,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "run_calligraphy_probe.py"
+SCRIPT = ROOT / "scripts" / "p0p1" / "run_calligraphy_probe.py"
 SPEC = importlib.util.spec_from_file_location("calligraphy_probe", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None

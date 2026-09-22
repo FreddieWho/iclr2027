@@ -8,8 +8,8 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIMITIVES = ROOT / "scripts" / "p2_matched_controls.py"
-PIPELINE = ROOT / "scripts" / "run_phase2_pipeline.py"
+PRIMITIVES = ROOT / "scripts" / "p2" / "p2_matched_controls.py"
+PIPELINE = ROOT / "scripts" / "p2" / "run_phase2_pipeline.py"
 
 
 def load_module(name, path):

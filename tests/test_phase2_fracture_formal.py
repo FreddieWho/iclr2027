@@ -4,8 +4,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from scripts.p2_fracture_statistics import build_pair_effects, aggregate_match_effects, aggregate_architecture_matches
-from scripts.run_phase2_fracture_formal import array_json, read_config, write_pipeline_summary
+from scripts.p2.p2_fracture_statistics import build_pair_effects, aggregate_match_effects, aggregate_architecture_matches
+from scripts.p2.run_phase2_fracture_formal import array_json, read_config, write_pipeline_summary
 
 
 def _response_frame() -> pd.DataFrame:

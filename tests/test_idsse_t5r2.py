@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 
-SCRIPT = Path(__file__).parents[1] / "scripts" / "prepare_idsse_t5r2.py"
+SCRIPT = Path(__file__).parents[1] / "scripts" / "p3_t5r" / "prepare_idsse_t5r2.py"
 SPEC = spec_from_file_location("prepare_idsse_t5r2", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 MODULE = module_from_spec(SPEC)

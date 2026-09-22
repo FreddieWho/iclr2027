@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from scripts.p2_heterogeneity_diagnosis import (
+from scripts.p2.p2_heterogeneity_diagnosis import (
     build_condition_profile,
     build_factor_contrasts,
     build_factor_ranges,
