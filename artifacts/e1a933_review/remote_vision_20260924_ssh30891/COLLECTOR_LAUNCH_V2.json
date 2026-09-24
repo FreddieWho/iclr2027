@@ -1,0 +1,19 @@
+{
+  "pid": 1983492,
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/remote_vision_collect_when_done.py",
+    "--config",
+    "/tmp/e1a933-ssh-IPve1AzW/hosts.toml",
+    "--task",
+    "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/tasks/vision-21arms-gpu-20260924.json",
+    "--destination",
+    "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected",
+    "--state",
+    "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/COLLECTION_STATUS.json",
+    "--supervisor-pid",
+    "1971"
+  ],
+  "wait": "remote pidfd/select; no polling",
+  "previous_failed_attempt": "COLLECTION_ATTEMPT_1_FAILED.json"
+}

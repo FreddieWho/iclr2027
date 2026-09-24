@@ -1,0 +1,13 @@
+{
+  "arm": "setmlp",
+  "seed": 113,
+  "J": 1.0,
+  "J_min": 1.0,
+  "J_max": 1.0,
+  "J_swing": 0.0,
+  "pred_flip_frac": 0.0,
+  "final_loss": 0.0003454553661867976,
+  "seconds": 0.8988800048828125,
+  "n": 2,
+  "n_parents": 2
+}

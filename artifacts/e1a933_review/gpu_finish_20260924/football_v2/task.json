@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "football-12arms-v2-20260924",
+  "host_alias": "vision_gpu",
+  "platform": "linux",
+  "remote_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/jobs/football-12arms-v2-20260924",
+  "command": "/root/miniconda3/bin/python -u /root/autodl-tmp/e1a933/gpu_finish_20260924/football_bundle_v2/football_learning.py --data /root/autodl-tmp/e1a933/gpu_finish_20260924/football_bundle_v2/data --out /root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2 --device cuda",
+  "inputs": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_bundle_v2"
+  ],
+  "outputs": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2/receipt.json",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2/ARTIFACT_MANIFEST.json",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2.tar.gz"
+  ],
+  "status": "DECLARED",
+  "created_at_utc": "2026-09-24T09:16:01.313701+00:00"
+}

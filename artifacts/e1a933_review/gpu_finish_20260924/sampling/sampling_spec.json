@@ -1,0 +1,19 @@
+{
+  "task_id": "sampling-48arms-20260924",
+  "cwd": "/root/autodl-tmp/e1a933/gpu_finish_20260924",
+  "output_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results",
+  "archive": "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results.tar.gz",
+  "receipt_status": "MATRIX_COMPLETE",
+  "expected_count": 48,
+  "gpu_lock": "/root/autodl-tmp/e1a933/gpu_finish_20260924/gpu.lock",
+  "argv": [
+    "/root/miniconda3/bin/python",
+    "-u",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle/sampling_gpu_run.py",
+    "--bundle",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle",
+    "--out",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results",
+    "--execute"
+  ]
+}

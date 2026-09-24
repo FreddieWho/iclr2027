@@ -1,0 +1,223 @@
+{
+  "lane": "O04",
+  "package": "docs/e1a933_review",
+  "kind": "prospective intervention prediction (preregistration)",
+  "written_utc": "2026-09-24T11:50:36+00:00",
+  "written_epoch": 1790250636.1149147,
+  "git_head": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "script": "experiments/e1a933_review/readout_forward.py",
+  "script_sha256": "dca0335d237b104f503d980990617268c729cbbc271f43da231dd4400cdd720f",
+  "command": [
+    "experiments/e1a933_review/readout_forward.py",
+    "--stage",
+    "prereg",
+    "--output",
+    "artifacts/e1a933_review/readout_forward_repro_20260924"
+  ],
+  "new_task": {
+    "T1": "U10 point-in-triangle (4 points), eval bank 2724 E-quartets / 322 parents",
+    "T2": "U10 segment-disk (3 points), eval bank 3443 E-quartets / 369 parents",
+    "new_means": "new for the O04 readout decomposition; the U10 backbones and banks were produced by the earlier f095 campaign and were NOT trained here"
+  },
+  "new_models": {
+    "classes": [
+      "raw_clean",
+      "raw_flip",
+      "six_clean",
+      "six_flip"
+    ],
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "checkpoints": [
+      "artifacts/f095_campaign/U10/T1_raw_s11/clean/model.pt",
+      "artifacts/f095_campaign/U10/T1_raw_s23/clean/model.pt",
+      "artifacts/f095_campaign/U10/T1_raw_s47/clean/model.pt",
+      "artifacts/f095_campaign/U10/T1_raw_s11/flip/model.pt",
+      "artifacts/f095_campaign/U10/T1_raw_s23/flip/model.pt",
+      "artifacts/f095_campaign/U10/T1_raw_s47/flip/model.pt",
+      "artifacts/f095_campaign/U10/T1_six_s11/clean/model.pt",
+      "artifacts/f095_campaign/U10/T1_six_s23/clean/model.pt",
+      "artifacts/f095_campaign/U10/T1_six_s47/clean/model.pt",
+      "artifacts/f095_campaign/U10/T1_six_s11/flip/model.pt",
+      "artifacts/f095_campaign/U10/T1_six_s23/flip/model.pt",
+      "artifacts/f095_campaign/U10/T1_six_s47/flip/model.pt",
+      "artifacts/f095_campaign/U10/T2_raw_s11/clean/model.pt",
+      "artifacts/f095_campaign/U10/T2_raw_s23/clean/model.pt",
+      "artifacts/f095_campaign/U10/T2_raw_s47/clean/model.pt",
+      "artifacts/f095_campaign/U10/T2_raw_s11/flip/model.pt",
+      "artifacts/f095_campaign/U10/T2_raw_s23/flip/model.pt",
+      "artifacts/f095_campaign/U10/T2_raw_s47/flip/model.pt",
+      "artifacts/f095_campaign/U10/T2_six_s11/clean/model.pt",
+      "artifacts/f095_campaign/U10/T2_six_s23/clean/model.pt",
+      "artifacts/f095_campaign/U10/T2_six_s47/clean/model.pt",
+      "artifacts/f095_campaign/U10/T2_six_s11/flip/model.pt",
+      "artifacts/f095_campaign/U10/T2_six_s23/flip/model.pt",
+      "artifacts/f095_campaign/U10/T2_six_s47/flip/model.pt"
+    ]
+  },
+  "intervention": "I_flip_head_supervision",
+  "metric_definitions": {
+    "S": "S(f_head∘h): fraction of eval quartets whose three single-state scores are locally separable",
+    "J": "joint correctness at the fixed threshold 0",
+    "J_star": "joint correctness at the evaluation-truth oracle common threshold (diagnostic upper bound, NOT deployable accuracy)",
+    "delta": "parent-equal paired mean of (regime=flip) minus (regime=static)"
+  },
+  "primary_pipeline": {
+    "feature_space": "standardized",
+    "head_family": "logistic",
+    "aggregation": "3-seed mean of parent-equal paired deltas"
+  },
+  "secondary_pipelines": [
+    "whitened feature space (logistic only)",
+    "mlp head family"
+  ],
+  "predictions": [
+    {
+      "id": "P1",
+      "claim": "attribution of I_flip is the J segment in all 8 (task x encoder-class) cells",
+      "rule": "|dJ| > |dS| and |dJ| > |dJ_star| in every cell",
+      "cells": 8,
+      "segment_expected": "J"
+    },
+    {
+      "id": "P2",
+      "claim": "the oracle bound is not where the gain comes from",
+      "rule": "|dJ_star| < |dJ| in every cell",
+      "cells": 8,
+      "segment_expected": "not J_star"
+    },
+    {
+      "id": "P3",
+      "claim": "I_flip does not increase separability on relational (six) encoders",
+      "rule": "3-seed mean dS <= 0 in every six cell",
+      "cells": 4,
+      "segment_expected": "S unchanged"
+    },
+    {
+      "id": "P4",
+      "claim": "the joint segment improves on relational (six) encoders",
+      "rule": "3-seed mean dJ > 0 in every six cell",
+      "cells": 4,
+      "segment_expected": "J up"
+    },
+    {
+      "id": "P5",
+      "claim": "under an MLP head the attributed segment follows the encoder class",
+      "rule": "|dJ| max in every six cell and |dS| max in every raw cell",
+      "cells": 8,
+      "segment_expected": "six->J, raw->S"
+    }
+  ],
+  "prior_evidence_source_bank": {
+    "source": "artifacts/e1a933_review/readout_refit_20260924/summary.json (head regime flip minus static, parent-equal, 3-seed mean)",
+    "note": "the source segment-crossing bank showed this pattern; the new-task test is an extrapolation of it, not a restatement",
+    "logistic": {
+      "raw_clean": {
+        "dS": -0.0032,
+        "dJ": -0.0375,
+        "dJ_star": -0.0147
+      },
+      "raw_flipmine": {
+        "dS": 0.0037,
+        "dJ": 0.0204,
+        "dJ_star": -0.006
+      },
+      "relfeat": {
+        "dS": -0.0046,
+        "dJ": 0.0797,
+        "dJ_star": 0.0126
+      },
+      "relflip": {
+        "dS": 0.0,
+        "dJ": 0.0381,
+        "dJ_star": -0.0013
+      }
+    },
+    "mlp": {
+      "raw_clean": {
+        "dS": -0.0566,
+        "dJ": -0.0084,
+        "dJ_star": -0.0016
+      },
+      "raw_flipmine": {
+        "dS": -0.0338,
+        "dJ": 0.0036,
+        "dJ_star": -0.0127
+      },
+      "relfeat": {
+        "dS": -0.0105,
+        "dJ": 0.0724,
+        "dJ_star": -0.0124
+      },
+      "relflip": {
+        "dS": 0.0016,
+        "dJ": 0.0678,
+        "dJ_star": 0.0078
+      }
+    },
+    "source_pattern": "logistic: argmax segment is J in 4/4 classes, |dJ*| < |dJ| in 4/4; mlp: argmax is S for the raw classes and J for the relational classes"
+  },
+  "decision_rule": "a prediction is SUPPORTED only if it holds in all of its cells; counts are reported either way",
+  "primary_verdict": "P1 AND P2",
+  "falsification": "any cell whose largest |delta| is S falsifies the J-attribution there; a largest |delta| of J* means the gain is an oracle-threshold shift",
+  "prediction_text": "干预 I_flip（本预测的对象）：冻结主干 h 与冻结的特征标准化/whitening 不变，只改 head 的训练监督。\nregime=static 只用 clean 单状态（head-fit parent 的 512 场景子集）；regime=flip 在同一 clean 子集\n之外加入该任务 train 的单编辑（single-edit）状态，两组各占 50% 权重。head 家族、初始化、L2/宽度\n候选、dev 选择预算在两种 regime 之间完全一致。所以 I_flip 是\"变化监督\"干预：它不改变主干，\n不改变评估 quartet，也不读任何评估标签。\n\n对每个 (task, encoder class, seed, head family) 定义 ΔX = X(regime=flip) − X(regime=static)，\nX 为评估 quartet 上的 parent-equal 配对均值（同一 parent 内先平均，再对 parent 平均）。\nS = S(f_head∘h)：最终标量 score 在单个 quartet 上把三个状态分开的比例（局部可分性）。\nJ = 固定阈值 0 下的联合正确率。J* = 用评估真值选出的最优公共阈值下的联合正确率，\n是诊断上界，不是可部署准确率。\n\n预测（primary pipeline：冻结标准化、convex L2-logistic head、3 seed 均值）：\n\nP1【主要影响哪一段 = J】全部 8 个 (task × encoder class) 单元上，|ΔJ| 严格大于 |ΔS| 与 |ΔJ*|。\n   即 I_flip 是\"J 段干预\"：主要改变固定阈值下的联合正确率，不改变 score 的局部可分性 S，\n   也不改变 oracle 阈值上界 J*。\nP2【oracle 上界不是获益来源】全部 8 个单元上 |ΔJ*| < |ΔJ|。\nP3【S 不该动】4 个 six 单元（T1/T2 × six_clean/six_flip）上，ΔS 的 3 seed 均值 ≤ 0：\n   该干预不提高关系型表示的局部可分性。\nP4【次要、方向性风险】4 个 six 单元上，ΔJ 的 3 seed 均值 > 0：联合段变好。\nP5【次要：分段归属随 encoder 类别改变（MLP head）】在 MLP head 家族上，4 个 six 单元归属 J\n   （|ΔJ| 最大），4 个 raw 单元归属 S（|ΔS| 最大），8 个单元全部成立。\n\n判据（可判定，无自由数值阈值）：每个 Pi 在\"全部单元成立\"时记为 SUPPORTED，否则 NOT_SUPPORTED；\n无论结果如何都逐单元、逐 seed 报告数值与 parent bootstrap 区间，不删任何单元。\nhit/miss：primary verdict = P1 ∧ P2。P3/P4/P5 单独报告，不用于回填 primary。\n\n证伪含义：若任一单元 |ΔS| 最大，则该单元上 I_flip 是 S 段干预，O04 的\"S/J/J* 分解能前瞻指出\n干预作用在哪一段\"在该单元不成立。若 |ΔJ*| 最大，则获益主要是 oracle 阈值位置移动，同样证伪。\n",
+  "payload_sha256": "52199f0bcdaf75c6c468731e1ce732c78a6ceb7c0a1c1c6b89d350a4b1e4f990",
+  "inputs_hashed": {
+    "artifacts/discovery_campaign/scenes/train_101/scenes.npz": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+    "artifacts/p123_upgrade/bank/bank_dev512.npz": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+    "artifacts/f095_campaign/U10/T1_train/scenes.npz": "2935f6d5209352474f587dc4800830b810bd6e208b94f94a7719c93d58063126",
+    "artifacts/f095_campaign/U10/T1_eval/scenes.npz": "9b69baf86221fcac14b2528c1abba9e109abc22ba97c2e4e0aee99e49c11f0ed",
+    "artifacts/f095_campaign/U10/T2_train/scenes.npz": "872813176d5123cb2fd41e3a2e9d04fda943e4d11367f80264c5e92892a77d41",
+    "artifacts/f095_campaign/U10/T2_eval/scenes.npz": "b558986e56e8c369ee335a1288168e445122449bc58e441dfa3b1b347450e3b7",
+    "artifacts/f095_campaign/U10/T1_flips.npz": "140e36dbe1a4dd1b24935c38ee7721deec566c894bd1dabaffec46017d278d75",
+    "artifacts/f095_campaign/U10/T2_flips.npz": "063c886d48f2e72990feca0a330f09f58cdd37a4f3bd0cae7ba661995a0b9ce7",
+    "artifacts/p123_upgrade/bank/bank_u10T1.npz": "50ae89a3bb6a613014b1d3158901cd67b9232411936eb714b7966be4de2aa027",
+    "artifacts/p123_upgrade/bank/bank_u10T2.npz": "84494c71ba7952c9e774c45485051062022073568a6e2b0ddb8e343a2df71d1d"
+  },
+  "backbone_hashes": {
+    "artifacts/f095_campaign/U10/T1_raw_s11/clean/model.pt": "22a364f8a88ed2d30e05282f32b302a7aeddf2fbfccf22e6979724d7312a4dff",
+    "artifacts/f095_campaign/U10/T1_raw_s23/clean/model.pt": "5abb00a994bdac2b8a39833e369ee8bb855af2c5304bb8ad1e382b39504913db",
+    "artifacts/f095_campaign/U10/T1_raw_s47/clean/model.pt": "c9cbeee01a107ae149a2d11c144a3b964669715fda909d8851d6a53bde80d459",
+    "artifacts/f095_campaign/U10/T1_raw_s11/flip/model.pt": "a791e236f9aa757501bb109f2fb59082e70cec52febfd3a052d6b7fa70f2e2bc",
+    "artifacts/f095_campaign/U10/T1_raw_s23/flip/model.pt": "3b7b1f9fd8f4743cb7ec030a94dff39265d7fd63ea708a090c4cab72adfd0c5d",
+    "artifacts/f095_campaign/U10/T1_raw_s47/flip/model.pt": "ccb50320145160b36b5e7f8c807fa0881c791968579e1d97425c0b4e6248d444",
+    "artifacts/f095_campaign/U10/T1_six_s11/clean/model.pt": "f6c365ccae6379dfe455c892e4d438703483a5f1773fa045b4893ba236a95cbc",
+    "artifacts/f095_campaign/U10/T1_six_s23/clean/model.pt": "382e4704b60aa4295ee3b40057544a450dc2250ea44085b8c2f51a06f6820f1d",
+    "artifacts/f095_campaign/U10/T1_six_s47/clean/model.pt": "98f23be85d4892141c0297c04a3b1e80c6c83c044dbe31938e36c58f4e486402",
+    "artifacts/f095_campaign/U10/T1_six_s11/flip/model.pt": "8a7cf0977b5d9b847b321719b13bc029411fb7a5d053d9c3dad42af8045e40ef",
+    "artifacts/f095_campaign/U10/T1_six_s23/flip/model.pt": "2f99625ad2d4b5201c3831bf1369697c86ec458f7a84d7ab3a02d6e8c97a17d2",
+    "artifacts/f095_campaign/U10/T1_six_s47/flip/model.pt": "8da0611a068b07933393cb84bc928862f042f6ad08cc1b09adbd43bcf2e310a0",
+    "artifacts/f095_campaign/U10/T2_raw_s11/clean/model.pt": "c3a047d205ba5e0efb029aae9846ee6c8fd13ffd3e4be76eda6282cc02cd1d4b",
+    "artifacts/f095_campaign/U10/T2_raw_s23/clean/model.pt": "f37b421ada2bb877030168cab0443bc1ad1fc0cb124a0522fe2e1ce82f9c5aca",
+    "artifacts/f095_campaign/U10/T2_raw_s47/clean/model.pt": "097e7019042dbcedd7f0ef370fa6ae70c2f6734fe7f2128d3312a2ab1bd8b8f1",
+    "artifacts/f095_campaign/U10/T2_raw_s11/flip/model.pt": "9f713a6028790294fb5d232a147489b41abf9064e1a0940277de67b08d609a8a",
+    "artifacts/f095_campaign/U10/T2_raw_s23/flip/model.pt": "6a0c01d1b65f980d98cb41957c45cf4c74fb967532f116c8c587416abcb30492",
+    "artifacts/f095_campaign/U10/T2_raw_s47/flip/model.pt": "f8522448ddf96a7a1edfd9f73cc5fbe3ca37a157f6cd04f4bcc79335abd6fc8f",
+    "artifacts/f095_campaign/U10/T2_six_s11/clean/model.pt": "8d7ec49325cc93912036ab1475fcbc72ae5bc25085ffd65dce18299a757ccd07",
+    "artifacts/f095_campaign/U10/T2_six_s23/clean/model.pt": "ecc706afba53ede19d66fd722d3a8924cf8c7017ed6a436cb62150bfb909b822",
+    "artifacts/f095_campaign/U10/T2_six_s47/clean/model.pt": "1b2f739d6a71088ec40d88c685f5aac4bc10998c743959d75724a84380f684dc",
+    "artifacts/f095_campaign/U10/T2_six_s11/flip/model.pt": "f7fc778a117e8e355ef605f3114a03dea4c06fc9cc28272192e9b6b9e340077f",
+    "artifacts/f095_campaign/U10/T2_six_s23/flip/model.pt": "ed08134c37f4eaa2d68b1f3fa15c27a376ade5a31185ae1021bd7bb648c08afe",
+    "artifacts/f095_campaign/U10/T2_six_s47/flip/model.pt": "300ee42d7ea63fdca03a14e8c1c5996dbcc9b52ca6e5757ab0723f62c9192bbe"
+  },
+  "absence_assertions": {
+    "artifacts/e1a933_review/readout_forward_repro_20260924/results.json": "absent at prereg time",
+    "artifacts/e1a933_review/readout_forward_repro_20260924/solver_logs": "absent at prereg time",
+    "artifacts/e1a933_review/readout_forward_repro_20260924/scores": "absent at prereg time"
+  },
+  "declared_unread_before_prereg": [
+    "artifacts/f095_campaign/U10/U10_T1_EVAL.json",
+    "artifacts/f095_campaign/U10/U10_T2_EVAL.json",
+    "artifacts/f095_campaign/U10/U10_ORBIT_EVAL.json"
+  ],
+  "disclosure": "The prediction was derived from the source-bank O04 readout reanalysis (reports/e1a933_review/O04_READOUT_REPORT.md). Only the top-level key list of U10_T1_EVAL.json was read before this file was written; no U10 evaluation value was inspected.",
+  "threads": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "torch": 6
+  }
+}

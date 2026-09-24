@@ -1,0 +1,53 @@
+{
+  "script": "experiments/e1a933_review/n01_p1_diagnostic.py",
+  "script_sha256": "e956c2f3fbbc5dc64cb8b37b54a18df5a5ac7169e37b56e612d4e142aa08ab9a",
+  "git_head": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "command": [
+    "experiments/e1a933_review/n01_p1_diagnostic.py",
+    "--force"
+  ],
+  "threads": 6,
+  "torch": "2.11.0+cu130",
+  "numpy": "1.26.4",
+  "device": "cpu",
+  "inputs": {
+    "bundle_data_npz": {
+      "path": "artifacts/e1a933_review/vision_cuda_bundle/data.npz",
+      "sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6"
+    },
+    "archive": {
+      "path": "artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/cuda_matrix_results.tar.gz",
+      "sha256": "63d506e9130aebee6624c3b85e476a2e87df1e39d96b4be648dbf5d0891d29e2"
+    },
+    "protocol_sha256": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976",
+    "matrix_manifest_sha256": "55148d05c2846204e2750a0d044301226a6ba15726d2ff9359b7b876c3be3204"
+  },
+  "dev_reference": {
+    "split": "dev",
+    "n_states": 707,
+    "n_clean_states": 512,
+    "n_parents": 128,
+    "rule": "per-model |logit| quantile over dev clean (unedited) states"
+  },
+  "outputs": {
+    "PROVENANCE.json": "a81073cda1178decd1f1e252311a241cced75270f9645a40f2c19dddc1e145fd",
+    "dev_logits/matched_s803.npz": "104a5ae5efd5aadcb80c4172fc5d290db8320bdd44f8846ae2dbbb90759b1255",
+    "dev_logits/matched_s805.npz": "de436f3c1cf962908bd9cccd9343734ea021e5b9ad6f2c86bb1b1d78c1a0c068",
+    "dev_logits/matched_s806.npz": "48638e250b84ca340bbd32847df1ce1b7936ed5fe1214f37b5b7b348a6802737",
+    "dev_logits/ordered_s803.npz": "fe82e81a97592737785ecd57034a0755088d65337566e368e6292def624597c5",
+    "dev_logits/ordered_s805.npz": "4ee558e711b20d408390856c7a3996fe9430ff9ad93341d85f0ac2d9c224066e",
+    "dev_logits/ordered_s806.npz": "b6b1a0c7a9291a996db2d389d8275155868ec2e60053c15b634998e19d001049",
+    "dev_logits/pretrained_flip_s803.npz": "20e186064f98b0ab02f51d4283a3c71b35deab3735289af940bbe484f9accf52",
+    "dev_logits/pretrained_flip_s805.npz": "79c67c59d1177bdb660f064fa9c282f134dc8e42ef05b9c7baf1ff6bae2e5e22",
+    "dev_logits/pretrained_flip_s806.npz": "fcd73ef23ae97f1f20f741a31257a9906ea7b3bd89979a6f13de90adebe4f0b1",
+    "dev_logits/shuffled_matched_s803.npz": "c43460f46757ebe2870d3b3b2d15f8db96ab0b9b8525a4afb27fa06f7e466c09",
+    "dev_logits/shuffled_matched_s805.npz": "960e0690d6ff13eb8655428bbe313ee4ae7f9b3cc12c942db7baeadd10fefdde",
+    "dev_logits/shuffled_matched_s806.npz": "215be65073b90ae87e21281444ea894221e66cb6a00bfa75c01edd2dd635b0e5",
+    "n01_p1_denominator_table.csv": "c71f40174839e35d6ccba2d45be01a6cfb29b51fe0d2b1d4c020834e119bfa68",
+    "n01_p1_paired_contrasts.csv": "d2a8bec4775ab0358ac34c1d7256ac7bd16f0460b2ae2d080cd8e51a8db12f06",
+    "n01_p1_per_arm_seed.csv": "40b79436ef7dcce19a9fa7f03f9b84af236216aed5af3258362c423d792527e4",
+    "n01_p1_start_confidence_stability.csv": "45df67fd3defb79efae6ab845a0737ff8d72053fa33cab4a0783e781ec3e963f",
+    "n01_p1_summary.json": "c488747a1b068389571664a2951ac92e114a50ed724947ac935fc627034d4baf",
+    "n01_p1_table_combined.csv": "c9eb0011bc416aefdf4b628c79a6e9ad8973160a92e8322017d389beabd12d4e"
+  }
+}

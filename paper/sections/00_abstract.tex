@@ -1,35 +1,24 @@
-Static correctness does not guarantee reliable updating under change. In a
-controlled setting with oracle labels and edits of known effect, we show
-that when both atomic edits of a scene are judged correctly, their joint
-compositional change is still missed in 151/176 (85.8\%) of fresh-holdout
-cases. The same blind spot appears on single semantic-boundary crossings:
-28/64 (43.8\%) miss on directly targeted fresh paths, versus 108/128
-(84.4\%) of single-turn paths found by a random-edit screen---two rates
-from different path populations, reported side by side. Pre-change
-confidence separates the two notions of reliability: it predicts
-current-state error in the classical direction, yet under true semantic
-change the highest-confidence starts are the most likely to update
-incorrectly (endpoint error rising from 0.36--0.61 to 0.98--1.00 across
-confidence quartiles on six trained models evaluated on dev and
-parent-disjoint confirmation banks). Targeted flip coverage improves
-component and downstream metrics on the fresh holdout (static error
-18.0\%~$\to$~10.7\%; single-flip miss 52.4\%~$\to$~34.7\%; action
-invalidity 75.0\%~$\to$~62.5\%), but paired quartet analysis shows most
-endpoint gains do not restore full atomic-plus-joint consistency: full
-repair is 0.03--0.10 while error migration is 0.36--0.40. Combining
-label-free relational input features with the same flip coverage shifts
-joint consistency to 0.38--0.42 (dev) and 0.44--0.47 (confirmation), with
-full repair exceeding migration on the confirmation bank---a bounded
-positive instance, not a general architecture. The combination is
-super-additive on the joint scale (+17--25pp over the additive expectation
-on dev, directionally confirmed on a second bank, and positive under all
-eight relabelings of the four input points on both banks): the
-representation
-improves state separability while flip coverage mainly realizes it at a
-fixed threshold, and the effective repair lowers but does not remove the
-confidence inversion on later flips. On real football tracking,
-controlled edits and natural turns support transition and repair behavior
-but do not reproduce the confidence inversion; the pixel-observation arm
-evaluates repair behavior only and does not test confidence. Correctness
-under change cannot be summarized by static accuracy or endpoint repair
-alone.
+Static correctness does not guarantee reliable updating under change.
+With oracle-known edits, jointly applying two individually judged-correct
+edits still produces a missed compositional change in 151/176 (85.8\%)
+of fresh-holdout cases. In coordinate scenes, pre-change confidence
+predicts current-state correctness yet orders post-change error in the
+opposite direction. Targeted flip coverage improves endpoint and downstream
+metrics, but paired quartet analysis separates full repair (0.03--0.10)
+from error migration (0.36--0.40). Task-adapted relational inputs with the
+same coverage raise joint correctness to 0.38--0.42 on development and
+0.44--0.47 on confirmation data, with full repair exceeding migration on
+the latter. Two further geometric tasks support the input advantage:
+distance-plus-flip reaches approximately 0.75 on point-in-triangle and
+0.998 on segment--disk. Their original joint-correctness-scale interactions
+have opposite signs, positive on the former and negative on the latter;
+high combined performance does not imply universal super-additivity.
+In a matched-budget rendered-image ResNet-18 experiment, static-to-flip
+training increases joint correctness by 14.47 percentage points with
+pretraining and 20.34 without. Matching auxiliary geometry targets to
+visible information improves their learnability but does not consistently
+add joint repair in the tested recipe.
+Real football tracking supports bounded transition and repair observations,
+but does not reproduce the coordinate confidence inversion. Static accuracy,
+endpoint recovery, full compositional consistency, and downstream success
+therefore require separate measurement.

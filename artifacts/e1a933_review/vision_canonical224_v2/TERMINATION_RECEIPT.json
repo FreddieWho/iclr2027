@@ -1,0 +1,34 @@
+{
+  "record": "CPU fallback vision training terminated by user request",
+  "terminated_utc": "2026-09-24T14:53:33Z",
+  "terminated_by": "user instruction ('停掉兜底训练'), executed by the parent agent",
+  "process": {
+    "pid": 1886333,
+    "ppid": 1,
+    "cmd": "/opt/anaconda3/bin/python -u experiments/e1a933_review/vision_run.py --out artifacts/e1a933_review/vision_canonical224_v2 --epochs 20",
+    "elapsed_before_stop": "07:27:17",
+    "signal": "SIGTERM",
+    "exited_after_seconds": 2,
+    "verified_absent": true
+  },
+  "reason": [
+    "It was kept only as a CPU fallback in case the remote GPU matrix failed.",
+    "The remote GPU matrix completed, was recovered, hash-verified and is already integrated into the paper appendix.",
+    "The project rule is that CPU and GPU results must not be mixed into one table, so a completed CPU matrix would not enter any reported result."
+  ],
+  "preserved_state": {
+    "out_dir": "artifacts/e1a933_review/vision_canonical224_v2",
+    "arms_complete": 19,
+    "arms_total": 21,
+    "in_flight_at_stop": { "arm": "matched", "seed": 806, "history_json_only": true, "model_pt": false },
+    "never_started": ["shuffled_matched_s806"],
+    "note": "matched_s806 contains only history.json (partial epochs); no model.pt was written. Nothing was deleted."
+  },
+  "receipt_integrity": {
+    "receipt_path": "artifacts/e1a933_review/vision_canonical224_v2/receipt.json",
+    "original_status": "RUNNING",
+    "original_sha256": "8dcc9e7f0e1edb409d138fe07348bcde9166997870f7be7f215e0a91774497c1",
+    "note": "The original receipt is preserved byte-for-byte at artifacts/e1a933_review/vision_canonical224_v2/receipt.RUNNING_asof_stop.json. The live receipt.json had its status updated to STOPPED_BY_USER so no document reports a phantom RUNNING job."
+  },
+  "scope": "This stops a redundant fallback only. It does not affect any reported result: the reported visual matrix is the remote GPU one, recovered and verified under artifacts/e1a933_review/remote_vision_20260924_ssh30891 and artifacts/e1a933_review/gpu_finish_20260924."
+}

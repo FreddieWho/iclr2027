@@ -1,0 +1,48 @@
+{
+  "status": "NOT_RUN_NO_CUDA",
+  "backend": "cuda",
+  "dtype": "FP32",
+  "scientific_decision": "NOT_RUN",
+  "command": [
+    "artifacts/e1a933_review/vision_cuda_bundle/vision_cuda_run.py",
+    "--bundle",
+    "artifacts/e1a933_review/vision_cuda_bundle",
+    "--out",
+    "artifacts/e1a933_review/vision_cuda_preflight_local"
+  ],
+  "pid": 6,
+  "started_utc": "2026-09-24T07:34:28Z",
+  "epochs": 20,
+  "batch": 32,
+  "resolution": 224,
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "arms": [
+    "pretrained_static",
+    "pretrained_flip",
+    "random_static",
+    "random_flip",
+    "ordered",
+    "matched",
+    "shuffled_matched"
+  ],
+  "torch": "2.11.0+cu130",
+  "torchvision": "0.26.0+cpu",
+  "source_sha256": {
+    "vision_cuda_run.py": "ef4ed6dda07f2af5a484da42195c3508f1451a6f731ae7434e3670600030d7cb",
+    "vision_cuda_protocol.py": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976"
+  },
+  "bundle_manifest_sha256": "926b2e4a7cfb4f7cd967fb260020dcd3445cf4664f8ebdc2aff6f007f0bd82a6",
+  "cuda_available": false,
+  "unrun": [
+    "CUDA device allocation",
+    "224 batch32 FP32 forward/backward",
+    "GPU memory measurement",
+    "CPU versus CUDA numeric comparison",
+    "GPU throughput estimate",
+    "21-run CUDA training matrix"
+  ]
+}

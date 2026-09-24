@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """D03 bank builder: same-origin populations + candidate-order contrast.
 
-Parents: fresh scenes (16N idx 512+, excluding D09-used), new sampling seed.
+Parents: scenes from 16N idx 512+; unseen only for N models, not all models.
+D09 metadata ids are local to d09_fresh, so canonical coordinates resolve exclusions.
 Per parent: FULL candidate labeling with shared oracle cache (equal oracle
 budget by construction; order becomes pure selection). Flip/keep sets under
 3 orders (first-12 / random-12-fixed-seed / stratified-12 round-robin).
@@ -79,13 +80,16 @@ def main():
                  allow_pickle=True)
     X16, y16 = sc["positions"].astype(float), sc["labels"].astype(int)
     d09 = np.load(BANKDIR / "bank_d09fresh665.npz", allow_pickle=True)
+    source09 = np.load(ROOT / "artifacts/discovery_campaign/scenes/d09_fresh/scenes.npz")["positions"]
+    assert np.array_equal(source09, X16[512:]), "D09 namespace changed: resolve coordinates again"
     used = set()
     for m in list(json.loads(str(d09["Qmeta"]))) + list(json.loads(str(d09["Smeta"]))):
-        used.add(int(m["parent"]))
+        # d09_fresh is X16[512:], established by original coordinate hashes.
+        used.add(int(m["parent"]) + 512)
     elig = [i for i in range(512, len(X16)) if i not in used]
     rng = np.random.default_rng(SAMPLE_SEED)
     parents = sorted(rng.choice(elig, size=min(a.n_parents, len(elig)), replace=False).tolist())
-    print(f"eligible fresh {len(elig)}, sampled {len(parents)}, D09-excluded {len(used)}", flush=True)
+    print(f"eligible N-unseen {len(elig)}, sampled {len(parents)}, D09-excluded {len(used)}", flush=True)
     OUTD.mkdir(parents=True, exist_ok=True)
     flow = open(OUTD / "sampling_flow.csv", "w", newline="")
     fw = csv.writer(flow)

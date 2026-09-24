@@ -1,0 +1,19 @@
+{
+  "n": 159,
+  "P": 1.0,
+  "A": 0.9182389937106918,
+  "B": 0.8490566037735849,
+  "atomic_joint": 0.7924528301886793,
+  "AB": 0.9119496855345912,
+  "J": 0.710691823899371,
+  "CCM_denominator": 126,
+  "CCM": 0.8968253968253969,
+  "best_epoch": 12,
+  "selection": "single-dev BCE only",
+  "checkpoint_sha256": "e69bd4ed68c8ae18b499d91d2dcdba4e7c24a8e500724213f80f6c8e1c7ab0d3",
+  "train_exposure_indices_sha256": "73be763e73550c69987cf8d08bb64f1f10b781fb7676e6a6be786a99f0bc375f",
+  "train_images_sha256": "0ee42e9e4d3cfca8b28e97181c9155062591694d4bf901e242da35b390ee6def",
+  "lambda_aux": 0.0,
+  "lambda_status": "same train-only ordered-target initial gradient calibration for B/C/D; training gradient ratios may drift",
+  "lambda_calibration": null
+}

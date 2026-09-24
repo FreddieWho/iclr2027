@@ -54,9 +54,21 @@ confirm the same-signed pattern ($5/5$ each; gains $-8$ to $-30$pp).
 Absolute levels are style-sensitive---under color swap all arms' atomic
 accuracy collapses ($0.25$--$0.31$; the CNN binds color to segment
 identity)---but the relative gain is stable. This arm measures emergent
-\emph{endpoint} improvement only: full compositional consistency ($J$,
-full repair vs migration) is not measured in pixels, and no confidence
-claim is made.
+\emph{endpoint} improvement only: that small-CNN study did not measure full compositional consistency
+($J$, full repair vs migration), and made no confidence claim. A later canonical-renderer ResNet-18 experiment measures joint repair on
+159 quartets from 74 test parents. With equal total image exposure and
+optimizer steps, static-to-flip training raises mean $J$ from $.539$ to
+$.683$ with pretraining and $.465$ to $.669$ with random initialization;
+all six seed-specific parent-bootstrap intervals for the changes are
+positive. Full repair exceeds migration on every fixed baseline-110
+subset, while some baseline-111 cases regress (App.~\ref{sec:f095}).
+The training regimens differ in parent exposure distribution, so this is
+not an isolated flip-content effect. Within identical auxiliary-arm image
+exposure, observation-matched geometry targets improve dev geometry MSE
+but do not consistently outperform ordered targets or BCE-only on $J$.
+A color-segmentation/line-fitting analytic baseline reaches $J=114/159=.717$;
+no neural superiority is claimed. Canonical rendering differs from the
+historical D04 protocol, whose numbers remain separately reported.
 
 \subsection{Decision interfaces}
 \label{sec:interfaces}

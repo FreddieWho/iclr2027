@@ -76,9 +76,8 @@ def main():
             ("sixflip", u2 / "flipmine"), ("sixclean", u2 / "clean"))
     for pname, ((fn, fmp), (cn, cmp_)) in pairs.items():
         Lg = {"flip": logits_on(frames, fmp), "clean": logits_on(frames, cmp_)}
-        P0 = {m: 1 / (1 + np.exp(Lg[m])) for m in Lg}
-        dev_max = {m: scene_maxp0(P0[m], scene_of, dev) for m in Lg}
-        ladders = {m: reachable_ladder(dev_max[m]) for m in Lg}
+        P0 = {m: -np.asarray(Lg[m], float) for m in Lg}
+        ladders = {m: reachable_ladder(P0[m][np.isin(scene_of, dev)]) for m in Lg}
         dev_cov, dev_cost = {}, {}
         for m in Lg:
             dc, dco = [], []

@@ -2,22 +2,15 @@
 \label{sec:limits}
 \label{sec:discussion}
 
-\paragraph{What the evidence supports.} Three statements carry the paper.
-First, under oracle-known controlled edits, atomic correctness does not
-transfer to the joint outcome: the conditional composition miss is large,
-stable across seeds and banks, and decomposes into missed per-step updates
-rather than a single mysterious composed state. Second, a model's
-pre-change confidence orders \emph{current-state} risk classically but
-\emph{update} risk in reverse; this is a descriptive reliability
-separation in coordinate scenes, not a causal claim that confidence causes
-blindness, and it does not license claims of memory inertia or neural
-network pathologies beyond the measured behavior. Third, endpoint repair
-systematically overstates recovery: most endpoint gains are error
-migration until the input representation changes. The relational-input
-result is the bounded positive instance---it moves joint consistency and
-reverses the migration pattern on the confirmation bank---but $J$ remains
-below $0.5$, the features embed task-aware structure, and no general
-architecture claim is made.
+\paragraph{What the evidence supports.}
+Atomic correctness, update reliability, and full repair differ under
+oracle-known edits. Coordinate pre-change confidence ranks current risk
+classically but update risk in reverse; this does not show that confidence
+causes blindness. Relational inputs improve joint consistency and shift
+endpoint recovery toward full repair. The original source four-arm study
+remains below $J=.5$; optimized source models and new tasks reach higher
+levels, with task-dependent interaction signs. None establishes an
+architecture-wide mechanism or neural pathology.
 
 \paragraph{What we cannot exclude.} The affine operating-point control is
 bounded (one seed fits at its coefficient grid edge), so ``not a pure
@@ -39,22 +32,23 @@ controlled.
 \paragraph{Limitations (all evidenced, none hidden).}
 (i)~P1 strong evidence is coordinate-only; natural football turns show
 floor/null.
-(ii)~Models are small task-trained models plus one small CNN family; the
-foundation bridge never established atomic competence, so architecture
-generality is untested.
+(ii)~Models include small coordinate networks, a small CNN, and ResNet-18.
+The new ResNet-18 comparison supports same-task joint repair under matched
+total training budgets. Native multimodal generality remains untested.
 (iii)~Synthetic coordinate scenes are not real tactical changes; distance
 to tactical semantics is unmeasured.
 (iv)~Football evidence is three-seed same-direction without a pristine
 holdout; the single-read proof lives on the coordinate side.
 (v)~Pixel cross-style repair rests on three training seeds, all
 same-signed; absolute pixel levels are style-sensitive (color-swap
-collapse reported); full compositional consistency is not measured in
-pixels.
+collapse reported); full repair versus migration is not established by that small-CNN study.
+The later ResNet-18 study does report joint correctness.
 (vi)~The interchange-patch negative is scoped to one layer and one rank-4
 patch form.
-(vii)~Joint-consistency absolute values are low (single-digit to
-$\sim$0.47); small real-data effects are reported without inflation; the
-weakest seed stays in every table.
+(vii)~Source-task joint correctness remains below $0.5$ in the main
+four-arm experiment; T1/T2 distance inputs reach approximately $.75$ and
+$.998$, and the visual baseline $.71$--$.74$. These task-specific levels
+are not interchangeable; collapsed seeds remain reported.
 (viii)~Relational features are hand-designed and relation-aware by
 construction; the symmetry account in Sec.~\ref{sec:repair} is a
 description of these features, not a universal mechanism claim.
@@ -73,3 +67,14 @@ coverage), and $42$--$48\%$ of quartets change their joint-correctness
 status. Our headline levels are therefore convention-relative; the
 comparisons that drive the paper's conclusions are the ones this sweep
 reproduces in all $24$ seed$\times$relabeling cells on both banks.
+A later matched-recipe check on this same dev bank removes the swing by
+building the symmetry into the features, and raises joint correctness;
+augmentation alone does not remove the swing (App.~\ref{sec:l015}).
+
+\paragraph{Scope of causal explanations.}
+Fixed-recipe negatives do not exclude capacity or optimization. Ordering
+is $S(f_{\mathrm{head}}\circ h)$, not an encoder-only property; oracle-selected
+$J^*$ is a diagnostic bound, not deployable accuracy. Corrected continuation,
+football construction, and policy analyses are reported separately in
+App.~\ref{sec:f095}; historical loss, infeasibility, and calibration-exclusion
+claims are withdrawn.

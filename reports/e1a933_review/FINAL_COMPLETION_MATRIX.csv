@@ -1,0 +1,20 @@
+item,final_status,evidence,remaining_boundary,source_report
+R01,COMPLETE,四臂逐parent重算；U10_CLAIM_CORRECTION.md；I 与归档逐位一致（T1 +0.394/+0.439/+0.413，T2 -0.189/-0.172/-0.250）,不得把方向分层扩大成所有难度/天花板解释均被排除,U10_CLAIM_CORRECTION.md
+R02,COMPLETE,role-shared归一化 + 18 typed重训 + 端到端对称测试 + D02 raw/groupavg区分；合同检查已移植为 pytest 并证明守卫活性,该配方结论；完全参数匹配由 O02 覆盖,R_FIXES_REPORT.md
+R03,COMPLETE,392412 增广状态逐状态核对：三个 quartet 银行 0 exact/0 near（最近 Linf 0.112/0.0131/0.0324）；检测器标定 400/400+400/400+注入1条；96/96 训练来源由 checkpoint 内嵌 mu/sd 指纹唯一定位,不称"全历史数据独立"；非几何来源未逐状态审计；只覆盖"状态相等",R03_LINEAGE_REPORT.md
+R04,COMPLETE,起点置信修复、72行前后敏感性、逐样本分母与实测覆盖率,未追加训练时顺序干预；原 P1B 不被局部 bug 直接撤回,R04_CONFIDENCE_REPORT.md
+R05,COMPLETE,512真实parent渲染审计与反例；整体合法置换匹配；独立 RNG；21臂GPU已回收校验并入稿,匹配目标只提高辅助可学性，不产生稳定额外 J 增益；仅本 renderer/合法群,AUX_OBSERVABILITY_AUDIT.md
+R06,COMPLETE,冻结BN检查、全seed尺度/初始化与static对照；21臂GPU矩阵齐备并入稿,224 是上采样；static→flip 为 regimen 效应，逐 parent 曝光分布仍不同,VISION_FACTORIAL_CORRECTED.md
+R07,COMPLETE,30臂同起点公平续训及未见原子回归；旧 loss 因果解释已撤回,不替代 O01 的完整剂量矩阵；不宣布 U05 机制已关闭,CONTINUATION_FAIR_COMPARISON.md
+R08,COMPLETE,真实E与角色/时间/cap修复；自然E发生率：情境级 8/1449=0.55%、事件级 8/162=4.94%、帧对 10/7117；搜索可构率 670/1449=46.2% → 富集 ~84x；条件率 自然 10/6485=0.15% vs 搜索 5066/216924=2.34%；窗口 0.2s→2.0s 为 0.55%→16.98%；真实帧对照 260/7117=3.65% 翻转,只测240事件样本（162审计事件）非三场全部传球；联合格是两个真实单人位移的交叉非真实观测帧；0.2s 下被选中接球者 0/155；标签是几何 oracle 非传球成功率,R08_NATURAL_E_RATE.md
+R09,COMPLETE,PAVA与全部candidate断点已修；全256场景无oracle筛选部署估计：139/256可行、117/256不可行=45.7%；dev目标覆盖 0.4884 → eval_full 实测 0.1455-0.3239；b0.5 下 net-benefit 差 0/9 对排除 0；独立复跑 CSV 字节一致,只能称"dev匹配策略的外推"；dev 场景集本身仍按可行性筛出；同一批256场景再分析无独立新场景确认；净收益是说明性效用,DECISION_FRONTIER_V2.md
+R10,COMPLETE,8条lane全部接线进附录；claim ledger 新增50行；状态文档同步；构建回执由脚本重生成（24页、结论第9页、0 overfull、0 未定义引用）,新结果只按可支持范围入稿；未把 N02 机制、O04 主判定、N03 增益写成阳性,PAPER_PATCH_AUDIT.md
+O01,COMPLETE,648臂；等配方 ΔJ +0.434..+0.561（18配对CI全不含0）、扩优化器族 +0.475..+0.574；主因子范围不相交；warm-start 不帮忙；保护类损失买"不忘"不买"更对"；209/209 断言通过,raw 未被证明优化到容量上限（13/72 warm full-dose raw 臂训练误差>5%）；未做参数匹配,O01_DATA_OPTIMIZATION_REPORT.md
+O02,COMPLETE,匹配容量（6681 vs 6529-6849）+匹配预算：typed 劣势仍存（等配方 T1 +0.514/+0.529/+0.486、T2 +0.731/+0.701/+0.755；最优配方 +0.499/+0.507/+0.505、+0.645/+0.675/+0.667）；机制为拟合失败（训练目标差 ~1e3）,只测 w=40 一种宽度；只做单向匹配（缩 typed 未扩 raw/six）；难度/手性任务按施工卡属可选,O02_BUDGET_MATCH.md
+O03,COMPLETE,3seed x 4主视觉臂及逐parent配对、修复/迁移/退化结果齐备；21臂GPU已回收校验,static 与 flip 总步数相同但逐parent曝光分布不同，只解释 regimen 效应,VISION_GPU_RESULTS.md
+O04,COMPLETE,前瞻预注册（hash+封印）已执行：主判定 MISS（P1 7/8、P2 8/8）；head级与主干级变化监督是替代关系；白化下分段归属 7/8→4/8；D10 下游回声已完成（含定义域边界）,typed encoder 类在新任务上的同口径结论未做；MLP 预算顶格（77/96 候选 dev 最优在第300轮）,O04_FORWARD_INTERVENTION.md
+O05,COMPLETE,三场分离、12学习臂、2794 test自然快照/134 E、因果遮挡/解析基线与时间误报,自然缺测机制未测（人工有定义遮挡属允许分支）；学习未超过恒速+解析基线,O05_LEARNED_PARTIAL_TRACKING_GPU.md
+O06,COMPLETE,固定原生VLM 272独立请求；全部原文/解析/拒答记录与sanity,本为可选桥；原子能力不足不是施工未完成，也不能判所有VLM失败,O06_NATIVE_VLM_GPU.md
+N01,COMPLETE,完整 matched/ordered/shuffle/BCE 三seed；条件方差前提与aux误差；P1补验已完成（逐样本起点logit存在，matched 在 J/full repair/migration/P1 四轴均无一致收益）,匹配失败不否定关系迁移一般性；不得把"目标可学习"当方法成功,N01_OBSERVABILITY_REPORT.md
+N02,COMPLETE,48/48 臂已回收校验；独立重算与冻结结果 max diff 0.0、250/250 manifest 吻合、零退化臂；B-A +0.340/+0.300；C-B +0.004/+0.040；static 臂 +0.391/+0.365；冻结预测 pretrained 命中/random 未命中,机制 UNRESOLVED（算力未匹配 12.25x；small_edit 5 quartet/3 parent 无辨识力）；单骨干/单渲染/单任务,N02_SAMPLING_ACCESS_REPORT.md
+N03,COMPLETE,6臂+经典像素基线：对同容量generic平均J +3.98pp（仅seed805区间排除0）；对BCE-only +1.89pp（符号跨seed混合）；真几何替换同head J=0,机制未获可靠支持也是完成的结果；条件未满足不需强行向足球迁移,N03_DECISION_BOTTLENECK_REPORT.md

@@ -1,0 +1,75 @@
+{
+  "train": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+  "train_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+  "n_train": 512,
+  "n_eval_parents": 256,
+  "n_quartets": 2,
+  "n_quartet_parents": 2,
+  "min_train_linf": 0.1548953652381897,
+  "threads": 4,
+  "epochs": 300,
+  "lr": 0.01,
+  "seeds": [
+    11,
+    23,
+    47,
+    71,
+    83,
+    101,
+    113,
+    127,
+    139,
+    151
+  ],
+  "group": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      2,
+      3,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      3,
+      2
+    ],
+    [
+      3,
+      2,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      2,
+      3
+    ],
+    [
+      2,
+      3,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      3,
+      2
+    ],
+    [
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "sealed_pools": "not read"
+}

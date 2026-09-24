@@ -1,0 +1,12 @@
+{
+  "native64": {
+    "exact_conflicting_rows": [],
+    "weak_maxcontrast_rows": []
+  },
+  "native224": {
+    "exact_conflicting_rows": [],
+    "weak_maxcontrast_rows": []
+  },
+  "n_quartets": 178,
+  "note": "Independent CPU scan of every different-label state pair; weak means no pixel RGB max change >0.2; supplemental geometry/visibility audit, not model performance."
+}

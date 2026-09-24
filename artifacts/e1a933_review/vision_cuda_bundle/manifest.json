@@ -1,0 +1,48 @@
+{
+  "purpose": "unexecuted independent CUDA migration bundle",
+  "data_contract": "identical frozen canonical224_v2 data bytes",
+  "training": "complete3seedx7arm; FP32; 20epochs;batch32;no CPU/GPU mixing",
+  "environment_reference": {
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cpu",
+    "numpy": "1.26.4"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1905,
+      "sha256": "b10ea0d963321751400f58c34067302c60c76b484560182250bd350c01ea41e8"
+    },
+    {
+      "path": "data.npz",
+      "bytes": 2755553,
+      "sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6"
+    },
+    {
+      "path": "data_manifest.json",
+      "bytes": 1241,
+      "sha256": "b6c5b2e0f6f805afc449440078e080656103f74898c4bfc67154d43018c06263"
+    },
+    {
+      "path": "split_visual_duplicate_audit.json",
+      "bytes": 802,
+      "sha256": "790e61d908d1dc0713a808fef6a8a129047f19910e3f8bc106fe9a88649615a7"
+    },
+    {
+      "path": "torch_cache/hub/checkpoints/resnet18-f37072fd.pth",
+      "bytes": 46830571,
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    },
+    {
+      "path": "vision_cuda_protocol.py",
+      "bytes": 12641,
+      "sha256": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976"
+    },
+    {
+      "path": "vision_cuda_run.py",
+      "bytes": 4361,
+      "sha256": "ef4ed6dda07f2af5a484da42195c3508f1451a6f731ae7434e3670600030d7cb"
+    }
+  ],
+  "payload_bytes": 49607074
+}

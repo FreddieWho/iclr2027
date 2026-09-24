@@ -1,0 +1,21 @@
+{
+  "name": "4N_sixdist_s11_f0_lr0.01",
+  "size": "4N",
+  "arch": "sixdist",
+  "seed": 11,
+  "frac": 0,
+  "lr": 0.01,
+  "dev_bce": 0.6961652040481567,
+  "train_error": 0.0,
+  "final_loss": 0.0002994324895553291,
+  "steps": 300,
+  "init_sha256": "b8b08a112a09d75b8a4b709c41982240a8b56c7b62d2e80fb26b8db15466b4de",
+  "checkpoint_sha256": "4a5fa232c92bbce3eb9c28acfdb79ce83d12554d79499b528777e329c97f1c3d",
+  "train_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+  "flip_sha256": "3d41204b1e9c664522378aa87f6359809137464d8693f339bb080d14d9c77140",
+  "batch_order": "full static then full fixed subset each step",
+  "subset_sha256": "f3c609cc219ef0176f9d8fe43363365c83f2ecb0557d587494cf5c93beccbbcc",
+  "oracle_candidate_queries": 587320,
+  "retained_flip_labels": 0,
+  "training_state_forwards": 614400
+}

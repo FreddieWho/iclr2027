@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "path": "config.json",
+      "sha256": "7812e08ddbf06e9517b18df91ecf64f3b2d6964b89e79a8114c5e27b9ddf7507",
+      "bytes": 3183
+    },
+    {
+      "path": "data.npz",
+      "sha256": "5f773e0b8fc906ce287e0aa1b1161b4aa5a036d0c48d2a485187264e3ec75032",
+      "bytes": 227416
+    },
+    {
+      "path": "data_manifest.json",
+      "sha256": "7f808f97f75e777bd217145d8de83cf8f42464d0cb11f72537840122efac7289",
+      "bytes": 94525
+    },
+    {
+      "path": "resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "bytes": 46830571
+    },
+    {
+      "path": "sampling_gpu_prepare.py",
+      "sha256": "06e91e927c4bd6d9a0efb28ba7892b3398f2fad71f22199d103a122e4e0bf8dd",
+      "bytes": 10486
+    },
+    {
+      "path": "sampling_gpu_protocol.py",
+      "sha256": "aa2f7765aec33de7f8917f72ac97b10edf440937e18c96d54836d092e20ed91c",
+      "bytes": 11562
+    },
+    {
+      "path": "sampling_gpu_run.py",
+      "sha256": "1d78cc3d053be3e4740f13c5d728318a79acf46c211266103a1805b280e3aaaa",
+      "bytes": 8463
+    }
+  ],
+  "expected_completed": 48,
+  "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54"
+}

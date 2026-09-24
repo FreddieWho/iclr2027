@@ -1,0 +1,13 @@
+{
+  "repeated_for_steps": 300,
+  "optimizer": "lr0.001",
+  "batch_order_sha256": "01763a75e72e1d151262c1030228aaa2b047dfced367505830eeb248d7880c2c",
+  "batch_order_metadata_sha256": "f8d303c5d437f341ed3fad1588825b9159388772c6eb562311d5d90f4fc9e4fa",
+  "hash_scope": "index lists only (base/flips/preserves/replay); optimizer and steps are metadata",
+  "counts": {
+    "base": 512,
+    "flips": 767,
+    "preserves": 767,
+    "replay": 512
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "status": "MATRIX_COMPLETE",
+  "scientific_decision": "PENDING_INDEPENDENT_INTERPRETATION",
+  "pid": 3510,
+  "command": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vision_n03_bundle/vision_n03_run.py",
+    "--base-bundle",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle",
+    "--baseline-root",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix",
+    "--out",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results"
+  ],
+  "backend": "cuda",
+  "dtype": "FP32",
+  "epochs": 20,
+  "batch": 32,
+  "resolution": 224,
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "arms": [
+    "geometry_bottleneck",
+    "generic_bottleneck"
+  ],
+  "completed": [
+    {
+      "arm": "geometry_bottleneck",
+      "seed": 803
+    },
+    {
+      "arm": "generic_bottleneck",
+      "seed": 803
+    },
+    {
+      "arm": "geometry_bottleneck",
+      "seed": 805
+    },
+    {
+      "arm": "generic_bottleneck",
+      "seed": 805
+    },
+    {
+      "arm": "geometry_bottleneck",
+      "seed": 806
+    },
+    {
+      "arm": "generic_bottleneck",
+      "seed": 806
+    }
+  ],
+  "torch": "2.5.1+cu124",
+  "torchvision": "0.20.1+cu124",
+  "source_sha256": {
+    "vision_n03_run.py": "36b9c8449f1a55aa9325df352c3a0d39ff2e44f94d12492656cddc152d0dcf22",
+    "vision_n03_protocol.py": "a441e5d6e03b215ecab228086de4dbfefbc073d0876a1c4233ec2ac1a56720df",
+    "vision_cuda_protocol.py": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976"
+  },
+  "comparison_contract": "All six new arms share ImageNet initialization and new bottleneck architecture. O03/N01 baselines are the complete same-GPU matrix; no CPU mixing.",
+  "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+  "device_name": "NVIDIA GeForce RTX 3080 Ti",
+  "current": {
+    "arm": "generic_bottleneck",
+    "seed": 806
+  }
+}

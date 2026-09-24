@@ -1,0 +1,13 @@
+{
+  "command": [
+    "experiments/e1a933_review/data_u10.py",
+    "--stage",
+    "train"
+  ],
+  "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "source_sha256": {
+    "experiments/e1a933_review/data_u10.py": "7f6734c7d22c5c8da6ae3362c2635cc8d71ac65605d9000fb284ba7501ce8681",
+    "experiments/f095_campaign/u10_targets.py": "9d440e55a26bf3b3090af958ab3481ce58e7fe221db626955c39ccfaa70c717e"
+  },
+  "analysis": "correction/reanalysis on exposed bank; not independent confirmation"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "n03-6arms-20260924",
+  "host_alias": "vision_gpu",
+  "platform": "linux",
+  "remote_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/jobs/n03-6arms-20260924",
+  "command": "/root/miniconda3/bin/python -u /root/autodl-tmp/e1a933/gpu_finish_20260924/vision_n03_bundle/vision_n03_run.py --base-bundle /root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle --baseline-root /root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix --out /root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results",
+  "inputs": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vision_n03_bundle",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix"
+  ],
+  "outputs": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results/receipt.json",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results/ARTIFACT_MANIFEST.json",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results.tar.gz"
+  ],
+  "status": "DECLARED",
+  "created_at_utc": "2026-09-24T09:08:22.659699+00:00"
+}

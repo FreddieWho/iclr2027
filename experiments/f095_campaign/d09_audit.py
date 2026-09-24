@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""D09 overlap audit: re-adjudicate Q1/Q2 excluding train_101 parents (<512).
+"""D09 coordinate ancestry audit and legacy wrong-integer-filter sensitivity.
 
-D09 bank contains 7 E-parents from train_101 range (found via D03 exclusion
-audit). Models were trained on train_101 static scenes, so those quartets
-are not strictly unseen. Recompute gaps on parent>=512 subset only.
+The parent field is LOCAL to d09_fresh=X16[512:], not a training-pool id.
+N models therefore retain the full 236 quartets. Large-data models require
+their own training-coordinate inventory (data_lineage.py).
 """
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -19,7 +20,7 @@ from common import rel_features  # noqa: E402
 
 torch.set_num_threads(4)
 BANKDIR = ROOT / "artifacts" / "p123_upgrade" / "bank"
-OUTD = ROOT / "artifacts" / "f095_campaign" / "D09"
+OUTD = ROOT / "artifacts" / "e1a933_review" / "data_d09"
 
 
 def eval_arm(mp, Qx, Qe, Qm, keep):
@@ -67,11 +68,20 @@ def eval_arm(mp, Qx, Qe, Qm, keep):
 
 
 def main():
+    global OUTD
+    p=argparse.ArgumentParser();p.add_argument("--out-dir",type=Path,default=OUTD);a=p.parse_args();OUTD=a.out_dir
+    if (OUTD/"D09_AUDIT.json").exists():raise FileExistsError("Use a fresh --out-dir")
     b = np.load(BANKDIR / "bank_d09fresh665.npz", allow_pickle=True)
     Qx, Qe = np.asarray(b["Qx"], float), np.asarray(b["Qe"], float)
     Qm = json.loads(str(b["Qmeta"]))
-    qids = sorted(set(m["qid"] for m in Qm if m["parent"] >= 512))
-    dropped = sorted(set(m["qid"] for m in Qm if m["parent"] < 512))
+    # Metadata parent ids are local to d09_fresh, NOT train_101 or X16 ids.
+    # Canonical source coordinates establish actual ancestry per model train pool.
+    source = np.load(ROOT / "artifacts/discovery_campaign/scenes/d09_fresh/scenes.npz")["positions"]
+    train = np.load(ROOT / "artifacts/discovery_campaign/scenes/train_101/scenes.npz")["positions"]
+    seen = {int(m["parent"]): bool(np.any(np.max(np.abs(train - source[int(m["parent"])]), axis=(1, 2)) <= 1e-6)) for m in Qm}
+    qids = sorted(set(m["qid"] for m in Qm if not seen[int(m["parent"])]))
+    dropped = sorted(set(m["qid"] for m in Qm if seen[int(m["parent"])]))
+    OUTD.mkdir(parents=True, exist_ok=True)
     print(f"keep {len(qids)} qids, drop {len(dropped)} (train_101 parents)", flush=True)
     ART = ROOT / "artifacts"
     paths = {
@@ -80,12 +90,13 @@ def main():
         ("raw", "clean"): str(ART / "discovery_campaign" / "r04b_s{seed}" / "clean"),
         ("raw", "flip"): str(ART / "discovery_campaign" / "r04b_s{seed}" / "flipmine"),
     }
-    out = {"dropped_qids": dropped, "seeds": {}}
+    out = {"dropped_qids": dropped, "coordinate_based": True, "legacy_wrong_integer_filter_n": len(set(m["qid"] for m in Qm if m["parent"] >= 512)), "seeds": {}}
     for seed in (11, 23, 47):
         row = {}
         for (enc, reg), pat in paths.items():
             J, n = eval_arm(pat.format(seed=seed), Qx, Qe, Qm, set(qids))
-            row[f"{enc}_{reg}"] = {"J": J, "n": n}
+            legacy, legacy_n = eval_arm(pat.format(seed=seed), Qx, Qe, Qm, set(m["qid"] for m in Qm if m["parent"] >= 512))
+            row[f"{enc}_{reg}"] = {"J": J, "n": n, "legacy_integer_J": legacy, "legacy_integer_n": legacy_n}
             print(f"s{seed} {enc}-{reg} J={J} n={n}", flush=True)
         d1 = row["six_flip"]["J"] - row["raw_flip"]["J"]
         d2 = row["six_clean"]["J"] - row["raw_clean"]["J"]

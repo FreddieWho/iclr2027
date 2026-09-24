@@ -1,0 +1,21 @@
+{
+  "name": "N_raw_s47_f100_lr0.01",
+  "size": "N",
+  "arch": "raw",
+  "seed": 47,
+  "frac": 100,
+  "lr": 0.01,
+  "dev_bce": 1.3663791418075562,
+  "train_error": 0.12890625,
+  "final_loss": 0.744788408279419,
+  "steps": 300,
+  "init_sha256": "67618814a1353128eaee8389ebe001e129a8b8759ef72b884c96950d7eac6197",
+  "checkpoint_sha256": "b14ff117ebcffd1803af17bc1ad5e2b4702d373539a5466b05e3c50ad6610955",
+  "train_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+  "flip_sha256": "d164ad5aa2ce5cddc59b090809ccdf258a142a0ebe45712102a4c410fef64b5d",
+  "batch_order": "full static then full fixed subset each step",
+  "subset_sha256": "d0105bb0ec4c63bc38fb023a940b4e40658705afddd762e92bfeb20f51d6669f",
+  "oracle_candidate_queries": 147514,
+  "retained_flip_labels": 1534,
+  "training_state_forwards": 613800
+}

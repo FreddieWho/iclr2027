@@ -1,0 +1,9 @@
+{
+  "archive": "artifacts/e1a933_review/vision_n03_bundle.tar.gz",
+  "bytes": 7429,
+  "sha256": "ecd61bd05177aa571e6805934c56f116bb413dda6a58f8fff4968fecfb331a94",
+  "entry": "vision_n03_run.py",
+  "command": "python -u vision_n03_run.py --base-bundle EXISTING_BASE_BUNDLE --baseline-root EXISTING_CUDA_MATRIX --out NEW_N03_OUTPUT",
+  "status_final": "MATRIX_COMPLETE",
+  "completed_runs": 6
+}

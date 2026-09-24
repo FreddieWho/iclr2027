@@ -1,0 +1,2630 @@
+{
+  "B_standard_pretrained_flip minus A_standard_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3707865168539326,
+        "delta_J_parent": 0.37941176470588234,
+        "parent_bootstrap95": [
+          0.2813480392156863,
+          0.48039215686274506
+        ],
+        "baseline110_n": 36,
+        "full_repair_n": 29,
+        "migration_n": 1,
+        "baseline111_n": 90,
+        "regression111_n": 3
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.6,
+        "delta_J_parent": 0.5,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.36416184971098264,
+        "delta_J_parent": 0.3680555555555556,
+        "parent_bootstrap95": [
+          0.27281746031746035,
+          0.46726190476190477
+        ],
+        "baseline110_n": 35,
+        "full_repair_n": 28,
+        "migration_n": 1,
+        "baseline111_n": 88,
+        "regression111_n": 3
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3539325842696629,
+        "delta_J_parent": 0.34215686274509804,
+        "parent_bootstrap95": [
+          0.23919117647058827,
+          0.44313725490196076
+        ],
+        "baseline110_n": 32,
+        "full_repair_n": 21,
+        "migration_n": 2,
+        "baseline111_n": 89,
+        "regression111_n": 4
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.6,
+        "delta_J_parent": 0.5,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3468208092485549,
+        "delta_J_parent": 0.33035714285714285,
+        "parent_bootstrap95": [
+          0.2271825396825397,
+          0.42958829365079376
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 20,
+        "migration_n": 2,
+        "baseline111_n": 87,
+        "regression111_n": 4
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.2808988764044944,
+        "delta_J_parent": 0.29901960784313725,
+        "parent_bootstrap95": [
+          0.1784313725490196,
+          0.4215686274509804
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 23,
+        "migration_n": 2,
+        "baseline111_n": 86,
+        "regression111_n": 20
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": -0.16666666666666666,
+        "parent_bootstrap95": [
+          -1.0,
+          0.5
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.28901734104046245,
+        "delta_J_parent": 0.2986111111111111,
+        "parent_bootstrap95": [
+          0.18053075396825397,
+          0.42063492063492064
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 23,
+        "migration_n": 2,
+        "baseline111_n": 83,
+        "regression111_n": 19
+      }
+    }
+  ],
+  "B_lowstride_pretrained_flip minus A_lowstride_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.21348314606741572,
+        "delta_J_parent": 0.21078431372549017,
+        "parent_bootstrap95": [
+          0.12254901960784315,
+          0.3
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 23,
+        "migration_n": 0,
+        "baseline111_n": 124,
+        "regression111_n": 3
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2138728323699422,
+        "delta_J_parent": 0.20734126984126983,
+        "parent_bootstrap95": [
+          0.12003968253968253,
+          0.29962797619047626
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 22,
+        "migration_n": 0,
+        "baseline111_n": 120,
+        "regression111_n": 3
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.2247191011235955,
+        "delta_J_parent": 0.2137254901960784,
+        "parent_bootstrap95": [
+          0.13627450980392156,
+          0.3
+        ],
+        "baseline110_n": 17,
+        "full_repair_n": 13,
+        "migration_n": 0,
+        "baseline111_n": 127,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.21965317919075145,
+        "delta_J_parent": 0.20436507936507933,
+        "parent_bootstrap95": [
+          0.12596726190476187,
+          0.28869047619047616
+        ],
+        "baseline110_n": 17,
+        "full_repair_n": 13,
+        "migration_n": 0,
+        "baseline111_n": 124,
+        "regression111_n": 2
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.20224719101123595,
+        "delta_J_parent": 0.19705882352941176,
+        "parent_bootstrap95": [
+          0.10781862745098039,
+          0.28725490196078435
+        ],
+        "baseline110_n": 23,
+        "full_repair_n": 15,
+        "migration_n": 3,
+        "baseline111_n": 119,
+        "regression111_n": 4
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2023121387283237,
+        "delta_J_parent": 0.19345238095238096,
+        "parent_bootstrap95": [
+          0.10416666666666667,
+          0.2847222222222222
+        ],
+        "baseline110_n": 23,
+        "full_repair_n": 15,
+        "migration_n": 3,
+        "baseline111_n": 115,
+        "regression111_n": 4
+      }
+    }
+  ],
+  "A_lowstride_pretrained_flip minus A_standard_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.19101123595505617,
+        "delta_J_parent": 0.21372549019607845,
+        "parent_bootstrap95": [
+          0.12254901960784315,
+          0.31274509803921563
+        ],
+        "baseline110_n": 36,
+        "full_repair_n": 19,
+        "migration_n": 1,
+        "baseline111_n": 90,
+        "regression111_n": 8
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.18497109826589594,
+        "delta_J_parent": 0.20634920634920634,
+        "parent_bootstrap95": [
+          0.11507936507936509,
+          0.3055555555555555
+        ],
+        "baseline110_n": 35,
+        "full_repair_n": 18,
+        "migration_n": 1,
+        "baseline111_n": 88,
+        "regression111_n": 8
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.21348314606741572,
+        "delta_J_parent": 0.22156862745098038,
+        "parent_bootstrap95": [
+          0.13333333333333333,
+          0.31470588235294117
+        ],
+        "baseline110_n": 32,
+        "full_repair_n": 18,
+        "migration_n": 2,
+        "baseline111_n": 89,
+        "regression111_n": 7
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2138728323699422,
+        "delta_J_parent": 0.22023809523809523,
+        "parent_bootstrap95": [
+          0.13194444444444442,
+          0.31249999999999994
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 17,
+        "migration_n": 2,
+        "baseline111_n": 87,
+        "regression111_n": 7
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.1853932584269663,
+        "delta_J_parent": 0.19901960784313727,
+        "parent_bootstrap95": [
+          0.09899509803921569,
+          0.2990441176470589
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 18,
+        "migration_n": 2,
+        "baseline111_n": 86,
+        "regression111_n": 15
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.18497109826589594,
+        "delta_J_parent": 0.19543650793650796,
+        "parent_bootstrap95": [
+          0.09226190476190477,
+          0.30257936507936506
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 18,
+        "migration_n": 2,
+        "baseline111_n": 83,
+        "regression111_n": 15
+      }
+    }
+  ],
+  "A_standard_pretrained_flip minus A_standard_pretrained_static": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.24157303370786518,
+        "delta_J_parent": 0.19509803921568625,
+        "parent_bootstrap95": [
+          0.09215686274509803,
+          0.29607843137254897
+        ],
+        "baseline110_n": 55,
+        "full_repair_n": 23,
+        "migration_n": 15,
+        "baseline111_n": 47,
+        "regression111_n": 12
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 0,
+        "migration_n": 2,
+        "baseline111_n": 1,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.24277456647398843,
+        "delta_J_parent": 0.2013888888888889,
+        "parent_bootstrap95": [
+          0.09623015873015872,
+          0.3055555555555555
+        ],
+        "baseline110_n": 53,
+        "full_repair_n": 23,
+        "migration_n": 13,
+        "baseline111_n": 46,
+        "regression111_n": 12
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.25280898876404495,
+        "delta_J_parent": 0.20294117647058818,
+        "parent_bootstrap95": [
+          0.09117647058823529,
+          0.3127696078431374
+        ],
+        "baseline110_n": 72,
+        "full_repair_n": 37,
+        "migration_n": 21,
+        "baseline111_n": 44,
+        "regression111_n": 11
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          -0.5,
+          1.0
+        ],
+        "baseline110_n": 4,
+        "full_repair_n": 2,
+        "migration_n": 1,
+        "baseline111_n": 1,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2543352601156069,
+        "delta_J_parent": 0.20734126984126985,
+        "parent_bootstrap95": [
+          0.09821428571428571,
+          0.31547619047619047
+        ],
+        "baseline110_n": 68,
+        "full_repair_n": 35,
+        "migration_n": 20,
+        "baseline111_n": 43,
+        "regression111_n": 10
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.25842696629213485,
+        "delta_J_parent": 0.27941176470588236,
+        "parent_bootstrap95": [
+          0.17840686274509807,
+          0.3823774509803922
+        ],
+        "baseline110_n": 55,
+        "full_repair_n": 28,
+        "migration_n": 10,
+        "baseline111_n": 40,
+        "regression111_n": 10
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.6,
+        "delta_J_parent": 0.6666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 0,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.24855491329479767,
+        "delta_J_parent": 0.28273809523809523,
+        "parent_bootstrap95": [
+          0.18154761904761904,
+          0.3869047619047619
+        ],
+        "baseline110_n": 55,
+        "full_repair_n": 28,
+        "migration_n": 10,
+        "baseline111_n": 40,
+        "regression111_n": 10
+      }
+    }
+  ],
+  "B_lowstride_pretrained_flip minus B_standard_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.033707865168539325,
+        "delta_J_parent": 0.045098039215686274,
+        "parent_bootstrap95": [
+          -0.00980392156862745,
+          0.10392156862745097
+        ],
+        "baseline110_n": 10,
+        "full_repair_n": 4,
+        "migration_n": 1,
+        "baseline111_n": 156,
+        "regression111_n": 4
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.03468208092485549,
+        "delta_J_parent": 0.04563492063492063,
+        "parent_bootstrap95": [
+          -0.011904761904761902,
+          0.10714285714285714
+        ],
+        "baseline110_n": 10,
+        "full_repair_n": 4,
+        "migration_n": 1,
+        "baseline111_n": 151,
+        "regression111_n": 4
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.08426966292134831,
+        "delta_J_parent": 0.09313725490196077,
+        "parent_bootstrap95": [
+          0.041176470588235294,
+          0.1568627450980392
+        ],
+        "baseline110_n": 18,
+        "full_repair_n": 12,
+        "migration_n": 0,
+        "baseline111_n": 152,
+        "regression111_n": 0
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.08670520231213873,
+        "delta_J_parent": 0.09424603174603174,
+        "parent_bootstrap95": [
+          0.03968253968253968,
+          0.15674603174603174
+        ],
+        "baseline110_n": 18,
+        "full_repair_n": 12,
+        "migration_n": 0,
+        "baseline111_n": 147,
+        "regression111_n": 0
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.10674157303370786,
+        "delta_J_parent": 0.09705882352941177,
+        "parent_bootstrap95": [
+          0.03823529411764706,
+          0.16078431372549018
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 19,
+        "migration_n": 1,
+        "baseline111_n": 136,
+        "regression111_n": 3
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.5,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.09826589595375723,
+        "delta_J_parent": 0.09027777777777779,
+        "parent_bootstrap95": [
+          0.03370535714285715,
+          0.15376984126984125
+        ],
+        "baseline110_n": 26,
+        "full_repair_n": 17,
+        "migration_n": 1,
+        "baseline111_n": 133,
+        "regression111_n": 3
+      }
+    }
+  ],
+  "B_standard_pretrained_flip minus B_standard_pretrained_static": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.19101123595505617,
+        "delta_J_parent": 0.19411764705882353,
+        "parent_bootstrap95": [
+          0.11764705882352941,
+          0.2745098039215686
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 23,
+        "migration_n": 1,
+        "baseline111_n": 122,
+        "regression111_n": 1
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.18497109826589594,
+        "delta_J_parent": 0.19444444444444442,
+        "parent_bootstrap95": [
+          0.11607142857142858,
+          0.2787698412698412
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 22,
+        "migration_n": 1,
+        "baseline111_n": 119,
+        "regression111_n": 1
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.0898876404494382,
+        "delta_J_parent": 0.12450980392156862,
+        "parent_bootstrap95": [
+          0.05196078431372549,
+          0.20392156862745098
+        ],
+        "baseline110_n": 23,
+        "full_repair_n": 11,
+        "migration_n": 0,
+        "baseline111_n": 136,
+        "regression111_n": 4
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.08670520231213873,
+        "delta_J_parent": 0.12202380952380952,
+        "parent_bootstrap95": [
+          0.050595238095238096,
+          0.19841269841269843
+        ],
+        "baseline110_n": 22,
+        "full_repair_n": 10,
+        "migration_n": 0,
+        "baseline111_n": 132,
+        "regression111_n": 4
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.15730337078651685,
+        "delta_J_parent": 0.20784313725490197,
+        "parent_bootstrap95": [
+          0.11568627450980393,
+          0.30392156862745096
+        ],
+        "baseline110_n": 41,
+        "full_repair_n": 19,
+        "migration_n": 0,
+        "baseline111_n": 108,
+        "regression111_n": 8
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.16184971098265896,
+        "delta_J_parent": 0.20833333333333334,
+        "parent_bootstrap95": [
+          0.11803075396825398,
+          0.3075396825396825
+        ],
+        "baseline110_n": 39,
+        "full_repair_n": 19,
+        "migration_n": 0,
+        "baseline111_n": 105,
+        "regression111_n": 8
+      }
+    }
+  ],
+  "C_standard_pretrained_flip minus B_standard_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.011235955056179775,
+        "delta_J_parent": 0.03235294117647059,
+        "parent_bootstrap95": [
+          -0.01764705882352941,
+          0.08627450980392157
+        ],
+        "baseline110_n": 10,
+        "full_repair_n": 2,
+        "migration_n": 1,
+        "baseline111_n": 156,
+        "regression111_n": 3
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.011560693641618497,
+        "delta_J_parent": 0.03273809523809524,
+        "parent_bootstrap95": [
+          -0.017857142857142856,
+          0.0882936507936508
+        ],
+        "baseline110_n": 10,
+        "full_repair_n": 2,
+        "migration_n": 1,
+        "baseline111_n": 151,
+        "regression111_n": 3
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.033707865168539325,
+        "delta_J_parent": -0.04901960784313725,
+        "parent_bootstrap95": [
+          -0.1254901960784314,
+          0.026470588235294117
+        ],
+        "baseline110_n": 18,
+        "full_repair_n": 10,
+        "migration_n": 0,
+        "baseline111_n": 152,
+        "regression111_n": 16
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": -0.2,
+        "delta_J_parent": -0.16666666666666666,
+        "parent_bootstrap95": [
+          -0.5,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.028901734104046242,
+        "delta_J_parent": -0.04365079365079365,
+        "parent_bootstrap95": [
+          -0.11805555555555555,
+          0.030753968253968256
+        ],
+        "baseline110_n": 18,
+        "full_repair_n": 10,
+        "migration_n": 0,
+        "baseline111_n": 147,
+        "regression111_n": 15
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.06741573033707865,
+        "delta_J_parent": 0.02843137254901961,
+        "parent_bootstrap95": [
+          -0.05098039215686275,
+          0.10784313725490195
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 19,
+        "migration_n": 0,
+        "baseline111_n": 136,
+        "regression111_n": 10
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.06358381502890173,
+        "delta_J_parent": 0.02678571428571429,
+        "parent_bootstrap95": [
+          -0.05357142857142857,
+          0.10416666666666667
+        ],
+        "baseline110_n": 26,
+        "full_repair_n": 18,
+        "migration_n": 0,
+        "baseline111_n": 133,
+        "regression111_n": 10
+      }
+    }
+  ],
+  "D_standard_pretrained_flip minus A_standard_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.016853932584269662,
+        "delta_J_parent": 0.04901960784313726,
+        "parent_bootstrap95": [
+          -0.048039215686274506,
+          0.1480392156862745
+        ],
+        "baseline110_n": 36,
+        "full_repair_n": 14,
+        "migration_n": 2,
+        "baseline111_n": 90,
+        "regression111_n": 20
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.011560693641618497,
+        "delta_J_parent": 0.04563492063492064,
+        "parent_bootstrap95": [
+          -0.047619047619047616,
+          0.14087301587301587
+        ],
+        "baseline110_n": 35,
+        "full_repair_n": 13,
+        "migration_n": 2,
+        "baseline111_n": 88,
+        "regression111_n": 20
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.03932584269662921,
+        "delta_J_parent": -0.05784313725490196,
+        "parent_bootstrap95": [
+          -0.16669117647058823,
+          0.04901960784313726
+        ],
+        "baseline110_n": 32,
+        "full_repair_n": 6,
+        "migration_n": 6,
+        "baseline111_n": 89,
+        "regression111_n": 33
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.04046242774566474,
+        "delta_J_parent": -0.06051587301587301,
+        "parent_bootstrap95": [
+          -0.17261904761904762,
+          0.047619047619047616
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 6,
+        "migration_n": 6,
+        "baseline111_n": 87,
+        "regression111_n": 33
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.02247191011235955,
+        "delta_J_parent": 0.020588235294117643,
+        "parent_bootstrap95": [
+          -0.08529411764705881,
+          0.12649509803921577
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 9,
+        "migration_n": 0,
+        "baseline111_n": 86,
+        "regression111_n": 26
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.023121387283236993,
+        "delta_J_parent": 0.020833333333333332,
+        "parent_bootstrap95": [
+          -0.0853174603174603,
+          0.12698412698412698
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 9,
+        "migration_n": 0,
+        "baseline111_n": 83,
+        "regression111_n": 26
+      }
+    }
+  ],
+  "C_standard_pretrained_flip minus D_standard_pretrained_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3651685393258427,
+        "delta_J_parent": 0.36274509803921573,
+        "parent_bootstrap95": [
+          0.2607598039215686,
+          0.47058823529411764
+        ],
+        "baseline110_n": 24,
+        "full_repair_n": 22,
+        "migration_n": 0,
+        "baseline111_n": 93,
+        "regression111_n": 5
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.36416184971098264,
+        "delta_J_parent": 0.3551587301587302,
+        "parent_bootstrap95": [
+          0.251984126984127,
+          0.46329365079365076
+        ],
+        "baseline110_n": 24,
+        "full_repair_n": 22,
+        "migration_n": 0,
+        "baseline111_n": 90,
+        "regression111_n": 5
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3595505617977528,
+        "delta_J_parent": 0.3509803921568627,
+        "parent_bootstrap95": [
+          0.2362745098039216,
+          0.4656862745098039
+        ],
+        "baseline110_n": 38,
+        "full_repair_n": 30,
+        "migration_n": 0,
+        "baseline111_n": 82,
+        "regression111_n": 11
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 2,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3583815028901734,
+        "delta_J_parent": 0.3472222222222222,
+        "parent_bootstrap95": [
+          0.2331349206349206,
+          0.46527777777777773
+        ],
+        "baseline110_n": 37,
+        "full_repair_n": 29,
+        "migration_n": 0,
+        "baseline111_n": 80,
+        "regression111_n": 11
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3707865168539326,
+        "delta_J_parent": 0.30686274509803924,
+        "parent_bootstrap95": [
+          0.19705882352941176,
+          0.4117892156862746
+        ],
+        "baseline110_n": 36,
+        "full_repair_n": 28,
+        "migration_n": 0,
+        "baseline111_n": 82,
+        "regression111_n": 7
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.37572254335260113,
+        "delta_J_parent": 0.3045634920634921,
+        "parent_bootstrap95": [
+          0.19739583333333333,
+          0.41073908730158737
+        ],
+        "baseline110_n": 36,
+        "full_repair_n": 28,
+        "migration_n": 0,
+        "baseline111_n": 79,
+        "regression111_n": 7
+      }
+    }
+  ],
+  "B_standard_random_flip minus A_standard_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.21910112359550563,
+        "delta_J_parent": 0.2519607843137255,
+        "parent_bootstrap95": [
+          0.1568627450980392,
+          0.34708333333333347
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 18,
+        "migration_n": 0,
+        "baseline111_n": 110,
+        "regression111_n": 5
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2254335260115607,
+        "delta_J_parent": 0.2549603174603175,
+        "parent_bootstrap95": [
+          0.16071428571428573,
+          0.35317460317460314
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 18,
+        "migration_n": 0,
+        "baseline111_n": 105,
+        "regression111_n": 5
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3146067415730337,
+        "delta_J_parent": 0.33137254901960783,
+        "parent_bootstrap95": [
+          0.23039215686274508,
+          0.4362745098039215
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 27,
+        "migration_n": 0,
+        "baseline111_n": 102,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3179190751445087,
+        "delta_J_parent": 0.32936507936507936,
+        "parent_bootstrap95": [
+          0.23115079365079363,
+          0.43355654761904777
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 26,
+        "migration_n": 0,
+        "baseline111_n": 98,
+        "regression111_n": 2
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3202247191011236,
+        "delta_J_parent": 0.3156862745098039,
+        "parent_bootstrap95": [
+          0.22058823529411764,
+          0.4117647058823529
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 23,
+        "migration_n": 0,
+        "baseline111_n": 98,
+        "regression111_n": 1
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.3333333333333333,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3179190751445087,
+        "delta_J_parent": 0.30952380952380953,
+        "parent_bootstrap95": [
+          0.21825396825396823,
+          0.40677083333333347
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 21,
+        "migration_n": 0,
+        "baseline111_n": 95,
+        "regression111_n": 1
+      }
+    }
+  ],
+  "B_lowstride_random_flip minus A_lowstride_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.33707865168539325,
+        "delta_J_parent": 0.36176470588235293,
+        "parent_bootstrap95": [
+          0.2745098039215686,
+          0.45196078431372555
+        ],
+        "baseline110_n": 35,
+        "full_repair_n": 29,
+        "migration_n": 0,
+        "baseline111_n": 104,
+        "regression111_n": 0
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.34104046242774566,
+        "delta_J_parent": 0.3601190476190476,
+        "parent_bootstrap95": [
+          0.2698412698412699,
+          0.45138888888888884
+        ],
+        "baseline110_n": 34,
+        "full_repair_n": 28,
+        "migration_n": 0,
+        "baseline111_n": 100,
+        "regression111_n": 0
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.2752808988764045,
+        "delta_J_parent": 0.2598039215686274,
+        "parent_bootstrap95": [
+          0.17941176470588233,
+          0.34705882352941175
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 21,
+        "migration_n": 0,
+        "baseline111_n": 111,
+        "regression111_n": 0
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2832369942196532,
+        "delta_J_parent": 0.26289682539682535,
+        "parent_bootstrap95": [
+          0.17857142857142855,
+          0.3501984126984127
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 21,
+        "migration_n": 0,
+        "baseline111_n": 106,
+        "regression111_n": 0
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.33146067415730335,
+        "delta_J_parent": 0.3372549019607843,
+        "parent_bootstrap95": [
+          0.2392156862745098,
+          0.43921568627450974
+        ],
+        "baseline110_n": 34,
+        "full_repair_n": 29,
+        "migration_n": 0,
+        "baseline111_n": 104,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.4,
+        "delta_J_parent": 0.5,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.32947976878612717,
+        "delta_J_parent": 0.3353174603174603,
+        "parent_bootstrap95": [
+          0.23707837301587298,
+          0.4414682539682539
+        ],
+        "baseline110_n": 33,
+        "full_repair_n": 28,
+        "migration_n": 0,
+        "baseline111_n": 101,
+        "regression111_n": 2
+      }
+    }
+  ],
+  "A_lowstride_random_flip minus A_standard_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.033707865168539325,
+        "delta_J_parent": -0.016666666666666666,
+        "parent_bootstrap95": [
+          -0.0784313725490196,
+          0.048039215686274506
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 110,
+        "regression111_n": 14
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": -0.2,
+        "delta_J_parent": -0.16666666666666666,
+        "parent_bootstrap95": [
+          -0.5,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.028901734104046242,
+        "delta_J_parent": -0.01091269841269841,
+        "parent_bootstrap95": [
+          -0.0744047619047619,
+          0.05456349206349207
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 105,
+        "regression111_n": 13
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.05056179775280899,
+        "delta_J_parent": 0.08725490196078432,
+        "parent_bootstrap95": [
+          0.016666666666666666,
+          0.16372549019607843
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 9,
+        "migration_n": 2,
+        "baseline111_n": 102,
+        "regression111_n": 8
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.046242774566473986,
+        "delta_J_parent": 0.08234126984126984,
+        "parent_bootstrap95": [
+          0.013864087301587311,
+          0.15773809523809523
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 8,
+        "migration_n": 2,
+        "baseline111_n": 98,
+        "regression111_n": 8
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.033707865168539325,
+        "delta_J_parent": 0.040196078431372545,
+        "parent_bootstrap95": [
+          -0.05,
+          0.1284313725490196
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 7,
+        "migration_n": 1,
+        "baseline111_n": 98,
+        "regression111_n": 17
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": -0.16666666666666666,
+        "parent_bootstrap95": [
+          -1.0,
+          0.5
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.03468208092485549,
+        "delta_J_parent": 0.0367063492063492,
+        "parent_bootstrap95": [
+          -0.05654761904761905,
+          0.12698412698412698
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 6,
+        "migration_n": 1,
+        "baseline111_n": 95,
+        "regression111_n": 16
+      }
+    }
+  ],
+  "A_standard_random_flip minus A_standard_random_static": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3595505617977528,
+        "delta_J_parent": 0.3058823529411765,
+        "parent_bootstrap95": [
+          0.20294117647058818,
+          0.403921568627451
+        ],
+        "baseline110_n": 70,
+        "full_repair_n": 41,
+        "migration_n": 8,
+        "baseline111_n": 46,
+        "regression111_n": 6
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.8,
+        "delta_J_parent": 0.8333333333333334,
+        "parent_bootstrap95": [
+          0.5,
+          1.0
+        ],
+        "baseline110_n": 4,
+        "full_repair_n": 4,
+        "migration_n": 0,
+        "baseline111_n": 1,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3468208092485549,
+        "delta_J_parent": 0.2916666666666667,
+        "parent_bootstrap95": [
+          0.19246031746031747,
+          0.3898809523809524
+        ],
+        "baseline110_n": 66,
+        "full_repair_n": 37,
+        "migration_n": 8,
+        "baseline111_n": 45,
+        "regression111_n": 6
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.43258426966292135,
+        "delta_J_parent": 0.38627450980392153,
+        "parent_bootstrap95": [
+          0.2882107843137255,
+          0.47941176470588237
+        ],
+        "baseline110_n": 83,
+        "full_repair_n": 47,
+        "migration_n": 15,
+        "baseline111_n": 25,
+        "regression111_n": 3
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.6,
+        "delta_J_parent": 0.5,
+        "parent_bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "baseline110_n": 3,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 1,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.4277456647398844,
+        "delta_J_parent": 0.38888888888888884,
+        "parent_bootstrap95": [
+          0.2916666666666667,
+          0.4851190476190476
+        ],
+        "baseline110_n": 80,
+        "full_repair_n": 45,
+        "migration_n": 15,
+        "baseline111_n": 24,
+        "regression111_n": 3
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.4044943820224719,
+        "delta_J_parent": 0.3509803921568627,
+        "parent_bootstrap95": [
+          0.24607843137254903,
+          0.4490196078431373
+        ],
+        "baseline110_n": 91,
+        "full_repair_n": 48,
+        "migration_n": 23,
+        "baseline111_n": 26,
+        "regression111_n": 4
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.6,
+        "delta_J_parent": 0.6666666666666666,
+        "parent_bootstrap95": [
+          0.5,
+          1.0
+        ],
+        "baseline110_n": 5,
+        "full_repair_n": 3,
+        "migration_n": 0,
+        "baseline111_n": 0,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3988439306358382,
+        "delta_J_parent": 0.3531746031746032,
+        "parent_bootstrap95": [
+          0.25297619047619047,
+          0.45436507936507936
+        ],
+        "baseline110_n": 86,
+        "full_repair_n": 45,
+        "migration_n": 23,
+        "baseline111_n": 26,
+        "regression111_n": 4
+      }
+    }
+  ],
+  "B_lowstride_random_flip minus B_standard_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.08426966292134831,
+        "delta_J_parent": 0.09313725490196077,
+        "parent_bootstrap95": [
+          0.043137254901960784,
+          0.15294117647058825
+        ],
+        "baseline110_n": 14,
+        "full_repair_n": 9,
+        "migration_n": 0,
+        "baseline111_n": 149,
+        "regression111_n": 0
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.08670520231213873,
+        "delta_J_parent": 0.09424603174603174,
+        "parent_bootstrap95": [
+          0.04265873015873015,
+          0.15376984126984125
+        ],
+        "baseline110_n": 14,
+        "full_repair_n": 9,
+        "migration_n": 0,
+        "baseline111_n": 144,
+        "regression111_n": 0
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.011235955056179775,
+        "delta_J_parent": 0.015686274509803918,
+        "parent_bootstrap95": [
+          -0.04411764705882353,
+          0.07745098039215687
+        ],
+        "baseline110_n": 8,
+        "full_repair_n": 4,
+        "migration_n": 0,
+        "baseline111_n": 158,
+        "regression111_n": 5
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.011560693641618497,
+        "delta_J_parent": 0.01587301587301587,
+        "parent_bootstrap95": [
+          -0.043650793650793655,
+          0.0734126984126984
+        ],
+        "baseline110_n": 8,
+        "full_repair_n": 4,
+        "migration_n": 0,
+        "baseline111_n": 153,
+        "regression111_n": 5
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.0449438202247191,
+        "delta_J_parent": 0.061764705882352944,
+        "parent_bootstrap95": [
+          0.0196078431372549,
+          0.11372549019607843
+        ],
+        "baseline110_n": 11,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 155,
+        "regression111_n": 0
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.046242774566473986,
+        "delta_J_parent": 0.0625,
+        "parent_bootstrap95": [
+          0.01984126984126984,
+          0.1121031746031746
+        ],
+        "baseline110_n": 11,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 150,
+        "regression111_n": 0
+      }
+    }
+  ],
+  "B_standard_random_flip minus B_standard_random_static": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.2247191011235955,
+        "delta_J_parent": 0.22254901960784315,
+        "parent_bootstrap95": [
+          0.146078431372549,
+          0.3058823529411765
+        ],
+        "baseline110_n": 24,
+        "full_repair_n": 13,
+        "migration_n": 2,
+        "baseline111_n": 109,
+        "regression111_n": 3
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.2254335260115607,
+        "delta_J_parent": 0.22123015873015872,
+        "parent_bootstrap95": [
+          0.14087301587301587,
+          0.3055555555555555
+        ],
+        "baseline110_n": 23,
+        "full_repair_n": 12,
+        "migration_n": 2,
+        "baseline111_n": 105,
+        "regression111_n": 3
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3258426966292135,
+        "delta_J_parent": 0.3205882352941177,
+        "parent_bootstrap95": [
+          0.23725490196078428,
+          0.41176470588235287
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 22,
+        "migration_n": 3,
+        "baseline111_n": 100,
+        "regression111_n": 0
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3352601156069364,
+        "delta_J_parent": 0.3244047619047619,
+        "parent_bootstrap95": [
+          0.23908730158730157,
+          0.41567460317460314
+        ],
+        "baseline110_n": 28,
+        "full_repair_n": 22,
+        "migration_n": 3,
+        "baseline111_n": 95,
+        "regression111_n": 0
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3146067415730337,
+        "delta_J_parent": 0.30392156862745096,
+        "parent_bootstrap95": [
+          0.2166421568627451,
+          0.3941176470588235
+        ],
+        "baseline110_n": 38,
+        "full_repair_n": 30,
+        "migration_n": 0,
+        "baseline111_n": 99,
+        "regression111_n": 1
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.3179190751445087,
+        "delta_J_parent": 0.30158730158730157,
+        "parent_bootstrap95": [
+          0.2132936507936508,
+          0.39285714285714285
+        ],
+        "baseline110_n": 37,
+        "full_repair_n": 29,
+        "migration_n": 0,
+        "baseline111_n": 95,
+        "regression111_n": 1
+      }
+    }
+  ],
+  "C_standard_random_flip minus B_standard_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.05056179775280899,
+        "delta_J_parent": 0.06470588235294118,
+        "parent_bootstrap95": [
+          0.00882352941176471,
+          0.12450980392156862
+        ],
+        "baseline110_n": 14,
+        "full_repair_n": 8,
+        "migration_n": 0,
+        "baseline111_n": 149,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.05202312138728324,
+        "delta_J_parent": 0.06547619047619048,
+        "parent_bootstrap95": [
+          0.007936507936507938,
+          0.12896825396825395
+        ],
+        "baseline110_n": 14,
+        "full_repair_n": 8,
+        "migration_n": 0,
+        "baseline111_n": 144,
+        "regression111_n": 2
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.011235955056179775,
+        "delta_J_parent": 0.016666666666666666,
+        "parent_bootstrap95": [
+          -0.04019607843137255,
+          0.07352941176470588
+        ],
+        "baseline110_n": 8,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 158,
+        "regression111_n": 5
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.011560693641618497,
+        "delta_J_parent": 0.016865079365079364,
+        "parent_bootstrap95": [
+          -0.041666666666666664,
+          0.0744047619047619
+        ],
+        "baseline110_n": 8,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 153,
+        "regression111_n": 5
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.02247191011235955,
+        "delta_J_parent": 0.0392156862745098,
+        "parent_bootstrap95": [
+          -0.008823529411764707,
+          0.09411764705882353
+        ],
+        "baseline110_n": 11,
+        "full_repair_n": 3,
+        "migration_n": 0,
+        "baseline111_n": 155,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.0,
+        "delta_J_parent": 0.0,
+        "parent_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.023121387283236993,
+        "delta_J_parent": 0.03968253968253968,
+        "parent_bootstrap95": [
+          -0.010912698412698414,
+          0.09424603174603174
+        ],
+        "baseline110_n": 11,
+        "full_repair_n": 3,
+        "migration_n": 0,
+        "baseline111_n": 150,
+        "regression111_n": 2
+      }
+    }
+  ],
+  "D_standard_random_flip minus A_standard_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.19662921348314608,
+        "delta_J_parent": -0.15392156862745096,
+        "parent_bootstrap95": [
+          -0.23921568627450976,
+          -0.07254901960784314
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 5,
+        "migration_n": 1,
+        "baseline111_n": 110,
+        "regression111_n": 40
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": -0.2,
+        "delta_J_parent": -0.16666666666666666,
+        "parent_bootstrap95": [
+          -0.5,
+          0.0
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 5,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.19653179190751446,
+        "delta_J_parent": -0.1597222222222222,
+        "parent_bootstrap95": [
+          -0.24404761904761904,
+          -0.07440476190476189
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 5,
+        "migration_n": 1,
+        "baseline111_n": 105,
+        "regression111_n": 39
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.10112359550561797,
+        "delta_J_parent": -0.08333333333333333,
+        "parent_bootstrap95": [
+          -0.16470588235294117,
+          -0.0019607843137254884
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 102,
+        "regression111_n": 30
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": -0.8,
+        "delta_J_parent": -0.8333333333333334,
+        "parent_bootstrap95": [
+          -1.0,
+          -0.5
+        ],
+        "baseline110_n": 1,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 4
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.08092485549132948,
+        "delta_J_parent": -0.06845238095238096,
+        "parent_bootstrap95": [
+          -0.14781746031746032,
+          0.010912698412698416
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 98,
+        "regression111_n": 26
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": -0.07865168539325842,
+        "delta_J_parent": -0.04509803921568627,
+        "parent_bootstrap95": [
+          -0.13137254901960785,
+          0.04215686274509803
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 9,
+        "migration_n": 4,
+        "baseline111_n": 98,
+        "regression111_n": 28
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 2,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 3,
+        "regression111_n": 1
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": -0.08670520231213873,
+        "delta_J_parent": -0.059523809523809514,
+        "parent_bootstrap95": [
+          -0.14781746031746032,
+          0.025793650793650792
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 7,
+        "migration_n": 4,
+        "baseline111_n": 95,
+        "regression111_n": 27
+      }
+    }
+  ],
+  "C_standard_random_flip minus D_standard_random_flip": [
+    {
+      "seed": 803,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.46629213483146065,
+        "delta_J_parent": 0.47058823529411764,
+        "parent_bootstrap95": [
+          0.37549019607843137,
+          0.5696323529411765
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 26,
+        "migration_n": 0,
+        "baseline111_n": 75,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.47398843930635837,
+        "delta_J_parent": 0.4801587301587301,
+        "parent_bootstrap95": [
+          0.38095238095238093,
+          0.5813492063492063
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 26,
+        "migration_n": 0,
+        "baseline111_n": 71,
+        "regression111_n": 2
+      }
+    },
+    {
+      "seed": 805,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.42696629213483145,
+        "delta_J_parent": 0.4313725490196078,
+        "parent_bootstrap95": [
+          0.3391911764705882,
+          0.5274509803921568
+        ],
+        "baseline110_n": 68,
+        "full_repair_n": 60,
+        "migration_n": 2,
+        "baseline111_n": 84,
+        "regression111_n": 1
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 1.0,
+        "delta_J_parent": 1.0,
+        "parent_bootstrap95": [
+          1.0,
+          1.0
+        ],
+        "baseline110_n": 5,
+        "full_repair_n": 5,
+        "migration_n": 0,
+        "baseline111_n": 0,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.41040462427745666,
+        "delta_J_parent": 0.41468253968253965,
+        "parent_bootstrap95": [
+          0.3234126984126984,
+          0.5119047619047619
+        ],
+        "baseline110_n": 63,
+        "full_repair_n": 55,
+        "migration_n": 2,
+        "baseline111_n": 84,
+        "regression111_n": 1
+      }
+    },
+    {
+      "seed": 806,
+      "overall": {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.42134831460674155,
+        "delta_J_parent": 0.4,
+        "parent_bootstrap95": [
+          0.3009803921568627,
+          0.5
+        ],
+        "baseline110_n": 20,
+        "full_repair_n": 18,
+        "migration_n": 0,
+        "baseline111_n": 84,
+        "regression111_n": 2
+      },
+      "small_edit": {
+        "n": 5,
+        "parent_n": 3,
+        "delta_J_row": 0.2,
+        "delta_J_parent": 0.16666666666666666,
+        "parent_bootstrap95": [
+          0.0,
+          0.5
+        ],
+        "baseline110_n": 0,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 4,
+        "regression111_n": 0
+      },
+      "other_edit": {
+        "n": 173,
+        "parent_n": 84,
+        "delta_J_row": 0.4277456647398844,
+        "delta_J_parent": 0.4087301587301588,
+        "parent_bootstrap95": [
+          0.308531746031746,
+          0.5119047619047619
+        ],
+        "baseline110_n": 20,
+        "full_repair_n": 18,
+        "migration_n": 0,
+        "baseline111_n": 80,
+        "regression111_n": 2
+      }
+    }
+  ]
+}

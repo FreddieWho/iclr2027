@@ -1,0 +1,8 @@
+{
+  "status": "CPU_ENGINEERING_SMOKE_PASS",
+  "cuda_status": "NOT_RUN_LOCAL_NO_GPU",
+  "n_train_images": 8,
+  "epochs": 1,
+  "H_classifier_max_error": 3.725290298461914e-09,
+  "scientific_status": "NOT_A_SCIENTIFIC_EXPERIMENT"
+}

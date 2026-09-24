@@ -32,17 +32,18 @@ def main():
             assert abs(ab - ref["AB_correct"]) < 2e-4, (seed, arm, ab, ref["AB_correct"])
             assert abs(ap - ref["atomic_pass"]) < 2e-4, (seed, arm, ap, ref["atomic_pass"])
             assert abs(j - ref["J"]) < 2e-4, (seed, arm, j, ref["J"])
-            out[(seed, arm)] = {"n": n, "J": round(j, 4),
+            out[(seed, arm)] = {"n": n, "n_parent": len({r["parent"] for r in rs}), "J": round(j, 4),
                                 "atomic_pass": round(ap, 4),
                                 "AB_correct": round(ab, 4),
                                 "AB_err": round(1 - ab, 4)}
-    for arm in ("raw_clean", "raw_flipmine", "relfeat"):
+    for arm in ARM_ORDER:
         tag = {"raw_clean": "raw", "raw_flipmine": "raw+flip",
-               "relfeat": "relational"}[arm]
+               "relfeat": "relational", "relflip": "relational+flip"}[arm]
         j = "/".join(f"{out[(s, arm)]['J']:.3f}".lstrip("0") for s in SEEDS)
         ap = "/".join(f"{out[(s, arm)]['atomic_pass']:.3f}".lstrip("0") for s in SEEDS)
         e = "/".join(f"{out[(s, arm)]['AB_err']:.3f}".lstrip("0") for s in SEEDS)
         print(f"& {tag} & {j} & {ap} & {e} \\\\")
+    print("DENOMINATORS:", json.dumps({f"s{seed}/{arm}": {"n_quartet": v["n"], "n_parent": v["n_parent"]} for (seed, arm), v in out.items()}, sort_keys=True))
     print("OK: all cells regenerated from per-instance rows, match U1_SUMMARY.json")
 
 

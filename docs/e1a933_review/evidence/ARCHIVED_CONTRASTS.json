@@ -1,0 +1,97 @@
+{
+  "scope": "Arithmetic on rounded, transcribed archived summaries. No new training or re-evaluation.",
+  "commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "tasks": {
+    "T1": {
+      "inputs": {
+        "raw_clean": [
+          0.0962,
+          0.0686,
+          0.0742
+        ],
+        "raw_flip": [
+          0.2489,
+          0.21,
+          0.1927
+        ],
+        "six_clean": [
+          0.2026,
+          0.1924,
+          0.196
+        ],
+        "six_flip": [
+          0.7489,
+          0.7731,
+          0.7272
+        ]
+      },
+      "interaction_pp": [
+        39.36,
+        43.93,
+        41.27
+      ],
+      "feature_advantage_under_flip_pp": [
+        50.0,
+        56.31,
+        53.45
+      ],
+      "raw_flip_J_mean": 0.21719999999999998,
+      "six_flip_J_mean": 0.7497333333333334
+    },
+    "T2": {
+      "inputs": {
+        "raw_clean": [
+          0.1516,
+          0.1595,
+          0.1313
+        ],
+        "raw_flip": [
+          0.6059,
+          0.6396,
+          0.6433
+        ],
+        "six_clean": [
+          0.7325,
+          0.6889,
+          0.738
+        ],
+        "six_flip": [
+          0.9977,
+          0.9971,
+          0.9997
+        ]
+      },
+      "interaction_pp": [
+        -18.91,
+        -17.19,
+        -25.03
+      ],
+      "feature_advantage_under_flip_pp": [
+        39.18,
+        35.75,
+        35.64
+      ],
+      "raw_flip_J_mean": 0.6295999999999999,
+      "six_flip_J_mean": 0.9981666666666668
+    }
+  },
+  "D04_224": {
+    "pretrained": [
+      0.72,
+      0.737,
+      0.709
+    ],
+    "random": [
+      0.0,
+      0.662,
+      0.611
+    ],
+    "paired_pretraining_delta_pp": [
+      72.0,
+      7.5,
+      9.8
+    ],
+    "mean_delta_pp": 29.766666666666662,
+    "warning": "No equivalence test; do not remove the collapsed seed from primary comparison."
+  }
+}

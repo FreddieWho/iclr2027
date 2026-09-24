@@ -1,0 +1,23 @@
+{
+  "d09_pool_equals_X16_offset512": true,
+  "dev512": {
+    "parent_namespace": "eval_202",
+    "max_reconstruction_linf": 5.856459417419302e-08
+  },
+  "d09fresh665": {
+    "parent_namespace": "d09_fresh",
+    "max_reconstruction_linf": 5.852728279798214e-08
+  },
+  "T1": {
+    "train_n": 512,
+    "eval_n": 512,
+    "nearest_parent_linf": 0.1436958983540535,
+    "serialized_matches": 0
+  },
+  "T2": {
+    "train_n": 512,
+    "eval_n": 512,
+    "nearest_parent_linf": 0.06674249516800046,
+    "serialized_matches": 0
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "shared_E_parent_count": 8,
+  "canonical_X16_indices": [
+    1295,
+    1521,
+    2213,
+    3256,
+    3803,
+    3837,
+    6031,
+    6237
+  ],
+  "d03_quartets_on_shared_parents": 74,
+  "d09_quartets_on_shared_parents": 14
+}

@@ -1,0 +1,12 @@
+{
+  "R02_old_indexwise_error_detected": true,
+  "R04_old_endpoint_mask": [
+    false,
+    true
+  ],
+  "R04_production_start_mask": [
+    true,
+    false
+  ],
+  "R04_counterexample_distinguishes_old_error": true
+}

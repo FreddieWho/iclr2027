@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "sampling-48arms-20260924",
+  "host_alias": "vision_gpu",
+  "platform": "linux",
+  "remote_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/jobs/sampling-48arms-20260924",
+  "command": "/root/miniconda3/bin/python -u /root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle/sampling_gpu_run.py --bundle /root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle --out /root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results --execute",
+  "inputs": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle"
+  ],
+  "outputs": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results/receipt.json",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results/ARTIFACT_MANIFEST.json",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results.tar.gz"
+  ],
+  "status": "DECLARED",
+  "created_at_utc": "2026-09-24T09:30:15.094483+00:00"
+}

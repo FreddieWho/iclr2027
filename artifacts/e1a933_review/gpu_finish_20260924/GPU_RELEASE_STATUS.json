@@ -1,0 +1,41 @@
+{
+  "status": "SAFE_TO_SHUTDOWN",
+  "pid": 7,
+  "safe_to_shutdown": true,
+  "scientific_acceptance": "Sampling independent interpretation and final paper integration remain local CPU work",
+  "wait_method": "local inotify completion event; no remote polling",
+  "updated_utc": "2026-09-24T11:21:24.159743+00:00",
+  "tasks": {
+    "n03": {
+      "status": "PASS",
+      "expected": 6,
+      "completed": 6,
+      "verified_files": 50,
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/extracted/n03_results"
+    },
+    "football_v2": {
+      "status": "PASS",
+      "expected": 12,
+      "completed": 12,
+      "verified_files": 40,
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/football_v2/extracted/football_results_v2"
+    },
+    "vlm": {
+      "status": "PASS",
+      "expected": 272,
+      "completed": 272,
+      "verified_files": 5,
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/vlm/extracted/vlm_results"
+    },
+    "sampling": {
+      "status": "PASS",
+      "expected": 48,
+      "completed": 48,
+      "verified_files": 250,
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/sampling/extracted/sampling_results"
+    }
+  },
+  "completed_training_arms_including_original": 87,
+  "completed_vlm_requests": 272,
+  "instance_action": "No shutdown issued; user can release instance after reading this verified receipt"
+}

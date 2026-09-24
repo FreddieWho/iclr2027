@@ -1,0 +1,37 @@
+{
+  "status": "PREPARED_NOT_TRAINED",
+  "pid": 7,
+  "command": [
+    "experiments/e1a933_review/vision_run.py",
+    "--out",
+    "artifacts/e1a933_review/vision_canonical224",
+    "--prepare-only"
+  ],
+  "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "threads": 8,
+  "matrix": {
+    "seeds": [
+      803,
+      805,
+      806
+    ],
+    "arms": [
+      "pretrained_static",
+      "pretrained_flip",
+      "random_static",
+      "random_flip",
+      "ordered",
+      "matched",
+      "shuffled_matched"
+    ],
+    "epochs": 20,
+    "resolution": "native64 bilinear upsample224"
+  },
+  "completed": [],
+  "source_sha256": {
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/vision_run.py": "f6df0f340393015227c7435e320d5330f415e89e22746ffff326afca08aaec8e",
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/vision_protocol.py": "a54aca99db1ddfe8a099f944dda51e0198d8e4205d976aeb982dbf826692cb71",
+    "experiments/f095_campaign/d04_vision_train.py": "13e9e9de24c9ab0e49acda7b306bc501331dce6f2044bb62ac03f7450ef406a2",
+    "experiments/f095_campaign/u06_relation_distill.py": "ae446731b8bcd5080809178ef803299c1c3c377dfaeddb044b4d2f8a1f328a87"
+  }
+}

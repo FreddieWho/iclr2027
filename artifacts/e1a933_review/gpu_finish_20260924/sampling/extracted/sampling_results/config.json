@@ -1,0 +1,124 @@
+{
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "epochs": 20,
+  "batch": 32,
+  "optimizer": "Adam",
+  "lr": 0.0003,
+  "arms": [
+    {
+      "observation": "A",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "lowstride",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "lowstride",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "lowstride",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "lowstride",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "C",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "C",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "D",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "D",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "static"
+    },
+    {
+      "observation": "A",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "static"
+    },
+    {
+      "observation": "B",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "static"
+    },
+    {
+      "observation": "B",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "static"
+    }
+  ],
+  "expected_completed": 48,
+  "dtype": "FP32",
+  "TF32": false,
+  "AMP": false,
+  "selection": "minimum single-dev BCE; no target AB selection",
+  "frozen_prediction": "removing maxpool reduces (J_B-J_A) relative to standard; predicted strongest for min constituent endpoint displacement <=2 native64 pixels; report interaction even if opposite, no threshold search",
+  "A": "direct native64 continuous render",
+  "B": "bilinear(A,224), align_corners=False",
+  "C": "direct native224 continuous render",
+  "D": "area(C,64): deterministic low-pass area downsample",
+  "lowstride": "replace maxpool by Identity only; conv1 stride2 and all other layers unchanged",
+  "static_contract": "repeat clean train indices deterministically to same per-epoch exposure count as flip; same batches, optimizer, dev criterion",
+  "seed_replication": "3 model initializations, not independent tasks",
+  "checkpoint_policy": "one selected-by-single-dev checkpoint per arm, no target-J selection",
+  "cache_policy": "native A/C memmap outside output; retain per-image hashes, geometry and exact renderer; output excludes reconstructible multi-GB cache"
+}

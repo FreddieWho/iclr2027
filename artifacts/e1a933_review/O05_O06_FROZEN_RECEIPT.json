@@ -1,0 +1,39 @@
+{
+  "status": "CONFIGURATION_FROZEN_GPU_EXECUTION_DELEGATED_TO_MASTER",
+  "local_checks": [
+    "raw/typed forward backward finite",
+    "typed defender permutation invariant",
+    "causal observation uses past for masked nodes",
+    "strict YES NO parse and refusal separate"
+  ],
+  "files": {
+    "experiments/e1a933_review/football_learning.py": {
+      "bytes": 8084,
+      "sha256": "13f6c608a6733ebbf40e841d596978ce6ae340cd8cd8030c1b56db899975e6a2"
+    },
+    "experiments/e1a933_review/vlm_native.py": {
+      "bytes": 6270,
+      "sha256": "9b3a670777ca88d8455b656d41dfa3d3016cb2bf518321f3be9a506a5db837a2"
+    },
+    "experiments/e1a933_review/football_learning_prepare.py": {
+      "bytes": 5898,
+      "sha256": "eee7e2e614a7135c3bba4e5a22e378141c60e0a10b41e59d569171c7eb4f46f2"
+    },
+    "experiments/e1a933_review/vlm_prepare.py": {
+      "bytes": 3146,
+      "sha256": "b0daf634b9b627a942e9767d159a037c59ea350089907ab91d27c85580edabd0"
+    },
+    "artifacts/e1a933_review/football_learning_frozen/manifest.json": {
+      "bytes": 2025,
+      "sha256": "178f44cf57c1971b003d94c69c8e82a38a5d0450c6ed822f7f34cb8118e195fd"
+    },
+    "artifacts/e1a933_review/football_learning_frozen/data.npz": {
+      "bytes": 699522,
+      "sha256": "8aff33373a42119fe2f0c944aa3e791476d9c3c5e1970106f6916f2d88022531"
+    },
+    "artifacts/e1a933_review/vlm_frozen_272/manifest.json": {
+      "bytes": 114745,
+      "sha256": "526cf928a7ade2f27488f84704b4c9ffc6799bddd7174d7438db92bf0f8c793b"
+    }
+  }
+}

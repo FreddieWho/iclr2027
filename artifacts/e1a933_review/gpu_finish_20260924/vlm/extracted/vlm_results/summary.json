@@ -1,0 +1,28 @@
+{
+  "completed_requests": 272,
+  "complete_quartets": 64,
+  "parse_failure": 0,
+  "refusal": 0,
+  "sanity_n": 16,
+  "sanity_accuracy_all_requests": 0.5,
+  "all_requests_denominator_note": "parse failures/refusals count as incorrect; report separately, never drop silently",
+  "J_A_B_AB": 0.0,
+  "J_base_A_B_AB": 0.0,
+  "atomic_A_accuracy": 0.203125,
+  "atomic_B_accuracy": 0.203125,
+  "atomic_both_correct_n": 13,
+  "conditional_AB_error_given_atoms_correct": 1.0,
+  "all_three_parsed_n": 64,
+  "conditional_AB_model_error_n": 13,
+  "conditional_AB_nonresponse_n": 0,
+  "J_95CI_parent_bootstrap": [
+    0.0,
+    0.0
+  ],
+  "wall_seconds_this_invocation": 57.7952796749305,
+  "peak_cuda_allocated_bytes": 7754247168,
+  "status": "MATRIX_COMPLETE",
+  "completed": 272,
+  "expected": 272,
+  "scope": "one small native VLM; atomic adequacy reported, not threshold-gated; no MLP P1 confidence comparison"
+}

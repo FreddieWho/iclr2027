@@ -1,0 +1,19 @@
+{
+  "command": "/root/miniconda3/bin/python -u /root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle/vision_cuda_run.py --bundle /root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle --out /root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix --execute",
+  "created_at_utc": "2026-09-24T08:11:35.134492+00:00",
+  "host_alias": "vision_gpu",
+  "inputs": [
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle"
+  ],
+  "outputs": [
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix/receipt.json",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix/paired_analysis.json",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix_results.tar.gz"
+  ],
+  "platform": "linux",
+  "remote_dir": "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/jobs/vision-21arms-gpu-20260924",
+  "schema_version": 1,
+  "status": "DECLARED",
+  "task_id": "vision-21arms-gpu-20260924",
+  "supersedes_declared_task": "vision-21arms-20260924"
+}

@@ -1,0 +1,218 @@
+{
+ "T1_raw_clean_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s11/clean/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_clean_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s23/clean/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_clean_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s47/clean/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_flip_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s11/flip/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_flip_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s23/flip/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_flip_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s47/flip/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_f25_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s11/f25/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_f25_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s23/f25/model.pt",
+  "bit_exact": true
+ },
+ "T1_raw_f25_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_raw_s47/f25/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_clean_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s11/clean/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_clean_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s23/clean/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_clean_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s47/clean/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_flip_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s11/flip/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_flip_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s23/flip/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_flip_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s47/flip/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_f25_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s11/f25/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_f25_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s23/f25/model.pt",
+  "bit_exact": true
+ },
+ "T1_six_f25_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T1_six_s47/f25/model.pt",
+  "bit_exact": true
+ },
+ "T1_typed_o_clean_s11": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s11/clean/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_clean_s23": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s23/clean/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_clean_s47": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s47/clean/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_flip_s11": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s11/flip/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_flip_s23": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s23/flip/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_flip_s47": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s47/flip/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_f25_s11": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s11/f25/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_f25_s23": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s23/f25/model.pt",
+  "bit_exact": false
+ },
+ "T1_typed_o_f25_s47": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T1_typed_s47/f25/model.pt",
+  "bit_exact": false
+ },
+ "T2_raw_clean_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s11/clean/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_clean_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s23/clean/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_clean_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s47/clean/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_flip_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s11/flip/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_flip_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s23/flip/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_flip_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s47/flip/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_f25_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s11/f25/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_f25_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s23/f25/model.pt",
+  "bit_exact": true
+ },
+ "T2_raw_f25_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_raw_s47/f25/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_clean_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s11/clean/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_clean_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s23/clean/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_clean_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s47/clean/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_flip_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s11/flip/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_flip_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s23/flip/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_flip_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s47/flip/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_f25_s11": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s11/f25/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_f25_s23": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s23/f25/model.pt",
+  "bit_exact": true
+ },
+ "T2_six_f25_s47": {
+  "historical_ckpt": "artifacts/f095_campaign/U10/T2_six_s47/f25/model.pt",
+  "bit_exact": true
+ },
+ "T2_typed_o_clean_s11": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s11/clean/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_clean_s23": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s23/clean/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_clean_s47": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s47/clean/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_flip_s11": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s11/flip/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_flip_s23": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s23/flip/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_flip_s47": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s47/flip/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_f25_s11": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s11/f25/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_f25_s23": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s23/f25/model.pt",
+  "bit_exact": false
+ },
+ "T2_typed_o_f25_s47": {
+  "historical_ckpt": "artifacts/e1a933_review/data_u10/T2_typed_s47/f25/model.pt",
+  "bit_exact": false
+ }
+}

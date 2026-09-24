@@ -1,0 +1,28 @@
+{
+ "why": "The main train+eval batch was launched before two CLI/provenance-only edits to o02_budget_match.py; the 2-thread replicate ran with the later revision. This note records both source hashes and the verification that the training numerics did not change.",
+ "main_batch": {
+  "train_stage_script_sha256": "56ecc64df02beaabc9dc7e9c5f4ad6f763decf7fd106dacc4af5fe1aabffa046",
+  "eval_stage_script_sha256": "56ecc64df02beaabc9dc7e9c5f4ad6f763decf7fd106dacc4af5fe1aabffa046",
+  "note": "both the train and the eval stage of the main batch ran with revision 56ecc64d (see train_provenance.json and eval_provenance.json); the 2-thread replicate under data_u10_o02_numorder2 ran with revision 509abeb5",
+  "torch_threads": 4,
+  "thread_env": "OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4",
+  "command": "OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4 python3 experiments/e1a933_review/o02_budget_match.py --stage train ; ... --stage eval"
+ },
+ "current_script_sha256": "509abeb5d1a817737cf27046af8d5f25de3f5530b78fbd354f842898e7b5f1ac",
+ "delta_between_revisions": [
+  "argparse: added --grid {full,hist} and --threads (default 4) and torch.set_num_threads(a.threads) in main",
+  "train loop iterates the selected grid list instead of the GRID constant (identical for --grid full)",
+  "provenance fields: torch_threads added; eval provenance gained torch_threads",
+  "eval stage: recipe-selection and best-recipe blocks are skipped when the grid arms are absent (needed for --grid hist)",
+  "no change to featurization, model construction, optimizer, loss, data order, seeds, checkpoint saving or metrics"
+ ],
+ "verification": {
+  "method": "retrained 3 arms with the current revision at 4 threads and compared state_dict bytes with the stored main-batch checkpoints",
+  "arms": [
+   "T1_typed_m_lr003_s3000_flip_s11",
+   "T2_raw_lr01_s3000_clean_s23",
+   "T1_six_lr001_s300_flip_s47"
+  ],
+  "bit_exact": true
+ }
+}

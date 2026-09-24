@@ -1,0 +1,25 @@
+{
+  "task_id": "vlm-272requests-20260924",
+  "cwd": "/root/autodl-tmp/e1a933/gpu_finish_20260924",
+  "output_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/vlm_results",
+  "archive": "/root/autodl-tmp/e1a933/gpu_finish_20260924/vlm_results.tar.gz",
+  "receipt_status": "MATRIX_COMPLETE",
+  "expected_count": 272,
+  "gpu_lock": "/root/autodl-tmp/e1a933/gpu_finish_20260924/gpu.lock",
+  "argv": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vlm_venv/bin/python",
+    "-u",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vlm_bundle_v2/vlm_native.py",
+    "--data",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vlm_bundle_v2/data",
+    "--model-path",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/hf_cache/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "--out",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vlm_results"
+  ],
+  "env": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false"
+  }
+}

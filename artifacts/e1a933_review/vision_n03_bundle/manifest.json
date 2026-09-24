@@ -1,0 +1,24 @@
+{
+  "matrix": "3 seeds x geometry/generic bottleneck = 6 runs",
+  "epochs": 20,
+  "batch": 32,
+  "precision": "FP32",
+  "uses_existing_base_bundle_data_cache": true,
+  "files": [
+    {
+      "path": "vision_cuda_protocol.py",
+      "bytes": 12641,
+      "sha256": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976"
+    },
+    {
+      "path": "vision_n03_protocol.py",
+      "bytes": 9009,
+      "sha256": "a441e5d6e03b215ecab228086de4dbfefbc073d0876a1c4233ec2ac1a56720df"
+    },
+    {
+      "path": "vision_n03_run.py",
+      "bytes": 4396,
+      "sha256": "36b9c8449f1a55aa9325df352c3a0d39ff2e44f94d12492656cddc152d0dcf22"
+    }
+  ]
+}

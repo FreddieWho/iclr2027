@@ -130,7 +130,13 @@ def featurize(task, arch, Xarr, stats):
 def fit_stats(task, arch, Xtr):
     if arch == "typed":
         F = np.asarray(Xtr, np.float32).reshape(len(Xtr), -1)
-        return F.mean(0), F.std(0) + 1e-8, "scalar8"
+        P = F.reshape(-1, TASKS[task]["npts"], 2)
+        shared = P[:, :-1, :]
+        mu = np.concatenate([np.tile(shared.mean(axis=(0, 1)), P.shape[1] - 1),
+                             P[:, -1, :].mean(0)])
+        sd = np.concatenate([np.tile(shared.std(axis=(0, 1)), P.shape[1] - 1),
+                             P[:, -1, :].std(0)]) + 1e-8
+        return mu, sd, "role_shared_xy_v2"
     if arch == "six":
         F = six_features(Xtr, TASKS[task]["npts"])
         return F.mean(0), F.std(0) + 1e-8, "six"

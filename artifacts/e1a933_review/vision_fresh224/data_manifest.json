@@ -1,0 +1,26 @@
+{
+  "train": {
+    "seed": 941001,
+    "parent_count": 512,
+    "image_count": 2126,
+    "images_sha256": "2ae21eec5168f64c22a7309ea86c07c8f0c20da085262a1fa081dfb7c5785d8f",
+    "coords_sha256": "e9e35b53c01fefc2a58d809399d2474f648ffe7b6807057aa67d613d82f0485f"
+  },
+  "dev": {
+    "seed": 941002,
+    "parent_count": 128,
+    "image_count": 532,
+    "images_sha256": "1194c675faec2fa232990a7edd37656471d76a5981cf79f6b89bf4c3c0fd9732",
+    "coords_sha256": "a0e3517dd369cdc55ead0835fc38b8a02606fb2e253fcb1172a809fcd0de3f31"
+  },
+  "test": {
+    "seed": 941003,
+    "parent_count": 128,
+    "image_count": 528,
+    "images_sha256": "d6bb7d967b6c618845db4ea77bc5fcf376dfb67b45cdb18fd62113dc85cb9559",
+    "coords_sha256": "64d0b28ab6e8b04e546061d5e567a4fc47eaa6636af5ab0101bdb6f92366d091"
+  },
+  "split_contract": "physical parents independently generated before images/edits; color-preserving endpoint canonical parent hashes disjoint",
+  "quartet_n": 29,
+  "quartet_parent_n": 17
+}

@@ -1,0 +1,13 @@
+{
+  "arm": "raw",
+  "seed": 71,
+  "J": 0.5,
+  "J_min": 0.0,
+  "J_max": 0.5,
+  "J_swing": 0.5,
+  "pred_flip_frac": 0.5,
+  "final_loss": 0.006310211960226297,
+  "seconds": 0.9780831336975098,
+  "n": 2,
+  "n_parents": 2
+}

@@ -1,0 +1,145 @@
+{
+  "files": [
+    {
+      "actual_sha256": "48e77eb33e4f92a28ec796b363ff0211e37370938d8d33fcd40b69ad7cc0cf20",
+      "expected_sha256": "48e77eb33e4f92a28ec796b363ff0211e37370938d8d33fcd40b69ad7cc0cf20",
+      "local_path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected/receipt.json",
+      "ok": true,
+      "remote_path": "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results/receipt.json"
+    },
+    {
+      "actual_sha256": "2ed96e91dce146a1302bd390bf81b461759318d3a5dcd3ebf26a4b53c42d0e12",
+      "expected_sha256": "2ed96e91dce146a1302bd390bf81b461759318d3a5dcd3ebf26a4b53c42d0e12",
+      "local_path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected/ARTIFACT_MANIFEST.json",
+      "ok": true,
+      "remote_path": "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results/ARTIFACT_MANIFEST.json"
+    },
+    {
+      "actual_sha256": "9baa20b136a8ec6e864211791ba9e79466a9eea95239d7ce3cf0fc013d84301c",
+      "expected_sha256": "9baa20b136a8ec6e864211791ba9e79466a9eea95239d7ce3cf0fc013d84301c",
+      "local_path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected/n03_results.tar.gz",
+      "ok": true,
+      "remote_path": "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results.tar.gz"
+    }
+  ],
+  "manifest_download": {
+    "command": [
+      "scp",
+      "-o",
+      "Port=30891",
+      "-o",
+      "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+      "-o",
+      "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+      "-o",
+      "StrictHostKeyChecking=yes",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=20",
+      "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/gpu_finish_20260924/jobs/n03-6arms-20260924/results/sha256sums.txt",
+      "/tmp/lan-ssh-collect-lo50n1j4/sha256sums.txt"
+    ],
+    "executed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "operation": "collect",
+  "ready": {
+    "command": [
+      "ssh",
+      "-o",
+      "Port=30891",
+      "-o",
+      "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+      "-o",
+      "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+      "-o",
+      "StrictHostKeyChecking=yes",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=20",
+      "root@connect.nmb2.seetacloud.com",
+      "test -f /root/autodl-tmp/e1a933/gpu_finish_20260924/jobs/n03-6arms-20260924/succeeded_at_utc.txt && test -f /root/autodl-tmp/e1a933/gpu_finish_20260924/jobs/n03-6arms-20260924/results/sha256sums.txt"
+    ],
+    "executed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "status": "SUCCEEDED",
+  "task_id": "n03-6arms-20260924",
+  "transfers": [
+    {
+      "command": [
+        "scp",
+        "-o",
+        "Port=30891",
+        "-o",
+        "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+        "-o",
+        "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=20",
+        "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results/receipt.json",
+        "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected/receipt.json"
+      ],
+      "executed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "scp",
+        "-o",
+        "Port=30891",
+        "-o",
+        "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+        "-o",
+        "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=20",
+        "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results/ARTIFACT_MANIFEST.json",
+        "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected/ARTIFACT_MANIFEST.json"
+      ],
+      "executed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "scp",
+        "-o",
+        "Port=30891",
+        "-o",
+        "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+        "-o",
+        "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=20",
+        "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results.tar.gz",
+        "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected/n03_results.tar.gz"
+      ],
+      "executed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ]
+}

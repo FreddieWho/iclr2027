@@ -1,0 +1,21 @@
+{
+ "command": [
+  "experiments/e1a933_review/o02_budget_match.py",
+  "--stage",
+  "all",
+  "--grid",
+  "hist",
+  "--threads",
+  "2",
+  "--out-dir",
+  "artifacts/e1a933_review/data_u10_o02_numorder2"
+ ],
+ "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+ "source_sha256": {
+  "experiments/e1a933_review/o02_budget_match.py": "509abeb5d1a817737cf27046af8d5f25de3f5530b78fbd354f842898e7b5f1ac"
+ },
+ "eval_pool": "artifacts/p123_upgrade/bank/bank_u10{T}.npz (frozen E-quartets)",
+ "torch_threads": 2,
+ "states": "start(P) + A + B + AB; labels yA=yB=y0, yAB=1-y0",
+ "bootstrap": "parent-cluster, 2000 resamples, quartet-weighted, seed 933"
+}

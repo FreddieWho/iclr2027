@@ -1,131 +1,127 @@
 #!/usr/bin/env python3
-"""D06 role feasibility on real pass events (read-only analysis, no training).
+"""Role/time-audited football geometry. E means yA=yB=y0 and yAB!=y0.
 
-For Play:Pass events with a recipient: take the nearest frame (same game
-section), read p=passer / r=recipient / D=opponent positions, compute the
-geometric channel margin (radius/end_excl from scene scale). Then test
-paired-edit feasibility: random small displacements (<= motion cap from
-the D06 probe p99) of r or the nearest defender that KEEP vs FLIP the
-channel state. Reports the E-constructible rate: the fraction of real
-passes admitting a paired keep+flip edit pair. No training, no labels
-beyond geometry; natural outcome column is reported, never used as oracle.
+Historical D06 files remain immutable. Their `paired` counted existence of
+single keep and flip, named supported_single_keep_and_flip in new receipts.
+The oracle is AND_d(not blocked_d). Moving different blockers independently
+cannot make open -> blocked when each single edit preserves open. A receiver
+endpoint and a constraining defender can interact through the same distance.
 """
-import argparse
-import json
-import sys
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
-
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "experiments" / "f095_campaign"))
-from d06_oracle import channel_label  # noqa: E402
-
-EV = ROOT / "artifacts/data_v2/idsse/canonical/events"
-FR = ROOT / "artifacts/data_v2/idsse/canonical/frames"
-OUT = ROOT / "artifacts" / "f095_campaign" / "D06"
+from d06_oracle import channel_label,point_segment_dist
 
 
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--match", default="J03WOY")
-    p.add_argument("--radius", type=float, default=0.5)
-    p.add_argument("--end-excl", type=float, default=1.0)
-    p.add_argument("--cap", type=float, default=0.15)
-    p.add_argument("--tries", type=int, default=60)
-    p.add_argument("--seed", type=int, default=0)
-    a = p.parse_args()
-    rng = np.random.default_rng(a.seed)
-    ev = pd.read_parquet(EV / f"{a.match}.parquet")
-    fr = pd.read_parquet(FR / f"{a.match}.parquet")
-    passes = ev[(ev["event_type"] == "Play:Pass") & ev["recipient_id"].notna()]
-    fr = fr.sort_values("timestamp_ms").reset_index(drop=True)
-    frame_times = fr["timestamp_ms"].to_numpy()
-    rec = {"match": a.match, "n_pass": len(passes), "used": 0, "no_frame": 0,
-           "no_person": 0, "margins": [], "paired": 0, "keep_only": 0,
-           "flip_only": 0, "neither": 0,
-           "outcome_of_used": {"successfullyCompleted": 0, "unsuccessful": 0}}
-    for _, e in passes.iterrows():
-        j = int(np.argmin(np.abs(frame_times - e["timestamp_ms"])))
-        if abs(float(frame_times[j]) - float(e["timestamp_ms"])) > 500:
-            rec["no_frame"] += 1
-            continue
-        t = float(e["timestamp_ms"])
-        dt = np.abs(fr["timestamp_ms"].to_numpy() - t)
-        if dt.min() > 500:
-            rec["no_frame"] += 1
-            continue
-        rows = fr[dt == dt.min()]
-        by_pid = {r["person_id"]: (float(r["x"]), float(r["y"]), str(r["team_id"]))
-                  for _, r in rows.iterrows()}
-        if e["player_id"] not in by_pid or e["recipient_id"] not in by_pid:
-            rec["no_person"] += 1
-            continue
-        px, py, pteam = by_pid[e["player_id"]]
-        rx, ry, _ = by_pid[e["recipient_id"]]
-        opp = np.array([[x, y] for _, (x, y, t_) in by_pid.items() if t_ != pteam])
-        if len(opp) == 0:
-            rec["no_person"] += 1
-            continue
-        base = channel_label([px, py], [rx, ry], opp, a.radius, a.end_excl)
-        rec["used"] += 1
-        rec["margins"].append(base["margin"] if np.isfinite(base["margin"]) else 99.0)
-        rec["outcome_of_used"][e["outcome"]] = rec["outcome_of_used"].get(e["outcome"], 0) + 1
-        keep = flip = False
-        base_lab = base["label"]
-        cands = [("r", np.array([rx, ry]))] + \
-                [("d", o) for o in opp[:6]]
-        for kind, pos in cands:
-            for _ in range(a.tries // len(cands)):
-                v = rng.normal(size=2)
-                v *= a.cap * rng.random() / (np.linalg.norm(v) + 1e-9)
-                if kind == "r":
-                    lab = channel_label([px, py], pos + v, opp, a.radius, a.end_excl)["label"]
-                else:
-                    oo = opp.copy()
-                    oo[np.argmin(np.linalg.norm(opp - pos, axis=1))] = pos + v
-                    lab = channel_label([px, py], [rx, ry], oo, a.radius, a.end_excl)["label"]
-                if lab == base_lab:
-                    keep = True
-                else:
-                    flip = True
-                if keep and flip:
-                    break
-            if keep and flip:
-                break
-        rec["paired"] += keep and flip
-        rec["keep_only"] += keep and not flip
-        rec["flip_only"] += flip and not keep
-        rec["neither"] += (not keep) and (not flip)
-        rec.setdefault("event_rows", []).append({
-            "outcome": e["outcome"],
-            "margin": base["margin"] if np.isfinite(base["margin"]) else 99.0,
-            "paired": int(keep and flip),
-        })
-    m = np.array(rec["margins"])
-    rec["margin_median"] = round(float(np.median(m)), 4) if len(m) else None
-    rec["margin_frac_open"] = round(float(np.mean(m >= 0)), 4) if len(m) else None
-    rec["paired_rate"] = round(rec["paired"] / rec["used"], 4) if rec["used"] else None
-    per = pd.DataFrame(rec.pop("event_rows"))
-    per.to_csv(OUT / f"D06_ROLES_{a.match}_events.csv", index=False)
-    strat = per.groupby("outcome").agg(n=("paired", "size"),
-                                         paired_rate=("paired", "mean"),
-                                         margin_med=("margin", "median"))
-    rec["by_outcome"] = {k: {"n": int(v["n"]),
-                               "paired_rate": round(float(v["paired_rate"]), 4),
-                               "margin_med": round(float(v["margin_med"]), 4)}
-                            for k, v in strat.iterrows()}
-    narrow = per[per["margin"] < 1.0]
-    rec["contested"] = {"n": int(len(narrow)),
-                          "paired_rate": round(float(narrow["paired"].mean()), 4)
-                          if len(narrow) else None}
-    del rec["margins"]
-    OUT.mkdir(parents=True, exist_ok=True)
-    with open(OUT / f"D06_ROLES_{a.match}.json", "w") as f:
-        json.dump(rec, f, indent=1)
-    print(json.dumps(rec, indent=1))
+def select_frame(frames,match,period,timestamp_ms,max_gap_ms=500):
+    """Exactly one match/period/time. Earlier frame wins equidistant ties."""
+    subset=frames[(frames.source_match_id==match)&(frames.game_section==period)]
+    if subset.empty:raise ValueError('no_frame_in_period')
+    times=np.sort(subset.timestamp_ms.unique());distance=np.abs(times-timestamp_ms)
+    t=times[np.flatnonzero(distance==distance.min())[0]]
+    if abs(t-timestamp_ms)>max_gap_ms:raise ValueError('no_frame_within_tolerance')
+    rows=subset[subset.timestamp_ms==t].copy()
+    if rows.person_id.duplicated().any():raise ValueError('duplicate_person_frame')
+    return rows
 
 
-if __name__ == "__main__":
-    main()
+def audit_roles(rows,passer,recipient,event_team):
+    nonplayers=int((rows.entity_type!='player').sum())
+    players=rows[rows.entity_type=='player'].copy()
+    invalid=players[['x','y']].isna().any(axis=1)|players.team_id.isna()|players.person_id.isna()
+    if invalid.any():raise ValueError('missing_player_coordinates_or_identity')
+    by=players.set_index('person_id')
+    if passer not in by.index or recipient not in by.index:raise ValueError('missing_endpoint_player')
+    if by.loc[passer,'team_id']!=by.loc[recipient,'team_id']:raise ValueError('recipient_wrong_team')
+    if by.loc[passer,'team_id']!=event_team:raise ValueError('event_team_mismatch')
+    if len(players.team_id.unique())!=2:raise ValueError('not_two_teams')
+    defenders=players[players.team_id!=event_team]
+    if len(defenders)!=11:raise ValueError('incomplete_opponent_team')
+    p=by.loc[passer,['x','y']].to_numpy(float)
+    r=by.loc[recipient,['x','y']].to_numpy(float)
+    D=defenders[['x','y']].to_numpy(float)
+    return p,r,D,defenders.person_id.tolist(),nonplayers
+
+
+def motion_cap(frames,horizon_seconds=.2):
+    """Identity/period-linked finite differences; gaps over 120ms are broken."""
+    d=frames[frames.entity_type=='player'].sort_values(['source_match_id','game_section','person_id','timestamp_ms'])
+    g=d.groupby(['source_match_id','game_section','person_id'],sort=False)
+    dt=g.timestamp_ms.diff()/1000;dx=g.x.diff();dy=g.y.diff()
+    valid=dt.gt(0)&dt.le(.12)&np.isfinite(dx)&np.isfinite(dy)
+    vx=(dx/dt).where(valid);vy=(dy/dt).where(valid)
+    speed=np.hypot(vx,vy)
+    tmp=d[['source_match_id','game_section','person_id']].copy();tmp['vx']=vx;tmp['vy']=vy
+    gg=tmp.groupby(['source_match_id','game_section','person_id'],sort=False)
+    acceleration=np.hypot(gg.vx.diff()/dt,gg.vy.diff()/dt).where(valid)
+    vs=speed.dropna().to_numpy();aa=acceleration.dropna().to_numpy()
+    v95=float(np.quantile(vs,.95));a95=float(np.quantile(aa,.95))
+    cap=v95*horizon_seconds+.5*a95*horizon_seconds**2
+    return cap,{'horizon_seconds':horizon_seconds,'consecutive_dt_seconds_max':.12,
+                'valid_velocity_pairs':len(vs),'valid_acceleration_triples':len(aa),
+                'speed_p95_m_s':v95,'acceleration_p95_m_s2':a95,'cap_m':cap,
+                'invalid_or_gap_pair_count':int((~valid).sum()),
+                'interpretation':'empirical displacement envelope, not joint dynamic feasibility proof'}
+
+
+def labels_batch(p,receivers,defenders,radius=.5,end_excl=1.):
+    r=np.asarray(receivers);D=np.asarray(defenders);p=np.asarray(p)
+    v=r-p;den=(v*v).sum(1);t=np.clip(((D-p)*v[:,None,:]).sum(2)/np.maximum(den[:,None],1e-12),0,1)
+    dist=np.linalg.norm(D-(p+v[:,None,:]*t[:,:,None]),axis=2)
+    valid=(np.linalg.norm(D-p,axis=2)>end_excl)&(np.linalg.norm(D-r[:,None,:],axis=2)>end_excl)
+    return (~((dist<radius)&valid).any(1)).astype(int)
+
+
+def quartet_search(p,r,D,cap,rng,radius=.5,end_excl=1.,random_tries=128):
+    """Bounded model-blind endpoint/blocker edits; guided boundary + random control."""
+    p,r,D=map(lambda a:np.asarray(a,float),(p,r,D))
+    active=(np.linalg.norm(D-p,axis=1)>end_excl)&(np.linalg.norm(D-r,axis=1)>end_excl)
+    if not active.any():return {'eligible':False,'reason':'no_interior_defender'}
+    distances=np.array([point_segment_dist(z,p,r) for z in D]);distances[~active]=np.inf
+    k=int(distances.argmin());v=r-p;t=float(np.clip((D[k]-p)@v/(v@v),0,1));q=p+t*v
+    normal=(D[k]-q)/(np.linalg.norm(D[k]-q)+1e-12)
+    base=channel_label(p,r,D,radius,end_excl)['label'];sign=1 if base else -1
+    ar=[];bd=[]
+    # Fixed, finite cap fractions; no model feedback and no cap enlargement.
+    for a in [.05,.1,.2,.35,.5,.7,1.]:
+      for b in [.05,.1,.2,.35,.5,.7,1.]:ar.append(sign*normal*cap*a);bd.append(-sign*normal*cap*b)
+    guided_n=len(ar)
+    for _ in range(random_tries):
+      a=rng.normal(size=2);b=rng.normal(size=2)
+      ar.append(a/(np.linalg.norm(a)+1e-12)*cap*rng.random());bd.append(b/(np.linalg.norm(b)+1e-12)*cap*rng.random())
+    ar=np.array(ar);bd=np.array(bd);n=len(ar)
+    RR=r+ar;DD=np.broadcast_to(D,(n,*D.shape)).copy();DD[:,k]+=bd
+    legal=(np.abs(RR[:,0])<=52.5)&(np.abs(RR[:,1])<=34)&(np.abs(DD[:,k,0])<=52.5)&(np.abs(DD[:,k,1])<=34)
+    A=labels_batch(p,RR,np.broadcast_to(D,(n,*D.shape)),radius,end_excl)
+    B=labels_batch(p,np.broadcast_to(r,(n,2)),DD,radius,end_excl)
+    AB=labels_batch(p,RR,DD,radius,end_excl)
+    E=legal&(A==base)&(B==base)&(AB!=base)
+    result={'eligible':True,'base_label':int(base),'defender_index':k,'projection_fraction':t,
+            'guided_E':bool(E[:guided_n].any()),'random_E':bool(E[guided_n:].any()),'E_found':bool(E.any()),
+            'guided_trials':guided_n,'random_trials':random_tries,
+            'supported_single_keep_and_flip':bool(np.any((A==base)&legal)&np.any((A!=base)&legal)),
+            'single_keep_pairs':int((legal&(A==base)&(B==base)).sum()),'E_pairs':int(E.sum()),'legal_pairs':int(legal.sum())}
+    if E.any():
+      i=int(np.flatnonzero(E)[0]);lo,hi=0.,1.
+      # Refine a witnessed combined boundary while never expanding either cap.
+      for _ in range(24):
+        mid=(lo+hi)/2;dd=D.copy();dd[k]+=mid*bd[i]
+        if channel_label(p,r+mid*ar[i],dd,radius,end_excl)['label']==base:lo=mid
+        else:hi=mid
+      scale=min(1.,hi+1e-6);dd=D.copy();dd[k]+=scale*bd[i]
+      check=[channel_label(p,a,b,radius,end_excl)['label'] for a,b in
+             [(r,D),(r+scale*ar[i],D),(r,dd),(r+scale*ar[i],dd)]]
+      if check[0]==check[1]==check[2] and check[3]!=check[0]:
+        da,db=scale*ar[i],scale*bd[i];refined=True
+      else:
+        da,db=ar[i],bd[i];check=[int(base),int(A[i]),int(B[i]),int(AB[i])];refined=False
+      result['witness']={'receiver_delta':da.tolist(),'defender_delta':db.tolist(),
+          'labels_0_A_B_AB':check,'method':'guided' if i<guided_n else 'random',
+          'boundary_bisection_steps':24,'boundary_refined':refined}
+
+    return result
+
+
+if __name__=='__main__':
+    import runpy
+    from pathlib import Path
+    runpy.run_path(str(Path(__file__).resolve().parents[1]/'e1a933_review/football_repair.py'),run_name='__main__')

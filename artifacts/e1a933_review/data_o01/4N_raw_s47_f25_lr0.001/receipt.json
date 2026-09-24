@@ -1,0 +1,21 @@
+{
+  "name": "4N_raw_s47_f25_lr0.001",
+  "size": "4N",
+  "arch": "raw",
+  "seed": 47,
+  "frac": 25,
+  "lr": 0.001,
+  "dev_bce": 0.5680718421936035,
+  "train_error": 0.0634765625,
+  "final_loss": 0.2710762619972229,
+  "steps": 300,
+  "init_sha256": "67618814a1353128eaee8389ebe001e129a8b8759ef72b884c96950d7eac6197",
+  "checkpoint_sha256": "2582b3ae8a50df25c4f3466423fbfdfca136c34bead1615909cb8373c6baa05c",
+  "train_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+  "flip_sha256": "3d41204b1e9c664522378aa87f6359809137464d8693f339bb080d14d9c77140",
+  "batch_order": "full static then full fixed subset each step",
+  "subset_sha256": "39ab3279dbf5ea458e711b8146322771983f4d69a38e62ea3987416407344496",
+  "oracle_candidate_queries": 587320,
+  "retained_flip_labels": 1597,
+  "training_state_forwards": 1093500
+}

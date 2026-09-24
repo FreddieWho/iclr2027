@@ -1,0 +1,8 @@
+{
+  "prereg_sha256": "30b0cd5fd97514fe1e7e8eefd5c95b526c747f62c91c9a29c346a956009e069a",
+  "written_utc": "2026-09-24T11:50:36+00:00",
+  "written_epoch": 1790250636.1149147,
+  "payload_sha256": "52199f0bcdaf75c6c468731e1ce732c78a6ceb7c0a1c1c6b89d350a4b1e4f990",
+  "script_sha256": "dca0335d237b104f503d980990617268c729cbbc271f43da231dd4400cdd720f",
+  "note": "seal of the preregistration file bytes; results must be written after this"
+}

@@ -1,0 +1,23 @@
+{
+  "task_id": "n03-6arms-20260924",
+  "cwd": "/root/autodl-tmp/e1a933/gpu_finish_20260924",
+  "output_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results",
+  "archive": "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results.tar.gz",
+  "receipt_status": "MATRIX_COMPLETE",
+  "expected_count": 6,
+  "required_files": [
+    "paired_analysis.json"
+  ],
+  "gpu_lock": "/root/autodl-tmp/e1a933/gpu_finish_20260924/gpu.lock",
+  "argv": [
+    "/root/miniconda3/bin/python",
+    "-u",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/vision_n03_bundle/vision_n03_run.py",
+    "--base-bundle",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle",
+    "--baseline-root",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix",
+    "--out",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/n03_results"
+  ]
+}

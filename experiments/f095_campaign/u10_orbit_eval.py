@@ -3,8 +3,9 @@
 
 T1 group = S3 vertex permutations (Q fixed, 6 elements).
 T2 group = {id, A<->B} (center fixed, 2 elements).
-Orbit-averaged logits -> J. Typed arms are exactly invariant, so their
-orbit J must equal identity J (built-in consistency check).
+Orbit-averaged logits -> J. Legacy typed checkpoints use indexwise moments
+and are NOT strictly invariant. Corrected end-to-end assertions and retraining
+are in experiments/e1a933_review/data_u10.py; do not infer invariance from J.
 Also: U02 sixdist clean/flipmine on bank_dev512 with the G8 group (D02
 protocol), completing the sixdist orbit story.
 """

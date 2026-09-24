@@ -1,0 +1,12 @@
+{
+  "python": "3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]",
+  "platform": "Linux-5.15.0-134-generic-x86_64-with-glibc2.31",
+  "torch": "2.11.0+cu130",
+  "torchvision": "0.26.0+cpu",
+  "numpy": "1.26.4",
+  "threads_per_run": 2,
+  "maximum_simultaneous_runs": 2,
+  "checkpoint_count": 12,
+  "total_forward_images": 24576,
+  "total_measured_forward_seconds": 336.8011339008808
+}

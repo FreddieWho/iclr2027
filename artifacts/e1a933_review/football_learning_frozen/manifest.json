@@ -1,0 +1,57 @@
+{
+  "status": "FROZEN",
+  "counts": {
+    "J03WOY": {
+      "split": "train",
+      "candidate_groups": 574,
+      "natural_snapshots": 6314,
+      "controlled_E_quartets": 254,
+      "skipped_windows": {}
+    },
+    "J03WMX": {
+      "split": "dev",
+      "candidate_groups": 621,
+      "natural_snapshots": 6831,
+      "controlled_E_quartets": 282,
+      "skipped_windows": {}
+    },
+    "J03WN1": {
+      "split": "test",
+      "candidate_groups": 254,
+      "natural_snapshots": 2794,
+      "controlled_E_quartets": 134,
+      "skipped_windows": {}
+    }
+  },
+  "input_sha256": "d16197778e8d7e2d8a1fba7a87ab432b52735c943500c30e915917cbbeb9096e",
+  "data_sha256": "8aff33373a42119fe2f0c944aa3e791476d9c3c5e1970106f6916f2d88022531",
+  "split": "J03WOY train / J03WMX dev / J03WN1 test; 3 matches only",
+  "history": "2 seconds natural trajectories, snapshots each .2s; every native .04s identity checked within each .4s history; no cross-period/gap fill",
+  "mask": "receiver plus defender closest to channel in last-observed frame; selected using past coordinates only; no arbitrary Gaussian noise",
+  "features": "13 nodes [passer,receiver,11defenders] x [x/52.5,y/52.5,vx/10,vy/10,mask]; hidden positions from t-.2, velocity from t-.4 to t-.2",
+  "change": "train only witnessed A/B/AB edits applied as same offset to every history frame, preserving observability; static repeats matched base rows to same sample count",
+  "configs": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "encoders": [
+      "raw",
+      "typed"
+    ],
+    "augment": [
+      "static",
+      "change"
+    ],
+    "epochs": 300,
+    "batch": 512,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "checkpoint": "lowest dev BCE every10epochs; dev has natural snapshots only",
+    "threshold": 0.0,
+    "cpu_threads": 4
+  },
+  "scope": "controlled causal partial-observation stress test with real natural trajectories; not native missingness learning or pass success",
+  "estimated_gpu_memory": "<2GB; batch512 small networks; must measure"
+}

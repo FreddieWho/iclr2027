@@ -1,0 +1,20 @@
+item,audit_status,completed_evidence,remaining_or_boundary,source_report
+R01,CORE_COMPLETE,四臂逐parent交互、方向分层及T2负I修正已交付,不得把已做分层扩大成所有难度/天花板解释均被排除,U10_CLAIM_CORRECTION.md
+R02,COMPLETE_BOUNDED,18 typed重训、端到端对称测试、D02 raw/groupavg区分,该配方结论；完全参数匹配属O02欠项,R_FIXES_REPORT.md
+R03,PARTIAL_REQUIRED,96模型×3bank；81 manifest验证、15历史来源推断；新pool排除祖先,历史augmentation逐状态exact/near重复穷尽核对及完整来源证据仍缺,R03_LINEAGE_REPORT.md
+R04,CORE_COMPLETE,起点置信修复、72行敏感性和逐样本分母,训练时顺序干预未做；不能由端点顺序近似推断训练无影响,R04_CONFIDENCE_REPORT.md
+R05,COMPLETE_BOUNDED,512真实parent观察审计、整体合法置换匹配及独立RNG修复,仅本renderer/合法群，不能泛化为所有几何监督,AUX_OBSERVABILITY_AUDIT.md
+R06,CORE_COMPLETE,BN冻结检查、全seed尺度/初始化与static对照；GPU全矩阵齐备,N02新48臂解读与旧报告更新还未交付,VISION_FACTORIAL_CORRECTED.md
+R07,COMPLETE_BOUNDED,30臂同起点续训及未见原子回归；旧loss因果解释已撤回,不替代O01全剂量训练路径因子；不宣布U05机制已关闭,CONTINUATION_FAIR_COMPARISON.md
+R08,CORE_COMPLETE_SCOPE_LIMITED,三场真实E搜索、角色/时间/变量/cap核验；670/1449 witness,搜索可构率不是自然E发生率；施工卡要求的自然E率未见独立完成证据,FOOTBALL_E_FEASIBILITY_V2.md
+R09,PARTIAL_REQUIRED,PAVA及全candidate断点已修，3编码×3seed策略已复算,只在oracle-feasible场景子集报告；全256scene无oracle筛选的部署估计NOT_RUN,DECISION_FRONTIER_V2.md
+R10,PARTIAL_DELIVERY,旧过强结论已收窄，O03/N01/N03/O05/O06已入稿，PDF/hash匹配,N02新结果未入稿；多份总报告仍RUNNING/NOT_RUN；最终图表来源与总状态未统一,PAPER_PATCH_AUDIT.md
+O01,PARTIAL_REQUIRED,108 scratch候选、36dev选择格、150同池模型评估、三账本,scratch/warm-start配方因子未在同一新pool完整闭环；R07不能替代全部剂量/规模格；额外稳健优化配方未执行,O01_DATA_OPTIMIZATION_REPORT.md
+O02,PARTIAL_REQUIRED,typed修复和18重训；四臂同池/方向分层,施工卡明确必要的参数/优化预算匹配对照未完成；难度/手性任务是可选而非必欠,U10_CLAIM_CORRECTION.md
+O03,COMPLETE_BOUNDED,3seed×4主视觉臂及逐parent配对、修复/迁移/退化结果齐备,static与flip总步数相同但逐parent曝光分布不同，只解释regimen效应,VISION_GPU_RESULTS.md
+O04,PARTIAL_REQUIRED,12 encoder/72选定heads；144凸候选；train-only跨parent ranking已做,新任务/新模型预先指定段落干预预测及验证未做；D10下游回声未做；不要求无限head搜索,O04_READOUT_REPORT.md
+O05,COMPLETE_BOUNDED,三场分离、12学习臂、2794test自然快照/134 E、因果遮挡/解析基线与时间误报,人工有定义遮挡满足允许分支；自然缺测机制未测属于边界，不能因此认定整项未执行,O05_LEARNED_PARTIAL_TRACKING_GPU.md
+O06,COMPLETE_BOUNDED_OPTIONAL,固定原生VLM272独立请求、全部原文/解析/拒答记录与sanity,本为可选桥且已执行；原子能力不足不是施工未完成，也不能判所有VLM失败,O06_NATIVE_VLM_GPU.md
+N01,CORE_COMPLETE_DIAGNOSTIC_UNVERIFIED,完整matched/ordered/shuffle/BCE三seed；条件方差前提及aux误差/主修复已交付,施工卡列出的新增P1分析未在当前专报/运行入口找到独立完成证据；标记端点阳性诊断是可选,N01_OBSERVABILITY_REPORT.md
+N02,COMPUTE_COMPLETE_DELIVERY_PENDING,48/48训练及178quartet/85parent预测、配对和结构预测JSON已回收校验,独立解释/观测与结构主图/最终专报未更新；当前专报仍是12checkpoint旧诊断；论文未纳入48臂,N02_SAMPLING_ACCESS_REPORT.md
+N03,COMPLETE_BOUNDED,6臂、经典像素基线、同head真几何替换和噪声敏感性均已交付,机制未获可靠支持也是完成的结果；条件未满足不需强行向足球迁移,N03_DECISION_BOTTLENECK_REPORT.md

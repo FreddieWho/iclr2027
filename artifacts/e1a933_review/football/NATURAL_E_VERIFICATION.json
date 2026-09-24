@@ -1,0 +1,79 @@
+{
+  "primary_cell": {
+    "window_seconds": 0.2,
+    "cap_rule": "contract",
+    "direction": "forward"
+  },
+  "pair_rows": 7117,
+  "pair_row_counts": {
+    "J03WOY": {
+      "pairs": 2821,
+      "E_pairs": 5,
+      "single_keep_pairs": 2630,
+      "1111": 2388,
+      "0000": 237,
+      "0010": 25,
+      "0011": 31,
+      "1100": 46,
+      "1000": 9,
+      "1011": 19,
+      "1101": 18,
+      "0100": 22,
+      "0001": 4,
+      "0110": 4,
+      "0101": 7,
+      "1010": 10,
+      "1110": 1
+    },
+    "J03WMX": {
+      "pairs": 3053,
+      "E_pairs": 1,
+      "single_keep_pairs": 2788,
+      "1111": 2523,
+      "0000": 264,
+      "0011": 100,
+      "1101": 23,
+      "1100": 65,
+      "1011": 20,
+      "0010": 17,
+      "0100": 29,
+      "0101": 9,
+      "1110": 1,
+      "0110": 2
+    },
+    "J03WN1": {
+      "pairs": 1243,
+      "E_pairs": 4,
+      "single_keep_pairs": 1067,
+      "1111": 906,
+      "1100": 52,
+      "0000": 157,
+      "0100": 15,
+      "1011": 15,
+      "0011": 38,
+      "1101": 16,
+      "0010": 20,
+      "0110": 1,
+      "0001": 4,
+      "0111": 17,
+      "0101": 1,
+      "1000": 1
+    }
+  },
+  "scalar_oracle_witness_recheck": {
+    "pairs": 7117,
+    "E_pairs": 10,
+    "single_keep_pairs": 6485,
+    "witnesses_checked": 10
+  },
+  "invalid_situation_ids": [],
+  "pair_rows_match_reported": true,
+  "full_truth_table_matches_json": true,
+  "reported_primary_cell_E_pairs_by_match": {
+    "J03WOY": 5,
+    "J03WMX": 1,
+    "J03WN1": 4
+  },
+  "scalar_production_oracle": true,
+  "cap_matches_json": true
+}

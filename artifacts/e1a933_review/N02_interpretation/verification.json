@@ -1,0 +1,82 @@
+{
+  "recomputation_matches_frozen_result_json": {
+    "arms": 48,
+    "max_abs_diff": 0.0
+  },
+  "recomputation_matches_frozen_paired_analysis": {
+    "compared_values": 324,
+    "max_abs_diff": 4.971098265804663e-07
+  },
+  "recomputation_matches_frozen_structural_prediction": {
+    "compared_entries": 18,
+    "max_abs_diff": 4.831460674314947e-07
+  },
+  "artifact_manifest": {
+    "checked": true,
+    "files": 250,
+    "mismatches": []
+  },
+  "degeneracy": {
+    "degenerate_state_predictions": [],
+    "arms_with_no_degenerate_state": 48,
+    "min_J": 0.140449,
+    "min_J_arm": "A_standard_random_static",
+    "min_J_seed": 805,
+    "old_diagnostic_collapse": {
+      "cell": "old 12-checkpoint diagnostic, seed 803, checkpoint train224_random, input64 and input224",
+      "paths": [
+        "artifacts/e1a933_review/N02_sampling_summary/observation_matrix.csv (rows 26-27)",
+        "artifacts/e1a933_review/N02_sampling_seed803_n64/result.json"
+      ],
+      "J": 0.0,
+      "retained": true
+    }
+  },
+  "provenance": {
+    "structural_prediction_artifact": "artifacts/e1a933_review/gpu_finish_20260924/sampling/extracted/sampling_results/structural_prediction.json",
+    "structural_prediction_sha256": "ecfe7f38fbfada5f8c27781ad231084dc9add1b41488763ae6c04c92411c328e",
+    "receipt_status": "MATRIX_COMPLETE",
+    "receipt_started_utc": "2026-09-24T09:32:54Z",
+    "receipt_finished_utc": "2026-09-24T10:36:37Z",
+    "bundle_config_frozen_prediction": "removing maxpool reduces (J_B-J_A) relative to standard; predicted strongest for min constituent endpoint displacement <=2 native64 pixels; report interaction even if opposite, no threshold search",
+    "bundle_manifest_sha256": "badd5300678a16176d930287d6763c94727c27f0de5dd9a17ab182b248c04bcb",
+    "source_sha256": {
+      "sampling_gpu_run.py": "1d78cc3d053be3e4740f13c5d728318a79acf46c211266103a1805b280e3aaaa",
+      "sampling_gpu_protocol.py": "aa2f7765aec33de7f8917f72ac97b10edf440937e18c96d54836d092e20ed91c"
+    },
+    "write_order": "protocol.analyze() is called after the 48 arms complete (sampling_gpu_run.py: assert len(receipt[\"completed\"])==48; protocol.analyze(...)), so structural_prediction.json numbers are computed post hoc; only the prediction text / stratum definition / reporting rule were frozen in the hash-verified bundle before the run.",
+    "first_arm_dir": "A_standard_pretrained_flip_s803",
+    "fresh_parent_evidence": {
+      "split_overlap": {
+        "train_dev": {
+          "min_parent_linf": 0.12361633777618408,
+          "matches_within_1e6": 0
+        },
+        "train_test": {
+          "min_parent_linf": 0.10281211137771606,
+          "matches_within_1e6": 0
+        },
+        "dev_test": {
+          "min_parent_linf": 0.14712267322465777,
+          "matches_within_1e6": 0
+        }
+      },
+      "all_train_state_vs_test_state": {
+        "min_linf": 0.07069051265716553,
+        "matches_within_1e6": 0
+      },
+      "old_bank_matches": 0,
+      "old_bank_files": 19
+    },
+    "quartet": {
+      "seed": 962004,
+      "rows": 178,
+      "parents": 85,
+      "fov_rejected_before_max4_cap": 1,
+      "small_edit_count": 5,
+      "parent_cap": 4,
+      "coords_sha256": "56bd74def9a530af808db70350d5abf09420cc73c8a16458b6b9961985cf5ef7"
+    },
+    "small_edit_definition": "min(max endpoint displacement of the two constituent edits) * 32 <= 2 native64 pixels (sampling_gpu_prepare.py; mask stored in data.npz: quartet_small_edit)"
+  }
+}

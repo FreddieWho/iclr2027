@@ -1,0 +1,26 @@
+{
+  "n": 159,
+  "P": 1.0,
+  "A": 0.9433962264150944,
+  "B": 0.8553459119496856,
+  "atomic_joint": 0.8176100628930818,
+  "AB": 0.9245283018867925,
+  "J": 0.7421383647798742,
+  "CCM_denominator": 130,
+  "CCM": 0.9076923076923077,
+  "backend": "cuda",
+  "dtype": "FP32",
+  "best_epoch": 7,
+  "selection": "single-dev BCE only",
+  "checkpoint_sha256": "0cfd1c8e185f954be69a963b4b8537dabb21d78ffa13b6d91549a79c4cb429ef",
+  "train_exposure_indices_sha256": "73be763e73550c69987cf8d08bb64f1f10b781fb7676e6a6be786a99f0bc375f",
+  "train_images_sha256": "0ee42e9e4d3cfca8b28e97181c9155062591694d4bf901e242da35b390ee6def",
+  "lambda_aux": 0.17229655124772772,
+  "lambda_status": "same train-only ordered-target initial gradient calibration for B/C/D; training gradient ratios may drift",
+  "lambda_calibration": {
+    "initial_BCE_gradient": 7.640172004699707,
+    "initial_ordered_aux_gradient": 11.085787773132324,
+    "desired_aux_to_BCE_gradient_ratio": 0.25,
+    "mode": "eval, first train batch only"
+  }
+}

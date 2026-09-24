@@ -1,0 +1,135 @@
+{
+  "base_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "package_sha256": "639e62289e0b009abab56a7141bee7a5f36e2ecbcc7c8db22556880537d6f14c",
+  "timestamp": "2026-09-24T15:14:00.315150+08:00",
+  "classification": "behavioral/cross-module change",
+  "package_checks": [
+    {
+      "path": "docs/e1a933_review/00_AUDIT_AND_COMPLETION.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/01_RESULT_CRITICAL_REPAIRS.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/02_OPTIMIZE_EXISTING_ROUTES.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/03_NEW_HIGH_VALUE_ROUTES.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/04_AGENT_MASTER.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/05_SOURCES.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/README.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/checks/recompute_archived_contrasts.py",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/checks/reproduce_contract_failures.py",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/evidence/ARCHIVED_CONTRASTS.json",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/evidence/CONTRACT_TEST_RESULTS.json",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/evidence/ENVIRONMENT.json",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/new_routes/N01.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/new_routes/N02.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/new_routes/N03.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/optimizations/O01.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/optimizations/O02.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/optimizations/O03.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/optimizations/O04.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/optimizations/O05.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/optimizations/O06.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R01.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R02.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R03.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R04.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R05.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R06.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R07.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R08.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R09.md",
+      "matches": true
+    },
+    {
+      "path": "docs/e1a933_review/repairs/R10.md",
+      "matches": true
+    }
+  ],
+  "old_artifacts": "read-only",
+  "authorization": "user requests extraction and execution of 04_AGENT_MASTER.md; parallel workers explicit in master prompt",
+  "initial_git_status": "?? docs/e1a933_audit_repair_upgrade_package.zip\n?? docs/e1a933_review/\n"
+}

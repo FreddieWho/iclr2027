@@ -1,0 +1,139 @@
+{
+  "status": "MATRIX_COMPLETE",
+  "backend": "cuda",
+  "dtype": "FP32",
+  "scientific_decision": "PENDING_INDEPENDENT_INTERPRETATION",
+  "command": [
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle/vision_cuda_run.py",
+    "--bundle",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle",
+    "--out",
+    "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix",
+    "--execute"
+  ],
+  "pid": 1972,
+  "started_utc": "2026-09-24T08:13:38Z",
+  "epochs": 20,
+  "batch": 32,
+  "resolution": 224,
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "arms": [
+    "pretrained_static",
+    "pretrained_flip",
+    "random_static",
+    "random_flip",
+    "ordered",
+    "matched",
+    "shuffled_matched"
+  ],
+  "torch": "2.5.1+cu124",
+  "torchvision": "0.20.1+cu124",
+  "source_sha256": {
+    "vision_cuda_run.py": "ef4ed6dda07f2af5a484da42195c3508f1451a6f731ae7434e3670600030d7cb",
+    "vision_cuda_protocol.py": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976"
+  },
+  "bundle_manifest_sha256": "926b2e4a7cfb4f7cd967fb260020dcd3445cf4664f8ebdc2aff6f007f0bd82a6",
+  "cuda_available": true,
+  "device_name": "NVIDIA GeForce RTX 3080 Ti",
+  "cuda_version": "12.4",
+  "cudnn_version": 90100,
+  "tf32": false,
+  "amp": false,
+  "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+  "preflight_seconds": 0.6457710929680616,
+  "peak_allocated_bytes": 899511808,
+  "completed": [
+    {
+      "arm": "pretrained_static",
+      "seed": 803
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "random_static",
+      "seed": 803
+    },
+    {
+      "arm": "random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "pretrained_static",
+      "seed": 805
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "random_static",
+      "seed": 805
+    },
+    {
+      "arm": "random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "pretrained_static",
+      "seed": 806
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "random_static",
+      "seed": 806
+    },
+    {
+      "arm": "random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "ordered",
+      "seed": 803
+    },
+    {
+      "arm": "matched",
+      "seed": 803
+    },
+    {
+      "arm": "shuffled_matched",
+      "seed": 803
+    },
+    {
+      "arm": "ordered",
+      "seed": 805
+    },
+    {
+      "arm": "matched",
+      "seed": 805
+    },
+    {
+      "arm": "shuffled_matched",
+      "seed": 805
+    },
+    {
+      "arm": "ordered",
+      "seed": 806
+    },
+    {
+      "arm": "matched",
+      "seed": 806
+    },
+    {
+      "arm": "shuffled_matched",
+      "seed": 806
+    }
+  ],
+  "current": {
+    "arm": "shuffled_matched",
+    "seed": 806
+  }
+}

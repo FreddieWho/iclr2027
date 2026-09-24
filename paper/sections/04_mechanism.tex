@@ -45,7 +45,7 @@ $176$, non-paired)---descriptive only, not a repair delta.
 \centering
 \includegraphics[width=0.9\linewidth]{figures/fig3_p3_migration.pdf}
 \caption{Endpoint repair vs full repair vs error migration on the
-baseline-110 subset $H$ (dev bank, parent-cluster intervals). Migration
+baseline-110 subset $H$ (selected from 237 dev quartets/106 parents; parent-cluster intervals). Migration
 carries $79$--$94\%$ of the endpoint gain.}
 \label{fig:migration}
 \end{figure}
@@ -54,7 +54,7 @@ carries $79$--$94\%$ of the endpoint gain.}
 coverage.} Label-free relational input features change the picture where
 flip coverage alone could not. Table~\ref{tab:fourarm} reports all four
 arms---raw coordinates vs relational features, each with and without flip
-coverage---on the same dev bank (paired quartets, $n{=}237$) with the
+coverage---on the same dev bank (paired quartets, $n_{quartet}{=}237$, $n_{parent}{=}106$) with the
 confirmation bank ($n{=}509$) alongside; the full $2{\times}2$ is evaluated
 on both banks from archived outputs (confirmation: same-bank re-analysis,
 no new sealed reads). On the dev bank, relational input
@@ -68,22 +68,17 @@ scale: $I=(J_{\mathrm{relflip}}-J_{\mathrm{relfeat}})-(J_{\mathrm{rawflip}}-J_{\
 is $+17$--$+25$pp on dev (paired parent-cluster intervals exclude zero)
 and $+11$--$+22$pp on confirmation (same-bank point estimates)---an
 exploratory interaction with directional confirmation, not a universal
-synergy law. Both quantities are robust to the task's own symmetry:
-under all eight relabelings of the four input points (the oracle is
-invariant; verified by recomputation on both banks), the interaction stays
-positive in $24/24$ seed$\times$relabeling combinations on dev
-($+9.7$ to $+36.7$pp) and $24/24$ on the confirmation bank
-($+10.8$ to $+27.5$pp). The identity labeling used throughout is not the
-maximum in most cells; where it is (one arm in each bank) we say so rather
-than average it away. The same sweep suggests why relational input helps:
-joint consistency for raw coordinates swings by $75$--$133\%$ of its mean
-across relabelings, versus $15$--$29\%$ for relational input with flip
-coverage---a descriptive stability gap: both inputs permute with the point
-indices and neither MLP is exactly invariant, so its cause is left to the
-symmetry-controlled ablations, not inferred from this sweep alone. A controlled follow-up
-(App.~\ref{sec:f095}) locates the gain in the geometric organization of the inputs---six
-pairwise distances, in the spirit of relation modules \citep{santoro2017simple}, suffice---rather than exact symmetry: an exactly invariant typed-pair
-net (a role-structured DeepSets variant \citep{zaheer2017deep}) is worse than raw, and a depth-matched concatenation matches raw. Ordering analysis bounds the mechanism (Fig.~\ref{fig:fourarm}c):
+synergy law. Across all eight oracle-preserving relabelings, interaction remains
+positive in all $24$ seed--labeling cells on each bank: $+9.7$--$+36.7$pp
+on dev and $+10.8$--$+27.5$pp on confirmation. Identity labeling is not
+typically maximal (one arm on each bank is an exception). Raw J varies
+by $75$--$133\%$ of its mean across relabelings, versus $15$--$29\%$ for
+relational+flip. Both MLP inputs still depend on point indices, so this
+stability contrast alone does not identify a symmetry mechanism.
+A controlled follow-up
+(App.~\ref{sec:f095}) supports geometric organization under the tested training recipe---six
+pairwise distances, in the spirit of relation modules \citep{santoro2017simple}, suffice in this setting: an exactly invariant typed-pair
+net (a role-structured DeepSets variant \citep{zaheer2017deep}) is worse than raw, and a depth-matched concatenation matches raw. These fixed-recipe results do not exclude optimization or establish that symmetry is irrelevant. Ordering analysis describes the final encoder--head score (Fig.~\ref{fig:fourarm}c):
 the representation improves state separability $H$ ($0.54$--$0.57 \to
 0.81$--$0.87$), while flip coverage on relational input mainly realizes
 that separability at the fixed threshold rather than creating new
@@ -94,13 +89,37 @@ are hand-designed and relation-aware by construction---an existence proof
 for joint consistency under this input, not a general architecture
 principle.
 
+\paragraph{Cross-task advantage and interaction boundary.}
+On point-in-triangle (T1; 2,724 E quartets from 322 parents),
+distance+flip has $J=.749/.773/.727$, versus $.249/.210/.193$ for
+raw+flip. On segment--disk (T2; 3,443 quartets from 369 parents), the
+corresponding values are $.998/.997/1.000$ and $.606/.640/.643$
+(seeds 11/23/47). T1 uses six distances and T2 three role-specified
+distances. The original $J$-scale interaction is
+$+0.3935/+0.4394/+0.4126$ on T1 but $-0.1891/-0.1719/-0.2504$ on T2; paired parent-bootstrap 95\% intervals exclude zero in the corresponding directions (App.~\ref{sec:f095}).
+Thus input advantage under the same flip supervision transfers to both
+tasks; positive interaction does not. These are two task comparisons,
+not eighteen independent replications. Indexed normalization invalidates
+the old target-task typed models' exact-invariance claim. Corrected
+role-shared normalization and retraining restore pipeline symmetry within
+floating-point tolerance; typed+flip still trails distance+flip under the
+tested recipe (App.~\ref{sec:f095}).
+
+\paragraph{After matched optimization.} A new source-task pool contains
+1,229 quartets from 250 eligible parents. Across 108 candidates selected
+only by static/single dev BCE, 4N raw+flip reaches $J=.334$--$.475$ while
+distance+flip reaches $.819$--$.889$. Distance at 25\% of the retained
+flip pool exceeds raw at 100\% in every size--seed cell (N/4N, three seeds).
+This is finite-budget retained-example efficiency, not oracle-query savings
+or exclusion of other optimizers (App.~\ref{sec:f095}).
+
 % FIGURE SLOT (R6.4): main positive-result figure --- four-arm joint
 % consistency bars (dev + confirmation) with repair-flow decomposition;
 % generator owned by the figure lane; expected file figures/fig4_fourarm.pdf
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.95\linewidth]{figures/fig4_fourarm.pdf}
-\caption{Four-arm comparison on matched banks: joint consistency $J$
+\caption{Four-arm comparison (dev: 237 quartets/106 parents; confirmation: 509 quartets): joint consistency $J$
 (left), the full-repair/migration decomposition on $H$ (middle), and
 fixed-threshold $J$ versus oracle separability $H$ on dev (right).}
 \label{fig:fourarm}
@@ -127,7 +146,7 @@ Confirm ($509$) & raw & .059/.047/.041 & --- & --- & --- \\
 \bottomrule
 \end{tabular}
 \caption{Four arms on matched banks (seeds s11/s23/s47 per cell). Dev-bank
-cells are paired quartets; confirmation cells are same-bank re-analysis of
+cells are 237 paired quartets from 106 parents; seeds are training replicates, not datasets. Confirmation cells are same-bank re-analysis of
 archived outputs. ``---'' marks aggregates not archived for that
 arm--bank combination.}
 \label{tab:fourarm}

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""D08 fair fight: nearest-neighbor repair baselines under one contract.
+"""Historical D08 baselines (NOT a matched-initialization loss comparison).
+
+Corrected production runner: experiments/e1a933_review/fair_continuation.py.
+The historical balanced arm balances endpoint classes within flip edits,
+not preserve versus flip. pct alone continues from a clean checkpoint.
 
 Train (exact r04b/relflip recipe: train_101, mine-seed 5, full-batch 300ep,
 Adam 1e-2, BCE, lam=1.0): raw fliprand s23/s47; rel fliprand x3;

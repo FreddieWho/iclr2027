@@ -1,0 +1,8 @@
+{
+  "status": "FAILED",
+  "task_id": "vision-21arms-gpu-20260924",
+  "wait_method": "Linux pidfd + blocking select; no polling loop",
+  "started_utc": "2026-09-24T08:17:31.237540+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/remote_vision_collect_when_done.py\", line 49, in main\n    waited = subprocess.run(command, capture_output=True, text=True, check=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/anaconda3/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['ssh', '-o', 'Port=30891', '-o', 'ControlPath=/tmp/e1a933-ssh-IPve1AzW/control', '-o', 'UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts', '-o', 'StrictHostKeyChecking=yes', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=20', 'root@connect.nmb2.seetacloud.com', '/root/miniconda3/bin/python -c \\'import os,select,json\\nfrom pathlib import Path\\ntry:\\n    fd=os.pidfd_open(1971)\\nexcept ProcessLookupError:\\n    fd=None\\nif fd is not None:\\n    select.select([fd],[],[])\\n    os.close(fd)\\nprint((Path(\\'\"\\'\"\\'/root/autodl-tmp/e1a933/vision_20260924_ssh30891/jobs/vision-21arms-gpu-20260924\\'\"\\'\"\\')/\"status.json\").read_text())\\'']' returned non-zero exit status 1.\n",
+  "ended_utc": "2026-09-24T08:17:31.383356+00:00"
+}

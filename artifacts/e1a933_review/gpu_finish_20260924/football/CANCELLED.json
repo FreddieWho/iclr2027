@@ -1,0 +1,5 @@
+{
+  "status": "CANCELLED_BEFORE_START",
+  "reason": "final provenance code freeze supersedes first bundle",
+  "superseded_by": "football-12arms-v2-20260924"
+}

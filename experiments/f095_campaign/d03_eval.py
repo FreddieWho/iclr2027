@@ -55,11 +55,21 @@ def fwd(model, X44, ck, bs=4096):
     return np.concatenate(out)
 
 
+def start_confidence_mask(start_logits, row_parents, parent_index, threshold):
+    """Retention uses only the unedited parent score, shared across edits."""
+    return np.array([abs(start_logits[parent_index[p]]) >= threshold for p in row_parents])
+
+
 def main():
     p = argparse.ArgumentParser()
+    p.add_argument("--out-dir", type=Path, default=ROOT / "artifacts/e1a933_review/data_d03")
     p.add_argument("--bankO", default="d03O")
     p.add_argument("--bankE", default="d03E")
     a = p.parse_args()
+    global OUTD
+    OUTD = a.out_dir
+    if (OUTD / "D03_EVAL.json").exists():
+        raise FileExistsError("Use a fresh --out-dir")
     OUTD.mkdir(parents=True, exist_ok=True)
     bo = np.load(BANKDIR / f"bank_{a.bankO}.npz", allow_pickle=True)
     Sx, Se = np.asarray(bo["Sx"], float), np.asarray(bo["Se"], float)
@@ -115,6 +125,13 @@ def main():
             # confidence threshold: train_101 top-tertile |logit|
             lgtr = fwd(model, Xtr, ck)
             thr = float(np.quantile(np.abs(lgtr), 2 / 3))
+            np.savez_compressed(OUTD / f"s{seed}_{arm}_singles.npz",
+                parent=sm_par, start_score=np.array([lg0[p0map[p]] for p in sm_par]),
+                endpoint_score=lgS, y1=y1, start_correct=start_ok,
+                threshold=thr, retained=start_confidence_mask(lg0, sm_par, p0map, thr),
+                old_endpoint_retained=np.abs(lgS) >= thr,
+                **{f"selected_{order}_{kind}": np.array([order in m["sel_" + kind] for m in Sm])
+                   for order in ORDERS for kind in ("flip", "keep")})
             armR = {"model_sha": sha_of(mp / "model.pt"), "conf_thr": round(thr, 4),
                     "orders": {}}
             for order in ORDERS:
@@ -152,10 +169,16 @@ def main():
                     o["risk_startcorrect_" + lname] = \
                         round(float((predS[sub] != y1[sub]).mean()), 4) if sub.any() else None
                     o["risk_startcorrect_" + lname + "_n"] = int(sub.sum())
-                    hi = (np.abs(lgS[sel]) >= thr) & start_ok[sel]
+                    retained = start_confidence_mask(lg0, sm_par, p0map, thr)
+                    hi = retained[sel] & start_ok[sel]
                     ii = np.nonzero(sel)[0][hi]
                     o["risk_hiconf_" + lname] = \
                         round(float((predS[ii] != y1[ii]).mean()), 4) if len(ii) else None
+                    o["risk_hiconf_" + lname + "_n"] = int(len(ii))
+                    o["hiconf_" + lname + "_coverage"] = float(retained[sel].mean()) if sel.any() else None
+                    hi_all = sel & retained
+                    o["risk_hiconf_unconditional_" + lname] = float((predS[hi_all] != y1[hi_all]).mean()) if hi_all.any() else None
+                    o["risk_hiconf_unconditional_" + lname + "_n"] = int(hi_all.sum())
                 # orbit-averaged endpoint errors (selected states)
                 for lname, sel in (("preserve", ksel), ("flip", fsel)):
                     ii = np.nonzero(sel)[0]

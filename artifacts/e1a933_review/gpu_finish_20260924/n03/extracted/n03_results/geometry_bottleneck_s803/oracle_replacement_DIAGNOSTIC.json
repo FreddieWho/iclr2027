@@ -1,0 +1,12 @@
+{
+  "n": 159,
+  "P": 0.389937106918239,
+  "A": 0.37735849056603776,
+  "B": 0.37735849056603776,
+  "atomic_joint": 0.3584905660377358,
+  "AB": 0.610062893081761,
+  "J": 0.0,
+  "CCM_denominator": 57,
+  "CCM": 0.0,
+  "scope": "True geometry replaces predicted geometry in the frozen same head. Diagnostic, never image-only deployment performance; meaningful semantic replacement only for geometry_bottleneck."
+}

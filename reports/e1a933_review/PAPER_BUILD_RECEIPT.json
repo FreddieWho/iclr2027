@@ -1,0 +1,38 @@
+{
+  "compiler": "/home/huyudi/.TinyTeX/bin/x86_64-linux/pdflatex",
+  "working_directory": "paper",
+  "command": "/home/huyudi/.TinyTeX/bin/x86_64-linux/pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/e1a933-paper-build main.tex",
+  "total_pages": 25,
+  "conclusion_page": 9,
+  "conclusion_page_method": "pdftotext physical page containing the conclusion text",
+  "undefined_references": 0,
+  "undefined_references_note": "The builder originally counted both pdflatex passes and recorded 1. The settled log and aux resolve sec:l015; the count is the settled pass only.",
+  "overfull_boxes": 0,
+  "pdf_sha256": "48302187811b94daace4103c4b691e693967927e2f52b39b476573158c83560a",
+  "source_hashes": {
+    "paper/main.tex": "d475ea4a7d709a4ea58abcb1b5fc77b3ba6ce6b3870608a09f6761b8717c5778",
+    "paper/sections/00_abstract.tex": "98f95c7cfcc487fbcde3ba9c8cb89100228ae810a64fd2446b169de43b610907",
+    "paper/sections/01_introduction.tex": "e14fe5aa760c9fc060ca8ee4b5e29e32cd43ff86d1b899d7cdb995dbc8ab6f6a",
+    "paper/sections/02_instrument.tex": "f9b9a8f8f3e9674e2fc4d6c400a5da0b35bce5085103e21687988e38e2b7f8ba",
+    "paper/sections/03_phenomenon.tex": "2be508eba617e1cd200b0f641a9d8bcd3a9dde6f2382a9796313d1ce055dab7c",
+    "paper/sections/04_mechanism.tex": "ed5e4f917c86f2e09d22b456ad9271abe4484ecf794eabb73aaa4879c708f9de",
+    "paper/sections/04b_boundary.tex": "1a26f10ad41d2da76cba2b0d460063ebc517bfc387d3b0de06b5839e57b3326e",
+    "paper/sections/05_repair.tex": "776c648ad50e72de0a0ad1be983671008d2c45d1213a2f0d793614755d3b010f",
+    "paper/sections/06_external_confirmation.tex": "ca4636d0508b1b4f13374a49489502247b15da2ec7b5ceb9ccc122c8e5006994",
+    "paper/sections/07_related_limitations.tex": "23c2fe726462e3a4983c6692e0348a5336f2332562013f411f94d52ff2f85a70",
+    "paper/sections/08_reproducibility.tex": "100f540d9e4ce670dc790d228dae34de010e97f405578a64541c7cd21ac62364",
+    "paper/sections/app_f095.tex": "990507e8bf375444b120adada4efd4d69db64781dd105caa9018ad4ec105fbdf",
+    "paper/sections/app_l015.tex": "e4ac13e3cb45d45a7e99b0448270b335e30ce6a0f0adbe5a1e26a8404dce3f51",
+    "paper/sections/appendix.tex": "289632466b39650553b2df3ac48f437f95f31c3ef5e6f8402a145b973f6cb0c1",
+    "paper/sections/conclusion.tex": "bf16cd771faad5ee19d2fce26313b6b0b2a113ea2248919ad19c7461b20dd8d3",
+    "paper/sections/discussion.tex": "a7cd58bd91d5ede487934638faee1d0397b0b9457c37d09c83a2d13c0a6be715"
+  },
+  "note": "PDF hashes are not byte-reproducible across runs (pdflatex embeds a creation timestamp and document id); reproduce by comparing extracted text or page counts.",
+  "supersedes": {
+    "pdf_sha256": "85d1c1626cb29f836be4ed8fe5618430375c217fa10b83c8f7ba1e1154978ab9",
+    "total_pages": 24,
+    "conclusion_page": 9
+  },
+  "published_to": "reports/e1a933_review/paper_revised.pdf",
+  "published_pdf_sha256": "48302187811b94daace4103c4b691e693967927e2f52b39b476573158c83560a"
+}

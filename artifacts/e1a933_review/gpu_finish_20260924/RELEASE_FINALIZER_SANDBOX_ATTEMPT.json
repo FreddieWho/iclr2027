@@ -1,0 +1,6 @@
+{
+  "pid": 7,
+  "script": "experiments/e1a933_review/gpu_finish_release.py",
+  "started_utc": "2026-09-24T09:38:18.525050+00:00",
+  "mode": "local inotify, no remote queries"
+}

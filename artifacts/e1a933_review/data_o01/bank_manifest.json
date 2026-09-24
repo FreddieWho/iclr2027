@@ -1,0 +1,2572 @@
+{
+  "seed": 241933,
+  "development_parents": 256,
+  "evaluation_parents": 512,
+  "cap": 12,
+  "pair_cap": 3000,
+  "oracle_calls": 1656780,
+  "flow": [
+    {
+      "parent": 256,
+      "keeps": 260,
+      "quartets": 1
+    },
+    {
+      "parent": 257,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 258,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 259,
+      "keeps": 111,
+      "quartets": 0
+    },
+    {
+      "parent": 260,
+      "keeps": 274,
+      "quartets": 0
+    },
+    {
+      "parent": 261,
+      "keeps": 290,
+      "quartets": 8
+    },
+    {
+      "parent": 262,
+      "keeps": 259,
+      "quartets": 0
+    },
+    {
+      "parent": 263,
+      "keeps": 287,
+      "quartets": 1
+    },
+    {
+      "parent": 264,
+      "keeps": 286,
+      "quartets": 9
+    },
+    {
+      "parent": 265,
+      "keeps": 235,
+      "quartets": 0
+    },
+    {
+      "parent": 266,
+      "keeps": 276,
+      "quartets": 3
+    },
+    {
+      "parent": 267,
+      "keeps": 206,
+      "quartets": 2
+    },
+    {
+      "parent": 268,
+      "keeps": 278,
+      "quartets": 9
+    },
+    {
+      "parent": 269,
+      "keeps": 224,
+      "quartets": 1
+    },
+    {
+      "parent": 270,
+      "keeps": 285,
+      "quartets": 1
+    },
+    {
+      "parent": 271,
+      "keeps": 273,
+      "quartets": 3
+    },
+    {
+      "parent": 272,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 273,
+      "keeps": 186,
+      "quartets": 0
+    },
+    {
+      "parent": 274,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 275,
+      "keeps": 298,
+      "quartets": 7
+    },
+    {
+      "parent": 276,
+      "keeps": 224,
+      "quartets": 0
+    },
+    {
+      "parent": 277,
+      "keeps": 291,
+      "quartets": 0
+    },
+    {
+      "parent": 278,
+      "keeps": 286,
+      "quartets": 12
+    },
+    {
+      "parent": 279,
+      "keeps": 264,
+      "quartets": 0
+    },
+    {
+      "parent": 280,
+      "keeps": 48,
+      "quartets": 0
+    },
+    {
+      "parent": 281,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 282,
+      "keeps": 274,
+      "quartets": 0
+    },
+    {
+      "parent": 283,
+      "keeps": 191,
+      "quartets": 0
+    },
+    {
+      "parent": 284,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 285,
+      "keeps": 289,
+      "quartets": 10
+    },
+    {
+      "parent": 286,
+      "keeps": 275,
+      "quartets": 0
+    },
+    {
+      "parent": 287,
+      "keeps": 298,
+      "quartets": 3
+    },
+    {
+      "parent": 288,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 289,
+      "keeps": 296,
+      "quartets": 5
+    },
+    {
+      "parent": 290,
+      "keeps": 278,
+      "quartets": 1
+    },
+    {
+      "parent": 291,
+      "keeps": 76,
+      "quartets": 2
+    },
+    {
+      "parent": 292,
+      "keeps": 264,
+      "quartets": 0
+    },
+    {
+      "parent": 293,
+      "keeps": 291,
+      "quartets": 0
+    },
+    {
+      "parent": 294,
+      "keeps": 295,
+      "quartets": 3
+    },
+    {
+      "parent": 295,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 296,
+      "keeps": 256,
+      "quartets": 0
+    },
+    {
+      "parent": 297,
+      "keeps": 287,
+      "quartets": 0
+    },
+    {
+      "parent": 298,
+      "keeps": 294,
+      "quartets": 0
+    },
+    {
+      "parent": 299,
+      "keeps": 296,
+      "quartets": 2
+    },
+    {
+      "parent": 300,
+      "keeps": 298,
+      "quartets": 12
+    },
+    {
+      "parent": 301,
+      "keeps": 294,
+      "quartets": 0
+    },
+    {
+      "parent": 302,
+      "keeps": 288,
+      "quartets": 0
+    },
+    {
+      "parent": 303,
+      "keeps": 296,
+      "quartets": 4
+    },
+    {
+      "parent": 304,
+      "keeps": 238,
+      "quartets": 0
+    },
+    {
+      "parent": 305,
+      "keeps": 275,
+      "quartets": 0
+    },
+    {
+      "parent": 306,
+      "keeps": 292,
+      "quartets": 0
+    },
+    {
+      "parent": 307,
+      "keeps": 282,
+      "quartets": 0
+    },
+    {
+      "parent": 308,
+      "keeps": 287,
+      "quartets": 0
+    },
+    {
+      "parent": 309,
+      "keeps": 269,
+      "quartets": 1
+    },
+    {
+      "parent": 310,
+      "keeps": 286,
+      "quartets": 0
+    },
+    {
+      "parent": 311,
+      "keeps": 216,
+      "quartets": 2
+    },
+    {
+      "parent": 312,
+      "keeps": 270,
+      "quartets": 4
+    },
+    {
+      "parent": 313,
+      "keeps": 280,
+      "quartets": 12
+    },
+    {
+      "parent": 314,
+      "keeps": 237,
+      "quartets": 0
+    },
+    {
+      "parent": 315,
+      "keeps": 183,
+      "quartets": 1
+    },
+    {
+      "parent": 316,
+      "keeps": 265,
+      "quartets": 0
+    },
+    {
+      "parent": 317,
+      "keeps": 257,
+      "quartets": 0
+    },
+    {
+      "parent": 318,
+      "keeps": 280,
+      "quartets": 12
+    },
+    {
+      "parent": 319,
+      "keeps": 268,
+      "quartets": 4
+    },
+    {
+      "parent": 320,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 321,
+      "keeps": 135,
+      "quartets": 12
+    },
+    {
+      "parent": 322,
+      "keeps": 68,
+      "quartets": 0
+    },
+    {
+      "parent": 323,
+      "keeps": 239,
+      "quartets": 3
+    },
+    {
+      "parent": 324,
+      "keeps": 243,
+      "quartets": 0
+    },
+    {
+      "parent": 325,
+      "keeps": 199,
+      "quartets": 0
+    },
+    {
+      "parent": 326,
+      "keeps": 261,
+      "quartets": 0
+    },
+    {
+      "parent": 327,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 328,
+      "keeps": 287,
+      "quartets": 4
+    },
+    {
+      "parent": 329,
+      "keeps": 134,
+      "quartets": 11
+    },
+    {
+      "parent": 330,
+      "keeps": 236,
+      "quartets": 0
+    },
+    {
+      "parent": 331,
+      "keeps": 293,
+      "quartets": 0
+    },
+    {
+      "parent": 332,
+      "keeps": 292,
+      "quartets": 8
+    },
+    {
+      "parent": 333,
+      "keeps": 249,
+      "quartets": 2
+    },
+    {
+      "parent": 334,
+      "keeps": 114,
+      "quartets": 0
+    },
+    {
+      "parent": 335,
+      "keeps": 270,
+      "quartets": 1
+    },
+    {
+      "parent": 336,
+      "keeps": 298,
+      "quartets": 4
+    },
+    {
+      "parent": 337,
+      "keeps": 238,
+      "quartets": 0
+    },
+    {
+      "parent": 338,
+      "keeps": 271,
+      "quartets": 0
+    },
+    {
+      "parent": 339,
+      "keeps": 287,
+      "quartets": 1
+    },
+    {
+      "parent": 340,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 341,
+      "keeps": 289,
+      "quartets": 0
+    },
+    {
+      "parent": 342,
+      "keeps": 297,
+      "quartets": 3
+    },
+    {
+      "parent": 343,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 344,
+      "keeps": 204,
+      "quartets": 0
+    },
+    {
+      "parent": 345,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 346,
+      "keeps": 273,
+      "quartets": 0
+    },
+    {
+      "parent": 347,
+      "keeps": 294,
+      "quartets": 2
+    },
+    {
+      "parent": 348,
+      "keeps": 228,
+      "quartets": 3
+    },
+    {
+      "parent": 349,
+      "keeps": 296,
+      "quartets": 11
+    },
+    {
+      "parent": 350,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 351,
+      "keeps": 295,
+      "quartets": 3
+    },
+    {
+      "parent": 352,
+      "keeps": 294,
+      "quartets": 0
+    },
+    {
+      "parent": 353,
+      "keeps": 274,
+      "quartets": 0
+    },
+    {
+      "parent": 354,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 355,
+      "keeps": 275,
+      "quartets": 10
+    },
+    {
+      "parent": 356,
+      "keeps": 297,
+      "quartets": 6
+    },
+    {
+      "parent": 357,
+      "keeps": 271,
+      "quartets": 0
+    },
+    {
+      "parent": 358,
+      "keeps": 211,
+      "quartets": 3
+    },
+    {
+      "parent": 359,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 360,
+      "keeps": 291,
+      "quartets": 3
+    },
+    {
+      "parent": 361,
+      "keeps": 270,
+      "quartets": 0
+    },
+    {
+      "parent": 362,
+      "keeps": 272,
+      "quartets": 0
+    },
+    {
+      "parent": 363,
+      "keeps": 265,
+      "quartets": 4
+    },
+    {
+      "parent": 364,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 365,
+      "keeps": 209,
+      "quartets": 0
+    },
+    {
+      "parent": 366,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 367,
+      "keeps": 280,
+      "quartets": 5
+    },
+    {
+      "parent": 368,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 369,
+      "keeps": 235,
+      "quartets": 0
+    },
+    {
+      "parent": 370,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 371,
+      "keeps": 289,
+      "quartets": 3
+    },
+    {
+      "parent": 372,
+      "keeps": 223,
+      "quartets": 2
+    },
+    {
+      "parent": 373,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 374,
+      "keeps": 286,
+      "quartets": 6
+    },
+    {
+      "parent": 375,
+      "keeps": 212,
+      "quartets": 1
+    },
+    {
+      "parent": 376,
+      "keeps": 252,
+      "quartets": 1
+    },
+    {
+      "parent": 377,
+      "keeps": 285,
+      "quartets": 2
+    },
+    {
+      "parent": 378,
+      "keeps": 109,
+      "quartets": 12
+    },
+    {
+      "parent": 379,
+      "keeps": 142,
+      "quartets": 9
+    },
+    {
+      "parent": 380,
+      "keeps": 293,
+      "quartets": 0
+    },
+    {
+      "parent": 381,
+      "keeps": 276,
+      "quartets": 4
+    },
+    {
+      "parent": 382,
+      "keeps": 283,
+      "quartets": 0
+    },
+    {
+      "parent": 383,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 384,
+      "keeps": 298,
+      "quartets": 4
+    },
+    {
+      "parent": 385,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 386,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 387,
+      "keeps": 295,
+      "quartets": 0
+    },
+    {
+      "parent": 388,
+      "keeps": 151,
+      "quartets": 0
+    },
+    {
+      "parent": 389,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 390,
+      "keeps": 296,
+      "quartets": 1
+    },
+    {
+      "parent": 391,
+      "keeps": 256,
+      "quartets": 0
+    },
+    {
+      "parent": 392,
+      "keeps": 294,
+      "quartets": 0
+    },
+    {
+      "parent": 393,
+      "keeps": 296,
+      "quartets": 1
+    },
+    {
+      "parent": 394,
+      "keeps": 118,
+      "quartets": 0
+    },
+    {
+      "parent": 395,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 396,
+      "keeps": 285,
+      "quartets": 4
+    },
+    {
+      "parent": 397,
+      "keeps": 297,
+      "quartets": 4
+    },
+    {
+      "parent": 398,
+      "keeps": 293,
+      "quartets": 0
+    },
+    {
+      "parent": 399,
+      "keeps": 214,
+      "quartets": 0
+    },
+    {
+      "parent": 400,
+      "keeps": 189,
+      "quartets": 0
+    },
+    {
+      "parent": 401,
+      "keeps": 291,
+      "quartets": 12
+    },
+    {
+      "parent": 402,
+      "keeps": 289,
+      "quartets": 5
+    },
+    {
+      "parent": 403,
+      "keeps": 200,
+      "quartets": 0
+    },
+    {
+      "parent": 404,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 405,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 406,
+      "keeps": 237,
+      "quartets": 6
+    },
+    {
+      "parent": 407,
+      "keeps": 295,
+      "quartets": 0
+    },
+    {
+      "parent": 408,
+      "keeps": 256,
+      "quartets": 5
+    },
+    {
+      "parent": 409,
+      "keeps": 291,
+      "quartets": 0
+    },
+    {
+      "parent": 410,
+      "keeps": 272,
+      "quartets": 3
+    },
+    {
+      "parent": 411,
+      "keeps": 291,
+      "quartets": 0
+    },
+    {
+      "parent": 412,
+      "keeps": 269,
+      "quartets": 1
+    },
+    {
+      "parent": 413,
+      "keeps": 213,
+      "quartets": 0
+    },
+    {
+      "parent": 414,
+      "keeps": 286,
+      "quartets": 10
+    },
+    {
+      "parent": 415,
+      "keeps": 222,
+      "quartets": 0
+    },
+    {
+      "parent": 416,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 417,
+      "keeps": 233,
+      "quartets": 0
+    },
+    {
+      "parent": 418,
+      "keeps": 219,
+      "quartets": 2
+    },
+    {
+      "parent": 419,
+      "keeps": 239,
+      "quartets": 0
+    },
+    {
+      "parent": 420,
+      "keeps": 232,
+      "quartets": 0
+    },
+    {
+      "parent": 421,
+      "keeps": 298,
+      "quartets": 2
+    },
+    {
+      "parent": 422,
+      "keeps": 283,
+      "quartets": 0
+    },
+    {
+      "parent": 423,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 424,
+      "keeps": 287,
+      "quartets": 12
+    },
+    {
+      "parent": 425,
+      "keeps": 271,
+      "quartets": 2
+    },
+    {
+      "parent": 426,
+      "keeps": 285,
+      "quartets": 1
+    },
+    {
+      "parent": 427,
+      "keeps": 265,
+      "quartets": 1
+    },
+    {
+      "parent": 428,
+      "keeps": 161,
+      "quartets": 0
+    },
+    {
+      "parent": 429,
+      "keeps": 292,
+      "quartets": 0
+    },
+    {
+      "parent": 430,
+      "keeps": 296,
+      "quartets": 8
+    },
+    {
+      "parent": 431,
+      "keeps": 297,
+      "quartets": 3
+    },
+    {
+      "parent": 432,
+      "keeps": 63,
+      "quartets": 0
+    },
+    {
+      "parent": 433,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 434,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 435,
+      "keeps": 234,
+      "quartets": 1
+    },
+    {
+      "parent": 436,
+      "keeps": 281,
+      "quartets": 9
+    },
+    {
+      "parent": 437,
+      "keeps": 233,
+      "quartets": 0
+    },
+    {
+      "parent": 438,
+      "keeps": 295,
+      "quartets": 1
+    },
+    {
+      "parent": 439,
+      "keeps": 261,
+      "quartets": 0
+    },
+    {
+      "parent": 440,
+      "keeps": 287,
+      "quartets": 0
+    },
+    {
+      "parent": 441,
+      "keeps": 277,
+      "quartets": 5
+    },
+    {
+      "parent": 442,
+      "keeps": 186,
+      "quartets": 0
+    },
+    {
+      "parent": 443,
+      "keeps": 197,
+      "quartets": 0
+    },
+    {
+      "parent": 444,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 445,
+      "keeps": 226,
+      "quartets": 2
+    },
+    {
+      "parent": 446,
+      "keeps": 49,
+      "quartets": 0
+    },
+    {
+      "parent": 447,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 448,
+      "keeps": 209,
+      "quartets": 0
+    },
+    {
+      "parent": 449,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 450,
+      "keeps": 297,
+      "quartets": 4
+    },
+    {
+      "parent": 451,
+      "keeps": 249,
+      "quartets": 0
+    },
+    {
+      "parent": 452,
+      "keeps": 275,
+      "quartets": 3
+    },
+    {
+      "parent": 453,
+      "keeps": 291,
+      "quartets": 0
+    },
+    {
+      "parent": 454,
+      "keeps": 203,
+      "quartets": 7
+    },
+    {
+      "parent": 455,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 456,
+      "keeps": 179,
+      "quartets": 0
+    },
+    {
+      "parent": 457,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 458,
+      "keeps": 231,
+      "quartets": 0
+    },
+    {
+      "parent": 459,
+      "keeps": 236,
+      "quartets": 0
+    },
+    {
+      "parent": 460,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 461,
+      "keeps": 87,
+      "quartets": 0
+    },
+    {
+      "parent": 462,
+      "keeps": 288,
+      "quartets": 0
+    },
+    {
+      "parent": 463,
+      "keeps": 268,
+      "quartets": 0
+    },
+    {
+      "parent": 464,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 465,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 466,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 467,
+      "keeps": 264,
+      "quartets": 6
+    },
+    {
+      "parent": 468,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 469,
+      "keeps": 200,
+      "quartets": 0
+    },
+    {
+      "parent": 470,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 471,
+      "keeps": 286,
+      "quartets": 12
+    },
+    {
+      "parent": 472,
+      "keeps": 297,
+      "quartets": 12
+    },
+    {
+      "parent": 473,
+      "keeps": 250,
+      "quartets": 0
+    },
+    {
+      "parent": 474,
+      "keeps": 289,
+      "quartets": 6
+    },
+    {
+      "parent": 475,
+      "keeps": 292,
+      "quartets": 11
+    },
+    {
+      "parent": 476,
+      "keeps": 288,
+      "quartets": 0
+    },
+    {
+      "parent": 477,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 478,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 479,
+      "keeps": 295,
+      "quartets": 1
+    },
+    {
+      "parent": 480,
+      "keeps": 282,
+      "quartets": 6
+    },
+    {
+      "parent": 481,
+      "keeps": 295,
+      "quartets": 0
+    },
+    {
+      "parent": 482,
+      "keeps": 191,
+      "quartets": 0
+    },
+    {
+      "parent": 483,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 484,
+      "keeps": 214,
+      "quartets": 0
+    },
+    {
+      "parent": 485,
+      "keeps": 211,
+      "quartets": 0
+    },
+    {
+      "parent": 486,
+      "keeps": 298,
+      "quartets": 2
+    },
+    {
+      "parent": 487,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 488,
+      "keeps": 190,
+      "quartets": 5
+    },
+    {
+      "parent": 489,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 490,
+      "keeps": 281,
+      "quartets": 4
+    },
+    {
+      "parent": 491,
+      "keeps": 283,
+      "quartets": 0
+    },
+    {
+      "parent": 492,
+      "keeps": 198,
+      "quartets": 0
+    },
+    {
+      "parent": 493,
+      "keeps": 252,
+      "quartets": 4
+    },
+    {
+      "parent": 494,
+      "keeps": 294,
+      "quartets": 0
+    },
+    {
+      "parent": 495,
+      "keeps": 274,
+      "quartets": 0
+    },
+    {
+      "parent": 496,
+      "keeps": 98,
+      "quartets": 1
+    },
+    {
+      "parent": 497,
+      "keeps": 221,
+      "quartets": 0
+    },
+    {
+      "parent": 498,
+      "keeps": 210,
+      "quartets": 1
+    },
+    {
+      "parent": 499,
+      "keeps": 288,
+      "quartets": 0
+    },
+    {
+      "parent": 500,
+      "keeps": 238,
+      "quartets": 8
+    },
+    {
+      "parent": 501,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 502,
+      "keeps": 255,
+      "quartets": 1
+    },
+    {
+      "parent": 503,
+      "keeps": 189,
+      "quartets": 0
+    },
+    {
+      "parent": 504,
+      "keeps": 118,
+      "quartets": 0
+    },
+    {
+      "parent": 505,
+      "keeps": 277,
+      "quartets": 8
+    },
+    {
+      "parent": 506,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 507,
+      "keeps": 267,
+      "quartets": 1
+    },
+    {
+      "parent": 508,
+      "keeps": 279,
+      "quartets": 7
+    },
+    {
+      "parent": 509,
+      "keeps": 293,
+      "quartets": 5
+    },
+    {
+      "parent": 510,
+      "keeps": 113,
+      "quartets": 12
+    },
+    {
+      "parent": 511,
+      "keeps": 266,
+      "quartets": 1
+    },
+    {
+      "parent": 512,
+      "keeps": 262,
+      "quartets": 0
+    },
+    {
+      "parent": 513,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 514,
+      "keeps": 202,
+      "quartets": 0
+    },
+    {
+      "parent": 515,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 516,
+      "keeps": 279,
+      "quartets": 0
+    },
+    {
+      "parent": 517,
+      "keeps": 274,
+      "quartets": 0
+    },
+    {
+      "parent": 518,
+      "keeps": 297,
+      "quartets": 2
+    },
+    {
+      "parent": 519,
+      "keeps": 285,
+      "quartets": 3
+    },
+    {
+      "parent": 520,
+      "keeps": 269,
+      "quartets": 0
+    },
+    {
+      "parent": 521,
+      "keeps": 224,
+      "quartets": 0
+    },
+    {
+      "parent": 522,
+      "keeps": 294,
+      "quartets": 12
+    },
+    {
+      "parent": 523,
+      "keeps": 58,
+      "quartets": 5
+    },
+    {
+      "parent": 524,
+      "keeps": 290,
+      "quartets": 7
+    },
+    {
+      "parent": 525,
+      "keeps": 295,
+      "quartets": 8
+    },
+    {
+      "parent": 526,
+      "keeps": 268,
+      "quartets": 0
+    },
+    {
+      "parent": 527,
+      "keeps": 259,
+      "quartets": 0
+    },
+    {
+      "parent": 528,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 529,
+      "keeps": 285,
+      "quartets": 1
+    },
+    {
+      "parent": 530,
+      "keeps": 282,
+      "quartets": 0
+    },
+    {
+      "parent": 531,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 532,
+      "keeps": 295,
+      "quartets": 12
+    },
+    {
+      "parent": 533,
+      "keeps": 287,
+      "quartets": 3
+    },
+    {
+      "parent": 534,
+      "keeps": 268,
+      "quartets": 2
+    },
+    {
+      "parent": 535,
+      "keeps": 247,
+      "quartets": 0
+    },
+    {
+      "parent": 536,
+      "keeps": 282,
+      "quartets": 6
+    },
+    {
+      "parent": 537,
+      "keeps": 287,
+      "quartets": 12
+    },
+    {
+      "parent": 538,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 539,
+      "keeps": 280,
+      "quartets": 12
+    },
+    {
+      "parent": 540,
+      "keeps": 270,
+      "quartets": 0
+    },
+    {
+      "parent": 541,
+      "keeps": 295,
+      "quartets": 10
+    },
+    {
+      "parent": 542,
+      "keeps": 277,
+      "quartets": 12
+    },
+    {
+      "parent": 543,
+      "keeps": 272,
+      "quartets": 2
+    },
+    {
+      "parent": 544,
+      "keeps": 237,
+      "quartets": 0
+    },
+    {
+      "parent": 545,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 546,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 547,
+      "keeps": 281,
+      "quartets": 5
+    },
+    {
+      "parent": 548,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 549,
+      "keeps": 277,
+      "quartets": 0
+    },
+    {
+      "parent": 550,
+      "keeps": 278,
+      "quartets": 0
+    },
+    {
+      "parent": 551,
+      "keeps": 77,
+      "quartets": 0
+    },
+    {
+      "parent": 552,
+      "keeps": 267,
+      "quartets": 0
+    },
+    {
+      "parent": 553,
+      "keeps": 269,
+      "quartets": 7
+    },
+    {
+      "parent": 554,
+      "keeps": 286,
+      "quartets": 12
+    },
+    {
+      "parent": 555,
+      "keeps": 198,
+      "quartets": 5
+    },
+    {
+      "parent": 556,
+      "keeps": 229,
+      "quartets": 0
+    },
+    {
+      "parent": 557,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 558,
+      "keeps": 203,
+      "quartets": 12
+    },
+    {
+      "parent": 559,
+      "keeps": 61,
+      "quartets": 0
+    },
+    {
+      "parent": 560,
+      "keeps": 282,
+      "quartets": 1
+    },
+    {
+      "parent": 561,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 562,
+      "keeps": 211,
+      "quartets": 12
+    },
+    {
+      "parent": 563,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 564,
+      "keeps": 267,
+      "quartets": 4
+    },
+    {
+      "parent": 565,
+      "keeps": 69,
+      "quartets": 3
+    },
+    {
+      "parent": 566,
+      "keeps": 296,
+      "quartets": 4
+    },
+    {
+      "parent": 567,
+      "keeps": 205,
+      "quartets": 0
+    },
+    {
+      "parent": 568,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 569,
+      "keeps": 280,
+      "quartets": 0
+    },
+    {
+      "parent": 570,
+      "keeps": 296,
+      "quartets": 1
+    },
+    {
+      "parent": 571,
+      "keeps": 286,
+      "quartets": 5
+    },
+    {
+      "parent": 572,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 573,
+      "keeps": 292,
+      "quartets": 3
+    },
+    {
+      "parent": 574,
+      "keeps": 265,
+      "quartets": 1
+    },
+    {
+      "parent": 575,
+      "keeps": 253,
+      "quartets": 0
+    },
+    {
+      "parent": 576,
+      "keeps": 254,
+      "quartets": 8
+    },
+    {
+      "parent": 577,
+      "keeps": 289,
+      "quartets": 2
+    },
+    {
+      "parent": 578,
+      "keeps": 262,
+      "quartets": 7
+    },
+    {
+      "parent": 579,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 580,
+      "keeps": 250,
+      "quartets": 0
+    },
+    {
+      "parent": 581,
+      "keeps": 289,
+      "quartets": 12
+    },
+    {
+      "parent": 582,
+      "keeps": 272,
+      "quartets": 5
+    },
+    {
+      "parent": 583,
+      "keeps": 281,
+      "quartets": 0
+    },
+    {
+      "parent": 584,
+      "keeps": 272,
+      "quartets": 4
+    },
+    {
+      "parent": 585,
+      "keeps": 297,
+      "quartets": 3
+    },
+    {
+      "parent": 586,
+      "keeps": 90,
+      "quartets": 5
+    },
+    {
+      "parent": 587,
+      "keeps": 290,
+      "quartets": 2
+    },
+    {
+      "parent": 588,
+      "keeps": 293,
+      "quartets": 1
+    },
+    {
+      "parent": 589,
+      "keeps": 298,
+      "quartets": 2
+    },
+    {
+      "parent": 590,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 591,
+      "keeps": 114,
+      "quartets": 0
+    },
+    {
+      "parent": 592,
+      "keeps": 285,
+      "quartets": 4
+    },
+    {
+      "parent": 593,
+      "keeps": 264,
+      "quartets": 0
+    },
+    {
+      "parent": 594,
+      "keeps": 295,
+      "quartets": 0
+    },
+    {
+      "parent": 595,
+      "keeps": 297,
+      "quartets": 1
+    },
+    {
+      "parent": 596,
+      "keeps": 294,
+      "quartets": 1
+    },
+    {
+      "parent": 597,
+      "keeps": 280,
+      "quartets": 4
+    },
+    {
+      "parent": 598,
+      "keeps": 288,
+      "quartets": 0
+    },
+    {
+      "parent": 599,
+      "keeps": 202,
+      "quartets": 0
+    },
+    {
+      "parent": 600,
+      "keeps": 269,
+      "quartets": 9
+    },
+    {
+      "parent": 601,
+      "keeps": 223,
+      "quartets": 0
+    },
+    {
+      "parent": 602,
+      "keeps": 80,
+      "quartets": 0
+    },
+    {
+      "parent": 603,
+      "keeps": 275,
+      "quartets": 2
+    },
+    {
+      "parent": 604,
+      "keeps": 225,
+      "quartets": 0
+    },
+    {
+      "parent": 605,
+      "keeps": 297,
+      "quartets": 10
+    },
+    {
+      "parent": 606,
+      "keeps": 227,
+      "quartets": 2
+    },
+    {
+      "parent": 607,
+      "keeps": 260,
+      "quartets": 12
+    },
+    {
+      "parent": 608,
+      "keeps": 271,
+      "quartets": 8
+    },
+    {
+      "parent": 609,
+      "keeps": 278,
+      "quartets": 1
+    },
+    {
+      "parent": 610,
+      "keeps": 249,
+      "quartets": 0
+    },
+    {
+      "parent": 611,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 612,
+      "keeps": 269,
+      "quartets": 1
+    },
+    {
+      "parent": 613,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 614,
+      "keeps": 248,
+      "quartets": 5
+    },
+    {
+      "parent": 615,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 616,
+      "keeps": 293,
+      "quartets": 0
+    },
+    {
+      "parent": 617,
+      "keeps": 222,
+      "quartets": 2
+    },
+    {
+      "parent": 618,
+      "keeps": 298,
+      "quartets": 3
+    },
+    {
+      "parent": 619,
+      "keeps": 218,
+      "quartets": 0
+    },
+    {
+      "parent": 620,
+      "keeps": 296,
+      "quartets": 11
+    },
+    {
+      "parent": 621,
+      "keeps": 288,
+      "quartets": 7
+    },
+    {
+      "parent": 622,
+      "keeps": 283,
+      "quartets": 2
+    },
+    {
+      "parent": 623,
+      "keeps": 271,
+      "quartets": 0
+    },
+    {
+      "parent": 624,
+      "keeps": 95,
+      "quartets": 0
+    },
+    {
+      "parent": 625,
+      "keeps": 192,
+      "quartets": 0
+    },
+    {
+      "parent": 626,
+      "keeps": 229,
+      "quartets": 0
+    },
+    {
+      "parent": 627,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 628,
+      "keeps": 270,
+      "quartets": 1
+    },
+    {
+      "parent": 629,
+      "keeps": 223,
+      "quartets": 0
+    },
+    {
+      "parent": 630,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 631,
+      "keeps": 284,
+      "quartets": 5
+    },
+    {
+      "parent": 632,
+      "keeps": 87,
+      "quartets": 12
+    },
+    {
+      "parent": 633,
+      "keeps": 297,
+      "quartets": 4
+    },
+    {
+      "parent": 634,
+      "keeps": 60,
+      "quartets": 12
+    },
+    {
+      "parent": 635,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 636,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 637,
+      "keeps": 116,
+      "quartets": 1
+    },
+    {
+      "parent": 638,
+      "keeps": 295,
+      "quartets": 0
+    },
+    {
+      "parent": 639,
+      "keeps": 168,
+      "quartets": 1
+    },
+    {
+      "parent": 640,
+      "keeps": 290,
+      "quartets": 4
+    },
+    {
+      "parent": 641,
+      "keeps": 262,
+      "quartets": 2
+    },
+    {
+      "parent": 642,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 643,
+      "keeps": 267,
+      "quartets": 3
+    },
+    {
+      "parent": 644,
+      "keeps": 74,
+      "quartets": 0
+    },
+    {
+      "parent": 645,
+      "keeps": 283,
+      "quartets": 1
+    },
+    {
+      "parent": 646,
+      "keeps": 258,
+      "quartets": 0
+    },
+    {
+      "parent": 647,
+      "keeps": 276,
+      "quartets": 10
+    },
+    {
+      "parent": 648,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 649,
+      "keeps": 297,
+      "quartets": 2
+    },
+    {
+      "parent": 650,
+      "keeps": 295,
+      "quartets": 0
+    },
+    {
+      "parent": 651,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 652,
+      "keeps": 297,
+      "quartets": 3
+    },
+    {
+      "parent": 653,
+      "keeps": 244,
+      "quartets": 1
+    },
+    {
+      "parent": 654,
+      "keeps": 283,
+      "quartets": 4
+    },
+    {
+      "parent": 655,
+      "keeps": 295,
+      "quartets": 3
+    },
+    {
+      "parent": 656,
+      "keeps": 279,
+      "quartets": 0
+    },
+    {
+      "parent": 657,
+      "keeps": 269,
+      "quartets": 7
+    },
+    {
+      "parent": 658,
+      "keeps": 295,
+      "quartets": 6
+    },
+    {
+      "parent": 659,
+      "keeps": 297,
+      "quartets": 3
+    },
+    {
+      "parent": 660,
+      "keeps": 292,
+      "quartets": 0
+    },
+    {
+      "parent": 661,
+      "keeps": 274,
+      "quartets": 0
+    },
+    {
+      "parent": 662,
+      "keeps": 52,
+      "quartets": 12
+    },
+    {
+      "parent": 663,
+      "keeps": 243,
+      "quartets": 0
+    },
+    {
+      "parent": 664,
+      "keeps": 280,
+      "quartets": 1
+    },
+    {
+      "parent": 665,
+      "keeps": 281,
+      "quartets": 7
+    },
+    {
+      "parent": 666,
+      "keeps": 205,
+      "quartets": 0
+    },
+    {
+      "parent": 667,
+      "keeps": 289,
+      "quartets": 0
+    },
+    {
+      "parent": 668,
+      "keeps": 298,
+      "quartets": 5
+    },
+    {
+      "parent": 669,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 670,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 671,
+      "keeps": 291,
+      "quartets": 12
+    },
+    {
+      "parent": 672,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 673,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 674,
+      "keeps": 96,
+      "quartets": 2
+    },
+    {
+      "parent": 675,
+      "keeps": 269,
+      "quartets": 0
+    },
+    {
+      "parent": 676,
+      "keeps": 207,
+      "quartets": 4
+    },
+    {
+      "parent": 677,
+      "keeps": 296,
+      "quartets": 12
+    },
+    {
+      "parent": 678,
+      "keeps": 296,
+      "quartets": 4
+    },
+    {
+      "parent": 679,
+      "keeps": 269,
+      "quartets": 0
+    },
+    {
+      "parent": 680,
+      "keeps": 276,
+      "quartets": 1
+    },
+    {
+      "parent": 681,
+      "keeps": 296,
+      "quartets": 4
+    },
+    {
+      "parent": 682,
+      "keeps": 278,
+      "quartets": 3
+    },
+    {
+      "parent": 683,
+      "keeps": 235,
+      "quartets": 0
+    },
+    {
+      "parent": 684,
+      "keeps": 287,
+      "quartets": 0
+    },
+    {
+      "parent": 685,
+      "keeps": 281,
+      "quartets": 3
+    },
+    {
+      "parent": 686,
+      "keeps": 207,
+      "quartets": 0
+    },
+    {
+      "parent": 687,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 688,
+      "keeps": 294,
+      "quartets": 4
+    },
+    {
+      "parent": 689,
+      "keeps": 294,
+      "quartets": 4
+    },
+    {
+      "parent": 690,
+      "keeps": 293,
+      "quartets": 5
+    },
+    {
+      "parent": 691,
+      "keeps": 235,
+      "quartets": 0
+    },
+    {
+      "parent": 692,
+      "keeps": 296,
+      "quartets": 0
+    },
+    {
+      "parent": 693,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 694,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 695,
+      "keeps": 214,
+      "quartets": 0
+    },
+    {
+      "parent": 696,
+      "keeps": 295,
+      "quartets": 2
+    },
+    {
+      "parent": 697,
+      "keeps": 275,
+      "quartets": 9
+    },
+    {
+      "parent": 698,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 699,
+      "keeps": 289,
+      "quartets": 0
+    },
+    {
+      "parent": 700,
+      "keeps": 284,
+      "quartets": 0
+    },
+    {
+      "parent": 701,
+      "keeps": 245,
+      "quartets": 2
+    },
+    {
+      "parent": 702,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 703,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 704,
+      "keeps": 294,
+      "quartets": 12
+    },
+    {
+      "parent": 705,
+      "keeps": 293,
+      "quartets": 12
+    },
+    {
+      "parent": 706,
+      "keeps": 248,
+      "quartets": 1
+    },
+    {
+      "parent": 707,
+      "keeps": 297,
+      "quartets": 1
+    },
+    {
+      "parent": 708,
+      "keeps": 298,
+      "quartets": 2
+    },
+    {
+      "parent": 709,
+      "keeps": 291,
+      "quartets": 12
+    },
+    {
+      "parent": 710,
+      "keeps": 281,
+      "quartets": 0
+    },
+    {
+      "parent": 711,
+      "keeps": 203,
+      "quartets": 2
+    },
+    {
+      "parent": 712,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 713,
+      "keeps": 293,
+      "quartets": 4
+    },
+    {
+      "parent": 714,
+      "keeps": 200,
+      "quartets": 1
+    },
+    {
+      "parent": 715,
+      "keeps": 97,
+      "quartets": 1
+    },
+    {
+      "parent": 716,
+      "keeps": 265,
+      "quartets": 3
+    },
+    {
+      "parent": 717,
+      "keeps": 234,
+      "quartets": 0
+    },
+    {
+      "parent": 718,
+      "keeps": 219,
+      "quartets": 0
+    },
+    {
+      "parent": 719,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 720,
+      "keeps": 225,
+      "quartets": 0
+    },
+    {
+      "parent": 721,
+      "keeps": 281,
+      "quartets": 0
+    },
+    {
+      "parent": 722,
+      "keeps": 294,
+      "quartets": 11
+    },
+    {
+      "parent": 723,
+      "keeps": 261,
+      "quartets": 12
+    },
+    {
+      "parent": 724,
+      "keeps": 109,
+      "quartets": 0
+    },
+    {
+      "parent": 725,
+      "keeps": 262,
+      "quartets": 0
+    },
+    {
+      "parent": 726,
+      "keeps": 298,
+      "quartets": 4
+    },
+    {
+      "parent": 727,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 728,
+      "keeps": 294,
+      "quartets": 8
+    },
+    {
+      "parent": 729,
+      "keeps": 219,
+      "quartets": 1
+    },
+    {
+      "parent": 730,
+      "keeps": 282,
+      "quartets": 12
+    },
+    {
+      "parent": 731,
+      "keeps": 297,
+      "quartets": 6
+    },
+    {
+      "parent": 732,
+      "keeps": 112,
+      "quartets": 4
+    },
+    {
+      "parent": 733,
+      "keeps": 288,
+      "quartets": 5
+    },
+    {
+      "parent": 734,
+      "keeps": 298,
+      "quartets": 3
+    },
+    {
+      "parent": 735,
+      "keeps": 267,
+      "quartets": 0
+    },
+    {
+      "parent": 736,
+      "keeps": 225,
+      "quartets": 0
+    },
+    {
+      "parent": 737,
+      "keeps": 111,
+      "quartets": 0
+    },
+    {
+      "parent": 738,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 739,
+      "keeps": 292,
+      "quartets": 0
+    },
+    {
+      "parent": 740,
+      "keeps": 293,
+      "quartets": 0
+    },
+    {
+      "parent": 741,
+      "keeps": 252,
+      "quartets": 1
+    },
+    {
+      "parent": 742,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 743,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 744,
+      "keeps": 120,
+      "quartets": 8
+    },
+    {
+      "parent": 745,
+      "keeps": 297,
+      "quartets": 0
+    },
+    {
+      "parent": 746,
+      "keeps": 291,
+      "quartets": 7
+    },
+    {
+      "parent": 747,
+      "keeps": 94,
+      "quartets": 3
+    },
+    {
+      "parent": 748,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 749,
+      "keeps": 287,
+      "quartets": 6
+    },
+    {
+      "parent": 750,
+      "keeps": 222,
+      "quartets": 0
+    },
+    {
+      "parent": 751,
+      "keeps": 298,
+      "quartets": 1
+    },
+    {
+      "parent": 752,
+      "keeps": 297,
+      "quartets": 7
+    },
+    {
+      "parent": 753,
+      "keeps": 285,
+      "quartets": 0
+    },
+    {
+      "parent": 754,
+      "keeps": 298,
+      "quartets": 7
+    },
+    {
+      "parent": 755,
+      "keeps": 293,
+      "quartets": 0
+    },
+    {
+      "parent": 756,
+      "keeps": 281,
+      "quartets": 10
+    },
+    {
+      "parent": 757,
+      "keeps": 293,
+      "quartets": 12
+    },
+    {
+      "parent": 758,
+      "keeps": 287,
+      "quartets": 9
+    },
+    {
+      "parent": 759,
+      "keeps": 298,
+      "quartets": 7
+    },
+    {
+      "parent": 760,
+      "keeps": 298,
+      "quartets": 6
+    },
+    {
+      "parent": 761,
+      "keeps": 247,
+      "quartets": 0
+    },
+    {
+      "parent": 762,
+      "keeps": 230,
+      "quartets": 0
+    },
+    {
+      "parent": 763,
+      "keeps": 273,
+      "quartets": 7
+    },
+    {
+      "parent": 764,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 765,
+      "keeps": 298,
+      "quartets": 0
+    },
+    {
+      "parent": 766,
+      "keeps": 296,
+      "quartets": 1
+    },
+    {
+      "parent": 767,
+      "keeps": 298,
+      "quartets": 3
+    }
+  ],
+  "nearest_16N_min_linf": 0.1256742661264736,
+  "generation": "new independent parent pool; no target scores consulted"
+}

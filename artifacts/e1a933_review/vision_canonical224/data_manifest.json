@@ -1,0 +1,27 @@
+{
+  "train": {
+    "seed": 941001,
+    "parent_count": 512,
+    "image_count": 2126,
+    "images_sha256": "9ac344669c91ed226da71a02adc7b6cdb9dd09e36ba094a4f1557887a8fce6e9",
+    "coords_sha256": "e9e35b53c01fefc2a58d809399d2474f648ffe7b6807057aa67d613d82f0485f"
+  },
+  "dev": {
+    "seed": 941002,
+    "parent_count": 128,
+    "image_count": 532,
+    "images_sha256": "75120d90d087d136bd126aeafeb8d63fd8b0ea4950e9d2b97c11632a2344c535",
+    "coords_sha256": "a0e3517dd369cdc55ead0835fc38b8a02606fb2e253fcb1172a809fcd0de3f31"
+  },
+  "test": {
+    "seed": 941003,
+    "parent_count": 128,
+    "image_count": 528,
+    "images_sha256": "cb4027eec531332f1eb8af29ff2287f1d4c35b9e050b9163140fa8bc5ded1a14",
+    "coords_sha256": "64d0b28ab6e8b04e546061d5e567a4fc47eaa6636af5ab0101bdb6f92366d091"
+  },
+  "split_contract": "physical parents independently generated before images/edits; color-preserving endpoint canonical parent hashes disjoint",
+  "quartet_n": 29,
+  "quartet_parent_n": 17,
+  "observation_protocol": "canonicalize endpoints within each visible color by coordinate sorting before legacy 64px rendering, then bilinear upsample224; no labels used"
+}

@@ -9,9 +9,8 @@
 % TODO-FIG1: no Figure-1 environment exists yet — must be REAL controlled
 %   quartet/path examples (oracle vs model prediction) sampled from the
 %   statistical population; do not claim it before generation.
-% TODO-COMPILE: no LaTeX toolchain on this machine (pdflatex/xelatex/
-%   latexmk/tectonic all absent) — first compile must happen on a machine
-%   with TeX; check missing figures / undefined refs / overfull / page count.
+% Compilation: existing TinyTeX toolchain; current build receipt is
+% reports/e1a933_review/PAPER_PATCH_AUDIT.md.
 % ============================================================================
 \documentclass{article} % For LaTeX2e
 \usepackage{iclr2027_conference,times}
@@ -57,6 +56,7 @@ Compositional and Transitional Blind Spots in Learned Representations}
 \input{sections/08_reproducibility}       % App. protocol (sec:repro)
 \input{sections/06_external_confirmation} % App. failure catalogue (sec:failures)
 \input{sections/app_f095}                 % App. f095 follow-up (sec:f095, generated)
+\input{sections/app_l015}                 % App. labeling-symmetry training check (sec:l015)
 \input{sections/appendix}                 % App. audit history & estimand map (sec:audit)
 
 % ----------------------------------------------------------------------------

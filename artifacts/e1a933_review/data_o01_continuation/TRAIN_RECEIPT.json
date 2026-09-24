@@ -1,0 +1,38 @@
+{
+  "stage": "train",
+  "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "argv": [
+    "experiments/e1a933_review/o01_continuation.py",
+    "--stage",
+    "train"
+  ],
+  "threads": 2,
+  "lr_grid": [
+    0.01,
+    0.003,
+    0.001
+  ],
+  "robust": {
+    "sgd_m09_lr0.01": {
+      "kind": "sgd",
+      "lr": 0.01,
+      "momentum": 0.9,
+      "steps": 300
+    },
+    "sgd_m09_lr0.003": {
+      "kind": "sgd",
+      "lr": 0.003,
+      "momentum": 0.9,
+      "steps": 300
+    },
+    "adam_lr0.0005_steps600": {
+      "kind": "adam",
+      "lr": 0.0005,
+      "steps": 600
+    }
+  },
+  "steps": 300,
+  "arms_factorial": 432,
+  "arms_robust": 216,
+  "selection": "static/single development BCE only; eval pool never used for selection"
+}

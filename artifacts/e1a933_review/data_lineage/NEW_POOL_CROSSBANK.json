@@ -1,0 +1,54 @@
+{
+  "artifacts/discovery_campaign/scenes/tune_707/scenes.npz": {
+    "min_linf": 0.17057320578996982,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/recheck_505/scenes.npz": {
+    "min_linf": 0.13662331795032495,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/eval_202/scenes.npz": {
+    "min_linf": 0.1535704947002675,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/d09_fresh/scenes.npz": {
+    "min_linf": 0.1256742661264736,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/train_101/scenes.npz": {
+    "min_linf": 0.16557591506048286,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/holdout_909/scenes.npz": {
+    "min_linf": 0.18648866418124332,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/recheck_606/scenes.npz": {
+    "min_linf": 0.1384414855835862,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/holdout_303/scenes.npz": {
+    "min_linf": 0.13179860938808918,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/confirm_808/scenes.npz": {
+    "min_linf": 0.15561376878351818,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/confirm_1007/scenes.npz": {
+    "min_linf": 0.12831712600807854,
+    "near_le1e4": 0
+  },
+  "artifacts/discovery_campaign/scenes/recheck_404/scenes.npz": {
+    "min_linf": 0.14540166067609783,
+    "near_le1e4": 0
+  },
+  "artifacts/e1a933_review/data_o01/N_flips.npz": {
+    "eval_state_min_linf": 0.16905592236632994,
+    "near_le1e4": 0
+  },
+  "artifacts/e1a933_review/data_o01/4N_flips.npz": {
+    "eval_state_min_linf": 0.0542160647413229,
+    "near_le1e4": 0
+  }
+}

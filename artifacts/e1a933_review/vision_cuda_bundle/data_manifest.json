@@ -1,0 +1,28 @@
+{
+  "train": {
+    "seed": 941001,
+    "parent_count": 512,
+    "image_count": 2816,
+    "images_sha256": "0ee42e9e4d3cfca8b28e97181c9155062591694d4bf901e242da35b390ee6def",
+    "coords_sha256": "6f7865a23d76adb5cc567cb0c3ec9990bbae552973b1b14b0f5d3e738ff4f3a1"
+  },
+  "dev": {
+    "seed": 941002,
+    "parent_count": 128,
+    "image_count": 707,
+    "images_sha256": "bcececcfda212df802bc0665e6a8855fc9a3ed40f609a7408a2d89eee780bf6b",
+    "coords_sha256": "23a739202d26cc8addcd3f0f149f626c405d82d40fafdf21a97c52d5dde3fdd1"
+  },
+  "test": {
+    "seed": 941003,
+    "parent_count": 512,
+    "image_count": 2803,
+    "images_sha256": "6aa38833a3f6324740ffcf49f407f039b8ceb11a422ffef299f22592b2053e17",
+    "coords_sha256": "405a3b73ce3ff12faeb9e3e9d7367fe61cad5c6ae499fad994ad1f8b657ae585"
+  },
+  "training_edit_recipe": "max2 single flips per parent; 16 fixed draws with radii .1/.2/.35/.5; oracle margin>=.02; >=20 changed pixels; no AB train/dev",
+  "observation_protocol": "same-color endpoint coordinate sort, legacy native64 render, bilinear224",
+  "split_contract": "physical parents independently generated before images/edits; color-preserving endpoint canonical parent hashes disjoint",
+  "quartet_n": 159,
+  "quartet_parent_n": 74
+}

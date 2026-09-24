@@ -1,0 +1,12 @@
+{
+  "n": 2,
+  "P": 1.0,
+  "A": 1.0,
+  "B": 1.0,
+  "atomic_joint": 1.0,
+  "AB": 0.0,
+  "J": 0.0,
+  "CCM_denominator": 2,
+  "CCM": 0.0,
+  "scope": "True geometry replaces predicted geometry in the frozen same head. Diagnostic, never image-only deployment performance; meaningful semantic replacement only for geometry_bottleneck."
+}

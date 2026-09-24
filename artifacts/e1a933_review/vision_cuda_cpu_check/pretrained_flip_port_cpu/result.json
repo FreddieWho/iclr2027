@@ -1,0 +1,21 @@
+{
+  "n": 2,
+  "P": 1.0,
+  "A": 1.0,
+  "B": 1.0,
+  "atomic_joint": 1.0,
+  "AB": 0.0,
+  "J": 0.0,
+  "CCM_denominator": 2,
+  "CCM": 0.0,
+  "backend": "cpu",
+  "dtype": "FP32",
+  "best_epoch": 1,
+  "selection": "single-dev BCE only",
+  "checkpoint_sha256": "ad0e3cbd4d131b5e6c45d4f6eb8388557bb6eb675d11588f62fc4e105b9dedb1",
+  "train_exposure_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+  "train_images_sha256": "24762dc53fc0ad9c64ebb28d12dca8d72e1788348b6ff14e85f7b9da47f6b4dd",
+  "lambda_aux": 0.0,
+  "lambda_status": "same train-only ordered-target initial gradient calibration for B/C/D; training gradient ratios may drift",
+  "lambda_calibration": null
+}

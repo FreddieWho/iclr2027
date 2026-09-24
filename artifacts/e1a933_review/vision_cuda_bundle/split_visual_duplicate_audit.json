@@ -1,0 +1,14 @@
+{
+  "train_vs_dev_identical_color_masks": 0,
+  "train_vs_test_identical_color_masks": 0,
+  "train_vs_quartet_identical_color_masks": 0,
+  "dev_vs_test_identical_color_masks": 0,
+  "dev_vs_quartet_identical_color_masks": 0,
+  "train_vs_dev_minimum_canonical_coordinate_Linf": 0.1491615845722185,
+  "train_vs_dev_state_count_within_Linf_0.01": 0,
+  "train_vs_test_minimum_canonical_coordinate_Linf": 0.12101679994784897,
+  "train_vs_test_state_count_within_Linf_0.01": 0,
+  "train_vs_quartet_minimum_canonical_coordinate_Linf": 0.15838433194216422,
+  "train_vs_quartet_state_count_within_Linf_0.01": 0,
+  "near_duplicate_boundary": "Noise-independent exact visible color-mask collision checked. Physical coordinate nearest-neighbor is diagnostic, not proof that perceptually similar scenes are absent."
+}

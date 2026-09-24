@@ -1,0 +1,225 @@
+{
+  "scope": "existing canonical real coordinates; geometry proxy, no counterfactual pass-success labels",
+  "mask_baseline": "controlled receiver and chosen defender stale for 0.2 seconds; both use only past coordinates; not natural missingness learning",
+  "match_split": {
+    "J03WOY": "train",
+    "J03WMX": "dev",
+    "J03WN1": "test"
+  },
+  "matches": {
+    "J03WOY": {
+      "split": "train",
+      "frame_source_sha256": "8da9cec28a75bcd3055ebca73e0ad64909cce276d5fefcaa84126216cdc5fd67",
+      "event_period_missing_before_ffill": 1485,
+      "event_period_missing_after_ffill": 0,
+      "motion": {
+        "horizon_seconds": 0.2,
+        "consecutive_dt_seconds_max": 0.12,
+        "valid_velocity_pairs": 3135739,
+        "valid_acceleration_triples": 3135686,
+        "speed_p95_m_s": 4.670390859796075,
+        "acceleration_p95_m_s2": 13.975744731463667,
+        "cap_m": 1.2135930665884884,
+        "invalid_or_gap_pair_count": 53,
+        "interpretation": "empirical displacement envelope, not joint dynamic feasibility proof"
+      },
+      "entity_rows": {
+        "player": 3135792,
+        "ball": 142536
+      },
+      "unique_frames": 142536,
+      "frames_with_player_count_not_22": 0,
+      "nonfinite_player_coordinate_rows": 0,
+      "passes_total": 721,
+      "passes_sampled": 80,
+      "passes_used": 65,
+      "skips": {
+        "recipient_wrong_team": 15
+      },
+      "observed_selected_passes": {
+        "candidate_n": 59,
+        "eligible_n": 59,
+        "E_found_n": 21,
+        "E_found_per_candidate": 0.3559322033898305,
+        "guided_found_n": 21,
+        "random_found_n": 16,
+        "tested_legal_pairs": 10391,
+        "single_keep_pair_n": 9581,
+        "E_pair_n": 142,
+        "E_conditional_on_single_keep": 0.014820999895626762
+      },
+      "all_legal_receiver_candidates": {
+        "candidate_n": 574,
+        "eligible_n": 574,
+        "E_found_n": 254,
+        "E_found_per_candidate": 0.4425087108013937,
+        "guided_found_n": 223,
+        "random_found_n": 221,
+        "tested_legal_pairs": 101319,
+        "single_keep_pair_n": 87372,
+        "E_pair_n": 2026,
+        "E_conditional_on_single_keep": 0.023188206748157303
+      },
+      "controlled_mask_baselines": {
+        "last_value": {
+          "n": 574,
+          "accuracy": 0.9407665505226481,
+          "false_open": 19,
+          "false_blocked": 15
+        },
+        "constant_velocity": {
+          "n": 574,
+          "accuracy": 0.980836236933798,
+          "false_open": 6,
+          "false_blocked": 5
+        }
+      }
+    },
+    "J03WMX": {
+      "split": "dev",
+      "frame_source_sha256": "75021d0fc3f36a2255627df79d9fd8696a7d8c0bc034665f29347de6eac0e724",
+      "event_period_missing_before_ffill": 1711,
+      "event_period_missing_after_ffill": 0,
+      "motion": {
+        "horizon_seconds": 0.2,
+        "consecutive_dt_seconds_max": 0.12,
+        "valid_velocity_pairs": 3211220,
+        "valid_acceleration_triples": 3211166,
+        "speed_p95_m_s": 4.596202014310477,
+        "acceleration_p95_m_s2": 13.975744731463667,
+        "cap_m": 1.1987552974913689,
+        "invalid_or_gap_pair_count": 54,
+        "interpretation": "empirical displacement envelope, not joint dynamic feasibility proof"
+      },
+      "entity_rows": {
+        "player": 3211274,
+        "referee": 437901,
+        "ball": 145967
+      },
+      "unique_frames": 145967,
+      "frames_with_player_count_not_22": 0,
+      "nonfinite_player_coordinate_rows": 0,
+      "passes_total": 845,
+      "passes_sampled": 80,
+      "passes_used": 68,
+      "skips": {
+        "recipient_wrong_team": 12
+      },
+      "observed_selected_passes": {
+        "candidate_n": 67,
+        "eligible_n": 67,
+        "E_found_n": 17,
+        "E_found_per_candidate": 0.2537313432835821,
+        "guided_found_n": 13,
+        "random_found_n": 12,
+        "tested_legal_pairs": 11833,
+        "single_keep_pair_n": 11011,
+        "E_pair_n": 83,
+        "E_conditional_on_single_keep": 0.007537916628825719
+      },
+      "all_legal_receiver_candidates": {
+        "candidate_n": 621,
+        "eligible_n": 621,
+        "E_found_n": 282,
+        "E_found_per_candidate": 0.45410628019323673,
+        "guided_found_n": 248,
+        "random_found_n": 234,
+        "tested_legal_pairs": 109811,
+        "single_keep_pair_n": 93705,
+        "E_pair_n": 2059,
+        "E_conditional_on_single_keep": 0.02197321380929513
+      },
+      "controlled_mask_baselines": {
+        "last_value": {
+          "n": 621,
+          "accuracy": 0.9017713365539453,
+          "false_open": 38,
+          "false_blocked": 23
+        },
+        "constant_velocity": {
+          "n": 621,
+          "accuracy": 0.9822866344605475,
+          "false_open": 8,
+          "false_blocked": 3
+        }
+      }
+    },
+    "J03WN1": {
+      "split": "test",
+      "frame_source_sha256": "abf416ed43700970bb62f6b7977991f77cf27be3465938735169680f825a3ee3",
+      "event_period_missing_before_ffill": 1359,
+      "event_period_missing_after_ffill": 0,
+      "motion": {
+        "horizon_seconds": 0.2,
+        "consecutive_dt_seconds_max": 0.12,
+        "valid_velocity_pairs": 2983347,
+        "valid_acceleration_triples": 2983297,
+        "speed_p95_m_s": 4.472131690038379,
+        "acceleration_p95_m_s2": 13.975744731463667,
+        "cap_m": 1.1739412326369494,
+        "invalid_or_gap_pair_count": 50,
+        "interpretation": "empirical displacement envelope, not joint dynamic feasibility proof"
+      },
+      "entity_rows": {
+        "player": 2983397,
+        "referee": 424683,
+        "ball": 141561
+      },
+      "unique_frames": 141561,
+      "frames_with_player_count_not_22": 130945,
+      "nonfinite_player_coordinate_rows": 0,
+      "passes_total": 590,
+      "passes_sampled": 80,
+      "passes_used": 29,
+      "skips": {
+        "recipient_wrong_team": 26,
+        "incomplete_opponent_team": 25
+      },
+      "observed_selected_passes": {
+        "candidate_n": 29,
+        "eligible_n": 29,
+        "E_found_n": 10,
+        "E_found_per_candidate": 0.3448275862068966,
+        "guided_found_n": 9,
+        "random_found_n": 10,
+        "tested_legal_pairs": 5133,
+        "single_keep_pair_n": 4431,
+        "E_pair_n": 89,
+        "E_conditional_on_single_keep": 0.020085759422252315
+      },
+      "all_legal_receiver_candidates": {
+        "candidate_n": 254,
+        "eligible_n": 254,
+        "E_found_n": 134,
+        "E_found_per_candidate": 0.5275590551181102,
+        "guided_found_n": 112,
+        "random_found_n": 114,
+        "tested_legal_pairs": 44946,
+        "single_keep_pair_n": 35847,
+        "E_pair_n": 981,
+        "E_conditional_on_single_keep": 0.027366306803916645
+      },
+      "controlled_mask_baselines": {
+        "last_value": {
+          "n": 254,
+          "accuracy": 0.8661417322834646,
+          "false_open": 23,
+          "false_blocked": 11
+        },
+        "constant_velocity": {
+          "n": 254,
+          "accuracy": 0.9881889763779528,
+          "false_open": 1,
+          "false_blocked": 2
+        }
+      }
+    }
+  },
+  "wall_seconds": 33.54371043294668,
+  "NOT_RUN": [
+    "natural-time E quartet prevalence (probe uses controlled edits)",
+    "learned partial-observation relation model",
+    "natural missingness state-estimator fit",
+    "native multimodal O06 (no approved provider/budget established)"
+  ]
+}

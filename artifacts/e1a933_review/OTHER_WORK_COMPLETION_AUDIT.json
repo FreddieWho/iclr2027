@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-09-24T16:22:13.234554+08:00",
+  "scope": "non-training completion check; no remote progress queries; no rerun of tests/experiments",
+  "required_deliverables": {
+    "R_FIXES_REPORT.md": true,
+    "OPTIMIZATION_REPORT.md": true,
+    "NEW_ROUTES_DECISION.md": true,
+    "PAPER_PATCH_AUDIT.md": true,
+    "AFFECTED_CLAIMS.csv": true,
+    "REPRODUCE.md": true
+  },
+  "data_manifest_files": 659,
+  "data_manifest_mismatches": [],
+  "typed_models": 18,
+  "o01_candidates": 108,
+  "fair_arms": 30,
+  "paper_pdf_hash_matches": true,
+  "paper_source_hash_mismatches": [],
+  "paper_total_pages": 19,
+  "paper_main_conclusion_page": 9,
+  "overall_status": "PARTIAL_NONTRAINING_WORK_REMAINS",
+  "readout_encoder_records": 12,
+  "readout_selected_head_count": 72,
+  "collector_status_at_check": "WAITING_FOR_REMOTE_COMPLETION_EVENT"
+}

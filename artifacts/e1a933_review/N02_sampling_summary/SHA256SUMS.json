@@ -1,0 +1,22 @@
+{
+  "artifacts/e1a933_review/N02_sampling_seed803_n64/forward.log": "5669cbdf6d4f833cda7717049a7256c8d3d31fc1fa0e5a9db9abd2f1aef66775",
+  "artifacts/e1a933_review/N02_sampling_seed803_n64/predictions.npz": "7cb57789c0192adebf7a8d73d49e47f7c1356428fd7e190057755e35e96de4eb",
+  "artifacts/e1a933_review/N02_sampling_seed803_n64/result.json": "b698b12f442fc404214ddf32115639ebe843866cd73aa2aa8be633a0d3d5ded8",
+  "artifacts/e1a933_review/N02_sampling_seed803_n64/samples.npz": "fc38e54ee152423f3b75e73c24fde29bc77e1780b5a655717b65bc83abcf3897",
+  "artifacts/e1a933_review/N02_sampling_seed805_n64/forward.log": "a2db0d50ae5505351a3e5b31c185f96b144efc498bb09c1af66a38237eced2c2",
+  "artifacts/e1a933_review/N02_sampling_seed805_n64/predictions.npz": "4d501ede7b93c3b955ff048a00f5f46edee4a7efcb831f15523b7c5998803c01",
+  "artifacts/e1a933_review/N02_sampling_seed805_n64/result.json": "19c5d516647877a7fafe27f2e932d647e6381e73347797c30f6d50f6a2e7fd61",
+  "artifacts/e1a933_review/N02_sampling_seed805_n64/samples.npz": "fc38e54ee152423f3b75e73c24fde29bc77e1780b5a655717b65bc83abcf3897",
+  "artifacts/e1a933_review/N02_sampling_seed806_n64/forward.log": "aef74fa78362283f1389ec50213b4d8f64c020b41a172714d5e2cf8aee91a81d",
+  "artifacts/e1a933_review/N02_sampling_seed806_n64/predictions.npz": "0bccfb6304f2ac2946401bd9ba96e133b85e745d95ed1a5257e6c0296c8cc993",
+  "artifacts/e1a933_review/N02_sampling_seed806_n64/result.json": "129bbd67aed0260e0c4540a4856be29934f48f15f10800b912929b252c17216b",
+  "artifacts/e1a933_review/N02_sampling_seed806_n64/samples.npz": "fc38e54ee152423f3b75e73c24fde29bc77e1780b5a655717b65bc83abcf3897",
+  "artifacts/e1a933_review/N02_sampling_summary/observation_matrix.csv": "62fd0ed5b237114c28eefcfb8cae257028697d85afb423df7aaa7d4f9327e8be",
+  "artifacts/e1a933_review/N02_sampling_summary/paired_statistics.csv": "d5490e7ed79f7b26c3ad031fcb6a0f33af829da39aa9bce39d1a0bd0bb35e0c0",
+  "artifacts/e1a933_review/N02_sampling_summary/runtime.json": "d4117a367127e3e3ef47209de435570aa112cd97ee4dbfa8799d501c422aa8a7",
+  "artifacts/e1a933_review/N02_sampling_summary/sample_manifest.csv": "010b7d45bcd43f277d7e7bdef10b1b26b989802899c0c1602186a467d12f0b14",
+  "artifacts/e1a933_review/N02_sampling_summary/structure_matrix.json": "6cd0fc0ea27eca0dfc83a9dbdfa71ac8192138c28988c9d831f8725683edc852",
+  "experiments/e1a933_review/sampling_access.py": "f3c006aee1b377f76c0f66bb7b0ef97a401d387325a212853ff465ccc1e5b172",
+  "experiments/e1a933_review/sampling_report.py": "cbf81133cb0aa4fddb72330389660b946cebb7d0d58dd9c1550cf4ff5b9a8e1f",
+  "reports/e1a933_review/N02_SAMPLING_ACCESS_REPORT.md": "ad65abcaa52fa78a6b5e3b900a7c9152e93c6f58bf8e8734f0571085945e673c"
+}

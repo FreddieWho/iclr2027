@@ -1,0 +1,134 @@
+{
+  "status": "STOPPED_BY_USER",
+  "pid": 1886333,
+  "command": [
+    "experiments/e1a933_review/vision_run.py",
+    "--out",
+    "artifacts/e1a933_review/vision_canonical224_v2",
+    "--epochs",
+    "20"
+  ],
+  "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "threads": 8,
+  "matrix": {
+    "seeds": [
+      803,
+      805,
+      806
+    ],
+    "arms": [
+      "pretrained_static",
+      "pretrained_flip",
+      "random_static",
+      "random_flip",
+      "ordered",
+      "matched",
+      "shuffled_matched"
+    ],
+    "epochs": 20,
+    "resolution": "native64 bilinear upsample224"
+  },
+  "completed": [
+    {
+      "arm": "pretrained_static",
+      "seed": 803
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "random_static",
+      "seed": 803
+    },
+    {
+      "arm": "random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "pretrained_static",
+      "seed": 805
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "random_static",
+      "seed": 805
+    },
+    {
+      "arm": "random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "pretrained_static",
+      "seed": 806
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "random_static",
+      "seed": 806
+    },
+    {
+      "arm": "random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "ordered",
+      "seed": 803
+    },
+    {
+      "arm": "matched",
+      "seed": 803
+    },
+    {
+      "arm": "shuffled_matched",
+      "seed": 803
+    },
+    {
+      "arm": "ordered",
+      "seed": 805
+    },
+    {
+      "arm": "matched",
+      "seed": 805
+    },
+    {
+      "arm": "shuffled_matched",
+      "seed": 805
+    },
+    {
+      "arm": "ordered",
+      "seed": 806
+    }
+  ],
+  "source_sha256": {
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/vision_run.py": "e9ee4a5e74b847429f3a96964b3bf25056bee83304b0686d447c816c2491c667",
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/vision_protocol.py": "5227007a566b0079a2248eb5ea87fd7502f19511ef607f965ea31c6e0e3350cc",
+    "experiments/f095_campaign/d04_vision_train.py": "13e9e9de24c9ab0e49acda7b306bc501331dce6f2044bb62ac03f7450ef406a2",
+    "experiments/f095_campaign/u06_relation_distill.py": "ae446731b8bcd5080809178ef803299c1c3c377dfaeddb044b4d2f8a1f328a87"
+  },
+  "prepared_source_sha256": {
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/vision_run.py": "7b712233193cea1874106ed85585d3421fb462d7349869a935a78abf242b3e87",
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/vision_protocol.py": "3790828f65a14adfa5d91409f6eed5c95f2772c1fc65f89726afed3f55dcfae4",
+    "experiments/f095_campaign/d04_vision_train.py": "13e9e9de24c9ab0e49acda7b306bc501331dce6f2044bb62ac03f7450ef406a2",
+    "experiments/f095_campaign/u06_relation_distill.py": "ae446731b8bcd5080809178ef803299c1c3c377dfaeddb044b4d2f8a1f328a87"
+  },
+  "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+  "current": {
+    "arm": "matched",
+    "seed": 806
+  },
+  "stopped": {
+    "utc": "2026-09-24T14:53:33Z",
+    "reason": "redundant CPU fallback; remote GPU matrix completed, verified and integrated; CPU/GPU results must not be mixed",
+    "arms_complete": 19,
+    "arms_total": 21,
+    "termination_receipt": "TERMINATION_RECEIPT.json",
+    "original_receipt_preserved_as": "receipt.RUNNING_asof_stop.json"
+  }
+}

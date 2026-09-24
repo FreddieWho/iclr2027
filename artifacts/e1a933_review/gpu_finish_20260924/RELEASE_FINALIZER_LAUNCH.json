@@ -1,0 +1,6 @@
+{
+  "pid": 2128789,
+  "script": "experiments/e1a933_review/gpu_finish_release.py",
+  "started_utc": "2026-09-24T09:39:02.082529+00:00",
+  "mode": "persistent host process; local inotify, no remote queries"
+}

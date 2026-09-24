@@ -1,0 +1,290 @@
+{
+  "raw_protection_s11": {
+    "J_delta_vs_plain": -0.029535864978902954,
+    "J_delta_CI_parent_bootstrap": [
+      -0.06855486090559336,
+      0.004048994437312792
+    ],
+    "atomic_regression_delta_vs_plain": -0.05019305019305019,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.0979809136059136,
+      -0.0041468577284257705
+    ]
+  },
+  "raw_hard_replay_s11": {
+    "J_delta_vs_plain": -0.012658227848101266,
+    "J_delta_CI_parent_bootstrap": [
+      -0.045454545454545456,
+      0.018942099567099552
+    ],
+    "atomic_regression_delta_vs_plain": -0.06563706563706563,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.1111111111111111,
+      -0.025452239789196324
+    ]
+  },
+  "raw_preserve_flip_balanced_s11": {
+    "J_delta_vs_plain": -0.029535864978902954,
+    "J_delta_CI_parent_bootstrap": [
+      -0.07110651818162497,
+      0.009869995837091418
+    ],
+    "atomic_regression_delta_vs_plain": -0.03088803088803089,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.1476592831131309,
+      0.06114684197202702
+    ]
+  },
+  "raw_scratch_s11": {
+    "J_delta_vs_plain": 0.0,
+    "J_delta_CI_parent_bootstrap": [
+      -0.04225850385330853,
+      0.04110060324242802
+    ],
+    "atomic_regression_delta_vs_plain": 0.019305019305019305,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.08906982803543512,
+      0.12444654088050312
+    ]
+  },
+  "raw_protection_s23": {
+    "J_delta_vs_plain": -0.004219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.041666666666666664,
+      0.03846566523605148
+    ],
+    "atomic_regression_delta_vs_plain": -0.034722222222222224,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.08524785990040844,
+      0.013516972604003303
+    ]
+  },
+  "raw_hard_replay_s23": {
+    "J_delta_vs_plain": -0.004219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.03913256606990623,
+      0.028574846206425135
+    ],
+    "atomic_regression_delta_vs_plain": -0.05555555555555555,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.1084915851038434,
+      -0.010169491525423728
+    ]
+  },
+  "raw_preserve_flip_balanced_s23": {
+    "J_delta_vs_plain": 0.004219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.03375885003218193,
+      0.04184149070740488
+    ],
+    "atomic_regression_delta_vs_plain": -0.09722222222222222,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.17832539273757406,
+      -0.02438812669376695
+    ]
+  },
+  "raw_scratch_s23": {
+    "J_delta_vs_plain": 0.008438818565400843,
+    "J_delta_CI_parent_bootstrap": [
+      -0.06086956521739131,
+      0.07589426989150089
+    ],
+    "atomic_regression_delta_vs_plain": 0.024305555555555556,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.10310474963181149,
+      0.15548283957108094
+    ]
+  },
+  "raw_protection_s47": {
+    "J_delta_vs_plain": 0.016877637130801686,
+    "J_delta_CI_parent_bootstrap": [
+      -0.024492305118768817,
+      0.06174074074074067
+    ],
+    "atomic_regression_delta_vs_plain": -0.03731343283582089,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.11915098199672668,
+      0.02243132875240834
+    ]
+  },
+  "raw_hard_replay_s47": {
+    "J_delta_vs_plain": 0.012658227848101266,
+    "J_delta_CI_parent_bootstrap": [
+      -0.02740357300675462,
+      0.05785123966942149
+    ],
+    "atomic_regression_delta_vs_plain": -0.033582089552238806,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.11180041540785499,
+      0.02414001909080061
+    ]
+  },
+  "raw_preserve_flip_balanced_s47": {
+    "J_delta_vs_plain": -0.012658227848101266,
+    "J_delta_CI_parent_bootstrap": [
+      -0.04898059223689476,
+      0.022396540027136994
+    ],
+    "atomic_regression_delta_vs_plain": -0.04477611940298507,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.12501120071684588,
+      0.03461038666686809
+    ]
+  },
+  "raw_scratch_s47": {
+    "J_delta_vs_plain": -0.0379746835443038,
+    "J_delta_CI_parent_bootstrap": [
+      -0.07826287317170909,
+      -0.004443952802359884
+    ],
+    "atomic_regression_delta_vs_plain": 0.05970149253731343,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.051949350649350655,
+      0.17187676753393663
+    ]
+  },
+  "rel_protection_s11": {
+    "J_delta_vs_plain": -0.004219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.058371049932435734,
+      0.05263157894736842
+    ],
+    "atomic_regression_delta_vs_plain": -0.005763688760806916,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.047062908496732024,
+      0.0366510633892389
+    ]
+  },
+  "rel_hard_replay_s11": {
+    "J_delta_vs_plain": -0.004219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.06276150627615062,
+      0.04918234676572719
+    ],
+    "atomic_regression_delta_vs_plain": -0.005763688760806916,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.0458723116258084,
+      0.03692592592592591
+    ]
+  },
+  "rel_preserve_flip_balanced_s11": {
+    "J_delta_vs_plain": 0.02531645569620253,
+    "J_delta_CI_parent_bootstrap": [
+      -0.06819098240469208,
+      0.11688896688896686
+    ],
+    "atomic_regression_delta_vs_plain": -0.08645533141210375,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.16511110192153944,
+      -0.013438914433508165
+    ]
+  },
+  "rel_scratch_s11": {
+    "J_delta_vs_plain": -0.046413502109704644,
+    "J_delta_CI_parent_bootstrap": [
+      -0.12501153136531365,
+      0.027480158730158688
+    ],
+    "atomic_regression_delta_vs_plain": -0.008645533141210375,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.07212067610062893,
+      0.05298188908602244
+    ]
+  },
+  "rel_protection_s23": {
+    "J_delta_vs_plain": 0.016877637130801686,
+    "J_delta_CI_parent_bootstrap": [
+      -0.028925619834710745,
+      0.06957027300303334
+    ],
+    "atomic_regression_delta_vs_plain": -0.022222222222222223,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.048846891830823136,
+      0.0
+    ]
+  },
+  "rel_hard_replay_s23": {
+    "J_delta_vs_plain": 0.016877637130801686,
+    "J_delta_CI_parent_bootstrap": [
+      -0.029793626152862754,
+      0.06550782130922359
+    ],
+    "atomic_regression_delta_vs_plain": -0.022222222222222223,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.04776119402985075,
+      0.0
+    ]
+  },
+  "rel_preserve_flip_balanced_s23": {
+    "J_delta_vs_plain": 0.004219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.09205310144033318,
+      0.1037344398340249
+    ],
+    "atomic_regression_delta_vs_plain": -0.06944444444444445,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.1495105172958534,
+      -0.0031894207363456864
+    ]
+  },
+  "rel_scratch_s23": {
+    "J_delta_vs_plain": 0.02531645569620253,
+    "J_delta_CI_parent_bootstrap": [
+      -0.05984543010752688,
+      0.11245240703072026
+    ],
+    "atomic_regression_delta_vs_plain": -0.008333333333333333,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.09903544849197023,
+      0.07771720584220576
+    ]
+  },
+  "rel_protection_s47": {
+    "J_delta_vs_plain": 0.02531645569620253,
+    "J_delta_CI_parent_bootstrap": [
+      -0.009009009009009009,
+      0.06062599681020723
+    ],
+    "atomic_regression_delta_vs_plain": -0.03064066852367688,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.07407661782661783,
+      -0.002206784111731525
+    ]
+  },
+  "rel_hard_replay_s47": {
+    "J_delta_vs_plain": 0.02109704641350211,
+    "J_delta_CI_parent_bootstrap": [
+      -0.01739320296183786,
+      0.05786329201101922
+    ],
+    "atomic_regression_delta_vs_plain": -0.025069637883008356,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.06547763522884882,
+      -0.002583812834651963
+    ]
+  },
+  "rel_preserve_flip_balanced_s47": {
+    "J_delta_vs_plain": 0.008438818565400843,
+    "J_delta_CI_parent_bootstrap": [
+      -0.06221497067125783,
+      0.07693014705882349
+    ],
+    "atomic_regression_delta_vs_plain": -0.11420612813370473,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.19627120733319886,
+      -0.04808921036769145
+    ]
+  },
+  "rel_scratch_s47": {
+    "J_delta_vs_plain": 0.04219409282700422,
+    "J_delta_CI_parent_bootstrap": [
+      -0.04329474872953134,
+      0.125
+    ],
+    "atomic_regression_delta_vs_plain": 0.013927576601671309,
+    "atomic_regression_delta_CI_parent_bootstrap": [
+      -0.06586912135614159,
+      0.09974470114390897
+    ]
+  }
+}

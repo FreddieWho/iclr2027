@@ -1,0 +1,38 @@
+{
+  "all_guards_fire": true,
+  "all_pass_with_fix": true,
+  "mutations": {
+    "R06_frozen_probe_guard": {
+      "restored_bug": "train_mode() falls back to bare net.train() (BN buffers update)",
+      "test": "test_headonly_probe_freezes_parameters_and_buffers",
+      "guard_fired": true,
+      "detail": "AssertionError: ",
+      "passes_with_fix": true
+    },
+    "R05_matching_guard": {
+      "restored_bug": "matched_mse replaced by the ordered index-fixed objective",
+      "test": [
+        "test_one_consistent_group_element_gives_zero_matched_mse",
+        "test_matched_mse_is_invariant_to_the_hidden_group_element"
+      ],
+      "guard_fired": true,
+      "detail": "AssertionError: ",
+      "detail_invariance": "AssertionError: ",
+      "passes_with_fix": true
+    },
+    "R05_group_boundary_guard": {
+      "restored_bug": "rel10 made colour-blind (sorted distances) so the colour swap becomes a symmetry",
+      "test": "test_colour_swap_is_outside_the_declared_group",
+      "guard_fired": true,
+      "detail": "AssertionError: ",
+      "passes_with_fix": true
+    },
+    "R05_equivariance_guard": {
+      "restored_bug": "H_ENDPOINTS contains a permutation that is not a symmetry of rel10",
+      "test": "test_orbit_equivariant_under_declared_group",
+      "guard_fired": true,
+      "detail": "AssertionError: ",
+      "passes_with_fix": true
+    }
+  }
+}

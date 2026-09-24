@@ -1,0 +1,38 @@
+{
+  "artifacts/f095_campaign/U01/typed_w64_s23/clean/model.pt": {
+    "scalar_mu": true,
+    "scalar_sd": true,
+    "max_logit_difference": 0.0,
+    "prediction_difference": 0
+  },
+  "artifacts/f095_campaign/U01/typed_w64_s23/flipmine/model.pt": {
+    "scalar_mu": true,
+    "scalar_sd": true,
+    "max_logit_difference": 0.0,
+    "prediction_difference": 0
+  },
+  "artifacts/f095_campaign/U01/typed_w64_s47/clean/model.pt": {
+    "scalar_mu": true,
+    "scalar_sd": true,
+    "max_logit_difference": 0.0,
+    "prediction_difference": 0
+  },
+  "artifacts/f095_campaign/U01/typed_w64_s47/flipmine/model.pt": {
+    "scalar_mu": true,
+    "scalar_sd": true,
+    "max_logit_difference": 0.0,
+    "prediction_difference": 0
+  },
+  "artifacts/f095_campaign/U01/typed_w64_s11/clean/model.pt": {
+    "scalar_mu": true,
+    "scalar_sd": true,
+    "max_logit_difference": 0.0,
+    "prediction_difference": 0
+  },
+  "artifacts/f095_campaign/U01/typed_w64_s11/flipmine/model.pt": {
+    "scalar_mu": true,
+    "scalar_sd": true,
+    "max_logit_difference": 0.0,
+    "prediction_difference": 0
+  }
+}

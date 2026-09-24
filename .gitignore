@@ -35,6 +35,11 @@ submission/
 artifacts/next_novelty/p1_unified/
 artifacts/next_novelty/p1_unified_confirm/
 
+# Collected GPU result archives stay local. GitHub rejects files over 100MB;
+# these three are 251MB, 876MB and 2.0GB. Extracted JSON/CSV evidence is tracked.
+artifacts/e1a933_review/**/*.tar.gz
+artifacts/e1a933_review/**/*.tar
+
 # LaTeX build artifacts (regenerable via pdflatex+bibtex in paper/)
 *.aux
 *.bbl

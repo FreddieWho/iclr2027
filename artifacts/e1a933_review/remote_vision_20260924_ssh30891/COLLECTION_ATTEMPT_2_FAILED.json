@@ -1,0 +1,10 @@
+{
+  "status": "FAILED",
+  "task_id": "vision-21arms-gpu-20260924",
+  "wait_method": "Linux pidfd + blocking select; no polling loop",
+  "started_utc": "2026-09-24T08:19:32.939809+00:00",
+  "wait_returncode": 1,
+  "wait_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 4, in <module>\nAttributeError: module 'os' has no attribute 'pidfd_open'\n",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/remote_vision_collect_when_done.py\", line 51, in main\n    waited.check_returncode()\n  File \"/opt/anaconda3/lib/python3.11/subprocess.py\", line 502, in check_returncode\n    raise CalledProcessError(self.returncode, self.args, self.stdout,\nsubprocess.CalledProcessError: Command '['ssh', '-o', 'Port=30891', '-o', 'ControlPath=/tmp/e1a933-ssh-IPve1AzW/control', '-o', 'UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts', '-o', 'StrictHostKeyChecking=yes', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=20', 'root@connect.nmb2.seetacloud.com', '/root/miniconda3/bin/python -']' returned non-zero exit status 1.\n",
+  "ended_utc": "2026-09-24T08:19:33.088583+00:00"
+}

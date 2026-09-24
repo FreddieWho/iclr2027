@@ -1,0 +1,93 @@
+{
+  "statistic": "paired (historical name) == supported_single_keep_and_flip (new name in experiments/f095_campaign/d06_roles.py)",
+  "renamed_in_current_code": true,
+  "old_artifact_preserved": true,
+  "committed_artifact": "artifacts/f095_campaign/D06/D06_ROLES_J03WOY.json",
+  "head_script": "git show HEAD:experiments/f095_campaign/d06_roles.py",
+  "match": "J03WOY",
+  "comparison": {
+    "n_pass": {
+      "committed": 721,
+      "rerun": 721,
+      "match": true
+    },
+    "used": {
+      "committed": 721,
+      "rerun": 721,
+      "match": true
+    },
+    "paired": {
+      "committed": 22,
+      "rerun": 22,
+      "match": true
+    },
+    "keep_only": {
+      "committed": 699,
+      "rerun": 699,
+      "match": true
+    },
+    "flip_only": {
+      "committed": 0,
+      "rerun": 0,
+      "match": true
+    },
+    "neither": {
+      "committed": 0,
+      "rerun": 0,
+      "match": true
+    },
+    "paired_rate": {
+      "committed": 0.0305,
+      "rerun": 0.0305,
+      "match": true
+    },
+    "margin_median": {
+      "committed": 1.6254,
+      "rerun": 1.6254,
+      "match": true
+    },
+    "margin_frac_open": {
+      "committed": 0.8655,
+      "rerun": 0.8655,
+      "match": true
+    }
+  },
+  "all_match": true,
+  "contested": {
+    "committed": {
+      "n": 278,
+      "paired_rate": 0.0719
+    },
+    "rerun": {
+      "n": 278,
+      "paired_rate": 0.0719
+    }
+  },
+  "by_outcome": {
+    "committed": {
+      "successfullyCompleted": {
+        "n": 563,
+        "paired_rate": 0.032,
+        "margin_med": 1.6593
+      },
+      "unsuccessful": {
+        "n": 158,
+        "paired_rate": 0.0253,
+        "margin_med": 1.3453
+      }
+    },
+    "rerun": {
+      "successfullyCompleted": {
+        "n": 563,
+        "paired_rate": 0.032,
+        "margin_med": 1.6593
+      },
+      "unsuccessful": {
+        "n": 158,
+        "paired_rate": 0.0253,
+        "margin_med": 1.3453
+      }
+    }
+  },
+  "note": "the re-run writes only into a temporary directory; the frozen f095 artifact is untouched"
+}

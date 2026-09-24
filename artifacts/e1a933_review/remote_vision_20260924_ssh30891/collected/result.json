@@ -1,0 +1,145 @@
+{
+  "files": [
+    {
+      "actual_sha256": "0778d586fce1cef541f8f3ceb52de46f7381ef815fd0091002cc3902b1145b0d",
+      "expected_sha256": "0778d586fce1cef541f8f3ceb52de46f7381ef815fd0091002cc3902b1145b0d",
+      "local_path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/receipt.json",
+      "ok": true,
+      "remote_path": "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix/receipt.json"
+    },
+    {
+      "actual_sha256": "48601aebc054ef0348ba95555988304a0ba2a85de42e2d054b464462426073a3",
+      "expected_sha256": "48601aebc054ef0348ba95555988304a0ba2a85de42e2d054b464462426073a3",
+      "local_path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/paired_analysis.json",
+      "ok": true,
+      "remote_path": "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix/paired_analysis.json"
+    },
+    {
+      "actual_sha256": "63d506e9130aebee6624c3b85e476a2e87df1e39d96b4be648dbf5d0891d29e2",
+      "expected_sha256": "63d506e9130aebee6624c3b85e476a2e87df1e39d96b4be648dbf5d0891d29e2",
+      "local_path": "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/cuda_matrix_results.tar.gz",
+      "ok": true,
+      "remote_path": "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix_results.tar.gz"
+    }
+  ],
+  "manifest_download": {
+    "command": [
+      "scp",
+      "-o",
+      "Port=30891",
+      "-o",
+      "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+      "-o",
+      "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+      "-o",
+      "StrictHostKeyChecking=yes",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=20",
+      "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/vision_20260924_ssh30891/jobs/vision-21arms-gpu-20260924/results/sha256sums.txt",
+      "/tmp/lan-ssh-collect-c5y4dg42/sha256sums.txt"
+    ],
+    "executed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "operation": "collect",
+  "ready": {
+    "command": [
+      "ssh",
+      "-o",
+      "Port=30891",
+      "-o",
+      "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+      "-o",
+      "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+      "-o",
+      "StrictHostKeyChecking=yes",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=20",
+      "root@connect.nmb2.seetacloud.com",
+      "test -f /root/autodl-tmp/e1a933/vision_20260924_ssh30891/jobs/vision-21arms-gpu-20260924/succeeded_at_utc.txt && test -f /root/autodl-tmp/e1a933/vision_20260924_ssh30891/jobs/vision-21arms-gpu-20260924/results/sha256sums.txt"
+    ],
+    "executed": true,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "status": "SUCCEEDED",
+  "task_id": "vision-21arms-gpu-20260924",
+  "transfers": [
+    {
+      "command": [
+        "scp",
+        "-o",
+        "Port=30891",
+        "-o",
+        "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+        "-o",
+        "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=20",
+        "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix/receipt.json",
+        "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/receipt.json"
+      ],
+      "executed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "scp",
+        "-o",
+        "Port=30891",
+        "-o",
+        "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+        "-o",
+        "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=20",
+        "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix/paired_analysis.json",
+        "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/paired_analysis.json"
+      ],
+      "executed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "scp",
+        "-o",
+        "Port=30891",
+        "-o",
+        "ControlPath=/tmp/e1a933-ssh-IPve1AzW/control",
+        "-o",
+        "UserKnownHostsFile=/tmp/e1a933-ssh-IPve1AzW/known_hosts",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=20",
+        "root@connect.nmb2.seetacloud.com:/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix_results.tar.gz",
+        "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/remote_vision_20260924_ssh30891/collected/cuda_matrix_results.tar.gz"
+      ],
+      "executed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ]
+}

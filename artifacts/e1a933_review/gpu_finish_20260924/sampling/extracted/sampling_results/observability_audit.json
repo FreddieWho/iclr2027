@@ -1,0 +1,14 @@
+{
+  "exact_native_raster_conflicts": {
+    "A": {
+      "conflicting_identical_quartet_indices": [],
+      "n": 0
+    },
+    "C": {
+      "conflicting_identical_quartet_indices": [],
+      "n": 0
+    }
+  },
+  "n_quartets": 178,
+  "qualification": "No clipping by geometry construction; exact equality is a lower bound on unobservability, not a complete occlusion/quantization certificate."
+}

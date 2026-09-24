@@ -1,0 +1,19 @@
+{
+  "status": "MATRIX_COMPLETE",
+  "completed": [
+    "raw_static_s11",
+    "raw_change_s11",
+    "raw_static_s23",
+    "raw_change_s23",
+    "raw_static_s47",
+    "raw_change_s47",
+    "typed_static_s11",
+    "typed_change_s11",
+    "typed_static_s23",
+    "typed_change_s23",
+    "typed_static_s47",
+    "typed_change_s47"
+  ],
+  "expected": 12,
+  "summary": "summary.json"
+}

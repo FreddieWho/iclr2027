@@ -1,0 +1,208 @@
+{
+  "queried_at": "2026-09-24 15:30:16",
+  "provider": "aiGalaxyCompute",
+  "billable_action": false,
+  "evaluation_constraints": {
+    "gpu_count": 1,
+    "min_cpu": 8,
+    "min_memory_gb": 32
+  },
+  "evaluation_gpu_options": [],
+  "catalog": {
+    "refreshed_at": "2026-09-24 15:30:16",
+    "cpu_specs": [
+      {
+        "spec_name": "ecs.c1.base",
+        "cpu": 2,
+        "memory_gb": 2,
+        "hourly_price": 0.1756
+      },
+      {
+        "spec_name": "ecs.c2.base",
+        "cpu": 4,
+        "memory_gb": 4,
+        "hourly_price": 0.2113
+      },
+      {
+        "spec_name": "ecs.c4.base",
+        "cpu": 4,
+        "memory_gb": 8,
+        "hourly_price": 0.2825
+      },
+      {
+        "spec_name": "ecs.c8.base",
+        "cpu": 8,
+        "memory_gb": 16,
+        "hourly_price": 0.325
+      }
+    ],
+    "gpu_offers": [
+      {
+        "model": "GeForce GTX 1080 Ti",
+        "vram_gb": 11,
+        "kvm_gpu_hourly_price": 0.77,
+        "docker_gpu_hourly_price": 0.77,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "GeForce RTX 2080 Ti",
+        "vram_gb": 11,
+        "kvm_gpu_hourly_price": 0.77,
+        "docker_gpu_hourly_price": 0.77,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "GeForce RTX 3080",
+        "vram_gb": 10,
+        "kvm_gpu_hourly_price": 0.77,
+        "docker_gpu_hourly_price": 0.66,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "GeForce RTX 3090",
+        "vram_gb": 24,
+        "kvm_gpu_hourly_price": 1.1,
+        "docker_gpu_hourly_price": 1.1,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "NVIDIA A30",
+        "vram_gb": 24,
+        "kvm_gpu_hourly_price": 1.1,
+        "docker_gpu_hourly_price": 1.1,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "Tesla V100-16GB",
+        "vram_gb": 16,
+        "kvm_gpu_hourly_price": 1.1,
+        "docker_gpu_hourly_price": 1.1,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "Tesla V100-32GB",
+        "vram_gb": 32,
+        "kvm_gpu_hourly_price": 1.32,
+        "docker_gpu_hourly_price": 1.32,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "RTX A5000",
+        "vram_gb": 24,
+        "kvm_gpu_hourly_price": 1.62,
+        "docker_gpu_hourly_price": 1.62,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "GeForce RTX 4090",
+        "vram_gb": 24,
+        "kvm_gpu_hourly_price": 1.65,
+        "docker_gpu_hourly_price": 1.65,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "NVIDIA A40",
+        "vram_gb": 48,
+        "kvm_gpu_hourly_price": 2.2,
+        "docker_gpu_hourly_price": 2.2,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "NVIDIA A800-SXM4-40GB",
+        "vram_gb": 40,
+        "kvm_gpu_hourly_price": 2.31,
+        "docker_gpu_hourly_price": 2.31,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "RTX A6000",
+        "vram_gb": 48,
+        "kvm_gpu_hourly_price": 2.4,
+        "docker_gpu_hourly_price": 2.4,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "GeForce RTX 4090PLUS",
+        "vram_gb": 48,
+        "kvm_gpu_hourly_price": 2.53,
+        "docker_gpu_hourly_price": 2.53,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "GeForce RTX 5090",
+        "vram_gb": 32,
+        "kvm_gpu_hourly_price": 2.75,
+        "docker_gpu_hourly_price": 2.75,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "NVIDIA A100-SXM4-40GB",
+        "vram_gb": 40,
+        "kvm_gpu_hourly_price": 2.75,
+        "docker_gpu_hourly_price": 2.75,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      },
+      {
+        "model": "NVIDIA A100-SXM4-80GB",
+        "vram_gb": 80,
+        "kvm_gpu_hourly_price": 8,
+        "docker_gpu_hourly_price": 8,
+        "inventory_counts": [],
+        "quote_candidate_counts": [],
+        "missing_enabled_spec_counts": [],
+        "rentable_counts": []
+      }
+    ]
+  },
+  "component_unit_prices": {
+    "cpu_per_core_hour": 0.02,
+    "memory_per_gb_hour": 0.0078125,
+    "disk_per_gb_hour": 0.0006
+  },
+  "interpretation": "All GPU inventory_counts/quote_candidate_counts empty in this response. GPU component prices are not an all-inclusive rental quote."
+}

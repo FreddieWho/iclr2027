@@ -1,0 +1,13 @@
+{
+  "arm": "permaug",
+  "seed": 83,
+  "J": 0.5,
+  "J_min": 0.0,
+  "J_max": 1.0,
+  "J_swing": 1.0,
+  "pred_flip_frac": 0.2857142857142857,
+  "final_loss": 0.08497077226638794,
+  "seconds": 2.832437038421631,
+  "n": 2,
+  "n_parents": 2
+}

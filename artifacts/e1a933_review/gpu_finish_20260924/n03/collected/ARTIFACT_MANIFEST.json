@@ -1,0 +1,252 @@
+[
+  {
+    "path": "generic_bottleneck_s803/dev_aux_predictions.npz",
+    "bytes": 51518,
+    "sha256": "b0e48149f62f1f471a4344cf68d9a9678cab137796993688a2394e157d53c9bc"
+  },
+  {
+    "path": "generic_bottleneck_s803/history.json",
+    "bytes": 5358,
+    "sha256": "3e335a7ec8917b6b49845392763e349b80f74ea2c667e5c55eb04bebf5eed338"
+  },
+  {
+    "path": "generic_bottleneck_s803/model.pt",
+    "bytes": 44800622,
+    "sha256": "6c6098080fd1caa30c8e737e4ca0896ab4e52a3336173c5b7dfad0107052e8ab"
+  },
+  {
+    "path": "generic_bottleneck_s803/oracle_replacement_DIAGNOSTIC.json",
+    "bytes": 410,
+    "sha256": "799a1039515c19658d7318352ed1993df3d8530069b3f07b80f78992806aa12b"
+  },
+  {
+    "path": "generic_bottleneck_s803/oracle_replacement_DIAGNOSTIC.npz",
+    "bytes": 2728,
+    "sha256": "a55dd27f90c516abc82c9c7ebfd229be89376884167deac232e6f5b9f449878a"
+  },
+  {
+    "path": "generic_bottleneck_s803/predictions.npz",
+    "bytes": 2763,
+    "sha256": "67390994be5bc03497a40cd8c12cd38c0771f869c3e67328b9c20f903d0f5f2c"
+  },
+  {
+    "path": "generic_bottleneck_s803/result.json",
+    "bytes": 788,
+    "sha256": "85804a65c9bd4006c7c3074aaee39796deef62934b870380068c1f30fc2736ce"
+  },
+  {
+    "path": "generic_bottleneck_s803/test_single_predictions.npz",
+    "bytes": 12594,
+    "sha256": "b274e323e9aeb7652f0978e8066f243c61500f92426e789b19d7eaed4b582d9c"
+  },
+  {
+    "path": "generic_bottleneck_s805/dev_aux_predictions.npz",
+    "bytes": 52004,
+    "sha256": "9f880e0cc0474671b10b5a08cb38aefbd9eceab0d6eaa5abf28c54be8d46c5fb"
+  },
+  {
+    "path": "generic_bottleneck_s805/history.json",
+    "bytes": 5362,
+    "sha256": "9b0cd6e401a941fa89d1bc4d9dec8668480d33420c8809110249bd009f6d995e"
+  },
+  {
+    "path": "generic_bottleneck_s805/model.pt",
+    "bytes": 44800622,
+    "sha256": "190d2b79c009cd0238b9affbaac49c7572fc9db9d1833f8ad7c251dea058a131"
+  },
+  {
+    "path": "generic_bottleneck_s805/oracle_replacement_DIAGNOSTIC.json",
+    "bytes": 409,
+    "sha256": "adcd43b772bedef94c052ceb967ecb159e96659b302a4b142d50a5616f503de2"
+  },
+  {
+    "path": "generic_bottleneck_s805/oracle_replacement_DIAGNOSTIC.npz",
+    "bytes": 2706,
+    "sha256": "1f6069bdf965777deefb25e6a42b2df62a91323c7095d178c073fa2f5c0054b2"
+  },
+  {
+    "path": "generic_bottleneck_s805/predictions.npz",
+    "bytes": 2758,
+    "sha256": "a68bcf7e83c93bac8cf77fe5615f940f239d40cd30a1428c91752930896b137e"
+  },
+  {
+    "path": "generic_bottleneck_s805/result.json",
+    "bytes": 791,
+    "sha256": "ec574a461e635122d88b367f13e2a5d340938f4bdd2525fd667813b4cbe18cd9"
+  },
+  {
+    "path": "generic_bottleneck_s805/test_single_predictions.npz",
+    "bytes": 12623,
+    "sha256": "7e614cbe9af7bdf188151f926f7de208520bc47054a2f992951bce0ff2c18582"
+  },
+  {
+    "path": "generic_bottleneck_s806/dev_aux_predictions.npz",
+    "bytes": 51390,
+    "sha256": "88e50d9ff32586f1ef04c72fe42da75e33b05c0da42692157b13dd738dd2df9f"
+  },
+  {
+    "path": "generic_bottleneck_s806/history.json",
+    "bytes": 5341,
+    "sha256": "891064dc24146441ddc964b106a6abcce686684206fbccb99b6f263f4c598e17"
+  },
+  {
+    "path": "generic_bottleneck_s806/model.pt",
+    "bytes": 44800622,
+    "sha256": "fa142e712caa1a523c9f6a924fa5e5635b1a31cab671fb582f4497e40bd9ed7e"
+  },
+  {
+    "path": "generic_bottleneck_s806/oracle_replacement_DIAGNOSTIC.json",
+    "bytes": 443,
+    "sha256": "e015a71d92c28bc8c9bfc8bf8a701b8c48901610813d326bf494492eb6ecca86"
+  },
+  {
+    "path": "generic_bottleneck_s806/oracle_replacement_DIAGNOSTIC.npz",
+    "bytes": 2742,
+    "sha256": "a07eb8f5e4d27dcb15bd6967e5d04d2062877017bf4bddb78f0d3da3f434ff31"
+  },
+  {
+    "path": "generic_bottleneck_s806/predictions.npz",
+    "bytes": 2749,
+    "sha256": "f041077e8aebc9d1b7d04f024a2be071528e68f7c9bbc4f515e041a079ca9dad"
+  },
+  {
+    "path": "generic_bottleneck_s806/result.json",
+    "bytes": 789,
+    "sha256": "42769978873e063894d12b338a5b2669f5f0e8cfe70d414a7db836ba21773da8"
+  },
+  {
+    "path": "generic_bottleneck_s806/test_single_predictions.npz",
+    "bytes": 12405,
+    "sha256": "964eacfba3d0d6e267b685a53b4ee3bdc8d8c8fa1e85f09a807498e0c960a0cf"
+  },
+  {
+    "path": "geometry_bottleneck_s803/dev_aux_predictions.npz",
+    "bytes": 51881,
+    "sha256": "1512dfe4b37cb4fed804cd1b7da4712ecc74be9c5784c47283f25dd346af4173"
+  },
+  {
+    "path": "geometry_bottleneck_s803/history.json",
+    "bytes": 7258,
+    "sha256": "c737787f420899a6de191c4d737934220e7709ec0e25af446331946743c1cdb2"
+  },
+  {
+    "path": "geometry_bottleneck_s803/model.pt",
+    "bytes": 44800622,
+    "sha256": "39abf8fee2abf03317f81da1bf456993867893e006977112df9b83f0dc6f0674"
+  },
+  {
+    "path": "geometry_bottleneck_s803/oracle_replacement_DIAGNOSTIC.json",
+    "bytes": 408,
+    "sha256": "6b0e0cc64553666b38438d97e62fc06b5cc8c67029a86237b116d25e725f271d"
+  },
+  {
+    "path": "geometry_bottleneck_s803/oracle_replacement_DIAGNOSTIC.npz",
+    "bytes": 2741,
+    "sha256": "9c54765cfd0f1a1c48adb0fcbdf6e0b6fdba98648769b64f6233fee271a66ed1"
+  },
+  {
+    "path": "geometry_bottleneck_s803/predictions.npz",
+    "bytes": 2703,
+    "sha256": "d870a66ec1dfcc8b02bf44718f9ed0d52f55d5946899ed57bc29a78987f089cc"
+  },
+  {
+    "path": "geometry_bottleneck_s803/result.json",
+    "bytes": 1004,
+    "sha256": "049fb0bee041e01aa949f245442ebc5f1fcf0f32c898fb6b666030409702dfe2"
+  },
+  {
+    "path": "geometry_bottleneck_s803/test_single_predictions.npz",
+    "bytes": 12097,
+    "sha256": "869e7ad0cad867cf542817b563ea0641225999a7b829de685f5d70716cfa94d6"
+  },
+  {
+    "path": "geometry_bottleneck_s805/dev_aux_predictions.npz",
+    "bytes": 51750,
+    "sha256": "66f2046c238bd16cae8a7dbbdeb7c4673577378c2d7fa83718aef04951e4d145"
+  },
+  {
+    "path": "geometry_bottleneck_s805/history.json",
+    "bytes": 7248,
+    "sha256": "62627cf8b30b75d8af9d925839737b7e2a189a3802f634465ff518c05da65bee"
+  },
+  {
+    "path": "geometry_bottleneck_s805/model.pt",
+    "bytes": 44800622,
+    "sha256": "35b7b93f17a290ab0a3baeb7a954c426dbe4ea7e081e2e882872ed22b4344902"
+  },
+  {
+    "path": "geometry_bottleneck_s805/oracle_replacement_DIAGNOSTIC.json",
+    "bytes": 409,
+    "sha256": "bed1eb2cb75fa77c5e5f6920f1ef7c6545203a69dfcd51c04b6d521d059e80ac"
+  },
+  {
+    "path": "geometry_bottleneck_s805/oracle_replacement_DIAGNOSTIC.npz",
+    "bytes": 2719,
+    "sha256": "c74d9cfe157f3e4d373d82b082bb1e3244f4fc6686a5c31bedc250df99d5a55d"
+  },
+  {
+    "path": "geometry_bottleneck_s805/predictions.npz",
+    "bytes": 2733,
+    "sha256": "e3cc33afa25f93ba4f7c13bda22d71f3c7715f8fc6bb8dee9a8583375e709b90"
+  },
+  {
+    "path": "geometry_bottleneck_s805/result.json",
+    "bytes": 1004,
+    "sha256": "5ddae7f0d1a1f6aed28c3a20d7132a43829cf62c24ea2587b0365d97a4269187"
+  },
+  {
+    "path": "geometry_bottleneck_s805/test_single_predictions.npz",
+    "bytes": 12281,
+    "sha256": "2112363c23f08f11484fc32dc7579053cd188af79f0ca4fa44ca57a698fa89cf"
+  },
+  {
+    "path": "geometry_bottleneck_s806/dev_aux_predictions.npz",
+    "bytes": 51909,
+    "sha256": "79a182b83bdc4bca57f0f251c2a389b782fc8cad49cc88762cb31584abe5e6c8"
+  },
+  {
+    "path": "geometry_bottleneck_s806/history.json",
+    "bytes": 7253,
+    "sha256": "3e6f75ecb13be99cbf557603a17de64eebb006f6b55d44a1e09c48258a253a2b"
+  },
+  {
+    "path": "geometry_bottleneck_s806/model.pt",
+    "bytes": 44800622,
+    "sha256": "d858ec786131f6cfd342d4161cd8eb96eeb62d4748d3209aef9bad8b2a8ca985"
+  },
+  {
+    "path": "geometry_bottleneck_s806/oracle_replacement_DIAGNOSTIC.json",
+    "bytes": 410,
+    "sha256": "50f47557f803f877fc9621ffef15a79ebe538df3dbc0ba761698b645c45d8ee2"
+  },
+  {
+    "path": "geometry_bottleneck_s806/oracle_replacement_DIAGNOSTIC.npz",
+    "bytes": 2726,
+    "sha256": "6b074b79a93cd63cdc9821039dfa0e0e5ffc2e77babec9a2020977f675a7dfbd"
+  },
+  {
+    "path": "geometry_bottleneck_s806/predictions.npz",
+    "bytes": 2702,
+    "sha256": "1f8bc6cad297e10122aac265273999c26741f1c94e92e830a3a6ee9337f663b0"
+  },
+  {
+    "path": "geometry_bottleneck_s806/result.json",
+    "bytes": 1004,
+    "sha256": "ee653b1dd22d22f441b8e6b7385d76be25cb8c3ec320e27dc9eb2f1690076fc7"
+  },
+  {
+    "path": "geometry_bottleneck_s806/test_single_predictions.npz",
+    "bytes": 12092,
+    "sha256": "30bc6f9e64d488977a9fffa21354fabe95a56efe79bb6a5bbdd6bba9ef1ef1a9"
+  },
+  {
+    "path": "paired_analysis.json",
+    "bytes": 3300,
+    "sha256": "a4a7b9d8088e44e544801ba0b961557bc28f767e83ff2d98c426ff3ea36dc07f"
+  },
+  {
+    "path": "receipt.json",
+    "bytes": 1855,
+    "sha256": "48e77eb33e4f92a28ec796b363ff0211e37370938d8d33fcd40b69ad7cc0cf20"
+  }
+]

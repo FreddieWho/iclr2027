@@ -1,0 +1,33 @@
+{
+  "algorithm": "threshold visible red/blue at.8; PCA axis; extent corrected for known2px square stroke; analytic proper crossing",
+  "no_label_tuning": true,
+  "invalid_policy": "record invalid; fixed negative fallback; never exclude",
+  "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+  "dev": {
+    "n": 707,
+    "accuracy": 0.9731258840169731,
+    "static_accuracy": 0.9765625,
+    "single_flip_accuracy": 0.9641025641025641,
+    "invalid_n": 0
+  },
+  "test": {
+    "n": 2803,
+    "accuracy": 0.9814484480913307,
+    "static_accuracy": 0.982421875,
+    "single_flip_accuracy": 0.9788079470198675,
+    "invalid_n": 0
+  },
+  "quartets": {
+    "n": 159,
+    "P": 1.0,
+    "A": 0.9119496855345912,
+    "B": 0.8490566037735849,
+    "atomic_joint": 0.8050314465408805,
+    "AB": 0.9119496855345912,
+    "J": 0.7169811320754716,
+    "CCM_denominator": 128,
+    "CCM": 0.890625,
+    "invalid_state_n": 2
+  },
+  "logit_boundary": "Saved +/-1 is a hard decision encoding, not calibrated confidence."
+}

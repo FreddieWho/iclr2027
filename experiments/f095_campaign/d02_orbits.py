@@ -56,10 +56,30 @@ def forward_all(model, stats, xs: np.ndarray) -> np.ndarray:
     return np.concatenate(out)
 
 
+def groupavg_orbit_metrics(per_g, labels):
+    """Evaluate f_G(hx) via the exact group-composition permutation of saved scores."""
+    orbit = []
+    for h in GROUP:
+        composition = [GROUP.index(tuple(h[i] for i in g)) for g in GROUP]
+        orbit.append(per_g[:, :, composition].mean(axis=2))
+    orbit = np.stack(orbit, axis=2)
+    delta = float(np.max(np.abs(orbit - orbit[:, :, :1])))
+    assert np.allclose(orbit, orbit[:, :, :1], rtol=1e-12, atol=1e-12)
+    all8 = float(((orbit > 0) == labels[:, :, None]).all(axis=(1, 2)).mean())
+    identity = float(((orbit[:, :, 0] > 0) == labels).all(axis=1).mean())
+    assert all8 == identity
+    return all8, delta
+
+
 def main():
     p = argparse.ArgumentParser()
+    p.add_argument("--out-dir", type=Path, default=ROOT / "artifacts/e1a933_review/data_d02")
     p.add_argument("--bank", default="dev512")
     a = p.parse_args()
+    global OUT
+    OUT = a.out_dir
+    if (OUT / "D02_SUMMARY.json").exists():
+        raise FileExistsError("Use a fresh --out-dir")
     bank_path = BANK / ("bank_" + a.bank + ".npz")
     bank_sha = hashlib.sha256(bank_path.read_bytes()).hexdigest()
     b = np.load(bank_path, allow_pickle=True)
@@ -116,13 +136,17 @@ def main():
             anywrong = float((~ok_g.all(axis=1)).any(axis=1).mean())
             atom_g = ok_g[:, :2, :].all(axis=1)  # [n,8]
             dis = float((atom_g.max(axis=1) != atom_g.min(axis=1)).mean())
+            all8_avg, max_avg_diff = groupavg_orbit_metrics(per_g, labels)
             arms[arm] = {
                 "model_sha256": msha,
                 "J_groupavg": round(J_avg, 4),
                 "atomic_pass_groupavg": round(ap_avg, 4),
                 "per_g_J": [round(float(v), 4) for v in J_g],
                 "per_g_J_maxmin": [round(float(J_g.max() - J_g.min()), 4)],
-                "all8_correct_frac": round(all8, 4),
+                "all8_raw": all8,
+                "all8_groupavg": all8_avg,
+                "groupavg_max_orbit_logit_difference": max_avg_diff,
+                "groupavg_orbit_equality": "exact group closure; same logits multiset for every relabeling",
                 "any_g_wrong_frac": round(anywrong, 4),
                 "atomic_orbit_disagreement": round(dis, 4),
             }

@@ -1,0 +1,425 @@
+{
+  "status": "MATRIX_COMPLETE",
+  "command": [
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle/sampling_gpu_run.py",
+    "--bundle",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_bundle",
+    "--out",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results",
+    "--execute"
+  ],
+  "started_utc": "2026-09-24T09:32:54Z",
+  "pid": 4645,
+  "completed": [
+    {
+      "arm": "A_standard_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_lowstride_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_lowstride_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_standard_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_lowstride_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_lowstride_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "C_standard_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "C_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "D_standard_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "D_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_standard_pretrained_static",
+      "seed": 803
+    },
+    {
+      "arm": "A_standard_random_static",
+      "seed": 803
+    },
+    {
+      "arm": "B_standard_pretrained_static",
+      "seed": 803
+    },
+    {
+      "arm": "B_standard_random_static",
+      "seed": 803
+    },
+    {
+      "arm": "A_standard_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_lowstride_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_lowstride_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_standard_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_lowstride_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_lowstride_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "C_standard_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "C_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "D_standard_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "D_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_standard_pretrained_static",
+      "seed": 805
+    },
+    {
+      "arm": "A_standard_random_static",
+      "seed": 805
+    },
+    {
+      "arm": "B_standard_pretrained_static",
+      "seed": 805
+    },
+    {
+      "arm": "B_standard_random_static",
+      "seed": 805
+    },
+    {
+      "arm": "A_standard_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_lowstride_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_lowstride_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_standard_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_lowstride_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_lowstride_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "C_standard_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "C_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "D_standard_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "D_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_standard_pretrained_static",
+      "seed": 806
+    },
+    {
+      "arm": "A_standard_random_static",
+      "seed": 806
+    },
+    {
+      "arm": "B_standard_pretrained_static",
+      "seed": 806
+    },
+    {
+      "arm": "B_standard_random_static",
+      "seed": 806
+    }
+  ],
+  "expected_completed": 48,
+  "scientific_decision": "PENDING_INDEPENDENT_INTERPRETATION",
+  "source_sha256": {
+    "sampling_gpu_run.py": "1d78cc3d053be3e4740f13c5d728318a79acf46c211266103a1805b280e3aaaa",
+    "sampling_gpu_protocol.py": "aa2f7765aec33de7f8917f72ac97b10edf440937e18c96d54836d092e20ed91c"
+  },
+  "torch": "2.5.1+cu124",
+  "torchvision": "0.20.1+cu124",
+  "config": {
+    "seeds": [
+      803,
+      805,
+      806
+    ],
+    "epochs": 20,
+    "batch": 32,
+    "optimizer": "Adam",
+    "lr": 0.0003,
+    "arms": [
+      {
+        "observation": "A",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "lowstride",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "lowstride",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "lowstride",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "lowstride",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "C",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "C",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "D",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "D",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "static"
+      },
+      {
+        "observation": "A",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "static"
+      },
+      {
+        "observation": "B",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "static"
+      },
+      {
+        "observation": "B",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "static"
+      }
+    ],
+    "expected_completed": 48,
+    "dtype": "FP32",
+    "TF32": false,
+    "AMP": false,
+    "selection": "minimum single-dev BCE; no target AB selection",
+    "frozen_prediction": "removing maxpool reduces (J_B-J_A) relative to standard; predicted strongest for min constituent endpoint displacement <=2 native64 pixels; report interaction even if opposite, no threshold search",
+    "A": "direct native64 continuous render",
+    "B": "bilinear(A,224), align_corners=False",
+    "C": "direct native224 continuous render",
+    "D": "area(C,64): deterministic low-pass area downsample",
+    "lowstride": "replace maxpool by Identity only; conv1 stride2 and all other layers unchanged",
+    "static_contract": "repeat clean train indices deterministically to same per-epoch exposure count as flip; same batches, optimizer, dev criterion",
+    "seed_replication": "3 model initializations, not independent tasks",
+    "checkpoint_policy": "one selected-by-single-dev checkpoint per arm, no target-J selection",
+    "cache_policy": "native A/C memmap outside output; retain per-image hashes, geometry and exact renderer; output excludes reconstructible multi-GB cache"
+  },
+  "bundle_manifest_sha256": "badd5300678a16176d930287d6763c94727c27f0de5dd9a17ab182b248c04bcb",
+  "data_sha256": "5f773e0b8fc906ce287e0aa1b1161b4aa5a036d0c48d2a485187264e3ec75032",
+  "device_name": "NVIDIA GeForce RTX 3080 Ti",
+  "device_total_bytes": 12491292672,
+  "cuda_version": "12.4",
+  "cudnn_version": 90100,
+  "tf32": false,
+  "amp": false,
+  "preflight": [
+    {
+      "stem": "standard",
+      "res": 64,
+      "batch": 32,
+      "step_seconds": [
+        0.4137890450656414,
+        0.012693628901615739,
+        0.011386119993403554
+      ],
+      "steady_step_seconds": 0.012039874447509646,
+      "peak_allocated_bytes": 324940800,
+      "peak_reserved_bytes": 343932928
+    },
+    {
+      "stem": "standard",
+      "res": 224,
+      "batch": 32,
+      "step_seconds": [
+        0.055784767027944326,
+        0.03488470008596778,
+        0.034965893952175975
+      ],
+      "steady_step_seconds": 0.03492529701907188,
+      "peak_allocated_bytes": 1009993728,
+      "peak_reserved_bytes": 1300234240
+    },
+    {
+      "stem": "lowstride",
+      "res": 64,
+      "batch": 32,
+      "step_seconds": [
+        0.06475604604929686,
+        0.01792471087537706,
+        0.016278766095638275
+      ],
+      "steady_step_seconds": 0.017101738485507667,
+      "peak_allocated_bytes": 427182080,
+      "peak_reserved_bytes": 465567744
+    },
+    {
+      "stem": "lowstride",
+      "res": 224,
+      "batch": 32,
+      "step_seconds": [
+        0.13973032007925212,
+        0.10519264405593276,
+        0.10552378091961145
+      ],
+      "steady_step_seconds": 0.10535821248777211,
+      "peak_allocated_bytes": 2224965632,
+      "peak_reserved_bytes": 2512388096
+    }
+  ],
+  "renderer_numeric_checks": [
+    {
+      "res": 64,
+      "cpu_gpu_max_abs": 0.0,
+      "cpu_gpu_mean_abs": 0.0,
+      "cpu_sha256": "81f663e7e3d50e6be714e904d257f5eda64af3406bc31336b26d0fddd6c08c14",
+      "gpu_sha256": "81f663e7e3d50e6be714e904d257f5eda64af3406bc31336b26d0fddd6c08c14"
+    },
+    {
+      "res": 224,
+      "cpu_gpu_max_abs": 0.0,
+      "cpu_gpu_mean_abs": 0.0,
+      "cpu_sha256": "82313cb097df0ab820ce882f057c944b2410c67e6f095aebd1a6fc410089d3c1",
+      "gpu_sha256": "82313cb097df0ab820ce882f057c944b2410c67e6f095aebd1a6fc410089d3c1"
+    }
+  ],
+  "estimated_training_step_seconds_without_dev_eval_cache_io": 2781.033714339137,
+  "image_cache_path": "/root/autodl-tmp/e1a933/gpu_finish_20260924/sampling_results_image_cache",
+  "cache_total_bytes": 4580340736,
+  "current": {
+    "arm": "B_standard_random_static",
+    "seed": 806
+  },
+  "finished_utc": "2026-09-24T10:36:37Z"
+}

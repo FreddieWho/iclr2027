@@ -1,0 +1,33 @@
+{
+ "command": [
+  "experiments/e1a933_review/o02_budget_match.py",
+  "--stage",
+  "train"
+ ],
+ "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+ "source_sha256": {
+  "experiments/e1a933_review/o02_budget_match.py": "56ecc64df02beaabc9dc7e9c5f4ad6f763decf7fd106dacc4af5fe1aabffa046",
+  "experiments/f095_campaign/u10_targets.py": "9d440e55a26bf3b3090af958ab3481ce58e7fe221db626955c39ccfaa70c717e",
+  "experiments/f095_campaign/u10_models.py": "2662820c31de3d6a8dd95394fcc5c54cc5665059e63984de7fd0759456abeb58",
+  "experiments/e1a933_review/data_stats.py": "177c6c8b147e9a9f735c09fa8ffabcbe1ce6bfbb4961a96f5cf63401b91cbfae"
+ },
+ "bank_sha256": {
+  "T1": "50ae89a3bb6a613014b1d3158901cd67b9232411936eb714b7966be4de2aa027",
+  "T2": "84494c71ba7952c9e774c45485051062022073568a6e2b0ddb8e343a2df71d1d"
+ },
+ "analysis": "reanalysis + new training on the immutable historical bank; not independent confirmation",
+ "param_matching": "typed shrunk to w=40 (6681 params)",
+ "grid": [
+  "lr01_s300",
+  "lr003_s300",
+  "lr001_s300",
+  "lr01_s3000",
+  "lr003_s3000",
+  "lr001_s3000"
+ ],
+ "seeds": [
+  11,
+  23,
+  47
+ ]
+}

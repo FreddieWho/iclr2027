@@ -1,0 +1,18 @@
+{
+  "n": 2,
+  "P": 0.0,
+  "A": 0.5,
+  "B": 0.0,
+  "atomic_joint": 0.0,
+  "AB": 1.0,
+  "J": 0.0,
+  "CCM_denominator": 0,
+  "CCM": null,
+  "best_epoch": 1,
+  "selection": "single-dev BCE only",
+  "checkpoint_sha256": "09d0a305abcf46f7b1ea771f4e94bbe29e32181825313866eca527ed1069d4d9",
+  "train_exposure_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+  "train_images_sha256": "24762dc53fc0ad9c64ebb28d12dca8d72e1788348b6ff14e85f7b9da47f6b4dd",
+  "lambda_aux": 0.5,
+  "lambda_status": "fixed legacy weight; gradient norms recorded; not claimed scale-matched"
+}

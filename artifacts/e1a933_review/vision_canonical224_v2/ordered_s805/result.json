@@ -1,0 +1,24 @@
+{
+  "n": 159,
+  "P": 1.0,
+  "A": 0.9182389937106918,
+  "B": 0.8553459119496856,
+  "atomic_joint": 0.7987421383647799,
+  "AB": 0.9245283018867925,
+  "J": 0.7295597484276729,
+  "CCM_denominator": 127,
+  "CCM": 0.9133858267716536,
+  "best_epoch": 2,
+  "selection": "single-dev BCE only",
+  "checkpoint_sha256": "67816e620d802801544c5bc250c1ed9898006dcbec39524a4c52568a85614a45",
+  "train_exposure_indices_sha256": "73be763e73550c69987cf8d08bb64f1f10b781fb7676e6a6be786a99f0bc375f",
+  "train_images_sha256": "0ee42e9e4d3cfca8b28e97181c9155062591694d4bf901e242da35b390ee6def",
+  "lambda_aux": 0.09470913980300141,
+  "lambda_status": "same train-only ordered-target initial gradient calibration for B/C/D; training gradient ratios may drift",
+  "lambda_calibration": {
+    "initial_BCE_gradient": 4.948746204376221,
+    "initial_ordered_aux_gradient": 13.063011169433594,
+    "desired_aux_to_BCE_gradient_ratio": 0.25,
+    "mode": "eval, first train batch only"
+  }
+}

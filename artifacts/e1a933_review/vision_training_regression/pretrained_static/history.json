@@ -1,0 +1,10 @@
+[
+  {
+    "epoch": 1,
+    "train_BCE": 0.8564950227737427,
+    "train_aux": 0.0,
+    "dev_BCE": 0.4107775092124939,
+    "gradient_norms": null,
+    "seconds": 0.5242862403392792
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "data_sha256": "8aff33373a42119fe2f0c944aa3e791476d9c3c5e1970106f6916f2d88022531",
+  "config": {
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "encoders": [
+      "raw",
+      "typed"
+    ],
+    "augment": [
+      "static",
+      "change"
+    ],
+    "epochs": 300,
+    "batch": 512,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "checkpoint": "lowest dev BCE every10epochs; dev has natural snapshots only",
+    "threshold": 0.0,
+    "cpu_threads": 4
+  },
+  "source_sha256": "13f6c608a6733ebbf40e841d596978ce6ae340cd8cd8030c1b56db899975e6a2",
+  "torch": "2.5.1+cu124"
+}

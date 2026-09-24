@@ -1,0 +1,257 @@
+{
+  "pretrained_flip minus pretrained_static": {
+    "seeds": [
+      {
+        "seed": 803,
+        "J_difference": 0.12578616352201258,
+        "parent_bootstrap95": [
+          0.03821051358542288,
+          0.21769944341372904
+        ],
+        "baseline110_n": 43,
+        "full_repair_n": 20,
+        "migration_n": 8,
+        "baseline111_n": 82,
+        "111_regression_n": 8,
+        "A_regression_n": 7,
+        "B_regression_n": 9
+      },
+      {
+        "seed": 805,
+        "J_difference": 0.09433962264150944,
+        "parent_bootstrap95": [
+          0.02579823299773988,
+          0.17060435132957283
+        ],
+        "baseline110_n": 34,
+        "full_repair_n": 19,
+        "migration_n": 4,
+        "baseline111_n": 96,
+        "111_regression_n": 6,
+        "A_regression_n": 5,
+        "B_regression_n": 6
+      },
+      {
+        "seed": 806,
+        "J_difference": 0.2138364779874214,
+        "parent_bootstrap95": [
+          0.11515151515151516,
+          0.31756756756756754
+        ],
+        "baseline110_n": 44,
+        "full_repair_n": 28,
+        "migration_n": 4,
+        "baseline111_n": 79,
+        "111_regression_n": 7,
+        "A_regression_n": 5,
+        "B_regression_n": 7
+      }
+    ],
+    "mean_J_difference": 0.14465408805031446,
+    "uncertainty_note": "Per-seed intervals resample physical test parents; three seeds remain separate model replicates. No image/labeling pseudo-replication."
+  },
+  "random_flip minus random_static": {
+    "seeds": [
+      {
+        "seed": 803,
+        "J_difference": 0.27672955974842767,
+        "parent_bootstrap95": [
+          0.17418653576437587,
+          0.38181818181818183
+        ],
+        "baseline110_n": 51,
+        "full_repair_n": 34,
+        "migration_n": 6,
+        "baseline111_n": 68,
+        "111_regression_n": 5,
+        "A_regression_n": 5,
+        "B_regression_n": 6
+      },
+      {
+        "seed": 805,
+        "J_difference": 0.16981132075471697,
+        "parent_bootstrap95": [
+          0.05921052631578947,
+          0.2781074885379521
+        ],
+        "baseline110_n": 34,
+        "full_repair_n": 23,
+        "migration_n": 2,
+        "baseline111_n": 77,
+        "111_regression_n": 11,
+        "A_regression_n": 6,
+        "B_regression_n": 7
+      },
+      {
+        "seed": 806,
+        "J_difference": 0.16352201257861634,
+        "parent_bootstrap95": [
+          0.0625,
+          0.2721518987341772
+        ],
+        "baseline110_n": 34,
+        "full_repair_n": 21,
+        "migration_n": 1,
+        "baseline111_n": 77,
+        "111_regression_n": 12,
+        "A_regression_n": 5,
+        "B_regression_n": 7
+      }
+    ],
+    "mean_J_difference": 0.20335429769392033,
+    "uncertainty_note": "Per-seed intervals resample physical test parents; three seeds remain separate model replicates. No image/labeling pseudo-replication."
+  },
+  "matched minus ordered": {
+    "seeds": [
+      {
+        "seed": 803,
+        "J_difference": -0.018867924528301886,
+        "parent_bootstrap95": [
+          -0.07018161601186064,
+          0.03165571243102883
+        ],
+        "baseline110_n": 12,
+        "full_repair_n": 3,
+        "migration_n": 0,
+        "baseline111_n": 114,
+        "111_regression_n": 8,
+        "A_regression_n": 4,
+        "B_regression_n": 3
+      },
+      {
+        "seed": 805,
+        "J_difference": 0.031446540880503145,
+        "parent_bootstrap95": [
+          -0.03529933867037939,
+          0.10596750827814566
+        ],
+        "baseline110_n": 10,
+        "full_repair_n": 1,
+        "migration_n": 0,
+        "baseline111_n": 102,
+        "111_regression_n": 7,
+        "A_regression_n": 1,
+        "B_regression_n": 4
+      },
+      {
+        "seed": 806,
+        "J_difference": -0.025157232704402517,
+        "parent_bootstrap95": [
+          -0.08784777424483307,
+          0.029944628814659813
+        ],
+        "baseline110_n": 12,
+        "full_repair_n": 3,
+        "migration_n": 0,
+        "baseline111_n": 116,
+        "111_regression_n": 9,
+        "A_regression_n": 2,
+        "B_regression_n": 5
+      }
+    ],
+    "mean_J_difference": -0.0041928721174004195,
+    "uncertainty_note": "Per-seed intervals resample physical test parents; three seeds remain separate model replicates. No image/labeling pseudo-replication."
+  },
+  "matched minus shuffled_matched": {
+    "seeds": [
+      {
+        "seed": 803,
+        "J_difference": 0.1320754716981132,
+        "parent_bootstrap95": [
+          0.03722826086956522,
+          0.2325883418906673
+        ],
+        "baseline110_n": 29,
+        "full_repair_n": 18,
+        "migration_n": 1,
+        "baseline111_n": 90,
+        "111_regression_n": 8,
+        "A_regression_n": 5,
+        "B_regression_n": 5
+      },
+      {
+        "seed": 805,
+        "J_difference": -0.031446540880503145,
+        "parent_bootstrap95": [
+          -0.08125363372093024,
+          0.00641025641025641
+        ],
+        "baseline110_n": 12,
+        "full_repair_n": 0,
+        "migration_n": 0,
+        "baseline111_n": 112,
+        "111_regression_n": 6,
+        "A_regression_n": 2,
+        "B_regression_n": 5
+      },
+      {
+        "seed": 806,
+        "J_difference": -0.03773584905660377,
+        "parent_bootstrap95": [
+          -0.09461826476157686,
+          0.006668918918918907
+        ],
+        "baseline110_n": 12,
+        "full_repair_n": 1,
+        "migration_n": 1,
+        "baseline111_n": 118,
+        "111_regression_n": 8,
+        "A_regression_n": 3,
+        "B_regression_n": 5
+      }
+    ],
+    "mean_J_difference": 0.0209643605870021,
+    "uncertainty_note": "Per-seed intervals resample physical test parents; three seeds remain separate model replicates. No image/labeling pseudo-replication."
+  },
+  "matched minus pretrained_flip": {
+    "seeds": [
+      {
+        "seed": 803,
+        "J_difference": 0.05660377358490566,
+        "parent_bootstrap95": [
+          -0.012905320485965648,
+          0.1347700754975977
+        ],
+        "baseline110_n": 16,
+        "full_repair_n": 6,
+        "migration_n": 0,
+        "baseline111_n": 102,
+        "111_regression_n": 6,
+        "A_regression_n": 4,
+        "B_regression_n": 2
+      },
+      {
+        "seed": 805,
+        "J_difference": -0.025157232704402517,
+        "parent_bootstrap95": [
+          -0.07595121770671405,
+          0.018072289156626505
+        ],
+        "baseline110_n": 12,
+        "full_repair_n": 2,
+        "migration_n": 0,
+        "baseline111_n": 111,
+        "111_regression_n": 7,
+        "A_regression_n": 1,
+        "B_regression_n": 5
+      },
+      {
+        "seed": 806,
+        "J_difference": -0.006289308176100629,
+        "parent_bootstrap95": [
+          -0.06396755438859715,
+          0.053574424736337466
+        ],
+        "baseline110_n": 12,
+        "full_repair_n": 2,
+        "migration_n": 2,
+        "baseline111_n": 113,
+        "111_regression_n": 8,
+        "A_regression_n": 3,
+        "B_regression_n": 4
+      }
+    ],
+    "mean_J_difference": 0.008385744234800839,
+    "uncertainty_note": "Per-seed intervals resample physical test parents; three seeds remain separate model replicates. No image/labeling pseudo-replication."
+  }
+}

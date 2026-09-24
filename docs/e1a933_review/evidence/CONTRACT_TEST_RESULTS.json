@@ -1,0 +1,62 @@
+{
+  "scope": "local synthetic contract tests; NOT original-model empirical replication",
+  "typed_normalization": {
+    "bare_core_max_abs_diff": 0.0,
+    "source_coordinatewise_pipeline_max_abs_diff": 0.0031410232186317444,
+    "role_shared_pipeline_max_abs_diff": 0.0
+  },
+  "unobservable_aux_target": {
+    "same_render_after_invisible_endpoint_swap": true,
+    "ordered_rel10_l2_difference": 0.15915537487572906,
+    "two_copy_mse_minimum_raw_units": 0.0006332608337958462,
+    "interpretation": "A deterministic image-only head cannot recover an arbitrary endpoint indexing from an identical image. Not proof this causes the observed U06 null."
+  },
+  "aux_init_changes_batch_order_without_independent_rng": true,
+  "pre_vs_post_confidence_masks": {
+    "correct_start_mask": [
+      true,
+      false
+    ],
+    "source_endpoint_mask": [
+      false,
+      true
+    ]
+  },
+  "requires_grad_false_does_not_freeze_bn_running_mean": true,
+  "reported_D04_224_pretraining_minus_random_pp": [
+    72.0,
+    7.5,
+    9.8
+  ],
+  "D04_mean_delta_all_seeds_pp": 29.766666666666662,
+  "max_only_policy_ladder": {
+    "chosen_action_sparse": 1,
+    "chosen_action_complete": 0,
+    "coverage_both": 1.0,
+    "sparse_success": false,
+    "complete_success": true
+  },
+  "isotonic_training_fit": {
+    "source": [
+      0.5,
+      0.6666666666666666,
+      1.0
+    ],
+    "correct_L2_fit": [
+      0.5,
+      0.5,
+      1.0
+    ]
+  },
+  "football_keep_flip_vs_E": {
+    "false_positive_legacy_E": [
+      true,
+      false
+    ],
+    "false_negative_legacy_E": [
+      false,
+      true
+    ]
+  },
+  "tests_passed": 9
+}

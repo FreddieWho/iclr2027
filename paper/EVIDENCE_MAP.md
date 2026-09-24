@@ -1,3 +1,8 @@
+> **2026-09-24修订入口**：e1a933审计后的当前措辞以
+> `reports/e1a933_review/AFFECTED_CLAIMS.csv` 与
+> `reports/e1a933_review/PAPER_PATCH_AUDIT.md` 为准。此前final_closure
+> ledger保留为原始结果来源；受本轮纠正的归因不继续沿用。
+
 > ⚠️ **已取代（旧论文骨架的证据映射，2026-09-05）**：本表对应的是机制先行旧稿
 > （AMR/T5R 叙事）。论文已于 2026-09-18 迁移到最终叙事（见
 > `reports/final_closure/PAPER_MIGRATION_AUDIT.md`）。当前正文数字唯一来源：

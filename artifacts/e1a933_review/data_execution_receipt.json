@@ -1,0 +1,29 @@
+{
+  "source_commit": "e1a933e6b32dd07c6895c7925cbccd9004da7f54",
+  "source_sha256": {
+    "experiments/e1a933_review/data_u10.py": "df3a9e86b3dae465dd48ba4e6e569caca17e08f5354f616cf73368bec29f005c",
+    "experiments/e1a933_review/data_stats.py": "177c6c8b147e9a9f735c09fa8ffabcbe1ce6bfbb4961a96f5cf63401b91cbfae",
+    "experiments/e1a933_review/data_source_eval.py": "2ec3423e2b8ff9d40e4eff41fb1c1ddccdc662c1c8dda6fcf939a6f381414392",
+    "experiments/e1a933_review/data_o01.py": "47c1f3b5773abc4bf598b9a9265187791b3986913f7051f759f3aafa7e73d153",
+    "experiments/e1a933_review/data_lineage.py": "0d3c2e3f2792f03d8b1fa243567eded4d35092b02983be4929ff72d803f84425",
+    "experiments/e1a933_review/test_data_repairs.py": "587f3fc8c2ddd3171ca6862e73b350717adf1d4ee7794d05e3ccf384c9cc37b8",
+    "experiments/f095_campaign/u10_targets.py": "9d440e55a26bf3b3090af958ab3481ce58e7fe221db626955c39ccfaa70c717e",
+    "experiments/f095_campaign/u10_orbit_eval.py": "953ff13bf227f914633ae826143041fcdb788039cef72c4db54f8838c62030f0",
+    "experiments/f095_campaign/d02_orbits.py": "db135ecd8165556173dec6513d4b15dd9f187db517f3087e5dad8a7d94a0101d",
+    "experiments/f095_campaign/d03_eval.py": "a3c0d1708d42010cc352871d2778647bd82f38b37bca93117272fbfbd340354e",
+    "experiments/f095_campaign/d03_build_bank.py": "555d909fac34c3ed7fa8e1eb93eefca8690871d64006776d10fdba0e67847c22",
+    "experiments/f095_campaign/d09_audit.py": "d6ffd001e3d13e1c3d641a40b2bb4abe4a6713de96d858608b2c824ae49a6108"
+  },
+  "qualification": "repaired working tree; source hashes qualify base commit",
+  "tests": "3 passed in 1.64s",
+  "completed": {
+    "R01": "four-arm per-parent reanalysis",
+    "R02": "18 corrected typed fits plus D02 separate group average metrics",
+    "R03": "PARTIAL exhaustive augmentation matching NOT_RUN; 96 historical models scoped ancestry and new pool confirmation completed",
+    "R04": "production repaired and per-sample rerun",
+    "O01": "108 scratch candidates,36 dev-selected cells,150 old/new same-pool evaluations",
+    "O02": "corrected typed and four-arm completed; matching-parameter/difficulty sweeps NOT_RUN"
+  },
+  "model_count_typed": 18,
+  "model_count_o01": 108
+}

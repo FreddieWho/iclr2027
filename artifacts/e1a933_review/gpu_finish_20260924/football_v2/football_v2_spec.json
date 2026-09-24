@@ -1,0 +1,20 @@
+{
+  "task_id": "football-12arms-v2-20260924",
+  "cwd": "/root/autodl-tmp/e1a933/gpu_finish_20260924",
+  "output_dir": "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2",
+  "archive": "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2.tar.gz",
+  "receipt_status": "MATRIX_COMPLETE",
+  "expected_count": 12,
+  "gpu_lock": "/root/autodl-tmp/e1a933/gpu_finish_20260924/gpu.lock",
+  "argv": [
+    "/root/miniconda3/bin/python",
+    "-u",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_bundle_v2/football_learning.py",
+    "--data",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_bundle_v2/data",
+    "--out",
+    "/root/autodl-tmp/e1a933/gpu_finish_20260924/football_results_v2",
+    "--device",
+    "cuda"
+  ]
+}

@@ -35,9 +35,18 @@ def scene_maxp0(P0, scene_of, scenes):
     return np.array([P0[np.nonzero(scene_of == s)[0]].max() for s in scenes])
 
 
-def reachable_ladder(dev_maxp0):
-    """Complete reachable ladder: all distinct dev maxP0 values, no grid."""
-    return np.array(sorted(set(float(t) for t in dev_maxp0)))
+def reachable_ladder(dev_scores):
+    """All candidate-score breakpoints and both sides, including act/reject all.
+
+    Pass every candidate score, never only the scene maximum. Scores may be
+    negative raw logits, avoiding sigmoid saturation. Threshold ties are
+    inclusive; action ties use lowest cost then original row index (no label).
+    """
+    values = np.unique(np.asarray(dev_scores, dtype=float))
+    if not len(values) or not np.isfinite(values).all():
+        raise ValueError("nonempty finite candidate scores required")
+    return np.unique(np.r_[np.nextafter(values, -np.inf), values,
+                           np.nextafter(values, np.inf)])
 
 
 def policy_outcomes(P0, scene_of, act_cost_row, feas, scenes, tau):
@@ -92,23 +101,11 @@ def paired_own_quality_ci(f_succ, f_acted, c_succ, c_acted, scenes, rng):
 
 
 def fit_isotonic(x, y):
-    """PAVA isotonic regression (increasing). Returns sorted xs + fitted values."""
-    xs = np.asarray(x, float)
-    ys = np.asarray(y, float)
-    order = np.argsort(xs, kind="stable")
-    xs, ys = xs[order], ys[order]
-    blocks = [[xs[i], ys[i], 1] for i in range(len(xs))]
-    out = []
-    for x, y, w in blocks:
-        out.append([x, y, w])
-        while len(out) >= 2 and out[-2][1] > out[-1][1]:
-            x2, y2, w2 = out.pop()
-            x1, y1, w1 = out.pop()
-            w = w1 + w2
-            out.append([(x1 * w1 + x2 * w2) / w, (y1 * w1 + y2 * w2) / w, w])
-    bx = np.array([b[0] for b in out])
-    by = np.array([b[1] for b in out])
-    return bx, by
+    """Least-squares PAVA with duplicate-x aggregation and exact block plateaus."""
+    from sklearn.isotonic import IsotonicRegression
+    model = IsotonicRegression(increasing=True, out_of_bounds="clip")
+    model.fit(np.asarray(x, float), np.asarray(y, float))
+    return model.X_thresholds_, model.y_thresholds_
 
 
 def apply_isotonic(bx, by, x):
@@ -131,7 +128,7 @@ def main():
     res = {"dev_scenes": len(dev), "eval_scenes": len(ev),
            "table_sha256": table_sha,
            "split_rule": "sorted-first-86 ∩ feasible = dev (v2 identical)",
-           "ladder_rule": "all distinct dev maxP0 values, no grid",
+           "ladder_rule": "all dev candidate negative-logit breakpoints and both sides",
            "match_rule": "nearest dev coverage, tie -> larger tau",
            "bootstrap": {"n": N_BOOT, "seed": BOOT_SEED, "unit": "scene, paired"},
            "seeds": {}}
@@ -140,9 +137,9 @@ def main():
         Lg = {}
         for m in ("clean", "flipmine"):
             Lg[m] = d["lg_s%d_%s" % (seed, "clean" if m == "clean" else "flipmine")]
-        P0 = {m: 1 / (1 + np.exp(Lg[m])) for m in Lg}
-        dev_max = {m: scene_maxp0(P0[m], scene_of, dev) for m in Lg}
-        ladders = {m: reachable_ladder(dev_max[m]) for m in Lg}
+        P0 = {m: -np.asarray(Lg[m], float) for m in Lg}
+        devrows_mask = np.isin(scene_of, dev)
+        ladders = {m: reachable_ladder(P0[m][devrows_mask]) for m in Lg}
         R["ladder_sizes"] = {m: int(len(ladders[m])) for m in Lg}
         # full frontier data per model per split
         for split, S in (("dev", dev), ("eval", ev)):
@@ -220,8 +217,7 @@ def main():
         bx, by = fit_isotonic(P0["clean"][devrows], feas[devrows].astype(float))
         R["iso_n_blocks"] = int(len(bx))
         P0c_cal = apply_isotonic(bx, by, P0["clean"])
-        cal_max = scene_maxp0(P0c_cal, scene_of, dev)
-        cal_ladder = reachable_ladder(cal_max)
+        cal_ladder = reachable_ladder(P0c_cal[devrows])
         cal_rows = []
         for t in cal_ladder:
             ac, su, co = policy_outcomes(P0c_cal, scene_of, act_cost_row, feas, ev, float(t))
@@ -236,8 +232,7 @@ def main():
         orb = {}
         for m in Lg:
             P0e = P0[m]
-            uniq = sorted(set(float(v) for v in
-                              [P0e[np.nonzero(scene_of == s)[0]].max() for s in ev]))
+            uniq = reachable_ladder(P0e[np.isin(scene_of, ev)])
             pts = []
             for t in uniq:
                 ac, su, co = policy_outcomes(P0e, scene_of, act_cost_row, feas, ev, float(t))

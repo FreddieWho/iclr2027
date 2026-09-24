@@ -1,0 +1,3666 @@
+{
+  "scope": "natural E occurrence on real football tracking coordinates; geometry oracle, no pass-success labels",
+  "mode": "natural",
+  "primary_cell": {
+    "window_seconds": 0.2,
+    "cap_rule": "contract",
+    "direction": "forward"
+  },
+  "situation_source": {
+    "source": "artifacts/e1a933_review/football/events_candidates.jsonl",
+    "n_records": 1449,
+    "base_label_mismatch": 0,
+    "defender_index_mismatch": 0,
+    "vector_vs_scalar_base_mismatch": 0,
+    "missing_required_fields": 0
+  },
+  "windows_seconds": [
+    0.2,
+    0.4,
+    1.0,
+    2.0
+  ],
+  "cap_rules": {
+    "contract": "speed_p95*W + 0.5*accel_p95*W^2 from same player/match/period consecutive diffs 0<dt<=0.12s (R08 motion_cap formula)",
+    "empirical": "directly measured identity-linked same-period displacement p95 at lag W"
+  },
+  "directions": {
+    "forward": "later real frames only (0<dt<=W)",
+    "both": "past and later real frames (0<|dt|<=W)"
+  },
+  "oracle": "AND over defenders of not-blocked; open iff no defender disc (radius=0.5, endpoint exclusion 1.0m) covers the segment interior",
+  "E_definition": "y(x+eA)=y(x+eB)=y(x) and y(x+eA+eB)!=y(x), label-agnostic (y0=0 works too)",
+  "variables": "A = candidate receiver real displacement to a later frame; B = t1-time constraining defender real displacement to the same frame; passer and the other ten defenders held at t1",
+  "real_vs_analytic": "x and both real single-player moves are real observations; the A-only, B-only and joint cell labels are model-independent analytic oracle evaluations; y_real uses the real positions of passer/receiver/all eleven defenders at the later frame",
+  "matches": {
+    "J03WOY": {
+      "split": "train",
+      "frame_source_sha256": "8da9cec28a75bcd3055ebca73e0ad64909cce276d5fefcaa84126216cdc5fd67",
+      "n_situations": 574,
+      "n_events": 65,
+      "n_selected_situations": 59,
+      "kinematics": {
+        "horizon_seconds": 0.2,
+        "consecutive_dt_seconds_max": 0.12,
+        "valid_velocity_pairs": 3135739,
+        "valid_acceleration_triples": 3135686,
+        "speed_p95_m_s": 4.670390859796075,
+        "acceleration_p95_m_s2": 13.975744731463667,
+        "cap_m": 1.2135930665884884,
+        "invalid_or_gap_pair_count": 53,
+        "interpretation": "empirical displacement envelope, not joint dynamic feasibility proof"
+      },
+      "cap_contract_m": {
+        "0.2": 1.2135930665884884,
+        "0.4": 2.986215922435523,
+        "1.0": 11.658263225527907,
+        "2.0": 37.292271182519485
+      },
+      "empirical_displacement_p95_m": {
+        "0.2": 0.9313434311254731,
+        "0.4": 1.8601071853928821,
+        "1.0": 4.589389952684991,
+        "2.0": 8.855489931391226
+      },
+      "cells": {
+        "W0.2|contract|forward": {
+          "window_seconds": 0.2,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 1.2135930665884884,
+          "n_pairs_in_window": 2870,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 49,
+          "n_pairs_in_cap": 2821,
+          "truth_table": {
+            "0000": 237,
+            "0001": 4,
+            "0010": 25,
+            "0011": 31,
+            "0100": 22,
+            "0101": 7,
+            "0110": 4,
+            "1000": 9,
+            "1010": 10,
+            "1011": 19,
+            "1100": 46,
+            "1101": 18,
+            "1110": 1,
+            "1111": 2388
+          },
+          "E_pairs_by_base_label": {
+            "0": 4,
+            "1": 1
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 241,
+            "1": 2389
+          },
+          "situations_with_E": 4,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 293,
+            "01": 37,
+            "10": 53,
+            "11": 2438
+          },
+          "real_state_available": 2821,
+          "E_pairs_with_real_flip": 1,
+          "real_flip_pairs": 90,
+          "natural_E_pairs": 5,
+          "single_keep_pairs": 2630,
+          "natural_E_pair_rate": 0.001772421127259837,
+          "natural_E_conditional_on_single_keep": 0.0019011406844106464,
+          "natural_E_situation_rate": 0.006968641114982578,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.06153846153846154,
+          "n_situations_with_E": 4,
+          "n_events_with_E": 4,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.20615519454338957,
+            "0.95": 0.6896379930975427,
+            "1.0": 1.1807200593982767
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.2941094589449023,
+            "0.95": 0.9304840492509441,
+            "1.0": 1.1882762933412716
+          },
+          "situation_rate_ci95_cluster_bootstrap_events": [
+            0.001694915254237288,
+            0.014084507042253521
+          ],
+          "event_rate_ci95_cluster_bootstrap_events": [
+            0.015384615384615385,
+            0.12307692307692308
+          ]
+        },
+        "W0.2|empirical|forward": {
+          "window_seconds": 0.2,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 0.9313434311254731,
+          "n_pairs_in_window": 2870,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 207,
+          "n_pairs_in_cap": 2663,
+          "truth_table": {
+            "0000": 227,
+            "0001": 3,
+            "0010": 25,
+            "0011": 25,
+            "0100": 21,
+            "0101": 7,
+            "0110": 2,
+            "1000": 8,
+            "1010": 10,
+            "1011": 19,
+            "1100": 42,
+            "1101": 15,
+            "1110": 1,
+            "1111": 2258
+          },
+          "E_pairs_by_base_label": {
+            "0": 3,
+            "1": 1
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 230,
+            "1": 2259
+          },
+          "situations_with_E": 3,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 274,
+            "01": 36,
+            "10": 50,
+            "11": 2303
+          },
+          "real_state_available": 2663,
+          "E_pairs_with_real_flip": 1,
+          "real_flip_pairs": 86,
+          "natural_E_pairs": 4,
+          "single_keep_pairs": 2489,
+          "natural_E_pair_rate": 0.0015020653398422831,
+          "natural_E_conditional_on_single_keep": 0.0016070711128967456,
+          "natural_E_situation_rate": 0.005226480836236934,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.046153846153846156,
+          "n_situations_with_E": 3,
+          "n_events_with_E": 3,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.19416512299278513,
+            "0.95": 0.622631575368524,
+            "1.0": 0.9300540848869692
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.2716616110154685,
+            "0.95": 0.7974825402765133,
+            "1.0": 0.9304840492509441
+          }
+        },
+        "W0.2|contract|both": {
+          "window_seconds": 0.2,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 1.2135930665884884,
+          "n_pairs_in_window": 5740,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 3,
+          "excluded_over_cap": 88,
+          "n_pairs_in_cap": 5649,
+          "truth_table": {
+            "0000": 463,
+            "0001": 6,
+            "0010": 51,
+            "0011": 71,
+            "0100": 50,
+            "0101": 15,
+            "0110": 5,
+            "0111": 1,
+            "1000": 13,
+            "1010": 18,
+            "1011": 40,
+            "1100": 85,
+            "1101": 35,
+            "1110": 6,
+            "1111": 4790
+          },
+          "E_pairs_by_base_label": {
+            "0": 6,
+            "1": 6
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 469,
+            "1": 4796
+          },
+          "situations_with_E": 11,
+          "situations_with_E_selected": 1,
+          "real_state": {
+            "00": 585,
+            "01": 77,
+            "10": 123,
+            "11": 4864
+          },
+          "real_state_available": 5649,
+          "E_pairs_with_real_flip": 5,
+          "real_flip_pairs": 200,
+          "natural_E_pairs": 12,
+          "single_keep_pairs": 5265,
+          "natural_E_pair_rate": 0.002124269782262347,
+          "natural_E_conditional_on_single_keep": 0.002279202279202279,
+          "natural_E_situation_rate": 0.01916376306620209,
+          "natural_E_situation_rate_selected_receivers": 0.01694915254237288,
+          "natural_E_event_rate": 0.15384615384615385,
+          "n_situations_with_E": 11,
+          "n_events_with_E": 10,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.20615560510091044,
+            "0.95": 0.6906519053473374,
+            "1.0": 1.2006666232851746
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.2952968254978303,
+            "0.95": 0.9360021025153145,
+            "1.0": 1.194193902851008
+          }
+        },
+        "W0.2|empirical|both": {
+          "window_seconds": 0.2,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 0.9313434311254731,
+          "n_pairs_in_window": 5740,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 3,
+          "excluded_over_cap": 411,
+          "n_pairs_in_cap": 5326,
+          "truth_table": {
+            "0000": 439,
+            "0001": 5,
+            "0010": 49,
+            "0011": 62,
+            "0100": 48,
+            "0101": 15,
+            "0110": 3,
+            "0111": 1,
+            "1000": 12,
+            "1010": 18,
+            "1011": 38,
+            "1100": 76,
+            "1101": 31,
+            "1110": 4,
+            "1111": 4525
+          },
+          "E_pairs_by_base_label": {
+            "0": 5,
+            "1": 4
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 444,
+            "1": 4529
+          },
+          "situations_with_E": 8,
+          "situations_with_E_selected": 1,
+          "real_state": {
+            "00": 548,
+            "01": 74,
+            "10": 114,
+            "11": 4590
+          },
+          "real_state_available": 5326,
+          "E_pairs_with_real_flip": 4,
+          "real_flip_pairs": 188,
+          "natural_E_pairs": 9,
+          "single_keep_pairs": 4973,
+          "natural_E_pair_rate": 0.0016898235073225685,
+          "natural_E_conditional_on_single_keep": 0.0018097727729740598,
+          "natural_E_situation_rate": 0.013937282229965157,
+          "natural_E_situation_rate_selected_receivers": 0.01694915254237288,
+          "natural_E_event_rate": 0.1076923076923077,
+          "n_situations_with_E": 8,
+          "n_events_with_E": 7,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.19723048399360232,
+            "0.95": 0.6212086523312631,
+            "1.0": 0.9305911640707338
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.27184581065942215,
+            "0.95": 0.7937884598673673,
+            "1.0": 0.9304840492509441
+          }
+        },
+        "W0.4|contract|forward": {
+          "window_seconds": 0.4,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 2.986215922435523,
+          "n_pairs_in_window": 5740,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 5740,
+          "truth_table": {
+            "0000": 376,
+            "0001": 11,
+            "0010": 35,
+            "0011": 125,
+            "0100": 58,
+            "0101": 28,
+            "0110": 29,
+            "0111": 8,
+            "1000": 21,
+            "1010": 24,
+            "1011": 62,
+            "1100": 147,
+            "1101": 58,
+            "1110": 36,
+            "1111": 4722
+          },
+          "E_pairs_by_base_label": {
+            "0": 11,
+            "1": 36
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 387,
+            "1": 4758
+          },
+          "situations_with_E": 25,
+          "situations_with_E_selected": 2,
+          "real_state": {
+            "00": 539,
+            "01": 131,
+            "10": 179,
+            "11": 4891
+          },
+          "real_state_available": 5740,
+          "E_pairs_with_real_flip": 22,
+          "real_flip_pairs": 310,
+          "natural_E_pairs": 47,
+          "single_keep_pairs": 5145,
+          "natural_E_pair_rate": 0.008188153310104529,
+          "natural_E_conditional_on_single_keep": 0.00913508260447036,
+          "natural_E_situation_rate": 0.04355400696864112,
+          "natural_E_situation_rate_selected_receivers": 0.03389830508474576,
+          "natural_E_event_rate": 0.3384615384615385,
+          "n_situations_with_E": 25,
+          "n_events_with_E": 22,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.37947312696404856,
+            "0.95": 1.3466763918919278,
+            "1.0": 2.8482272905134782
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5500906706112496,
+            "0.95": 1.8796283670135308,
+            "1.0": 2.9218144175730987
+          }
+        },
+        "W0.4|empirical|forward": {
+          "window_seconds": 0.4,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 1.8601071853928821,
+          "n_pairs_in_window": 5740,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 343,
+          "n_pairs_in_cap": 5397,
+          "truth_table": {
+            "0000": 362,
+            "0001": 11,
+            "0010": 34,
+            "0011": 106,
+            "0100": 53,
+            "0101": 27,
+            "0110": 28,
+            "0111": 7,
+            "1000": 18,
+            "1010": 24,
+            "1011": 47,
+            "1100": 141,
+            "1101": 54,
+            "1110": 26,
+            "1111": 4459
+          },
+          "E_pairs_by_base_label": {
+            "0": 11,
+            "1": 26
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 373,
+            "1": 4485
+          },
+          "situations_with_E": 22,
+          "situations_with_E_selected": 2,
+          "real_state": {
+            "00": 507,
+            "01": 121,
+            "10": 169,
+            "11": 4600
+          },
+          "real_state_available": 5397,
+          "E_pairs_with_real_flip": 19,
+          "real_flip_pairs": 290,
+          "natural_E_pairs": 37,
+          "single_keep_pairs": 4858,
+          "natural_E_pair_rate": 0.0068556605521586066,
+          "natural_E_conditional_on_single_keep": 0.007616303005351997,
+          "natural_E_situation_rate": 0.03832752613240418,
+          "natural_E_situation_rate_selected_receivers": 0.03389830508474576,
+          "natural_E_event_rate": 0.2923076923076923,
+          "n_situations_with_E": 22,
+          "n_events_with_E": 19,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.35468470259386475,
+            "0.95": 1.1962935257247713,
+            "1.0": 1.847158752435189
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5032905630354435,
+            "0.95": 1.5600334256827781,
+            "1.0": 1.8587364927929046
+          }
+        },
+        "W0.4|contract|both": {
+          "window_seconds": 0.4,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 2.986215922435523,
+          "n_pairs_in_window": 11480,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 8,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 11472,
+          "truth_table": {
+            "0000": 724,
+            "0001": 21,
+            "0010": 94,
+            "0011": 269,
+            "0100": 111,
+            "0101": 54,
+            "0110": 50,
+            "0111": 17,
+            "1000": 29,
+            "1001": 1,
+            "1010": 58,
+            "1011": 121,
+            "1100": 262,
+            "1101": 119,
+            "1110": 72,
+            "1111": 9470
+          },
+          "E_pairs_by_base_label": {
+            "0": 21,
+            "1": 72
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 745,
+            "1": 9542
+          },
+          "situations_with_E": 51,
+          "situations_with_E_selected": 4,
+          "real_state": {
+            "00": 1086,
+            "01": 254,
+            "10": 391,
+            "11": 9741
+          },
+          "real_state_available": 11472,
+          "E_pairs_with_real_flip": 41,
+          "real_flip_pairs": 645,
+          "natural_E_pairs": 93,
+          "single_keep_pairs": 10287,
+          "natural_E_pair_rate": 0.008106694560669456,
+          "natural_E_conditional_on_single_keep": 0.009040536599591718,
+          "natural_E_situation_rate": 0.08885017421602788,
+          "natural_E_situation_rate_selected_receivers": 0.06779661016949153,
+          "natural_E_event_rate": 0.5538461538461539,
+          "n_situations_with_E": 51,
+          "n_events_with_E": 36,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.3801317267734122,
+            "0.95": 1.341560902626846,
+            "1.0": 2.8482272905134782
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5491807717969579,
+            "0.95": 1.8758297281478764,
+            "1.0": 2.921814653395627
+          }
+        },
+        "W0.4|empirical|both": {
+          "window_seconds": 0.4,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 1.8601071853928821,
+          "n_pairs_in_window": 11480,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 8,
+          "excluded_over_cap": 665,
+          "n_pairs_in_cap": 10807,
+          "truth_table": {
+            "0000": 699,
+            "0001": 17,
+            "0010": 89,
+            "0011": 233,
+            "0100": 106,
+            "0101": 53,
+            "0110": 48,
+            "0111": 16,
+            "1000": 26,
+            "1001": 1,
+            "1010": 56,
+            "1011": 100,
+            "1100": 237,
+            "1101": 110,
+            "1110": 53,
+            "1111": 8963
+          },
+          "E_pairs_by_base_label": {
+            "0": 17,
+            "1": 53
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 716,
+            "1": 9016
+          },
+          "situations_with_E": 42,
+          "situations_with_E_selected": 4,
+          "real_state": {
+            "00": 1024,
+            "01": 237,
+            "10": 365,
+            "11": 9181
+          },
+          "real_state_available": 10807,
+          "E_pairs_with_real_flip": 35,
+          "real_flip_pairs": 602,
+          "natural_E_pairs": 70,
+          "single_keep_pairs": 9732,
+          "natural_E_pair_rate": 0.006477283242342926,
+          "natural_E_conditional_on_single_keep": 0.007192766132346897,
+          "natural_E_situation_rate": 0.07317073170731707,
+          "natural_E_situation_rate_selected_receivers": 0.06779661016949153,
+          "natural_E_event_rate": 0.5076923076923077,
+          "n_situations_with_E": 42,
+          "n_events_with_E": 33,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.3577709616992539,
+            "0.95": 1.2005165414858203,
+            "1.0": 1.8595160947720144
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5035870688504334,
+            "0.95": 1.5454770423914737,
+            "1.0": 1.8587364927929046
+          }
+        },
+        "W1.0|contract|forward": {
+          "window_seconds": 1.0,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 11.658263225527907,
+          "n_pairs_in_window": 14350,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 17,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 14333,
+          "truth_table": {
+            "0000": 552,
+            "0001": 29,
+            "0010": 93,
+            "0011": 407,
+            "0100": 113,
+            "0101": 106,
+            "0110": 131,
+            "0111": 244,
+            "1000": 56,
+            "1001": 26,
+            "1010": 102,
+            "1011": 309,
+            "1100": 341,
+            "1101": 218,
+            "1110": 179,
+            "1111": 11427
+          },
+          "E_pairs_by_base_label": {
+            "0": 29,
+            "1": 179
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 581,
+            "1": 11606
+          },
+          "situations_with_E": 57,
+          "situations_with_E_selected": 2,
+          "real_state": {
+            "00": 1019,
+            "01": 656,
+            "10": 797,
+            "11": 11861
+          },
+          "real_state_available": 14333,
+          "E_pairs_with_real_flip": 119,
+          "real_flip_pairs": 1453,
+          "natural_E_pairs": 208,
+          "single_keep_pairs": 12187,
+          "natural_E_pair_rate": 0.014511965394544059,
+          "natural_E_conditional_on_single_keep": 0.017067366866332978,
+          "natural_E_situation_rate": 0.09930313588850175,
+          "natural_E_situation_rate_selected_receivers": 0.03389830508474576,
+          "natural_E_event_rate": 0.6461538461538462,
+          "n_situations_with_E": 57,
+          "n_events_with_E": 42,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.8796581588382927,
+            "0.95": 3.2256783495505728,
+            "1.0": 8.556937629303961
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2975729032123982,
+            "0.95": 4.4967213715906675,
+            "1.0": 7.412077962404626
+          }
+        },
+        "W1.0|empirical|forward": {
+          "window_seconds": 1.0,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 4.589389952684991,
+          "n_pairs_in_window": 14350,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 17,
+          "excluded_over_cap": 726,
+          "n_pairs_in_cap": 13610,
+          "truth_table": {
+            "0000": 539,
+            "0001": 29,
+            "0010": 86,
+            "0011": 376,
+            "0100": 113,
+            "0101": 104,
+            "0110": 131,
+            "0111": 210,
+            "1000": 56,
+            "1001": 26,
+            "1010": 99,
+            "1011": 267,
+            "1100": 333,
+            "1101": 209,
+            "1110": 171,
+            "1111": 10861
+          },
+          "E_pairs_by_base_label": {
+            "0": 29,
+            "1": 171
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 568,
+            "1": 11032
+          },
+          "situations_with_E": 55,
+          "situations_with_E_selected": 2,
+          "real_state": {
+            "00": 975,
+            "01": 613,
+            "10": 749,
+            "11": 11273
+          },
+          "real_state_available": 13610,
+          "E_pairs_with_real_flip": 119,
+          "real_flip_pairs": 1362,
+          "natural_E_pairs": 200,
+          "single_keep_pairs": 11600,
+          "natural_E_pair_rate": 0.014695077149155033,
+          "natural_E_conditional_on_single_keep": 0.017241379310344827,
+          "natural_E_situation_rate": 0.09581881533101046,
+          "natural_E_situation_rate_selected_receivers": 0.03389830508474576,
+          "natural_E_event_rate": 0.6461538461538462,
+          "n_situations_with_E": 55,
+          "n_events_with_E": 42,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.8300601638107528,
+            "0.95": 2.8716095198834397,
+            "1.0": 4.582794575231926
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2126417773228209,
+            "0.95": 3.7771157933374178,
+            "1.0": 4.573718635313932
+          }
+        },
+        "W1.0|contract|both": {
+          "window_seconds": 1.0,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 11.658263225527907,
+          "n_pairs_in_window": 28700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 40,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 28660,
+          "truth_table": {
+            "0000": 1055,
+            "0001": 105,
+            "0010": 235,
+            "0011": 899,
+            "0100": 210,
+            "0101": 174,
+            "0110": 300,
+            "0111": 372,
+            "1000": 91,
+            "1001": 40,
+            "1010": 263,
+            "1011": 693,
+            "1100": 656,
+            "1101": 466,
+            "1110": 357,
+            "1111": 22744
+          },
+          "E_pairs_by_base_label": {
+            "0": 105,
+            "1": 357
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1160,
+            "1": 23101
+          },
+          "situations_with_E": 108,
+          "situations_with_E_selected": 7,
+          "real_state": {
+            "00": 2091,
+            "01": 1259,
+            "10": 1547,
+            "11": 23763
+          },
+          "real_state_available": 28660,
+          "E_pairs_with_real_flip": 238,
+          "real_flip_pairs": 2806,
+          "natural_E_pairs": 462,
+          "single_keep_pairs": 24261,
+          "natural_E_pair_rate": 0.016120027913468248,
+          "natural_E_conditional_on_single_keep": 0.01904290837146037,
+          "natural_E_situation_rate": 0.18815331010452963,
+          "natural_E_situation_rate_selected_receivers": 0.11864406779661017,
+          "natural_E_event_rate": 0.8615384615384616,
+          "n_situations_with_E": 108,
+          "n_events_with_E": 56,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.8794310785077619,
+            "0.95": 3.211703727018284,
+            "1.0": 8.556937629303961
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2935810198406799,
+            "0.95": 4.40730001824515,
+            "1.0": 7.412077962404626
+          }
+        },
+        "W1.0|empirical|both": {
+          "window_seconds": 1.0,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 4.589389952684991,
+          "n_pairs_in_window": 28700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 40,
+          "excluded_over_cap": 1307,
+          "n_pairs_in_cap": 27356,
+          "truth_table": {
+            "0000": 1038,
+            "0001": 93,
+            "0010": 219,
+            "0011": 840,
+            "0100": 210,
+            "0101": 172,
+            "0110": 292,
+            "0111": 327,
+            "1000": 91,
+            "1001": 37,
+            "1010": 256,
+            "1011": 637,
+            "1100": 640,
+            "1101": 452,
+            "1110": 323,
+            "1111": 21729
+          },
+          "E_pairs_by_base_label": {
+            "0": 93,
+            "1": 323
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1131,
+            "1": 22052
+          },
+          "situations_with_E": 102,
+          "situations_with_E_selected": 7,
+          "real_state": {
+            "00": 2019,
+            "01": 1172,
+            "10": 1459,
+            "11": 22706
+          },
+          "real_state_available": 27356,
+          "E_pairs_with_real_flip": 224,
+          "real_flip_pairs": 2631,
+          "natural_E_pairs": 416,
+          "single_keep_pairs": 23183,
+          "natural_E_pair_rate": 0.015206901593800263,
+          "natural_E_conditional_on_single_keep": 0.017944183237717293,
+          "natural_E_situation_rate": 0.17770034843205576,
+          "natural_E_situation_rate_selected_receivers": 0.11864406779661017,
+          "natural_E_event_rate": 0.8615384615384616,
+          "n_situations_with_E": 102,
+          "n_events_with_E": 56,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 0.8373766388639343,
+            "0.95": 2.899340922086618,
+            "1.0": 4.587853770073428
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2165935991547214,
+            "0.95": 3.7744667474392024,
+            "1.0": 4.587036691662544
+          }
+        },
+        "W2.0|contract|forward": {
+          "window_seconds": 2.0,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 37.292271182519485,
+          "n_pairs_in_window": 28700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 26,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 28674,
+          "truth_table": {
+            "0000": 652,
+            "0001": 90,
+            "0010": 172,
+            "0011": 836,
+            "0100": 127,
+            "0101": 266,
+            "0110": 254,
+            "0111": 953,
+            "1000": 75,
+            "1001": 77,
+            "1010": 322,
+            "1011": 972,
+            "1100": 597,
+            "1101": 656,
+            "1110": 452,
+            "1111": 22173
+          },
+          "E_pairs_by_base_label": {
+            "0": 90,
+            "1": 452
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 742,
+            "1": 22625
+          },
+          "situations_with_E": 95,
+          "situations_with_E_selected": 5,
+          "real_state": {
+            "00": 1473,
+            "01": 1877,
+            "10": 2214,
+            "11": 23110
+          },
+          "real_state_available": 28674,
+          "E_pairs_with_real_flip": 218,
+          "real_flip_pairs": 4091,
+          "natural_E_pairs": 542,
+          "single_keep_pairs": 23367,
+          "natural_E_pair_rate": 0.018902141312687453,
+          "natural_E_conditional_on_single_keep": 0.02319510420678735,
+          "natural_E_situation_rate": 0.16550522648083624,
+          "natural_E_situation_rate_selected_receivers": 0.0847457627118644,
+          "natural_E_event_rate": 0.8615384615384616,
+          "n_situations_with_E": 95,
+          "n_events_with_E": 56,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 1.726975999184257,
+            "0.95": 6.283685122697122,
+            "1.0": 13.799756971555116
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.484535505685546,
+            "0.95": 8.387376880702943,
+            "1.0": 14.733964211258002
+          }
+        },
+        "W2.0|empirical|forward": {
+          "window_seconds": 2.0,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 8.855489931391226,
+          "n_pairs_in_window": 28700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 26,
+          "excluded_over_cap": 1276,
+          "n_pairs_in_cap": 27398,
+          "truth_table": {
+            "0000": 652,
+            "0001": 90,
+            "0010": 169,
+            "0011": 786,
+            "0100": 127,
+            "0101": 253,
+            "0110": 247,
+            "0111": 884,
+            "1000": 75,
+            "1001": 77,
+            "1010": 300,
+            "1011": 921,
+            "1100": 590,
+            "1101": 630,
+            "1110": 421,
+            "1111": 21176
+          },
+          "E_pairs_by_base_label": {
+            "0": 90,
+            "1": 421
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 742,
+            "1": 21597
+          },
+          "situations_with_E": 91,
+          "situations_with_E_selected": 5,
+          "real_state": {
+            "00": 1462,
+            "01": 1746,
+            "10": 2109,
+            "11": 22081
+          },
+          "real_state_available": 27398,
+          "E_pairs_with_real_flip": 217,
+          "real_flip_pairs": 3855,
+          "natural_E_pairs": 511,
+          "single_keep_pairs": 22339,
+          "natural_E_pair_rate": 0.018650996423096575,
+          "natural_E_conditional_on_single_keep": 0.02287479296297954,
+          "natural_E_situation_rate": 0.15853658536585366,
+          "natural_E_situation_rate_selected_receivers": 0.0847457627118644,
+          "natural_E_event_rate": 0.8615384615384616,
+          "n_situations_with_E": 91,
+          "n_events_with_E": 56,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 1.6423916128896636,
+            "0.95": 5.631603265979312,
+            "1.0": 8.825400860725065
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.3342021439475715,
+            "0.95": 7.215518177693954,
+            "1.0": 8.854044376355146
+          }
+        },
+        "W2.0|contract|both": {
+          "window_seconds": 2.0,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 37.292271182519485,
+          "n_pairs_in_window": 57400,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 119,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 57281,
+          "truth_table": {
+            "0000": 1303,
+            "0001": 225,
+            "0010": 468,
+            "0011": 1892,
+            "0100": 241,
+            "0101": 380,
+            "0110": 576,
+            "0111": 1615,
+            "1000": 119,
+            "1001": 106,
+            "1010": 780,
+            "1011": 2054,
+            "1100": 1063,
+            "1101": 1203,
+            "1110": 1005,
+            "1111": 44251
+          },
+          "E_pairs_by_base_label": {
+            "0": 225,
+            "1": 1005
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1528,
+            "1": 45256
+          },
+          "situations_with_E": 172,
+          "situations_with_E_selected": 10,
+          "real_state": {
+            "00": 2932,
+            "01": 3768,
+            "10": 4194,
+            "11": 46387
+          },
+          "real_state_available": 57281,
+          "E_pairs_with_real_flip": 576,
+          "real_flip_pairs": 7962,
+          "natural_E_pairs": 1230,
+          "single_keep_pairs": 46784,
+          "natural_E_pair_rate": 0.021473088807807125,
+          "natural_E_conditional_on_single_keep": 0.026291039671682625,
+          "natural_E_situation_rate": 0.29965156794425085,
+          "natural_E_situation_rate_selected_receivers": 0.1694915254237288,
+          "natural_E_event_rate": 0.9846153846153847,
+          "n_situations_with_E": 172,
+          "n_events_with_E": 64,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 1.6971144195878995,
+            "0.95": 6.239526779497631,
+            "1.0": 13.799756971555116
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.4983393066272135,
+            "0.95": 8.201586087513315,
+            "1.0": 14.733964211258002
+          }
+        },
+        "W2.0|empirical|both": {
+          "window_seconds": 2.0,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 8.855489931391226,
+          "n_pairs_in_window": 57400,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 119,
+          "excluded_over_cap": 2305,
+          "n_pairs_in_cap": 54976,
+          "truth_table": {
+            "0000": 1287,
+            "0001": 223,
+            "0010": 441,
+            "0011": 1793,
+            "0100": 241,
+            "0101": 363,
+            "0110": 560,
+            "0111": 1508,
+            "1000": 119,
+            "1001": 106,
+            "1010": 741,
+            "1011": 1973,
+            "1100": 1056,
+            "1101": 1177,
+            "1110": 959,
+            "1111": 42429
+          },
+          "E_pairs_by_base_label": {
+            "0": 223,
+            "1": 959
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1510,
+            "1": 43388
+          },
+          "situations_with_E": 169,
+          "situations_with_E_selected": 10,
+          "real_state": {
+            "00": 2891,
+            "01": 3525,
+            "10": 3971,
+            "11": 44589
+          },
+          "real_state_available": 54976,
+          "E_pairs_with_real_flip": 563,
+          "real_flip_pairs": 7496,
+          "natural_E_pairs": 1182,
+          "single_keep_pairs": 44898,
+          "natural_E_pair_rate": 0.021500291036088474,
+          "natural_E_conditional_on_single_keep": 0.026326339703327543,
+          "natural_E_situation_rate": 0.29442508710801396,
+          "natural_E_situation_rate_selected_receivers": 0.1694915254237288,
+          "natural_E_event_rate": 0.9846153846153847,
+          "n_situations_with_E": 169,
+          "n_events_with_E": 64,
+          "n_events": 65,
+          "dr_quantiles_m": {
+            "0.5": 1.6200766115171286,
+            "0.95": 5.64984978726203,
+            "1.0": 8.85305060681597
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.35522799924306,
+            "0.95": 7.15856055527093,
+            "1.0": 8.854044376355146
+          }
+        }
+      }
+    },
+    "J03WMX": {
+      "split": "dev",
+      "frame_source_sha256": "75021d0fc3f36a2255627df79d9fd8696a7d8c0bc034665f29347de6eac0e724",
+      "n_situations": 621,
+      "n_events": 68,
+      "n_selected_situations": 67,
+      "kinematics": {
+        "horizon_seconds": 0.2,
+        "consecutive_dt_seconds_max": 0.12,
+        "valid_velocity_pairs": 3211220,
+        "valid_acceleration_triples": 3211166,
+        "speed_p95_m_s": 4.596202014310477,
+        "acceleration_p95_m_s2": 13.975744731463667,
+        "cap_m": 1.1987552974913689,
+        "invalid_or_gap_pair_count": 54,
+        "interpretation": "empirical displacement envelope, not joint dynamic feasibility proof"
+      },
+      "cap_contract_m": {
+        "0.2": 1.1987552974913689,
+        "0.4": 2.9565403842412845,
+        "1.0": 11.58407438004231,
+        "2.0": 37.14389349154829
+      },
+      "empirical_displacement_p95_m": {
+        "0.2": 0.9178778212944548,
+        "0.4": 1.8317478966975687,
+        "1.0": 4.520707651076552,
+        "2.0": 8.73499274469172
+      },
+      "cells": {
+        "W0.2|contract|forward": {
+          "window_seconds": 0.2,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 1.1987552974913689,
+          "n_pairs_in_window": 3105,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 52,
+          "n_pairs_in_cap": 3053,
+          "truth_table": {
+            "0000": 264,
+            "0010": 17,
+            "0011": 100,
+            "0100": 29,
+            "0101": 9,
+            "0110": 2,
+            "1011": 20,
+            "1100": 65,
+            "1101": 23,
+            "1110": 1,
+            "1111": 2523
+          },
+          "E_pairs_by_base_label": {
+            "1": 1
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 264,
+            "1": 2524
+          },
+          "situations_with_E": 1,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 348,
+            "01": 73,
+            "10": 34,
+            "11": 2598
+          },
+          "real_state_available": 3053,
+          "E_pairs_with_real_flip": 0,
+          "real_flip_pairs": 107,
+          "natural_E_pairs": 1,
+          "single_keep_pairs": 2788,
+          "natural_E_pair_rate": 0.00032754667540124465,
+          "natural_E_conditional_on_single_keep": 0.0003586800573888092,
+          "natural_E_situation_rate": 0.001610305958132045,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.014705882352941176,
+          "n_situations_with_E": 1,
+          "n_events_with_E": 1,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.19646843944611783,
+            "0.95": 0.6632470794112376,
+            "1.0": 1.1681173838070673
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.31575280470863654,
+            "0.95": 0.9076524111857787,
+            "1.0": 1.1900007584520025
+          },
+          "situation_rate_ci95_cluster_bootstrap_events": [
+            0.0,
+            0.004918032786885246
+          ],
+          "event_rate_ci95_cluster_bootstrap_events": [
+            0.0,
+            0.04411764705882353
+          ]
+        },
+        "W0.2|empirical|forward": {
+          "window_seconds": 0.2,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 0.9178778212944548,
+          "n_pairs_in_window": 3105,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 212,
+          "n_pairs_in_cap": 2893,
+          "truth_table": {
+            "0000": 260,
+            "0010": 16,
+            "0011": 88,
+            "0100": 28,
+            "0101": 9,
+            "0110": 1,
+            "1011": 17,
+            "1100": 58,
+            "1101": 21,
+            "1110": 1,
+            "1111": 2394
+          },
+          "E_pairs_by_base_label": {
+            "1": 1
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 260,
+            "1": 2395
+          },
+          "situations_with_E": 1,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 334,
+            "01": 68,
+            "10": 33,
+            "11": 2458
+          },
+          "real_state_available": 2893,
+          "E_pairs_with_real_flip": 0,
+          "real_flip_pairs": 101,
+          "natural_E_pairs": 1,
+          "single_keep_pairs": 2655,
+          "natural_E_pair_rate": 0.0003456619426201175,
+          "natural_E_conditional_on_single_keep": 0.0003766478342749529,
+          "natural_E_situation_rate": 0.001610305958132045,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.014705882352941176,
+          "n_situations_with_E": 1,
+          "n_events_with_E": 1,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.18788297882703955,
+            "0.95": 0.6063164508385045,
+            "1.0": 0.9170613055524559
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.29681635934007794,
+            "0.95": 0.8006251777218362,
+            "1.0": 0.9141663760900877
+          }
+        },
+        "W0.2|contract|both": {
+          "window_seconds": 0.2,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 1.1987552974913689,
+          "n_pairs_in_window": 6210,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 104,
+          "n_pairs_in_cap": 6106,
+          "truth_table": {
+            "0000": 551,
+            "0001": 2,
+            "0010": 36,
+            "0011": 186,
+            "0100": 45,
+            "0101": 14,
+            "0110": 4,
+            "0111": 4,
+            "1011": 46,
+            "1100": 133,
+            "1101": 35,
+            "1110": 1,
+            "1111": 5049
+          },
+          "E_pairs_by_base_label": {
+            "0": 2,
+            "1": 1
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 553,
+            "1": 5050
+          },
+          "situations_with_E": 3,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 699,
+            "01": 143,
+            "10": 98,
+            "11": 5166
+          },
+          "real_state_available": 6106,
+          "E_pairs_with_real_flip": 0,
+          "real_flip_pairs": 241,
+          "natural_E_pairs": 3,
+          "single_keep_pairs": 5603,
+          "natural_E_pair_rate": 0.000491320013101867,
+          "natural_E_conditional_on_single_keep": 0.0005354274495805819,
+          "natural_E_situation_rate": 0.004830917874396135,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.04411764705882353,
+          "n_situations_with_E": 3,
+          "n_events_with_E": 3,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.19646927070726547,
+            "0.95": 0.667083194829681,
+            "1.0": 1.1681173838070673
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.31780498364470167,
+            "0.95": 0.9141663760900877,
+            "1.0": 1.1900007584520025
+          }
+        },
+        "W0.2|empirical|both": {
+          "window_seconds": 0.2,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 0.9178778212944548,
+          "n_pairs_in_window": 6210,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 433,
+          "n_pairs_in_cap": 5777,
+          "truth_table": {
+            "0000": 542,
+            "0001": 1,
+            "0010": 35,
+            "0011": 161,
+            "0100": 44,
+            "0101": 14,
+            "0110": 1,
+            "0111": 4,
+            "1011": 41,
+            "1100": 119,
+            "1101": 32,
+            "1110": 1,
+            "1111": 4782
+          },
+          "E_pairs_by_base_label": {
+            "0": 1,
+            "1": 1
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 543,
+            "1": 4783
+          },
+          "situations_with_E": 2,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 668,
+            "01": 134,
+            "10": 91,
+            "11": 4884
+          },
+          "real_state_available": 5777,
+          "E_pairs_with_real_flip": 0,
+          "real_flip_pairs": 225,
+          "natural_E_pairs": 2,
+          "single_keep_pairs": 5326,
+          "natural_E_pair_rate": 0.00034620045006058506,
+          "natural_E_conditional_on_single_keep": 0.0003755163349605708,
+          "natural_E_situation_rate": 0.00322061191626409,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.029411764705882353,
+          "n_situations_with_E": 2,
+          "n_events_with_E": 2,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.18788297882703955,
+            "0.95": 0.6107865756873594,
+            "1.0": 0.9170613055524559
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.2973227914022543,
+            "0.95": 0.8015615838775105,
+            "1.0": 0.9170601928326245
+          }
+        },
+        "W0.4|contract|forward": {
+          "window_seconds": 0.4,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 2.9565403842412845,
+          "n_pairs_in_window": 6210,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 11,
+          "n_pairs_in_cap": 6199,
+          "truth_table": {
+            "0000": 407,
+            "0001": 14,
+            "0010": 38,
+            "0011": 283,
+            "0100": 61,
+            "0101": 17,
+            "0110": 13,
+            "0111": 23,
+            "1000": 1,
+            "1010": 1,
+            "1011": 84,
+            "1100": 231,
+            "1101": 78,
+            "1110": 27,
+            "1111": 4921
+          },
+          "E_pairs_by_base_label": {
+            "0": 14,
+            "1": 27
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 421,
+            "1": 4948
+          },
+          "situations_with_E": 25,
+          "situations_with_E_selected": 1,
+          "real_state": {
+            "00": 621,
+            "01": 235,
+            "10": 164,
+            "11": 5179
+          },
+          "real_state_available": 6199,
+          "E_pairs_with_real_flip": 15,
+          "real_flip_pairs": 399,
+          "natural_E_pairs": 41,
+          "single_keep_pairs": 5369,
+          "natural_E_pair_rate": 0.0066139699951605095,
+          "natural_E_conditional_on_single_keep": 0.0076364313652449245,
+          "natural_E_situation_rate": 0.040257648953301126,
+          "natural_E_situation_rate_selected_receivers": 0.014925373134328358,
+          "natural_E_event_rate": 0.3088235294117647,
+          "n_situations_with_E": 25,
+          "n_events_with_E": 21,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.36400546335218165,
+            "0.95": 1.2653409492882952,
+            "1.0": 2.898827269109508
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5787084471530387,
+            "0.95": 1.8071660572881851,
+            "1.0": 2.768121976215583
+          }
+        },
+        "W0.4|empirical|forward": {
+          "window_seconds": 0.4,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 1.8317478966975687,
+          "n_pairs_in_window": 6210,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 337,
+          "n_pairs_in_cap": 5873,
+          "truth_table": {
+            "0000": 407,
+            "0001": 13,
+            "0010": 38,
+            "0011": 253,
+            "0100": 61,
+            "0101": 17,
+            "0110": 13,
+            "0111": 13,
+            "1000": 1,
+            "1010": 1,
+            "1011": 73,
+            "1100": 215,
+            "1101": 69,
+            "1110": 16,
+            "1111": 4683
+          },
+          "E_pairs_by_base_label": {
+            "0": 13,
+            "1": 16
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 420,
+            "1": 4699
+          },
+          "situations_with_E": 18,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 602,
+            "01": 213,
+            "10": 146,
+            "11": 4912
+          },
+          "real_state_available": 5873,
+          "E_pairs_with_real_flip": 11,
+          "real_flip_pairs": 359,
+          "natural_E_pairs": 29,
+          "single_keep_pairs": 5119,
+          "natural_E_pair_rate": 0.0049378511833815765,
+          "natural_E_conditional_on_single_keep": 0.005665168978316077,
+          "natural_E_situation_rate": 0.028985507246376812,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.2647058823529412,
+          "n_situations_with_E": 18,
+          "n_events_with_E": 18,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.34365695824743886,
+            "0.95": 1.1740091850749705,
+            "1.0": 1.828797277229392
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5420334313559165,
+            "0.95": 1.5432433739981395,
+            "1.0": 1.8309834829905718
+          }
+        },
+        "W0.4|contract|both": {
+          "window_seconds": 0.4,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 2.9565403842412845,
+          "n_pairs_in_window": 12420,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 35,
+          "n_pairs_in_cap": 12385,
+          "truth_table": {
+            "0000": 824,
+            "0001": 24,
+            "0010": 74,
+            "0011": 571,
+            "0100": 106,
+            "0101": 30,
+            "0110": 30,
+            "0111": 48,
+            "1000": 1,
+            "1010": 6,
+            "1011": 156,
+            "1100": 430,
+            "1101": 151,
+            "1110": 47,
+            "1111": 9887
+          },
+          "E_pairs_by_base_label": {
+            "0": 24,
+            "1": 47
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 848,
+            "1": 9934
+          },
+          "situations_with_E": 41,
+          "situations_with_E_selected": 1,
+          "real_state": {
+            "00": 1223,
+            "01": 484,
+            "10": 391,
+            "11": 10287
+          },
+          "real_state_available": 12385,
+          "E_pairs_with_real_flip": 31,
+          "real_flip_pairs": 875,
+          "natural_E_pairs": 71,
+          "single_keep_pairs": 10782,
+          "natural_E_pair_rate": 0.005732741219216794,
+          "natural_E_conditional_on_single_keep": 0.006585049156000742,
+          "natural_E_situation_rate": 0.06602254428341385,
+          "natural_E_situation_rate_selected_receivers": 0.014925373134328358,
+          "natural_E_event_rate": 0.47058823529411764,
+          "n_situations_with_E": 41,
+          "n_events_with_E": 32,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.36235389553841174,
+            "0.95": 1.2825758188348475,
+            "1.0": 2.9384685965433537
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5805177633513611,
+            "0.95": 1.83079227021846,
+            "1.0": 2.768121976215583
+          }
+        },
+        "W0.4|empirical|both": {
+          "window_seconds": 0.4,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 1.8317478966975687,
+          "n_pairs_in_window": 12420,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 712,
+          "n_pairs_in_cap": 11708,
+          "truth_table": {
+            "0000": 822,
+            "0001": 23,
+            "0010": 74,
+            "0011": 504,
+            "0100": 106,
+            "0101": 30,
+            "0110": 26,
+            "0111": 37,
+            "1000": 1,
+            "1010": 5,
+            "1011": 139,
+            "1100": 399,
+            "1101": 129,
+            "1110": 29,
+            "1111": 9384
+          },
+          "E_pairs_by_base_label": {
+            "0": 23,
+            "1": 29
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 845,
+            "1": 9413
+          },
+          "situations_with_E": 30,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 1182,
+            "01": 440,
+            "10": 345,
+            "11": 9741
+          },
+          "real_state_available": 11708,
+          "E_pairs_with_real_flip": 22,
+          "real_flip_pairs": 785,
+          "natural_E_pairs": 52,
+          "single_keep_pairs": 10258,
+          "natural_E_pair_rate": 0.004441407584557568,
+          "natural_E_conditional_on_single_keep": 0.005069214271787873,
+          "natural_E_situation_rate": 0.04830917874396135,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.39705882352941174,
+          "n_situations_with_E": 30,
+          "n_events_with_E": 27,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.34365705364164906,
+            "0.95": 1.1866437703740353,
+            "1.0": 1.828797277229392
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.548680145403472,
+            "0.95": 1.554380584449134,
+            "1.0": 1.8309834829905718
+          }
+        },
+        "W1.0|contract|forward": {
+          "window_seconds": 1.0,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 11.58407438004231,
+          "n_pairs_in_window": 15525,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 15525,
+          "truth_table": {
+            "0000": 636,
+            "0001": 70,
+            "0010": 93,
+            "0011": 827,
+            "0100": 106,
+            "0101": 60,
+            "0110": 79,
+            "0111": 279,
+            "1000": 1,
+            "1010": 104,
+            "1011": 444,
+            "1100": 544,
+            "1101": 292,
+            "1110": 227,
+            "1111": 11763
+          },
+          "E_pairs_by_base_label": {
+            "0": 70,
+            "1": 227
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 706,
+            "1": 11990
+          },
+          "situations_with_E": 76,
+          "situations_with_E_selected": 7,
+          "real_state": {
+            "00": 1092,
+            "01": 1058,
+            "10": 1088,
+            "11": 12287
+          },
+          "real_state_available": 15525,
+          "E_pairs_with_real_flip": 137,
+          "real_flip_pairs": 2146,
+          "natural_E_pairs": 297,
+          "single_keep_pairs": 12696,
+          "natural_E_pair_rate": 0.019130434782608695,
+          "natural_E_conditional_on_single_keep": 0.02339319470699433,
+          "natural_E_situation_rate": 0.12238325281803543,
+          "natural_E_situation_rate_selected_receivers": 0.1044776119402985,
+          "natural_E_event_rate": 0.7205882352941176,
+          "n_situations_with_E": 76,
+          "n_events_with_E": 49,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.8421383764789374,
+            "0.95": 3.076737673505747,
+            "1.0": 8.265399238558139
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.3520723805662411,
+            "0.95": 4.256595193854867,
+            "1.0": 7.870152045287473
+          }
+        },
+        "W1.0|empirical|forward": {
+          "window_seconds": 1.0,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 4.520707651076552,
+          "n_pairs_in_window": 15525,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 658,
+          "n_pairs_in_cap": 14867,
+          "truth_table": {
+            "0000": 636,
+            "0001": 70,
+            "0010": 93,
+            "0011": 770,
+            "0100": 106,
+            "0101": 60,
+            "0110": 75,
+            "0111": 249,
+            "1000": 1,
+            "1010": 82,
+            "1011": 413,
+            "1100": 539,
+            "1101": 280,
+            "1110": 197,
+            "1111": 11296
+          },
+          "E_pairs_by_base_label": {
+            "0": 70,
+            "1": 197
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 706,
+            "1": 11493
+          },
+          "situations_with_E": 71,
+          "situations_with_E_selected": 5,
+          "real_state": {
+            "00": 1076,
+            "01": 983,
+            "10": 1013,
+            "11": 11795
+          },
+          "real_state_available": 14867,
+          "E_pairs_with_real_flip": 129,
+          "real_flip_pairs": 1996,
+          "natural_E_pairs": 267,
+          "single_keep_pairs": 12199,
+          "natural_E_pair_rate": 0.017959238582094573,
+          "natural_E_conditional_on_single_keep": 0.021887039921305026,
+          "natural_E_situation_rate": 0.1143317230273752,
+          "natural_E_situation_rate_selected_receivers": 0.07462686567164178,
+          "natural_E_event_rate": 0.7058823529411765,
+          "n_situations_with_E": 71,
+          "n_events_with_E": 48,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.8062270760068706,
+            "0.95": 2.850490826386951,
+            "1.0": 4.508713739861189
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2801562488088738,
+            "0.95": 3.6892937280790203,
+            "1.0": 4.514022683691281
+          }
+        },
+        "W1.0|contract|both": {
+          "window_seconds": 1.0,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 11.58407438004231,
+          "n_pairs_in_window": 31050,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 14,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 31036,
+          "truth_table": {
+            "0000": 1238,
+            "0001": 102,
+            "0010": 182,
+            "0011": 1736,
+            "0100": 209,
+            "0101": 166,
+            "0110": 164,
+            "0111": 503,
+            "1000": 6,
+            "1001": 1,
+            "1010": 160,
+            "1011": 794,
+            "1100": 1121,
+            "1101": 575,
+            "1110": 426,
+            "1111": 23653
+          },
+          "E_pairs_by_base_label": {
+            "0": 102,
+            "1": 426
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1340,
+            "1": 24079
+          },
+          "situations_with_E": 133,
+          "situations_with_E_selected": 9,
+          "real_state": {
+            "00": 2202,
+            "01": 2098,
+            "10": 2091,
+            "11": 24645
+          },
+          "real_state_available": 31036,
+          "E_pairs_with_real_flip": 257,
+          "real_flip_pairs": 4189,
+          "natural_E_pairs": 528,
+          "single_keep_pairs": 25419,
+          "natural_E_pair_rate": 0.01701250161103235,
+          "natural_E_conditional_on_single_keep": 0.020771863566623392,
+          "natural_E_situation_rate": 0.214170692431562,
+          "natural_E_situation_rate_selected_receivers": 0.13432835820895522,
+          "natural_E_event_rate": 0.8676470588235294,
+          "n_situations_with_E": 133,
+          "n_events_with_E": 59,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.8453400516216438,
+            "0.95": 3.1038325975494434,
+            "1.0": 8.265399238558139
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.3897482428583379,
+            "0.95": 4.455658768263618,
+            "1.0": 8.100771104348443
+          }
+        },
+        "W1.0|empirical|both": {
+          "window_seconds": 1.0,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 4.520707651076552,
+          "n_pairs_in_window": 31050,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 14,
+          "excluded_over_cap": 1603,
+          "n_pairs_in_cap": 29433,
+          "truth_table": {
+            "0000": 1236,
+            "0001": 102,
+            "0010": 175,
+            "0011": 1577,
+            "0100": 209,
+            "0101": 161,
+            "0110": 155,
+            "0111": 454,
+            "1000": 6,
+            "1001": 1,
+            "1010": 127,
+            "1011": 754,
+            "1100": 1070,
+            "1101": 552,
+            "1110": 371,
+            "1111": 22483
+          },
+          "E_pairs_by_base_label": {
+            "0": 102,
+            "1": 371
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1338,
+            "1": 22854
+          },
+          "situations_with_E": 125,
+          "situations_with_E_selected": 6,
+          "real_state": {
+            "00": 2145,
+            "01": 1924,
+            "10": 1966,
+            "11": 23398
+          },
+          "real_state_available": 29433,
+          "E_pairs_with_real_flip": 245,
+          "real_flip_pairs": 3890,
+          "natural_E_pairs": 473,
+          "single_keep_pairs": 24192,
+          "natural_E_pair_rate": 0.016070397173240922,
+          "natural_E_conditional_on_single_keep": 0.01955191798941799,
+          "natural_E_situation_rate": 0.20128824476650564,
+          "natural_E_situation_rate_selected_receivers": 0.08955223880597014,
+          "natural_E_event_rate": 0.8676470588235294,
+          "n_situations_with_E": 125,
+          "n_events_with_E": 59,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 0.8023099623187888,
+            "0.95": 2.8642938742247623,
+            "1.0": 4.508713739861189
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.3017684939842111,
+            "0.95": 3.7636420332196265,
+            "1.0": 4.514022683691281
+          }
+        },
+        "W2.0|contract|forward": {
+          "window_seconds": 2.0,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 37.14389349154829,
+          "n_pairs_in_window": 31050,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 12,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 31038,
+          "truth_table": {
+            "0000": 800,
+            "0001": 123,
+            "0010": 191,
+            "0011": 1615,
+            "0100": 156,
+            "0101": 141,
+            "0110": 155,
+            "0111": 1119,
+            "1000": 30,
+            "1001": 21,
+            "1010": 440,
+            "1011": 1203,
+            "1100": 861,
+            "1101": 571,
+            "1110": 564,
+            "1111": 23048
+          },
+          "E_pairs_by_base_label": {
+            "0": 123,
+            "1": 564
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 923,
+            "1": 23612
+          },
+          "situations_with_E": 101,
+          "situations_with_E_selected": 11,
+          "real_state": {
+            "00": 1489,
+            "01": 2811,
+            "10": 2585,
+            "11": 24153
+          },
+          "real_state_available": 31038,
+          "E_pairs_with_real_flip": 303,
+          "real_flip_pairs": 5396,
+          "natural_E_pairs": 687,
+          "single_keep_pairs": 24535,
+          "natural_E_pair_rate": 0.022134158128745408,
+          "natural_E_conditional_on_single_keep": 0.02800081516201345,
+          "natural_E_situation_rate": 0.16264090177133655,
+          "natural_E_situation_rate_selected_receivers": 0.16417910447761194,
+          "natural_E_event_rate": 0.8382352941176471,
+          "n_situations_with_E": 101,
+          "n_events_with_E": 57,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 1.6189350103560118,
+            "0.95": 5.941175508459525,
+            "1.0": 16.906984370287084
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.5282299806380433,
+            "0.95": 8.008645128852942,
+            "1.0": 13.520300011663785
+          }
+        },
+        "W2.0|empirical|forward": {
+          "window_seconds": 2.0,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 8.73499274469172,
+          "n_pairs_in_window": 31050,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 12,
+          "excluded_over_cap": 1134,
+          "n_pairs_in_cap": 29904,
+          "truth_table": {
+            "0000": 798,
+            "0001": 122,
+            "0010": 190,
+            "0011": 1588,
+            "0100": 154,
+            "0101": 141,
+            "0110": 144,
+            "0111": 1012,
+            "1000": 30,
+            "1001": 21,
+            "1010": 398,
+            "1011": 1135,
+            "1100": 860,
+            "1101": 571,
+            "1110": 540,
+            "1111": 22200
+          },
+          "E_pairs_by_base_label": {
+            "0": 122,
+            "1": 540
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 920,
+            "1": 22740
+          },
+          "situations_with_E": 100,
+          "situations_with_E_selected": 10,
+          "real_state": {
+            "00": 1487,
+            "01": 2662,
+            "10": 2495,
+            "11": 23260
+          },
+          "real_state_available": 29904,
+          "E_pairs_with_real_flip": 292,
+          "real_flip_pairs": 5157,
+          "natural_E_pairs": 662,
+          "single_keep_pairs": 23660,
+          "natural_E_pair_rate": 0.022137506688068485,
+          "natural_E_conditional_on_single_keep": 0.02797971259509721,
+          "natural_E_situation_rate": 0.1610305958132045,
+          "natural_E_situation_rate_selected_receivers": 0.14925373134328357,
+          "natural_E_event_rate": 0.8382352941176471,
+          "n_situations_with_E": 100,
+          "n_events_with_E": 57,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 1.5592144200400813,
+            "0.95": 5.490083299836263,
+            "1.0": 8.726281981683499
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.414973322403252,
+            "0.95": 7.134170001039845,
+            "1.0": 8.731649111200804
+          }
+        },
+        "W2.0|contract|both": {
+          "window_seconds": 2.0,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 37.14389349154829,
+          "n_pairs_in_window": 62100,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 77,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 62023,
+          "truth_table": {
+            "0000": 1560,
+            "0001": 188,
+            "0010": 412,
+            "0011": 3347,
+            "0100": 278,
+            "0101": 437,
+            "0110": 350,
+            "0111": 2028,
+            "1000": 41,
+            "1001": 30,
+            "1010": 864,
+            "1011": 1978,
+            "1100": 1655,
+            "1101": 1124,
+            "1110": 1242,
+            "1111": 46489
+          },
+          "E_pairs_by_base_label": {
+            "0": 188,
+            "1": 1242
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1748,
+            "1": 47731
+          },
+          "situations_with_E": 185,
+          "situations_with_E_selected": 13,
+          "real_state": {
+            "00": 3164,
+            "01": 5436,
+            "10": 5015,
+            "11": 48408
+          },
+          "real_state_available": 62023,
+          "E_pairs_with_real_flip": 568,
+          "real_flip_pairs": 10451,
+          "natural_E_pairs": 1430,
+          "single_keep_pairs": 49479,
+          "natural_E_pair_rate": 0.023055963110459023,
+          "natural_E_conditional_on_single_keep": 0.028901149982820996,
+          "natural_E_situation_rate": 0.29790660225442833,
+          "natural_E_situation_rate_selected_receivers": 0.19402985074626866,
+          "natural_E_event_rate": 0.9411764705882353,
+          "n_situations_with_E": 185,
+          "n_events_with_E": 64,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 1.636856139818466,
+            "0.95": 6.032977578928695,
+            "1.0": 16.906984370287084
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.6802986103919975,
+            "0.95": 8.548713382710028,
+            "1.0": 14.994404967873114
+          }
+        },
+        "W2.0|empirical|both": {
+          "window_seconds": 2.0,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 8.73499274469172,
+          "n_pairs_in_window": 62100,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 77,
+          "excluded_over_cap": 3006,
+          "n_pairs_in_cap": 59020,
+          "truth_table": {
+            "0000": 1557,
+            "0001": 187,
+            "0010": 404,
+            "0011": 3123,
+            "0100": 276,
+            "0101": 422,
+            "0110": 339,
+            "0111": 1849,
+            "1000": 41,
+            "1001": 30,
+            "1010": 718,
+            "1011": 1883,
+            "1100": 1622,
+            "1101": 1115,
+            "1110": 1188,
+            "1111": 44266
+          },
+          "E_pairs_by_base_label": {
+            "0": 187,
+            "1": 1188
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 1744,
+            "1": 45454
+          },
+          "situations_with_E": 181,
+          "situations_with_E_selected": 12,
+          "real_state": {
+            "00": 3104,
+            "01": 5053,
+            "10": 4786,
+            "11": 46077
+          },
+          "real_state_available": 59020,
+          "E_pairs_with_real_flip": 548,
+          "real_flip_pairs": 9839,
+          "natural_E_pairs": 1375,
+          "single_keep_pairs": 47198,
+          "natural_E_pair_rate": 0.023297187394103695,
+          "natural_E_conditional_on_single_keep": 0.029132590363998474,
+          "natural_E_situation_rate": 0.2914653784219002,
+          "natural_E_situation_rate_selected_receivers": 0.1791044776119403,
+          "natural_E_event_rate": 0.9411764705882353,
+          "n_situations_with_E": 181,
+          "n_events_with_E": 64,
+          "n_events": 68,
+          "dr_quantiles_m": {
+            "0.5": 1.5627216638003565,
+            "0.95": 5.5600934568722415,
+            "1.0": 8.728121025121425
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.512060970853362,
+            "0.95": 7.270164809110177,
+            "1.0": 8.733480593112054
+          }
+        }
+      }
+    },
+    "J03WN1": {
+      "split": "test",
+      "frame_source_sha256": "abf416ed43700970bb62f6b7977991f77cf27be3465938735169680f825a3ee3",
+      "n_situations": 254,
+      "n_events": 29,
+      "n_selected_situations": 29,
+      "kinematics": {
+        "horizon_seconds": 0.2,
+        "consecutive_dt_seconds_max": 0.12,
+        "valid_velocity_pairs": 2983347,
+        "valid_acceleration_triples": 2983297,
+        "speed_p95_m_s": 4.472131690038379,
+        "acceleration_p95_m_s2": 13.975744731463667,
+        "cap_m": 1.1739412326369494,
+        "invalid_or_gap_pair_count": 50,
+        "interpretation": "empirical displacement envelope, not joint dynamic feasibility proof"
+      },
+      "cap_contract_m": {
+        "0.2": 1.1739412326369494,
+        "0.4": 2.906912254532445,
+        "1.0": 11.460004055770213,
+        "2.0": 36.89575284300409
+      },
+      "empirical_displacement_p95_m": {
+        "0.2": 0.8881451753053361,
+        "0.4": 1.7701975062463458,
+        "1.0": 4.3584976435402645,
+        "2.0": 8.392216602308363
+      },
+      "cells": {
+        "W0.2|contract|forward": {
+          "window_seconds": 0.2,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 1.1739412326369494,
+          "n_pairs_in_window": 1270,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 27,
+          "n_pairs_in_cap": 1243,
+          "truth_table": {
+            "0000": 157,
+            "0001": 4,
+            "0010": 20,
+            "0011": 38,
+            "0100": 15,
+            "0101": 1,
+            "0110": 1,
+            "0111": 17,
+            "1000": 1,
+            "1011": 15,
+            "1100": 52,
+            "1101": 16,
+            "1111": 906
+          },
+          "E_pairs_by_base_label": {
+            "0": 4
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 161,
+            "1": 906
+          },
+          "situations_with_E": 3,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 224,
+            "01": 29,
+            "10": 34,
+            "11": 956
+          },
+          "real_state_available": 1243,
+          "E_pairs_with_real_flip": 3,
+          "real_flip_pairs": 63,
+          "natural_E_pairs": 4,
+          "single_keep_pairs": 1067,
+          "natural_E_pair_rate": 0.003218020917135961,
+          "natural_E_conditional_on_single_keep": 0.0037488284910965324,
+          "natural_E_situation_rate": 0.011811023622047244,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.10344827586206896,
+          "n_situations_with_E": 3,
+          "n_events_with_E": 3,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.22847328834586675,
+            "0.95": 0.7369166268307873,
+            "1.0": 1.1738836431345916
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.3301517721329048,
+            "0.95": 0.9203961122799436,
+            "1.0": 1.142715208707259
+          },
+          "situation_rate_ci95_cluster_bootstrap_events": [
+            0.0,
+            0.024096385542168676
+          ],
+          "event_rate_ci95_cluster_bootstrap_events": [
+            0.0,
+            0.20689655172413793
+          ]
+        },
+        "W0.2|empirical|forward": {
+          "window_seconds": 0.2,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 0.8881451753053361,
+          "n_pairs_in_window": 1270,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 123,
+          "n_pairs_in_cap": 1147,
+          "truth_table": {
+            "0000": 148,
+            "0001": 3,
+            "0010": 15,
+            "0011": 33,
+            "0100": 12,
+            "0101": 1,
+            "0111": 15,
+            "1011": 14,
+            "1100": 45,
+            "1101": 14,
+            "1111": 847
+          },
+          "E_pairs_by_base_label": {
+            "0": 3
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 151,
+            "1": 847
+          },
+          "situations_with_E": 2,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 202,
+            "01": 25,
+            "10": 33,
+            "11": 887
+          },
+          "real_state_available": 1147,
+          "E_pairs_with_real_flip": 2,
+          "real_flip_pairs": 58,
+          "natural_E_pairs": 3,
+          "single_keep_pairs": 998,
+          "natural_E_pair_rate": 0.0026155187445510027,
+          "natural_E_conditional_on_single_keep": 0.003006012024048096,
+          "natural_E_situation_rate": 0.007874015748031496,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.06896551724137931,
+          "n_situations_with_E": 2,
+          "n_events_with_E": 2,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.21213311331597212,
+            "0.95": 0.6428993590547301,
+            "1.0": 0.8621489538557181
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.2973221498914043,
+            "0.95": 0.7991183512295174,
+            "1.0": 0.8825549014056226
+          }
+        },
+        "W0.2|contract|both": {
+          "window_seconds": 0.2,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 1.1739412326369494,
+          "n_pairs_in_window": 2540,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 61,
+          "n_pairs_in_cap": 2479,
+          "truth_table": {
+            "0000": 326,
+            "0001": 11,
+            "0010": 31,
+            "0011": 78,
+            "0100": 24,
+            "0101": 12,
+            "0110": 4,
+            "0111": 19,
+            "1000": 2,
+            "1010": 2,
+            "1011": 33,
+            "1100": 79,
+            "1101": 30,
+            "1110": 3,
+            "1111": 1825
+          },
+          "E_pairs_by_base_label": {
+            "0": 11,
+            "1": 3
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 337,
+            "1": 1828
+          },
+          "situations_with_E": 11,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 429,
+            "01": 76,
+            "10": 49,
+            "11": 1925
+          },
+          "real_state_available": 2479,
+          "E_pairs_with_real_flip": 10,
+          "real_flip_pairs": 125,
+          "natural_E_pairs": 14,
+          "single_keep_pairs": 2165,
+          "natural_E_pair_rate": 0.005647438483259379,
+          "natural_E_conditional_on_single_keep": 0.006466512702078522,
+          "natural_E_situation_rate": 0.04330708661417323,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.3448275862068966,
+          "n_situations_with_E": 11,
+          "n_events_with_E": 10,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.22803545304826411,
+            "0.95": 0.7425093785601887,
+            "1.0": 1.1738836431345916
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.3264965788821224,
+            "0.95": 0.9315041180689807,
+            "1.0": 1.161076720154875
+          }
+        },
+        "W0.2|empirical|both": {
+          "window_seconds": 0.2,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 0.8881451753053361,
+          "n_pairs_in_window": 2540,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 252,
+          "n_pairs_in_cap": 2288,
+          "truth_table": {
+            "0000": 306,
+            "0001": 10,
+            "0010": 25,
+            "0011": 62,
+            "0100": 20,
+            "0101": 10,
+            "0110": 1,
+            "0111": 17,
+            "1000": 1,
+            "1010": 2,
+            "1011": 29,
+            "1100": 69,
+            "1101": 26,
+            "1110": 3,
+            "1111": 1707
+          },
+          "E_pairs_by_base_label": {
+            "0": 10,
+            "1": 3
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 316,
+            "1": 1710
+          },
+          "situations_with_E": 10,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 390,
+            "01": 61,
+            "10": 48,
+            "11": 1789
+          },
+          "real_state_available": 2288,
+          "E_pairs_with_real_flip": 9,
+          "real_flip_pairs": 109,
+          "natural_E_pairs": 13,
+          "single_keep_pairs": 2026,
+          "natural_E_pair_rate": 0.005681818181818182,
+          "natural_E_conditional_on_single_keep": 0.006416584402764067,
+          "natural_E_situation_rate": 0.03937007874015748,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.3448275862068966,
+          "n_situations_with_E": 10,
+          "n_events_with_E": 10,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.21213208703957315,
+            "0.95": 0.6428370827888219,
+            "1.0": 0.8868481867088874
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.30066506989607733,
+            "0.95": 0.7849206649728027,
+            "1.0": 0.8827795529319965
+          }
+        },
+        "W0.4|contract|forward": {
+          "window_seconds": 0.4,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 2.906912254532445,
+          "n_pairs_in_window": 2540,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 6,
+          "n_pairs_in_cap": 2534,
+          "truth_table": {
+            "0000": 233,
+            "0001": 10,
+            "0010": 40,
+            "0011": 136,
+            "0100": 22,
+            "0101": 13,
+            "0110": 15,
+            "0111": 49,
+            "1000": 2,
+            "1010": 4,
+            "1011": 61,
+            "1100": 142,
+            "1101": 42,
+            "1110": 21,
+            "1111": 1744
+          },
+          "E_pairs_by_base_label": {
+            "0": 10,
+            "1": 21
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 243,
+            "1": 1765
+          },
+          "situations_with_E": 16,
+          "situations_with_E_selected": 2,
+          "real_state": {
+            "00": 415,
+            "01": 103,
+            "10": 94,
+            "11": 1922
+          },
+          "real_state_available": 2534,
+          "E_pairs_with_real_flip": 14,
+          "real_flip_pairs": 197,
+          "natural_E_pairs": 31,
+          "single_keep_pairs": 2008,
+          "natural_E_pair_rate": 0.0122336227308603,
+          "natural_E_conditional_on_single_keep": 0.015438247011952191,
+          "natural_E_situation_rate": 0.06299212598425197,
+          "natural_E_situation_rate_selected_receivers": 0.06896551724137931,
+          "natural_E_event_rate": 0.3793103448275862,
+          "n_situations_with_E": 16,
+          "n_events_with_E": 11,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.41539122123457284,
+            "0.95": 1.515347823285564,
+            "1.0": 2.8938894860943756
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.6087270258892239,
+            "0.95": 1.8765727892413142,
+            "1.0": 2.780397519294511
+          }
+        },
+        "W0.4|empirical|forward": {
+          "window_seconds": 0.4,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 1.7701975062463458,
+          "n_pairs_in_window": 2540,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 194,
+          "n_pairs_in_cap": 2346,
+          "truth_table": {
+            "0000": 228,
+            "0001": 9,
+            "0010": 40,
+            "0011": 117,
+            "0100": 20,
+            "0101": 8,
+            "0110": 10,
+            "0111": 38,
+            "1000": 2,
+            "1010": 2,
+            "1011": 55,
+            "1100": 123,
+            "1101": 37,
+            "1110": 13,
+            "1111": 1644
+          },
+          "E_pairs_by_base_label": {
+            "0": 9,
+            "1": 13
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 237,
+            "1": 1657
+          },
+          "situations_with_E": 12,
+          "situations_with_E_selected": 0,
+          "real_state": {
+            "00": 383,
+            "01": 87,
+            "10": 88,
+            "11": 1788
+          },
+          "real_state_available": 2346,
+          "E_pairs_with_real_flip": 10,
+          "real_flip_pairs": 175,
+          "natural_E_pairs": 22,
+          "single_keep_pairs": 1894,
+          "natural_E_pair_rate": 0.00937766410912191,
+          "natural_E_conditional_on_single_keep": 0.011615628299894404,
+          "natural_E_situation_rate": 0.047244094488188976,
+          "natural_E_situation_rate_selected_receivers": 0.0,
+          "natural_E_event_rate": 0.3448275862068966,
+          "n_situations_with_E": 12,
+          "n_events_with_E": 10,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.3809855226722354,
+            "0.95": 1.2514493688858987,
+            "1.0": 1.76490758789041
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5516337618013514,
+            "0.95": 1.5124228685808312,
+            "1.0": 1.7700273658236325
+          }
+        },
+        "W0.4|contract|both": {
+          "window_seconds": 0.4,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 2.906912254532445,
+          "n_pairs_in_window": 5080,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 16,
+          "n_pairs_in_cap": 5064,
+          "truth_table": {
+            "0000": 483,
+            "0001": 31,
+            "0010": 66,
+            "0011": 274,
+            "0100": 41,
+            "0101": 43,
+            "0110": 29,
+            "0111": 69,
+            "1000": 9,
+            "1010": 8,
+            "1011": 134,
+            "1100": 231,
+            "1101": 91,
+            "1110": 32,
+            "1111": 3523
+          },
+          "E_pairs_by_base_label": {
+            "0": 31,
+            "1": 32
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 514,
+            "1": 3555
+          },
+          "situations_with_E": 30,
+          "situations_with_E_selected": 3,
+          "real_state": {
+            "00": 767,
+            "01": 269,
+            "10": 149,
+            "11": 3879
+          },
+          "real_state_available": 5064,
+          "E_pairs_with_real_flip": 28,
+          "real_flip_pairs": 418,
+          "natural_E_pairs": 63,
+          "single_keep_pairs": 4069,
+          "natural_E_pair_rate": 0.012440758293838863,
+          "natural_E_conditional_on_single_keep": 0.015482919636274269,
+          "natural_E_situation_rate": 0.11811023622047244,
+          "natural_E_situation_rate_selected_receivers": 0.10344827586206896,
+          "natural_E_event_rate": 0.6551724137931034,
+          "n_situations_with_E": 30,
+          "n_events_with_E": 19,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.41206813898118766,
+            "0.95": 1.5090325301776757,
+            "1.0": 2.8938894860943756
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.6100414855562637,
+            "0.95": 1.8869286568016774,
+            "1.0": 2.780397519294511
+          }
+        },
+        "W0.4|empirical|both": {
+          "window_seconds": 0.4,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 1.7701975062463458,
+          "n_pairs_in_window": 5080,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 401,
+          "n_pairs_in_cap": 4679,
+          "truth_table": {
+            "0000": 471,
+            "0001": 27,
+            "0010": 65,
+            "0011": 223,
+            "0100": 39,
+            "0101": 36,
+            "0110": 22,
+            "0111": 50,
+            "1000": 9,
+            "1010": 6,
+            "1011": 113,
+            "1100": 206,
+            "1101": 80,
+            "1110": 19,
+            "1111": 3313
+          },
+          "E_pairs_by_base_label": {
+            "0": 27,
+            "1": 19
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 498,
+            "1": 3332
+          },
+          "situations_with_E": 24,
+          "situations_with_E_selected": 1,
+          "real_state": {
+            "00": 708,
+            "01": 225,
+            "10": 141,
+            "11": 3605
+          },
+          "real_state_available": 4679,
+          "E_pairs_with_real_flip": 22,
+          "real_flip_pairs": 366,
+          "natural_E_pairs": 46,
+          "single_keep_pairs": 3830,
+          "natural_E_pair_rate": 0.009831160504381278,
+          "natural_E_conditional_on_single_keep": 0.012010443864229765,
+          "natural_E_situation_rate": 0.09448818897637795,
+          "natural_E_situation_rate_selected_receivers": 0.034482758620689655,
+          "natural_E_event_rate": 0.6206896551724138,
+          "n_situations_with_E": 24,
+          "n_events_with_E": 18,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.3807883798014749,
+            "0.95": 1.2415110651460117,
+            "1.0": 1.7700285619382539
+          },
+          "dk_quantiles_m": {
+            "0.5": 0.5531728122548965,
+            "0.95": 1.5241291304456732,
+            "1.0": 1.7700273658236325
+          }
+        },
+        "W1.0|contract|forward": {
+          "window_seconds": 1.0,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 11.460004055770213,
+          "n_pairs_in_window": 6350,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 6350,
+          "truth_table": {
+            "0000": 348,
+            "0001": 25,
+            "0010": 122,
+            "0011": 429,
+            "0100": 29,
+            "0101": 61,
+            "0110": 62,
+            "0111": 224,
+            "1000": 9,
+            "1010": 41,
+            "1011": 215,
+            "1100": 268,
+            "1101": 105,
+            "1110": 131,
+            "1111": 4281
+          },
+          "E_pairs_by_base_label": {
+            "0": 25,
+            "1": 131
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 373,
+            "1": 4412
+          },
+          "situations_with_E": 40,
+          "situations_with_E_selected": 5,
+          "real_state": {
+            "00": 794,
+            "01": 506,
+            "10": 453,
+            "11": 4597
+          },
+          "real_state_available": 6350,
+          "E_pairs_with_real_flip": 54,
+          "real_flip_pairs": 959,
+          "natural_E_pairs": 156,
+          "single_keep_pairs": 4785,
+          "natural_E_pair_rate": 0.024566929133858266,
+          "natural_E_conditional_on_single_keep": 0.03260188087774295,
+          "natural_E_situation_rate": 0.15748031496062992,
+          "natural_E_situation_rate_selected_receivers": 0.1724137931034483,
+          "natural_E_event_rate": 0.7241379310344828,
+          "n_situations_with_E": 40,
+          "n_events_with_E": 21,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.980943502650339,
+            "0.95": 3.6977697001009022,
+            "1.0": 9.319425654119843
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.3475513560883035,
+            "0.95": 4.457319500178894,
+            "1.0": 8.93027394316685
+          }
+        },
+        "W1.0|empirical|forward": {
+          "window_seconds": 1.0,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 4.3584976435402645,
+          "n_pairs_in_window": 6350,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 413,
+          "n_pairs_in_cap": 5937,
+          "truth_table": {
+            "0000": 340,
+            "0001": 25,
+            "0010": 110,
+            "0011": 398,
+            "0100": 29,
+            "0101": 59,
+            "0110": 62,
+            "0111": 173,
+            "1000": 5,
+            "1010": 41,
+            "1011": 202,
+            "1100": 268,
+            "1101": 99,
+            "1110": 112,
+            "1111": 4014
+          },
+          "E_pairs_by_base_label": {
+            "0": 25,
+            "1": 112
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 365,
+            "1": 4126
+          },
+          "situations_with_E": 38,
+          "situations_with_E_selected": 5,
+          "real_state": {
+            "00": 768,
+            "01": 428,
+            "10": 429,
+            "11": 4312
+          },
+          "real_state_available": 5937,
+          "E_pairs_with_real_flip": 44,
+          "real_flip_pairs": 857,
+          "natural_E_pairs": 137,
+          "single_keep_pairs": 4491,
+          "natural_E_pair_rate": 0.023075627421256528,
+          "natural_E_conditional_on_single_keep": 0.030505455355154754,
+          "natural_E_situation_rate": 0.14960629921259844,
+          "natural_E_situation_rate_selected_receivers": 0.1724137931034483,
+          "natural_E_event_rate": 0.6896551724137931,
+          "n_situations_with_E": 38,
+          "n_events_with_E": 20,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.9079645922271093,
+            "0.95": 3.098308859786946,
+            "1.0": 4.354549563224075
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2587702917536931,
+            "0.95": 3.579167555558477,
+            "1.0": 4.3494929571074366
+          }
+        },
+        "W1.0|contract|both": {
+          "window_seconds": 1.0,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 11.460004055770213,
+          "n_pairs_in_window": 12700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 12700,
+          "truth_table": {
+            "0000": 679,
+            "0001": 61,
+            "0010": 216,
+            "0011": 903,
+            "0100": 57,
+            "0101": 131,
+            "0110": 114,
+            "0111": 439,
+            "1000": 26,
+            "1010": 73,
+            "1011": 427,
+            "1100": 494,
+            "1101": 238,
+            "1110": 232,
+            "1111": 8610
+          },
+          "E_pairs_by_base_label": {
+            "0": 61,
+            "1": 232
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 740,
+            "1": 8842
+          },
+          "situations_with_E": 74,
+          "situations_with_E_selected": 9,
+          "real_state": {
+            "00": 1407,
+            "01": 1193,
+            "10": 817,
+            "11": 9283
+          },
+          "real_state_available": 12700,
+          "E_pairs_with_real_flip": 101,
+          "real_flip_pairs": 2010,
+          "natural_E_pairs": 293,
+          "single_keep_pairs": 9582,
+          "natural_E_pair_rate": 0.023070866141732285,
+          "natural_E_conditional_on_single_keep": 0.03057816739720309,
+          "natural_E_situation_rate": 0.29133858267716534,
+          "natural_E_situation_rate_selected_receivers": 0.3103448275862069,
+          "natural_E_event_rate": 0.9655172413793104,
+          "n_situations_with_E": 74,
+          "n_events_with_E": 28,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.974165870681531,
+            "0.95": 3.637350242959332,
+            "1.0": 9.319425654119843
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.4091127999762154,
+            "0.95": 4.565724732354922,
+            "1.0": 8.93027394316685
+          }
+        },
+        "W1.0|empirical|both": {
+          "window_seconds": 1.0,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 4.3584976435402645,
+          "n_pairs_in_window": 12700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 0,
+          "excluded_over_cap": 919,
+          "n_pairs_in_cap": 11781,
+          "truth_table": {
+            "0000": 667,
+            "0001": 61,
+            "0010": 199,
+            "0011": 826,
+            "0100": 53,
+            "0101": 124,
+            "0110": 114,
+            "0111": 320,
+            "1000": 18,
+            "1010": 68,
+            "1011": 406,
+            "1100": 492,
+            "1101": 227,
+            "1110": 195,
+            "1111": 8011
+          },
+          "E_pairs_by_base_label": {
+            "0": 61,
+            "1": 195
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 728,
+            "1": 8206
+          },
+          "situations_with_E": 71,
+          "situations_with_E_selected": 9,
+          "real_state": {
+            "00": 1347,
+            "01": 1017,
+            "10": 757,
+            "11": 8660
+          },
+          "real_state_available": 11781,
+          "E_pairs_with_real_flip": 88,
+          "real_flip_pairs": 1774,
+          "natural_E_pairs": 256,
+          "single_keep_pairs": 8934,
+          "natural_E_pair_rate": 0.02172990408284526,
+          "natural_E_conditional_on_single_keep": 0.02865457801656593,
+          "natural_E_situation_rate": 0.2795275590551181,
+          "natural_E_situation_rate_selected_receivers": 0.3103448275862069,
+          "natural_E_event_rate": 0.9310344827586207,
+          "n_situations_with_E": 71,
+          "n_events_with_E": 27,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 0.8927479698141091,
+            "0.95": 3.0103986050989406,
+            "1.0": 4.356603081075725
+          },
+          "dk_quantiles_m": {
+            "0.5": 1.2949510999606548,
+            "0.95": 3.649109251469932,
+            "1.0": 4.35405528660501
+          }
+        },
+        "W2.0|contract|forward": {
+          "window_seconds": 2.0,
+          "direction": "forward",
+          "cap_rule": "contract",
+          "cap_m": 36.89575284300409,
+          "n_pairs_in_window": 12700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 15,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 12685,
+          "truth_table": {
+            "0000": 429,
+            "0001": 59,
+            "0010": 376,
+            "0011": 743,
+            "0100": 29,
+            "0101": 126,
+            "0110": 119,
+            "0111": 719,
+            "1000": 35,
+            "1010": 251,
+            "1011": 515,
+            "1100": 369,
+            "1101": 158,
+            "1110": 296,
+            "1111": 8461
+          },
+          "E_pairs_by_base_label": {
+            "0": 59,
+            "1": 296
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 488,
+            "1": 8757
+          },
+          "situations_with_E": 50,
+          "situations_with_E_selected": 9,
+          "real_state": {
+            "00": 1246,
+            "01": 1354,
+            "10": 1293,
+            "11": 8792
+          },
+          "real_state_available": 12685,
+          "E_pairs_with_real_flip": 125,
+          "real_flip_pairs": 2647,
+          "natural_E_pairs": 355,
+          "single_keep_pairs": 9245,
+          "natural_E_pair_rate": 0.02798581001182499,
+          "natural_E_conditional_on_single_keep": 0.03839913466738778,
+          "natural_E_situation_rate": 0.1968503937007874,
+          "natural_E_situation_rate_selected_receivers": 0.3103448275862069,
+          "natural_E_event_rate": 0.7931034482758621,
+          "n_situations_with_E": 50,
+          "n_events_with_E": 23,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 1.9166898089324844,
+            "0.95": 7.197057095002064,
+            "1.0": 18.90340965596743
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.5642545154372707,
+            "0.95": 8.390208354082663,
+            "1.0": 18.4851852861198
+          }
+        },
+        "W2.0|empirical|forward": {
+          "window_seconds": 2.0,
+          "direction": "forward",
+          "cap_rule": "empirical",
+          "cap_m": 8.392216602308363,
+          "n_pairs_in_window": 12700,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 15,
+          "excluded_over_cap": 766,
+          "n_pairs_in_cap": 11919,
+          "truth_table": {
+            "0000": 429,
+            "0001": 59,
+            "0010": 346,
+            "0011": 698,
+            "0100": 29,
+            "0101": 126,
+            "0110": 119,
+            "0111": 610,
+            "1000": 35,
+            "1010": 201,
+            "1011": 490,
+            "1100": 369,
+            "1101": 158,
+            "1110": 276,
+            "1111": 7974
+          },
+          "E_pairs_by_base_label": {
+            "0": 59,
+            "1": 276
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 488,
+            "1": 8250
+          },
+          "situations_with_E": 49,
+          "situations_with_E_selected": 9,
+          "real_state": {
+            "00": 1213,
+            "01": 1203,
+            "10": 1221,
+            "11": 8282
+          },
+          "real_state_available": 11919,
+          "E_pairs_with_real_flip": 125,
+          "real_flip_pairs": 2424,
+          "natural_E_pairs": 335,
+          "single_keep_pairs": 8738,
+          "natural_E_pair_rate": 0.02810638476382247,
+          "natural_E_conditional_on_single_keep": 0.03833829251544976,
+          "natural_E_situation_rate": 0.19291338582677164,
+          "natural_E_situation_rate_selected_receivers": 0.3103448275862069,
+          "natural_E_event_rate": 0.7931034482758621,
+          "n_situations_with_E": 49,
+          "n_events_with_E": 23,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 1.783731636749756,
+            "0.95": 6.134386847283268,
+            "1.0": 8.374061290320792
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.3889124873988794,
+            "0.95": 6.8707862442405,
+            "1.0": 8.391721217771508
+          }
+        },
+        "W2.0|contract|both": {
+          "window_seconds": 2.0,
+          "direction": "both",
+          "cap_rule": "contract",
+          "cap_m": 36.89575284300409,
+          "n_pairs_in_window": 25400,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 36,
+          "excluded_over_cap": 0,
+          "n_pairs_in_cap": 25364,
+          "truth_table": {
+            "0000": 783,
+            "0001": 97,
+            "0010": 565,
+            "0011": 1766,
+            "0100": 61,
+            "0101": 244,
+            "0110": 225,
+            "0111": 1459,
+            "1000": 63,
+            "1010": 406,
+            "1011": 1019,
+            "1100": 671,
+            "1101": 473,
+            "1110": 479,
+            "1111": 17053
+          },
+          "E_pairs_by_base_label": {
+            "0": 97,
+            "1": 479
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 880,
+            "1": 17532
+          },
+          "situations_with_E": 88,
+          "situations_with_E_selected": 12,
+          "real_state": {
+            "00": 2099,
+            "01": 3101,
+            "10": 2313,
+            "11": 17851
+          },
+          "real_state_available": 25364,
+          "E_pairs_with_real_flip": 203,
+          "real_flip_pairs": 5414,
+          "natural_E_pairs": 576,
+          "single_keep_pairs": 18412,
+          "natural_E_pair_rate": 0.022709351837249644,
+          "natural_E_conditional_on_single_keep": 0.03128394525309581,
+          "natural_E_situation_rate": 0.3464566929133858,
+          "natural_E_situation_rate_selected_receivers": 0.41379310344827586,
+          "natural_E_event_rate": 1.0,
+          "n_situations_with_E": 88,
+          "n_events_with_E": 29,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 1.8776451560708227,
+            "0.95": 7.026891525100448,
+            "1.0": 18.90340965596743
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.736512211294937,
+            "0.95": 8.715765304679136,
+            "1.0": 18.4851852861198
+          }
+        },
+        "W2.0|empirical|both": {
+          "window_seconds": 2.0,
+          "direction": "both",
+          "cap_rule": "empirical",
+          "cap_m": 8.392216602308363,
+          "n_pairs_in_window": 25400,
+          "excluded_absent_at_t2": 0,
+          "excluded_out_of_field": 36,
+          "excluded_over_cap": 1814,
+          "n_pairs_in_cap": 23550,
+          "truth_table": {
+            "0000": 783,
+            "0001": 97,
+            "0010": 520,
+            "0011": 1650,
+            "0100": 61,
+            "0101": 244,
+            "0110": 225,
+            "0111": 1190,
+            "1000": 63,
+            "1010": 343,
+            "1011": 933,
+            "1100": 669,
+            "1101": 452,
+            "1110": 457,
+            "1111": 15863
+          },
+          "E_pairs_by_base_label": {
+            "0": 97,
+            "1": 457
+          },
+          "single_keep_pairs_by_base_label": {
+            "0": 880,
+            "1": 16320
+          },
+          "situations_with_E": 87,
+          "situations_with_E_selected": 12,
+          "real_state": {
+            "00": 2021,
+            "01": 2749,
+            "10": 2152,
+            "11": 16628
+          },
+          "real_state_available": 23550,
+          "E_pairs_with_real_flip": 201,
+          "real_flip_pairs": 4901,
+          "natural_E_pairs": 554,
+          "single_keep_pairs": 17200,
+          "natural_E_pair_rate": 0.023524416135881104,
+          "natural_E_conditional_on_single_keep": 0.0322093023255814,
+          "natural_E_situation_rate": 0.3425196850393701,
+          "natural_E_situation_rate_selected_receivers": 0.41379310344827586,
+          "natural_E_event_rate": 1.0,
+          "n_situations_with_E": 87,
+          "n_events_with_E": 29,
+          "n_events": 29,
+          "dr_quantiles_m": {
+            "0.5": 1.7246739491939942,
+            "0.95": 5.93413863621377,
+            "1.0": 8.38027464682305
+          },
+          "dk_quantiles_m": {
+            "0.5": 2.5009787064114106,
+            "0.95": 7.0813258568405,
+            "1.0": 8.391721217771508
+          }
+        }
+      }
+    }
+  },
+  "pair_rows_written": 7117,
+  "pooled": {
+    "n_situations": 1449,
+    "n_selected_situations": 155,
+    "n_events": 162,
+    "cells": {
+      "W0.2|contract|forward": {
+        "n_pairs_in_cap": 7117,
+        "natural_E_pairs": 10,
+        "single_keep_pairs": 6485,
+        "natural_E_pair_rate": 0.001405086412814388,
+        "natural_E_conditional_on_single_keep": 0.0015420200462606013,
+        "n_situations_with_E": 8,
+        "natural_E_situation_rate": 0.005521048999309869,
+        "n_events_with_E": 8,
+        "natural_E_event_rate": 0.04938271604938271
+      },
+      "W0.2|empirical|forward": {
+        "n_pairs_in_cap": 6703,
+        "natural_E_pairs": 8,
+        "single_keep_pairs": 6142,
+        "natural_E_pair_rate": 0.0011934954497985976,
+        "natural_E_conditional_on_single_keep": 0.0013025073266037122,
+        "n_situations_with_E": 6,
+        "natural_E_situation_rate": 0.004140786749482402,
+        "n_events_with_E": 6,
+        "natural_E_event_rate": 0.037037037037037035
+      },
+      "W0.2|contract|both": {
+        "n_pairs_in_cap": 14234,
+        "natural_E_pairs": 29,
+        "single_keep_pairs": 13033,
+        "natural_E_pair_rate": 0.002037375298580863,
+        "natural_E_conditional_on_single_keep": 0.002225120847080488,
+        "n_situations_with_E": 25,
+        "natural_E_situation_rate": 0.01725327812284334,
+        "n_events_with_E": 23,
+        "natural_E_event_rate": 0.1419753086419753
+      },
+      "W0.2|empirical|both": {
+        "n_pairs_in_cap": 13391,
+        "natural_E_pairs": 24,
+        "single_keep_pairs": 12325,
+        "natural_E_pair_rate": 0.0017922485251288178,
+        "natural_E_conditional_on_single_keep": 0.001947261663286004,
+        "n_situations_with_E": 20,
+        "natural_E_situation_rate": 0.013802622498274672,
+        "n_events_with_E": 19,
+        "natural_E_event_rate": 0.11728395061728394
+      },
+      "W0.4|contract|forward": {
+        "n_pairs_in_cap": 14473,
+        "natural_E_pairs": 119,
+        "single_keep_pairs": 12522,
+        "natural_E_pair_rate": 0.00822220686796103,
+        "natural_E_conditional_on_single_keep": 0.009503274237342277,
+        "n_situations_with_E": 66,
+        "natural_E_situation_rate": 0.045548654244306416,
+        "n_events_with_E": 54,
+        "natural_E_event_rate": 0.3333333333333333
+      },
+      "W0.4|empirical|forward": {
+        "n_pairs_in_cap": 13616,
+        "natural_E_pairs": 88,
+        "single_keep_pairs": 11871,
+        "natural_E_pair_rate": 0.006462984723854289,
+        "natural_E_conditional_on_single_keep": 0.007413023334175722,
+        "n_situations_with_E": 52,
+        "natural_E_situation_rate": 0.035886818495514144,
+        "n_events_with_E": 47,
+        "natural_E_event_rate": 0.29012345679012347
+      },
+      "W0.4|contract|both": {
+        "n_pairs_in_cap": 28921,
+        "natural_E_pairs": 227,
+        "single_keep_pairs": 25138,
+        "natural_E_pair_rate": 0.007848967878012517,
+        "natural_E_conditional_on_single_keep": 0.009030153552390802,
+        "n_situations_with_E": 122,
+        "natural_E_situation_rate": 0.0841959972394755,
+        "n_events_with_E": 87,
+        "natural_E_event_rate": 0.5370370370370371
+      },
+      "W0.4|empirical|both": {
+        "n_pairs_in_cap": 27194,
+        "natural_E_pairs": 168,
+        "single_keep_pairs": 23820,
+        "natural_E_pair_rate": 0.006177833345590939,
+        "natural_E_conditional_on_single_keep": 0.007052896725440806,
+        "n_situations_with_E": 96,
+        "natural_E_situation_rate": 0.06625258799171843,
+        "n_events_with_E": 78,
+        "natural_E_event_rate": 0.48148148148148145
+      },
+      "W1.0|contract|forward": {
+        "n_pairs_in_cap": 36208,
+        "natural_E_pairs": 661,
+        "single_keep_pairs": 29668,
+        "natural_E_pair_rate": 0.018255634114007956,
+        "natural_E_conditional_on_single_keep": 0.02227989753269516,
+        "n_situations_with_E": 173,
+        "natural_E_situation_rate": 0.11939268461007592,
+        "n_events_with_E": 112,
+        "natural_E_event_rate": 0.691358024691358
+      },
+      "W1.0|empirical|forward": {
+        "n_pairs_in_cap": 34414,
+        "natural_E_pairs": 604,
+        "single_keep_pairs": 28290,
+        "natural_E_pair_rate": 0.017550996687394665,
+        "natural_E_conditional_on_single_keep": 0.021350300459526333,
+        "n_situations_with_E": 164,
+        "natural_E_situation_rate": 0.1131815044858523,
+        "n_events_with_E": 110,
+        "natural_E_event_rate": 0.6790123456790124
+      },
+      "W1.0|contract|both": {
+        "n_pairs_in_cap": 72396,
+        "natural_E_pairs": 1283,
+        "single_keep_pairs": 59262,
+        "natural_E_pair_rate": 0.01772197358970109,
+        "natural_E_conditional_on_single_keep": 0.02164962370490365,
+        "n_situations_with_E": 315,
+        "natural_E_situation_rate": 0.21739130434782608,
+        "n_events_with_E": 143,
+        "natural_E_event_rate": 0.8827160493827161
+      },
+      "W1.0|empirical|both": {
+        "n_pairs_in_cap": 68570,
+        "natural_E_pairs": 1145,
+        "single_keep_pairs": 56309,
+        "natural_E_pair_rate": 0.016698264547178068,
+        "natural_E_conditional_on_single_keep": 0.020334227210570245,
+        "n_situations_with_E": 298,
+        "natural_E_situation_rate": 0.2056590752242926,
+        "n_events_with_E": 142,
+        "natural_E_event_rate": 0.8765432098765432
+      },
+      "W2.0|contract|forward": {
+        "n_pairs_in_cap": 72397,
+        "natural_E_pairs": 1584,
+        "single_keep_pairs": 57147,
+        "natural_E_pair_rate": 0.021879359641974114,
+        "natural_E_conditional_on_single_keep": 0.02771799044569269,
+        "n_situations_with_E": 246,
+        "natural_E_situation_rate": 0.16977225672877846,
+        "n_events_with_E": 136,
+        "natural_E_event_rate": 0.8395061728395061
+      },
+      "W2.0|empirical|forward": {
+        "n_pairs_in_cap": 69221,
+        "natural_E_pairs": 1508,
+        "single_keep_pairs": 54737,
+        "natural_E_pair_rate": 0.02178529636959882,
+        "natural_E_conditional_on_single_keep": 0.027549920529075397,
+        "n_situations_with_E": 240,
+        "natural_E_situation_rate": 0.16563146997929606,
+        "n_events_with_E": 136,
+        "natural_E_event_rate": 0.8395061728395061
+      },
+      "W2.0|contract|both": {
+        "n_pairs_in_cap": 144668,
+        "natural_E_pairs": 3236,
+        "single_keep_pairs": 114675,
+        "natural_E_pair_rate": 0.02236845743357204,
+        "natural_E_conditional_on_single_keep": 0.028218879441901025,
+        "n_situations_with_E": 445,
+        "natural_E_situation_rate": 0.30710835058661146,
+        "n_events_with_E": 157,
+        "natural_E_event_rate": 0.9691358024691358
+      },
+      "W2.0|empirical|both": {
+        "n_pairs_in_cap": 137546,
+        "natural_E_pairs": 3111,
+        "single_keep_pairs": 109296,
+        "natural_E_pair_rate": 0.0226178878338883,
+        "natural_E_conditional_on_single_keep": 0.028463987703118136,
+        "n_situations_with_E": 437,
+        "natural_E_situation_rate": 0.30158730158730157,
+        "n_events_with_E": 157,
+        "natural_E_event_rate": 0.9691358024691358
+      }
+    }
+  },
+  "controlled_search_reference": {
+    "source": "artifacts/e1a933_review/football/FOOTBALL_RESULTS.json",
+    "note": "immutable R08 probe results, read not recomputed",
+    "matches": {
+      "J03WOY": {
+        "sampled_candidates": {
+          "E_found": 254,
+          "n": 574,
+          "rate": 0.4425087108013937,
+          "E_pairs": 2026,
+          "single_keep_pairs": 87372,
+          "E_conditional_on_single_keep": 0.023188206748157303
+        },
+        "selected_receivers": {
+          "E_found": 21,
+          "n": 59,
+          "rate": 0.3559322033898305,
+          "E_pairs": 142,
+          "single_keep_pairs": 9581,
+          "E_conditional_on_single_keep": 0.014820999895626762
+        }
+      },
+      "J03WMX": {
+        "sampled_candidates": {
+          "E_found": 282,
+          "n": 621,
+          "rate": 0.45410628019323673,
+          "E_pairs": 2059,
+          "single_keep_pairs": 93705,
+          "E_conditional_on_single_keep": 0.02197321380929513
+        },
+        "selected_receivers": {
+          "E_found": 17,
+          "n": 67,
+          "rate": 0.2537313432835821,
+          "E_pairs": 83,
+          "single_keep_pairs": 11011,
+          "E_conditional_on_single_keep": 0.007537916628825719
+        }
+      },
+      "J03WN1": {
+        "sampled_candidates": {
+          "E_found": 134,
+          "n": 254,
+          "rate": 0.5275590551181102,
+          "E_pairs": 981,
+          "single_keep_pairs": 35847,
+          "E_conditional_on_single_keep": 0.027366306803916645
+        },
+        "selected_receivers": {
+          "E_found": 10,
+          "n": 29,
+          "rate": 0.3448275862068966,
+          "E_pairs": 89,
+          "single_keep_pairs": 4431,
+          "E_conditional_on_single_keep": 0.020085759422252315
+        }
+      }
+    },
+    "pooled": {
+      "sampled_candidates": {
+        "E_found": 670,
+        "n": 1449
+      },
+      "selected_receivers": {
+        "E_found": 48,
+        "n": 155
+      }
+    }
+  },
+  "enrichment_primary_cell": {
+    "cell": "W0.2|contract|forward",
+    "per_match": {
+      "J03WOY": {
+        "natural_situation_rate": 0.006968641114982578,
+        "search_constructibility_rate": 0.4425087108013937,
+        "ratio": 63.49999999999999
+      },
+      "J03WMX": {
+        "natural_situation_rate": 0.001610305958132045,
+        "search_constructibility_rate": 0.45410628019323673,
+        "ratio": 282.0
+      },
+      "J03WN1": {
+        "natural_situation_rate": 0.011811023622047244,
+        "search_constructibility_rate": 0.5275590551181102,
+        "ratio": 44.666666666666664
+      }
+    },
+    "note": "ratio = controlled search constructibility rate / natural situation rate; both on the same 1449 situations",
+    "pooled": {
+      "natural_situation_rate": 0.005521048999309869,
+      "search_constructibility_rate": 0.46238785369220153,
+      "ratio": 83.75
+    }
+  },
+  "boundaries": [
+    "caps and windows are empirical motion envelopes, not joint dynamic-feasibility proofs",
+    "the joint cell crosses two real single-player moves and is not a real observed frame",
+    "y_real requires passer, receiver and all eleven t1-identified defenders present at the later frame",
+    "forward windows only in the primary cell; situation set is the R08 240-event sample (162 audited events), not every pass of the three matches",
+    "no threshold is applied to call anything infeasible; a low natural rate is a rare-stress-test statement",
+    "reports/e1a933_review/FOOTBALL_E_FEASIBILITY_V2.md is generated by football_summarize.py and still lists the natural rate as NOT_RUN; this lane did not rewrite that generator, so its line is stale",
+    "the situation table is the frozen R08 probe output (re-read, not re-searched); the probe path of this script is unchanged"
+  ],
+  "commands": [
+    "OPENBLAS_NUM_THREADS=6 OMP_NUM_THREADS=6 .venv/bin/python experiments/e1a933_review/football_repair.py --mode natural --windows 0.2,0.4,1.0,2.0",
+    "OPENBLAS_NUM_THREADS=6 .venv/bin/python experiments/e1a933_review/football_repair.py --mode verify-natural",
+    "OPENBLAS_NUM_THREADS=6 .venv/bin/python experiments/e1a933_review/football_repair.py --mode legacy-recheck",
+    "OPENBLAS_NUM_THREADS=6 .venv/bin/python experiments/e1a933_review/football_repair.py --mode natural-report"
+  ],
+  "NOT_RUN": [
+    "real pass-success labels for counterfactual cells (the oracle is geometric, not outcome-based)",
+    "natural E rate over every pass of the three matches (only the R08 240-event sample is measured)",
+    "learned partial-observation relation model and natural-missingness state estimation (O05 scope)",
+    "other four available matches (outside the R08 train/dev/test naming; J03WQQ is sealed)"
+  ]
+}

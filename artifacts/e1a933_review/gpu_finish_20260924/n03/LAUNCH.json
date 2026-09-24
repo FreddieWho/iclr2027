@@ -1,0 +1,19 @@
+{
+  "collector_pid": 2090850,
+  "supervisor_pid": 3509,
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/remote_vision_collect_when_done.py",
+    "--config",
+    "/tmp/e1a933-ssh-IPve1AzW/hosts.toml",
+    "--task",
+    "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/task.json",
+    "--destination",
+    "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/collected",
+    "--state",
+    "/home/huyudi/012_conference/iclr2027/artifacts/e1a933_review/gpu_finish_20260924/n03/COLLECTION_STATUS.json",
+    "--supervisor-pid",
+    "3509"
+  ],
+  "started_utc": "2026-09-24T09:17:54.572976+00:00"
+}

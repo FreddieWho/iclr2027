@@ -1,0 +1,32 @@
+{
+  "flip_first_random": {
+    "intersection": 1559,
+    "union": 2375,
+    "Jaccard": 0.6564210526315789
+  },
+  "flip_first_stratified": {
+    "intersection": 1708,
+    "union": 2226,
+    "Jaccard": 0.7672955974842768
+  },
+  "flip_random_stratified": {
+    "intersection": 1555,
+    "union": 2379,
+    "Jaccard": 0.6536359815048339
+  },
+  "keep_first_random": {
+    "intersection": 393,
+    "union": 14007,
+    "Jaccard": 0.028057399871492826
+  },
+  "keep_first_stratified": {
+    "intersection": 1278,
+    "union": 13122,
+    "Jaccard": 0.09739368998628258
+  },
+  "keep_random_stratified": {
+    "intersection": 384,
+    "union": 14016,
+    "Jaccard": 0.0273972602739726
+  }
+}

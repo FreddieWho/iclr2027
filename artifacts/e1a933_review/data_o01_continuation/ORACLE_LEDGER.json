@@ -1,0 +1,115 @@
+{
+  "statement": "the 25% subset is drawn AFTER mining the full pool, so mining/oracle cost is identical for every dose; only retained training labels differ. This cannot be used to claim 75% fewer oracle queries.",
+  "flip_mining": {
+    "N": {
+      "source": "artifacts/e1a933_review/data_o01/N_flips.npz",
+      "candidate_queries": 147514,
+      "retained_flip_labels": 1534,
+      "parents": 246
+    },
+    "4N": {
+      "source": "artifacts/e1a933_review/data_o01/4N_flips.npz",
+      "candidate_queries": 587320,
+      "retained_flip_labels": 6390,
+      "parents": 1020
+    }
+  },
+  "dev_single_mining": {
+    "source": "artifacts/e1a933_review/data_o01/dev.npz",
+    "candidate_queries": 73622,
+    "retained_single_labels": 784,
+    "parents": 256
+  },
+  "eval_bank_mining": {
+    "source": "artifacts/e1a933_review/data_o01/bank_manifest.json",
+    "candidate_and_pair_queries": 1656780,
+    "quartets": 1229,
+    "eligible_parents": 250,
+    "drawn_evaluation_parents": 512
+  },
+  "preserve_mining": {
+    "N": {
+      "source": "artifacts/e1a933_review/data_o01_continuation/preserve_N.npz",
+      "oracle_attempts": 2801,
+      "retained_preserve_labels": 1534
+    },
+    "4N": {
+      "source": "artifacts/e1a933_review/data_o01_continuation/preserve_4N.npz",
+      "oracle_attempts": 11955,
+      "retained_preserve_labels": 6390
+    }
+  },
+  "training_side": {
+    "N": {
+      "f0": {
+        "example_arm": "warm_N_raw_s11_f0_plain_lr0.01",
+        "base_scenes": 512,
+        "retained_flip_labels_used": 0,
+        "preserve_labels_used": 0,
+        "replay_points": 512,
+        "forwards_per_step": 1024,
+        "total_forward_passes": 307200,
+        "total_backward_passes": 300,
+        "note": "every warm arm performs the replay forward; its coefficient is zero for plain/balanced"
+      },
+      "f25": {
+        "example_arm": "warm_N_raw_s11_f25_plain_lr0.001",
+        "base_scenes": 512,
+        "retained_flip_labels_used": 383,
+        "preserve_labels_used": 0,
+        "replay_points": 512,
+        "forwards_per_step": 1407,
+        "total_forward_passes": 422100,
+        "total_backward_passes": 300,
+        "note": "every warm arm performs the replay forward; its coefficient is zero for plain/balanced"
+      },
+      "f100": {
+        "example_arm": "warm_N_raw_s11_f100_plain_lr0.001",
+        "base_scenes": 512,
+        "retained_flip_labels_used": 1534,
+        "preserve_labels_used": 0,
+        "replay_points": 512,
+        "forwards_per_step": 2558,
+        "total_forward_passes": 767400,
+        "total_backward_passes": 300,
+        "note": "every warm arm performs the replay forward; its coefficient is zero for plain/balanced"
+      }
+    },
+    "4N": {
+      "f0": {
+        "example_arm": "warm_4N_raw_s11_f0_plain_lr0.01",
+        "base_scenes": 2048,
+        "retained_flip_labels_used": 0,
+        "preserve_labels_used": 0,
+        "replay_points": 2048,
+        "forwards_per_step": 4096,
+        "total_forward_passes": 1228800,
+        "total_backward_passes": 300,
+        "note": "every warm arm performs the replay forward; its coefficient is zero for plain/balanced"
+      },
+      "f25": {
+        "example_arm": "warm_4N_raw_s11_f25_plain_lr0.01",
+        "base_scenes": 2048,
+        "retained_flip_labels_used": 1597,
+        "preserve_labels_used": 0,
+        "replay_points": 2048,
+        "forwards_per_step": 5693,
+        "total_forward_passes": 1707900,
+        "total_backward_passes": 300,
+        "note": "every warm arm performs the replay forward; its coefficient is zero for plain/balanced"
+      },
+      "f100": {
+        "example_arm": "warm_4N_raw_s11_f100_plain_lr0.003",
+        "base_scenes": 2048,
+        "retained_flip_labels_used": 6390,
+        "preserve_labels_used": 0,
+        "replay_points": 2048,
+        "forwards_per_step": 10486,
+        "total_forward_passes": 3145800,
+        "total_backward_passes": 300,
+        "note": "every warm arm performs the replay forward; its coefficient is zero for plain/balanced"
+      }
+    }
+  },
+  "oracle_queries_total": 2479992
+}

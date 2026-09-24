@@ -1,0 +1,9 @@
+{
+  "status": "BLOCKED_NOT_SAFE_TO_SHUTDOWN",
+  "pid": 7,
+  "safe_to_shutdown": false,
+  "scientific_acceptance": "PENDING",
+  "wait_method": "local inotify completion event; no remote polling",
+  "updated_utc": "2026-09-24T11:20:58.421875+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/huyudi/012_conference/iclr2027/experiments/e1a933_review/gpu_finish_release.py\", line 119, in main\n    rows.append(dict(arm=result.parent.name, **row))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: dict() got multiple values for keyword argument 'arm'\n"
+}

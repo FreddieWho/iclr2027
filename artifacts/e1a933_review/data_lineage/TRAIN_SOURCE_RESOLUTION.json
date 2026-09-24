@@ -1,0 +1,3419 @@
+{
+  "by_pool": {
+    "16N": 6,
+    "4N": 27,
+    "N": 63
+  },
+  "checkpoints": {
+    "artifacts/discovery_campaign/r04b_s11/auxmargin/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s11 --epochs 300 --seed 11 || exit 1; echo TRAIN_DONE; for m in flipmine supmine fliprand auxmargin relfeat clean; do python3 $E/r02_search.py --model $R/r04b_s11/$m --scenes $S/eva",
+          "path": ".pi/tasks/session-2971751-2971751/bae255145.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s11/clean --tag src11 --K 256 --seed 301 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b4a6b748c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_flipmine --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s11/flipmine 2>&1 | tail -2",
+          "path": ".pi/tasks/session-1439985-1439985/bbe6b1b1a.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "auxmargin",
+      "run_dir": "artifacts/discovery_campaign/r04b_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s11 --epochs 300 --seed 11 || exit 1; echo TRAIN_DONE; for m in flipmine supmine fliprand auxmargin relfeat clean; do python3 $E/r02_search.py --model $R/r04b_s11/$m --scenes $S/eva",
+          "path": ".pi/tasks/session-2971751-2971751/bae255145.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s11/clean --tag src11 --K 256 --seed 301 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b4a6b748c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_flipmine --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s11/flipmine 2>&1 | tail -2",
+          "path": ".pi/tasks/session-1439985-1439985/bbe6b1b1a.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/discovery_campaign/r04b_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s11 --epochs 300 --seed 11 || exit 1; echo TRAIN_DONE; for m in flipmine supmine fliprand auxmargin relfeat clean; do python3 $E/r02_search.py --model $R/r04b_s11/$m --scenes $S/eva",
+          "path": ".pi/tasks/session-2971751-2971751/bae255145.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s11/clean --tag src11 --K 256 --seed 301 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b4a6b748c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_flipmine --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s11/flipmine 2>&1 | tail -2",
+          "path": ".pi/tasks/session-1439985-1439985/bbe6b1b1a.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/discovery_campaign/r04b_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s11/fliprand/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s11 --epochs 300 --seed 11 || exit 1; echo TRAIN_DONE; for m in flipmine supmine fliprand auxmargin relfeat clean; do python3 $E/r02_search.py --model $R/r04b_s11/$m --scenes $S/eva",
+          "path": ".pi/tasks/session-2971751-2971751/bae255145.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s11/clean --tag src11 --K 256 --seed 301 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b4a6b748c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_flipmine --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s11/flipmine 2>&1 | tail -2",
+          "path": ".pi/tasks/session-1439985-1439985/bbe6b1b1a.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "fliprand",
+      "run_dir": "artifacts/discovery_campaign/r04b_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s11/relfeat/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s11 --epochs 300 --seed 11 || exit 1; echo TRAIN_DONE; for m in flipmine supmine fliprand auxmargin relfeat clean; do python3 $E/r02_search.py --model $R/r04b_s11/$m --scenes $S/eva",
+          "path": ".pi/tasks/session-2971751-2971751/bae255145.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s11/clean --tag src11 --K 256 --seed 301 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b4a6b748c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_flipmine --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s11/flipmine 2>&1 | tail -2",
+          "path": ".pi/tasks/session-1439985-1439985/bbe6b1b1a.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "relfeat",
+      "run_dir": "artifacts/discovery_campaign/r04b_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s11/supmine/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s11 --epochs 300 --seed 11 || exit 1; echo TRAIN_DONE; for m in flipmine supmine fliprand auxmargin relfeat clean; do python3 $E/r02_search.py --model $R/r04b_s11/$m --scenes $S/eva",
+          "path": ".pi/tasks/session-2971751-2971751/bae255145.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s11/clean --tag src11 --K 256 --seed 301 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b4a6b748c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_flipmine --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s11/flipmine 2>&1 | tail -2",
+          "path": ".pi/tasks/session-1439985-1439985/bbe6b1b1a.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "supmine",
+      "run_dir": "artifacts/discovery_campaign/r04b_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04_train.py --train $S/train_101 --output $R/r04_seed$sd --epochs 300 --seed $sd || exit 1; done && echo TRAINS_DONE && for sd in 11 23 47; do D=$R/r04_round1; if [ $sd != 11 ]; then D=$R/r04_seed$sd; fi; for m in ",
+          "path": ".pi/tasks/session-2971751-2971751/b03180314.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/discovery_campaign/r04b_methods.py --train artifacts/discovery_campaign/scenes/train_101 --output artifacts/discovery_campaign/r04b_s23_relfeat --methods relfeat --seed 23 2>&1 | tail -5",
+          "path": ".pi/tasks/session-2571586-2571586/b28952361.json",
+          "train_arg": "artifacts/discovery_campaign/scenes/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s23/clean --tag src23 --K 256 --seed 302 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b1fffaafe.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/discovery_campaign/r04b_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04_train.py --train $S/train_101 --output $R/r04_seed$sd --epochs 300 --seed $sd || exit 1; done && echo TRAINS_DONE && for sd in 11 23 47; do D=$R/r04_round1; if [ $sd != 11 ]; then D=$R/r04_seed$sd; fi; for m in ",
+          "path": ".pi/tasks/session-2971751-2971751/b03180314.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/discovery_campaign/r04b_methods.py --train artifacts/discovery_campaign/scenes/train_101 --output artifacts/discovery_campaign/r04b_s23_relfeat --methods relfeat --seed 23 2>&1 | tail -5",
+          "path": ".pi/tasks/session-2571586-2571586/b28952361.json",
+          "train_arg": "artifacts/discovery_campaign/scenes/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/novelty_round3/transferable_repair/mine_counterexamples.py --source r04b_s23/clean --tag src23 --K 256 --seed 302 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b1fffaafe.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/discovery_campaign/r04b_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s23_relfeat/relfeat/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/discovery_campaign/r04b_methods.py --train artifacts/discovery_campaign/scenes/train_101 --output artifacts/discovery_campaign/r04b_s23_relfeat --methods relfeat --seed 23 2>&1 | tail -5",
+          "path": ".pi/tasks/session-2571586-2571586/b28952361.json",
+          "train_arg": "artifacts/discovery_campaign/scenes/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "relfeat",
+      "run_dir": "artifacts/discovery_campaign/r04b_s23_relfeat",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04_train.py --train $S/train_101 --output $R/r04_seed$sd --epochs 300 --seed $sd || exit 1; done && echo TRAINS_DONE && for sd in 11 23 47; do D=$R/r04_round1; if [ $sd != 11 ]; then D=$R/r04_seed$sd; fi; for m in ",
+          "path": ".pi/tasks/session-2971751-2971751/b03180314.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/discovery_campaign/r04b_methods.py --train artifacts/discovery_campaign/scenes/train_101 --output artifacts/discovery_campaign/r04b_s47_relfeat --methods relfeat --seed 47 2>&1 | tail -3",
+          "path": ".pi/tasks/session-2571586-2571586/b83386ed0.json",
+          "train_arg": "artifacts/discovery_campaign/scenes/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_s47flip --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s47/flipmine 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b26b9c8f4.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/discovery_campaign/r04b_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04b_methods.py --train $S/train_101 --output $R/r04b_s$sd --epochs 300 --seed $sd --methods flipmine clean || exit 1; done; echo TRAINS_DONE; for sd in 23 47; do for m in flipmine clean; do python3 $E/r02_search.py",
+          "path": ".pi/tasks/session-2971751-2971751/b0d835971.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "cd /home/huyudi/012_conference/iclr2027 && S=artifacts/discovery_campaign/scenes && E=experiments/discovery_campaign && R=artifacts/discovery_campaign && for sd in 23 47; do python3 $E/r04_train.py --train $S/train_101 --output $R/r04_seed$sd --epochs 300 --seed $sd || exit 1; done && echo TRAINS_DONE && for sd in 11 23 47; do D=$R/r04_round1; if [ $sd != 11 ]; then D=$R/r04_seed$sd; fi; for m in ",
+          "path": ".pi/tasks/session-2971751-2971751/b03180314.json",
+          "train_arg": "$S/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/discovery_campaign/r04b_methods.py --train artifacts/discovery_campaign/scenes/train_101 --output artifacts/discovery_campaign/r04b_s47_relfeat --methods relfeat --seed 47 2>&1 | tail -3",
+          "path": ".pi/tasks/session-2571586-2571586/b83386ed0.json",
+          "train_arg": "artifacts/discovery_campaign/scenes/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "authoritative": false,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/update_geometry/wp1_paths.py --out artifacts/update_geometry/wp1_s47flip --pool eval_202 --n_parents 512 --seed 11 --model artifacts/discovery_campaign/r04b_s47/flipmine 2>&1 | tail -1",
+          "path": ".pi/tasks/session-1439985-1439985/b26b9c8f4.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/discovery_campaign/r04b_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/discovery_campaign/r04b_s47_relfeat/relfeat/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/discovery_campaign/r04b_methods.py --train artifacts/discovery_campaign/scenes/train_101 --output artifacts/discovery_campaign/r04b_s47_relfeat --methods relfeat --seed 47 2>&1 | tail -3",
+          "path": ".pi/tasks/session-2571586-2571586/b83386ed0.json",
+          "train_arg": "artifacts/discovery_campaign/scenes/train_101",
+          "train_arg_resolved": "artifacts/discovery_campaign/scenes/train_101",
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/discovery_campaign/r04b_methods.py:79: d = np.load(a.train / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "relfeat",
+      "run_dir": "artifacts/discovery_campaign/r04b_s47_relfeat",
+      "status": "resolved",
+      "train_arg_from_receipt": "artifacts/discovery_campaign/scenes/train_101",
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/rel_4N_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/rel_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/rel_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/rel_4N_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/rel_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/rel_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/rel_4N_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/rel_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/rel_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/rel_4N_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/rel_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/rel_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/rel_4N_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/rel_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/rel_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/rel_4N_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/rel_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/rel_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_16N_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_16N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_16N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "16N": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+          },
+          "pools": [
+            "16N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_16N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_16N/scenes.npz",
+      "train_source_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+    },
+    "artifacts/f095_campaign/D01/w256_16N_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_16N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_16N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "16N": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+          },
+          "pools": [
+            "16N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_16N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_16N/scenes.npz",
+      "train_source_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+    },
+    "artifacts/f095_campaign/D01/w256_16N_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_16N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_16N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "16N": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+          },
+          "pools": [
+            "16N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_16N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_16N/scenes.npz",
+      "train_source_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+    },
+    "artifacts/f095_campaign/D01/w256_16N_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_16N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_16N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "16N": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+          },
+          "pools": [
+            "16N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_16N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_16N/scenes.npz",
+      "train_source_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+    },
+    "artifacts/f095_campaign/D01/w256_16N_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_16N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_16N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "16N": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+          },
+          "pools": [
+            "16N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_16N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_16N/scenes.npz",
+      "train_source_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+    },
+    "artifacts/f095_campaign/D01/w256_16N_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_16N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_16N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "16N": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+          },
+          "pools": [
+            "16N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_16N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_16N/scenes.npz",
+      "train_source_sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+    },
+    "artifacts/f095_campaign/D01/w256_4N_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_4N_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_4N_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_4N_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_4N_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_4N_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/D01/w256_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w256_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w256_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w256_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w256_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w256_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w256_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w256_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w256_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w512_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w512_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w512_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w512_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w512_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w512_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w512_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w512_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w512_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w512_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w512_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w512_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w512_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w512_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D01/w512_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D01/w512_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D01/w512_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D01/w512_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_g8_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_g8_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D02/aug_g8_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_g8_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_g8_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D02/aug_g8_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_g8_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_g8_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D02/aug_g8_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_g8_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_g8_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D02/aug_g8_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_g8_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_g8_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D02/aug_g8_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_g8_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_g8_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D02/aug_g8_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_rep_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_rep_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D02/aug_rep_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_rep_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_rep_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D02/aug_rep_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_rep_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_rep_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D02/aug_rep_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_rep_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_rep_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D02/aug_rep_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_rep_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_rep_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/D02/aug_rep_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/D02/aug_rep_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/D02/aug_rep_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/D02/aug_rep_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U01/typed_w64_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U01/typed_w64_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U01/typed_w64_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U01/typed_w64_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U01/typed_w64_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U01/typed_w64_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U01/typed_w64_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U01/typed_w64_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U01/typed_w64_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U01/typed_w64_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U01/typed_w64_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U01/typed_w64_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U01/typed_w64_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U01/typed_w64_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U01/typed_w64_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U01/typed_w64_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U01/typed_w64_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U01/typed_w64_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/concat_w64_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/concat_w64_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U02/concat_w64_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/concat_w64_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/concat_w64_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U02/concat_w64_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/concat_w64_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/concat_w64_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U02/concat_w64_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/concat_w64_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/concat_w64_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U02/concat_w64_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/concat_w64_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/concat_w64_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U02/concat_w64_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/concat_w64_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/concat_w64_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "scalar8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U02/concat_w64_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/sixdist_w64_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/sixdist_w64_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U02/sixdist_w64_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/sixdist_w64_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/sixdist_w64_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U02/sixdist_w64_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/sixdist_w64_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/sixdist_w64_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U02/sixdist_w64_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/sixdist_w64_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/sixdist_w64_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U02/sixdist_w64_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/sixdist_w64_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/sixdist_w64_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U02/sixdist_w64_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U02/sixdist_w64_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U02/sixdist_w64_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U02/sixdist_w64_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U07/raw_4N_f25_s11/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_4N_f25_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/raw_4N_f25_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/raw_4N_f25_s23/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_4N_f25_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/raw_4N_f25_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/raw_4N_f25_s47/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_4N_f25_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/raw_4N_f25_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/raw_4N_full_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_4N_full_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U07/raw_4N_full_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/raw_4N_full_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_4N_full_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U07/raw_4N_full_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/raw_4N_full_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_4N_full_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U07/raw_4N_full_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/raw_N_f25_s11/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_N_f25_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/raw_N_f25_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U07/raw_N_f25_s23/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_N_f25_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/raw_N_f25_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U07/raw_N_f25_s47/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/raw_N_f25_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "raw8",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/raw_N_f25_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s11/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s11/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s11/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s23/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s23/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s23/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s47/clean/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "clean",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s47/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_4N_s47/flipmine/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_4N_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "4N": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+          },
+          "pools": [
+            "4N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flipmine",
+      "run_dir": "artifacts/f095_campaign/U07/six_4N_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_4N/scenes.npz",
+      "train_source_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+    },
+    "artifacts/f095_campaign/U07/six_N_f25_s11/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_N_f25_s11/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/six_N_f25_s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U07/six_N_f25_s23/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_N_f25_s23/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/six_N_f25_s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/f095_campaign/U07/six_N_f25_s47/flip_fx/model.pt": {
+      "evidence": [
+        {
+          "data_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+          "file_sha256_matches": true,
+          "path": "artifacts/f095_campaign/U07/six_N_f25_s47/run_manifest.json",
+          "train_dir": "artifacts/f095_campaign/D01/scenes_N",
+          "type": "run_manifest"
+        },
+        {
+          "search_keys": null,
+          "status": "no_key",
+          "type": "run_receipt_lookup"
+        },
+        {
+          "convention": "sixdist",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "flip_fx",
+      "run_dir": "artifacts/f095_campaign/U07/six_N_f25_s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/next_novelty/relflip/s11/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/ccm_audit/relflip_train.py --seed 11 2>&1 | tail -2",
+          "path": ".pi/tasks/session-2571586-2571586/bb8c3f344.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/ccm_audit/relflip_train.py:32: d = np.load(ART / \"scenes\" / \"train_101\" / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "relflip",
+      "run_dir": "artifacts/next_novelty/relflip/s11",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/next_novelty/relflip/s23/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/ccm_audit/relflip_train.py --seed 23 2>&1 | tail -2",
+          "path": ".pi/tasks/session-2571586-2571586/bed44b19c.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/ccm_audit/relflip_train.py:32: d = np.load(ART / \"scenes\" / \"train_101\" / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "relflip",
+      "run_dir": "artifacts/next_novelty/relflip/s23",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    },
+    "artifacts/next_novelty/relflip/s47/model.pt": {
+      "evidence": [
+        {
+          "authoritative": true,
+          "command": "export LD_LIBRARY_PATH=/opt/anaconda3/lib:$LD_LIBRARY_PATH; python3 experiments/ccm_audit/relflip_train.py --seed 47 2>&1 | tail -2",
+          "path": ".pi/tasks/session-2571586-2571586/b447e5cec.json",
+          "train_arg": null,
+          "train_arg_resolved": null,
+          "type": "run_receipt"
+        },
+        {
+          "line": "experiments/ccm_audit/relflip_train.py:32: d = np.load(ART / \"scenes\" / \"train_101\" / \"scenes.npz\")",
+          "type": "script_literal"
+        },
+        {
+          "convention": "rel12",
+          "pool_sha256": {
+            "N": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+          },
+          "pools": [
+            "N"
+          ],
+          "status": "unique_match",
+          "type": "checkpoint_fingerprint"
+        }
+      ],
+      "method": "relflip",
+      "run_dir": "artifacts/next_novelty/relflip/s47",
+      "status": "resolved",
+      "train_arg_from_receipt": null,
+      "train_source": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "train_source_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+    }
+  },
+  "n_checkpoints": 96,
+  "resolved": 96
+}

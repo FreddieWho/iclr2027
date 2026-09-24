@@ -1,0 +1,12 @@
+[
+  {
+    "epoch": 1,
+    "train_BCE": 0.8564950227737427,
+    "train_aux": 0.0,
+    "dev_BCE": 0.5892676115036011,
+    "gradient_norms": null,
+    "seconds": 0.5983426794409752,
+    "dev_ordered_mse": 0.7013986110687256,
+    "dev_matched_mse": 0.7013986110687256
+  }
+]

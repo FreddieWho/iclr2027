@@ -1,12 +1,13 @@
 # ICLR 2027 — Compositional and Transitional Blind Spots
 
-> **当前状态（2026-09-22 起）：EXPLORATORY PHASE CLOSED，PAPER POLISH 阶段。**
-> 终局裁决见 `reports/final_closure/FINAL_PROJECT_VERDICT.md`。
-> 全文截止 2026-09-25 AOE。新方向需用户单独授权。
+> **当前状态（2026-09-24）：e1a933 审计修复与定向探索执行中。**
+> 用户指定合同：[master prompt](docs/e1a933_review/04_AGENT_MASTER.md)。进度见 [STATUS](STATUS.md)，待办见 [TODO](TODO.md)。
+> 当前修正：[总报告](reports/e1a933_review/R_FIXES_REPORT.md) / [新论文PDF](reports/e1a933_review/paper_revised.pdf) / [远端GPU执行](reports/e1a933_review/REMOTE_GPU_EXECUTION.md)。视觉21臂仍运行，尚未获得新科学判决。
+> 历史终局报告保留，受影响结论由本轮修正覆盖；旧paper/main.pdf未更新，请审阅新PDF。
 
-## 这个项目最终是什么
+## 研究问题与历史主线
 
-最终论文：**"Knowing the Parts Does Not Mean Knowing the Change:
+当前稿件：**"Knowing the Parts Does Not Mean Knowing the Change:
 Compositional and Transitional Blind Spots in Learned Representations"**
 （`paper/main.tex`，双盲匿名）。
 
@@ -14,7 +15,7 @@ Compositional and Transitional Blind Spots in Learned Representations"**
 却没有恢复一致的能力。** 静态置信、端点正确、完全组合一致性和下游成功，
 是"变化下的可靠性"的四个不同概念。
 
-三大贡献（终局裁决 #10）：
+既有主线（历史终局裁决 #10；本轮局部修正见当前claim ledger）：
 1. **P1 置信反转**——高置信样本在真变化下错误率反而最高（坐标域，确认池 CONFIRMED）；
 2. **P3 错误迁移主导**——修复把错误从组合失效迁移到别处，relflip 转向 full consistency；
 3. **P2 能力/操作点分离**——覆盖而非精度主导，规则依赖。
@@ -22,12 +23,12 @@ Compositional and Transitional Blind Spots in Learned Representations"**
 Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 151/176（85.8%）漏检；
 单语义边界穿越漏检 43.8%→修复后 31.3%；置信最高组更新错误率 0.98–1.00。
 
-## 论文与数字的唯一权威来源
+## 论文与数字来源
 
 | 用途 | 唯一权威文件 | 说明 |
 |---|---|---|
 | 论文正文 | `paper/main.tex` + `paper/sections/` | 已迁移到最终叙事（02 受控设定→08 可复现性） |
-| 正文每个数字 | `reports/final_closure/MASTER_CLAIM_LEDGER.md` | the ONLY source for paper numbers |
+| 当前修正与历史数字 | `reports/e1a933_review/AFFECTED_CLAIMS.csv` + `reports/final_closure/MASTER_CLAIM_LEDGER.md` | 受影响项以本轮修正为准，其他历史数字保留 |
 | 证据总表 | `reports/final_closure/FINAL_EVIDENCE_TABLE.md` | 2026-09-22 重建版，取代根下旧表 |
 | 终局裁决 | `reports/final_closure/FINAL_PROJECT_VERDICT.md` | 15 问 15 答，含已删除的旧贡献清单 |
 | 一键复算 | `reports/final_closure/REPRODUCE_FINAL.md` | 每个正文数字的重算命令 |
@@ -36,7 +37,7 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 
 ⚠️ `docs/governance_history/CLAIM_LEDGER_P2P3_20260916.md`、
 `reports/e4_discovery/FINAL_EVIDENCE_TABLE_20260918.md`（9-18 版）、
-`paper/EVIDENCE_MAP.md` 均为**历史版本**，措辞与数字以 final_closure 为准。
+`paper/EVIDENCE_MAP.md` 均为**历史版本**，未受影响的历史数字可参考 final_closure；受影响项的措辞与数字以本轮 e1a933_review 修正为准。
 
 ## 推荐阅读顺序
 
@@ -55,7 +56,8 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 | 目录 | 角色 | 状态 |
 |---|---|---|
 | `paper/` | 最终论文（LaTeX）＋ `SUBMISSION_CHECKLIST.md`（投稿就绪清单） | **当前** |
-| `reports/final_closure/` | 终局权威包（ verdict/ledger/证据表/复算/纠错 ） | **当前** |
+| `reports/e1a933_review/` | 本轮修复、逐项claim变更、优化/新路线状态 | **当前** |
+| `reports/final_closure/` | 历史终局包（verdict/ledger/证据表/复算/纠错） | 保留；受影响项被本轮修正覆盖 |
 | `experiments/` | 全部实验代码（16 个子目录，按时代） | 当前+历史混合，见 `experiments/INDEX.md` |
 | `artifacts/` | 全部实验产物（23 个子目录，36G 本地） | 当前+历史混合，见 `artifacts/INDEX.md` |
 | `reports/` | 全部报告（按时代），索引见 `reports/INDEX.md` | 当前+历史混合 |

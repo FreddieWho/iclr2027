@@ -1,0 +1,37 @@
+{
+  "task_status": {
+    "R07": "COMPLETED_BOUNDED_30_ARM_FAIR_RETRAIN",
+    "R08": "COMPLETED_THREE_MATCH_CONTROLLED_GEOMETRY_PROBE",
+    "R09": "COMPLETED_9_PAIRS_COMPLETE_DEV_POLICIES_EVAL_EXTRAPOLATION",
+    "O05": "PARTIAL_CAUSAL_MASK_BASELINES_ONLY_LEARNED_MODEL_NOT_RUN",
+    "O06": "NOT_RUN_NO_APPROVED_PROVIDER_BUDGET_ESTABLISHED"
+  },
+  "tests": {
+    "new_production_regressions": 9,
+    "legacy_D10": 4,
+    "legacy_D06_oracle": 7,
+    "total_passed": 20,
+    "log": "artifacts/e1a933_review/worker_c_tests.log"
+  },
+  "immutable_output_guards": {
+    "fair_continuation": {
+      "returncode": 1,
+      "existing_run_guard": "PASS"
+    },
+    "frontier_repair": {
+      "returncode": 1,
+      "existing_run_guard": "PASS"
+    },
+    "football_repair": {
+      "returncode": 1,
+      "existing_run_guard": "PASS"
+    }
+  },
+  "fair_initial_state_equality": "PASS_6_ENCODER_SEED_GROUPS",
+  "source_sha256": {
+    "experiments/e1a933_review/fair_continuation.py": "c6d36f48e7548235e189b519e7e75ff8fd1b3f47484aec3c3c07d04617e999c2",
+    "experiments/e1a933_review/frontier_repair.py": "3bfc69cc7ee65f291d782f7a3e902d736272ee4c5bcdfd5d8b554708dda1af39",
+    "experiments/e1a933_review/football_repair.py": "4431a82e914d50b12bd5f349290caffc56a218095294b6f8e86498ca74033cf7",
+    "reports/e1a933_review/CONTINUATION_FAIR_COMPARISON.md": "50553eeaa61233e4b542f515d0a9d677773b38bd8c77c642b171d31f48faa91e"
+  }
+}

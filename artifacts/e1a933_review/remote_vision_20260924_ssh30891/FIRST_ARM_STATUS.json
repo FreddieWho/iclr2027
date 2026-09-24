@@ -1,0 +1,81 @@
+{
+  "job": {
+    "task_id": "vision-21arms-gpu-20260924",
+    "supervisor_pid": 1971,
+    "status": "RUNNING",
+    "started_utc": "2026-09-24T08:13:35.730303+00:00",
+    "scientific_decision": "PENDING_INDEPENDENT_INTERPRETATION",
+    "training_pid": 1972
+  },
+  "receipt": {
+    "status": "RUNNING",
+    "backend": "cuda",
+    "dtype": "FP32",
+    "scientific_decision": "NOT_RUN",
+    "command": [
+      "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle/vision_cuda_run.py",
+      "--bundle",
+      "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/vision_cuda_bundle",
+      "--out",
+      "/root/autodl-tmp/e1a933/vision_20260924_ssh30891/cuda_matrix",
+      "--execute"
+    ],
+    "pid": 1972,
+    "started_utc": "2026-09-24T08:13:38Z",
+    "epochs": 20,
+    "batch": 32,
+    "resolution": 224,
+    "seeds": [
+      803,
+      805,
+      806
+    ],
+    "arms": [
+      "pretrained_static",
+      "pretrained_flip",
+      "random_static",
+      "random_flip",
+      "ordered",
+      "matched",
+      "shuffled_matched"
+    ],
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "source_sha256": {
+      "vision_cuda_run.py": "ef4ed6dda07f2af5a484da42195c3508f1451a6f731ae7434e3670600030d7cb",
+      "vision_cuda_protocol.py": "d994d6509da06efc2d06241f7cd679e748f7f3688802fe3a8442ba542a261976"
+    },
+    "bundle_manifest_sha256": "926b2e4a7cfb4f7cd967fb260020dcd3445cf4664f8ebdc2aff6f007f0bd82a6",
+    "cuda_available": true,
+    "device_name": "NVIDIA GeForce RTX 3080 Ti",
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "tf32": false,
+    "amp": false,
+    "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+    "preflight_seconds": 0.6457710929680616,
+    "peak_allocated_bytes": 899511808,
+    "completed": [
+      {
+        "arm": "pretrained_static",
+        "seed": 803
+      },
+      {
+        "arm": "pretrained_flip",
+        "seed": 803
+      }
+    ],
+    "current": {
+      "arm": "random_static",
+      "seed": 803
+    }
+  },
+  "recent_log": [
+    "{\"arm\": \"pretrained_flip\", \"seed\": 803, \"epoch\": 19, \"train_BCE\": 0.00011294417128159363, \"train_aux\": 0.0, \"dev_BCE\": 0.049971383064985275, \"gradient_norms\": null, \"seconds\": 5.401756309205666, \"dev_ordered_mse\": 1.3818087577819824, \"dev_matched_mse\": 1.1421421766281128}",
+    "{\"arm\": \"pretrained_flip\", \"seed\": 803, \"epoch\": 20, \"train_BCE\": 0.00013708470268366827, \"train_aux\": 0.0, \"dev_BCE\": 0.052659668028354645, \"gradient_norms\": null, \"seconds\": 5.436996350064874, \"dev_ordered_mse\": 1.3866198062896729, \"dev_matched_mse\": 1.144460678100586}"
+  ],
+  "stderr": "",
+  "first_checkpoint_verified": true,
+  "first_arm_epochs": 20,
+  "gpu": "1622 MiB, 65 %\n"
+}

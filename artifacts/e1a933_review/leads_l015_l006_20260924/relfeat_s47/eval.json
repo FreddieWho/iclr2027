@@ -1,0 +1,13 @@
+{
+  "arm": "relfeat",
+  "seed": 47,
+  "J": 1.0,
+  "J_min": 0.0,
+  "J_max": 1.0,
+  "J_swing": 1.0,
+  "pred_flip_frac": 0.5714285714285714,
+  "final_loss": 0.019754953682422638,
+  "seconds": 0.6836137771606445,
+  "n": 2,
+  "n_parents": 2
+}

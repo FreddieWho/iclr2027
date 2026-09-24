@@ -1,0 +1,171 @@
+{
+  "audited_utc": "2026-09-24T11:27:18.072748+00:00",
+  "overall": "NOT_COMPLETE",
+  "scope": "R01-R10/O01-O06/N01-N03/master deliverables; artifact/code/report inspection, no training or broad tests rerun",
+  "gpu_status": "SAFE_TO_SHUTDOWN",
+  "training_arms_complete": 87,
+  "vlm_requests_complete": 272,
+  "required_deliverables": {
+    "AFFECTED_CLAIMS.csv": {
+      "exists": true,
+      "sha256": "1390754fe436ed914df64176a6848e523aef48dc17d449af615d61ced68ea313"
+    },
+    "R_FIXES_REPORT.md": {
+      "exists": true,
+      "sha256": "133ad0138f11fc67ae6944ee80faf0daa4389101c08c5a522699b94af7e85e1c"
+    },
+    "OPTIMIZATION_REPORT.md": {
+      "exists": true,
+      "sha256": "268a06132156eaa00b26299b7c55884f34f41366c786da44d06f44f69b1625a4"
+    },
+    "NEW_ROUTES_DECISION.md": {
+      "exists": true,
+      "sha256": "b837d70b7d4995ea60620c7a4b7afe1eb26fafb4c45d1f0f37bab6aab469f655"
+    },
+    "PAPER_PATCH_AUDIT.md": {
+      "exists": true,
+      "sha256": "a0e8bf61baac6493a509f27c9f2719666c248ab3cd2b04d8bd650040924eb455"
+    },
+    "REPRODUCE.md": {
+      "exists": true,
+      "sha256": "1ca1a3e225d64506a0566cd13bf603a3ada9d2dca24ab797f3076361d30c0730"
+    }
+  },
+  "pdf_hash_matches_receipt": true,
+  "paper_source_hashes_match_receipt": true,
+  "items": [
+    {
+      "item": "R01",
+      "audit_status": "CORE_COMPLETE",
+      "completed_evidence": "四臂逐parent交互、方向分层及T2负I修正已交付",
+      "remaining_or_boundary": "不得把已做分层扩大成所有难度/天花板解释均被排除",
+      "source_report": "U10_CLAIM_CORRECTION.md"
+    },
+    {
+      "item": "R02",
+      "audit_status": "COMPLETE_BOUNDED",
+      "completed_evidence": "18 typed重训、端到端对称测试、D02 raw/groupavg区分",
+      "remaining_or_boundary": "该配方结论；完全参数匹配属O02欠项",
+      "source_report": "R_FIXES_REPORT.md"
+    },
+    {
+      "item": "R03",
+      "audit_status": "PARTIAL_REQUIRED",
+      "completed_evidence": "96模型×3bank；81 manifest验证、15历史来源推断；新pool排除祖先",
+      "remaining_or_boundary": "历史augmentation逐状态exact/near重复穷尽核对及完整来源证据仍缺",
+      "source_report": "R03_LINEAGE_REPORT.md"
+    },
+    {
+      "item": "R04",
+      "audit_status": "CORE_COMPLETE",
+      "completed_evidence": "起点置信修复、72行敏感性和逐样本分母",
+      "remaining_or_boundary": "训练时顺序干预未做；不能由端点顺序近似推断训练无影响",
+      "source_report": "R04_CONFIDENCE_REPORT.md"
+    },
+    {
+      "item": "R05",
+      "audit_status": "COMPLETE_BOUNDED",
+      "completed_evidence": "512真实parent观察审计、整体合法置换匹配及独立RNG修复",
+      "remaining_or_boundary": "仅本renderer/合法群，不能泛化为所有几何监督",
+      "source_report": "AUX_OBSERVABILITY_AUDIT.md"
+    },
+    {
+      "item": "R06",
+      "audit_status": "CORE_COMPLETE",
+      "completed_evidence": "BN冻结检查、全seed尺度/初始化与static对照；GPU全矩阵齐备",
+      "remaining_or_boundary": "N02新48臂解读与旧报告更新还未交付",
+      "source_report": "VISION_FACTORIAL_CORRECTED.md"
+    },
+    {
+      "item": "R07",
+      "audit_status": "COMPLETE_BOUNDED",
+      "completed_evidence": "30臂同起点续训及未见原子回归；旧loss因果解释已撤回",
+      "remaining_or_boundary": "不替代O01全剂量训练路径因子；不宣布U05机制已关闭",
+      "source_report": "CONTINUATION_FAIR_COMPARISON.md"
+    },
+    {
+      "item": "R08",
+      "audit_status": "CORE_COMPLETE_SCOPE_LIMITED",
+      "completed_evidence": "三场真实E搜索、角色/时间/变量/cap核验；670/1449 witness",
+      "remaining_or_boundary": "搜索可构率不是自然E发生率；施工卡要求的自然E率未见独立完成证据",
+      "source_report": "FOOTBALL_E_FEASIBILITY_V2.md"
+    },
+    {
+      "item": "R09",
+      "audit_status": "PARTIAL_REQUIRED",
+      "completed_evidence": "PAVA及全candidate断点已修，3编码×3seed策略已复算",
+      "remaining_or_boundary": "只在oracle-feasible场景子集报告；全256scene无oracle筛选的部署估计NOT_RUN",
+      "source_report": "DECISION_FRONTIER_V2.md"
+    },
+    {
+      "item": "R10",
+      "audit_status": "PARTIAL_DELIVERY",
+      "completed_evidence": "旧过强结论已收窄，O03/N01/N03/O05/O06已入稿，PDF/hash匹配",
+      "remaining_or_boundary": "N02新结果未入稿；多份总报告仍RUNNING/NOT_RUN；最终图表来源与总状态未统一",
+      "source_report": "PAPER_PATCH_AUDIT.md"
+    },
+    {
+      "item": "O01",
+      "audit_status": "PARTIAL_REQUIRED",
+      "completed_evidence": "108 scratch候选、36dev选择格、150同池模型评估、三账本",
+      "remaining_or_boundary": "scratch/warm-start配方因子未在同一新pool完整闭环；R07不能替代全部剂量/规模格；额外稳健优化配方未执行",
+      "source_report": "O01_DATA_OPTIMIZATION_REPORT.md"
+    },
+    {
+      "item": "O02",
+      "audit_status": "PARTIAL_REQUIRED",
+      "completed_evidence": "typed修复和18重训；四臂同池/方向分层",
+      "remaining_or_boundary": "施工卡明确必要的参数/优化预算匹配对照未完成；难度/手性任务是可选而非必欠",
+      "source_report": "U10_CLAIM_CORRECTION.md"
+    },
+    {
+      "item": "O03",
+      "audit_status": "COMPLETE_BOUNDED",
+      "completed_evidence": "3seed×4主视觉臂及逐parent配对、修复/迁移/退化结果齐备",
+      "remaining_or_boundary": "static与flip总步数相同但逐parent曝光分布不同，只解释regimen效应",
+      "source_report": "VISION_GPU_RESULTS.md"
+    },
+    {
+      "item": "O04",
+      "audit_status": "PARTIAL_REQUIRED",
+      "completed_evidence": "12 encoder/72选定heads；144凸候选；train-only跨parent ranking已做",
+      "remaining_or_boundary": "新任务/新模型预先指定段落干预预测及验证未做；D10下游回声未做；不要求无限head搜索",
+      "source_report": "O04_READOUT_REPORT.md"
+    },
+    {
+      "item": "O05",
+      "audit_status": "COMPLETE_BOUNDED",
+      "completed_evidence": "三场分离、12学习臂、2794test自然快照/134 E、因果遮挡/解析基线与时间误报",
+      "remaining_or_boundary": "人工有定义遮挡满足允许分支；自然缺测机制未测属于边界，不能因此认定整项未执行",
+      "source_report": "O05_LEARNED_PARTIAL_TRACKING_GPU.md"
+    },
+    {
+      "item": "O06",
+      "audit_status": "COMPLETE_BOUNDED_OPTIONAL",
+      "completed_evidence": "固定原生VLM272独立请求、全部原文/解析/拒答记录与sanity",
+      "remaining_or_boundary": "本为可选桥且已执行；原子能力不足不是施工未完成，也不能判所有VLM失败",
+      "source_report": "O06_NATIVE_VLM_GPU.md"
+    },
+    {
+      "item": "N01",
+      "audit_status": "CORE_COMPLETE_DIAGNOSTIC_UNVERIFIED",
+      "completed_evidence": "完整matched/ordered/shuffle/BCE三seed；条件方差前提及aux误差/主修复已交付",
+      "remaining_or_boundary": "施工卡列出的新增P1分析未在当前专报/运行入口找到独立完成证据；标记端点阳性诊断是可选",
+      "source_report": "N01_OBSERVABILITY_REPORT.md"
+    },
+    {
+      "item": "N02",
+      "audit_status": "COMPUTE_COMPLETE_DELIVERY_PENDING",
+      "completed_evidence": "48/48训练及178quartet/85parent预测、配对和结构预测JSON已回收校验",
+      "remaining_or_boundary": "独立解释/观测与结构主图/最终专报未更新；当前专报仍是12checkpoint旧诊断；论文未纳入48臂",
+      "source_report": "N02_SAMPLING_ACCESS_REPORT.md"
+    },
+    {
+      "item": "N03",
+      "audit_status": "COMPLETE_BOUNDED",
+      "completed_evidence": "6臂、经典像素基线、同head真几何替换和噪声敏感性均已交付",
+      "remaining_or_boundary": "机制未获可靠支持也是完成的结果；条件未满足不需强行向足球迁移",
+      "source_report": "N03_DECISION_BOTTLENECK_REPORT.md"
+    }
+  ]
+}
