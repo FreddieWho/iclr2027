@@ -1,0 +1,36 @@
+{
+ "nesting": "N \u2282 4N \u2282 16N prefixes of one 8192-scene bank",
+ "chunks": [
+  {
+   "tag": "base(train_101,seed101)",
+   "n": 512,
+   "pos_frac": 0.5
+  },
+  {
+   "tag": "d01fresh401(seed401)",
+   "n": 1536,
+   "pos_frac": 0.5
+  },
+  {
+   "tag": "d01fresh1601(seed1601)",
+   "n": 6144,
+   "pos_frac": 0.5
+  }
+ ],
+ "banks": {
+  "N": {
+   "n": 512,
+   "sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c"
+  },
+  "4N": {
+   "n": 2048,
+   "sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96"
+  },
+  "16N": {
+   "n": 8192,
+   "sha256": "5b3d2cf87e6ea45cbf376b3a04442a80870aa09267f27b181d99a104cd1d85b0"
+  }
+ },
+ "base_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+ "min_margin": 0.02
+}

@@ -1,0 +1,12 @@
+{
+ "match": "J03WOY",
+ "dt_ms": 1500,
+ "used": 720,
+ "margin_med_t": 1.631,
+ "margin_med_pre": 2.0929,
+ "frac_open_pre": 0.9014,
+ "paired_rate_pre": 0.0333,
+ "paired_rate_pre_contested": null,
+ "n_contested_pre": 240,
+ "note": "per-event paired flags recomputed in follow-up if contested pool viable"
+}

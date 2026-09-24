@@ -78,9 +78,12 @@ maximum in most cells; where it is (one arm in each bank) we say so rather
 than average it away. The same sweep suggests why relational input helps:
 joint consistency for raw coordinates swings by $75$--$133\%$ of its mean
 across relabelings, versus $15$--$29\%$ for relational input with flip
-coverage---the ten relational features are only permuted among themselves
-under relabeling, so they carry the task's symmetry that raw coordinates
-do not. Ordering analysis bounds the mechanism (Fig.~\ref{fig:fourarm}c):
+coverage---a descriptive stability gap: both inputs permute with the point
+indices and neither MLP is exactly invariant, so its cause is left to the
+symmetry-controlled ablations, not inferred from this sweep alone. A controlled follow-up
+(App.~\ref{sec:f095}) locates the gain in the geometric organization of the inputs---six
+pairwise distances, in the spirit of relation modules \citep{santoro2017simple}, suffice---rather than exact symmetry: an exactly invariant typed-pair
+net (a role-structured DeepSets variant \citep{zaheer2017deep}) is worse than raw, and a depth-matched concatenation matches raw. Ordering analysis bounds the mechanism (Fig.~\ref{fig:fourarm}c):
 the representation improves state separability $H$ ($0.54$--$0.57 \to
 0.81$--$0.87$), while flip coverage on relational input mainly realizes
 that separability at the fixed threshold rather than creating new
@@ -110,11 +113,11 @@ fixed-threshold $J$ versus oracle separability $H$ on dev (right).}
 \toprule
 Bank & Arm & $J$ & Atomic pass & AB endpoint err. & Cond.\ comp.\ miss \\
 \midrule
-Dev ($237$) & raw & .055/.051/.055 & .519/.557/.519 & .519/.477/.519 &
+Dev ($237$) & raw & .055/.051/.055 & .519/.557/.519 & .481/.523/.481 &
 .894/.909/.894 \\
 & raw+flip & .068/.059/.076 & .409/.456/.367 & .354/.426/.321 &
 .835/.870/.793 \\
-& relational & .131/.169/.211 & .675/.696/.709 & .452/.468/.494 &
+& relational & .131/.169/.211 & .675/.696/.709 & .548/.532/.506 &
 .806/.758/.702 \\
 & relational+flip & .384/.422/.397 & --- & --- & --- \\
 Confirm ($509$) & raw & .059/.047/.041 & --- & --- & --- \\

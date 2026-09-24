@@ -1,0 +1,114 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "arms": {
+  "six_clean_s11": {
+   "model_sha256": "1a43ff12356b3f6446e39613e99a6dff6004bba831f6828069a5f72db7cb6ac8",
+   "n": 237,
+   "J": 0.1224,
+   "atomic_pass": 0.692,
+   "AB_correct": 0.4304,
+   "S": 0.8481,
+   "J_star": 0.2658
+  },
+  "six_flip_s11": {
+   "model_sha256": "1db4b6f01bc1b8f696399a52835d118bdd5fa3b5c8df59c48f09d26bf6b436d4",
+   "n": 237,
+   "J": 0.4388,
+   "atomic_pass": 0.616,
+   "AB_correct": 0.8143,
+   "S": 0.9072,
+   "J_star": 0.4557
+  },
+  "six_clean_s23": {
+   "model_sha256": "94e39b5419d1011b1a85fe373174107ae40795c1f495263639033a84e1b22f20",
+   "n": 237,
+   "J": 0.173,
+   "atomic_pass": 0.6835,
+   "AB_correct": 0.4852,
+   "S": 0.8354,
+   "J_star": 0.2489
+  },
+  "six_flip_s23": {
+   "model_sha256": "6f30c2fb0bd9776119c524baeab8da45b8dd02fbea666b0dda0ebff5fa954210",
+   "n": 237,
+   "J": 0.4262,
+   "atomic_pass": 0.6329,
+   "AB_correct": 0.789,
+   "S": 0.9198,
+   "J_star": 0.4473
+  },
+  "six_clean_s47": {
+   "model_sha256": "9d9b0f8ad5c04ff2b7bbd8f0bb60bb9e83e4ed05ce65d22efbad34006b1708e5",
+   "n": 237,
+   "J": 0.1941,
+   "atomic_pass": 0.6835,
+   "AB_correct": 0.4937,
+   "S": 0.8734,
+   "J_star": 0.2827
+  },
+  "six_flip_s47": {
+   "model_sha256": "36528c59a5e3cefbd493b20720cffc886ecf8035d356f553a1411b3780b3052d",
+   "n": 237,
+   "J": 0.2532,
+   "atomic_pass": 0.481,
+   "AB_correct": 0.7637,
+   "S": 0.9072,
+   "J_star": 0.3376
+  },
+  "concat_clean_s11": {
+   "model_sha256": "cbfbb320acc7c5a3c67a9eeadc2a193f127960a372b352590620f8c72fa844ae",
+   "n": 237,
+   "J": 0.0338,
+   "atomic_pass": 0.3882,
+   "AB_correct": 0.616,
+   "S": 0.5823,
+   "J_star": 0.0717
+  },
+  "concat_flip_s11": {
+   "model_sha256": "4947e5fb2d9ead8a33637597bd37334ae1e46e6b7f720763c5a9e4d0d9dca292",
+   "n": 237,
+   "J": 0.0591,
+   "atomic_pass": 0.4262,
+   "AB_correct": 0.6034,
+   "S": 0.5232,
+   "J_star": 0.097
+  },
+  "concat_clean_s23": {
+   "model_sha256": "902d806f8b9fd0258de67ab6d884c0a2de9c1edd91ec377c317fc77daee78d44",
+   "n": 237,
+   "J": 0.0253,
+   "atomic_pass": 0.5063,
+   "AB_correct": 0.5021,
+   "S": 0.5063,
+   "J_star": 0.0549
+  },
+  "concat_flip_s23": {
+   "model_sha256": "aeb128c92d7e754bb438d01a266bdcfadb7964cb093abce441e6411a8dd04863",
+   "n": 237,
+   "J": 0.0844,
+   "atomic_pass": 0.3629,
+   "AB_correct": 0.6456,
+   "S": 0.5274,
+   "J_star": 0.0928
+  },
+  "concat_clean_s47": {
+   "model_sha256": "66cd83a51eb81f4a89434411e9ce26b2b26e5d92c5c27944d82525267bd7216c",
+   "n": 237,
+   "J": 0.0338,
+   "atomic_pass": 0.5148,
+   "AB_correct": 0.4515,
+   "S": 0.4557,
+   "J_star": 0.0759
+  },
+  "concat_flip_s47": {
+   "model_sha256": "33fa4df2a341fcab7e2a3cef58b31ad027b81d281f409443ab7afad33e638d80",
+   "n": 237,
+   "J": 0.0464,
+   "atomic_pass": 0.4304,
+   "AB_correct": 0.5654,
+   "S": 0.557,
+   "J_star": 0.0759
+  }
+ }
+}

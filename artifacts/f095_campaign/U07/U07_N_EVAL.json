@@ -1,0 +1,60 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "arms": {
+  "rawf25_s11": {
+   "model_sha256": "4de85f20966d7acce03f7fff844c9933c2f8bd0a3767d1fee2999e80cf26e028",
+   "n": 237,
+   "J": 0.0717,
+   "atomic_pass": 0.4895,
+   "AB_correct": 0.5527,
+   "S": 0.7046,
+   "J_star": 0.1055
+  },
+  "rawf25_s23": {
+   "model_sha256": "f5f06f64b60ebbf2e93388884807b11a40e7b9442130944ead49bde413da90b9",
+   "n": 237,
+   "J": 0.0338,
+   "atomic_pass": 0.3966,
+   "AB_correct": 0.5992,
+   "S": 0.6245,
+   "J_star": 0.1055
+  },
+  "rawf25_s47": {
+   "model_sha256": "d5cd13d4e39485125932a327b3a16cd910e88c7608df05272e4db2b12e5f3444",
+   "n": 237,
+   "J": 0.0338,
+   "atomic_pass": 0.4262,
+   "AB_correct": 0.5865,
+   "S": 0.6245,
+   "J_star": 0.0886
+  },
+  "sixf25_s11": {
+   "model_sha256": "66f7264934acc2f9b34dfed5f3578ed8eca6dc5bf34b1c58dbe8c0c8169aee31",
+   "n": 237,
+   "J": 0.27,
+   "atomic_pass": 0.5316,
+   "AB_correct": 0.7257,
+   "S": 0.8734,
+   "J_star": 0.2743
+  },
+  "sixf25_s23": {
+   "model_sha256": "7edca2a3fa0edcb3f110878a813150dd4000852db8035cb40f12b72be371e62b",
+   "n": 237,
+   "J": 0.3207,
+   "atomic_pass": 0.5654,
+   "AB_correct": 0.7553,
+   "S": 0.8776,
+   "J_star": 0.3882
+  },
+  "sixf25_s47": {
+   "model_sha256": "d7a2a3dcae4ae3c755afdd3201b0730dd81ae667b7446ebe0d32a05cf94b59e5",
+   "n": 237,
+   "J": 0.3502,
+   "atomic_pass": 0.6371,
+   "AB_correct": 0.7046,
+   "S": 0.8776,
+   "J_star": 0.3755
+  }
+ }
+}

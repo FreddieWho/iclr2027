@@ -237,3 +237,29 @@
 | U-1 | Donti et al. 2017（候选） | https://proceedings.neurips.cc/paper/2017/hash/3fc2c60b5782f641f76bcefc39fb2392-Abstract.html ；https://dblp.org/rec/conf/nips/DontiKA17.html |
 
 **降级/弃用来源**：ResearchGate、Scribd、deeplearn.org、ameroyer.github.io 等镜像/笔记页仅用于交叉印证，不作为权威依据；themoonlight.io / aimodels.fyi / pith.science 镜像页抓取被拒（403/429），未采用。
+
+## 2026-09-24 batch（13 new entries, all verified against official/venue sources）
+
+| key | venue confirmed via |
+|---|---|
+| fodor1988connectionism | Cognition 28(1-2):3-71, DOI 10.1016/0010-0277(88)90031-5 (bibbase record) |
+| lake2018generalization | ICML 2018, PMLR v80, pp. 2873–2882 (Princeton collaborate + PMLR) |
+| keysers2020measuring | ICLR 2020, OpenReview SygcCnNKwr (AAAI ref list "In ICLR. 2020") |
+| zaheer2017deep | NeurIPS 2017, papers.nips.cc/paper/6931 |
+| santoro2017simple | NeurIPS 2017, proceedings.neurips.cc/paper_files/paper/2017/hash/e6acf4b0f69f6f6e60e9a815938aa1ff |
+| cohen2016group | ICML 2016, PMLR v48, pp. 2990–2999 (mlresearch/v48 + AGACSE ref list) |
+| lakshminarayanan2017simple | NIPS 2017, papers.nips.cc/paper/7219 |
+| angelopoulos2023conformal | FnT Machine Learning 16(4):494–591, 2023 (conformalprediction.net + bactra) |
+| kumar2022finetuning | ICLR 2022 Oral, OpenReview UY9FzSJWhJ / arXiv:2202.10054 |
+| bassek2025idsse | Scientific Data 12(1), 2025, DOI 10.1038/s41597-025-04505-y (DSHS FIS + Mendeley) |
+| johnson2017clevr | CVPR 2017 (TFDS official bibtex; pages omitted, standard style) |
+| he2016deep | CVPR 2016, pp. 770–778, DOI 10.1109/CVPR.2016.90 |
+| deng2009imagenet | CVPR 2009, pp. 248–255, DOI 10.1109/CVPR.2009.5206848 |
+
+Wiring (genuine anchors only): §6 related — fodor/lake/keysers (compositionality lineage),
+angelopoulos/lakshminarayanan (uncertainty, current-state scope), cohen/kaba/gruver
+(equivariance lineage, 2 previously-orphaned keys now wired); §4 mechanism — santoro
+(relation modules), zaheer (DeepSets, typed-pair); §5 — bassek (IDSSE data), johnson
+(CLEVR-style rendered diagnostic); app U04 — kumar (frozen-feature linear probes).
+he/deng held for the D04 ResNet/ImageNet paragraph (lands with vision-chain integration).
+Result: 28/28 cited+rendered, zero LaTeX/bibtex errors, conclusion still page 9.

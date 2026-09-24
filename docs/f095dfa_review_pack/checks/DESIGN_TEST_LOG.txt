@@ -1,0 +1,14 @@
+test_bruteforce_matches_sweep (test_design_invariants.DesignTests.test_bruteforce_matches_sweep) ... ok
+test_group8_closed (test_design_invariants.DesignTests.test_group8_closed) ... ok
+test_group8_oracle (test_design_invariants.DesignTests.test_group8_oracle) ... ok
+test_group_average_invariant (test_design_invariants.DesignTests.test_group_average_invariant) ... ok
+test_input_validation (test_design_invariants.DesignTests.test_input_validation) ... ok
+test_strict_monotone_invariance (test_design_invariants.DesignTests.test_strict_monotone_invariance) ... ok
+test_three_way_identity (test_design_invariants.DesignTests.test_three_way_identity) ... ok
+test_ties_and_half_open (test_design_invariants.DesignTests.test_ties_and_half_open) ... ok
+test_untyped_set_is_insufficient (test_design_invariants.DesignTests.test_untyped_set_is_insufficient) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.024s
+
+OK

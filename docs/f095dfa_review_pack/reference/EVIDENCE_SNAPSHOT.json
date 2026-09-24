@@ -1,0 +1,56 @@
+{
+  "repo": "FreddieWho/iclr2027",
+  "ref": "f095dfaa1341a057efee52c56fe2aea9c39ded6a",
+  "scope": "Source/report audit; no independent original-model training or full test-suite rerun",
+  "raw_parameter_count_from_code": 6849,
+  "relational_parameter_count_from_code": 6977,
+  "dev_J_from_archived_rounded_summaries": {
+    "raw": [
+      0.0549,
+      0.0506,
+      0.0549
+    ],
+    "rawflip": [
+      0.0675,
+      0.0591,
+      0.0759
+    ],
+    "relfeat": [
+      0.1308,
+      0.1688,
+      0.211
+    ],
+    "relflip": [
+      0.384,
+      0.4219,
+      0.3966
+    ]
+  },
+  "interaction_recomputed_from_rounded_summaries": [
+    0.2406,
+    0.2446,
+    0.1646
+  ],
+  "confirm_joint_relflip_reported": [
+    0.4735,
+    0.4479,
+    0.4361
+  ],
+  "interpretation_notes": [
+    "Interactions are on the bounded J scale, not a universal law",
+    "Eight relabelings are correlated transformations, not independent replicates",
+    "Foundation bridge has insufficient atomic competence in tested frozen interfaces",
+    "Football E2 core uses controlled home-team centroid crossing, not tactical event prediction",
+    "Probability bands in report are subjective judgments, not empirically calibrated forecasts"
+  ],
+  "review_sources": [
+    "paper/sections/02_instrument.tex",
+    "paper/sections/04_mechanism.tex",
+    "experiments/discovery_campaign/coord_mlp.py",
+    "docs/iclr2027_discovery_campaign_20260917/core/relations.py",
+    "reports/caea817_review/UPGRADE_FINDINGS.md",
+    "reports/caea817_review/C1C_CONFIRM_RESULT.md",
+    "experiments/last15h/e2_n01_t5r3.py",
+    "reports/bridge_r/COMPETENCE_FIRST_DECISION.md"
+  ]
+}

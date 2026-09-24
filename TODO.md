@@ -25,13 +25,13 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 
 ## A. 论文写作/行政（按执行顺序排列）
 
-- [ ] W1 references 22→30+（genuine 接线；40 为软目标，不凑数）
+- [x] W1 references 22→30（39 入库、30 genuine 接线渲染、零臆造全核验；40 软目标留作可选）
 - [ ] W2 Figure 1 概念图（§1；须从统计总体采样真实受控示例，禁示意造数）
 - [ ] W3 AI-use 披露定稿（main.tex 注释草稿，需作者核准措辞）
 - [ ] W4 rebuttal 预备答辩（可选；T5R6 reserve＋NO_NEW_CLAIM 已有，成文则另起）
 - [ ] W5 双盲扫描（正文/补充/figures 元数据）
 - [ ] W6 匿名打包（git 快照；data/48G、artifacts/36G 不入包）
-- [ ] W7 【最后执行】sha256 锁重新部署（scripts/*/*/＋受影响 configs＋artifacts manifest）
+- [x] W7 sha256 锁重新部署——**取消**（用户指示 09-24，见变更记录）
 
 ## B. 待挖实验想法（全部 PARKED；细节见 LEADS.md，需用户单独授权）
 
@@ -87,6 +87,7 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 | L：最后 15h 路线（20260918 包，N01–N10） | 首轮＋round2 收敛 | 终局见 reports/last15h/SELECTION.md：现象 6 项成立（N01-missing/N03/N04-emergent/N06/N08/N09 分解），新方法 5 项全死，方法位 flipmine-as-is；摘要草稿＋图源表已落盘。新输出 experiments/last15h＋artifacts/last15h＋reports/last15h，不覆盖旧证据。 |
 | M：真数据转折＋全路径＋joint（E2/E3/E4） | 收敛 | 双数据故事升级通过，见 reports/last15h/M_SELECTION.md：E2 三件套 3/3（N01/N03/N06-hard，多种子同向）进主文；E3 关闭（诚实 null，库无重入动作）；E4 死（3 种子全平）。方法位=flipmine＋cover。 |
 | N：02 定向探索升级（U1/U2/U3＋可选 U4） | 当前执行 | 用户已授权执行 docs/last3day/02_EXPLORATION_AND_UPGRADE_PLAN.md；U1/U2 复用已有模型与缓存，U3 只新增前向/重分析，U4 最多两种小表示对照；仍禁 DINO/L002/EventUpdater/自然图 Task3/边界角度/其他关系族。 |
+| O：f095 20 路线首轮（A 机制基线＋足球 D06） | 首轮收敛 | 用户 2026-09-23 授权（A 组合＋足球优先＋VLM 预算＋提交分支）。阳性：D01（容量 44× 无效、数据 16× 抬不弥合）、D02（去命名不充分＋群平均 +5–12pp）、U02（几何组织 SUPPORTED）、U03（三段分解）；阴性：U01（typed NEGATIVE）、D06（完成传球 E-bank 不可行，721 事件）。§5 四项事实修正已入稿。交付 reports/f095_campaign/（7 报告＋COMPLETION_VERDICT）＋experiments/f095_campaign/（代码与测试）。 |
 
 ## 变更记录
 
@@ -242,3 +243,12 @@ X03换rank换layer / temperature sweep / action-rule续调 / 更多synthetic sce
 - 2026-09-22：**GPT6astra审计回执并执行全轮修正**（基准 3fcbf1f）：审计方指控（P3用eval派生样本训练、P5 barrier只用clean BCE、P5对齐用raw输入、未处理线性尾、P1锁定统计与契约不符、LOO是6次单删、TracIn权重错、并列秩Spearman、E7的BAN对照名不副实、E7与r04b基线不同构、线程不一致）经本人逐条复验**全部属实**；总控另自行发现自身5个实现错误（含一个制造“5/5全胜”假阳性的对齐bug）。
 - 2026-09-22：修正后复算完成（`L007_CORRECTED_RESULTS.md`）：P1 v2逐路径锁定中位125–175（中段，判据卡刀锋→未决）；剂量LOO不成立（比值6.8达标但Δsucc仅−0.19pp，判据实现缺口已补正）；C2尺度重启动阴性但有功效；P3 v2(train-only+匹配sham)不成立（miss 0/8、P 1/8，且定向插oracle态反而略伤）；P5 v3无支持实例（barrier 2.37–1828）。**撤回七条排除性声明**（见 `CORRECTION_AFTER_GPT6ASTRA.md`）。
 - 2026-09-22：**新增两条更硬的结果**：C1 等价表示敏感性成立（91.0/95.5/91.5%路径在重标号下不等价，标号诱导σ≈0.13 vs oracle误差≈0.17，70–79%命中状态翻转；oracle不变性经重算5688次零错）；C1c 交互对称群稳健性（预注册 `e7f9850`，dev 24/24 + confirm 24/24 全正，+9.7~+27.5pp，oracle重算12216次零错），且J的标号敏感性按臂单调递减（raw 75–133% → 关系＋flip 15–29%）。正文§4已写稳健性句＋机制句，§7新增限制(xi)披露标号约定，摘要补一句；编译后正文仍8页。confirm1007读取已登记为CONFIRMATION_USAGE第5条。新增 TODO-B 区 E6（标号敏感性作为独立方向）。
+- 2026-09-23：f095 首轮收敛（分支 O）：解包 docs/f095dfa_review_and_20_routes.zip（SHA 全 OK，基准=HEAD）；§5 四项入稿（四臂表 AB 列纠正经逐实例生成器、残留多数措辞、pending 标记、对称性描述）；D01（容量前沿 6.8k→300k 全平、数据 4N/16N 双臂抬、flip-BCE 6/12 塌缩 caveat）、D02（群平均 rel+flip +5–12pp、raw 仍 ~0.05）、U01（typed NEGATIVE）、U02（sixdist≈relflip、concat/typed 出局）、U03（三段分解 S≡H 交叉验证）、D06（721 真实传球配对 3%＋pre-pass 3.3%，判 INFEASIBLE，足球收窄）。完工判决见 reports/f095_campaign/COMPLETION_VERDICT.md；后续（U07/D02 增广版/D09 新银行确认/D04）与不做清单 therein；VLM 预算未动用。
+- 2026-09-23：f095 后续逐项（用户命“开火”，顺序U04→D08→D10）：U04层间互补SUPPORTED收窄版（P1 3/3四位一致、P2 partial仅relfeat、P3 12/12线性可达）；D08公平对打（pct 3/3≈flipmine→特殊性不成立、方法让位诊断；U05不开门条件未满足）；D10决策前沿SUPPORTED（同覆盖+0.09–0.24、同成本成立、工作点解释不足）。U04/D08/D10报告＋附录三段＋重编译（零错误，主文9/9页，tests 212）。
+- 2026-09-23：U10跨任务预测收官（冻结预测在先）：54训＋双E-bank（2724/3443 E），P-A/P-B/P-C 6/6全中；分解同构源任务；T2-raw J .61证非难任务假象。主claim升级为跨任务可预测成立。U10.md＋附录段＋重编译（零错误，主文9/9页，tests 212）。
+- 2026-09-23：D03顺序审计收官（三顺序flip误差差≤0.01，E-bank无序复现四臂格局，顺序解释排除，不加训）＋D09重叠审计（剔除18个train_101父quartets后n=218，Q1/Q2仍3/3，verdict不变口径收窄）。D03.md＋附录D09限定句＋重编译（零错误，主文9/9页，tests 212）。
+- 2026-09-23：15条已执行路线对抗性自查完成（AUDIT_20260923.md）：六簇独立验证——银行语义（5/5银行AB重构≈1e-8＋标签重导0误）、sixdist身份（训/评/审三方一致＋U02独立.4388）、U10 oracle与typed不变性（0.0/1.5e-8精确）、D03/D02/U10头部数独立重导全部4位一致、训练数据卫生（挖掘池/mu-sd/aug顺序/种子固定/父子场景口径全核）、U04/U06/LAM/D10/U01/U03/D01残余（分解恒等12/12、参数量实测、D10配对独立确认）。未发现结论级错误；审计过程唯一错误为审计者自身临时检查的交换索引，已当场纠正，非管线问题。
+- 2026-09-23：升级批次（评估/MLP部分）完成——①U03分解在D03-E无序银行复现（同构，附录句）；②D09升级为双新鲜银行确认；⑤U07补齐raw-4N-100%格（专用重跑收敛.23-.28，证此前塌缩是RNG流伪影；six-25%>raw-100%两池6/6，判决升SUPPORTED）；⑥D10前沿扩到rel12/sixdist（中位+.12-+.45，跨编码器成立）；⑦U10 orbit平均跨任务复现（flip格12/12正、typed内建校验|Δ|<.01）；bonus：D08SIX pct救回s47塌缩（.452 vs .253，塌缩=损失设计非种子命运）、U04-d03E复现P2格局。附录15段，重编译零错误（主文9/9页），tests 212。
+- 2026-09-24：references 扩充落地——新增 13 条全部搜索核实（venue/页码/DOI 逐项坐实，含 bassek2025 IDSSE=Scientific Data 12(1) DOI 10.1038/s41597-025-04505-y、kumar2022 LP-FT=ICLR 2022 Oral、lake2018 PMLR v80:2873–2882、cohen2016 PMLR v48:2990–2999），references.bib 26→39 条；13 条 genuine 接线（§6 related 8＋§4 mechanism 2＋§5 2＋U04 1，含原孤儿 kaba/gruver），28/28 cited+rendered，重编译零错误，conclusion 仍 page 9。he/deng 待 D04 段落接入后达 30。SUBMISSION_CHECKLIST item 4 勾销。
+- 2026-09-24：vision 链收官＋升级批次全部完成——D04 分辨率×初始化全因子 18/18（confound 裁决：224 增益=分辨率/易读性非 ImageNet 先验，random-224 两种子≈pretrained；s803 random 全分辨率塌缩=种子×初始化盆地；head-only 仅 .22）；U06-224 复核维持 NEGATIVE（C≤A 0/3，Cshuf 互有胜负）；附录 16 段新增 D04 段＋U06 段更新，he/deng 接入引用达 30。总报告 UPGRADE_20260924.md；D04.md/U06.md 更新。重编译零错误（主文 9/9，总 15 页），全量 243 tests 通过。
+- 2026-09-24：W7（sha256 锁重新部署）按用户指示取消——scripts 分区后时代锁的现场可复验性已不可恢复，重部署新锁的边际价值低；scripts/INDEX.md 的 bc3b169 检出路径与 SHA256SUMS_UNTRACKED.txt 已覆盖审计需求。W1 勾销（30/30 渲染达标）。

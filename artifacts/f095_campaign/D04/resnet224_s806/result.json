@@ -1,0 +1,18 @@
+{
+ "seed": 806,
+ "res": 224,
+ "recipe": "Adam3e-4-20ep-b128-IMAGENETnorm",
+ "n_train": 2968,
+ "flip_attempts": 947,
+ "rerun": true,
+ "not_original_weights": true,
+ "pretrained": {
+  "static_acc": 0.9982,
+  "atomic_acc": 0.8135,
+  "AB_acc": 0.894,
+  "J": 0.7093,
+  "E_n": 547,
+  "E_J": 0.7093,
+  "E_CCM_denom": 445
+ }
+}

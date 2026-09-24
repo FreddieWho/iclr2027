@@ -1,0 +1,162 @@
+[
+  {
+    "id": "D01",
+    "title": "容量、数据量与收敛：建立能承受反驳的强基线",
+    "priority": "第一批",
+    "resource": "CPU；最大模型先测吞吐",
+    "dependencies": "无；与D02共享数据",
+    "file": "deficits/D01.md"
+  },
+  {
+    "id": "D02",
+    "title": "正确任务对称群的强对照：消除命名伪影",
+    "priority": "第一批",
+    "resource": "CPU；平均预测需8次前向，须计成本",
+    "dependencies": "无；U01复用此实现",
+    "file": "deficits/D02.md"
+  },
+  {
+    "id": "D03",
+    "title": "同起点变化总体与候选顺序审计：去掉样本构造解释",
+    "priority": "第一批",
+    "resource": "CPU生成与前向",
+    "dependencies": "D01/D02可共享新银行",
+    "file": "deficits/D03.md"
+  },
+  {
+    "id": "D04",
+    "title": "从像素终点改善升级为标准视觉模型的完整一致性检验",
+    "priority": "第二批·视觉主线",
+    "resource": "旧CNN CPU可行；预训练模型训练先测资源",
+    "dependencies": "复用D03/E；U06需要本基线",
+    "file": "deficits/D04.md"
+  },
+  {
+    "id": "D05",
+    "title": "原生实用视觉语言模型：在能看懂的任务上检验组合失效",
+    "priority": "第二批·高价值但较贵",
+    "resource": "GPU或经批准API；不得假定CPU经济",
+    "dependencies": "D03；与U06训练迁移区别开",
+    "file": "deficits/D05.md"
+  },
+  {
+    "id": "D06",
+    "title": "足球改成真正的多球员关系仪器，而不是质心跨区",
+    "priority": "第二批·足球主线",
+    "resource": "CPU为主；复用tracking",
+    "dependencies": "无；D07/U09共享任务",
+    "file": "deficits/D06.md"
+  },
+  {
+    "id": "D07",
+    "title": "自然足球序列与独立比赛验证：拆开训练种子和生态证据",
+    "priority": "第二批·足球主线",
+    "resource": "CPU缓存与小模型",
+    "dependencies": "D06；也可先审现E2",
+    "file": "deficits/D07.md"
+  },
+  {
+    "id": "D08",
+    "title": "最近邻修复方法的公平对打，而非继续增加阴性目录",
+    "priority": "第二批",
+    "resource": "小模型CPU；与U05共享",
+    "dependencies": "D01强基线；D03数据合同",
+    "file": "deficits/D08.md"
+  },
+  {
+    "id": "D09",
+    "title": "独立证据而非重复确认：可复算的主claim整体验证",
+    "priority": "第一批支撑；最后确认",
+    "resource": "CPU统计；新数据由oracle生成",
+    "dependencies": "在选定1–2项claim后执行确认",
+    "file": "deficits/D09.md"
+  },
+  {
+    "id": "D10",
+    "title": "下游决策的同覆盖、同成本与完整阈值前沿",
+    "priority": "第二批·可低成本完成",
+    "resource": "CPU，不训练网络",
+    "dependencies": "复用P2表；与U03不重复",
+    "file": "deficits/D10.md"
+  },
+  {
+    "id": "U01",
+    "title": "保留线段归属的精确不变架构：从手工距离走向学习机制",
+    "priority": "最优先拔高",
+    "resource": "CPU小网络；与D01/D02复用",
+    "dependencies": "D02群库；D01强基线",
+    "file": "upgrades/U01.md"
+  },
+  {
+    "id": "U02",
+    "title": "竞争解释实验：收益来自对称性、几何特征，还是训练实现？",
+    "priority": "最优先拔高",
+    "resource": "CPU小网络",
+    "dependencies": "D01/D02/U01；已有U4作为结果而非重跑目标",
+    "file": "upgrades/U02.md"
+  },
+  {
+    "id": "U03",
+    "title": "联合正确性的三段精确分解：排序、全局阈值兼容、工作点",
+    "priority": "第一批零训练",
+    "resource": "CPU纯分数计算",
+    "dependencies": "复用U2归档逐quartet分数；可先实现数学原语",
+    "file": "upgrades/U03.md"
+  },
+  {
+    "id": "U04",
+    "title": "冻结编码器后的交叉重训：定位排序与修复究竟发生在哪一层",
+    "priority": "第二批·机制",
+    "resource": "CPU轻量readout重训",
+    "dependencies": "已有四臂权重；U03测量",
+    "file": "upgrades/U04.md"
+  },
+  {
+    "id": "U05",
+    "title": "把原子保持变成约束，而不是再猜一个preserve权重",
+    "priority": "第二批·方法高风险",
+    "resource": "CPU小模型",
+    "dependencies": "D08强对照；P3迁移表",
+    "file": "upgrades/U05.md"
+  },
+  {
+    "id": "U06",
+    "title": "把坐标域关系先验迁移到图像学生：获得真正的方法推广",
+    "priority": "高上限·需资源",
+    "resource": "预训练视觉backbone训练；GPU须授权",
+    "dependencies": "D04强视觉基线；U01/U02可提供teacher",
+    "file": "upgrades/U06.md"
+  },
+  {
+    "id": "U07",
+    "title": "表示、语义覆盖与样本量的响应面：从单点阳性到可预测规律",
+    "priority": "第二批·资源可控",
+    "resource": "CPU小模型；复用D01/U01训练",
+    "dependencies": "D01/U02结果；D03候选池",
+    "file": "upgrades/U07.md"
+  },
+  {
+    "id": "U08",
+    "title": "面向变化的风险估计：让P1产生可使用的预测目标",
+    "priority": "第二批·低成本",
+    "resource": "CPU；必要时视觉前向缓存",
+    "dependencies": "D03代表性混合总体；D05可后续扩展",
+    "file": "upgrades/U08.md"
+  },
+  {
+    "id": "U09",
+    "title": "足球在不完整观测下的关系决策：让真实数据承担不可替代的角色",
+    "priority": "高上限·足球升级",
+    "resource": "CPU/GPU小图模型；真实数据清洗为主要成本",
+    "dependencies": "D06几何任务、D07自然序列、D10决策基线",
+    "file": "upgrades/U09.md"
+  },
+  {
+    "id": "U10",
+    "title": "冻结一条跨任务预测：检验训练原则能否离开线段题",
+    "priority": "第三批·只选两个目标",
+    "resource": "依目标CPU或图像GPU",
+    "dependencies": "U02或U07必须已给出明确预测",
+    "file": "upgrades/U10.md"
+  }
+]

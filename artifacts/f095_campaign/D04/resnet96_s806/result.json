@@ -1,0 +1,27 @@
+{
+ "seed": 806,
+ "res": 96,
+ "recipe": "Adam3e-4-20ep-b128-IMAGENETnorm",
+ "n_train": 2968,
+ "flip_attempts": 947,
+ "rerun": true,
+ "not_original_weights": true,
+ "pretrained": {
+  "static_acc": 0.9799,
+  "atomic_acc": 0.6819,
+  "AB_acc": 0.8501,
+  "J": 0.5466,
+  "E_n": 547,
+  "E_J": 0.5466,
+  "E_CCM_denom": 373
+ },
+ "random": {
+  "static_acc": 0.9196,
+  "atomic_acc": 0.5356,
+  "AB_acc": 0.808,
+  "J": 0.3656,
+  "E_n": 547,
+  "E_J": 0.3656,
+  "E_CCM_denom": 293
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "task": "T2",
+ "n_eval_parents": 512,
+ "E": 3443,
+ "Eparents": 369,
+ "unpaired": 0,
+ "sha256": "84494c71ba7952c9e774c45485051062022073568a6e2b0ddb8e343a2df71d1d"
+}

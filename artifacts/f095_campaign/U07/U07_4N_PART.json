@@ -1,0 +1,96 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "arms": {
+  "six4c_s11": {
+   "model_sha256": "b340bd07f1a0b824e2fe3001f8327e14941ff7c562493fe42db3d5c28eb5f1f0",
+   "n": 237,
+   "J": 0.3882,
+   "atomic_pass": 0.7468,
+   "AB_correct": 0.6414,
+   "S": 0.8945,
+   "J_star": 0.3882
+  },
+  "six4f_s11": {
+   "model_sha256": "31b5a0f583df01fd8b030c97f7b0b8dc2fe72e324353834dfc1655df5058fe60",
+   "n": 237,
+   "J": 0.5612,
+   "atomic_pass": 0.7426,
+   "AB_correct": 0.8186,
+   "S": 0.9367,
+   "J_star": 0.5696
+  },
+  "six4q_s11": {
+   "model_sha256": "a0a64360ed2e2d4198e3af60ebed7ee702e72c4a599d1fbd6333158b08eb98cc",
+   "n": 237,
+   "J": 0.443,
+   "atomic_pass": 0.6287,
+   "AB_correct": 0.8101,
+   "S": 0.9114,
+   "J_star": 0.4979
+  },
+  "six4c_s23": {
+   "model_sha256": "c538734e009ba926cea7d360b06c58fa868a833baca1fe8e4056dda6a1432142",
+   "n": 237,
+   "J": 0.3586,
+   "atomic_pass": 0.7595,
+   "AB_correct": 0.5949,
+   "S": 0.8903,
+   "J_star": 0.4177
+  },
+  "six4f_s23": {
+   "model_sha256": "637afdbea7cdfb589903be350ce4397990bd94ad09b41f77f17a598d66b7a791",
+   "n": 237,
+   "J": 0.5401,
+   "atomic_pass": 0.6962,
+   "AB_correct": 0.8397,
+   "S": 0.9241,
+   "J_star": 0.5612
+  },
+  "six4q_s23": {
+   "model_sha256": "f26d540be1222660347742f21eb11c6b94b402c4e11dfd39712425d592239b2d",
+   "n": 237,
+   "J": 0.4599,
+   "atomic_pass": 0.6878,
+   "AB_correct": 0.7679,
+   "S": 0.8945,
+   "J_star": 0.5021
+  },
+  "six4c_s47": {
+   "model_sha256": "6ebe65b3e4b01b3c9a3b80d5800c77c278e3c13e556b21366a57c36303b52ae8",
+   "n": 237,
+   "J": 0.308,
+   "atomic_pass": 0.7004,
+   "AB_correct": 0.5992,
+   "S": 0.8776,
+   "J_star": 0.384
+  },
+  "six4f_s47": {
+   "model_sha256": "b3470617b831c2f485d53073a50ecbcebc2410a247cfb0ac10cb9dbb8f95685f",
+   "n": 237,
+   "J": 0.5654,
+   "atomic_pass": 0.7637,
+   "AB_correct": 0.8017,
+   "S": 0.9367,
+   "J_star": 0.5738
+  },
+  "six4q_s47": {
+   "model_sha256": "a4e7f36ffe28b4d169cab1f4af9b0904229b236440a7f470dfb1ae908e6e559e",
+   "n": 237,
+   "J": 0.4388,
+   "atomic_pass": 0.7173,
+   "AB_correct": 0.7089,
+   "S": 0.9409,
+   "J_star": 0.4852
+  },
+  "raw4q_s11": {
+   "model_sha256": "e0d1c94ca24d798314cf95528ae87aef74c47647f5c911fe1f6276a07351be6c",
+   "n": 237,
+   "J": 0.0759,
+   "atomic_pass": 0.5443,
+   "AB_correct": 0.5063,
+   "S": 0.443,
+   "J_star": 0.1181
+  }
+ }
+}

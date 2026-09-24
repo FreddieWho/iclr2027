@@ -1,0 +1,507 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "recipe": {
+  "epochs": 300,
+  "lr": 0.01,
+  "lam": 1.0,
+  "wd": 0,
+  "init_seed_rule": "1000+seed_idx",
+  "full_batch": true
+ },
+ "mergeable_linear_fact": "feat_head+cls have no nonlinearity between; a fresh Linear(32,1) on frozen z has exactly the original head capacity",
+ "arms": {
+  "raw_clean_s11": {
+   "static": {
+    "J": 0.0591,
+    "atomic_pass": 0.519,
+    "AB_correct": 0.5232,
+    "S": 0.5612,
+    "J_star": 0.0717,
+    "train_loss_final": 0.0012
+   },
+   "flip": {
+    "J": 0.0422,
+    "atomic_pass": 0.3713,
+    "AB_correct": 0.654,
+    "S": 0.5612,
+    "J_star": 0.0633,
+    "train_loss_final": 1.0728
+   },
+   "mlp_flip": {
+    "J": 0.0295,
+    "atomic_pass": 0.4051,
+    "AB_correct": 0.557,
+    "S": 0.4304,
+    "J_star": 0.0717,
+    "train_loss_final": 0.8968
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 109,
+    "flip": {
+     "R_endpoint": 0.4495,
+     "R_full": 0.0642,
+     "M": 0.3853
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.4495,
+     "R_full": 0.0367,
+     "M": 0.4128
+    }
+   },
+   "encoder_sha": "5f7ff61fd671a400639f61c0632c3175d71edb321e78e119eff6ad77821b744d",
+   "encoder_model_sha": "8b20dfeee6b6269697664e42d4b3c73caf2f8baee091a1aec4cb88e128956fb8"
+  },
+  "raw_flipmine_s11": {
+   "static": {
+    "J": 0.0844,
+    "atomic_pass": 0.4262,
+    "AB_correct": 0.6371,
+    "S": 0.7257,
+    "J_star": 0.135,
+    "train_loss_final": 0.0166
+   },
+   "flip": {
+    "J": 0.0844,
+    "atomic_pass": 0.4346,
+    "AB_correct": 0.6414,
+    "S": 0.7257,
+    "J_star": 0.135,
+    "train_loss_final": 0.0304
+   },
+   "mlp_flip": {
+    "J": 0.0675,
+    "atomic_pass": 0.4093,
+    "AB_correct": 0.6456,
+    "S": 0.73,
+    "J_star": 0.135,
+    "train_loss_final": 0.0011
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 81,
+    "flip": {
+     "R_endpoint": 0.037,
+     "R_full": 0.037,
+     "M": 0.0
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.0494,
+     "R_full": 0.0494,
+     "M": 0.0
+    }
+   },
+   "encoder_sha": "c4fd4e56e8d4c4f751aa6e68997a6858a13ee9a7d4b45bfe461a07d4a792b118",
+   "encoder_model_sha": "8b566fa3607f03ceb56eba63ed18952f555f00d9e6f2a8c5738f46f4cb8c2688"
+  },
+  "relfeat_s11": {
+   "static": {
+    "J": 0.135,
+    "atomic_pass": 0.6793,
+    "AB_correct": 0.4515,
+    "S": 0.8692,
+    "J_star": 0.3122,
+    "train_loss_final": 0.0006
+   },
+   "flip": {
+    "J": 0.2954,
+    "atomic_pass": 0.5992,
+    "AB_correct": 0.6751,
+    "S": 0.8523,
+    "J_star": 0.3122,
+    "train_loss_final": 0.6853
+   },
+   "mlp_flip": {
+    "J": 0.2996,
+    "atomic_pass": 0.6245,
+    "AB_correct": 0.6582,
+    "S": 0.8692,
+    "J_star": 0.3038,
+    "train_loss_final": 0.5688
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 129,
+    "flip": {
+     "R_endpoint": 0.5891,
+     "R_full": 0.3721,
+     "M": 0.2171
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.5814,
+     "R_full": 0.4109,
+     "M": 0.1705
+    }
+   },
+   "encoder_sha": "3cc1187d8712f834e1c5575944efa62169d606b524b4d0a9866660f7dff285d5",
+   "encoder_model_sha": "da47c9293cc0c2500a7a7a70d4ba238300d3047a9a6433e31c9990cd09d8e36d"
+  },
+  "relflip_s11": {
+   "static": {
+    "J": 0.3966,
+    "atomic_pass": 0.6287,
+    "AB_correct": 0.7511,
+    "S": 0.8734,
+    "J_star": 0.4093,
+    "train_loss_final": 0.0093
+   },
+   "flip": {
+    "J": 0.346,
+    "atomic_pass": 0.5654,
+    "AB_correct": 0.7553,
+    "S": 0.8776,
+    "J_star": 0.4093,
+    "train_loss_final": 0.0253
+   },
+   "mlp_flip": {
+    "J": 0.3586,
+    "atomic_pass": 0.5738,
+    "AB_correct": 0.7553,
+    "S": 0.8734,
+    "J_star": 0.4093,
+    "train_loss_final": 0.0064
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 55,
+    "flip": {
+     "R_endpoint": 0.1091,
+     "R_full": 0.1091,
+     "M": 0.0
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.1455,
+     "R_full": 0.1455,
+     "M": 0.0
+    }
+   },
+   "encoder_sha": "0652e4bc26393cbc584eb9564f8b46a8670ae5905f01a4d8895eb0705716f9d3",
+   "encoder_model_sha": "dca6fb715bfcfde662eed5a5876872c0c6f4aa96e0e6bbc49ec5e1eec81a1d54"
+  },
+  "raw_clean_s23": {
+   "static": {
+    "J": 0.0549,
+    "atomic_pass": 0.5696,
+    "AB_correct": 0.4684,
+    "S": 0.5443,
+    "J_star": 0.0717,
+    "train_loss_final": 0.002
+   },
+   "flip": {
+    "J": 0.0338,
+    "atomic_pass": 0.3418,
+    "AB_correct": 0.6793,
+    "S": 0.5696,
+    "J_star": 0.0886,
+    "train_loss_final": 1.0775
+   },
+   "mlp_flip": {
+    "J": 0.0169,
+    "atomic_pass": 0.384,
+    "AB_correct": 0.5612,
+    "S": 0.443,
+    "J_star": 0.1266,
+    "train_loss_final": 0.8687
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 122,
+    "flip": {
+     "R_endpoint": 0.5246,
+     "R_full": 0.0492,
+     "M": 0.4754
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.4672,
+     "R_full": 0.0328,
+     "M": 0.4344
+    }
+   },
+   "encoder_sha": "9ec8e7c2e385ce37a01191a9e3660cd055aa78b3acd236cc9be3ead0862755f5",
+   "encoder_model_sha": "cf09fd3a9fef6bdc0362640ceaf2ab05244d3058866b306c1ef1e1cc7fa868dd"
+  },
+  "raw_flipmine_s23": {
+   "static": {
+    "J": 0.0549,
+    "atomic_pass": 0.4979,
+    "AB_correct": 0.5021,
+    "S": 0.6667,
+    "J_star": 0.1392,
+    "train_loss_final": 0.1652
+   },
+   "flip": {
+    "J": 0.0802,
+    "atomic_pass": 0.5021,
+    "AB_correct": 0.5316,
+    "S": 0.6624,
+    "J_star": 0.1308,
+    "train_loss_final": 0.4304
+   },
+   "mlp_flip": {
+    "J": 0.0844,
+    "atomic_pass": 0.4852,
+    "AB_correct": 0.557,
+    "S": 0.6709,
+    "J_star": 0.1435,
+    "train_loss_final": 0.3749
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 105,
+    "flip": {
+     "R_endpoint": 0.1238,
+     "R_full": 0.0571,
+     "M": 0.0667
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.1524,
+     "R_full": 0.0952,
+     "M": 0.0571
+    }
+   },
+   "encoder_sha": "4e7905f8775e9445478a1b1d9cbfd35572a7177f360ce6a497ee569d60d53a42",
+   "encoder_model_sha": "d7051dcc1ef83017e13f94d5c799a87ad5f4a9546a3581e20d4a80db90a55c31"
+  },
+  "relfeat_s23": {
+   "static": {
+    "J": 0.1688,
+    "atomic_pass": 0.6962,
+    "AB_correct": 0.4684,
+    "S": 0.8101,
+    "J_star": 0.2278,
+    "train_loss_final": 0.0004
+   },
+   "flip": {
+    "J": 0.2363,
+    "atomic_pass": 0.5316,
+    "AB_correct": 0.6667,
+    "S": 0.8228,
+    "J_star": 0.2616,
+    "train_loss_final": 0.6881
+   },
+   "mlp_flip": {
+    "J": 0.2574,
+    "atomic_pass": 0.5274,
+    "AB_correct": 0.7089,
+    "S": 0.8143,
+    "J_star": 0.308,
+    "train_loss_final": 0.5435
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 125,
+    "flip": {
+     "R_endpoint": 0.576,
+     "R_full": 0.336,
+     "M": 0.24
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.624,
+     "R_full": 0.312,
+     "M": 0.312
+    }
+   },
+   "encoder_sha": "6293d71315f40df58c9de5037af441ceb66fc6bba369183e9d42e8a22417085b",
+   "encoder_model_sha": "568392fd1eaf2bd0dcd4bc7608c9aa53045220bfb56d4ea05950456b63157d1e"
+  },
+  "relflip_s23": {
+   "static": {
+    "J": 0.3924,
+    "atomic_pass": 0.6835,
+    "AB_correct": 0.7089,
+    "S": 0.9198,
+    "J_star": 0.4346,
+    "train_loss_final": 0.0191
+   },
+   "flip": {
+    "J": 0.4093,
+    "atomic_pass": 0.6582,
+    "AB_correct": 0.7468,
+    "S": 0.9198,
+    "J_star": 0.4473,
+    "train_loss_final": 0.0445
+   },
+   "mlp_flip": {
+    "J": 0.4262,
+    "atomic_pass": 0.6709,
+    "AB_correct": 0.7511,
+    "S": 0.9198,
+    "J_star": 0.4346,
+    "train_loss_final": 0.0236
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 69,
+    "flip": {
+     "R_endpoint": 0.2464,
+     "R_full": 0.2319,
+     "M": 0.0145
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.2464,
+     "R_full": 0.2319,
+     "M": 0.0145
+    }
+   },
+   "encoder_sha": "01921cebe91952a8648bf69c7621d528a22f177a3b4f5603e6edb1f0e0a0feae",
+   "encoder_model_sha": "32662eb5488e86abfa2d6fbfef872cebc4e13a8e6f63da3f5eef8a3b9a727f06"
+  },
+  "raw_clean_s47": {
+   "static": {
+    "J": 0.0464,
+    "atomic_pass": 0.5105,
+    "AB_correct": 0.519,
+    "S": 0.5443,
+    "J_star": 0.0675,
+    "train_loss_final": 0.0008
+   },
+   "flip": {
+    "J": 0.0127,
+    "atomic_pass": 0.2954,
+    "AB_correct": 0.6835,
+    "S": 0.5401,
+    "J_star": 0.0633,
+    "train_loss_final": 1.0728
+   },
+   "mlp_flip": {
+    "J": 0.0253,
+    "atomic_pass": 0.2616,
+    "AB_correct": 0.6835,
+    "S": 0.4684,
+    "J_star": 0.0759,
+    "train_loss_final": 0.9362
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 110,
+    "flip": {
+     "R_endpoint": 0.5,
+     "R_full": 0.0091,
+     "M": 0.4909
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.6545,
+     "R_full": 0.0273,
+     "M": 0.6273
+    }
+   },
+   "encoder_sha": "3dfc2e23321bc8577cb65a72e090e40dac689a0253f05c7d5d459b0c28ef5aae",
+   "encoder_model_sha": "d50ee48788fbe83b4045f4e6b3f97ee49ce4fbf39bc44f5d498c4fc420769903"
+  },
+  "raw_flipmine_s47": {
+   "static": {
+    "J": 0.0802,
+    "atomic_pass": 0.443,
+    "AB_correct": 0.616,
+    "S": 0.692,
+    "J_star": 0.0886,
+    "train_loss_final": 0.1143
+   },
+   "flip": {
+    "J": 0.0591,
+    "atomic_pass": 0.3755,
+    "AB_correct": 0.6624,
+    "S": 0.6962,
+    "J_star": 0.097,
+    "train_loss_final": 0.2988
+   },
+   "mlp_flip": {
+    "J": 0.0759,
+    "atomic_pass": 0.4008,
+    "AB_correct": 0.654,
+    "S": 0.7004,
+    "J_star": 0.0844,
+    "train_loss_final": 0.2628
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 86,
+    "flip": {
+     "R_endpoint": 0.1395,
+     "R_full": 0.0698,
+     "M": 0.0698
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.1047,
+     "R_full": 0.0814,
+     "M": 0.0233
+    }
+   },
+   "encoder_sha": "4cc7875d7ed2a825cf28dcdf39c45eb62b646455ad2454faee3b69b7fc7e27bb",
+   "encoder_model_sha": "48dbf9209c6da6aaf213c0a526d54c8a14e2ac3c472d1fa5b34f1768ac658b72"
+  },
+  "relfeat_s47": {
+   "static": {
+    "J": 0.2152,
+    "atomic_pass": 0.7089,
+    "AB_correct": 0.4979,
+    "S": 0.8608,
+    "J_star": 0.3333,
+    "train_loss_final": 0.0006
+   },
+   "flip": {
+    "J": 0.2743,
+    "atomic_pass": 0.5401,
+    "AB_correct": 0.73,
+    "S": 0.8523,
+    "J_star": 0.2911,
+    "train_loss_final": 0.603
+   },
+   "mlp_flip": {
+    "J": 0.2616,
+    "atomic_pass": 0.4937,
+    "AB_correct": 0.7468,
+    "S": 0.8059,
+    "J_star": 0.3207,
+    "train_loss_final": 0.4591
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 117,
+    "flip": {
+     "R_endpoint": 0.5812,
+     "R_full": 0.3077,
+     "M": 0.2735
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.6496,
+     "R_full": 0.3333,
+     "M": 0.3162
+    }
+   },
+   "encoder_sha": "29e55adea04be0a9f9ddd756ef527cef70316fe61b78a2169071c4c3d84b2494",
+   "encoder_model_sha": "6c5ae437b92cd1b36c45f2588c74f1334c154cc4dc4e1b309ee8a4f834a73355"
+  },
+  "relflip_s47": {
+   "static": {
+    "J": 0.3966,
+    "atomic_pass": 0.6414,
+    "AB_correct": 0.7468,
+    "S": 0.8819,
+    "J_star": 0.4177,
+    "train_loss_final": 0.0133
+   },
+   "flip": {
+    "J": 0.4051,
+    "atomic_pass": 0.5992,
+    "AB_correct": 0.8017,
+    "S": 0.8819,
+    "J_star": 0.4177,
+    "train_loss_final": 0.0316
+   },
+   "mlp_flip": {
+    "J": 0.3882,
+    "atomic_pass": 0.5992,
+    "AB_correct": 0.7848,
+    "S": 0.8819,
+    "J_star": 0.4219,
+    "train_loss_final": 0.0089
+   },
+   "repair_vs_staticrefit": {
+    "n_H_staticrefit": 58,
+    "flip": {
+     "R_endpoint": 0.2414,
+     "R_full": 0.2414,
+     "M": 0.0
+    },
+    "mlp_flip": {
+     "R_endpoint": 0.2069,
+     "R_full": 0.2069,
+     "M": 0.0
+    }
+   },
+   "encoder_sha": "1f7dd2d9e4cee3a54bcad0464bb22ea53646dc363fc09d760716b7df123d4cc9",
+   "encoder_model_sha": "c9f2be9c33102033e12b85060d71e5812b67525375a069e2c2c750cc8cf98d4d"
+  }
+ }
+}

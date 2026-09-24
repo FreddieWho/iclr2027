@@ -1,0 +1,23 @@
+{
+ "arch": "relfeat",
+ "width": 64,
+ "feat": 32,
+ "methods": [
+  "clean",
+  "flipmine"
+ ],
+ "epochs": 300,
+ "lr": 0.01,
+ "lam": 1.0,
+ "seed": 47,
+ "mine_seed": 5,
+ "n_train": 2048,
+ "n_mined_flips": 6390,
+ "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+ "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+ "n_params": {
+  "clean": 6977,
+  "flipmine": 6977
+ },
+ "wall_seconds": 18.3
+}

@@ -1,0 +1,9 @@
+{
+ "tag": "d09fresh665",
+ "pool": "d09_fresh",
+ "seed": 665,
+ "n_parents": 512,
+ "n_paths": 472,
+ "n_singles": 126295,
+ "sha256": "d184fc57a3e9609397de6161791de269b8d51899b5da14428536715e14ff453a"
+}

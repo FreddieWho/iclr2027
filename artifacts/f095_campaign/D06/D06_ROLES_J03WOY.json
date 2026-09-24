@@ -1,0 +1,34 @@
+{
+ "match": "J03WOY",
+ "n_pass": 721,
+ "used": 721,
+ "no_frame": 0,
+ "no_person": 0,
+ "paired": 22,
+ "keep_only": 699,
+ "flip_only": 0,
+ "neither": 0,
+ "outcome_of_used": {
+  "successfullyCompleted": 563,
+  "unsuccessful": 158
+ },
+ "margin_median": 1.6254,
+ "margin_frac_open": 0.8655,
+ "paired_rate": 0.0305,
+ "by_outcome": {
+  "successfullyCompleted": {
+   "n": 563,
+   "paired_rate": 0.032,
+   "margin_med": 1.6593
+  },
+  "unsuccessful": {
+   "n": 158,
+   "paired_rate": 0.0253,
+   "margin_med": 1.3453
+  }
+ },
+ "contested": {
+  "n": 278,
+  "paired_rate": 0.0719
+ }
+}

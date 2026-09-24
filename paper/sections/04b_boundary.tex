@@ -10,7 +10,7 @@ coordinate confidence analysis; their non-claims are stated separately.
 \subsection{Real football tracking}
 \label{sec:football}
 
-The same failure-and-repair shapes recur on IDSSE real tracking data,
+The same failure-and-repair shapes recur on IDSSE real tracking data \citep{bassek2025idsse},
 evaluated cross-field over three training seeds (s11/s23/s47). Two edit
 types must be distinguished. \emph{Controlled crossings} (E2 protocol) are
 single-turn zone crossings constructed on real coordinates with oracle
@@ -41,7 +41,7 @@ claims.
 \subsection{Pixel observations}
 \label{sec:pixel}
 
-The same quartet comparison rendered as $64\times64$ pixels and judged by
+The same quartet comparison rendered as $64\times64$ pixels---a CLEVR-style rendered diagnostic \citep{johnson2017clevr}---and judged by
 a freshly trained CNN gives an emergent (joint-boundary) error of $0.537$
 clean vs.\ $0.351$ pixflip ($-19$pp), with static error unchanged at
 $0.090$ in both arms---while the quartet-curriculum arm scores

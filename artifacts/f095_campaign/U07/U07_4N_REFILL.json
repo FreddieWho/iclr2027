@@ -1,0 +1,24 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "arms": {
+  "raw4q_s23": {
+   "model_sha256": "cb883be4d8cd3f683f48338fefac95e0ec4918faabb439f68b842ac903f088a0",
+   "n": 237,
+   "J": 0.1603,
+   "atomic_pass": 0.4641,
+   "AB_correct": 0.6793,
+   "S": 0.692,
+   "J_star": 0.1772
+  },
+  "raw4q_s47": {
+   "model_sha256": "e48d44f428ba942baf4d9b9b425f8844ad4b1dc44c5b71b7781a3f509701fd98",
+   "n": 237,
+   "J": 0.0,
+   "atomic_pass": 0.2405,
+   "AB_correct": 0.7595,
+   "S": 0.0,
+   "J_star": 0.0
+  }
+ }
+}

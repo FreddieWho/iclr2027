@@ -1,0 +1,26 @@
+{
+ "arch": "sixdist",
+ "width": 64,
+ "feat": 32,
+ "methods": [
+  "clean",
+  "flipmine",
+  "flip_fx"
+ ],
+ "epochs": 300,
+ "lr": 0.01,
+ "lam": 1.0,
+ "seed": 11,
+ "mine_seed": 5,
+ "n_train": 2048,
+ "flip_frac": 0.25,
+ "n_mined_flips": 6390,
+ "data_sha256": "ae12d7d2443203214d1a1b6e6c0a259704d5a2a78dd3372c3eba05c56b325c96",
+ "train_dir": "artifacts/f095_campaign/D01/scenes_4N",
+ "n_params": {
+  "clean": 6721,
+  "flipmine": 6721,
+  "flip_fx": 6721
+ },
+ "wall_seconds": 19.4
+}

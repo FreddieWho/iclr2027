@@ -1,0 +1,87 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "arms": {
+  "l025_s11": {
+   "model_sha256": "3ebbdea8639a6c34e5cccded0a721b67f69e8b400a614e5d523bd08ca970cb2d",
+   "n": 237,
+   "J": 0.0422,
+   "atomic_pass": 0.4599,
+   "AB_correct": 0.5823,
+   "S": 0.692,
+   "J_star": 0.1097
+  },
+  "l025_s23": {
+   "model_sha256": "1d717436d6ad1ba81ad23c28b90eb8cf5ff1563212b30ff8c6025b20be925056",
+   "n": 237,
+   "J": 0.0802,
+   "atomic_pass": 0.4051,
+   "AB_correct": 0.6582,
+   "S": 0.6962,
+   "J_star": 0.1055
+  },
+  "l025_s47": {
+   "model_sha256": "f4eb25d7a70f67ff002e373994d905e67f5651a8d35257831a4d787bd77c6216",
+   "n": 237,
+   "J": 0.0886,
+   "atomic_pass": 0.384,
+   "AB_correct": 0.6835,
+   "S": 0.6751,
+   "J_star": 0.1013
+  },
+  "l05_s11": {
+   "model_sha256": "7aeb7f102c05b979e5e506846d3f870aaf288bd1c97d1e298beb581ea9049c18",
+   "n": 237,
+   "J": 0.0675,
+   "atomic_pass": 0.443,
+   "AB_correct": 0.6118,
+   "S": 0.7131,
+   "J_star": 0.1139
+  },
+  "l05_s23": {
+   "model_sha256": "26afaa70b44c749a547b149b1049018281889bad55c9b01d762c1bd668417b61",
+   "n": 237,
+   "J": 0.0844,
+   "atomic_pass": 0.4093,
+   "AB_correct": 0.6582,
+   "S": 0.73,
+   "J_star": 0.1308
+  },
+  "l05_s47": {
+   "model_sha256": "50927b981fa5976d0fba4da12d2b837fcb33bb9f2c446fa952ff78128253efc6",
+   "n": 237,
+   "J": 0.0591,
+   "atomic_pass": 0.4008,
+   "AB_correct": 0.6456,
+   "S": 0.6582,
+   "J_star": 0.1013
+  },
+  "l20_s11": {
+   "model_sha256": "9b28071ecd3fae441daf82d0f8b092a390836e52d8b1e75de273b6e0b57f452d",
+   "n": 237,
+   "J": 0.0802,
+   "atomic_pass": 0.4388,
+   "AB_correct": 0.6034,
+   "S": 0.6878,
+   "J_star": 0.0928
+  },
+  "l20_s23": {
+   "model_sha256": "942227a857b3a91598d6fdb802c43d908c140f14d0ebbfc614e2810d216ffdf1",
+   "n": 237,
+   "J": 0.1055,
+   "atomic_pass": 0.4304,
+   "AB_correct": 0.6414,
+   "S": 0.7257,
+   "J_star": 0.1308
+  },
+  "l20_s47": {
+   "model_sha256": "b02ec164e99d21472ae8cb6acaeab5d4c5a5d8b9815206e9f4a500c623b899f8",
+   "n": 237,
+   "J": 0.0633,
+   "atomic_pass": 0.4093,
+   "AB_correct": 0.6287,
+   "S": 0.6329,
+   "J_star": 0.097
+  }
+ }
+}

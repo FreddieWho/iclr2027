@@ -1,0 +1,40 @@
+{
+ "recipe": "u03-20ep-Adam3e3-b128-MINPX20",
+ "seed": 805,
+ "rerun": true,
+ "not_original_weights": true,
+ "counts": {
+  "clean": 2048,
+  "pixflip": 2968,
+  "pixquartet": 2968
+ },
+ "flip_attempts": 947,
+ "n_eval_quartets": 547,
+ "clean": {
+  "static_acc": 0.5923,
+  "atomic_acc": 0.4881,
+  "AB_acc": 0.4534,
+  "J": 0.0274,
+  "E_n": 547,
+  "E_J": 0.0274,
+  "E_CCM_denom": 267
+ },
+ "pixflip": {
+  "static_acc": 0.5923,
+  "atomic_acc": 0.415,
+  "AB_acc": 0.5393,
+  "J": 0.0366,
+  "E_n": 547,
+  "E_J": 0.0366,
+  "E_CCM_denom": 227
+ },
+ "pixquartet": {
+  "static_acc": 0.713,
+  "atomic_acc": 0.5265,
+  "AB_acc": 0.4899,
+  "J": 0.0932,
+  "E_n": 547,
+  "E_J": 0.0932,
+  "E_CCM_denom": 288
+ }
+}

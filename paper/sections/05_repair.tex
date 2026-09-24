@@ -13,7 +13,11 @@ On compositional generalization we do not originate conditional-on-atomics
 measurement: the compositionality gap (correct sub-problems, failed
 composition) is established for language models
 \citep{press2023measuring}, with a stricter double-gated variant for
-factual composition \citep{yu2026compositioncollapse}. Our differences:
+factual composition \citep{yu2026compositioncollapse}. The underlying
+concern descends from classical systematicity arguments
+\citep{fodor1988connectionism} and is operationalized by
+compositional-generalization benchmarks
+\citep{lake2018generalization,keysers2020measuring}. Our differences:
 (1)~controlled semantic change with known boundaries;
 (2)~same-instance transition structure (paths, not just endpoints);
 (3)~confidence meaning reversal under semantic flips;
@@ -28,7 +32,10 @@ On calibration and selective classification
 risks of confidence-based rejection more broadly \citep{jones2021selective},
 our contrast is explicit: selective prediction concerns \emph{current}
 correctness, while our inversion concerns reliability \emph{after} a true
-semantic change, measured with known label transformations. Excessive
+semantic change, measured with known label transformations.
+Distribution-free conformal prediction \citep{angelopoulos2023conformal}
+and deep ensembles \citep{lakshminarayanan2017simple} share that
+current-state scope. Excessive
 invariance is directly adjacent: \citet{jacobsen2019excessive} show that
 classifiers can be invariant precisely along task-relevant directions of
 variation, which is the failure family our transition blindness
@@ -42,7 +49,10 @@ end-to-end learning in stochastic optimization \citep{donti2017task}
 bounds the decision-interface literature our P2 analysis touches; we use
 fixed action libraries rather than learned surrogates. Label-free
 relational features follow a long line of geometric invariance work
-\citep{lenc2015understanding} and scalar-equivariant representation
+\citep{lenc2015understanding}, group-equivariant architectures
+\citep{cohen2016group}, canonicalization \citep{kaba2023canonicalization},
+Lie-derivative equivariance measurement \citep{gruver2022lie}, and
+scalar-equivariant representation
 building blocks \citep{villar2021scalars}; our contribution is the
 joint-repair evidence under this input, not the features. Prior probing
 literature \citep{belinkov2022probing} motivates our diagnostic

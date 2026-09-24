@@ -1,0 +1,29 @@
+{
+ "recipe": {
+  "epochs": 300,
+  "lr": 0.01,
+  "lam": 1.0,
+  "lam_pres": 1.0,
+  "protocol": "d08 pct on sixdist"
+ },
+ "seeds": {
+  "s11": {
+   "ckpt_sha": "57093d24233cc259e5d6513c536f6c80341b930d20c09c92928387bd41a1fda6",
+   "loss_first": 5.4777,
+   "loss_last": 0.0531,
+   "collapsed": false
+  },
+  "s23": {
+   "ckpt_sha": "5bb794cbf92c50c8343673949ce721bc0cfd7ab407c03620f70d0d36e82382a6",
+   "loss_first": 4.1434,
+   "loss_last": 0.0492,
+   "collapsed": false
+  },
+  "s47": {
+   "ckpt_sha": "5eb2315d565a4b6f64bccd31746c112952ad8bceadc5b9de77939f7d103096dc",
+   "loss_first": 3.9294,
+   "loss_last": 0.0619,
+   "collapsed": false
+  }
+ }
+}

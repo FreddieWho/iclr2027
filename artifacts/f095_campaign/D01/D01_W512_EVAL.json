@@ -1,0 +1,60 @@
+{
+ "bank": "dev512",
+ "bank_sha256": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+ "arms": {
+  "w512_clean_s11": {
+   "model_sha256": "58a51e45df79ae2cb17e70b4e348cc46dd850f3d377e2f508da60794041d6c9d",
+   "n": 237,
+   "J": 0.0591,
+   "atomic_pass": 0.5021,
+   "AB_correct": 0.5401,
+   "S": 0.557,
+   "J_star": 0.0675
+  },
+  "w512_flip_s11": {
+   "model_sha256": "93f533fa6feba927222533996ad246b1a0e0e97d26537999a78ef8468c0a65b6",
+   "n": 237,
+   "J": 0.0549,
+   "atomic_pass": 0.4557,
+   "AB_correct": 0.5823,
+   "S": 0.4641,
+   "J_star": 0.0844
+  },
+  "w512_clean_s23": {
+   "model_sha256": "630bd37324e96f7ad833ea9fd7dba40f9beea993fdb392183584838543fce48a",
+   "n": 237,
+   "J": 0.038,
+   "atomic_pass": 0.4684,
+   "AB_correct": 0.5443,
+   "S": 0.5401,
+   "J_star": 0.0633
+  },
+  "w512_flip_s23": {
+   "model_sha256": "a8aef8bbd7356e06ccddc4abd51ebf664108bebb7587b2ca96a27f0d78f8c108",
+   "n": 237,
+   "J": 0.0506,
+   "atomic_pass": 0.3966,
+   "AB_correct": 0.6076,
+   "S": 0.4684,
+   "J_star": 0.097
+  },
+  "w512_clean_s47": {
+   "model_sha256": "5819d14ed683e1436c09f639d47bc09c65f2507b98d4b207c2a315adf339f935",
+   "n": 237,
+   "J": 0.0295,
+   "atomic_pass": 0.4768,
+   "AB_correct": 0.5401,
+   "S": 0.4852,
+   "J_star": 0.0549
+  },
+  "w512_flip_s47": {
+   "model_sha256": "0eb6dbec47821621b62a84c14bae971f578647ca59866fade4c9f217e87161fd",
+   "n": 237,
+   "J": 0.0,
+   "atomic_pass": 0.2405,
+   "AB_correct": 0.7595,
+   "S": 0.0,
+   "J_star": 0.0
+  }
+ }
+}
