@@ -2,7 +2,8 @@
 
 J3 means A, B, and AB are all correct. J4 additionally requires P. A missing P
 state yields J4=None; it is never silently copied from J3. Parents are the
-resampling unit; seeds are training replicates, not new data.
+resampling unit; both quartet-weighted and equal-parent estimands are explicit.
+Seeds are training replicates, not new data.
 """
 from __future__ import annotations
 
@@ -80,6 +81,33 @@ def parent_cluster_ci(
         "n": int(len(v)),
         "parents": int(len(unique)),
         "unit": UNIT,
+    }
+
+
+def row_weighted_cluster_ci(values, parents, seed: int, n_boot: int = 2000) -> dict:
+    """Cluster bootstrap for a quartet-weighted mean, resampling whole parents."""
+    v = np.asarray(values, dtype=float).ravel()
+    p = np.asarray(parents).ravel()
+    if len(v) != len(p):
+        raise ValueError("values and parents must have the same length")
+    if n_boot < 100:
+        raise ValueError("bootstrap needs at least 100 draws")
+    unique = np.unique(p)
+    if len(unique) < 2:
+        raise ValueError("need at least two parents for a cluster CI")
+    groups = [v[p == parent] for parent in unique]
+    rng = np.random.default_rng(int(seed))
+    draws = []
+    for _ in range(int(n_boot)):
+        sampled = rng.integers(0, len(unique), len(unique))
+        rows = np.concatenate([groups[index] for index in sampled])
+        draws.append(float(rows.mean()))
+    return {
+        "estimate": float(v.mean()),
+        "ci95": [float(x) for x in np.quantile(draws, [0.025, 0.975])],
+        "n": int(len(v)),
+        "parents": int(len(unique)),
+        "unit": "test parent cluster bootstrap; quartet-weighted estimand",
     }
 
 

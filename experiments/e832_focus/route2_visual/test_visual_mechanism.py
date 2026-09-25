@@ -70,7 +70,8 @@ class Tests(unittest.TestCase):
             self.assertNotIn(forbidden, source)
         signature = inspect.signature(v.visible_segment_features)
         self.assertEqual(list(signature.parameters), ["model", "images", "mask_pool"])
-        self.assertEqual(signature.parameters["mask_pool"].default, "nearest")
+        self.assertEqual(signature.parameters["mask_pool"].default, "area")
+        self.assertEqual(v.Mechanism("interaction").mask_pool, "area")
 
     def test_area_pool_preserves_visible_mass(self):
         thin = np.zeros((1, 3, 64, 64), np.float32)

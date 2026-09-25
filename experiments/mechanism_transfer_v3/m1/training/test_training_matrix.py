@@ -106,6 +106,10 @@ class OrbitRepresentativeTest(unittest.TestCase):
         self.assertGreaterEqual(value, 0.0)
         self.assertLessEqual(value, 1.0)
 
+    def test_tie_fraction_counts_duplicate_lexicographic_minima(self):
+        square = np.array([[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0]])
+        self.assertEqual(features.orbit_tie_fraction(square[None]), 1.0)
+
 
 class SegmentMomentTest(unittest.TestCase):
     def test_descriptor_is_endpoint_and_translation_invariant(self):

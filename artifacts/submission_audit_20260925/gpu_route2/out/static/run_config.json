@@ -1,0 +1,16 @@
+{
+  "selection_dev_mode": "all-singleton",
+  "train_exposure_contract": "repeat clean indices to total train singleton image count per epoch",
+  "train_singleton_images": 323,
+  "train_clean_unique_images": 128,
+  "epochs": 20,
+  "batch_gpu": 32,
+  "resolution": 224,
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "data_archive_sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee",
+  "selection_dev_n": 81
+}

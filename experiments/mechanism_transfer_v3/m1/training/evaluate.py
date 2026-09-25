@@ -50,6 +50,8 @@ def rate_interval(values, parents, seed: int = BOOT_SEED, n_boot: int = BOOT_N) 
             "row_mean": None,
             "parent_mean": None,
             "ci95": None,
+            "ci95_estimand": "equal_parent_mean",
+            "row_weighted_cluster_ci95": None,
             "n": 0,
             "n_parents": 0,
         }
@@ -58,15 +60,20 @@ def rate_interval(values, parents, seed: int = BOOT_SEED, n_boot: int = BOOT_N) 
             "row_mean": float(v.mean()),
             "parent_mean": None,
             "ci95": None,
+            "ci95_estimand": "equal_parent_mean",
+            "row_weighted_cluster_ci95": None,
             "n": int(len(v)),
             "n_parents": int(len(np.unique(p))),
             "note": "single-parent subset; no cluster interval",
         }
     interval = metrics.parent_cluster_ci(v, p, seed=seed, n_boot=n_boot)
+    row_interval = metrics.row_weighted_cluster_ci(v, p, seed=seed, n_boot=n_boot)
     return {
         "row_mean": float(v.mean()),
         "parent_mean": interval["estimate"],
         "ci95": interval["ci95"],
+        "ci95_estimand": "equal_parent_mean",
+        "row_weighted_cluster_ci95": row_interval["ci95"],
         "n": interval["n"],
         "n_parents": interval["parents"],
         "unit": interval["unit"],

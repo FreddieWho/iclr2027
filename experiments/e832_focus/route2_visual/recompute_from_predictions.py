@@ -20,7 +20,8 @@ SEEDS = (803, 805, 806)
 def correct_metrics(logits, labels):
     ok = (logits > 0) == (labels > 0.5)
     atomic = ok[:, 1] & ok[:, 2]
-    joint = atomic & ok[:, 3]
+    joint_abc = atomic & ok[:, 3]
+    joint_pabc = joint_abc & ok[:, 0]
     return {
         "n_quartets": int(len(labels)),
         "P": float(ok[:, 0].mean()),
@@ -29,8 +30,8 @@ def correct_metrics(logits, labels):
         "AB": float(ok[:, 3].mean()),
         "atomic_joint": float(atomic.mean()),
         "atomic_denominator": int(atomic.sum()),
-        "J3": float(joint.mean()),
-        "J4": float(joint.mean()),
+        "J3": float(joint_abc.mean()),
+        "J4": float(joint_pabc.mean()),
     }
 
 

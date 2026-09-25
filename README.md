@@ -1,9 +1,9 @@
 # ICLR 2027 — Compositional and Transitional Blind Spots
 
-> **当前状态（2026-09-24）：e1a933 审计修复与定向探索执行中。**
-> 用户指定合同：[master prompt](docs/e1a933_review/04_AGENT_MASTER.md)。进度见 [STATUS](STATUS.md)，待办见 [TODO](TODO.md)。
-> 当前修正：[总报告](reports/e1a933_review/R_FIXES_REPORT.md) / [新论文PDF](reports/e1a933_review/paper_revised.pdf) / [远端GPU执行](reports/e1a933_review/REMOTE_GPU_EXECUTION.md)。视觉21臂仍运行，尚未获得新科学判决。
-> 历史终局报告保留，受影响结论由本轮修正覆盖；旧paper/main.pdf未更新，请审阅新PDF。
+> **当前状态（2026-09-25）：最终投稿前代码修复、必要补算与证据核对。**
+> 下一轮写作从 [证据目录](reports/submission_audit_20260925/README.md) 开始；逐项结论见 [CLAIMS.csv](reports/submission_audit_20260925/CLAIMS.csv)，修复与结论变化见 [FINDINGS.md](reports/submission_audit_20260925/FINDINGS.md)。
+> 本轮核对历史核心结论，并修复 M2 冻结/微调、视觉指标和预算、Figure 1 等错误。新结果与旧结果分别保存。
+> 进度见 [STATUS](STATUS.md)，未完成的科学计算与外部交付见 [GAPS.md](reports/submission_audit_20260925/GAPS.md)。历史报告不能覆盖本轮更正。
 
 ## 研究问题与历史主线
 
@@ -28,10 +28,10 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 | 用途 | 唯一权威文件 | 说明 |
 |---|---|---|
 | 论文正文 | `paper/main.tex` + `paper/sections/` | 已迁移到最终叙事（02 受控设定→08 可复现性） |
-| 当前修正与历史数字 | `reports/e1a933_review/AFFECTED_CLAIMS.csv` + `reports/final_closure/MASTER_CLAIM_LEDGER.md` | 受影响项以本轮修正为准，其他历史数字保留 |
-| 证据总表 | `reports/final_closure/FINAL_EVIDENCE_TABLE.md` | 2026-09-22 重建版，取代根下旧表 |
+| 当前结论与历史数字映射 | `reports/submission_audit_20260925/CLAIMS.csv` | 含对应代码、原始来源、复算、分母和允许措辞；旧 ledger 为历史输入 |
+| 当前写作证据目录 | `reports/submission_audit_20260925/README.md` | 本轮审查覆盖、修复、补算与缺口 |
 | 终局裁决 | `reports/final_closure/FINAL_PROJECT_VERDICT.md` | 15 问 15 答，含已删除的旧贡献清单 |
-| 一键复算 | `reports/final_closure/REPRODUCE_FINAL.md` | 每个正文数字的重算命令 |
+| 当前复算入口 | `reports/submission_audit_20260925/REPRODUCE.md` | 本轮独立复算与新 GPU 回执；历史训练命令另列 |
 | P1/P2/P3 收官 | `reports/final_closure/P{1,2,3}_CLOSURE_REPORT.md` | 各线终局报告 |
 | 纠错记录 | `reports/final_closure/EVIDENCE_CORRECTIONS_FINAL.md` | 8 项已确认纠错（旧数作废在此登记） |
 
@@ -72,7 +72,7 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 
 治理文档：根目录只留当前态——`STATUS.md`（状态）、`TODO.md`（待办/变更记录）、
 `DECISIONS.md`（决策史）、`LEADS.md`（探索线索）。旧 PLAN/ROADMAP/CLAIM_LEDGER
-已退休至 `docs/governance_history/`（2026-09-22，顶部横幅标注时代）。
+旧文档的时代归属见 `docs/governance_history/`；当前写作取舍由本轮证据目录追溯。
 
 ## 为什么会有这么多"旧线"目录（路线调整简史）
 
@@ -103,8 +103,8 @@ Headline：原子编辑都判对时，联合组合变化在 fresh holdout 上 15
 
 ## 硬纪律（任何新工作必须遵守）
 
-1. 正文数字只能来自 `reports/final_closure/MASTER_CLAIM_LEDGER.md`；
-   discovery 数与 fresh/confirm 数不得混用分母。
+1. 正文数字须经 `reports/submission_audit_20260925/CLAIMS.csv` 追溯到原始证据；
+   discovery 数与 fresh/confirm 数不得混用分母。历史 master ledger 不覆盖后来全部实验。
 2. `holdout_909`（坐标）、`confirm_1007`（P1 池）、`holdout_895`（bridge）均已
    **单次消耗并封存**；任何二次读取是新的协议事件，需用户显式授权。
 3. 禁开方向清单见 `TODO.md` 顶部（AMR/Jacobian 扩展/E7 新 loss/第 61 个小 MLP 等）。

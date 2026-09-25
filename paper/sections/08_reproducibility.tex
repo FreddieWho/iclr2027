@@ -30,14 +30,16 @@ recorded in the claim-source map
 first, relational-arm evaluation later; reading archived outputs is
 tracked separately from training-time exposure. Thresholds, covariates,
 metrics, and bootstrap units are recorded in
-\texttt{reports/final\_closure/}; parent-cluster resampling is used
-throughout; a start appearing in several quartets is counted once per
-parent, not once per row.
+\texttt{reports/final\_closure/}. Parent-cluster intervals resample parents
+and retain their associated quartets; quartet-level point estimates need
+not equal an equally weighted average over parents.
 
-\paragraph{Artifacts.} Code, scene pools, mined flips, checkpoint
-metadata, rendering scripts, and SHA-256 manifests are versioned with the
-paper; restricted-access football derivatives are described with hashes
-and conversion receipts. Seeds 11/23/47 are used throughout; match is the
-unit of independence on the football side; parent is the unit on the
-coordinate side. One-command recomputation entries are given in
+\paragraph{Artifacts.} Code, reports, checkpoint metadata, rendering
+scripts, and SHA-256 manifests are versioned with the paper. Large scene
+arrays and checkpoints remain local assets; their public release is
+pending, and a hash alone does not provide access. Restricted-access
+football derivatives have hashes and conversion receipts. Coordinate
+comparisons commonly use seeds 11/23/47; visual seeds are specified per
+experiment. Match is the independence unit for football, and parent for
+coordinate scenes. Historical recomputation entries are given in
 \texttt{reports/final\_closure/REPRODUCE\_FINAL.md}.

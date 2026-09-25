@@ -1,4 +1,8 @@
-# MASTER_CLAIM_LEDGER (2026-09-22): the ONLY source for paper numbers
+# MASTER_CLAIM_LEDGER (2026-09-22): historical claim ledger
+
+> 2026-09-25：本表保留原始数字与当时措辞，不覆盖后来的全部实验，也不能覆盖后续纠错。
+> 下一轮写作使用 `reports/submission_audit_20260925/CLAIMS.csv` 与 `FINDINGS.md`，
+> 按其中的代码、分母、复算和限制回溯本表。特别是 R03 单编辑重叠、视觉指标与 M2 解释，须读本轮更正。
 
 | claim | number | numerator | denominator | dataset | split | seed/model | confirm/dev/exploratory | artifact | allowed wording | forbidden wording |
 |---|---|---|---|---|---|---|---|---|---|---|

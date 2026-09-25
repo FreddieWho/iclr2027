@@ -40,6 +40,9 @@ artifacts/next_novelty/p1_unified_confirm/
 artifacts/e1a933_review/**/*.tar.gz
 artifacts/e1a933_review/**/*.tar
 
+# GPU repair transport archives; extracted evidence and SHA256 receipts are kept.
+artifacts/submission_audit_20260925/**/*.tar.gz
+
 # LaTeX build artifacts (regenerable via pdflatex+bibtex in paper/)
 *.aux
 *.bbl
@@ -49,3 +52,8 @@ artifacts/e1a933_review/**/*.tar
 *.toc
 *.pdf
 !paper/figures/*.pdf
+
+# Final submission PDFs and vector figures are deliverables, not build cache.
+!deliverables/iclr2027_final_20260925/main.pdf
+!deliverables/iclr2027_final_20260925/supplementary.pdf
+!deliverables/iclr2027_final_20260925/figures/*.pdf

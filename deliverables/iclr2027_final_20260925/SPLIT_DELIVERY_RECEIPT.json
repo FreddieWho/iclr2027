@@ -1,0 +1,25 @@
+{
+  "completed_utc": "2026-09-25T11:55:41.417586+00:00",
+  "main_text_pages": 7,
+  "documents": {
+    "main": {
+      "pdf": "main.pdf",
+      "markdown": "main.md",
+      "pages": 8,
+      "overfull": 0,
+      "undefined": 0,
+      "pdf_sha256": "9613681f9388ca86fc02d1e95c46f5ac852e8fded13596a06fc9809cb6bb45e2"
+    },
+    "supplementary": {
+      "pdf": "supplementary.pdf",
+      "markdown": "supplementary.md",
+      "pages": 4,
+      "overfull": 0,
+      "undefined": 0,
+      "pdf_sha256": "23e7b7f9508edbff3fcbcc1c3643627aa831d09c3a2f4f9f125e16ba63af7a08"
+    }
+  },
+  "result_recomputation": false,
+  "git_commit_or_push": false,
+  "ai_disclosure": "Two sentences; actual research uses retained"
+}

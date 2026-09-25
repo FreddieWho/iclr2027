@@ -1,0 +1,411 @@
+{
+  "schema": 1,
+  "purpose": "M2 full repair rerun: valid frozen/tuned backbone, seeded initialization, exposure-matched clean baseline, row-weighted CIs",
+  "cwd": "/root/iclr_submission_audit_20260925/m2_code",
+  "input_files": [
+    {
+      "path": "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+      "sha256": "db9d173ff7ba13bf74d1032fd19ecb57df19bad60f566a4f05ee2d58b53efa29"
+    },
+    {
+      "path": "/root/iclr_submission_audit_20260925/m2_code/common/metrics.py",
+      "sha256": "7bb6a3bd8018abaa1eae7cbf8a2ff7561d162c5a3be515c0bcba4ea2cc93b842"
+    },
+    {
+      "path": "/root/iclr_submission_audit_20260925/run_gpu_job.py",
+      "sha256": "706b730cda7ffa78af28d466e1957971a4b4b62ccfe58bfb441fefb5c5582cb6"
+    },
+    {
+      "path": "/root/e832_route2/m2_v3/bank/data.npz",
+      "sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342"
+    },
+    {
+      "path": "/root/e832_route2/m2_v3/bank/data_manifest.json",
+      "sha256": "50060815bfe5f4eab48fe04c1ccdf60f1208aea1a87c15f45b63fc3d390e6667"
+    },
+    {
+      "path": "/root/e832_route2/m2_v3/head/model.pt",
+      "sha256": "8b9c43f805f1d48acd8a2a4f1644d1ce41ff2804c4e8fd0b91865db189e3dde3"
+    },
+    {
+      "path": "/root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    }
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4"
+  },
+  "steps": [
+    {
+      "id": "direct_full_803",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/direct_full_803",
+        "--mode",
+        "direct_full",
+        "--seed",
+        "803",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/direct_full_803/result.json",
+        "m2/direct_full_803/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "direct_full_805",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/direct_full_805",
+        "--mode",
+        "direct_full",
+        "--seed",
+        "805",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/direct_full_805/result.json",
+        "m2/direct_full_805/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "direct_full_806",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/direct_full_806",
+        "--mode",
+        "direct_full",
+        "--seed",
+        "806",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/direct_full_806/result.json",
+        "m2/direct_full_806/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "direct_clean_803",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/direct_clean_803",
+        "--mode",
+        "direct_clean",
+        "--seed",
+        "803",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/direct_clean_803/result.json",
+        "m2/direct_clean_803/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "direct_clean_805",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/direct_clean_805",
+        "--mode",
+        "direct_clean",
+        "--seed",
+        "805",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/direct_clean_805/result.json",
+        "m2/direct_clean_805/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "direct_clean_806",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/direct_clean_806",
+        "--mode",
+        "direct_clean",
+        "--seed",
+        "806",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/direct_clean_806/result.json",
+        "m2/direct_clean_806/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "true_geometry_803",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/true_geometry_803",
+        "--mode",
+        "true_geometry",
+        "--seed",
+        "803",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt"
+      ],
+      "outputs": [
+        "m2/true_geometry_803/result.json",
+        "m2/true_geometry_803/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "random_head_803",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/random_head_803",
+        "--mode",
+        "random_head",
+        "--seed",
+        "803",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/random_head_803/result.json",
+        "m2/random_head_803/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "random_head_805",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/random_head_805",
+        "--mode",
+        "random_head",
+        "--seed",
+        "805",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/random_head_805/result.json",
+        "m2/random_head_805/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "random_head_806",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/random_head_806",
+        "--mode",
+        "random_head",
+        "--seed",
+        "806",
+        "--epochs",
+        "20"
+      ],
+      "outputs": [
+        "m2/random_head_806/result.json",
+        "m2/random_head_806/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "geom_front_803",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/geom_front_803",
+        "--mode",
+        "geom_front",
+        "--seed",
+        "803",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt"
+      ],
+      "outputs": [
+        "m2/geom_front_803/result.json",
+        "m2/geom_front_803/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "geom_front_805",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/geom_front_805",
+        "--mode",
+        "geom_front",
+        "--seed",
+        "805",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt"
+      ],
+      "outputs": [
+        "m2/geom_front_805/result.json",
+        "m2/geom_front_805/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "geom_front_806",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/geom_front_806",
+        "--mode",
+        "geom_front",
+        "--seed",
+        "806",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt"
+      ],
+      "outputs": [
+        "m2/geom_front_806/result.json",
+        "m2/geom_front_806/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "geom_front_tuned_803",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/geom_front_tuned_803",
+        "--mode",
+        "geom_front",
+        "--seed",
+        "803",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt",
+        "--unfreeze-backbone"
+      ],
+      "outputs": [
+        "m2/geom_front_tuned_803/result.json",
+        "m2/geom_front_tuned_803/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "geom_front_tuned_805",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/geom_front_tuned_805",
+        "--mode",
+        "geom_front",
+        "--seed",
+        "805",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt",
+        "--unfreeze-backbone"
+      ],
+      "outputs": [
+        "m2/geom_front_tuned_805/result.json",
+        "m2/geom_front_tuned_805/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "id": "geom_front_tuned_806",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+        "--bank",
+        "/root/e832_route2/m2_v3/bank",
+        "--out",
+        "{run_root}/m2/geom_front_tuned_806",
+        "--mode",
+        "geom_front",
+        "--seed",
+        "806",
+        "--epochs",
+        "20",
+        "--head-checkpoint",
+        "/root/e832_route2/m2_v3/head/model.pt",
+        "--unfreeze-backbone"
+      ],
+      "outputs": [
+        "m2/geom_front_tuned_806/result.json",
+        "m2/geom_front_tuned_806/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Submission audit: visual evidence (2026-09-25)
+
+## Scope and disposition
+
+This overlay independently re-scores archived predictions, requests, receipts, and manifests. No training, inference, download, provider call, or sealed holdout access occurred. Historical reports and result archives remain immutable. Re-run with `python experiments/submission_audit_20260925/vision_recompute.py`; detailed numbers, denominators, input hashes, and explicit `NOT_RUN` entries are in `artifacts/submission_audit_20260925/vision/recomputation.json`.
+
+The N02 current metrics implementation had a real naming inversion: the former `CCM` was conditional joint success, while the metric contract uses CCM for conditional composition miss. The current schema v2 emits `conditional_joint_success`, `composition_miss`, `CCM` (miss), `legacy_CCM_success`, and its denominator. A constructed counterexample with correct A/B atoms and wrong AB checks the distinction. Historical result files were not rewritten.
+
+N02 A2 amended the initial 36-arm plan before training: six W×pretrained cells were removed because the wide network has no pretrained weights; the 30-arm matrix is complete. On the 178-quartet/85-parent N02 bank, new-backend P0 is positive across both initializations and all three seeds. P1 uses parent-equal J, not the quartet-weighted row values printed in the old report. Same-estimand values (JA/JW/JB) are s803 .487/.663/.771, s805 .476/.659/.807, and s806 .466/.594/.762; f is .619/.552/.434 (descriptive mean .535). An exploratory seed×parent bootstrap interval for mean seed f is [.358,.700], crossing .5. This wide architecture changes both capacity (~15.98× parameters) and compute (~1.242× MACs versus B), so wording must remain “about half for this compute-or-capacity recipe,” not a pure-compute or grid-causal decomposition.
+
+P2 remains unresolved: the larger filtered small-edit bank has 564 quartets/146 parents, cap four per parent. Pretrained interactions are +.183/−.119/−.014 across seeds; random-init interactions are +.136/+.114/+.050. This does not support the frozen both-initializations negative gate. The historical pretrained hit on the old 178/85 bank did not recur, but changed hardware/software and other execution inputs mean backend causality is unidentified; remove “backend-specific” and “falsified by backend” wording. Do not merge the historical 5-row/3-parent small-edit bank with the new 564/146 stratum.
+
+## Historical visual evidence
+
+- O03 static-to-flip differences are quartet-weighted point estimates with parent-cluster bootstrap intervals (159 quartets/74 parents): +.145 pretrained and +.203 random, averaged across three seeds.
+- N01 matched auxiliary targets improve saved dev geometry error, but test-J contrasts versus BCE-only are inconsistent across the three seeds; describe learnability evidence without a stable relational-J benefit.
+- N03 geometry bottleneck has no stable three-seed J advantage over generic bottleneck; only seed 805 has a parent-cluster interval excluding zero. The fixed-rule classical pixel baseline is 114/159=.717 J. Oracle replacement remains diagnostic only.
+- O06 is one frozen Qwen2.5-VL-3B revision evaluated through 272 image requests, representing 64 quartet rows/64 parents plus 16 sanity images. Atomic A/B accuracy is .203 each; only 13 quartets have both atoms correct and all 13 AB responses are wrong. This is a scoped one-model result with low atomic competence and a small conditional denominator, not a general VLM or composition-specific claim.
+
+## Ready-to-use replacement wording for N02 appendix
+
+“On the new-backend N02 bank (178 quartets, 85 parents), the 30-run matrix followed the pre-training A2 amendment from 36 planned arms, which removed six unavailable wide-network pretrained cells. For random initialization, parent-equal J values (A, A-wide, B) were (.487, .663, .771), (.476, .659, .807), and (.466, .594, .762) for seeds 803, 805, and 806; the corresponding descriptive fractions of the B−A gap closed by A-wide were .619, .552, and .434. Their mean is .535, while an exploratory hierarchical 95% interval crosses .5. Since A-wide changes both MACs and parameter count, this is evidence for about half under this compute-or-capacity recipe, not an isolated compute effect or a causal residual grid effect. On a separately filtered 564-quartet/146-parent small-edit bank, the preregistered negative lowstride interaction gate was not met in both initializations; P2 remains unresolved. A prior interaction did not recur under the new execution environment, which does not identify backend causality.”
+
+## Reporting corrections
+
+Use same-estimand parent-equal JA/JW/JB triples when displaying f; do not compute f from the previous quartet-weighted table rows. Call the hierarchical interval a posthoc sensitivity analysis with only three seeds. Replace “remaining half is grid-related” with “the residual is compatible with a grid contribution but is not causally isolated.” Replace “backend-specific” with “not replicated under the new execution environment; source unidentified.” Keep parent-level and quartet-level estimands labeled in O03/N01/N03. Treat 272 as image requests, not independent composition trials.

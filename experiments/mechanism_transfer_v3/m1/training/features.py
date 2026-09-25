@@ -189,8 +189,8 @@ def orbit_tie_fraction(x, perms=SOURCE_PERMS, atol: float = 1e-9) -> float:
                 for perm in perms
             ]
         )
-        best = cand.min(axis=0)
-        near = np.abs(cand - best).max(axis=1) <= atol
+        lex_min = min(cand, key=lambda row: tuple(row.tolist()))
+        near = np.abs(cand - lex_min).max(axis=1) <= atol
         if int(near.sum()) > 1:
             tied += 1
     return float(tied / len(scenes))

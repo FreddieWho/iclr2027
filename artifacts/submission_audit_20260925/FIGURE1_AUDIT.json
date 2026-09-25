@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "four_binary_truth_table_cases": "PASS",
+  "selected_examples_unchanged": true,
+  "displayed_baseline_and_flip_predictions": 12,
+  "displayed_correctness_consistency": "12/12",
+  "visual_inspection": "PASS: before-to-after class labels visible; P shows oracle only",
+  "old_selection_receipt_sha256": "8bd34d2bf7dc3363afe730687a055be5bf6f1bd9d68676e2503492b836992490",
+  "new_selection_receipt_sha256": "055157cb995926f82b85027c8fd241ef8e45dc5356253812e9ad968ea78e2562",
+  "old_numerical_predictions_modified": false
+}

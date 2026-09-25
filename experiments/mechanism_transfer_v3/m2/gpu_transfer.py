@@ -122,11 +122,52 @@ class GeomFront(nn.Module):
             param.requires_grad = not freeze_backbone
         self.probe = nn.Linear(512, 6)
 
+    def train(self, mode: bool = True):
+        super().train(mode)
+        if self.freeze_backbone:
+            # A frozen feature extractor includes its BatchNorm running state.
+            self.backbone.eval()
+        return self
+
     def forward(self, images):
-        with torch.no_grad():
+        if self.freeze_backbone:
+            with torch.no_grad():
+                z = self.backbone(self.prep(images))
+        else:
             z = self.backbone(self.prep(images))
-            pooled = F.adaptive_avg_pool2d(z, 1).flatten(1)
+        pooled = F.adaptive_avg_pool2d(z, 1).flatten(1)
         return self.probe(pooled)
+
+
+def _tensor_sha256(tensor: torch.Tensor) -> str:
+    value = tensor.detach().cpu().contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(value.dtype).encode("ascii"))
+    digest.update(json.dumps(list(value.shape)).encode("ascii"))
+    digest.update(value.numpy().tobytes())
+    return digest.hexdigest()
+
+
+def _backbone_hashes(backbone: nn.Module) -> dict:
+    parameters = dict(backbone.named_parameters())
+    buffers = dict(backbone.named_buffers())
+    bn_buffers = {
+        name: value
+        for name, value in buffers.items()
+        if name.endswith(("running_mean", "running_var", "num_batches_tracked"))
+    }
+    return {
+        "parameters": {name: _tensor_sha256(value) for name, value in parameters.items()},
+        "trainable_parameters": {
+            name: _tensor_sha256(value)
+            for name, value in parameters.items()
+            if value.requires_grad
+        },
+        "buffers": {name: _tensor_sha256(value) for name, value in buffers.items()},
+        "batchnorm_buffers": {
+            name: _tensor_sha256(value) for name, value in bn_buffers.items()
+        },
+    }
 
 
 def load_backbone(device: torch.device, pretrained: bool = True) -> nn.Module:
@@ -228,11 +269,19 @@ def train_loop(
     loss_kind: str,
     train_targets: np.ndarray | None = None,
     dev_targets: np.ndarray | None = None,
+    epoch_size: int | None = None,
 ) -> dict:
     torch.manual_seed(seed)
     np.random.seed(seed)
     trainable = [p for p in model.parameters() if p.requires_grad]
     opt = torch.optim.Adam(trainable, lr=LR)
+    backbone_before = _backbone_hashes(model.backbone) if isinstance(model, GeomFront) else None
+    probe_before = (
+        {name: _tensor_sha256(value) for name, value in model.probe.named_parameters()}
+        if isinstance(model, GeomFront)
+        else None
+    )
+    backbone_first_batch = None
     best, best_state, history = float("inf"), None, []
     train_t = torch.from_numpy(train_labels).to(device)
     dev_t = torch.from_numpy(dev_labels).to(device)
@@ -240,11 +289,19 @@ def train_loop(
         train_targets = torch.from_numpy(train_targets).to(device)
         dev_targets = torch.from_numpy(dev_targets).to(device)
     n = len(train_images)
+    exposure_size = n if epoch_size is None else int(epoch_size)
+    if n < 1 or exposure_size < 1:
+        raise ValueError("training requires at least one row and one row exposure per epoch")
     for epoch in range(epochs):
         model.train()
-        perm = np.random.permutation(n)
+        if epoch == 0 and isinstance(model, GeomFront):
+            backbone_training_mode = bool(model.backbone.training)
+        if exposure_size <= n:
+            perm = np.random.permutation(n)[:exposure_size]
+        else:
+            perm = np.random.randint(0, n, size=exposure_size)
         total, count = 0.0, 0
-        for i in range(0, n, BATCH):
+        for i in range(0, len(perm), BATCH):
             idx = perm[i : i + BATCH]
             batch = torch.from_numpy(train_images[idx]).to(device)
             opt.zero_grad()
@@ -254,6 +311,24 @@ def train_loop(
             else:
                 loss = F.mse_loss(pred, train_targets[idx])
             loss.backward()
+            if backbone_first_batch is None and isinstance(model, GeomFront):
+                grads = [
+                    param.grad.detach()
+                    for param in model.backbone.parameters()
+                    if param.grad is not None
+                ]
+                grad_abs_sum = sum(float(grad.abs().sum().cpu()) for grad in grads)
+                grad_sq_sum = sum(float(grad.square().sum().cpu()) for grad in grads)
+                backbone_first_batch = {
+                    "gradient_tensor_count": len(grads),
+                    "nonzero_gradient_tensor_count": sum(
+                        int(bool(torch.count_nonzero(grad).item())) for grad in grads
+                    ),
+                    "gradient_abs_sum": grad_abs_sum,
+                    "gradient_l2_norm": float(np.sqrt(grad_sq_sum)),
+                }
+                if not model.freeze_backbone and backbone_first_batch["gradient_l2_norm"] <= 0:
+                    raise RuntimeError("unfrozen geometry frontend received no backbone gradient")
             opt.step()
             total += float(loss.detach()) * len(idx)
             count += len(idx)
@@ -273,7 +348,26 @@ def train_loop(
             best = dev_loss
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
     model.load_state_dict(best_state)
-    return {"best_dev_loss": best, "history": history}
+    result = {
+        "best_dev_loss": best,
+        "history": history,
+        "train_unique_rows": int(n),
+        "train_row_exposures_per_epoch": int(exposure_size),
+        "train_row_exposures_total": int(exposure_size * epochs),
+        "train_sampling": "with replacement" if exposure_size > n else "without replacement",
+    }
+    if isinstance(model, GeomFront):
+        backbone_after = _backbone_hashes(model.backbone)
+        result["backbone_update_audit"] = {
+            "schema": "mechanism_transfer_v3.m2.backbone_update_audit/1",
+            "freeze_backbone": model.freeze_backbone,
+            "probe_parameters_before_training": probe_before,
+            "training_mode_at_first_batch": backbone_training_mode,
+            "first_batch_gradient": backbone_first_batch,
+            "before_training": backbone_before,
+            "after_selected_dev_checkpoint": backbone_after,
+        }
+    return result
 
 
 def evaluate_states(
@@ -287,8 +381,12 @@ def evaluate_states(
     labels = np.asarray(labels, dtype=np.float64).reshape(n_quartets, 4)
     record = metrics.joint_metrics(logits, labels, p_available=True)
     j3_correct = ((logits[:, 1:] > 0) == (labels[:, 1:] > 0.5)).all(axis=1).astype(float)
-    ci = metrics.parent_cluster_ci(j3_correct, parents, seed=seed)
-    record["J3_parent_cluster_ci"] = ci
+    row_ci = metrics.row_weighted_cluster_ci(j3_correct, parents, seed=seed)
+    parent_ci = metrics.parent_cluster_ci(j3_correct, parents, seed=seed)
+    record["J3_row_weighted_cluster_ci"] = row_ci
+    record["J3_parent_equal_weight_ci"] = parent_ci
+    # Retain the prior key for readers of old schemas; its estimand is explicit.
+    record["J3_parent_cluster_ci"] = parent_ci
     record["n_quartets"] = n_quartets
     record["n_parents"] = len(np.unique(parents))
     return {
@@ -298,7 +396,7 @@ def evaluate_states(
                 "n_eligible_parents": len(np.unique(parents)),
                 "n_sampled_parents": len(np.unique(parents)),
                 "row_mean": record["J3"],
-                "parent_mean": ci["estimate"],
+                "parent_mean": parent_ci["estimate"],
             }
         ),
         **record,
@@ -325,6 +423,10 @@ def run_cell(
     loaded = load_bank(bank_dir)
     data = loaded["data"]
 
+    # Seed model construction as well as the epoch sampler; in particular the
+    # geometry probe is initialized before train_loop resets its RNG.
+    torch.manual_seed(seed)
+    np.random.seed(seed)
     backbone = load_backbone(device, pretrained=pretrained_backbone)
     head = None
     if mode in ("true_geometry", "random_head", "geom_front"):
@@ -341,12 +443,14 @@ def run_cell(
     result = {"mode": mode, "seed": seed, "epochs": epochs}
     if mode in ("direct_full", "direct_clean"):
         clean_only = mode == "direct_clean"
+        full_train_rows = len(train_images)
         if clean_only:
             train_images, train_labels, _, _ = singleton_split(data, "train", clean_only=True)
         model = DirectNet(backbone).to(device)
         train_info = train_loop(
             model, train_images, train_labels, dev_images, dev_labels,
             seed=seed, epochs=epochs, device=device, loss_kind="bce",
+            epoch_size=full_train_rows if clean_only else None,
         )
         result["train"] = {k: v for k, v in train_info.items() if k != "history"}
         result["history"] = train_info["history"]
@@ -366,7 +470,9 @@ def run_cell(
             seed=seed, epochs=epochs, device=device, loss_kind="mse",
             train_targets=train_orbit, dev_targets=dev_orbit,
         )
-        result["train"] = {k: v for k, v in train_info.items() if k != "history"}
+        result["train"] = {
+            k: v for k, v in train_info.items() if k not in ("history", "backbone_update_audit")
+        }
         result["history"] = train_info["history"]
         torch.save(model.state_dict(), out_dir / "model_probe.pt")
         front_pred = batched_predict(model, quartet_images.reshape(-1, 3, 64, 64), device)
@@ -375,12 +481,18 @@ def run_cell(
             quartet_logits = head(torch.from_numpy(front_pred).to(device)).cpu().numpy()
         result["dev_geometry_mse"] = train_info["best_dev_loss"]
         result["freeze_backbone"] = freeze_backbone
+        result["backbone_update_audit"] = train_info["backbone_update_audit"]
     else:
         raise ValueError(f"unknown mode {mode}")
 
     table = evaluate_states(quartet_logits, quartet_labels, quartet_parents, len(quartet_images), seed)
     result["quartet_table"] = table
-    np.savez(out_dir / "predictions.npz", logits=quartet_logits, labels=quartet_labels)
+    np.savez(
+        out_dir / "predictions.npz",
+        logits=quartet_logits,
+        labels=quartet_labels,
+        parents=quartet_parents,
+    )
     result["seconds"] = time.time() - t0
     (out_dir / "result.json").write_text(json.dumps(result, indent=2))
     return result

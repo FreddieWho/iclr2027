@@ -1,0 +1,98 @@
+{
+  "audit_date": "2026-09-25",
+  "baseline": "3fc9757",
+  "scope": "Current active manuscript claims. Archived published summaries and predictions audited; sealed raw holdouts not reopened; no training or inference.",
+  "claims": [
+    {
+      "id": "CORE-FRESH-COMPOSITION",
+      "claim": "Fresh holdout: 151/176 eligible joint compositions (85.8%) are missed when both component edits preserve the oracle label and both component predictions are correct.",
+      "verdict": "SUPPORTED_WITH_DENOMINATOR_QUALIFICATION",
+      "allowed_wording": "On the one-shot fresh holdout, 151/176 (85.8%) oracle-changing compositions were missed, conditional on both component edits being oracle-label preserving and correctly predicted.",
+      "forbidden_wording": "Do not imply 176 independent parents, omit atomic preconditions, or pool discovery 62/66 with the fresh result.",
+      "denominator": "Archived n04_clean aggregate: 176 eligible cases, 151 misses. Discovery 62/66 is separate; matched-single control 61%/251 is descriptive.",
+      "code_paths": ["experiments/last15h/e1_battery.py"],
+      "evidence_paths": ["artifacts/last15h/E1/holdout_909/result.json", "paper/sections/03_phenomenon.tex", "paper/sections/08_reproducibility.tex"],
+      "recomputation": {
+        "kind": "Archived-summary arithmetic and eligibility-code audit; no raw holdout or inference.",
+        "values": {"n04_clean_n": 176, "n04_clean_miss_rate": 0.8579545454545454, "n04_clean_miss_n": 151, "flipmine_n": 141, "flipmine_miss_rate": 0.7730496453900709, "flipmine_miss_n": 109, "discovery_n": 66, "discovery_miss_n": 62, "matched_single_n": 251, "matched_single_miss_rate_rounded": 0.61},
+        "rerun_command": "python3 -c 'n=176; r=0.8579545454545454; print(round(n*r), n, r)'"
+      },
+      "limitations": "The published aggregate does not expose unique-parent count or parent-cluster uncertainty for the 176 cases. The one-shot holdout remains sealed.",
+      "fixes": "No numeric correction required. State eligibility conditions and keep discovery/fresh denominators separate."
+    },
+    {
+      "id": "CORE-P1-CONFIDENCE",
+      "claim": "P1 reports current-state error and post-flip endpoint error by frozen pre-change confidence bins, plus grouped OOF predictive associations.",
+      "verdict": "SUPPORTED_WITH_CONDITIONAL_SCOPE",
+      "allowed_wording": "Among currently correct examples undergoing a true semantic flip, endpoint error rises across bins of pre-change confidence. Grouped OOF results support predictive association, not causality.",
+      "forbidden_wording": "Do not call start confidence endpoint confidence, treat bins as equal-sized quartiles, or generalize conditional flip results to deployment prevalence or causality.",
+      "denominator": "Six models by two banks. Archived ranges: current error lowest bin 0.2733–0.5105 and highest bin 0.0183–0.0571; flip endpoint error lowest bin 0.3632–0.6086 and highest bin 0.9477–1.0. Of 12 top-bin estimates, 11 are 1.0 and one is 0.9831.",
+      "code_paths": ["experiments/next_novelty/p1_unified.py", "experiments/next_novelty/p1b_analysis.py"],
+      "evidence_paths": ["artifacts/next_novelty/p1b_res_v2/P1B.json", "artifacts/next_novelty/p1b_confirm_v2/P1B.json", "artifacts/next_novelty/p1g_confirm/P1G_CORRECTED.json", "reports/final_closure/P1_CLOSURE_REPORT.md", "paper/sections/03_phenomenon.tex"],
+      "recomputation": {
+        "kind": "Archived prediction-summary consistency audit; no model inference.",
+        "checks": ["Audited start_correct agreed with start prediction/label and end_correct with end prediction/label.", "Confirm thresholds match frozen dev thresholds.", "P1G_CORRECTED is the active corrected artifact; stale P1G is superseded."],
+        "values": {"models": 6, "banks": 2, "top_bin_estimates": 12, "top_bin_equal_one": 11, "other_top_bin_error": 0.9831, "current_error_low_bin": [0.2733, 0.5105], "current_error_high_bin": [0.0183, 0.0571], "flip_error_low_bin": [0.3632, 0.6086], "flip_error_high_bin": [0.9477, 1.0]},
+        "rerun_command": "python3 -m pytest tests/test_submission_audit_core_spearman.py -q"
+      },
+      "limitations": "Cutoffs are frozen dev thresholds and tied observations make bin counts unequal. Flip results condition on a correct start and true semantic change.",
+      "fixes": "Identify confidence as pre-change/start confidence and retain conditional wording."
+    },
+    {
+      "id": "CORE-P2-DECISION",
+      "claim": "P2 evaluates a refusal/coverage operating point and bounded affine-logit controls.",
+      "verdict": "SUPPORTED_WITH_SMALL_SLICE_AND_GRID_LIMITS",
+      "allowed_wording": "Among 93 oracle-feasible scenes in the 171-scene test slice, refusal fell 0.4301 to 0.1183 and coverage rose 0.5699 to 0.8817; non-refusal precision was similar (0.2264 vs 0.2195). The tested bounded affine control did not reproduce the full repair profile.",
+      "forbidden_wording": "Do not use 171 as refusal-rate denominator, claim universal precision gains, or generalize beyond the tested affine grid and operating point.",
+      "denominator": "U02: 93 feasible of 171 test scenes; rates use feasible scenes. P2 affine analysis: 43 feasible dev and 96 feasible eval scenes.",
+      "code_paths": ["experiments/next6_ef0f7a3/u02_decision.py", "experiments/repair_decomposition/p2_operating.py", "experiments/repair_decomposition/p2_decompose.py"],
+      "evidence_paths": ["artifacts/next6_ef0f7a3/u02/result.json", "artifacts/next_novelty/p2/P2_OPERATING.json", "artifacts/next_novelty/p2/P2_AFFINE_BEHAV.json", "artifacts/next_novelty/p2/P2_AFFINE_ATOMS.json", "reports/final_closure/P2_CLOSURE_REPORT.md", "paper/sections/04b_boundary.tex", "paper/sections/04_mechanism.tex"],
+      "recomputation": {
+        "kind": "Published aggregate arithmetic and archived-summary audit; no inference.",
+        "values": {"test_n": 171, "feasible_n": 93, "clean_refusal": 0.43010752688172044, "flipmine_refusal": 0.11827956989247312, "clean_coverage": 0.5698924731182795, "flipmine_coverage": 0.8817204301075269, "clean_nonrefusal_precision": 0.22641509433962265, "flipmine_nonrefusal_precision": 0.21951219512195122, "affine_eval_n": 96, "affine_success_clean_range": [0.1354, 0.1979], "affine_success_range": [0.1146, 0.1667], "flipmine_success_range": [0.1667, 0.25]},
+        "rerun_command": "python3 -c 'print(93, 171, 0.43010752688172044, 0.11827956989247312)'"
+      },
+      "limitations": "U02 is a single seeded split from a reused pool. Affine search is bounded to registered grid and selected seeds; several intervals include zero.",
+      "fixes": "Keep 93/171 feasibility adjacent to rates and scope affine wording to evaluated grid."
+    },
+    {
+      "id": "CORE-P3-REPAIR-MIGRATION",
+      "claim": "P3 decomposes endpoint repair into full repair and migration among clean-baseline hard cases; U1 and fresh own-conditional summaries use distinct denominators.",
+      "verdict": "SUPPORTED_WITH_CONDITIONAL_ROW_WEIGHTED_ESTIMAND",
+      "allowed_wording": "Among clean-baseline hard cases, endpoint repair partitions into full repair plus migration. Migration accounts for about 79–94% of endpoint repair in audited dev summaries. Parent-cluster intervals resample parents and retain associated quartets, while point estimates remain quartet-row weighted.",
+      "forbidden_wording": "Do not report conditional rates as global repair fractions or equal-parent point estimates. Do not treat fresh 109/141 as a paired delta against 151/176.",
+      "denominator": "P3 H sizes are 110, 120, 110 for seeds 11, 23, 47. U1 H sizes are 110, 120, 110 with 58, 65, 56 parents. Fresh flipmine is 109/141.",
+      "code_paths": ["experiments/ccm_audit/p3_final.py", "experiments/e832_focus/route5_table/build_fallback_table.py", "experiments/last15h/e1_battery.py"],
+      "evidence_paths": ["artifacts/next_novelty/p3_v2/P3_FINAL.json", "artifacts/next_novelty/u1_factorial/U1_PERQUARTET.csv", "artifacts/next_novelty/u1_factorial/U1_SUMMARY.json", "artifacts/next_novelty/relflip/RELFLIP_CONFIRM.json", "artifacts/last15h/E1/holdout_909/result.json", "paper/sections/04_mechanism.tex", "paper/sections/05_repair.tex", "paper/sections/08_reproducibility.tex"],
+      "recomputation": {
+        "kind": "Archived P3/U1/confirmation summaries and per-quartet table recalculation; no sealed raw inputs opened.",
+        "values": {
+          "P3_by_seed": {"11": {"H_n": 110, "R_full": 0.0636, "R_endpoint": 0.4273, "M": 0.3636, "M_over_R_endpoint": 0.8511}, "23": {"H_n": 120, "R_full": 0.025, "R_endpoint": 0.425, "M": 0.4, "M_over_R_endpoint": 0.9412}, "47": {"H_n": 110, "R_full": 0.1, "R_endpoint": 0.4818, "M": 0.3818, "M_over_R_endpoint": 0.7925}},
+          "U1_by_seed": {"11": {"H_n": 110, "unique_parents": 58, "J": 0.384, "R_full": 0.3727, "M": 0.3727, "R_endpoint": 0.7455}, "23": {"H_n": 120, "unique_parents": 65, "J": 0.4219, "R_full": 0.4417, "M": 0.3167, "R_endpoint": 0.7583}, "47": {"H_n": 110, "unique_parents": 56, "J": 0.3966, "R_full": 0.3636, "M": 0.4182, "R_endpoint": 0.7818}},
+          "confirm_relational": {"n": 509, "J_by_seed": [0.4735, 0.4479, 0.4361], "R_full_by_seed": [0.4954, 0.4709, 0.4485], "M_by_seed": [0.2508, 0.2905, 0.3]}
+        },
+        "rerun_command": "python3 -c 'print(0.0636+0.3636, 0.025+0.4, 0.1+0.3818)'"
+      },
+      "limitations": "Parent-cluster bootstrap does not convert the row-weighted point estimator to an equal-parent estimand. Confirmation values are published aggregate checks only.",
+      "fixes": "Current reproducibility text distinguishes cluster-resampled intervals from quartet-level point estimates. Keep baseline conditioning explicit."
+    },
+    {
+      "id": "CORE-WP4-SPEARMAN",
+      "claim": "Six archived WP4 arms show stronger static-error/action-invalidity association than transition-error/action-invalidity association; present Spearman code handles ties and non-finite pairs.",
+      "verdict": "SUPPORTED_FOR_ARCHIVED_SIX_ARM_VALUES; IMPLEMENTATION_EDGE_CASE_FIXED",
+      "allowed_wording": "Across six archived arms, static error correlates with action invalidity at rho 0.94 versus rho 0.54 for transition error, as a one-seed arm-level association.",
+      "forbidden_wording": "Do not call this multi-seed or causal evidence or generalize beyond six archived arms.",
+      "denominator": "Six arms, one seed. Archived vectors have six distinct finite values; the correction does not change reported values.",
+      "code_paths": ["experiments/update_geometry/wp4_unified.py", "tests/test_submission_audit_core_spearman.py"],
+      "evidence_paths": ["artifacts/update_geometry/wp4/WP4_RESULTS.json", "paper/sections/03_phenomenon.tex"],
+      "recomputation": {
+        "kind": "Archived six-arm rank-correlation recalculation under ordinal and average-rank methods; identical because saved vectors contain no ties.",
+        "values": {"static_error_vs_action_invalidity": 0.94, "transition_error_vs_action_invalidity": 0.54, "ties": false},
+        "rerun_command": "python3 -m pytest tests/test_submission_audit_core_spearman.py -q"
+      },
+      "limitations": "No WP4 inference or artifact rewrite was performed. Six arms from one seed only.",
+      "fixes": "Minimal present-code fix uses average ranks, pairwise finite filtering, and no coefficient for constant or underspecified inputs."
+    }
+  ],
+  "not_run": ["No training, download, rental, external transmission, or inference.", "Sealed raw holdout_909, confirm_1007, holdout_895, J03WQQ, and SoccerTrack-v2 inputs were not reopened.", "No broad test suite. The targeted Spearman regression test was previously run: 6 passed."]
+}

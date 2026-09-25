@@ -1,0 +1,8 @@
+{
+  "baseline": "3fc9757",
+  "m2_old_runner_remote_sha256": "fab5ffde7e0e6bf10303cc40a370f516c6cf36a0f8dd8094f05fa20618b26d28",
+  "m2_old_runner_git_HEAD_sha256": "fab5ffde7e0e6bf10303cc40a370f516c6cf36a0f8dd8094f05fa20618b26d28",
+  "equal": true,
+  "method": "remote sha256sum and local git show HEAD content hash",
+  "implication": "The no_grad/frozen-BN and initialization-order defects are present in the actual historical M2 runner, not only the current checkout."
+}

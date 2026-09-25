@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-25",
+  "baseline_head": "3fc9757398ebc88652362b906a2a98710bf17650",
+  "initial_git_status": "?? .codegraph/",
+  "root": "/home/huyudi/012_conference/iclr2027",
+  "python": "3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]",
+  "platform": "Linux-5.15.0-134-generic-x86_64-with-glibc2.31",
+  "scope": "conclusion-to-code audit, bounded repairs, archived-evidence recomputation, writing evidence index",
+  "sealed_data_policy": "Do not reopen holdout_909, confirm_1007, bridge holdout_895, J03WQQ, SoccerTrack-v2; published summaries may be inspected",
+  "historical_artifact_policy": "No rewriting historical predictions, receipts, or frozen experiment sources; use audit overlays where needed",
+  "new_training": "NOT_RUN unless a demonstrated essential low-cost repair requires it; no new GPU provisioning or charges"
+}

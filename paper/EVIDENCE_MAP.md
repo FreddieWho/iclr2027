@@ -1,13 +1,11 @@
-> **2026-09-24修订入口**：e1a933审计后的当前措辞以
-> `reports/e1a933_review/AFFECTED_CLAIMS.csv` 与
-> `reports/e1a933_review/PAPER_PATCH_AUDIT.md` 为准。此前final_closure
-> ledger保留为原始结果来源；受本轮纠正的归因不继续沿用。
+> **2026-09-25 写作入口**：`reports/submission_audit_20260925/README.md`。
+> 当前结论映射见该目录 `CLAIMS.csv`；现稿结论覆盖见 `paper_map/INVENTORY.csv`。
+> 历史报告与 ledger 保留为原始来源，受本轮更正的归因不继续沿用。
 
 > ⚠️ **已取代（旧论文骨架的证据映射，2026-09-05）**：本表对应的是机制先行旧稿
 > （AMR/T5R 叙事）。论文已于 2026-09-18 迁移到最终叙事（见
-> `reports/final_closure/PAPER_MIGRATION_AUDIT.md`）。当前正文数字唯一来源：
-> `reports/final_closure/MASTER_CLAIM_LEDGER.md`；证据表：
-> `reports/final_closure/FINAL_EVIDENCE_TABLE.md`。本文件保留作历史。
+> `reports/final_closure/PAPER_MIGRATION_AUDIT.md`）。2026-09-22 的 master ledger
+> 与证据表均为历史来源，不覆盖 9 月 25 日后续实验。本文件保留作历史。
 
 # 证据映射：手稿每一节的数字与措辞规则 → 冻结 artifact
 

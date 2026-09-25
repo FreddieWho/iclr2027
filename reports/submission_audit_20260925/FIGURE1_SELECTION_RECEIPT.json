@@ -1,0 +1,114 @@
+{
+  "status": "SELECTED",
+  "schema": "figure1_binary_predictions_v2",
+  "renderer_sha256": "d76d4c9ecd98cfb007ca8cd41a176f421828ee39b08f7357a7612b85493e2d24",
+  "selection_rule": {
+    "bank": "artifacts/p123_upgrade/bank/bank_dev512.npz",
+    "prediction_file": "artifacts/next_novelty/u1_factorial/U1_PERQUARTET.csv",
+    "seed": 11,
+    "endpoint": "raw_clean 110 -> raw_flipmine AB=1 and at least one atomic=0",
+    "full": "relfeat 110 -> relflip 111",
+    "tie_break": "smallest parent id, then archived qid",
+    "no_seed_switch": true,
+    "no_effect_estimate": true
+  },
+  "source_hashes": {
+    "artifacts/p123_upgrade/bank/bank_dev512.npz": "2178613957f459f82b3418cfda92ce24f61b4fa85dbff4c243d11b77adf961ac",
+    "artifacts/p123_upgrade/bank/bank_dev512.manifest.json": "204d65871a9021447988ac3cf132251f4b4588c71fd8fe8c172cba6523c96bd3",
+    "artifacts/next_novelty/u1_factorial/U1_PERQUARTET.csv": "48e53adcdaf9a098580602711fa0981b29a7a29d22209dcccf077bb5704eb31e",
+    "artifacts/discovery_campaign/scenes/eval_202/scenes.npz": "71540cd22b365cefff1d14362d4c9718dc7860213cd96facdbe758b00822acd9"
+  },
+  "eligible_counts": {
+    "endpoint_only": 40,
+    "full_repair": 56
+  },
+  "selected": [
+    {
+      "kind": "endpoint_only",
+      "parent": 10,
+      "qid": 143,
+      "baseline_arm": "raw_clean",
+      "flip_arm": "raw_flipmine",
+      "baseline_state": [
+        1,
+        1,
+        0
+      ],
+      "flip_state": [
+        0,
+        0,
+        1
+      ],
+      "state_encoding": "A/B/AB correctness indicators, not class predictions",
+      "displayed_predictions": {
+        "A": {
+          "baseline": 0,
+          "flip": 1
+        },
+        "B": {
+          "baseline": 0,
+          "flip": 1
+        },
+        "AB": {
+          "baseline": 0,
+          "flip": 1
+        }
+      },
+      "labels": {
+        "P": 0,
+        "A": 0,
+        "B": 0,
+        "AB": 1
+      },
+      "source": "bank_dev512",
+      "seed": 11,
+      "effect_estimate_used": false
+    },
+    {
+      "kind": "full_repair",
+      "parent": 16,
+      "qid": 191,
+      "baseline_arm": "relfeat",
+      "flip_arm": "relflip",
+      "baseline_state": [
+        1,
+        1,
+        0
+      ],
+      "flip_state": [
+        1,
+        1,
+        1
+      ],
+      "state_encoding": "A/B/AB correctness indicators, not class predictions",
+      "displayed_predictions": {
+        "A": {
+          "baseline": 1,
+          "flip": 1
+        },
+        "B": {
+          "baseline": 1,
+          "flip": 1
+        },
+        "AB": {
+          "baseline": 1,
+          "flip": 0
+        }
+      },
+      "labels": {
+        "P": 1,
+        "A": 1,
+        "B": 1,
+        "AB": 0
+      },
+      "source": "bank_dev512",
+      "seed": 11,
+      "effect_estimate_used": false
+    }
+  ],
+  "empty_reason": null,
+  "figure_hashes": {
+    "paper/figures/fig1_real_quartets.pdf": "a2a8782d34523d67acaf0379403092a8dbe194ee085102d96d35442f652a7340",
+    "paper/figures/fig1_real_quartets.png": "8854655c786aebdd06fd02b92318cc92d9a7976afc2d87bb6ffb411553802bb6"
+  }
+}

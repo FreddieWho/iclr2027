@@ -1,0 +1,22 @@
+{
+  "authorized_at": "2026-09-25T10:45:58.871715+00:00",
+  "authorization": "User explicitly supplied remote GPU access during this audit",
+  "host_alias": "gpu_audit",
+  "host_key_verification": "StrictHostKeyChecking=yes; existing known-host key",
+  "preflight": {
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "memory_mib": 11264,
+    "memory_used_mib": 6,
+    "gpu_util_percent": 0,
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "cuda_available": true,
+    "free_disk_gib": 131
+  },
+  "initial_requested_reruns": [
+    "M2 corrected frozen-backbone and fine-tuned-backbone frontend, three seeds each",
+    "Route2 static direct baseline with matched total training exposure, three seeds"
+  ],
+  "new_instance_rental": false,
+  "credentials_in_artifacts": false
+}

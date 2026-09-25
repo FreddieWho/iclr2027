@@ -1,0 +1,192 @@
+{
+  "schema": "submission_audit_vision_claims_v1",
+  "claims": [
+    {
+      "id": "N02-METRIC-01",
+      "claim": "原 N02 的 CCM 字段实际表示条件联合成功率 J / atomic_joint，与本次冻结契约的 CCM composition-miss 方向相反。",
+      "verdict": "CONFIRMED_IMPLEMENTATION_BUG_FIXED",
+      "allowed_wording": "当前 N02 metrics schema v2 将 conditional_joint_success 与 composition_miss 分开；CCM 取 composition_miss，历史归档保留并标明 legacy_CCM_success。",
+      "forbidden_wording": "把历史 JSON 中名为 CCM 的数直接解释为 miss；把新 CCM 解释为 conditional success。",
+      "denominator": "N02 全矩阵30 arms；每 arm 测试178 quartets、85 parents。",
+      "code_paths": [
+        "experiments/n02_upgrade/upgrade_protocol.py"
+      ],
+      "evidence_paths": [
+        "tests/n02_upgrade/test_metrics.py"
+      ],
+      "recomputation": "针对性反例 atomic A/B 均正确而 AB 错误，检验 CCM=1、conditional_joint_success=0；历史30份 CCM 均与 legacy success 一致，旧值未改。",
+      "limitations": "测试用合成反例，不是经验率；旧归档仍含语义相反的 CCM 数值。",
+      "fixes": "更新当前计算 schema 和单元测试；历史归档不重写，schema差异写入 v2 输出。"
+    },
+    {
+      "id": "N02-DESIGN-02",
+      "claim": "N02 协议从36臂在训练前通过 A2 修订为30臂；实际30臂完整执行。",
+      "verdict": "SUPPORTED_PRETRAIN_AMENDMENT",
+      "allowed_wording": "A2 在训练前因 W 不存在 pretrained 初始化而取消6个 W×pretrained 臂；实际 A/B×2 stem×2 init共24臂加 W×2 stem×random共6臂，每臂3 seeds，共30。",
+      "forbidden_wording": "把30臂描述为冻结后漏跑6臂；把36臂当作最终已执行矩阵。",
+      "denominator": "36 planned; 30 executed; 10 arm configurations×3 seeds.",
+      "code_paths": [
+        "experiments/n02_upgrade/upgrade_protocol.py"
+      ],
+      "evidence_paths": [
+        "reports/n02_upgrade/PROTOCOL.md"
+      ],
+      "recomputation": "receipt 显示30/30完成；PROTOCOL A2记录训练前36→30修订。",
+      "limitations": "仍是限定模型、数据与新后端的有界矩阵。",
+      "fixes": "报告统一引用训练前A2修订与30/30完成收据。"
+    },
+    {
+      "id": "N02-P0-03",
+      "claim": "新后端标准flip条件下，B−A 的 parent-equal J 在 pretrained 与 random 三种子均为正且 parent-cluster 95%区间排除0。",
+      "verdict": "SUPPORTED_SCOPED",
+      "allowed_wording": "新后端内部复现六个 seed×init 对比：pretrained +.330,+.409,+.251；random +.283,+.330,+.296。",
+      "forbidden_wording": "把新旧后端的差值用于后端因果归因。",
+      "denominator": "每格178 quartets / 85 parents；6 contrasts。",
+      "code_paths": [
+        "experiments/n02_upgrade/upgrade_protocol.py"
+      ],
+      "evidence_paths": [
+        "artifacts/n02_upgrade/gpu_out/receipt.json"
+      ],
+      "recomputation": "从30 arms原始 saved predictions 按 parent-equal J 重算；与归档 upgrade_analysis 一致。",
+      "limitations": "只支持本配方与新运行环境内的复现；不能识别后端导致历史变化。",
+      "fixes": "明确报新后端内部比较。"
+    },
+    {
+      "id": "N02-P1-04",
+      "claim": "A-wide相对A的J差占B−A差的比例，三个seed点估计约0.434–0.619，描述性均值0.535。",
+      "verdict": "DESCRIPTIVE_POSTHOC_UNCERTAIN",
+      "allowed_wording": "random-init、新后端、parent-equal estimand：JA/JW/JB 分别为 s803 .487/.663/.771，s805 .476/.659/.807，s806 .466/.594/.762；相应 f=.619/.552/.434，均值.535。探索性hierarchical bootstrap 95%区间 [.358,.700] 跨越.5。可写“该宽网配方在本次三种子中约解释一半的B−A差异”。",
+      "forbidden_wording": "“多数解释阈值已支持”；“剩下一半被证明由网格导致”；“纯算力造成的比例”。",
+      "denominator": "三个随机初始化种子；每个比较178 quartets / 85 parents。",
+      "code_paths": [
+        "experiments/n02_upgrade/upgrade_protocol.py"
+      ],
+      "evidence_paths": [
+        "reports/n02_upgrade/PROTOCOL.md"
+      ],
+      "recomputation": "同一parent-equal estimand下重算 JA/JW/JB 与 f；另做4000次seed×parent层级bootstrap，95%跨.5。",
+      "limitations": "三seed；聚合规则未预注册；bootstrap为事后探索；A-wide约15.98×参数、1.242×MAC，算力和容量共同变化。旧报告J表为quartet-weighted而f使用parent-equal，混用了estimand。",
+      "fixes": "新段落并列标注三组parent-equal JA/JW/JB与f；不要把旧quartet-weighted行值代入f；按描述性/探索性报告，不作阈值确认。"
+    },
+    {
+      "id": "N02-P2-05",
+      "claim": "新small-edit分层未支持预注册的两种初始化均为负的lowstride交互门控，故机制状态仍未决。",
+      "verdict": "UNRESOLVED_NOT_SUPPORTED",
+      "allowed_wording": "564行/146 parents、parent cap4的筛选small-edit层上，pretrained交互+.183/−.119/−.014，random +.136/+.114/+.050；符号混杂且random方向与预测相反。",
+      "forbidden_wording": "“lowstride主要消掉小编辑优势”；“机制已被证伪/关闭”。",
+      "denominator": "564 quartet rows / 146 parents；每组3 seeds。",
+      "code_paths": [
+        "experiments/n02_upgrade/upgrade_protocol.py"
+      ],
+      "evidence_paths": [
+        "artifacts/n02_upgrade/gpu_out/receipt.json"
+      ],
+      "recomputation": "saved predictions按parent重算交互及parent-cluster区间；check中bank与N02 split及19个exposure banks零重合。",
+      "limitations": "small-edit为response-blind几何筛选层；不外推到未筛选总体。",
+      "fixes": "保留 UNRESOLVED；称作条件于筛选配方的异质交互。"
+    },
+    {
+      "id": "N02-OLD-P2-06",
+      "claim": "旧48臂中pretrained lowstride交互均值的旧命中没有在新矩阵复现；这种不复现不识别backend因果。",
+      "verdict": "NON_REPLICATION_CAUSALITY_UNIDENTIFIED",
+      "allowed_wording": "新报告中只表述为“旧命中在新后端/新执行环境下未复现”；交互依赖初始化、seed及bank。",
+      "forbidden_wording": "“原命中被证伪为后端特异”；“因后端改变所以效应消失”；把旧small-edit 5行/3 parents用于机制结论。",
+      "denominator": "旧矩阵178 quartets / 85 parents；旧small-edit 5 rows / 3 parents。",
+      "code_paths": [
+        "experiments/n02_upgrade/upgrade_protocol.py"
+      ],
+      "evidence_paths": [
+        "artifacts/e1a933_review/gpu_finish_20260924/sampling/collected/receipt.json"
+      ],
+      "recomputation": "重算旧48臂和新N02 old-bank结果；原环境3080Ti/cu124与新2080Ti/cu121并有其他执行输入差异。",
+      "limitations": "后端、软件、协议/渲染运行上下文等并未单独操纵；不能识别因果归属。",
+      "fixes": "将“backend-specific / 被证伪”改为“未复现，差异来源未识别”；小分母旧层仅列历史描述。"
+    },
+    {
+      "id": "VISION-O03-07",
+      "claim": "O03 static→flip 在旧159/74 bank上改善，报告点估计为quartet-weighted；parent只用于cluster bootstrap。",
+      "verdict": "SUPPORTED_SCOPED",
+      "allowed_wording": "三个seed的pretrained quartet-weighted平均差+.145，random +.203；各seed parent-cluster区间见复算文件。",
+      "forbidden_wording": "把该点估计说成parent-equal平均、独立新数据复现或机制普遍性。",
+      "denominator": "159 quartets / 74 parents；每臂3 seeds。",
+      "code_paths": [
+        "experiments/e1a933_review/vision_cuda_protocol.py"
+      ],
+      "evidence_paths": [
+        "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/receipt.json"
+      ],
+      "recomputation": "直接重算历史saved predictions；点估计与存档paired分析吻合。",
+      "limitations": "单一复用synthetic bank；quartet权重与parent等权不同。",
+      "fixes": "文字明确quartet-weighted估计与parent-cluster区间。"
+    },
+    {
+      "id": "VISION-N01-08",
+      "claim": "N01 matched auxiliary target改善dev几何误差，但未形成稳定测试J增益。",
+      "verdict": "LEARNABILITY_ONLY",
+      "allowed_wording": "匹配目标在所测三种子dev几何误差低；对BCE-only test J差为+.057,−.025,−.006，方向不一致且区间不支持稳定正效应。",
+      "forbidden_wording": "把几何可学性等同于普遍的关系监督收益。",
+      "denominator": "dev 707 images / 128 parents；test 159 quartets / 74 parents；3 seeds。",
+      "code_paths": [
+        "experiments/e1a933_review/vision_cuda_protocol.py"
+      ],
+      "evidence_paths": [
+        "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/receipt.json"
+      ],
+      "recomputation": "重算匹配aux误差及保存测试预测的matched-vs-flip差。",
+      "limitations": "单bank；检查点由dev BCE选取，结果只限这些target/recipe。",
+      "fixes": "保留“可学但未证实提升组合J”的窄表述。"
+    },
+    {
+      "id": "VISION-N03-09",
+      "claim": "N03 geometry bottleneck相对generic在三种子并无稳定J优势；已知渲染规则的经典像素基线达到J=.717。",
+      "verdict": "NO_STABLE_ADVANTAGE",
+      "allowed_wording": "159/74 bank上geometry的J约.698/.704/.704，generic .679/.623/.686；parent-cluster区间仅seed805的差明确为正；经典规则基线114/159=.717。",
+      "forbidden_wording": "声称geometry瓶颈稳定优于generic，或将oracle替换诊断当作模型结果/迁移证据。",
+      "denominator": "每arm159 quartets / 74 parents；3 seeds。",
+      "code_paths": [
+        "experiments/e1a933_review/vision_n03_protocol.py"
+      ],
+      "evidence_paths": [
+        "artifacts/e1a933_review/gpu_finish_20260924/n03/collected/receipt.json"
+      ],
+      "recomputation": "从saved predictions与固定解析式基线重算；脚本明确经典基线固定invalid negative。",
+      "limitations": "已知颜色、stroke规则与指定合成renderer；不等价自然图像能力。",
+      "fixes": "oracle_replacement标为diagnostic；经典基线作为本任务解析性参照。"
+    },
+    {
+      "id": "VISION-O06-10",
+      "claim": "272个O06请求不能支持泛化VLM组合失败；唯一模型64个quartet中无全对，conditional miss的分母仅13。",
+      "verdict": "SINGLE_MODEL_SCOPED_FAILURE_ONLY",
+      "allowed_wording": "Qwen2.5-VL-3B-Instruct frozen revision在64个quartet/64 parents上J3=0；单图请求272=64×4+16 sanity，A/B准确率各.203，双atom正确13/64且这13个AB全错；拒答和解析失败均为0。",
+      "forbidden_wording": "“VLM普遍无法组合”；“条件错率证明纯composition failure”；把272图像请求作为272个独立quartet。",
+      "denominator": "64 quartets/64 parents；272 image requests含16 sanity；conditional miss 13/13。",
+      "code_paths": [
+        "experiments/e1a933_review/vlm_native.py"
+      ],
+      "evidence_paths": [
+        "artifacts/e1a933_review/gpu_finish_20260924/vlm/collected/receipt.json"
+      ],
+      "recomputation": "解析272条原始响应并校验272张图像hash；重算sanity和quartet分母。",
+      "limitations": "一个冻结模型、复用合成bank、atomic competence低；conditional denominator很小。",
+      "fixes": "结论收窄到该模型/银行/提示；将请求数与quartet数分开表述。"
+    },
+    {
+      "id": "AUDIT-NOTRUN-11",
+      "claim": "新训练、新模型推理、holdout使用及真实场景迁移均未执行。",
+      "verdict": "NOT_RUN",
+      "allowed_wording": "明确列为 NOT_RUN：新增GPU训练/模型推理/API/下载；sealed holdout；N03向football/tracking迁移；纯算力独立识别。",
+      "forbidden_wording": "用CPU复算或历史模型请求替代新的科学验证。",
+      "denominator": "不适用。",
+      "code_paths": [
+        "experiments/submission_audit_20260925/vision_recompute.py"
+      ],
+      "evidence_paths": [
+        "artifacts/submission_audit_20260925/vision/recomputation.json"
+      ],
+      "recomputation": "本次仅解析收据与归档输出，重算保存预测。",
+      "limitations": "没有新的科学验证样本或运行。",
+      "fixes": "在所有交付与汇总中保留NOT_RUN。"
+    }
+  ]
+}

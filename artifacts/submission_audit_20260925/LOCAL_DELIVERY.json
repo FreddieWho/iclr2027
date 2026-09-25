@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-25",
+  "status": "LOCAL_AUDIT_DELIVERED",
+  "git_commit_performed": false,
+  "git_push_performed": false,
+  "reason": "User cancelled GitHub submission and requested immediate local closeout",
+  "index_receipt": "artifacts/submission_audit_20260925/INDEX_CHECK.json",
+  "m2_status": "DEFERRED_PENDING_ACCEPTANCE",
+  "limitations": "See reports/submission_audit_20260925/GAPS.md and each lane AUDIT.md; unrun computations and unavailable historical per-case archives are not represented as completed."
+}

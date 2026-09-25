@@ -1,0 +1,284 @@
+[
+  {
+    "id": "O01-retained-label-efficiency",
+    "claim": "The selected six-distance 25% retained-flip recipe exceeds raw-coordinate 100% retained-flip J in the six size-by-seed cells on the same evaluation pool.",
+    "verdict": "SUPPORTED_WITH_LIMITS",
+    "allowed_wording": [
+      "Finite-budget retained-label comparison after mining the full flip pool; six-distance 25% exceeds raw 100% in all six displayed size-by-seed cells.",
+      "The 1,229 quartets from 250 eligible parents are the shared evaluation pool; N and 4N are training-size conditions and seeds are model initializations."
+    ],
+    "forbidden_wording": [
+      "75% fewer oracle queries",
+      "N and 4N are independent dataset replications",
+      "The three seeds are independent task replications"
+    ],
+    "denominator": {
+      "evaluation": "1,229 quartets / 250 eligible parents from 512 sampled parents",
+      "development": "256 separate parents",
+      "comparison_cells": "2 training sizes x 3 model seeds = 6 displayed comparisons",
+      "oracle_ledger": "N mined 1,534 flips in 2,801 attempts; 25% retains 383. 4N mined 6,390 flips in 11,955 attempts; 25% retains 1,597. Query attempts are paid before the retained-label subset is selected."
+    },
+    "code_paths": [
+      "experiments/e1a933_review/data_o01.py",
+      "experiments/e1a933_review/o01_continuation.py",
+      "experiments/e1a933_review/data_stats.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/O01_DATA_OPTIMIZATION_REPORT.md",
+      "artifacts/e1a933_review/data_o01/O01_FACTORIAL.csv",
+      "artifacts/e1a933_review/data_o01/O01_PAIRED.json",
+      "artifacts/e1a933_review/data_o01_continuation/O01_CONTINUATION_PAIRED.json"
+    ],
+    "recomputation": "The per-seed table and parent-bootstrap summaries are available in the cited artifacts. Bootstrap resampling clusters parents but retains all quartets; the point estimate is row-weighted. No cross-seed or cross-size pooling was used in this audit.",
+    "limitations": [
+      "Learning-rate selection is on static/single development BCE, not evaluation J.",
+      "The evaluation parents are shared across all six comparisons.",
+      "Input dimensions differ slightly, so parameter counts are not exactly matched."
+    ],
+    "fixes": [
+      "Keep the table caption's explicit statement that this is not oracle-query savings.",
+      "Keep parent and quartet denominators visible and describe seeds as model initializations."
+    ]
+  },
+  {
+    "id": "O01-continuation",
+    "claim": "Warm-start continuation adds 648 training runs and reports paired interaction contrasts on the same held-out parent pool.",
+    "verdict": "SUPPORTED_WITH_LIMITS",
+    "allowed_wording": [
+      "The continuation factorial contains 432 warm-start and 216 convergence-robust arms, with all cells retained.",
+      "The interaction intervals are per-seed model comparisons on the same 1,229-quartet / 250-parent bank."
+    ],
+    "forbidden_wording": [
+      "648 independent replications",
+      "A pooled bootstrap over seeds and parents",
+      "A universal continuation benefit across every dose and scale"
+    ],
+    "denominator": {
+      "runs": "648 training arms",
+      "evaluation": "1,229 quartets / 250 parents",
+      "bootstrap": "parent-cluster bootstrap per comparison; seeds remain separate"
+    },
+    "code_paths": [
+      "experiments/e1a933_review/o01_continuation.py",
+      "experiments/e1a933_review/data_stats.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/O01_DATA_OPTIMIZATION_REPORT.md",
+      "artifacts/e1a933_review/data_o01_continuation/O01_CONTINUATION_FACTORIAL.csv",
+      "artifacts/e1a933_review/data_o01_continuation/O01_CONTINUATION_PAIRED.json",
+      "artifacts/e1a933_review/data_o01_continuation/CHECK_REPORT.json"
+    ],
+    "recomputation": "The stored paired JSON preserves each size, seed, dose and start condition. This audit did not pool those nested comparisons into new independent observations.",
+    "limitations": [
+      "The same parent bank is reused across model arms and initialization seeds.",
+      "The tested optimizers, dose levels and widths do not establish a general continuation law."
+    ],
+    "fixes": [
+      "Present interactions as conditional, per-cell evidence; retain the reported exceptions."
+    ]
+  },
+  {
+    "id": "O02-matched-capacity-budget",
+    "claim": "The tested typed model remains below six-distance under matched parameter count and the tested optimizer recipe grid, but the result is bounded to the tested family and the exact effects vary with thread count.",
+    "verdict": "SUPPORTED_WITH_NUMERICAL_REPRODUCTION_CAVEAT",
+    "allowed_wording": [
+      "In the primary run, six-flip minus typed_m-flip is positive for all three seeds in T1 and T2; parent-paired intervals exclude zero.",
+      "The matched control tests one typed width and six learning-rate/step recipes selected on training objective, not evaluation J.",
+      "A separate two-thread rerun preserves all six positive directions but changes the point estimates."
+    ],
+    "forbidden_wording": [
+      "A proof that relational representations or the architecture class cannot work",
+      "Numerically thread-invariant effect sizes",
+      "Causal attribution to architecture independent of feature distribution and depth"
+    ],
+    "denominator": {
+      "T1": "2,724 quartets / 322 parents; 3 initialization seeds",
+      "T2": "3,443 quartets / 369 parents; 3 initialization seeds",
+      "parameters": "typed_m 6,681; raw/six 6,529-6,849",
+      "recipe_grid": "3 learning rates x 2 step counts per architecture; train-objective selection"
+    },
+    "code_paths": [
+      "experiments/e1a933_review/o02_budget_match.py",
+      "experiments/e1a933_review/data_stats.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/O02_BUDGET_MATCH.md",
+      "artifacts/e1a933_review/data_u10_o02/O02_BUDGET_MATCH.json",
+      "artifacts/e1a933_review/data_u10_o02_numorder2/O02_BUDGET_MATCH.json",
+      "paper/sections/app_f095.tex"
+    ],
+    "recomputation": "Primary six-minus-typed_m point differences are T1 0.513583/0.528634/0.486050 and T2 0.731339/0.700552/0.755155. The two-thread output gives T1 0.524963/0.521659/0.448238 and T2 0.740924/0.690967/0.731920. Each set retains positive direction; exact numerical agreement is absent.",
+    "limitations": [
+      "The two runs use different thread counts and reduction orders.",
+      "Parameter count does not match depth, allocation or optimization geometry.",
+      "There is no independent development bank for this O02 comparison; recipe selection is train-only."
+    ],
+    "fixes": [
+      "Keep the primary-run estimates identified as such and disclose the two-thread sensitivity values or range.",
+      "Retain the tested-recipe and non-architecture-proof boundary."
+    ]
+  },
+  {
+    "id": "O04-prospective-intervention",
+    "claim": "The preregistered primary prediction that head-level flip supervision would act most on J failed in one of eight cells; the secondary prediction that J-star moved less than J held in all eight.",
+    "verdict": "PRIMARY_MISS_SECONDARY_SUPPORTED",
+    "allowed_wording": [
+      "The prospective diagnostic supports P2 in these eight cells but does not support the primary P1 prediction.",
+      "The sole P1 miss is T1/raw_clean; the full primary verdict is MISS.",
+      "The preregistration preceded the result write by 85 seconds."
+    ],
+    "forbidden_wording": [
+      "The decomposition is a validated general prospective diagnostic",
+      "Causal mechanism established",
+      "Independent fresh-bank confirmation"
+    ],
+    "denominator": {
+      "T1": "2,724 quartets / 322 parents",
+      "T2": "3,443 quartets / 369 parents",
+      "cells": "2 tasks x 4 encoder conditions = 8; 3 model seeds per cell"
+    },
+    "code_paths": [
+      "experiments/e1a933_review/readout_forward.py",
+      "experiments/e1a933_review/readout_objective_check.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/O04_FORWARD_INTERVENTION.md",
+      "artifacts/e1a933_review/readout_forward_20260924/PREREGISTRATION.json",
+      "artifacts/e1a933_review/readout_forward_20260924/PREREGISTRATION.seal.json",
+      "artifacts/e1a933_review/readout_forward_20260924/results.json"
+    ],
+    "recomputation": "From the stored per-cell seed-mean deltas, P1 is true in 7/8 and P2 in 8/8. The primary verdict is therefore MISS. The T1/raw_clean deltas are S=+0.0188, J=-0.0146, J*=+0.0120.",
+    "limitations": [
+      "The tasks, evaluation banks and frozen trunks were generated earlier; novelty is relative to the previous readout reanalysis.",
+      "J-star is an evaluation-label oracle diagnostic, not deployable accuracy.",
+      "The football echo identifies a domain boundary only; S/J/J-star is undefined for the 117 scenes with no feasible candidate."
+    ],
+    "fixes": [
+      "Replace the current appendix statement that the prospective test and downstream echo were not run.",
+      "Use diagnostic / bounded language and state the primary miss before the secondary success."
+    ]
+  },
+  {
+    "id": "R03-single-bank-overlap-sensitivity",
+    "claim": "The d09fresh665 single-edit bank overlaps exact mined-flip training states for 4N and 16N models; a new endpoint-scoring sensitivity finds small descriptive accuracy shifts, while the D09 quartet denominator remains unchanged.",
+    "verdict": "SENSITIVITY_COMPLETED_QUARTET_UNAFFECTED",
+    "allowed_wording": [
+      "4N models exclude their 163 exact-overlap eids; 16N models exclude their 761 exact-overlap eids, separately.",
+      "Across the 21 affected checkpoints, row-weighted single-endpoint accuracy changes from -0.109 to +0.010 percentage points after the pool-specific exclusion.",
+      "The D09 quartet result is not re-estimated here; the existing 236-quartet bank has zero exact and zero near state overlaps under the audited criterion."
+    ],
+    "forbidden_wording": [
+      "The single-edit sensitivity re-estimates D09 quartet J",
+      "4N and 16N should both drop the union of all 761 eids",
+      "The overlap invalidates the quartet results"
+    ],
+    "denominator": {
+      "single_bank": "126,295 endpoints from 512 parents",
+      "4N": "163 eids / 30 parents; 126,132 retained rows per model",
+      "16N": "761 eids / 127 parents; 125,534 retained rows per model",
+      "models": "21 total: 18 4N and 3 16N",
+      "forward_count": "2,652,195 endpoint states; Sx start states not separately scored",
+      "quartets": "236; exact overlap 0, near overlap 0; denominator kept at 236"
+    },
+    "code_paths": [
+      "experiments/e1a933_review/data_lineage.py",
+      "experiments/f095_campaign/d09_audit.py",
+      "experiments/f095_campaign/u01_eval.py",
+      "experiments/submission_audit_20260925/controls_r03_sensitivity.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/R03_LINEAGE_REPORT.md",
+      "artifacts/e1a933_review/data_lineage/AUGMENTATION_STATE_AUDIT.json",
+      "artifacts/e1a933_review/data_d09/D09_AUDIT.json",
+      "artifacts/submission_audit_20260925/controls/r03_single_sensitivity.json"
+    ],
+    "recomputation": "CPU-only scoring of the existing Sx+Se single-edit endpoints, 4 threads, completed in 3.57 seconds. All hits are label-flip states. Per-pool exclusion was checked per checkpoint; 4N and 16N lists share 163 eids. Across models, parent-equal accuracy changes range -0.252 to -0.002 pp. No confidence interval was computed.",
+    "limitations": [
+      "This is a descriptive single-endpoint accuracy diagnostic, not an existing D09 claim metric or a D09 quartet reanalysis.",
+      "Rows are nested within 512 parents; no inferential interval is claimed.",
+      "Only the 21 checkpoints with exact overlap were scored."
+    ],
+    "fixes": [
+      "Replace any general wording that implies the single-edit sensitivity was historically available; cite the new overlay result.",
+      "Keep quartet rows in the denominator and describe the single-bank sensitivity separately."
+    ]
+  },
+  {
+    "id": "R08-natural-versus-searched-E",
+    "claim": "Natural strict E is rare within the registered 0.2-second forward contract-cap window; guided/random search constructibility is a different quantity.",
+    "verdict": "SUPPORTED_WITH_UNIT_BOUNDARY",
+    "allowed_wording": [
+      "Natural E occurs in 8/1,449 situations (0.55%), 8/162 events (4.94%) and 10/7,117 frame pairs (0.14%) in this three-match sample.",
+      "Controlled search constructs E in 670/1,449 candidate opportunities (46.2%); this is not the natural incidence rate."
+    ],
+    "forbidden_wording": [
+      "46.2% natural E incidence",
+      "E is infeasible in football",
+      "Geometric oracle labels are observed pass-success outcomes"
+    ],
+    "denominator": {
+      "primary_natural": "1,449 situations; 162 events; 7,117 frame pairs",
+      "search": "1,449 sampled controlled candidate opportunities; 155 eligible observed selected passes",
+      "window": "0.2 seconds, contract cap, forward-only"
+    },
+    "code_paths": [
+      "experiments/e1a933_review/football_repair.py",
+      "experiments/e1a933_review/football_summarize.py",
+      "experiments/e1a933_review/test_r08_natural_e.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/R08_NATURAL_E_RATE.md",
+      "artifacts/e1a933_review/football/NATURAL_E_RATE.json",
+      "artifacts/e1a933_review/football/NATURAL_E_VERIFICATION.json",
+      "artifacts/e1a933_review/football/FOOTBALL_RESULTS.json"
+    ],
+    "recomputation": "The stored summary gives 8/1,449=0.005521, 8/162=0.049383, 10/7,117=0.001405, and 670/1,449=0.4624. The numerator 670 is a search result, not a natural-event count.",
+    "limitations": [
+      "Three existing matches and a 0.2-second window/cap define the sample.",
+      "No pass-success labels are available; labels are geometric oracle outcomes."
+    ],
+    "fixes": [
+      "Add the natural rate beside the search rate in the appendix and name each unit and denominator."
+    ]
+  },
+  {
+    "id": "R09-full-scene-deployment-coverage",
+    "claim": "Feasible-only evaluation masks a large portion of the scene universe with no feasible candidate; all-scene coverage is below the dev target and is not an equal-coverage deployment comparison.",
+    "verdict": "CONDITIONAL_TABLE_INCOMPLETE_FOR_FULL_UNIVERSE",
+    "allowed_wording": [
+      "Of 256 scenes, 117 (45.7%) have all 49 candidates infeasible; the 213-scene evaluation partition contains 96 feasible and 117 infeasible scenes.",
+      "The existing 96-scene table is conditional on oracle feasibility; full-scene eval coverage at the nominal 0.5 dev target is 0.1455-0.3239.",
+      "The threshold policy was selected on development scenes; differing evaluation coverage makes quality contrasts policy extrapolations, not equal-coverage effects."
+    ],
+    "forbidden_wording": [
+      "The decomposition explains the 117/256 infeasible share",
+      "The deployed policy achieves the dev target coverage",
+      "Real decision utility or deployment performance"
+    ],
+    "denominator": {
+      "scene_universe": "256 scenes, 49 candidates per scene",
+      "development": "43 scenes",
+      "evaluation": "213 scenes = 96 oracle-feasible + 117 oracle-infeasible",
+      "infeasible_share": "117/256=45.7% of the full universe; 117/213=54.9% of evaluation"
+    },
+    "code_paths": [
+      "experiments/e1a933_review/frontier_repair.py",
+      "experiments/f095_campaign/d10_frontier.py"
+    ],
+    "evidence_paths": [
+      "reports/e1a933_review/DECISION_FRONTIER_V2.md",
+      "artifacts/e1a933_review/frontier/FRONTIER_FULLSCENE.json",
+      "artifacts/e1a933_review/frontier/FRONTIER_FULLSCENE_PERSCENE.csv",
+      "reports/final_closure/MASTER_CLAIM_LEDGER.md"
+    ],
+    "recomputation": "The all-scene summary reports 256 total, 139 feasible and 117 infeasible; the held-out split is 213 scenes with 96 feasible and 117 infeasible. These counts establish that conditioning the published 96-scene table removes the infeasible evaluation stratum.",
+    "limitations": [
+      "The reward/cost scale is illustrative and the oracle feasibility label is not a field outcome.",
+      "The deployment analysis reuses a synthetic scene universe and does not establish real-world utility."
+    ],
+    "fixes": [
+      "Add the 117/256 and 117/213 counts and full-scene coverage range beside the conditional 96-scene table.",
+      "State that the S/J/J-star decomposition cannot score scenes with no feasible candidate."
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "baseline_head": "3fc9757398ebc88652362b906a2a98710bf17650",
+  "python": "3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]",
+  "package_versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "pandas": "2.3.3",
+    "torch": "2.11.0",
+    "torchvision": "0.26.0+cpu",
+    "pytest": "9.1.1",
+    "Pillow": "12.2.0"
+  },
+  "lane_sources": [
+    {
+      "path": "reports/submission_audit_20260925/core/claims.json",
+      "sha256": "0fc72e43825527532c0ae1e65f587eb687a1df2e0a7fd195b590c2f06adb7f96"
+    },
+    {
+      "path": "reports/submission_audit_20260925/mechanism/claims.json",
+      "sha256": "ea1ec5d1a482feb4ffd9081e756163bd0fe28a76686cbf0a95ca03f22cfa43ef"
+    },
+    {
+      "path": "reports/submission_audit_20260925/routes/claims.json",
+      "sha256": "767382fc9873ff9afdf3eaab03890bc8109c5ab8d2474737185d9dfcefe535af"
+    },
+    {
+      "path": "reports/submission_audit_20260925/vision/claims.json",
+      "sha256": "9f91b6372654e819624a4dcee3c62edcf46b0474b612965f8759e097c7d609b8"
+    },
+    {
+      "path": "reports/submission_audit_20260925/controls/claims.json",
+      "sha256": "b62e4ed0fa4b0837cdd7bcc9cf0f940278e9ac2e04445271fbf782a5855eb7f9"
+    }
+  ],
+  "claims": 43,
+  "evidence_entries": 153,
+  "availability_counts": {
+    "TRACKED": 145,
+    "LOCAL_ONLY": 4,
+    "DIRECTORY_REFERENCE_ONLY": 4
+  },
+  "errors": [],
+  "limitations": [
+    "File existence and current SHA256 are provenance checks, not scientific validation.",
+    "LOCAL_ONLY entries are not publicly downloadable merely because a hash exists.",
+    "DIRECTORY_REFERENCE_ONLY entries do not certify the files inside the directory.",
+    "Frozen numerical pools are not reopened; archived summaries are distinguished by each lane.",
+    "Current source hashes describe the repaired checkout, not historical training bytes."
+  ]
+}

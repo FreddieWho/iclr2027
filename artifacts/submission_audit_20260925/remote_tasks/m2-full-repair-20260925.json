@@ -1,0 +1,18 @@
+{
+  "command": "python3 -u /root/iclr_submission_audit_20260925/run_gpu_job.py --job /root/iclr_submission_audit_20260925/GPU_M2_JOB.json --out /root/iclr_submission_audit_20260925/m2_run",
+  "created_at_utc": "2026-09-25T11:00:41.622721+00:00",
+  "host_alias": "gpu_audit",
+  "inputs": [
+    "/root/iclr_submission_audit_20260925/GPU_M2_JOB.json"
+  ],
+  "outputs": [
+    "/root/iclr_submission_audit_20260925/m2_run/RUN_RECEIPT.json",
+    "/root/iclr_submission_audit_20260925/m2_run_evidence.tar.gz",
+    "/root/iclr_submission_audit_20260925/m2_run_checkpoints.tar.gz"
+  ],
+  "platform": "linux",
+  "remote_dir": "/root/iclr_submission_audit_20260925/m2-full-repair-20260925",
+  "schema_version": 1,
+  "status": "DECLARED",
+  "task_id": "m2-full-repair-20260925"
+}

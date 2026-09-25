@@ -1,5 +1,7 @@
 # N02 升级报告（30 臂新后端矩阵 + small-edit 新分层）
 
+> 2026-09-25 投稿前审查更正：下文 J 均值是 quartet-row 加权，而 f 用 parent-equal J 计算，不能直接把两者接成同一算式。同口径 parent-equal JA/JW/JB 分别为 .4873/.6627/.7706、.4765/.6588/.8069、.4657/.5941/.7618；f=.619/.552/.434，均值.535。事后 seed×parent 区间约 [.358,.700]，不支持多数阈值。宽网同时改变容量与 MACs，跨运行未复现也不能归因为后端。旧指标字段 CCM 存的是条件成功率；本轮新 schema 明确分出成功率与漏检率。详见 `reports/submission_audit_20260925/vision/AUDIT.md`。
+
 执行：2080 Ti 11GB，torch 2.5.1+cu121（旧矩阵为 3080Ti + cu124；一切对比只在新后端内部）。
 分层：small-edit 新挖 564 quartets / 146 parents（`smaledit_bank.npz`，sha `ecd8f48c…`，
 与 N02 冻结 splits 查重 0 匹配）。宽网：ResNet18 通道 ×4，178M 参数，MACs 2.25G ≥ B 的 1.81G。

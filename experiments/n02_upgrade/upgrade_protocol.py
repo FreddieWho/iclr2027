@@ -96,7 +96,9 @@ def logits(net,maps,split,observation,batch,device):
 
 def metrics(z,y):
     ok=(z>0)==y;atom=ok[:,1]&ok[:,2];joint=atom&ok[:,3]
-    return dict(n=len(y),P=float(ok[:,0].mean()),A=float(ok[:,1].mean()),B=float(ok[:,2].mean()),AB=float(ok[:,3].mean()),atomic_joint=float(atom.mean()),J=float(joint.mean()),CCM_denominator=int(atom.sum()),CCM=float(joint.sum()/atom.sum()) if atom.sum() else None)
+    cond_success=float(joint.sum()/atom.sum()) if atom.sum() else None
+    composition_miss=float((atom&~ok[:,3]).sum()/atom.sum()) if atom.sum() else None
+    return dict(metric_schema='n02_upgrade_metrics_v2_ccm_miss',n=len(y),P=float(ok[:,0].mean()),A=float(ok[:,1].mean()),B=float(ok[:,2].mean()),AB=float(ok[:,3].mean()),atomic_joint=float(atom.mean()),J=float(joint.mean()),J4=float((joint&ok[:,0]).mean()),conditional_joint_success=cond_success,composition_miss=composition_miss,CCM=composition_miss,legacy_CCM_success=cond_success,CCM_denominator=int(atom.sum()))
 
 def train_arm(data,maps,out,arm,seed,weight_file,epochs=20,batch=32,device='cuda'):
     out=Path(out);out.mkdir(exist_ok=False);obs=arm['observation']

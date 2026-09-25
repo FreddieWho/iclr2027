@@ -1,0 +1,17 @@
+{
+  "fig1_protocol": {
+    "type": "conceptual schematic",
+    "data": "No empirical or simulated measurements; binary correctness accounting"
+  },
+  "fig2_relocation": {
+    "source": "reports/submission_audit_20260925/core/claims.json",
+    "fields": "CORE-P3-REPAIR-MIGRATION recomputation.values.P3_by_seed",
+    "uncertainty": "Point estimates; intervals in supplement"
+  },
+  "fig3_visual": {
+    "source": "reports/submission_audit_20260925/routes/AUDIT.md",
+    "quartets": 28,
+    "parents": 19,
+    "uncertainty": "95% parent-cluster percentile CI, 10000 draws, existing estimates copied without recomputation"
+  }
+}

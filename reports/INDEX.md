@@ -5,10 +5,15 @@
 > 不再解析；文件本身内容未改。现行位置由下表给出。
 > 时代：E0–E1 蓝图/P2 / E2 P3-T5R / E3 P4-AMR / E4 转折发现 / E5 外部确认 / E6 终局。
 
-## ⭐ 当前权威（E6 终局）
+## 当前写作与审查入口（2026-09-25）
 
-- `final_closure/` — **终局权威包**：FINAL_PROJECT_VERDICT（15 问）、
-  MASTER_CLAIM_LEDGER（正文数字唯一来源）、FINAL_EVIDENCE_TABLE（9-22 版）、
+- `submission_audit_20260925/` — 本轮结论与代码审查、必要 GPU 补算、敏感性分析、统一 CLAIMS、允许措辞、复算和剩余缺口。写作优先读此目录。
+- `e832_focus/`、`mechanism_transfer_v3/`、`n02_upgrade/` — 后续实验的原始报告；受本轮更正的字段与解释以审查目录为准。
+
+## 历史终局（E6）
+
+- `final_closure/` — **历史终局包**：FINAL_PROJECT_VERDICT（15 问）、
+  MASTER_CLAIM_LEDGER（历史数字来源）、FINAL_EVIDENCE_TABLE（9-22 版）、
   REPRODUCE_FINAL（一键复算）、P1/P2/P3_CLOSURE_REPORT、EVIDENCE_CORRECTIONS_FINAL、
   PAPER_MIGRATION_AUDIT、P2_DECISION、RELFEAT_DECISION、PAPER_ALIGNMENT_AUDIT_20260922、
   REBUTTAL_RESERVE_T5R6（T5R6 独立确认储备，仅 rebuttal 用）

@@ -6,7 +6,7 @@
 python experiments/e832_focus/route3_baselines/strong_baselines.py --out artifacts/e832_focus/route3
 ```
 
-代码直接复用路线1的新 source parent/E 生成器；没有读旧 source E bank、dev512 或任何封存池。source 测试 parent seed 832503、编辑 seed 832504；E=230，parent=142（见 `artifacts/e832_focus/route3/results.json`）。三 seed 11/23/47，single-flip，CPU 4 threads，100 epochs。
+代码直接复用路线1的新 source parent/E 生成器；没有读旧 source E bank、dev512 或任何封存池。source 测试 parent seed 832503、编辑 seed 832504；E=230，eligible parent=65（2026-09-25 审查修正原误写的 142）（见 `artifacts/e832_focus/route3/results.json`）。三 seed 11/23/47，single-flip，CPU 4 threads，100 epochs。
 
 ## 结果
 

@@ -1,0 +1,153 @@
+{
+  "status": "SUCCEEDED",
+  "started_utc": "2026-09-25T10:56:08.537866+00:00",
+  "job_sha256": "9d58315a81a570048b6d11c73b4899c0244d5b466a5b65d9bad526751e9f5aae",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "steps": [
+    {
+      "id": "route2_static_3seeds",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/route2_code/experiments/e832_focus/route2_visual/static_baseline.py",
+        "--manifest",
+        "/root/e832_route2/artifacts/e832_focus/route2/gpu_bundle/manifest.json",
+        "--data",
+        "/root/e832_route2/artifacts/e832_focus/route2/data",
+        "--out",
+        "/root/iclr_submission_audit_20260925/route2_run/static",
+        "--selection-dev",
+        "all-singleton"
+      ],
+      "status": "SUCCEEDED",
+      "returncode": 0,
+      "seconds": 38.0952124500036
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/root/iclr_submission_audit_20260925/route2_code/experiments/e832_focus/route2_visual/static_baseline.py",
+      "sha256": "d22e7d9b03ebb66982421f05c1882aa2a7ff1e3288f811b1b9fe31859b2b04c3",
+      "actual_sha256": "d22e7d9b03ebb66982421f05c1882aa2a7ff1e3288f811b1b9fe31859b2b04c3"
+    },
+    {
+      "path": "/root/iclr_submission_audit_20260925/route2_code/experiments/e832_focus/route2_visual/visual_mechanism.py",
+      "sha256": "fe753be369825ac78b872ef706f604953e88468778dab0bc60cf18338a5831d2",
+      "actual_sha256": "fe753be369825ac78b872ef706f604953e88468778dab0bc60cf18338a5831d2"
+    },
+    {
+      "path": "/root/iclr_submission_audit_20260925/run_gpu_job.py",
+      "sha256": "706b730cda7ffa78af28d466e1957971a4b4b62ccfe58bfb441fefb5c5582cb6",
+      "actual_sha256": "706b730cda7ffa78af28d466e1957971a4b4b62ccfe58bfb441fefb5c5582cb6"
+    },
+    {
+      "path": "/root/e832_route2/artifacts/e832_focus/route2/data/data.npz",
+      "sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee",
+      "actual_sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee"
+    },
+    {
+      "path": "/root/e832_route2/artifacts/e832_focus/route2/data/data_manifest.json",
+      "sha256": "fd148616753df82d607c68ead94c867a44a1c95af5bf1a746117223fc64e63c9",
+      "actual_sha256": "fd148616753df82d607c68ead94c867a44a1c95af5bf1a746117223fc64e63c9"
+    },
+    {
+      "path": "/root/e832_route2/artifacts/e832_focus/route2/gpu_bundle/manifest.json",
+      "sha256": "fcdb14bbebe544082b523c81eb85914544008c8c9d292e6dae0d0fc27afe785e",
+      "actual_sha256": "fcdb14bbebe544082b523c81eb85914544008c8c9d292e6dae0d0fc27afe785e"
+    },
+    {
+      "path": "/root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "actual_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "logs/route2_static_3seeds.log",
+      "bytes": 363,
+      "sha256": "65545b57584b48a493c7a9e437fd48fca48340d48cad78da1815c296ea6165a6"
+    },
+    {
+      "path": "static/direct_static_s803/history.json",
+      "bytes": 1969,
+      "sha256": "3411e229cb32a2bb015daa73c09e3259337f5f399d871816a779834a445a4f9d"
+    },
+    {
+      "path": "static/direct_static_s803/model.pt",
+      "bytes": 89551202,
+      "sha256": "4c86cdf72686e5c1722bae4b0ebccd3b05d82c15df7b4f79520802e7d9fb9be4"
+    },
+    {
+      "path": "static/direct_static_s803/predictions.npz",
+      "bytes": 1076,
+      "sha256": "515840599f286cd1ba97628ca611f28b4f67f8cd2024ede3c0841ed2c10c594b"
+    },
+    {
+      "path": "static/direct_static_s803/result.json",
+      "bytes": 5918,
+      "sha256": "66ac48af3d3fae8f75b648fb3b7d0533e0897c3af6878010ee6d148f3b2a8970"
+    },
+    {
+      "path": "static/direct_static_s805/history.json",
+      "bytes": 1970,
+      "sha256": "72facb7494baded12e70730899d6f88055a4ca1fddbf98a655193ff39045f152"
+    },
+    {
+      "path": "static/direct_static_s805/model.pt",
+      "bytes": 89551202,
+      "sha256": "1372a2473952a588310c34f44d6d8257cf15cb472109c7b756980b2ab30ddfb2"
+    },
+    {
+      "path": "static/direct_static_s805/predictions.npz",
+      "bytes": 1077,
+      "sha256": "15ecc0fa2a30ec2a3ef56cc11a568d5de78c2dd8f530d7ba8f843f148932930f"
+    },
+    {
+      "path": "static/direct_static_s805/result.json",
+      "bytes": 5886,
+      "sha256": "aa5ddde0d72200d251989a44da5259d1de51957385fd440b0a5aca1ee4fb3728"
+    },
+    {
+      "path": "static/direct_static_s806/history.json",
+      "bytes": 1966,
+      "sha256": "00c7acdb86be63c723288b98b3af6d6f0af0abf3080737ec7870945b18896878"
+    },
+    {
+      "path": "static/direct_static_s806/model.pt",
+      "bytes": 89551202,
+      "sha256": "3eea0700db9f00b025aa1f3cdf94759ca8a040ab26348a84ea34b25be11b90b9"
+    },
+    {
+      "path": "static/direct_static_s806/predictions.npz",
+      "bytes": 1077,
+      "sha256": "8e6af27878e8dc08d0a424da81e588bfb90c89d9769ccb1acef48a5d0c123448"
+    },
+    {
+      "path": "static/direct_static_s806/result.json",
+      "bytes": 5918,
+      "sha256": "2aaebebfc48394b494e5835d8e1490a80ae352fb610741c26e9d340f7500f4b2"
+    },
+    {
+      "path": "static/results.json",
+      "bytes": 24877,
+      "sha256": "a733b6f031336c716f710279955273fefcb3c8ab386c78752fc35dc44a732fbd"
+    },
+    {
+      "path": "static/run_config.json",
+      "bytes": 431,
+      "sha256": "0c238ad7ef1cc07c23a0072b4fbb6d21269225c3a15aa51c3805841295c62731"
+    },
+    {
+      "path": "static/status.json",
+      "bytes": 24877,
+      "sha256": "a733b6f031336c716f710279955273fefcb3c8ab386c78752fc35dc44a732fbd"
+    }
+  ],
+  "environment": {
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "cuda_runtime": "12.1",
+    "gpu": "NVIDIA GeForce RTX 2080 Ti"
+  },
+  "seconds": 41.64639308700134,
+  "finished_utc": "2026-09-25T10:56:50.184860+00:00"
+}

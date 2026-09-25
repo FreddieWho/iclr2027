@@ -1,0 +1,18 @@
+{
+  "scope": "Writing from existing audited results; no experimental recomputation",
+  "start_utc": "2026-09-25 11:33:28",
+  "deadline_utc": "2026-09-25 11:48:28",
+  "sources": [
+    "reports/submission_audit_20260925/core/claims.json",
+    "reports/submission_audit_20260925/routes/AUDIT.md",
+    "artifacts/next_novelty/u1_factorial/U1_SUMMARY.json",
+    "artifacts/next_novelty/relflip/RELFLIP_CONFIRM.json",
+    "artifacts/submission_audit_20260925/routes/recomputed.json"
+  ],
+  "excluded": "Unaccepted M2 and unrelated exploratory branches",
+  "format_urls": [
+    "https://iclr.cc/Conferences/2027/AuthorGuidelines",
+    "https://www.iclr.cc/Conferences/2027/AIPolicyForAuthors",
+    "https://github.com/ICLR/Master-Template/tree/master/iclr2027"
+  ]
+}

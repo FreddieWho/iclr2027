@@ -219,8 +219,9 @@ def main() -> dict:
         ),
         "non_claim": (
             "A zero local-search distance would be one constructed opposite-label "
-            "merge. A positive minimum is only a bounded-search lower bound, not "
-            "proof that source G8 is complete, and small near-neighbor distance "
+            "merge. A positive best-observed distance is not a lower bound: this "
+            "bounded random search only records the closest sampled candidate and "
+            "does not rule out an exact or closer merge. Small near-neighbor distance "
             "alone is not indistinguishability."
         ),
     }

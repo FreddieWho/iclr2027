@@ -6,6 +6,13 @@ class Tests(unittest.TestCase):
  def test_parser_crossing(self):
   x=np.array([[-.5,0],[.5,0],[0,-.5],[0,.5]],float);self.assertEqual(b.intersects(x),1)
   y=x.copy();y[2:]+=2;self.assertEqual(b.intersects(y),0)
+ def test_parser_respects_declared_endpoint_swap_group(self):
+  crossing=np.array([[-.5,0],[.5,0],[0,-.5],[0,.5]],float)
+  separated=crossing.copy();separated[2:]+=2
+  for x in (crossing,separated):
+   expected=b.intersects(x)
+   for p in b.cr.perms('source'):
+    self.assertEqual(b.intersects(x[p]),expected)
  def test_legal_relational_model_shape(self):
   import torch
   m=b.SegmentSetRel();self.assertEqual(tuple(m(torch.randn(3,4,2)).shape),(3,))

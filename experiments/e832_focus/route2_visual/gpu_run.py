@@ -30,7 +30,8 @@ SEEDS = [803, 805, 806]
 def metrics(logits: np.ndarray, labels: np.ndarray) -> dict:
     correct = (logits > 0) == (labels > 0.5)
     atoms = correct[:, 1] & correct[:, 2]
-    joint111 = atoms & correct[:, 3]  # A,B,AB states; P is reported separately
+    joint_abc = atoms & correct[:, 3]
+    joint_pabc = joint_abc & correct[:, 0]
     return {
         "n_quartets": int(len(labels)),
         "P": float(correct[:, 0].mean()),
@@ -39,10 +40,11 @@ def metrics(logits: np.ndarray, labels: np.ndarray) -> dict:
         "AB": float(correct[:, 3].mean()),
         "J3_atomic_joint": float(atoms.mean()),
         "atomic_joint": float(atoms.mean()),
-        "J4_full_111": float(joint111.mean()),
+        "J3_ABC": float(joint_abc.mean()),
+        "J4_PABC": float(joint_pabc.mean()),
         "atomic_denominator": int(atoms.sum()),
-        "J3": float(joint111.mean()),
-        "J4": float(joint111.mean()),
+        "J3": float(joint_abc.mean()),
+        "J4": float(joint_pabc.mean()),
     }
 
 
@@ -84,7 +86,7 @@ def _train(data, arm: str, seed: int, config: dict, out: Path) -> dict:
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
     model = Mechanism(arm, input_size=config["resolution"], pretrained=True,
-                      mask_pool=config.get("mask_pool", "nearest")).to(device)
+                      mask_pool=config.get("mask_pool", "area")).to(device)
     initial_backbone_sha256 = _backbone_hash(model)
     exposure = {
         "train_indices": np.arange(len(data["train_images"]), dtype=np.int64),
@@ -123,7 +125,8 @@ def _train(data, arm: str, seed: int, config: dict, out: Path) -> dict:
     checkpoint_path = out / "model.pt"
     torch.save({
         "state_dict": best_state, "arm": arm, "seed": seed, "best_epoch": best_epoch,
-        "input_size": config["resolution"], "selection": "singleton dev BCE only",
+        "input_size": config["resolution"], "mask_pool": config.get("mask_pool", "area"),
+        "selection": "singleton dev BCE only",
     }, checkpoint_path)
 
     quartet_images = data["quartet_images"].reshape(-1, *data["quartet_images"].shape[2:])
@@ -132,6 +135,7 @@ def _train(data, arm: str, seed: int, config: dict, out: Path) -> dict:
     result = {
         "arm": arm, "seed": seed, "best_epoch": best_epoch, "best_dev_BCE": best_bce,
         "metrics": result_metrics,
+        "mask_pool": config.get("mask_pool", "area"),
         "contrast_fields": {
             "full_repair": "MISSING_REASON: defined only in paired direct-versus-arm analysis",
             "migration": "MISSING_REASON: defined only in paired direct-versus-arm analysis",
@@ -215,8 +219,8 @@ def main() -> None:
     parser.add_argument("--data", required=True, type=Path, help="explicit attached data directory or data.npz")
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--overwrite", action="store_true")
-    parser.add_argument("--mask-pool", default="nearest", choices=["nearest", "area"],
-                        help="color-mask downsampling contract; nearest preserves legacy behavior")
+    parser.add_argument("--mask-pool", default="area", choices=["nearest", "area"],
+                        help="color-mask downsampling contract; use nearest only to replay legacy runs")
     args = parser.parse_args()
 
     bundle = json.loads(args.manifest.read_text())
@@ -274,6 +278,7 @@ def main() -> None:
     status = {
         "status": "GPU_RUN_COMPLETE", "scientific_result": "COMPUTED_NOT_YET_INTERPRETED",
         "formal_claim": "none_pending_review", "cuda_available": True,
+        "mask_pool": args.mask_pool,
         "data_archive_sha256": data_manifest["archive"]["sha256"],
         "arms": ARMS, "seeds": SEEDS, "results": results, "regression_analysis": analysis,
     }

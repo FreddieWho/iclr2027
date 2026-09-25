@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE",
+  "archives": [
+    {
+      "path": "route2_run_evidence.tar.gz",
+      "sha256": "ca3925484177aa2265202f37aff270a624f1f6ce2b2eff5d8091f2d61cfb8f73",
+      "bytes": 9281
+    },
+    {
+      "path": "route2_run_checkpoints.tar.gz",
+      "sha256": "5fbf3c8265b65e07f860dfd3c0a012b0ccb1e9c91c1f3fde98ce48b3e568ef77",
+      "bytes": 249297095
+    }
+  ],
+  "verified_count": 16,
+  "verified": [
+    "logs/route2_static_3seeds.log",
+    "static/direct_static_s803/history.json",
+    "static/direct_static_s803/model.pt",
+    "static/direct_static_s803/predictions.npz",
+    "static/direct_static_s803/result.json",
+    "static/direct_static_s805/history.json",
+    "static/direct_static_s805/model.pt",
+    "static/direct_static_s805/predictions.npz",
+    "static/direct_static_s805/result.json",
+    "static/direct_static_s806/history.json",
+    "static/direct_static_s806/model.pt",
+    "static/direct_static_s806/predictions.npz",
+    "static/direct_static_s806/result.json",
+    "static/results.json",
+    "static/run_config.json",
+    "static/status.json"
+  ],
+  "pending_checkpoints": []
+}

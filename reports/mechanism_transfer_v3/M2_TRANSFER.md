@@ -1,5 +1,13 @@
 # M2 transfer report — frozen relation head to a new visual frontend
 
+> **Superseded interpretation, 2026-09-25.** The runner actually used for these
+> historical results disabled backbone gradients in the tuned arm and updated
+> BatchNorm buffers in the nominally frozen arm. Initialization also preceded
+> seeding. These results cannot establish the stated frozen-versus-tuned contrast,
+> exclude capacity, or prove the interface unlearnable. Corrected computation and
+> allowed wording are recorded in `reports/submission_audit_20260925/mechanism/`.
+> The historical values below are retained for traceability.
+
 Bank: expanded blinded visual bank, 692 quartets / 351 parents, archive SHA
 `69c4bb5c…` (`artifacts/mechanism_transfer_v3/m2/bank/`).
 Frozen head: M1 orbit_distance CoordMLP seed 11, checkpoint SHA

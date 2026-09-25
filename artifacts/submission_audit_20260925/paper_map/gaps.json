@@ -1,0 +1,191 @@
+{
+  "baseline_commit": "3fc9757398ebc88652362b906a2a98710bf17650",
+  "scope": "Read-only manuscript claim map and repository-evidence consistency check. No sealed raw data read. No numerical reanalysis or tests run.",
+  "gaps": [
+    {
+      "id": "G01",
+      "severity": "P1",
+      "topic": "M2 result validity",
+      "locations": [
+        "paper/sections/app_l015.tex:18",
+        "reports/mechanism_transfer_v3/M2_TRANSFER.md",
+        "experiments/mechanism_transfer_v3/m2/gpu_transfer.py"
+      ],
+      "conflict": "Root agent reports GeomFront forward branches under no_grad while BatchNorm buffers update, so the fine-tuned condition does not support the attribution or not-learnable conclusion.",
+      "minimum_action": "Withdraw the old inferential conclusion; record M2 as DEFERRED_PENDING_ACCEPTANCE until corrected implementation is independently accepted.",
+      "status": "deferred_pending_acceptance",
+      "owner_lane": "mechanism_transfer_v3(M1/M2)",
+      "resolution": "Historical causal claims withdrawn; corrected M2 acceptance deferred by user."
+    },
+    {
+      "id": "G02",
+      "severity": "P1",
+      "topic": "Route3 parser parent denominator",
+      "locations": [
+        "reports/e832_focus/route3/REPORT.md:9",
+        "reports/mechanism_transfer_v3/FINAL_DECISION.md:57-63",
+        "paper/sections/04_mechanism.tex:68-71",
+        "paper/sections/app_l015.tex:14"
+      ],
+      "conflict": "Route3 report says 230 E/142 parents; final decision and manuscript say 230/65. A separate bank is 171/56.",
+      "minimum_action": "Resolve count from route3/results.json and update all copies without pooling the 171/56 bank.",
+      "status": "RESOLVED",
+      "owner_lane": "e832(route1-4)",
+      "baseline_status": "open_lane_check",
+      "resolution": "Route3 report and current claims use 230 quartets / 65 parents; independent 171 / 56 bank remains separate."
+    },
+    {
+      "id": "G03",
+      "severity": "P1",
+      "topic": "Build receipt and PDF identity",
+      "locations": [
+        "paper/main.pdf",
+        "reports/e832_focus/PAPER_BUILD_RECEIPT.json",
+        "reports/e1a933_review/PAPER_BUILD_RECEIPT.json",
+        "paper/SUBMISSION_CHECKLIST.md:24,41-42"
+      ],
+      "conflict": "At baseline, actual main.pdf was 27 pages/SHA 8a558080..., e832 receipt said 27 pages/SHA 8582e85b..., older e1a933 receipt described a 25-page PDF and source hashes mismatched current TeX; checklist said 26 pages.",
+      "minimum_action": "After final edits, compile once and generate a matching receipt with PDF and all source hashes; sync page counts.",
+      "status": "RESOLVED",
+      "owner_lane": "root",
+      "baseline_status": "pending_final_compile_receipt",
+      "resolution": "artifacts/submission_audit_20260925/PAPER_BUILD_RECEIPT.json: 27 pages, conclusion page 9, zero overfull and undefined; paper/SUBMISSION_CHECKLIST.md points to current receipt."
+    },
+    {
+      "id": "G04",
+      "severity": "P1",
+      "topic": "Reproduction package coverage and asset hashes",
+      "locations": [
+        "paper/sections/08_reproducibility.tex:37-43",
+        "reports/final_closure/REPRODUCE_FINAL.md",
+        "reports/e832_focus/REPRODUCE.md",
+        "artifacts/SHA256SUMS_UNTRACKED.txt"
+      ],
+      "conflict": "The paper claims assets are versioned with it and cites an older one-command recipe; current active claims include later routes whose full replay paths are not centralized. Baseline: 359/497 f095 files and 29/50 M2 files untracked; 28 untracked M2 outputs absent from the global hash list.",
+      "minimum_action": "Publish a claim-to-code/input/result/build manifest and describe which large assets are included, retrievable, or local-only, with hashes for referenced untracked evidence.",
+      "status": "AUDIT_COMPLETE_PUBLIC_ASSET_RELEASE_PENDING",
+      "owner_lane": "root",
+      "baseline_status": "root_reported_manifest_work_in_progress",
+      "resolution": "Unified claim manifest and asset availability inventory distinguish local files and Git-tracked files. Public release of large assets remains pending and is not claimed."
+    },
+    {
+      "id": "G05",
+      "severity": "P1",
+      "topic": "Cross-ledger authority",
+      "locations": [
+        "README.md:28-40,106-110",
+        "reports/INDEX.md:8-14",
+        "paper/EVIDENCE_MAP.md:1-10",
+        "reports/e832_focus/CLAIM_LEDGER.csv",
+        "reports/mechanism_transfer_v3/CLAIM_LEDGER.csv"
+      ],
+      "conflict": "Old root indexes call final_closure MASTER_CLAIM_LEDGER the sole source for every paper number, but new lane results are governed by separate route/mechanism ledgers.",
+      "minimum_action": "Use a unified register that points per claim to the active source ledger, or explicitly scope the older master ledger.",
+      "status": "RESOLVED",
+      "owner_lane": "root",
+      "baseline_status": "root_reported_index_work_in_progress",
+      "resolution": "reports/submission_audit_20260925/CLAIMS.csv is current per-claim index; old master ledger has historical scope banner."
+    },
+    {
+      "id": "G06",
+      "severity": "P2",
+      "topic": "Stale NOT_RUN copy in non-canonical generated appendix",
+      "locations": [
+        "paper/sections/app_f095_generated.tex:98,128,159"
+      ],
+      "conflict": "Generated reference copy retains O04 and R03 NOT_RUN language and old N02 control-status text; main.tex includes the maintained app_f095.tex, not this generated file.",
+      "minimum_action": "Regenerate or mark this file as historical/non-canonical and exclude it from paper reproduction inputs.",
+      "status": "HISTORICAL_NONCANONICAL",
+      "owner_lane": "root",
+      "baseline_status": "open_copy_drift",
+      "resolution": "app_f095_generated.tex is historical/reference output and is not included by main.tex. Current scientific text is app_f095.tex. Future manuscript writing must use the maintained appendix."
+    },
+    {
+      "id": "G07",
+      "severity": "P2",
+      "topic": "J/J3/J4/CCM definitions",
+      "locations": [
+        "paper/sections/02_instrument.tex:15-35",
+        "paper/sections/tab_fallback.tex:18-27",
+        "paper/sections/app_f095.tex:160"
+      ],
+      "conflict": "Active text separates CCM miss from J accuracy, but uses J and J3 across sections and leaves J4 implicit/missing.",
+      "minimum_action": "Define J3=J for A/B/AB once, define CCM as conditional miss, and label J4/base-state output unavailable where not present.",
+      "status": "RESOLVED_IN_METRIC_CONTRACT",
+      "owner_lane": "root plus relevant metric lanes",
+      "baseline_status": "wording_cleanup",
+      "resolution": "reports/submission_audit_20260925/METRIC_CONTRACT.md defines J3, J4, CCM and row/equal-parent estimands; final manuscript harmonization belongs to the next writing stage."
+    },
+    {
+      "id": "G08",
+      "severity": "resolved",
+      "topic": "O04 stale NOT_RUN in active appendix",
+      "locations": [
+        "paper/sections/app_f095.tex:80,106",
+        "reports/e1a933_review/O04_FORWARD_INTERVENTION.md:3,11-14,165-180"
+      ],
+      "conflict": "At baseline, app_f095 said the prospectively predicted intervention and downstream echo were not run despite reporting the O04 result and completed echo elsewhere.",
+      "minimum_action": "Active appendix sentence corrected by root; retain the fresh-bank/reused-bank limitation and MISS verdict.",
+      "status": "RESOLVED",
+      "owner_lane": "controls(e1a933 O01/2/4 R03/8/9)",
+      "baseline_status": "root_fixed_active_copy_generated_copy_still_stale",
+      "resolution": "Active appendix corrected; generated reference copy explicitly noncanonical under G06."
+    },
+    {
+      "id": "G09",
+      "severity": "resolved",
+      "topic": "R03 stale NOT_RUN caption in active appendix",
+      "locations": [
+        "paper/sections/app_f095.tex:136,149",
+        "reports/e1a933_review/R03_LINEAGE_REPORT.md",
+        "reports/e1a933_review/PAPER_PATCH_AUDIT.md:30"
+      ],
+      "conflict": "At baseline, active table caption said exact statewise matching was not run; following paragraph/report says 392,412-state exact/near audit completed.",
+      "minimum_action": "Active caption corrected by root; keep the generated reference copy in sync or mark non-canonical.",
+      "status": "RESOLVED",
+      "owner_lane": "controls(e1a933 O01/2/4 R03/8/9)",
+      "baseline_status": "root_fixed_active_copy_generated_copy_still_stale",
+      "resolution": "Active appendix corrected and R03 exclusion sensitivity completed; reference copy explicitly noncanonical under G06."
+    },
+    {
+      "id": "G10",
+      "severity": "resolved",
+      "topic": "Figure 1 correctness indicator plotted as prediction",
+      "locations": [
+        "experiments/e832_focus/route5_figure/select_figure1.py",
+        "paper/sections/02_instrument.tex:38-47",
+        "reports/submission_audit_20260925/FIGURE1_SELECTION_RECEIPT.json"
+      ],
+      "conflict": "Baseline renderer labeled 0/1 correctness indicators as if predicted classes. Root now recovers class labels from label+correctness, records the state encoding and displayed predictions, regenerates the figure, and reports 12/12 mapping checks passed.",
+      "minimum_action": "Keep the fix and exact example selection; do not revert.",
+      "status": "RESOLVED",
+      "owner_lane": "root/e832 route5 figure",
+      "baseline_status": "root_fixed_receipted",
+      "resolution": "Figure1 current display receipt and FIGURE1_AUDIT.json confirm all 12 displayed values."
+    },
+    {
+      "id": "G11",
+      "severity": "resolved",
+      "topic": "Root status/index drift",
+      "locations": [
+        "README.md",
+        "STATUS.md",
+        "reports/INDEX.md",
+        "paper/EVIDENCE_MAP.md"
+      ],
+      "conflict": "At baseline, README/STATUS described visual work as running or GPU-blocked while current reports and TODO showed completion; EVIDENCE_MAP self-identified as superseded and still asserted old-ledger authority.",
+      "minimum_action": "Root reported updates to status/index/history pointers; check final diff once before push.",
+      "status": "RESOLVED",
+      "owner_lane": "root",
+      "baseline_status": "root_reported_fixed_review_final_diff",
+      "resolution": "README, STATUS, reports/INDEX and paper/EVIDENCE_MAP now point to current audit; user cancelled GitHub commit/push."
+    }
+  ],
+  "method_checks": {
+    "paper_literal_path_scan": "No missing literal paper path found; path-existence is not proof the large asset is packaged or hashed.",
+    "reproduction_script_paths": "All Python script paths named in the two reproduction documents existed at baseline.",
+    "sealed_raw_data": "Not opened.",
+    "tests_or_scientific_reruns": "Not run."
+  },
+  "closeout_note": "Local delivery only. Manuscript finalization and M2 corrected-run acceptance are outside this closeout."
+}

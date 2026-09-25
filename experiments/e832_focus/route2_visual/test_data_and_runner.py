@@ -6,6 +6,8 @@ import numpy as np
 
 import data_generator
 import gpu_run
+import recompute_from_predictions
+import static_baseline
 
 ROOT = Path(__file__).resolve().parents[3]
 DATA = ROOT / "artifacts/e832_focus/route2/data"
@@ -27,20 +29,36 @@ class DataAndRunnerTests(unittest.TestCase):
 
     def test_metric_denominators(self):
         labels = np.asarray([
-            [0, 1, 1, 0],  # atomics correct, AB wrong
-            [0, 1, 1, 1],  # full joint correct
+            [1, 1, 1, 1],  # all four states correct
+            [1, 1, 1, 1],  # P wrong, A/B/AB correct
+            [1, 1, 1, 0],  # atomics correct, AB wrong
             [0, 1, 1, 1],  # B wrong, AB correct
-            [0, 1, 1, 0],  # atomics correct, AB wrong
         ], np.float32)
         logits = np.asarray([
-            [-2, 2, 2, 2], [-2, 2, 2, 2], [-2, 2, -2, 2], [-2, 2, 2, 2]
+            [2, 2, 2, 2], [-2, 2, 2, 2], [2, 2, 2, 2], [-2, 2, -2, 2]
         ], np.float32)
-        result = gpu_run.metrics(logits, labels)
-        self.assertEqual(result["n_quartets"], 4)
-        self.assertAlmostEqual(result["atomic_joint"], 3 / 4)
-        self.assertAlmostEqual(result["J3"], 1 / 4)
-        self.assertAlmostEqual(result["J4"], 1 / 4)
-        self.assertEqual(result["atomic_denominator"], 3)
+        for result in (gpu_run.metrics(logits, labels),
+                       static_baseline.metrics(logits, labels),
+                       recompute_from_predictions.correct_metrics(logits, labels)):
+            self.assertEqual(result["n_quartets"], 4)
+            self.assertAlmostEqual(result["atomic_joint"], 3 / 4)
+            self.assertAlmostEqual(result["J3"], 2 / 4)
+            self.assertAlmostEqual(result["J4"], 1 / 4)
+            self.assertEqual(result["atomic_denominator"], 3)
+
+    def test_static_baseline_matches_train_exposure_and_dev_selection(self):
+        data = {
+            "train_clean": np.asarray([True, False, True, False, True]),
+            "train_labels": np.zeros(5, np.float32),
+            "dev_clean": np.asarray([True, False, False, True, False]),
+            "dev_labels": np.zeros(5, np.float32),
+        }
+        clean, exposure = static_baseline.matched_clean_exposure(data)
+        self.assertEqual(clean.tolist(), [0, 2, 4])
+        self.assertEqual(len(exposure), len(data["train_labels"]))
+        self.assertEqual(set(exposure.tolist()), set(clean.tolist()))
+        self.assertEqual(len(static_baseline.selection_indices(data, "all-singleton")), 5)
+        self.assertEqual(static_baseline.selection_indices(data, "clean-only").tolist(), [0, 3])
 
 
 if __name__ == "__main__":

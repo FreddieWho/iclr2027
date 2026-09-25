@@ -1,5 +1,13 @@
 # SUBMISSION CHECKLIST — ICLR 2027 投稿就绪状态
 
+## 当前审计入口（2026-09-25）
+
+- 结论、代码与数值证据：`reports/submission_audit_20260925/README.md` 与 `CLAIMS.csv`。
+- 当前修正稿构建：27 页，结论第 9 页，0 overfull / 0 undefined；回执 `artifacts/submission_audit_20260925/PAPER_BUILD_RECEIPT.json`。
+- Figure 1 已改为真实预测标签；O04、R03、N02 估计量和匹配曝光量 static baseline 已同步。
+- M2 历史 frontend 对照存在实现错误，相关机制归因已撤回；新 16 格验收按用户要求后置，不能用于当前文章结论。
+- 以下旧检查保留为历史记录，不构成当前最终投稿批准；大型数值资产的公开发布、最终作者取舍和外部投稿尚未完成。
+
 > 生成：2026-09-22（结构整理收口）。截止：全文 2026-09-25 AOE，主文 9 页。
 > 下方2026-09-22/23检查为历史记录，不能代替2026-09-24修复结果。当前审计入口：`reports/e1a933_review/PAPER_PATCH_AUDIT.md`。
 

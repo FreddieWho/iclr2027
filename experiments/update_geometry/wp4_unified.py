@@ -43,6 +43,22 @@ def first_flip(x, frng):
     return None, None
 
 
+def spearman_average_rank(x, y):
+    """Pairwise-finite Spearman rho with average ranks for ties."""
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    if x.ndim != 1 or y.ndim != 1 or x.shape != y.shape:
+        raise ValueError("Spearman inputs must be equal-length vectors")
+    keep = np.isfinite(x) & np.isfinite(y)
+    x, y = x[keep], y[keep]
+    if len(x) < 2 or np.unique(x).size < 2 or np.unique(y).size < 2:
+        return None
+    from scipy.stats import rankdata
+    rx = rankdata(x, method="average")
+    ry = rankdata(y, method="average")
+    return round(float(np.corrcoef(rx, ry)[0, 1]), 4)
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--out", type=Path, required=True)
@@ -177,9 +193,7 @@ def main():
               open(a.out / "rows.json", "w"))
 
     def spear(x, y):
-        rx = np.argsort(np.argsort(x))
-        ry = np.argsort(np.argsort(y))
-        return round(float(np.corrcoef(rx, ry)[0, 1]), 4)
+        return spearman_average_rank(x, y)
 
     mt = model_table
     K = ARMS

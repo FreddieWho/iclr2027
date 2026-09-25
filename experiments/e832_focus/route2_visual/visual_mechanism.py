@@ -52,12 +52,12 @@ def prep(images, input_size: int = 224) -> torch.Tensor:
     return (raw - mean) / std
 
 
-def visible_segment_features(model, images, mask_pool: str = "nearest"):
+def visible_segment_features(model, images, mask_pool: str = "area"):
     """Return global, red and blue features from one shared image forward.
 
-    mask_pool='nearest' preserves the legacy contract exactly. 'area' uses
-    area-weighted downsampling so natively visible segments keep nonzero
-    probability mass instead of being silently erased to a zero vector.
+    mask_pool='area' keeps narrow, natively visible segments in the pooled
+    representation. 'nearest' remains available to replay legacy runs that
+    silently erased some small masks.
     """
     raw, _ = _image_nchw(images)
     device = next(model.parameters()).device
@@ -84,7 +84,7 @@ class Mechanism(nn.Module):
     """Predeclared direct/additive/representation/interaction arms."""
 
     def __init__(self, mode: str = "interaction", input_size: int = 224, pretrained: bool = False,
-                 mask_pool: str = "nearest"):
+                 mask_pool: str = "area"):
         super().__init__()
         if mode not in {"direct", "additive", "representation", "interaction"}:
             raise ValueError(mode)

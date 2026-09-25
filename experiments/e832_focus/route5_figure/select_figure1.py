@@ -8,6 +8,7 @@ outcome-based tie break beyond the precommitted eligibility rule.
 from __future__ import annotations
 
 import csv
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -83,6 +84,8 @@ def quartet_context(qid):
     if parent >= len(positions):
         raise ValueError("parent id outside eval_202 position pool")
     p = positions[parent]
+    if int(m2["parent"]) != parent or not np.allclose(p, a + bb - ab, atol=1e-6, rtol=0):
+        raise ValueError("Figure 1 base scene does not match the archived additive quartet")
     la = m1["yA"] if m1["ptype"] == "A" else m1["yB"]
     lb = m2["yA"] if m2["ptype"] == "A" else m2["yB"]
     labels = {
@@ -94,7 +97,15 @@ def quartet_context(qid):
     return {"P": p, "A": a, "B": bb, "AB": ab}, labels, m1, m2
 
 
-def draw(ax, x, label, pred=None, title=""):
+def predicted_label(label, correct):
+    """Recover a binary class label from an archived correctness indicator."""
+    label, correct = int(label), int(correct)
+    if label not in (0, 1) or correct not in (0, 1):
+        raise ValueError("Figure 1 requires binary labels and correctness indicators")
+    return label if correct else 1 - label
+
+
+def draw(ax, x, label, pred=None, title="", baseline_pred=None):
     x = np.asarray(x, float).reshape(4, 2)
     # Actual source-task colors: first segment red, second blue.
     for j, color in enumerate(("#c43c35", "#2878b5")):
@@ -105,7 +116,7 @@ def draw(ax, x, label, pred=None, title=""):
     ax.set_xticks([]); ax.set_yticks([])
     ax.set_aspect("equal")
     ax.set_xlim(-1.0, 1.0); ax.set_ylim(-1.0, 1.0)
-    txt = f"y={label}" if pred is None else f"y={label}  pred={int(pred)}"
+    txt = f"y={label}" if pred is None else f"y={label}  pred={int(baseline_pred)}→{int(pred)}"
     ax.text(0.02, 0.03, txt, transform=ax.transAxes, fontsize=7,
             bbox=dict(facecolor="white", alpha=.8, edgecolor="none"))
 
@@ -123,16 +134,21 @@ def render(selected, rows):
         case = {"kind": kind, "parent": parent, "qid": qid,
                 "baseline_arm": base_arm, "flip_arm": flip_arm,
                 "baseline_state": state(base), "flip_state": state(flip),
+                "state_encoding": "A/B/AB correctness indicators, not class predictions",
+                "displayed_predictions": {},
                 "labels": labels, "source": "bank_dev512", "seed": 11,
                 "effect_estimate_used": False}
         receipt_cases.append(case)
         for c, name in enumerate(("P", "A", "B", "AB")):
             pred = None
+            baseline_pred = None
             if name in ("A", "B", "AB"):
                 col = {"A": "correct_A", "B": "correct_B", "AB": "correct_AB"}[name]
-                pred = int(flip[col])
+                pred = predicted_label(labels[name], flip[col])
+                baseline_pred = predicted_label(labels[name], base[col])
+                case["displayed_predictions"][name] = {"baseline": baseline_pred, "flip": pred}
             draw(axes[r, c], states[name], labels[name], pred,
-                 f"{kind}: {name}")
+                 f"{kind}: {name}", baseline_pred=baseline_pred)
         axes[r, 0].set_ylabel("baseline→flip", fontsize=8)
     fig.suptitle("Archived repair-flow examples (illustration only)", fontsize=10)
     fig.savefig(FIGDIR / "fig1_real_quartets.pdf", bbox_inches="tight")
@@ -142,6 +158,9 @@ def render(selected, rows):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--receipt", type=Path, default=RECEIPT)
+    args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     rows = load_rows()
     endpoint = eligible_endpoint(rows)
@@ -154,6 +173,8 @@ def main():
     cases = render(selected, rows) if len(selected) == 2 else []
     receipt = {
         "status": "SELECTED" if len(cases) == 2 else "INCOMPLETE",
+        "schema": "figure1_binary_predictions_v2",
+        "renderer_sha256": sha(Path(__file__)),
         "selection_rule": {
             "bank": "artifacts/p123_upgrade/bank/bank_dev512.npz",
             "prediction_file": "artifacts/next_novelty/u1_factorial/U1_PERQUARTET.csv",
@@ -169,7 +190,12 @@ def main():
         "selected": cases,
         "empty_reason": None if len(cases) == 2 else "One or both precommitted eligible sets were empty; no fallback bank or seed was used.",
     }
-    RECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
+    receipt["figure_hashes"] = {
+        str(p.relative_to(ROOT)): sha(p)
+        for p in (FIGDIR / "fig1_real_quartets.pdf", FIGDIR / "fig1_real_quartets.png")
+    } if len(cases) == 2 else {}
+    args.receipt.parent.mkdir(parents=True, exist_ok=True)
+    args.receipt.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps(receipt, indent=2, ensure_ascii=False))
 
 

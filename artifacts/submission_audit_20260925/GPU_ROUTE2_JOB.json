@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "purpose": "Route2 exposure-matched static baseline; no additional task search",
+  "cwd": "/root/iclr_submission_audit_20260925/route2_code",
+  "input_files": [
+    {
+      "path": "/root/iclr_submission_audit_20260925/route2_code/experiments/e832_focus/route2_visual/static_baseline.py",
+      "sha256": "d22e7d9b03ebb66982421f05c1882aa2a7ff1e3288f811b1b9fe31859b2b04c3"
+    },
+    {
+      "path": "/root/iclr_submission_audit_20260925/route2_code/experiments/e832_focus/route2_visual/visual_mechanism.py",
+      "sha256": "fe753be369825ac78b872ef706f604953e88468778dab0bc60cf18338a5831d2"
+    },
+    {
+      "path": "/root/iclr_submission_audit_20260925/run_gpu_job.py",
+      "sha256": "706b730cda7ffa78af28d466e1957971a4b4b62ccfe58bfb441fefb5c5582cb6"
+    },
+    {
+      "path": "/root/e832_route2/artifacts/e832_focus/route2/data/data.npz",
+      "sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee"
+    },
+    {
+      "path": "/root/e832_route2/artifacts/e832_focus/route2/data/data_manifest.json",
+      "sha256": "fd148616753df82d607c68ead94c867a44a1c95af5bf1a746117223fc64e63c9"
+    },
+    {
+      "path": "/root/e832_route2/artifacts/e832_focus/route2/gpu_bundle/manifest.json",
+      "sha256": "fcdb14bbebe544082b523c81eb85914544008c8c9d292e6dae0d0fc27afe785e"
+    },
+    {
+      "path": "/root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    }
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4"
+  },
+  "steps": [
+    {
+      "id": "route2_static_3seeds",
+      "argv": [
+        "python3",
+        "/root/iclr_submission_audit_20260925/route2_code/experiments/e832_focus/route2_visual/static_baseline.py",
+        "--manifest",
+        "/root/e832_route2/artifacts/e832_focus/route2/gpu_bundle/manifest.json",
+        "--data",
+        "/root/e832_route2/artifacts/e832_focus/route2/data",
+        "--out",
+        "{run_root}/static",
+        "--selection-dev",
+        "all-singleton"
+      ],
+      "outputs": [
+        "static/status.json",
+        "static/direct_static_s803/result.json",
+        "static/direct_static_s803/predictions.npz",
+        "static/direct_static_s805/result.json",
+        "static/direct_static_s805/predictions.npz",
+        "static/direct_static_s806/result.json",
+        "static/direct_static_s806/predictions.npz"
+      ],
+      "timeout_seconds": 1800
+    }
+  ]
+}

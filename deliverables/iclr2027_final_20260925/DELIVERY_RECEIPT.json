@@ -1,0 +1,16 @@
+{
+  "completed_utc": "2026-09-25T11:48:02.308692+00:00",
+  "main_pages": 7,
+  "total_pages": 12,
+  "overfull": 0,
+  "undefined_references": 0,
+  "figures_drawn_and_viewed": [
+    "fig1_protocol",
+    "fig2_relocation",
+    "fig3_visual"
+  ],
+  "result_recomputation": false,
+  "git_commit_or_push": false,
+  "pdf_sha256": "1b5de06b9ab8ad7dc9d6cd31abf05aae9b2620438b907fc5dffcbc7917143936",
+  "ai_disclosure": "Two sentences; actual research uses retained"
+}

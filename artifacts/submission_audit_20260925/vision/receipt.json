@@ -1,0 +1,18 @@
+{
+  "schema": "submission_audit_vision_receipt_v1",
+  "status": "COMPLETE_OVERLAY",
+  "baseline": "3fc9757398ebc88652362b906a2a98710bf17650",
+  "run_command": "python experiments/submission_audit_20260925/vision_recompute.py",
+  "targeted_test_command": "python -m pytest tests/n02_upgrade/test_metrics.py -q",
+  "targeted_test_result": "2 passed",
+  "scope": "saved-output/receipt re-score only; no training, model inference/API, downloads, or sealed holdout access",
+  "sha256": {
+    "experiments/submission_audit_20260925/vision_recompute.py": "1ab793a059395c762520621f16450420d95a96febed1141c81bd3b442b68bc27",
+    "artifacts/submission_audit_20260925/vision/recomputation.json": "81505b30679db4f55c8f502362287b722ea00da791f8bf334dcf50f4bf094327",
+    "reports/submission_audit_20260925/vision/AUDIT.md": "cea54e3fb9b111a94e85b80378943e7b322dc2ae619b2114f5028efed6bfc0fd",
+    "reports/submission_audit_20260925/vision/claims.json": "9f91b6372654e819624a4dcee3c62edcf46b0474b612965f8759e097c7d609b8",
+    "experiments/n02_upgrade/upgrade_protocol.py": "ddf3481d081db4b23f65b7b38ae46a839173977001472747218f95a3c951107d",
+    "tests/n02_upgrade/test_metrics.py": "688a27b903cda7a7a0050a68482a23809613b89bb66a065d4acb377816517813"
+  },
+  "claims_count": 11
+}

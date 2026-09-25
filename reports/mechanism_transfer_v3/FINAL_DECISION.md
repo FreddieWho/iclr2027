@@ -1,5 +1,12 @@
 # Final decision — mechanism_transfer_v3
 
+> **Historical decision; superseded by the 2026-09-25 submission audit.**
+> The M2 implementation did not perform its labeled frozen/tuned interventions.
+> The M2 attribution and exclusion claims below are withdrawn. M1's bounded
+> search gives an observed minimum, not a positive global lower bound; flip-side
+> noninferiority was not established. Use `reports/submission_audit_20260925/CLAIMS.csv`
+> and the mechanism audit for current supported wording and corrected results.
+
 Date: 2026-09-25. Evidence: `reports/mechanism_transfer_v3/M1_MECHANISM.md`,
 `reports/mechanism_transfer_v3/M2_TRANSFER.md`,
 `reports/e832_focus/route2/REPORT.md`, `reports/e832_focus/route3/REPORT.md`.
