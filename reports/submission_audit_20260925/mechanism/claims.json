@@ -96,111 +96,139 @@
       ]
     },
     {
-      "id": "M2-FROZEN-HEAD-COMPETENCE",
-      "claim": "The frozen relation head produces meaningful performance when given true orbit geometry on the expanded visual bank.",
-      "verdict": "ARCHIVE_REPORTED; PREDICTION_LEVEL_REACCEPTANCE_PENDING",
-      "allowed_wording": "The archived run reports J3 0.796 on true geometry and 0.000-0.013 with same-class random heads on this 692-quartet/351-parent bank.",
-      "forbidden_wording": "The frozen head proves general cross-task transfer or is equivalent to an end-to-end visual model.",
-      "denominator": "692 quartets / 351 test parents; one true-geometry run and three random-head seeds",
+      "denominator": "685 distinct quartets / 351 parents; archived 692 rows include 7 exact repeats; 3 training seeds share one bank",
       "code_paths": [
-        "experiments/mechanism_transfer_v3/m2/gpu_transfer.py",
-        "experiments/mechanism_transfer_v3/m2/bank_contract.py",
-        "experiments/mechanism_transfer_v3/common/metrics.py"
+        "experiments/submission_audit_20260925/m2_scientific_acceptance.py",
+        "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py"
       ],
       "evidence_paths": [
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/true_geometry/result.json",
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/true_geometry/predictions.npz",
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/random_head_803/",
-        "artifacts/mechanism_transfer_v3/m2/bank/data.npz"
+        "artifacts/submission_audit_20260925/m2_acceptance/ACCEPTANCE.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/DECISION.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/PREDICTIONS.csv",
+        "reports/submission_audit_20260925/m2_acceptance/REPORT.md"
       ],
-      "recomputation": "Historical report records an all-16 prediction recomputation; this audit did not independently complete that recomputation. Corrected 16-cell run is pending acceptance.",
-      "limitations": "Support is limited to this bank/task/rendering and the frozen head contract.",
-      "fixes": []
+      "recomputation": "Completed: independent saved-prediction metrics and parent bootstrap; selected-checkpoint tensor audit; true-geometry CPU replay. No retraining.",
+      "limitations": [
+        "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+        "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+        "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+        "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+        "No cross-renderer validation or proof of global unlearnability.",
+        "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+      ],
+      "id": "M2-CORRECTED-TUNING",
+      "claim": "Actual backbone tuning improves the fixed-head pipeline.",
+      "verdict": "SUPPORTED_SCOPED",
+      "allowed_wording": "On 685 distinct quartets from 351 parents, unfreezing the geometry-prediction backbone raises J3 from 0.153–0.182 to 0.342–0.455. Paired per-seed parent-cluster intervals for gains of 0.188–0.273 exclude zero. The fixed source-head pipeline remains substantially below direct visual classification (J3 0.893–0.917) under the tested recipes. These results support a learnable adaptation benefit, not module superiority or an unlearnable interface.",
+      "forbidden_wording": "Unfreezing has no effect; global unlearnability; capacity excluded."
     },
     {
-      "id": "M2-DIRECT-AND-ANALYTIC-REFERENCE",
-      "claim": "Direct visual learning exceeds an analytic image baseline on this bank.",
-      "verdict": "ARCHIVE_REPORTED; REACCEPTANCE_PENDING",
-      "allowed_wording": "The archive reports direct-full J3 0.915-0.921 and analytic image-baseline J3 0.886 on the 692-quartet bank; treat the analytic result as a separate reference, not a ceiling.",
-      "forbidden_wording": "The analytic image baseline is an upper bound; results from the 28-quartet pilot can be pooled with this bank.",
-      "denominator": "692 quartets / 351 parents for M2; pilot-bank denominator separate",
+      "denominator": "685 distinct quartets / 351 parents; archived 692 rows include 7 exact repeats; 3 training seeds share one bank",
       "code_paths": [
-        "experiments/mechanism_transfer_v3/m2/gpu_transfer.py",
-        "experiments/mechanism_transfer_v3/m2/analytic_image_baseline.py"
+        "experiments/submission_audit_20260925/m2_scientific_acceptance.py",
+        "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py"
       ],
       "evidence_paths": [
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/direct_full_803/",
-        "artifacts/mechanism_transfer_v3/m2/analytic_baseline.json",
-        "reports/mechanism_transfer_v3/M2_TRANSFER.md"
+        "artifacts/submission_audit_20260925/m2_acceptance/ACCEPTANCE.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/DECISION.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/PREDICTIONS.csv",
+        "reports/submission_audit_20260925/m2_acceptance/REPORT.md"
       ],
-      "recomputation": "Archive-reported values; this audit did not independently finish prediction recomputation.",
-      "limitations": "Do not pool pilot and expanded bank results or call the analytic baseline a ceiling.",
-      "fixes": []
+      "recomputation": "Completed: independent saved-prediction metrics and parent bootstrap; selected-checkpoint tensor audit; true-geometry CPU replay. No retraining.",
+      "limitations": [
+        "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+        "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+        "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+        "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+        "No cross-renderer validation or proof of global unlearnability.",
+        "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+      ],
+      "id": "M2-MODULE-SUPERIORITY",
+      "claim": "The tested fixed-head geometry pipeline has no advantage over direct visual classification.",
+      "verdict": "TESTED_RECIPE_LOWER",
+      "allowed_wording": "Direct exceeds tuned geometry by 45.4–55.2 pp J3, with all three paired intervals positive. This is a recipe-specific comparison with different supervision objectives.",
+      "forbidden_wording": "All modular methods fail; equal-information causal comparison; cross-renderer superiority."
     },
     {
-      "id": "M2-GEOMETRY-FRONTEND-ATTRIBUTION",
-      "claim": "The visual frontend cannot learn the frozen geometry interface; probe capacity is excluded because unfreezing did not help.",
-      "verdict": "INVALID_IMPLEMENTATION",
-      "allowed_wording": "The archived recipe produced low frontend J3 and high geometry MSE under its recorded implementation; it does not identify a general learning impossibility or exclude probe capacity.",
-      "forbidden_wording": "The interface is not learnable by smooth regression; the frozen-versus-fine-tuned comparison excludes probe capacity; adaptation-versus-transfer is closed.",
-      "denominator": "Old archive: 3 nominally frozen plus 3 nominally tuned cells; 692 quartets / 351 parents",
+      "denominator": "685 distinct quartets / 351 parents; archived 692 rows include 7 exact repeats; 3 training seeds share one bank",
       "code_paths": [
-        "experiments/mechanism_transfer_v3/m2/gpu_transfer.py"
+        "experiments/submission_audit_20260925/m2_scientific_acceptance.py",
+        "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py"
       ],
       "evidence_paths": [
-        "artifacts/submission_audit_20260925/GPU_HISTORICAL_SOURCE_CHECK.json",
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/geom_front_803/result.json",
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/geom_front_tuned_803/result.json"
+        "artifacts/submission_audit_20260925/m2_acceptance/ACCEPTANCE.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/DECISION.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/PREDICTIONS.csv",
+        "reports/submission_audit_20260925/m2_acceptance/REPORT.md"
       ],
-      "recomputation": "Remote archived runner SHA-256 fab5ffde7e0e6bf10303cc40a370f516c6cf36a0f8dd8094f05fa20618b26d28 matches the 16,151-byte baseline Git blob. Code had unconditional no_grad and training-mode BatchNorm for frozen backbones. Corrected 16-cell run is DEFERRED_PENDING_ACCEPTANCE.",
-      "limitations": "Corrected training results must be accepted before re-attributing frontend failure. The report's MSE is recipe-specific.",
-      "fixes": [
-        "Freeze mode now keeps backbone eval and disables gradients.",
-        "Unfreeze mode now tracks gradients through the backbone.",
-        "Run-level seeded initialization, per-tensor and BatchNorm before/after hashes, and first-batch gradient evidence added."
-      ]
+      "recomputation": "Completed: independent saved-prediction metrics and parent bootstrap; selected-checkpoint tensor audit; true-geometry CPU replay. No retraining.",
+      "limitations": [
+        "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+        "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+        "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+        "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+        "No cross-renderer validation or proof of global unlearnability.",
+        "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+      ],
+      "id": "M2-HEAD-REFERENCE",
+      "claim": "A frozen source head retains same-predicate competence on true geometry.",
+      "verdict": "SUPPORTED_REFERENCE",
+      "allowed_wording": "True-geometry frozen-head J3=0.7942; random heads on true geometry score 0–0.0131. All 2768 reference decisions replay identically on CPU.",
+      "forbidden_wording": "True geometry is a universal ceiling; random-head controls isolate learned-frontend benefits."
     },
     {
-      "id": "M2-CLEAN-TRAINING-EXPOSURE",
-      "claim": "The archived clean-only direct arm is a matched clean-versus-full ablation.",
-      "verdict": "NOT_MATCHED_EXPOSURE",
-      "allowed_wording": "The archived clean-only model was trained on fewer unique rows and fewer row exposures per epoch; its J3 is descriptive under the lower-exposure recipe.",
-      "forbidden_wording": "The clean-versus-full J3 difference isolates the effect of flipped supervision at equal training exposure.",
-      "denominator": "Training population is the frozen M2 train singleton split; test denominator remains 692 quartets / 351 parents",
+      "denominator": "685 distinct quartets / 351 parents; archived 692 rows include 7 exact repeats; 3 training seeds share one bank",
       "code_paths": [
-        "experiments/mechanism_transfer_v3/m2/gpu_transfer.py"
+        "experiments/submission_audit_20260925/m2_scientific_acceptance.py",
+        "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py"
       ],
       "evidence_paths": [
-        "artifacts/mechanism_transfer_v3/m2/bank/data.npz",
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/direct_clean_803/result.json"
+        "artifacts/submission_audit_20260925/m2_acceptance/ACCEPTANCE.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/DECISION.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/PREDICTIONS.csv",
+        "reports/submission_audit_20260925/m2_acceptance/REPORT.md"
       ],
-      "recomputation": "Old code exposure follows the clean subset length each epoch. Corrected code samples clean rows with replacement to match full singleton exposure and records counts.",
-      "limitations": "Corrected clean results are part of the 16-cell pending run.",
-      "fixes": [
-        "Added epoch_size sampling and explicit unique/per-epoch/total exposure fields."
-      ]
+      "recomputation": "Completed: independent saved-prediction metrics and parent bootstrap; selected-checkpoint tensor audit; true-geometry CPU replay. No retraining.",
+      "limitations": [
+        "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+        "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+        "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+        "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+        "No cross-renderer validation or proof of global unlearnability.",
+        "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+      ],
+      "id": "M2-MATCHED-CLEAN",
+      "claim": "Exposure-matched full-singleton direct training has modest positive point gains.",
+      "verdict": "POSITIVE_POINTS_ONE_CI_CROSSES_ZERO",
+      "allowed_wording": "Full-minus-clean J3 is +0.0453/+0.0204/+0.0248; seed805 CI crosses zero. Both see 50640 presentations and share singleton dev selection.",
+      "forbidden_wording": "Every seed significantly improves; supervision information or unique examples are matched."
     },
     {
-      "id": "M2-JOINT-METRICS-AND-SELECTION",
-      "claim": "M2 uses valid J3/J4 definitions and singleton-dev selection without test-J leakage.",
-      "verdict": "DEFINITION_AND_CODE_PATH_SUPPORTED; OLD_CI_ESTIMAND_MIXED",
-      "allowed_wording": "J3 requires A, B, and AB all correct; J4 also requires P. Trained cells select epochs by singleton-dev loss before quartet J evaluation. The old displayed J3 point and cluster interval have different weighting estimands.",
-      "forbidden_wording": "The old J3 row mean and equal-parent CI estimate the same quantity; J4 omits P; test J was used for selection.",
-      "denominator": "692 quartets / 351 test parents; P/A/B/AB ordering",
+      "denominator": "685 distinct quartets / 351 parents; archived 692 rows include 7 exact repeats; 3 training seeds share one bank",
       "code_paths": [
-        "experiments/mechanism_transfer_v3/common/metrics.py",
-        "experiments/mechanism_transfer_v3/m2/gpu_transfer.py"
+        "experiments/submission_audit_20260925/m2_scientific_acceptance.py",
+        "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py"
       ],
       "evidence_paths": [
-        "experiments/mechanism_transfer_v3/m2/test_m2_gpu.py",
-        "artifacts/mechanism_transfer_v3/m2/gpu_run_remote/out/"
+        "artifacts/submission_audit_20260925/m2_acceptance/ACCEPTANCE.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/DECISION.json",
+        "artifacts/submission_audit_20260925/m2_acceptance/PREDICTIONS.csv",
+        "reports/submission_audit_20260925/m2_acceptance/REPORT.md"
       ],
-      "recomputation": "Current runner emits row-weighted cluster CI separately from equal-parent CI and saves parent IDs in predictions.npz. Archived metric files were not fully independently recomputed in this closeout.",
-      "limitations": "Corrected result intervals await accepted predictions from the new run.",
-      "fixes": [
-        "Added row-weighted cluster bootstrap while preserving explicit equal-parent inference.",
-        "Added parent IDs to prediction archives."
-      ]
+      "recomputation": "Completed: independent saved-prediction metrics and parent bootstrap; selected-checkpoint tensor audit; true-geometry CPU replay. No retraining.",
+      "limitations": [
+        "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+        "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+        "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+        "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+        "No cross-renderer validation or proof of global unlearnability.",
+        "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+      ],
+      "id": "M2-UNIQUE-DENOMINATOR",
+      "claim": "Seven exact repeated unordered edit pairs require deduplicated primary reporting.",
+      "verdict": "CORRECTED",
+      "allowed_wording": "Report 685 distinct quartets and 351 parents. Keep original 692-row estimates as archived sensitivity; retain first exact duplicate occurrence without model-based selection.",
+      "forbidden_wording": "692 unique or independent quartets; 3 seeds are independent banks."
     }
   ]
 }

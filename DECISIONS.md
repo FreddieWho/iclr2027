@@ -608,3 +608,7 @@ hash已在result.json登记。
 ## SUBMISSION-AUDIT-20260925
 
 用户授权结论/代码审查、必要修复、低成本补齐及 GitHub 推送。新写作证据入口为 `reports/submission_audit_20260925/`。旧 M2 冻结/微调对照因实际无 backbone 梯度、BN 状态不符及初始化时序问题而不能支持其机制排除；代码已修，完整 16 格在用户提供 GPU 启动，随后用户要求该补算后置，本轮不接纳新指标。route2 曝光匹配基线及 R03 单编辑重叠敏感性已完成。封存原始池未重开；大资产保持本地并列可用性/哈希，不能把索引完整当作公共复现已完成。
+
+## M2 scientific acceptance — 2026-09-25
+
+Collected 16-cell rerun accepted with model-blind exact-quartet deduplication (685/351). Backbone tuning has a consistent positive within-bank contrast; tested module superiority is unsupported. Global unlearnability and capacity exclusion remain withdrawn. Fixed decision: `artifacts/submission_audit_20260925/m2_acceptance/DECISION.json`. No new GPU training and no automatic manuscript change.

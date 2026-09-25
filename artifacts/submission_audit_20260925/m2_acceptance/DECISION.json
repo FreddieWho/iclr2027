@@ -1,0 +1,36 @@
+{
+  "status": "SCIENTIFIC_ACCEPTANCE_COMPLETE_SCOPED",
+  "frozen_utc": "2026-09-25T12:39:15.356997+00:00",
+  "acceptance_sha256": "e903b07b17202c55deea3a7fc81787d679046c5a135f14059f4ff74b3375f9ad",
+  "primary_n": 685,
+  "parent_n": 351,
+  "archived_rows": 692,
+  "excluded_exact_duplicate_rows": 7,
+  "verdicts": {
+    "implementation": "VALID_CORRECTED_FROZEN_TUNED_CONTRAST",
+    "frontend_tuning": "CONSISTENT_POSITIVE_WITHIN_BANK",
+    "module_superiority_vs_direct": "NOT_SUPPORTED_TESTED_RECIPE_LOWER",
+    "global_interface_unlearnability": "NOT_ESTABLISHED_OLD_CLAIM_WITHDRAWN",
+    "capacity_exclusion": "NOT_ESTABLISHED_OLD_CLAIM_WITHDRAWN",
+    "clean_vs_full": "ALL_POINT_ESTIMATES_POSITIVE_ONE_SEED_CI_CROSSES_ZERO",
+    "complete_original_M2_proposal": "NOT_FULFILLED"
+  },
+  "scientific_wording": "On 685 distinct quartets from 351 parents, unfreezing the geometry-prediction backbone raises J3 from 0.153–0.182 to 0.342–0.455. Paired per-seed parent-cluster intervals for gains of 0.188–0.273 exclude zero. The fixed source-head pipeline remains substantially below direct visual classification (J3 0.893–0.917) under the tested recipes. These results support a learnable adaptation benefit, not module superiority or an unlearnable interface.",
+  "prohibited_claims": [
+    "Unfreezing has no effect",
+    "The interface cannot be learned",
+    "Probe capacity has been excluded",
+    "Successful superiority of modular transfer",
+    "Cross-renderer or cross-predicate generalization",
+    "Three seeds are independent datasets",
+    "692 independent or unique quartets"
+  ],
+  "remaining_scope_limits": [
+    "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+    "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+    "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+    "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+    "No cross-renderer validation or proof of global unlearnability.",
+    "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+  ]
+}

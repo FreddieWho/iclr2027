@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "baseline_head": "3fc9757398ebc88652362b906a2a98710bf17650",
+  "baseline_head": "ea699fe2f2d9e3149e9343a1a5d15c992f3c27b6",
   "python": "3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]",
   "package_versions": {
     "numpy": "1.26.4",
@@ -18,7 +18,7 @@
     },
     {
       "path": "reports/submission_audit_20260925/mechanism/claims.json",
-      "sha256": "ea1ec5d1a482feb4ffd9081e756163bd0fe28a76686cbf0a95ca03f22cfa43ef"
+      "sha256": "36eb90ced02f3a7448b04f114803099e2cce740dc7abfa68b83315eabb0ddbea"
     },
     {
       "path": "reports/submission_audit_20260925/routes/claims.json",
@@ -34,11 +34,11 @@
     }
   ],
   "claims": 43,
-  "evidence_entries": 153,
+  "evidence_entries": 142,
   "availability_counts": {
-    "TRACKED": 145,
-    "LOCAL_ONLY": 4,
-    "DIRECTORY_REFERENCE_ONLY": 4
+    "TRACKED": 139,
+    "LOCAL_ONLY": 2,
+    "DIRECTORY_REFERENCE_ONLY": 1
   },
   "errors": [],
   "limitations": [

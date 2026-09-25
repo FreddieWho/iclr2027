@@ -1,0 +1,5031 @@
+{
+  "status": "PASS_WITH_DEDUPLICATED_PRIMARY",
+  "n_unique_quartets": 685,
+  "duplicate_records": [
+    {
+      "retained_row": 213,
+      "dropped_row": 214,
+      "parent": 120,
+      "identical_images_up_to_atomic_order": true
+    },
+    {
+      "retained_row": 302,
+      "dropped_row": 303,
+      "parent": 170,
+      "identical_images_up_to_atomic_order": true
+    },
+    {
+      "retained_row": 310,
+      "dropped_row": 311,
+      "parent": 175,
+      "identical_images_up_to_atomic_order": true
+    },
+    {
+      "retained_row": 320,
+      "dropped_row": 321,
+      "parent": 181,
+      "identical_images_up_to_atomic_order": true
+    },
+    {
+      "retained_row": 440,
+      "dropped_row": 441,
+      "parent": 245,
+      "identical_images_up_to_atomic_order": true
+    },
+    {
+      "retained_row": 598,
+      "dropped_row": 599,
+      "parent": 333,
+      "identical_images_up_to_atomic_order": true
+    },
+    {
+      "retained_row": 662,
+      "dropped_row": 663,
+      "parent": 367,
+      "identical_images_up_to_atomic_order": true
+    }
+  ],
+  "primary_estimand": "One row per unique parent plus unordered exact edit pair; 685 quartets / 351 parents; first occurrence retained without using model outcomes",
+  "deduplicated_cells": {
+    "direct_clean_803": {
+      "J3": 0.8642335766423358,
+      "J4": 0.8583941605839416,
+      "atomic_joint": 0.9240875912408759,
+      "AB": 0.9401459854014599,
+      "J3_ci": {
+        "estimate": 0.8642335766423358,
+        "ci95": [
+          0.8343108504398827,
+          0.8932748538011696
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.8583941605839416,
+        "ci95": [
+          0.8277372262773722,
+          0.8877404063545655
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.06477093206951026,
+        "ci95": [
+          0.045454545454545456,
+          0.08558073028521208
+        ],
+        "denominator": 633,
+        "parents": 336,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "direct_clean_805": {
+      "J3": 0.872992700729927,
+      "J4": 0.872992700729927,
+      "atomic_joint": 0.9474452554744526,
+      "AB": 0.9255474452554745,
+      "J3_ci": {
+        "estimate": 0.872992700729927,
+        "ci95": [
+          0.8447024673439768,
+          0.9002932551319648
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.872992700729927,
+        "ci95": [
+          0.8447024673439768,
+          0.9002932551319648
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.07858243451463791,
+        "ci95": [
+          0.05775004860376786,
+          0.10107239228444385
+        ],
+        "denominator": 649,
+        "parents": 339,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "direct_clean_806": {
+      "J3": 0.891970802919708,
+      "J4": 0.891970802919708,
+      "atomic_joint": 0.9474452554744526,
+      "AB": 0.9445255474452555,
+      "J3_ci": {
+        "estimate": 0.891970802919708,
+        "ci95": [
+          0.8656934306569343,
+          0.9170305676855895
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.891970802919708,
+        "ci95": [
+          0.8656934306569343,
+          0.9170305676855895
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.05855161787365177,
+        "ci95": [
+          0.040246122853273746,
+          0.07807865292551357
+        ],
+        "denominator": 649,
+        "parents": 342,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "direct_full_803": {
+      "J3": 0.9094890510948905,
+      "J4": 0.9094890510948905,
+      "atomic_joint": 0.948905109489051,
+      "AB": 0.9605839416058394,
+      "J3_ci": {
+        "estimate": 0.9094890510948905,
+        "ci95": [
+          0.884952849660724,
+          0.9326525348265735
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.9094890510948905,
+        "ci95": [
+          0.884952849660724,
+          0.9326525348265735
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.04153846153846154,
+        "ci95": [
+          0.02607361963190184,
+          0.05909090909090909
+        ],
+        "denominator": 650,
+        "parents": 342,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "direct_full_805": {
+      "J3": 0.8934306569343066,
+      "J4": 0.891970802919708,
+      "atomic_joint": 0.9386861313868613,
+      "AB": 0.9532846715328467,
+      "J3_ci": {
+        "estimate": 0.8934306569343066,
+        "ci95": [
+          0.8658892128279884,
+          0.9195906432748538
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.891970802919708,
+        "ci95": [
+          0.8641618497109826,
+          0.9182481751824818
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.04821150855365474,
+        "ci95": [
+          0.030257125856403635,
+          0.06821705426356589
+        ],
+        "denominator": 643,
+        "parents": 340,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "direct_full_806": {
+      "J3": 0.9167883211678832,
+      "J4": 0.9167883211678832,
+      "atomic_joint": 0.9547445255474453,
+      "AB": 0.9605839416058394,
+      "J3_ci": {
+        "estimate": 0.9167883211678832,
+        "ci95": [
+          0.8934306569343066,
+          0.9385987322320399
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.9167883211678832,
+        "ci95": [
+          0.8934306569343066,
+          0.9385987322320399
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.039755351681957186,
+        "ci95": [
+          0.024691358024691357,
+          0.05623100303951368
+        ],
+        "denominator": 654,
+        "parents": 344,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "geom_front_803": {
+      "J3": 0.18248175182481752,
+      "J4": 0.17372262773722627,
+      "atomic_joint": 0.5416058394160584,
+      "AB": 0.5547445255474452,
+      "J3_ci": {
+        "estimate": 0.18248175182481752,
+        "ci95": [
+          0.15138282387190685,
+          0.21428571428571427
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.17372262773722627,
+        "ci95": [
+          0.14327485380116958,
+          0.2057981593145033
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.6630727762803235,
+        "ci95": [
+          0.6121354972250023,
+          0.713920134983127
+        ],
+        "denominator": 371,
+        "parents": 220,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": 0.39667126536369324
+    },
+    "geom_front_805": {
+      "J3": 0.15328467153284672,
+      "J4": 0.14744525547445256,
+      "atomic_joint": 0.5197080291970803,
+      "AB": 0.5503649635036496,
+      "J3_ci": {
+        "estimate": 0.15328467153284672,
+        "ci95": [
+          0.1239193083573487,
+          0.18448305398549486
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.14744525547445256,
+        "ci95": [
+          0.11841673069535151,
+          0.17919348994758924
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.7050561797752809,
+        "ci95": [
+          0.6510263929618768,
+          0.7562380445911944
+        ],
+        "denominator": 356,
+        "parents": 211,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": 0.40304145216941833
+    },
+    "geom_front_806": {
+      "J3": 0.1781021897810219,
+      "J4": 0.17226277372262774,
+      "atomic_joint": 0.5138686131386861,
+      "AB": 0.5518248175182482,
+      "J3_ci": {
+        "estimate": 0.1781021897810219,
+        "ci95": [
+          0.1476608187134503,
+          0.21021897810218979
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.17226277372262774,
+        "ci95": [
+          0.1416058394160584,
+          0.20437956204379562
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.6534090909090909,
+        "ci95": [
+          0.5972222222222222,
+          0.7060559436005144
+        ],
+        "denominator": 352,
+        "parents": 217,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": 0.3940810263156891
+    },
+    "geom_front_tuned_803": {
+      "J3": 0.4554744525547445,
+      "J4": 0.4364963503649635,
+      "atomic_joint": 0.7182481751824817,
+      "AB": 0.6963503649635037,
+      "J3_ci": {
+        "estimate": 0.4554744525547445,
+        "ci95": [
+          0.4126943634596696,
+          0.4985725766514969
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.4364963503649635,
+        "ci95": [
+          0.3935389133627019,
+          0.48005908419497784
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.36585365853658536,
+        "ci95": [
+          0.3193612774451098,
+          0.41226488088751334
+        ],
+        "denominator": 492,
+        "parents": 286,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": 0.16393300890922546
+    },
+    "geom_front_tuned_805": {
+      "J3": 0.3416058394160584,
+      "J4": 0.33138686131386863,
+      "atomic_joint": 0.6554744525547446,
+      "AB": 0.6686131386861314,
+      "J3_ci": {
+        "estimate": 0.3416058394160584,
+        "ci95": [
+          0.30307467057101023,
+          0.3819241982507289
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.33138686131386863,
+        "ci95": [
+          0.291970802919708,
+          0.37209302325581395
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.47884187082405344,
+        "ci95": [
+          0.42792767023316225,
+          0.5312516873650108
+        ],
+        "denominator": 449,
+        "parents": 263,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": 0.15894556045532227
+    },
+    "geom_front_tuned_806": {
+      "J3": 0.38248175182481753,
+      "J4": 0.37372262773722625,
+      "atomic_joint": 0.6627737226277373,
+      "AB": 0.6759124087591241,
+      "J3_ci": {
+        "estimate": 0.38248175182481753,
+        "ci95": [
+          0.3406432748538012,
+          0.4248175182481752
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.37372262773722625,
+        "ci95": [
+          0.33187134502923976,
+          0.41606134607127515
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.42290748898678415,
+        "ci95": [
+          0.3707093821510298,
+          0.4748371351778024
+        ],
+        "denominator": 454,
+        "parents": 264,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": 0.16192522644996643
+    },
+    "random_head_803": {
+      "J3": 0.0,
+      "J4": 0.0,
+      "atomic_joint": 0.454014598540146,
+      "AB": 0.545985401459854,
+      "J3_ci": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "denominator": 311,
+        "parents": 160,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "random_head_805": {
+      "J3": 0.00583941605839416,
+      "J4": 0.00291970802919708,
+      "atomic_joint": 0.4131386861313869,
+      "AB": 0.5065693430656935,
+      "J3_ci": {
+        "estimate": 0.00583941605839416,
+        "ci95": [
+          0.0014492753623188406,
+          0.012987012987012988
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.00291970802919708,
+        "ci95": [
+          0.0,
+          0.007331378299120235
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.9858657243816255,
+        "ci95": [
+          0.9697986577181208,
+          0.9967215793421194
+        ],
+        "denominator": 283,
+        "parents": 154,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "random_head_806": {
+      "J3": 0.013138686131386862,
+      "J4": 0.013138686131386862,
+      "atomic_joint": 0.39416058394160586,
+      "AB": 0.5562043795620438,
+      "J3_ci": {
+        "estimate": 0.013138686131386862,
+        "ci95": [
+          0.004392386530014641,
+          0.023323615160349854
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.013138686131386862,
+        "ci95": [
+          0.004392386530014641,
+          0.023323615160349854
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.9666666666666667,
+        "ci95": [
+          0.9411764705882353,
+          0.9881901343214451
+        ],
+        "denominator": 270,
+        "parents": 148,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    },
+    "true_geometry_803": {
+      "J3": 0.7941605839416058,
+      "J4": 0.7912408759124088,
+      "atomic_joint": 0.8948905109489051,
+      "AB": 0.8978102189781022,
+      "J3_ci": {
+        "estimate": 0.7941605839416058,
+        "ci95": [
+          0.7576642335766424,
+          0.8291614439439708
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.7912408759124088,
+        "ci95": [
+          0.7547169811320755,
+          0.826091716915265
+        ],
+        "denominator": 685,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.11256117455138662,
+        "ci95": [
+          0.08496732026143791,
+          0.14169381107491857
+        ],
+        "denominator": 613,
+        "parents": 328,
+        "valid_bootstrap_draws": 10000
+      },
+      "dev_geometry_mse": null
+    }
+  },
+  "scope": "Collected 16-cell corrected M2 run; scoped scientific acceptance, not completion of every original M2 proposal item",
+  "n_quartets": 692,
+  "n_parents": 351,
+  "test_parent_pool_size": 384,
+  "oracle_polarity": "intersection_is_one",
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 20260925,
+    "unit": "parent",
+    "point_estimand": "quartet row-weighted",
+    "interval": "percentile 95%; per seed; no multiplicity adjustment",
+    "comparison_registration": "acceptance analysis; not a new preregistered superiority test"
+  },
+  "cells": {
+    "direct_clean_803": {
+      "P": 0.9927745664739884,
+      "A": 0.9797687861271677,
+      "B": 0.934971098265896,
+      "AB": 0.9407514450867052,
+      "atomic_joint": 0.9248554913294798,
+      "J3": 0.865606936416185,
+      "J4": 0.8583815028901735,
+      "J3_ci": {
+        "estimate": 0.865606936416185,
+        "ci95": [
+          0.8359712230215828,
+          0.894356005788712
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.8583815028901735,
+        "ci95": [
+          0.8275312793243667,
+          0.8876080691642652
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.0640625,
+        "ci95": [
+          0.04496124031007752,
+          0.08466656739048029
+        ],
+        "denominator": 640,
+        "parents": 336,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.8660968660968661,
+      "dev_geometry_mse": null
+    },
+    "direct_clean_805": {
+      "P": 1.0,
+      "A": 0.9841040462427746,
+      "B": 0.953757225433526,
+      "AB": 0.9263005780346821,
+      "atomic_joint": 0.9450867052023122,
+      "J3": 0.8713872832369942,
+      "J4": 0.8713872832369942,
+      "J3_ci": {
+        "estimate": 0.8713872832369942,
+        "ci95": [
+          0.8424855491329479,
+          0.898989898989899
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.8713872832369942,
+        "ci95": [
+          0.8424855491329479,
+          0.898989898989899
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.0779816513761468,
+        "ci95": [
+          0.05727437614234026,
+          0.10031688701103988
+        ],
+        "denominator": 654,
+        "parents": 339,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.8732193732193733,
+      "dev_geometry_mse": null
+    },
+    "direct_clean_806": {
+      "P": 0.9971098265895953,
+      "A": 0.9812138728323699,
+      "B": 0.958092485549133,
+      "AB": 0.9450867052023122,
+      "atomic_joint": 0.9465317919075145,
+      "J3": 0.8916184971098265,
+      "J4": 0.8916184971098265,
+      "J3_ci": {
+        "estimate": 0.8916184971098265,
+        "ci95": [
+          0.8654124457308249,
+          0.9169085722150624
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.8916184971098265,
+        "ci95": [
+          0.8654124457308249,
+          0.9169085722150624
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.05801526717557252,
+        "ci95": [
+          0.039816232771822356,
+          0.07727272727272727
+        ],
+        "denominator": 655,
+        "parents": 342,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.8917378917378918,
+      "dev_geometry_mse": null
+    },
+    "direct_full_803": {
+      "P": 1.0,
+      "A": 0.9855491329479769,
+      "B": 0.9552023121387283,
+      "AB": 0.9609826589595376,
+      "atomic_joint": 0.9465317919075145,
+      "J3": 0.9075144508670521,
+      "J4": 0.9075144508670521,
+      "J3_ci": {
+        "estimate": 0.9075144508670521,
+        "ci95": [
+          0.8823508036935704,
+          0.9309352517985612
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.9075144508670521,
+        "ci95": [
+          0.8823508036935704,
+          0.9309352517985612
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.04122137404580153,
+        "ci95": [
+          0.0258751902587519,
+          0.05856064397731061
+        ],
+        "denominator": 655,
+        "parents": 342,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.9088319088319088,
+      "dev_geometry_mse": null
+    },
+    "direct_full_805": {
+      "P": 0.9971098265895953,
+      "A": 0.9841040462427746,
+      "B": 0.9450867052023122,
+      "AB": 0.953757225433526,
+      "atomic_joint": 0.9378612716763006,
+      "J3": 0.8930635838150289,
+      "J4": 0.8916184971098265,
+      "J3_ci": {
+        "estimate": 0.8930635838150289,
+        "ci95": [
+          0.865606936416185,
+          0.9190751445086706
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.8916184971098265,
+        "ci95": [
+          0.863768115942029,
+          0.9178674351585014
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.04776579352850539,
+        "ci95": [
+          0.029967274398271196,
+          0.06748466257668712
+        ],
+        "denominator": 649,
+        "parents": 340,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.8945868945868946,
+      "dev_geometry_mse": null
+    },
+    "direct_full_806": {
+      "P": 1.0,
+      "A": 0.9898843930635838,
+      "B": 0.958092485549133,
+      "AB": 0.9609826589595376,
+      "atomic_joint": 0.953757225433526,
+      "J3": 0.9161849710982659,
+      "J4": 0.9161849710982659,
+      "J3_ci": {
+        "estimate": 0.9161849710982659,
+        "ci95": [
+          0.8929088277858177,
+          0.9380403458213257
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.9161849710982659,
+        "ci95": [
+          0.8929088277858177,
+          0.9380403458213257
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.03939393939393939,
+        "ci95": [
+          0.024463898032075077,
+          0.055724992731105386
+        ],
+        "denominator": 660,
+        "parents": 344,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.9173789173789174,
+      "dev_geometry_mse": null
+    },
+    "geom_front_803": {
+      "P": 0.7789017341040463,
+      "A": 0.726878612716763,
+      "B": 0.6228323699421965,
+      "AB": 0.5578034682080925,
+      "atomic_joint": 0.5404624277456648,
+      "J3": 0.18352601156069365,
+      "J4": 0.17485549132947978,
+      "J3_ci": {
+        "estimate": 0.18352601156069365,
+        "ci95": [
+          0.15195369030390737,
+          0.21562952243125905
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.17485549132947978,
+        "ci95": [
+          0.1438953488372093,
+          0.20689779929138177
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.660427807486631,
+        "ci95": [
+          0.6090651558073654,
+          0.7119113573407202
+        ],
+        "denominator": 374,
+        "parents": 220,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.18945868945868946,
+      "dev_geometry_mse": 0.39667126536369324
+    },
+    "geom_front_805": {
+      "P": 0.7817919075144508,
+      "A": 0.7124277456647399,
+      "B": 0.6026011560693642,
+      "AB": 0.5534682080924855,
+      "atomic_joint": 0.5173410404624278,
+      "J3": 0.1531791907514451,
+      "J4": 0.14739884393063585,
+      "J3_ci": {
+        "estimate": 0.1531791907514451,
+        "ci95": [
+          0.12391899328689894,
+          0.18432510885341075
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.14739884393063585,
+        "ci95": [
+          0.11815561959654179,
+          0.17877906976744187
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.7039106145251397,
+        "ci95": [
+          0.6494252873563219,
+          0.7555555555555555
+        ],
+        "denominator": 358,
+        "parents": 211,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.15669515669515668,
+      "dev_geometry_mse": 0.40304145216941833
+    },
+    "geom_front_806": {
+      "P": 0.796242774566474,
+      "A": 0.7398843930635838,
+      "B": 0.6098265895953757,
+      "AB": 0.5549132947976878,
+      "atomic_joint": 0.5115606936416185,
+      "J3": 0.1777456647398844,
+      "J4": 0.17196531791907516,
+      "J3_ci": {
+        "estimate": 0.1777456647398844,
+        "ci95": [
+          0.1471861471861472,
+          0.2098408104196816
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.17196531791907516,
+        "ci95": [
+          0.1410071942446043,
+          0.2040520984081042
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.652542372881356,
+        "ci95": [
+          0.5966839221876596,
+          0.7052378666916395
+        ],
+        "denominator": 354,
+        "parents": 217,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.18233618233618235,
+      "dev_geometry_mse": 0.3940810263156891
+    },
+    "geom_front_tuned_803": {
+      "P": 0.8945086705202312,
+      "A": 0.8742774566473989,
+      "B": 0.7745664739884393,
+      "AB": 0.6994219653179191,
+      "atomic_joint": 0.7167630057803468,
+      "J3": 0.45664739884393063,
+      "J4": 0.43786127167630057,
+      "J3_ci": {
+        "estimate": 0.45664739884393063,
+        "ci95": [
+          0.41354466858789624,
+          0.5
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.43786127167630057,
+        "ci95": [
+          0.3945086705202312,
+          0.4813218390804598
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.3629032258064516,
+        "ci95": [
+          0.3168307384173532,
+          0.4094669636501976
+        ],
+        "denominator": 496,
+        "parents": 286,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.4586894586894587,
+      "dev_geometry_mse": 0.16393300890922546
+    },
+    "geom_front_tuned_805": {
+      "P": 0.8598265895953757,
+      "A": 0.8222543352601156,
+      "B": 0.6936416184971098,
+      "AB": 0.6705202312138728,
+      "atomic_joint": 0.6517341040462428,
+      "J3": 0.33959537572254334,
+      "J4": 0.32947976878612717,
+      "J3_ci": {
+        "estimate": 0.33959537572254334,
+        "ci95": [
+          0.30086853887285686,
+          0.3799162922482772
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.32947976878612717,
+        "ci95": [
+          0.2904624277456647,
+          0.37010159651669083
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.4789356984478936,
+        "ci95": [
+          0.42798264057361585,
+          0.531390134529148
+        ],
+        "denominator": 451,
+        "parents": 263,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.34045584045584043,
+      "dev_geometry_mse": 0.15894556045532227
+    },
+    "geom_front_tuned_806": {
+      "P": 0.8945086705202312,
+      "A": 0.8569364161849711,
+      "B": 0.7167630057803468,
+      "AB": 0.6791907514450867,
+      "atomic_joint": 0.6589595375722543,
+      "J3": 0.3815028901734104,
+      "J4": 0.37283236994219654,
+      "J3_ci": {
+        "estimate": 0.3815028901734104,
+        "ci95": [
+          0.33959537572254334,
+          0.42380261248185774
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.37283236994219654,
+        "ci95": [
+          0.3309033120090696,
+          0.4152053085299455
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.42105263157894735,
+        "ci95": [
+          0.36886993603411516,
+          0.47345132743362833
+        ],
+        "denominator": 456,
+        "parents": 264,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.38461538461538464,
+      "dev_geometry_mse": 0.16192522644996643
+    },
+    "random_head_803": {
+      "P": 0.4508670520231214,
+      "A": 0.4508670520231214,
+      "B": 0.4508670520231214,
+      "AB": 0.5491329479768786,
+      "atomic_joint": 0.4508670520231214,
+      "J3": 0.0,
+      "J4": 0.0,
+      "J3_ci": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "denominator": 312,
+        "parents": 160,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.0,
+      "dev_geometry_mse": null
+    },
+    "random_head_805": {
+      "P": 0.4624277456647399,
+      "A": 0.45375722543352603,
+      "B": 0.47832369942196534,
+      "AB": 0.5086705202312138,
+      "atomic_joint": 0.41184971098265893,
+      "J3": 0.005780346820809248,
+      "J4": 0.002890173410404624,
+      "J3_ci": {
+        "estimate": 0.005780346820809248,
+        "ci95": [
+          0.0014367816091954023,
+          0.01291248206599713
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.002890173410404624,
+        "ci95": [
+          0.0,
+          0.007246376811594203
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.9859649122807017,
+        "ci95": [
+          0.9699981203007518,
+          0.9967532467532467
+        ],
+        "denominator": 285,
+        "parents": 154,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.005698005698005698,
+      "dev_geometry_mse": null
+    },
+    "random_head_806": {
+      "P": 0.4508670520231214,
+      "A": 0.4479768786127168,
+      "B": 0.45375722543352603,
+      "AB": 0.5592485549132948,
+      "atomic_joint": 0.3916184971098266,
+      "J3": 0.01300578034682081,
+      "J4": 0.01300578034682081,
+      "J3_ci": {
+        "estimate": 0.01300578034682081,
+        "ci95": [
+          0.004341534008683068,
+          0.023088023088023088
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.01300578034682081,
+        "ci95": [
+          0.004341534008683068,
+          0.023088023088023088
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.966789667896679,
+        "ci95": [
+          0.9413919413919414,
+          0.98828125
+        ],
+        "denominator": 271,
+        "parents": 148,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.014245014245014245,
+      "dev_geometry_mse": null
+    },
+    "true_geometry_803": {
+      "P": 0.9841040462427746,
+      "A": 0.9638728323699421,
+      "B": 0.9205202312138728,
+      "AB": 0.8988439306358381,
+      "atomic_joint": 0.8959537572254336,
+      "J3": 0.796242774566474,
+      "J4": 0.7933526011560693,
+      "J3_ci": {
+        "estimate": 0.796242774566474,
+        "ci95": [
+          0.7601156069364162,
+          0.8309037900874635
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "J4_ci": {
+        "estimate": 0.7933526011560693,
+        "ci95": [
+          0.7569141193595342,
+          0.8280346820809249
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "CCM": {
+        "estimate": 0.11129032258064517,
+        "ci95": [
+          0.08412430375774693,
+          0.14009661835748793
+        ],
+        "denominator": 620,
+        "parents": 328,
+        "valid_bootstrap_draws": 10000
+      },
+      "equal_parent_J3": 0.7977207977207977,
+      "dev_geometry_mse": null
+    }
+  },
+  "paired_comparisons": {
+    "geom_front_tuned_803 minus geom_front_803": {
+      "delta_J3": {
+        "estimate": 0.273121387283237,
+        "ci95": [
+          0.22302158273381295,
+          0.3213269404901202
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.2630057803468208,
+        "ci95": [
+          0.2143884892086331,
+          0.3112415705018213
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 247,
+      "H_parents": 168,
+      "full_repair_n": 115,
+      "relocation_n": 31,
+      "endpoint_repair_n": 146,
+      "full_repair": {
+        "estimate": 0.46558704453441296,
+        "ci95": [
+          0.39622460087082734,
+          0.5350553505535055
+        ],
+        "denominator": 247,
+        "parents": 168,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.12550607287449392,
+        "ci95": [
+          0.08014885496183206,
+          0.1759665236051502
+        ],
+        "denominator": 247,
+        "parents": 168,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 47,
+      "joint_gain_n": 236,
+      "atomic_regression_n": 58,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.272992700729927,
+          "ci95": [
+            0.22302811572890574,
+            0.3216374269005848
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.26277372262773724,
+          "ci95": [
+            0.21407624633431085,
+            0.31140350877192985
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 246,
+        "H_parents": 168,
+        "full_repair_n": 114,
+        "relocation_n": 31,
+        "endpoint_repair_n": 145,
+        "full_repair": {
+          "estimate": 0.4634146341463415,
+          "ci95": [
+            0.3944223107569721,
+            0.533040102668657
+          ],
+          "denominator": 246,
+          "parents": 168,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.12601626016260162,
+          "ci95": [
+            0.08045977011494253,
+            0.17647058823529413
+          ],
+          "denominator": 246,
+          "parents": 168,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 47,
+        "joint_gain_n": 234
+      }
+    },
+    "direct_full_803 minus direct_clean_803": {
+      "delta_J3": {
+        "estimate": 0.04190751445086705,
+        "ci95": [
+          0.015873015873015872,
+          0.06841339155749636
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.049132947976878616,
+        "ci95": [
+          0.021739130434782608,
+          0.07681159420289856
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 41,
+      "H_parents": 37,
+      "full_repair_n": 21,
+      "relocation_n": 0,
+      "endpoint_repair_n": 21,
+      "full_repair": {
+        "estimate": 0.5121951219512195,
+        "ci95": [
+          0.3488372093023256,
+          0.6666666666666666
+        ],
+        "denominator": 41,
+        "parents": 37,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 41,
+        "parents": 37,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 20,
+      "joint_gain_n": 49,
+      "atomic_regression_n": 13,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.04525547445255475,
+          "ci95": [
+            0.020289855072463767,
+            0.07142857142857142
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.051094890510948905,
+          "ci95": [
+            0.024853801169590642,
+            0.07782910921677437
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 41,
+        "H_parents": 37,
+        "full_repair_n": 21,
+        "relocation_n": 0,
+        "endpoint_repair_n": 21,
+        "full_repair": {
+          "estimate": 0.5121951219512195,
+          "ci95": [
+            0.3488372093023256,
+            0.6666666666666666
+          ],
+          "denominator": 41,
+          "parents": 37,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "denominator": 41,
+          "parents": 37,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 18,
+        "joint_gain_n": 49
+      }
+    },
+    "direct_full_803 minus geom_front_tuned_803": {
+      "delta_J3": {
+        "estimate": 0.4508670520231214,
+        "ci95": [
+          0.40756777393543175,
+          0.49416951996745545
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.46965317919075145,
+        "ci95": [
+          0.4258720930232558,
+          0.5136700509722092
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 180,
+      "H_parents": 143,
+      "full_repair_n": 158,
+      "relocation_n": 3,
+      "endpoint_repair_n": 161,
+      "full_repair": {
+        "estimate": 0.8777777777777778,
+        "ci95": [
+          0.825136612021858,
+          0.9265536723163842
+        ],
+        "denominator": 180,
+        "parents": 143,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.016666666666666666,
+        "ci95": [
+          0.0,
+          0.037560578524912895
+        ],
+        "denominator": 180,
+        "parents": 143,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 7,
+      "joint_gain_n": 319,
+      "atomic_regression_n": 8,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.454014598540146,
+          "ci95": [
+            0.4108187134502924,
+            0.4971100348153454
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.472992700729927,
+          "ci95": [
+            0.4289939745466832,
+            0.5167883211678832
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 180,
+        "H_parents": 143,
+        "full_repair_n": 158,
+        "relocation_n": 3,
+        "endpoint_repair_n": 161,
+        "full_repair": {
+          "estimate": 0.8777777777777778,
+          "ci95": [
+            0.825136612021858,
+            0.9265536723163842
+          ],
+          "denominator": 180,
+          "parents": 143,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.016666666666666666,
+          "ci95": [
+            0.0,
+            0.037560578524912895
+          ],
+          "denominator": 180,
+          "parents": 143,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 7,
+        "joint_gain_n": 318
+      }
+    },
+    "true_geometry_803 minus geom_front_tuned_803": {
+      "delta_J3": {
+        "estimate": 0.33959537572254334,
+        "ci95": [
+          0.29190751445086704,
+          0.38639652677279307
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.3554913294797688,
+        "ci95": [
+          0.3068017366136035,
+          0.4028782191637994
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 180,
+      "H_parents": 143,
+      "full_repair_n": 129,
+      "relocation_n": 16,
+      "endpoint_repair_n": 145,
+      "full_repair": {
+        "estimate": 0.7166666666666667,
+        "ci95": [
+          0.6470588235294118,
+          0.7845303867403315
+        ],
+        "denominator": 180,
+        "parents": 143,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.08888888888888889,
+        "ci95": [
+          0.047116905021258655,
+          0.13587519295086176
+        ],
+        "denominator": 180,
+        "parents": 143,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 30,
+      "joint_gain_n": 265,
+      "atomic_regression_n": 31,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.3386861313868613,
+          "ci95": [
+            0.2909356725146199,
+            0.3851744186046512
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.35474452554744523,
+          "ci95": [
+            0.3062402311041643,
+            0.40233278962938224
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 180,
+        "H_parents": 143,
+        "full_repair_n": 129,
+        "relocation_n": 16,
+        "endpoint_repair_n": 145,
+        "full_repair": {
+          "estimate": 0.7166666666666667,
+          "ci95": [
+            0.6470588235294118,
+            0.7845303867403315
+          ],
+          "denominator": 180,
+          "parents": 143,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.08888888888888889,
+          "ci95": [
+            0.047116905021258655,
+            0.13587519295086176
+          ],
+          "denominator": 180,
+          "parents": 143,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 30,
+        "joint_gain_n": 262
+      }
+    },
+    "true_geometry_803 minus random_head_803": {
+      "delta_J3": {
+        "estimate": 0.796242774566474,
+        "ci95": [
+          0.7601156069364162,
+          0.8309037900874635
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.7933526011560693,
+        "ci95": [
+          0.7569141193595342,
+          0.8280346820809249
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 312,
+      "H_parents": 160,
+      "full_repair_n": 248,
+      "relocation_n": 5,
+      "endpoint_repair_n": 253,
+      "full_repair": {
+        "estimate": 0.7948717948717948,
+        "ci95": [
+          0.7424723655121591,
+          0.8454843742008081
+        ],
+        "denominator": 312,
+        "parents": 160,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.016025641025641024,
+        "ci95": [
+          0.0030581039755351682,
+          0.03484320557491289
+        ],
+        "denominator": 312,
+        "parents": 160,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 0,
+      "joint_gain_n": 551,
+      "atomic_regression_n": 5,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.7941605839416058,
+          "ci95": [
+            0.7576642335766424,
+            0.8291614439439708
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.7912408759124088,
+          "ci95": [
+            0.7547169811320755,
+            0.826091716915265
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 311,
+        "H_parents": 160,
+        "full_repair_n": 247,
+        "relocation_n": 5,
+        "endpoint_repair_n": 252,
+        "full_repair": {
+          "estimate": 0.7942122186495176,
+          "ci95": [
+            0.7418278572690338,
+            0.845031454899876
+          ],
+          "denominator": 311,
+          "parents": 160,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.01607717041800643,
+          "ci95": [
+            0.0030672501454006495,
+            0.03496503496503497
+          ],
+          "denominator": 311,
+          "parents": 160,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 0,
+        "joint_gain_n": 544
+      }
+    },
+    "geom_front_tuned_805 minus geom_front_805": {
+      "delta_J3": {
+        "estimate": 0.18641618497109827,
+        "ci95": [
+          0.14077921550580658,
+          0.2318840579710145
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.18208092485549132,
+        "ci95": [
+          0.13642960812772134,
+          0.22779369627507162
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 252,
+      "H_parents": 168,
+      "full_repair_n": 85,
+      "relocation_n": 44,
+      "endpoint_repair_n": 129,
+      "full_repair": {
+        "estimate": 0.3373015873015873,
+        "ci95": [
+          0.27705294705294703,
+          0.4007494210481173
+        ],
+        "denominator": 252,
+        "parents": 168,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.1746031746031746,
+        "ci95": [
+          0.12350474644631351,
+          0.23107569721115537
+        ],
+        "denominator": 252,
+        "parents": 168,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 54,
+      "joint_gain_n": 183,
+      "atomic_regression_n": 71,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.18832116788321168,
+          "ci95": [
+            0.14202049780380674,
+            0.23426290596541927
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.18394160583941604,
+          "ci95": [
+            0.1378299120234604,
+            0.2301013024602026
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 251,
+        "H_parents": 168,
+        "full_repair_n": 85,
+        "relocation_n": 44,
+        "endpoint_repair_n": 129,
+        "full_repair": {
+          "estimate": 0.3386454183266932,
+          "ci95": [
+            0.2781912741494993,
+            0.40187677773262886
+          ],
+          "denominator": 251,
+          "parents": 168,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.1752988047808765,
+          "ci95": [
+            0.124,
+            0.23144652762556686
+          ],
+          "denominator": 251,
+          "parents": 168,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 54,
+        "joint_gain_n": 183
+      }
+    },
+    "direct_full_805 minus direct_clean_805": {
+      "delta_J3": {
+        "estimate": 0.02167630057803468,
+        "ci95": [
+          -0.005772005772005772,
+          0.049062049062049064
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.02023121387283237,
+        "ci95": [
+          -0.0072254335260115606,
+          0.04775687409551375
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 51,
+      "H_parents": 46,
+      "full_repair_n": 27,
+      "relocation_n": 0,
+      "endpoint_repair_n": 27,
+      "full_repair": {
+        "estimate": 0.5294117647058824,
+        "ci95": [
+          0.3829787234042553,
+          0.673469387755102
+        ],
+        "denominator": 51,
+        "parents": 46,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 51,
+        "parents": 46,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 27,
+      "joint_gain_n": 42,
+      "atomic_regression_n": 20,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.020437956204379562,
+          "ci95": [
+            -0.007225957108151126,
+            0.047062293944126275
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.01897810218978102,
+          "ci95": [
+            -0.008708272859216255,
+            0.04599406528189911
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 51,
+        "H_parents": 46,
+        "full_repair_n": 27,
+        "relocation_n": 0,
+        "endpoint_repair_n": 27,
+        "full_repair": {
+          "estimate": 0.5294117647058824,
+          "ci95": [
+            0.3829787234042553,
+            0.673469387755102
+          ],
+          "denominator": 51,
+          "parents": 46,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "denominator": 51,
+          "parents": 46,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 27,
+        "joint_gain_n": 41
+      }
+    },
+    "direct_full_805 minus geom_front_tuned_805": {
+      "delta_J3": {
+        "estimate": 0.5534682080924855,
+        "ci95": [
+          0.5114142030183999,
+          0.5973841928420416
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.5621387283236994,
+        "ci95": [
+          0.5187861271676301,
+          0.6063675832127352
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 216,
+      "H_parents": 152,
+      "full_repair_n": 185,
+      "relocation_n": 12,
+      "endpoint_repair_n": 197,
+      "full_repair": {
+        "estimate": 0.8564814814814815,
+        "ci95": [
+          0.7988990651279299,
+          0.9100579975579974
+        ],
+        "denominator": 216,
+        "parents": 152,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.05555555555555555,
+        "ci95": [
+          0.021164021164021163,
+          0.09523809523809523
+        ],
+        "denominator": 216,
+        "parents": 152,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 4,
+      "joint_gain_n": 387,
+      "atomic_regression_n": 15,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.5518248175182482,
+          "ci95": [
+            0.5089014187136761,
+            0.5953079178885631
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.5605839416058395,
+          "ci95": [
+            0.5168869309838473,
+            0.6046852122986823
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 215,
+        "H_parents": 152,
+        "full_repair_n": 184,
+        "relocation_n": 12,
+        "endpoint_repair_n": 196,
+        "full_repair": {
+          "estimate": 0.8558139534883721,
+          "ci95": [
+            0.7980757389162562,
+            0.9095818874988584
+          ],
+          "denominator": 215,
+          "parents": 152,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.05581395348837209,
+          "ci95": [
+            0.02127659574468085,
+            0.09569377990430622
+          ],
+          "denominator": 215,
+          "parents": 152,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 4,
+        "joint_gain_n": 382
+      }
+    },
+    "true_geometry_803 minus geom_front_tuned_805": {
+      "delta_J3": {
+        "estimate": 0.45664739884393063,
+        "ci95": [
+          0.41047845621829016,
+          0.5021645021645021
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.4638728323699422,
+        "ci95": [
+          0.41786150072462563,
+          0.5093263524044466
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 216,
+      "H_parents": 152,
+      "full_repair_n": 159,
+      "relocation_n": 11,
+      "endpoint_repair_n": 170,
+      "full_repair": {
+        "estimate": 0.7361111111111112,
+        "ci95": [
+          0.6701570680628273,
+          0.8008303150713834
+        ],
+        "denominator": 216,
+        "parents": 152,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.05092592592592592,
+        "ci95": [
+          0.02145922746781116,
+          0.08450704225352113
+        ],
+        "denominator": 216,
+        "parents": 152,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 18,
+      "joint_gain_n": 334,
+      "atomic_regression_n": 18,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.45255474452554745,
+          "ci95": [
+            0.4067547723935389,
+            0.49780396704107044
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.45985401459854014,
+          "ci95": [
+            0.4136416209135754,
+            0.5051244509516838
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 215,
+        "H_parents": 152,
+        "full_repair_n": 158,
+        "relocation_n": 11,
+        "endpoint_repair_n": 169,
+        "full_repair": {
+          "estimate": 0.7348837209302326,
+          "ci95": [
+            0.6684210526315789,
+            0.799107630224579
+          ],
+          "denominator": 215,
+          "parents": 152,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.05116279069767442,
+          "ci95": [
+            0.02161987418452936,
+            0.08490566037735849
+          ],
+          "denominator": 215,
+          "parents": 152,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 18,
+        "joint_gain_n": 328
+      }
+    },
+    "true_geometry_803 minus random_head_805": {
+      "delta_J3": {
+        "estimate": 0.7904624277456648,
+        "ci95": [
+          0.7543352601156069,
+          0.8251445086705202
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.7904624277456648,
+        "ci95": [
+          0.7540257682414043,
+          0.8253292437790255
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 281,
+      "H_parents": 151,
+      "full_repair_n": 240,
+      "relocation_n": 8,
+      "endpoint_repair_n": 248,
+      "full_repair": {
+        "estimate": 0.8540925266903915,
+        "ci95": [
+          0.804510675727781,
+          0.8986486486486487
+        ],
+        "denominator": 281,
+        "parents": 151,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.028469750889679714,
+        "ci95": [
+          0.0072992700729927005,
+          0.05442309219407605
+        ],
+        "denominator": 281,
+        "parents": 151,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 0,
+      "joint_gain_n": 547,
+      "atomic_regression_n": 8,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.7883211678832117,
+          "ci95": [
+            0.7518248175182481,
+            0.823446411849834
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.7883211678832117,
+          "ci95": [
+            0.75147907239819,
+            0.8233576642335766
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 279,
+        "H_parents": 151,
+        "full_repair_n": 238,
+        "relocation_n": 8,
+        "endpoint_repair_n": 246,
+        "full_repair": {
+          "estimate": 0.8530465949820788,
+          "ci95": [
+            0.8035072595281307,
+            0.8979611844737895
+          ],
+          "denominator": 279,
+          "parents": 151,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.02867383512544803,
+          "ci95": [
+            0.007352941176470588,
+            0.05468892563868611
+          ],
+          "denominator": 279,
+          "parents": 151,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 0,
+        "joint_gain_n": 540
+      }
+    },
+    "geom_front_tuned_806 minus geom_front_806": {
+      "delta_J3": {
+        "estimate": 0.203757225433526,
+        "ci95": [
+          0.15417867435158503,
+          0.2536518440128664
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.20086705202312138,
+        "ci95": [
+          0.1509433962264151,
+          0.2510822510822511
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 231,
+      "H_parents": 159,
+      "full_repair_n": 89,
+      "relocation_n": 38,
+      "endpoint_repair_n": 127,
+      "full_repair": {
+        "estimate": 0.3852813852813853,
+        "ci95": [
+          0.32142857142857145,
+          0.45217391304347826
+        ],
+        "denominator": 231,
+        "parents": 159,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.1645021645021645,
+        "ci95": [
+          0.11381921165183216,
+          0.2190082644628099
+        ],
+        "denominator": 231,
+        "parents": 159,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 68,
+      "joint_gain_n": 209,
+      "atomic_regression_n": 76,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.20437956204379562,
+          "ci95": [
+            0.15542521994134897,
+            0.25401459854014596
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.20145985401459854,
+          "ci95": [
+            0.15182481751824817,
+            0.25074623990135747
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 230,
+        "H_parents": 159,
+        "full_repair_n": 88,
+        "relocation_n": 38,
+        "endpoint_repair_n": 126,
+        "full_repair": {
+          "estimate": 0.3826086956521739,
+          "ci95": [
+            0.3193211915116241,
+            0.4489839156001383
+          ],
+          "denominator": 230,
+          "parents": 159,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.16521739130434782,
+          "ci95": [
+            0.11440677966101695,
+            0.21962616822429906
+          ],
+          "denominator": 230,
+          "parents": 159,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 67,
+        "joint_gain_n": 207
+      }
+    },
+    "direct_full_806 minus direct_clean_806": {
+      "delta_J3": {
+        "estimate": 0.024566473988439308,
+        "ci95": [
+          0.005763688760806916,
+          0.04454022988505747
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.024566473988439308,
+        "ci95": [
+          0.005763688760806916,
+          0.04454022988505747
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 38,
+      "H_parents": 34,
+      "full_repair_n": 16,
+      "relocation_n": 0,
+      "endpoint_repair_n": 16,
+      "full_repair": {
+        "estimate": 0.42105263157894735,
+        "ci95": [
+          0.2564102564102564,
+          0.5862068965517241
+        ],
+        "denominator": 38,
+        "parents": 34,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "denominator": 38,
+        "parents": 34,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 12,
+      "joint_gain_n": 29,
+      "atomic_regression_n": 8,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.024817518248175182,
+          "ci95": [
+            0.005822416302765648,
+            0.04492753623188406
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.024817518248175182,
+          "ci95": [
+            0.005822416302765648,
+            0.04492753623188406
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 38,
+        "H_parents": 34,
+        "full_repair_n": 16,
+        "relocation_n": 0,
+        "endpoint_repair_n": 16,
+        "full_repair": {
+          "estimate": 0.42105263157894735,
+          "ci95": [
+            0.2564102564102564,
+            0.5862068965517241
+          ],
+          "denominator": 38,
+          "parents": 34,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "denominator": 38,
+          "parents": 34,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 12,
+        "joint_gain_n": 29
+      }
+    },
+    "direct_full_806 minus geom_front_tuned_806": {
+      "delta_J3": {
+        "estimate": 0.5346820809248555,
+        "ci95": [
+          0.49056603773584906,
+          0.5798582587418437
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.5433526011560693,
+        "ci95": [
+          0.4992784470715006,
+          0.5890014471780028
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 192,
+      "H_parents": 138,
+      "full_repair_n": 170,
+      "relocation_n": 5,
+      "endpoint_repair_n": 175,
+      "full_repair": {
+        "estimate": 0.8854166666666666,
+        "ci95": [
+          0.8324600254704967,
+          0.9320388349514563
+        ],
+        "denominator": 192,
+        "parents": 138,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.026041666666666668,
+        "ci95": [
+          0.005208333333333333,
+          0.05181347150259067
+        ],
+        "denominator": 192,
+        "parents": 138,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 6,
+      "joint_gain_n": 376,
+      "atomic_regression_n": 8,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.5343065693430656,
+          "ci95": [
+            0.4899113455867569,
+            0.5795620437956205
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.5430656934306569,
+          "ci95": [
+            0.49853801169590645,
+            0.588923286908313
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 192,
+        "H_parents": 138,
+        "full_repair_n": 170,
+        "relocation_n": 5,
+        "endpoint_repair_n": 175,
+        "full_repair": {
+          "estimate": 0.8854166666666666,
+          "ci95": [
+            0.8324600254704967,
+            0.9320388349514563
+          ],
+          "denominator": 192,
+          "parents": 138,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.026041666666666668,
+          "ci95": [
+            0.005208333333333333,
+            0.05181347150259067
+          ],
+          "denominator": 192,
+          "parents": 138,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 6,
+        "joint_gain_n": 372
+      }
+    },
+    "true_geometry_803 minus geom_front_tuned_806": {
+      "delta_J3": {
+        "estimate": 0.4147398843930636,
+        "ci95": [
+          0.3669064748201439,
+          0.46120967542732927
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.42052023121387283,
+        "ci95": [
+          0.3726346433770015,
+          0.4676282216694363
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 192,
+      "H_parents": 138,
+      "full_repair_n": 144,
+      "relocation_n": 6,
+      "endpoint_repair_n": 150,
+      "full_repair": {
+        "estimate": 0.75,
+        "ci95": [
+          0.6839080459770115,
+          0.8131327006327006
+        ],
+        "denominator": 192,
+        "parents": 138,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.03125,
+        "ci95": [
+          0.009900990099009901,
+          0.05851063829787234
+        ],
+        "denominator": 192,
+        "parents": 138,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 23,
+      "joint_gain_n": 310,
+      "atomic_regression_n": 21,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.4116788321167883,
+          "ci95": [
+            0.36376811594202896,
+            0.4582753737803379
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.41751824817518246,
+          "ci95": [
+            0.3694975062611041,
+            0.4647084698982232
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 192,
+        "H_parents": 138,
+        "full_repair_n": 144,
+        "relocation_n": 6,
+        "endpoint_repair_n": 150,
+        "full_repair": {
+          "estimate": 0.75,
+          "ci95": [
+            0.6839080459770115,
+            0.8131327006327006
+          ],
+          "denominator": 192,
+          "parents": 138,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.03125,
+          "ci95": [
+            0.009900990099009901,
+            0.05851063829787234
+          ],
+          "denominator": 192,
+          "parents": 138,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 23,
+        "joint_gain_n": 305
+      }
+    },
+    "true_geometry_803 minus random_head_806": {
+      "delta_J3": {
+        "estimate": 0.7832369942196532,
+        "ci95": [
+          0.7460545193687231,
+          0.818705035971223
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "delta_J4": {
+        "estimate": 0.7803468208092486,
+        "ci95": [
+          0.7431059506531205,
+          0.8163587650624892
+        ],
+        "denominator": 692,
+        "parents": 351,
+        "valid_bootstrap_draws": 10000
+      },
+      "H_n": 262,
+      "H_parents": 144,
+      "full_repair_n": 214,
+      "relocation_n": 14,
+      "endpoint_repair_n": 228,
+      "full_repair": {
+        "estimate": 0.816793893129771,
+        "ci95": [
+          0.7624988026819923,
+          0.867704280155642
+        ],
+        "denominator": 262,
+        "parents": 144,
+        "valid_bootstrap_draws": 10000
+      },
+      "relocation": {
+        "estimate": 0.05343511450381679,
+        "ci95": [
+          0.022304832713754646,
+          0.09016547516331812
+        ],
+        "denominator": 262,
+        "parents": 144,
+        "valid_bootstrap_draws": 10000
+      },
+      "joint_regression_n": 1,
+      "joint_gain_n": 543,
+      "atomic_regression_n": 14,
+      "deduplicated": {
+        "delta_J3": {
+          "estimate": 0.781021897810219,
+          "ci95": [
+            0.7438136826783115,
+            0.8168604651162791
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "delta_J4": {
+          "estimate": 0.7781021897810219,
+          "ci95": [
+            0.7404692082111437,
+            0.8144329896907216
+          ],
+          "denominator": 685,
+          "parents": 351,
+          "valid_bootstrap_draws": 10000
+        },
+        "H_n": 261,
+        "H_parents": 144,
+        "full_repair_n": 213,
+        "relocation_n": 14,
+        "endpoint_repair_n": 227,
+        "full_repair": {
+          "estimate": 0.8160919540229885,
+          "ci95": [
+            0.7617183344414894,
+            0.867159392297048
+          ],
+          "denominator": 261,
+          "parents": 144,
+          "valid_bootstrap_draws": 10000
+        },
+        "relocation": {
+          "estimate": 0.05363984674329502,
+          "ci95": [
+            0.02247191011235955,
+            0.09056603773584905
+          ],
+          "denominator": 261,
+          "parents": 144,
+          "valid_bootstrap_draws": 10000
+        },
+        "joint_regression_n": 1,
+        "joint_gain_n": 536
+      }
+    }
+  },
+  "backbone_audits": {
+    "geom_front_803": {
+      "frozen": true,
+      "changed_parameter_tensors": 0,
+      "changed_batchnorm_buffers": 0,
+      "gradient_l2_norm": 0.0,
+      "checkpoint_hashes_match": true,
+      "selected_epoch": 19
+    },
+    "geom_front_805": {
+      "frozen": true,
+      "changed_parameter_tensors": 0,
+      "changed_batchnorm_buffers": 0,
+      "gradient_l2_norm": 0.0,
+      "checkpoint_hashes_match": true,
+      "selected_epoch": 19
+    },
+    "geom_front_806": {
+      "frozen": true,
+      "changed_parameter_tensors": 0,
+      "changed_batchnorm_buffers": 0,
+      "gradient_l2_norm": 0.0,
+      "checkpoint_hashes_match": true,
+      "selected_epoch": 19
+    },
+    "geom_front_tuned_803": {
+      "frozen": false,
+      "changed_parameter_tensors": 60,
+      "changed_batchnorm_buffers": 60,
+      "gradient_l2_norm": 11.97172540452046,
+      "checkpoint_hashes_match": true,
+      "selected_epoch": 13
+    },
+    "geom_front_tuned_805": {
+      "frozen": false,
+      "changed_parameter_tensors": 60,
+      "changed_batchnorm_buffers": 60,
+      "gradient_l2_norm": 10.427775188304729,
+      "checkpoint_hashes_match": true,
+      "selected_epoch": 17
+    },
+    "geom_front_tuned_806": {
+      "frozen": false,
+      "changed_parameter_tensors": 60,
+      "changed_batchnorm_buffers": 60,
+      "gradient_l2_norm": 10.056012193583468,
+      "checkpoint_hashes_match": true,
+      "selected_epoch": 17
+    }
+  },
+  "true_geometry_replay": {
+    "states": 2768,
+    "max_logit_difference": 4.57763671875e-05,
+    "decision_mismatches": 0
+  },
+  "checks": [
+    {
+      "check": "input_hash:gpu_transfer.py",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "input_hash:metrics.py",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "input_hash:run_gpu_job.py",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "input_hash:data.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "input_hash:data_manifest.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "input_hash:model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "input_hash:resnet18-f37072fd.pth",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "complete_16_cells",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/direct_clean_803.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/direct_clean_805.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/direct_clean_806.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/direct_full_803.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/direct_full_805.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/direct_full_806.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/geom_front_803.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/geom_front_805.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/geom_front_806.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/geom_front_tuned_803.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/geom_front_tuned_805.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/geom_front_tuned_806.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/random_head_803.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/random_head_805.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/random_head_806.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:logs/true_geometry_803.log",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_803/model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_803/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_803/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_805/model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_805/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_805/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_806/model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_806/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_clean_806/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_803/model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_803/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_803/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_805/model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_805/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_805/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_806/model.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_806/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/direct_full_806/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_803/model_probe.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_803/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_803/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_805/model_probe.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_805/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_805/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_806/model_probe.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_806/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_806/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_803/model_probe.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_803/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_803/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_805/model_probe.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_805/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_805/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_806/model_probe.pt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_806/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/geom_front_tuned_806/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/random_head_803/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/random_head_803/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/random_head_805/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/random_head_805/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/random_head_806/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/random_head_806/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/true_geometry_803/predictions.npz",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output_hash:m2/true_geometry_803/result.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "denominator",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "oracle_eligibility",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "quartet_keys_are_parent_lineage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "duplicate_geometry_images:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "deduplicated_bank",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "parent_split_disjoint:train:dev",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "parent_split_disjoint:train:test",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "parent_split_disjoint:dev:test",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "independent_geometric_oracle",
+      "pass": true,
+      "detail": "intersection_is_one"
+    },
+    {
+      "check": "no_train_quartet_image_duplicates",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_803:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_805:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_clean_806:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:checkpoint_parameters",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:checkpoint_buffers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:probe_trained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_803:freeze_semantics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:checkpoint_parameters",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:checkpoint_buffers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:probe_trained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_805:freeze_semantics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:checkpoint_parameters",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:checkpoint_buffers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:probe_trained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_806:freeze_semantics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:checkpoint_parameters",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:checkpoint_buffers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:probe_trained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803:freeze_semantics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:checkpoint_parameters",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:checkpoint_buffers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:probe_trained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805:freeze_semantics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:20_epochs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:dev_selection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:matched_exposure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:checkpoint_parameters",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:checkpoint_buffers",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:probe_trained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806:freeze_semantics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_803:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_805:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "random_head_806:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:prediction_alignment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:finite_logits",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:214",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:303",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:311",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:321",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:441",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:599",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:duplicate_prediction:663",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_P",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_A",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_AB",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_atomic_joint",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_J3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803:reported_J4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "paired_initialization_803",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "paired_initialization_805",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "paired_initialization_806",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_head_replay_decisions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_803 minus geom_front_803:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803 minus direct_clean_803:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_803 minus geom_front_tuned_803:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803 minus geom_front_tuned_803:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803 minus random_head_803:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_805 minus geom_front_805:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805 minus direct_clean_805:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_805 minus geom_front_tuned_805:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803 minus geom_front_tuned_805:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803 minus random_head_805:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "geom_front_tuned_806 minus geom_front_806:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806 minus direct_clean_806:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "direct_full_806 minus geom_front_tuned_806:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803 minus geom_front_tuned_806:flow_partition",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "true_geometry_803 minus random_head_806:flow_partition",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "input_sha256": {
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py": "db9d173ff7ba13bf74d1032fd19ecb57df19bad60f566a4f05ee2d58b53efa29",
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/metrics.py": "7bb6a3bd8018abaa1eae7cbf8a2ff7561d162c5a3be515c0bcba4ea2cc93b842",
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/run_gpu_job.py": "706b730cda7ffa78af28d466e1957971a4b4b62ccfe58bfb441fefb5c5582cb6",
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/data.npz": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/data_manifest.json": "50060815bfe5f4eab48fe04c1ccdf60f1208aea1a87c15f45b63fc3d390e6667",
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/model.pt": "8b9c43f805f1d48acd8a2a4f1644d1ce41ff2804c4e8fd0b91865db189e3dde3",
+    "artifacts/submission_audit_20260925/gpu_m2/inputs/resnet18-f37072fd.pth": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/direct_clean_803.log": "709ac374768081455f2859b41513a5ff435baa9ffa33e39097c10d87a56befa9",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/direct_clean_805.log": "7b15d78c8e8d245a6f8302109c46b958e98866eb6b8638b14665aaed6a6ae108",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/direct_clean_806.log": "20263ecc325b1d6498e452a9d10836cabe54a105d127c2817619ce5b0cf5e21a",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/direct_full_803.log": "6f4ada599d3482c001a268b97290ad4018b8691d89cdeb1136a4514f2455429c",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/direct_full_805.log": "a652bda2b014265cdedbfc9996d8bf12c43dd380b067fb7b77b17ccb3f12677a",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/direct_full_806.log": "6c70082cd0aa54663e72f2458285f311d48703ddfb1f869455c5dea991d00d8f",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/geom_front_803.log": "e8174d7c042e85c97823610a1048b15f53e034c6bbe6cdf1f1c06f451ec381b3",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/geom_front_805.log": "b707dede7b2658180943b8ef87f35c66a9f67bff487d9f9c58de75ed91102738",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/geom_front_806.log": "895fe9dc0afda763fc6e75e00597f868b1a5850e8256e84beea1eb3d3daea6f9",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/geom_front_tuned_803.log": "36f636d05dd0cc9097ff4811017b2df1c55a8769707dae91da542ba262e27a23",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/geom_front_tuned_805.log": "6e50edd66a7094054498dc6146e796771b80445341fd8865ed8ad845a1115b01",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/geom_front_tuned_806.log": "98c40ff789711b3b94ee023fe5ad9d5b0130a23996e9ed5242e34f97f704cd61",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/random_head_803.log": "1e085b06a20365a2cb201bac8a3d6730837bc1babd531cd4be14e13150477596",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/random_head_805.log": "3e034e3a23a58823214019bd72859fac8cd7bba6523c37fe550abb9c6d6d07af",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/random_head_806.log": "b7a27ca0963aaa15df216956b9b521c144c7ee9d3e5ae1e609d5bf7d36f7554b",
+    "artifacts/submission_audit_20260925/gpu_m2/out/logs/true_geometry_803.log": "875ff305a605b93760b41451f9e245f405beb8763d8b24d2f6f71d86ffc0b10e",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_803/model.pt": "943a979e3a66a8b4d5271820a31ea35b7ac2bf77876901985caba686b7828c67",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_803/predictions.npz": "c25fdfd658ea94b3a33328cc91d3ab02a129a97ef2c4b50fccc3d2a3ce251423",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_803/result.json": "3ea6498c5875916fa72c01d7e16cc058b991128458647b99dceedd2c8a7db254",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_805/model.pt": "a19e58cc2f5c813b192e0fae76e527fc45b54db08d0c4a22e397e2b487280532",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_805/predictions.npz": "5ef2af198621f4a24a4893bfdb4608284d91b89ea68ef59ba04216500e46954d",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_805/result.json": "78aa7bcaf3f161ec001e1de12f911751eb170ece901b89f2d259d8a293baeb7a",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_806/model.pt": "d37b9d695456847a948772c83ce9d6ef20da0a0e0a842d0c68224f2843fbda4e",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_806/predictions.npz": "0af6b372369eab93cf287d00f641e24b97b06305afa4eab592238be75618bfcd",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_clean_806/result.json": "967830b4f324ed748ac63f92560b13a1b235ad3d7b14f0dc21b2938702f954d9",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_803/model.pt": "e8b97c095f3001128cb2e22f7fc13ac1f6b29cc6bb9988ac7ac03968fe85b8b8",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_803/predictions.npz": "2277bdcd30612cb2b8a9bc5a60b5dc3be059f196fe81a49628362cd21b602101",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_803/result.json": "45fffe4d52cd03fb3efcfc95e1256f30de7f3f1a83704d42c05cebeb3e21df28",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_805/model.pt": "82ff384724fc89043af5434debfa00629537a290907099db3c245e1a0bf415bb",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_805/predictions.npz": "c42e1474d2cb5c94fc167faaadf997d3967908cc0961fc433fa87f14fa1a1889",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_805/result.json": "990773a9fd2cbb7d242afb6d6c53a4207a6393c1ddd3fee0b9154275399b35a8",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_806/model.pt": "cfc3a73429da4b5d940dffaef1396341a61acc2c499466b52290a520d11e76b0",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_806/predictions.npz": "3992fcc262ae7458b99921a31d58eb2d05abf2df0c35d9104d59a9b12837c149",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/direct_full_806/result.json": "d83735931a414da732b1c17fa23c4e6f67c028259730d7999ed0781635589c4a",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_803/model_probe.pt": "eb68fac651c3b40a4a26c20ea81d164bd88a9870094431c08f64a892d4742d24",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_803/predictions.npz": "2cdd1ff6dee8ed26a2772b2c23c1ac8c6cbe833a0a7bcf53f839ccd61d772b6a",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_803/result.json": "d3007afca95a1f5a96fa1a121b09065f4bd2f057a742edbae624dc4b7a985356",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_805/model_probe.pt": "04ce23a7f981d9ac0b07b962c78cdaa63b1e768e95e6eec1bb77a0955e8a4ac9",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_805/predictions.npz": "3047370007a1c267d585fdde7c47f2e85089aa5c7a7af1265b1e00682ea86774",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_805/result.json": "f38ce71cfa482b2866952e969f1e9130f8e843a631b7a59408a13e1402347bf0",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_806/model_probe.pt": "95ad2478153f5d182bbb64295632cb73a58ff5244245b66e75502038306f7712",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_806/predictions.npz": "2c9a5d5d3d56830078f41012b658995714fd01634ce0a006f5165a1a4f694c7d",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_806/result.json": "e5b69cff56d4eec89c947df7d02aa6ea781ad2f9a1d272d34a1ae7e43fa8d641",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_803/model_probe.pt": "af42dcd2387abf9a1842b859e2c129990084401b9d1d4b736e6230dab231a61f",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_803/predictions.npz": "e74da023d184c9459a8d8c821a792400e7bd4af469b9003c11161b061921e3f1",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_803/result.json": "90198c72deef25975a4b6e49d0cf84efeefc20a674767d79b1e6d79df0bf9e07",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_805/model_probe.pt": "47ce7fb948e23eb1f2a35409ed882ba306f9d93097af3ff1bcd93c47c2179d57",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_805/predictions.npz": "13af62109622858e45908c88ca5a00f8302880969c9db18de7df94e78f006ee5",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_805/result.json": "68d947f20de0e8003c88e148fed038b407e28f0a688438bd3fdd35f8e22c87a3",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_806/model_probe.pt": "de400cc5ec0b3880d79c713176c5c8350d74b2dad9b50ccb37ba7fa9ec4978ab",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_806/predictions.npz": "41ab57febabce98ec734391cf4d154a6f40e971b71a0d9fe8ae42a1a9037dee2",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/geom_front_tuned_806/result.json": "b7b55d08dd7c4f965cce7f645a01eb3276f4da95986c8b522a9f5865aef7e71b",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/random_head_803/predictions.npz": "92a6cf04a32d0bdf549f801c1a22e1e8a7d3639f0c02e4685ea3da0ad43ee182",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/random_head_803/result.json": "f1073bf29f1ff181733dbf6bd0728d3a5201c85cb20e9416f7d52f95e05d34c0",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/random_head_805/predictions.npz": "d6a7596afa5c4a64b620292a50aa5ac4421010d93d3d5e1662d78709a62e9fd3",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/random_head_805/result.json": "7b19e5674de3be09dba8949637fa35d8d62f775337627a1417aec0292c55c29e",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/random_head_806/predictions.npz": "ade873708857103eebbef34f66094b53d089fe20051f2ebab59c09a6bed074b9",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/random_head_806/result.json": "3a88769eb61fb4a14a1c0d5dc66a0d01256092dda5d70c5eda2cf804cf77cf99",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/true_geometry_803/predictions.npz": "9a52e0742822fdc29277ec7878ec647e132fffb50e5a4194757f063516f1097b",
+    "artifacts/submission_audit_20260925/gpu_m2/out/m2/true_geometry_803/result.json": "206e7551ce1da6df50213c0de570b6a597efea1d091eb206367c2f03da21803a",
+    "experiments/submission_audit_20260925/m2_scientific_acceptance.py": "bd2669bd163518d66ed21a2a29704ac5a5f4439419d22623af853f307db94ced"
+  },
+  "limitations": [
+    "One previously evaluated bank and renderer; 3 training seeds are not 3 independent datasets.",
+    "Geometry frontends receive privileged coordinate-derived supervision; direct models receive relation labels. Equal image exposures are not equal information or matched objectives.",
+    "Tuning changes both learnable weights and BatchNorm behavior; this is a bundled recipe contrast.",
+    "Predicted six-distance vectors are unconstrained; physical-validity and error-matched interface interventions were not run.",
+    "No cross-renderer validation or proof of global unlearnability.",
+    "Full ResNet forward replay of every image is not run; accepted predictions are checked against hashes, labels, metrics, selected checkpoint tensors, and training receipts."
+  ]
+}

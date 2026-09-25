@@ -6,7 +6,7 @@
 - [x] route2 3-seed 曝光匹配基线补算，预测/回执/检查点 16 个文件逐一校验。
 - [x] R03 21 模型单编辑重叠排除敏感性（2,652,195 次端点前向）完成。
 - [x] 建立 `reports/submission_audit_20260925/` 写作证据目录。
-- [ ] M2 修正补算的回收与独立验收：用户明确后置，见 `M2_DEFERRED_HANDOFF.md`。旧机制排除结论撤回。
+- [x] M2 修正补算已回收并完成科学验收：685 个不同组合/351 parents；微调有效、未胜过直接视觉分类，见 `reports/submission_audit_20260925/m2_acceptance/REPORT.md`。
 
 下文为各轮历史执行记录，当前科学措辞以新证据目录为准。
 
@@ -20,7 +20,7 @@
 - [x] R1–R6共享原语：`experiments/mechanism_transfer_v3/common/` + 13项fail-closed测试，不动旧文件
 - [x] M1源端：T1碰撞形式化、source有界搜索、6臂×clean/flip×3 seeds训练矩阵（orbit去风险排序无精度代价，flip侧增益不稳定；T1/T2未跑）
 - [x] M2 CPU准备：扩展盲bank（692 quartets/351 parents）、mask审计、解析基线J3=0.886；M3默认不跑
-- [x] M2 GPU主格完成（2026-09-25）：16格全部独立验证；direct_full J3≈0.92最优，真几何+冻结head 0.796，随机head≈0，纯几何前端≈0.20（冻结/微调backbone无差，MSE≈0.51）；判M2.5阴性，停止加head；报告`reports/mechanism_transfer_v3/M2_TRANSFER.md`，附录已接线
+- [x] 历史 M2 GPU主格已完成；旧“冻结/微调无差”解释无效并撤回，当前以修正后的科学验收报告为准。
 
 ## 正在执行（五路线胜率优化，2026-09-25）
 

@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETE",
+  "verified_count": 7,
+  "files": [
+    {
+      "remote_path": "/root/iclr_submission_audit_20260925/m2_code/m2/gpu_transfer.py",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/gpu_transfer.py",
+      "sha256": "db9d173ff7ba13bf74d1032fd19ecb57df19bad60f566a4f05ee2d58b53efa29",
+      "bytes": 21096
+    },
+    {
+      "remote_path": "/root/iclr_submission_audit_20260925/m2_code/common/metrics.py",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/metrics.py",
+      "sha256": "7bb6a3bd8018abaa1eae7cbf8a2ff7561d162c5a3be515c0bcba4ea2cc93b842",
+      "bytes": 4966
+    },
+    {
+      "remote_path": "/root/iclr_submission_audit_20260925/run_gpu_job.py",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/run_gpu_job.py",
+      "sha256": "706b730cda7ffa78af28d466e1957971a4b4b62ccfe58bfb441fefb5c5582cb6",
+      "bytes": 5492
+    },
+    {
+      "remote_path": "/root/e832_route2/m2_v3/bank/data.npz",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/data.npz",
+      "sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+      "bytes": 1729142
+    },
+    {
+      "remote_path": "/root/e832_route2/m2_v3/bank/data_manifest.json",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/data_manifest.json",
+      "sha256": "50060815bfe5f4eab48fe04c1ccdf60f1208aea1a87c15f45b63fc3d390e6667",
+      "bytes": 28155
+    },
+    {
+      "remote_path": "/root/e832_route2/m2_v3/head/model.pt",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/model.pt",
+      "sha256": "8b9c43f805f1d48acd8a2a4f1644d1ce41ff2804c4e8fd0b91865db189e3dde3",
+      "bytes": 95735
+    },
+    {
+      "remote_path": "/root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth",
+      "local_path": "artifacts/submission_audit_20260925/gpu_m2/inputs/resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "bytes": 46830571
+    }
+  ]
+}

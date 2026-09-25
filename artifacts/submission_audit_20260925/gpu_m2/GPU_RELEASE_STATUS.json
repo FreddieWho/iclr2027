@@ -1,0 +1,22 @@
+{
+  "status": "SAFE_TO_SHUTDOWN",
+  "checked_utc": "2026-09-25T12:23:47.118029+00:00",
+  "scope": "User-provided M2 GPU instance; all declared M2 inputs and outputs collected locally",
+  "github_snapshot": "ea699fe2f2d9e3149e9343a1a5d15c992f3c27b6",
+  "github_snapshot_pushed_before_collection": true,
+  "completed_cells": 16,
+  "verified_outputs": 60,
+  "verified_inputs": 7,
+  "pending_checkpoints": 0,
+  "gpu_compute_processes_at_final_check": [],
+  "remote_shutdown_executed": false,
+  "scientific_acceptance": "PENDING_NOT_PERFORMED",
+  "manuscript_updated_with_m2_results": false,
+  "local_directory": "/home/huyudi/012_conference/iclr2027/artifacts/submission_audit_20260925/gpu_m2",
+  "receipts": [
+    "COLLECTION_CHECK.json",
+    "inputs/INPUT_COLLECTION_CHECK.json",
+    "out/RUN_RECEIPT.json"
+  ],
+  "transport_note": "Switched from slow mobile link to telecom link; partial mobile archive retained but not used for acceptance."
+}

@@ -1,5 +1,7 @@
 # Mechanism evidence audit — 2026-09-25
 
+> **最新 M2 结论已固定：科学验收完成。** 原始 692 行去重为 685 个组合/351 parents；真正微调有效，但该方案显著落后于直接视觉分类。旧无效实现的归因保持撤回；下方 M2 待验收文字为历史状态。当前唯一 M2 结论入口：`reports/submission_audit_20260925/m2_acceptance/REPORT.md`。
+
 Baseline: `3fc9757`. Scope: `experiments/mechanism_transfer_v3/**` and the archived M1/M2 evidence named below. Historical result files remain unchanged. Sealed pools were not read. The corrected 16-cell GPU run is `DEFERRED_PENDING_ACCEPTANCE`; its outputs are not used here.
 
 ## Findings

@@ -1,0 +1,1052 @@
+{
+  "schema": "mechanism_transfer_v3.m2.bank/1",
+  "status": "DATA_READY",
+  "formal_claim": "none",
+  "scientific_result": "NOT_RUN",
+  "no_neural_training": true,
+  "no_gpu": true,
+  "provenance": {
+    "fresh_generator_only": true,
+    "loaded_existing_scene_or_image_artifacts": false,
+    "pilot_route2_bank_reused_as_data": false,
+    "sealed_or_dev512_pool_read": false,
+    "freezing_statement": "seeds, split sizes, caps, margin floor, radius schedule and pixel threshold were fixed in bank_contract.FROZEN before generation"
+  },
+  "config": {
+    "schema": "mechanism_transfer_v3.m2.bank/1",
+    "seeds": {
+      "train_parent": 832801,
+      "dev_parent": 832802,
+      "test_parent": 832803,
+      "train_observation": 832811,
+      "dev_observation": 832812,
+      "test_observation": 832813,
+      "quartet_mining": 832821,
+      "quartet_observation": 832822
+    },
+    "split_sizes": {
+      "train": 1024,
+      "dev": 128,
+      "test": 384
+    },
+    "oracle_margin_floor": 0.02,
+    "radii": [
+      0.1,
+      0.2,
+      0.35,
+      0.5
+    ],
+    "singleton_draws": 16,
+    "quartet_draws": 16,
+    "max_single_edits_per_parent": 2,
+    "max_quartets_per_parent": 2,
+    "max_quartets_total": 1024,
+    "min_changed_pixels": 20,
+    "dedup_linf": 0.0001,
+    "image_size": 64,
+    "image_dtype": "uint8",
+    "red_threshold": {
+      "red_min": 0.15,
+      "green_max": 0.35,
+      "blue_max": 0.35
+    },
+    "blue_threshold": {
+      "blue_min": 0.15,
+      "red_max": 0.35,
+      "green_max": 0.35
+    },
+    "stamp_half_width": 2
+  },
+  "splits": {
+    "train": {
+      "parent_seed": 832801,
+      "observation_seed": 832811,
+      "parent_count": 1024,
+      "parent_label_counts": {
+        "0": 512,
+        "1": 512
+      },
+      "singleton_images": 2532,
+      "clean_images": 1024,
+      "edited_images": 1508,
+      "dedup_dropped": 0
+    },
+    "dev": {
+      "parent_seed": 832802,
+      "observation_seed": 832812,
+      "parent_count": 128,
+      "parent_label_counts": {
+        "0": 64,
+        "1": 64
+      },
+      "singleton_images": 333,
+      "clean_images": 128,
+      "edited_images": 205,
+      "dedup_dropped": 0
+    },
+    "test": {
+      "parent_seed": 832803,
+      "observation_seed": 832813,
+      "parent_count": 384,
+      "parent_label_counts": {
+        "0": 192,
+        "1": 192
+      },
+      "singleton_images": 946,
+      "clean_images": 384,
+      "edited_images": 562,
+      "dedup_dropped": 0
+    }
+  },
+  "counts": {
+    "train_singleton_images": 2532,
+    "dev_singleton_images": 333,
+    "test_singleton_images": 946,
+    "train_parents": 1024,
+    "dev_parents": 128,
+    "test_parents": 384,
+    "quartets": 692,
+    "quartet_images": 2768,
+    "quartet_eligible_parents": 384,
+    "quartet_sampled_parents": 351,
+    "ab_training_images": 0
+  },
+  "yields": {
+    "train": {
+      "oracle_valueerror": 0,
+      "ambiguous": 0,
+      "label_not_flipped": 58179,
+      "label_not_preserved": 0,
+      "below_margin": 722,
+      "below_pixel_threshold": 6,
+      "single_kept": 1508,
+      "pair_oracle_valueerror": 0,
+      "pair_combo_preserved": 0,
+      "pair_below_margin": 0,
+      "pair_below_pixel_threshold": 0,
+      "pair_drawn": 0,
+      "stage": "singleton",
+      "drawn": 60415,
+      "accepted": 1508,
+      "per_family": {
+        "move_node0": {
+          "drawn": 7919,
+          "single_kept": 227
+        },
+        "move_node1": {
+          "drawn": 7819,
+          "single_kept": 227
+        },
+        "move_node2": {
+          "drawn": 7712,
+          "single_kept": 196
+        },
+        "move_node3": {
+          "drawn": 7631,
+          "single_kept": 158
+        },
+        "shift_AB": {
+          "drawn": 7557,
+          "single_kept": 366
+        },
+        "shift_CD": {
+          "drawn": 7369,
+          "single_kept": 289
+        },
+        "rot_AB": {
+          "drawn": 7210,
+          "single_kept": 26
+        },
+        "rot_CD": {
+          "drawn": 7198,
+          "single_kept": 19
+        }
+      },
+      "per_radius": {
+        "0.1": {
+          "drawn": 17202,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 16811,
+          "label_not_preserved": 0,
+          "below_margin": 213,
+          "below_pixel_threshold": 4,
+          "single_kept": 174
+        },
+        "0.2": {
+          "drawn": 16254,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 15691,
+          "label_not_preserved": 0,
+          "below_margin": 191,
+          "below_pixel_threshold": 2,
+          "single_kept": 370
+        },
+        "0.35": {
+          "drawn": 14563,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 13893,
+          "label_not_preserved": 0,
+          "below_margin": 189,
+          "below_pixel_threshold": 0,
+          "single_kept": 481
+        },
+        "0.5": {
+          "drawn": 12396,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 11784,
+          "label_not_preserved": 0,
+          "below_margin": 129,
+          "below_pixel_threshold": 0,
+          "single_kept": 483
+        }
+      },
+      "edit_count_histogram": {
+        "0": 250,
+        "1": 40,
+        "2": 734
+      },
+      "parents_at_edit_cap": 734,
+      "parents_with_zero_edits": 250
+    },
+    "dev": {
+      "oracle_valueerror": 0,
+      "ambiguous": 0,
+      "label_not_flipped": 6618,
+      "label_not_preserved": 0,
+      "below_margin": 106,
+      "below_pixel_threshold": 0,
+      "single_kept": 205,
+      "pair_oracle_valueerror": 0,
+      "pair_combo_preserved": 0,
+      "pair_below_margin": 0,
+      "pair_below_pixel_threshold": 0,
+      "pair_drawn": 0,
+      "stage": "singleton",
+      "drawn": 6929,
+      "accepted": 205,
+      "per_family": {
+        "move_node0": {
+          "drawn": 917,
+          "single_kept": 36
+        },
+        "move_node1": {
+          "drawn": 898,
+          "single_kept": 26
+        },
+        "move_node2": {
+          "drawn": 888,
+          "single_kept": 29
+        },
+        "move_node3": {
+          "drawn": 878,
+          "single_kept": 23
+        },
+        "shift_AB": {
+          "drawn": 865,
+          "single_kept": 43
+        },
+        "shift_CD": {
+          "drawn": 846,
+          "single_kept": 43
+        },
+        "rot_AB": {
+          "drawn": 820,
+          "single_kept": 4
+        },
+        "rot_CD": {
+          "drawn": 817,
+          "single_kept": 1
+        }
+      },
+      "per_radius": {
+        "0.1": {
+          "drawn": 2012,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 1958,
+          "label_not_preserved": 0,
+          "below_margin": 37,
+          "below_pixel_threshold": 0,
+          "single_kept": 17
+        },
+        "0.2": {
+          "drawn": 1917,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 1846,
+          "label_not_preserved": 0,
+          "below_margin": 27,
+          "below_pixel_threshold": 0,
+          "single_kept": 44
+        },
+        "0.35": {
+          "drawn": 1662,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 1562,
+          "label_not_preserved": 0,
+          "below_margin": 26,
+          "below_pixel_threshold": 0,
+          "single_kept": 74
+        },
+        "0.5": {
+          "drawn": 1338,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 1252,
+          "label_not_preserved": 0,
+          "below_margin": 16,
+          "below_pixel_threshold": 0,
+          "single_kept": 70
+        }
+      },
+      "edit_count_histogram": {
+        "0": 24,
+        "1": 3,
+        "2": 101
+      },
+      "parents_at_edit_cap": 101,
+      "parents_with_zero_edits": 24
+    },
+    "test": {
+      "oracle_valueerror": 0,
+      "ambiguous": 0,
+      "label_not_flipped": 21555,
+      "label_not_preserved": 0,
+      "below_margin": 205,
+      "below_pixel_threshold": 6,
+      "single_kept": 562,
+      "pair_oracle_valueerror": 0,
+      "pair_combo_preserved": 0,
+      "pair_below_margin": 0,
+      "pair_below_pixel_threshold": 0,
+      "pair_drawn": 0,
+      "stage": "singleton",
+      "drawn": 22328,
+      "accepted": 562,
+      "per_family": {
+        "move_node0": {
+          "drawn": 2926,
+          "single_kept": 80
+        },
+        "move_node1": {
+          "drawn": 2890,
+          "single_kept": 72
+        },
+        "move_node2": {
+          "drawn": 2867,
+          "single_kept": 82
+        },
+        "move_node3": {
+          "drawn": 2824,
+          "single_kept": 67
+        },
+        "shift_AB": {
+          "drawn": 2795,
+          "single_kept": 132
+        },
+        "shift_CD": {
+          "drawn": 2722,
+          "single_kept": 119
+        },
+        "rot_AB": {
+          "drawn": 2654,
+          "single_kept": 6
+        },
+        "rot_CD": {
+          "drawn": 2650,
+          "single_kept": 4
+        }
+      },
+      "per_radius": {
+        "0.1": {
+          "drawn": 6327,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 6224,
+          "label_not_preserved": 0,
+          "below_margin": 49,
+          "below_pixel_threshold": 3,
+          "single_kept": 51
+        },
+        "0.2": {
+          "drawn": 6059,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 5872,
+          "label_not_preserved": 0,
+          "below_margin": 61,
+          "below_pixel_threshold": 3,
+          "single_kept": 123
+        },
+        "0.35": {
+          "drawn": 5405,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 5142,
+          "label_not_preserved": 0,
+          "below_margin": 54,
+          "below_pixel_threshold": 0,
+          "single_kept": 209
+        },
+        "0.5": {
+          "drawn": 4537,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 4317,
+          "label_not_preserved": 0,
+          "below_margin": 41,
+          "below_pixel_threshold": 0,
+          "single_kept": 179
+        }
+      },
+      "edit_count_histogram": {
+        "0": 100,
+        "1": 6,
+        "2": 278
+      },
+      "parents_at_edit_cap": 278,
+      "parents_with_zero_edits": 100
+    },
+    "quartet": {
+      "oracle_valueerror": 0,
+      "ambiguous": 0,
+      "label_not_flipped": 0,
+      "label_not_preserved": 6119,
+      "below_margin": 3609,
+      "below_pixel_threshold": 0,
+      "single_kept": 39424,
+      "pair_oracle_valueerror": 0,
+      "pair_combo_preserved": 539778,
+      "pair_below_margin": 968,
+      "pair_below_pixel_threshold": 5,
+      "pair_drawn": 541443,
+      "stage": "quartet",
+      "drawn": 49152,
+      "accepted": 692,
+      "per_family": {
+        "move_node0": {
+          "drawn": 6144,
+          "single_kept": 4959
+        },
+        "move_node1": {
+          "drawn": 6144,
+          "single_kept": 5129
+        },
+        "move_node2": {
+          "drawn": 6144,
+          "single_kept": 5043
+        },
+        "move_node3": {
+          "drawn": 6144,
+          "single_kept": 5028
+        },
+        "shift_AB": {
+          "drawn": 6144,
+          "single_kept": 4259
+        },
+        "shift_CD": {
+          "drawn": 6144,
+          "single_kept": 4257
+        },
+        "rot_AB": {
+          "drawn": 6144,
+          "single_kept": 5355
+        },
+        "rot_CD": {
+          "drawn": 6144,
+          "single_kept": 5394
+        }
+      },
+      "per_radius": {
+        "0.1": {
+          "drawn": 12288,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 0,
+          "label_not_preserved": 456,
+          "below_margin": 842,
+          "below_pixel_threshold": 0,
+          "single_kept": 10990
+        },
+        "0.2": {
+          "drawn": 12288,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 0,
+          "label_not_preserved": 1101,
+          "below_margin": 938,
+          "below_pixel_threshold": 0,
+          "single_kept": 10249
+        },
+        "0.35": {
+          "drawn": 12288,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 0,
+          "label_not_preserved": 1994,
+          "below_margin": 920,
+          "below_pixel_threshold": 0,
+          "single_kept": 9374
+        },
+        "0.5": {
+          "drawn": 12288,
+          "oracle_valueerror": 0,
+          "ambiguous": 0,
+          "label_not_flipped": 0,
+          "label_not_preserved": 2568,
+          "below_margin": 909,
+          "below_pixel_threshold": 0,
+          "single_kept": 8811
+        }
+      },
+      "parents_rejected_margin": 0,
+      "eligible_parents": 384,
+      "parents_at_quartet_cap": 341,
+      "quartets_per_eligible_parent": 1.8020833333333333,
+      "quartet_count": 692,
+      "parents_with_quartets": 351,
+      "quartet_edit_families": {
+        "shift_AB": 260,
+        "shift_CD": 271,
+        "move_node0": 221,
+        "move_node3": 192,
+        "move_node1": 205,
+        "rot_CD": 42,
+        "move_node2": 171,
+        "rot_AB": 22
+      }
+    }
+  },
+  "coverage": {
+    "train": {
+      "schema": "mechanism_transfer_v3.bank/1",
+      "n_scenes": 2532,
+      "n_parents": 1024,
+      "scenes_sha256": "bb4bd3acad3c5bafcdd7991a349b5c4b011f8c0fd6f5b88b01d24f2c4b342798",
+      "parents_sha256": "baaec9235eaafd7b16ac1351049b81a8ffcb5ff55bdfedc09b2743f22e3deaf7",
+      "min_scenes_per_parent": 1,
+      "max_scenes_per_parent": 3,
+      "families": {
+        "clean": 1024,
+        "move_node0": 227,
+        "move_node1": 227,
+        "move_node2": 196,
+        "move_node3": 158,
+        "rot_AB": 26,
+        "rot_CD": 19,
+        "shift_AB": 366,
+        "shift_CD": 289
+      },
+      "radii": {
+        "min": 0.0,
+        "mean": 0.19796603416073566,
+        "max": 0.5
+      },
+      "margins": {
+        "min": 0.020004361867904663,
+        "mean": 0.11977845627820416,
+        "max": 1.2003154754638672
+      }
+    },
+    "dev": {
+      "schema": "mechanism_transfer_v3.bank/1",
+      "n_scenes": 333,
+      "n_parents": 128,
+      "scenes_sha256": "1b71643bf82c53a9d8e4856b62a5f985834b30db6e644b5e62fc109e6207e049",
+      "parents_sha256": "553e3879f7e4b5d07e86112660823e7879b30e6e7115d4a6007fda829a808e4e",
+      "min_scenes_per_parent": 1,
+      "max_scenes_per_parent": 3,
+      "families": {
+        "clean": 128,
+        "move_node0": 36,
+        "move_node1": 26,
+        "move_node2": 29,
+        "move_node3": 23,
+        "rot_AB": 4,
+        "rot_CD": 1,
+        "shift_AB": 43,
+        "shift_CD": 43
+      },
+      "radii": {
+        "min": 0.0,
+        "mean": 0.21441441355972318,
+        "max": 0.5
+      },
+      "margins": {
+        "min": 0.020259032025933266,
+        "mean": 0.11018991114588471,
+        "max": 0.902015745639801
+      }
+    },
+    "test": {
+      "schema": "mechanism_transfer_v3.bank/1",
+      "n_scenes": 946,
+      "n_parents": 384,
+      "scenes_sha256": "075efa6326c463506acf9ce093f7f773ec4cedcbee92bc9f7be606eea1d0a428",
+      "parents_sha256": "024ed0ba75dd530548745829f2d854bc3652d8534afc511f6c6b0baacc8613a0",
+      "min_scenes_per_parent": 1,
+      "max_scenes_per_parent": 3,
+      "families": {
+        "clean": 384,
+        "move_node0": 80,
+        "move_node1": 72,
+        "move_node2": 82,
+        "move_node3": 67,
+        "rot_AB": 6,
+        "rot_CD": 4,
+        "shift_AB": 132,
+        "shift_CD": 119
+      },
+      "radii": {
+        "min": 0.0,
+        "mean": 0.2033298088761389,
+        "max": 0.5
+      },
+      "margins": {
+        "min": 0.020088287070393562,
+        "mean": 0.11907752203788553,
+        "max": 1.029929757118225
+      }
+    }
+  },
+  "separations": {
+    "min_pairwise_parent_linf_train": 0.1436847148697824,
+    "min_pairwise_parent_linf_dev": 0.18630564707649466,
+    "min_pairwise_parent_linf_test": 0.16520896268743224,
+    "min_test_to_train_parent_linf": 0.1831715330683571,
+    "min_test_to_dev_parent_linf": 0.18679909113212345,
+    "min_train_to_dev_parent_linf": 0.15941208923376937,
+    "min_quartet_state_to_train_parent_linf": 0.15139752117599647,
+    "min_quartet_state_to_dev_parent_linf": 0.17759836156403375,
+    "dedup_linf": 0.0001
+  },
+  "split_disjointness": {
+    "parent_overlap_counts": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "parent_sets_pairwise_disjoint": true,
+    "singleton_image_hash_overlaps": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "singleton_image_sets_pairwise_disjoint": true
+  },
+  "render_contract": {
+    "native_resolution": [
+      3,
+      64,
+      64
+    ],
+    "image_dtype": "uint8",
+    "image_scale": "images are stored as uint8 in [0,255]; the model sees float32 in [0,1] obtained as images.astype(float32)/255 (m2.loader.images_as_float). The frozen color thresholds are applied to that [0,1] float range.",
+    "renderer": "experiments/last15h/n08_visual.render after canonical within-color endpoint sort",
+    "background": "per-image uniform gray noise in [0.45,0.55)",
+    "colors": {
+      "AB": "red",
+      "CD": "blue"
+    },
+    "per_parent_render_seed": "one deterministic per-parent seed; every state of a parent shares the same background so render differences are geometry differences",
+    "changed_pixel_rule": "max over RGB channels of |after-before| > 0.2, counted; require >= 20",
+    "deletion_note": "no oracle mask, no coordinate, no parent id and no edit answer is stored in any model-facing array; coordinates and edit vectors live in separate audit arrays"
+  },
+  "mining_contract": {
+    "singleton": "clean parent plus up to 2 single edits from 16 draws; radii [0.1, 0.2, 0.35, 0.5]; oracle margin >= 0.02; >= 20 changed pixels",
+    "quartet": "emergent quartets on test parents only: both single edits preserve the label and the combination flips it, all four states at the same margin floor and the same changed-pixel threshold; at most 2 per parent; a non-binding total resource bound of 1024 is declared and the realized yield is reported in this manifest",
+    "legacy_miner_not_used": "next6_ef0f7a3/u01_quartet.mine_quartets (margin 0.005, radius 0.10, no pixel filter) is not called by this generator"
+  },
+  "training_contract": "singleton train images only (clean + single edit); quartet/AB states are test-only and never used for model selection",
+  "selection_contract": "singleton dev BCE only",
+  "inference_contract": "image-only: no coordinates, parent ids, oracle labels, edit answers, AB truth or combination ids; RGB-derived color masks are allowed and disclosed",
+  "arrays": {
+    "dev_changed_pixels": {
+      "shape": [
+        333
+      ],
+      "dtype": "int32",
+      "sha256": "014c9c22a4ab7f16c0406bc46140ddfa8f1c1c2e8829349552da8e75aa4dddb2"
+    },
+    "dev_clean": {
+      "shape": [
+        333
+      ],
+      "dtype": "bool",
+      "sha256": "1d35d36f83f5aac9e5f684e1db8c8bde43a1c7b1153c782a508adf8e1722259f"
+    },
+    "dev_edit_families": {
+      "shape": [
+        333
+      ],
+      "dtype": "<U32",
+      "sha256": "d82025c045b42d80e88048db5c2d4cdbcd0d5176f2ce1fdb48dc052bd926c8ee"
+    },
+    "dev_edit_radii": {
+      "shape": [
+        333
+      ],
+      "dtype": "float32",
+      "sha256": "e15645a33b67ecd9ba46f24d3d57aef69956285b4dc9a47153d96e5dbea27449"
+    },
+    "dev_edit_vectors": {
+      "shape": [
+        333,
+        4,
+        2
+      ],
+      "dtype": "float32",
+      "sha256": "9c1d90f618e37a3bd3f4ef0a1cd4ff08c9f2990a16d7b7d66238e741bd150ac3"
+    },
+    "dev_images": {
+      "shape": [
+        333,
+        3,
+        64,
+        64
+      ],
+      "dtype": "uint8",
+      "sha256": "1b71643bf82c53a9d8e4856b62a5f985834b30db6e644b5e62fc109e6207e049"
+    },
+    "dev_labels": {
+      "shape": [
+        333
+      ],
+      "dtype": "uint8",
+      "sha256": "10674f61ed9b7a6e2a453669d40f95f4c3ef297a00b33fc648d7a15be1365234"
+    },
+    "dev_oracle_margins": {
+      "shape": [
+        333
+      ],
+      "dtype": "float32",
+      "sha256": "c672db4d117cf35b7686d12d50995790a51c4fcd7b64c0337d8619b786d6f988"
+    },
+    "dev_parent_coords": {
+      "shape": [
+        128,
+        4,
+        2
+      ],
+      "dtype": "float64",
+      "sha256": "72389827a4ccadef4daf6ca584eb738fddd46870ff5adc66169653bccdaf45d7"
+    },
+    "dev_parent_keys": {
+      "shape": [
+        128
+      ],
+      "dtype": "<U64",
+      "sha256": "debd74cdc0ba826e1a5da0634a631bbcb6245fcbf535c4b5c9438babe13bdbf5"
+    },
+    "dev_parents": {
+      "shape": [
+        333
+      ],
+      "dtype": "int32",
+      "sha256": "553e3879f7e4b5d07e86112660823e7879b30e6e7115d4a6007fda829a808e4e"
+    },
+    "dev_state_index": {
+      "shape": [
+        333
+      ],
+      "dtype": "int16",
+      "sha256": "a0dbb688a4a61a77b265b967762c535f3c53c314a1cb13e12ad5fdfbfd45fbe1"
+    },
+    "quartet_changed_pixels": {
+      "shape": [
+        692,
+        3
+      ],
+      "dtype": "int32",
+      "sha256": "5aa8f8755fc8846146312911803eb7984a0627779e5cf290b23d79e84766a358"
+    },
+    "quartet_edits_a": {
+      "shape": [
+        692,
+        4,
+        2
+      ],
+      "dtype": "float32",
+      "sha256": "433ffe5d6cb64a07b73b985cbc6df300b461bfc44d1a4e70f0b65998281f3ab6"
+    },
+    "quartet_edits_b": {
+      "shape": [
+        692,
+        4,
+        2
+      ],
+      "dtype": "float32",
+      "sha256": "17c090cde0573913b70ad795895f8a3454964b183e7dc037b7bcda6c3412f17b"
+    },
+    "quartet_families_a": {
+      "shape": [
+        692
+      ],
+      "dtype": "<U32",
+      "sha256": "cbfaf6c34bd05c33079aca42111445b7a907e831a68a8773cfaef9f227004c9c"
+    },
+    "quartet_families_b": {
+      "shape": [
+        692
+      ],
+      "dtype": "<U32",
+      "sha256": "946b7f0de8e96f01e6a932d9bf3844df4dd557bf6175c1f0a9f4a724230ced28"
+    },
+    "quartet_images": {
+      "shape": [
+        692,
+        4,
+        3,
+        64,
+        64
+      ],
+      "dtype": "uint8",
+      "sha256": "197cddfa715cca6a8aaca244b7b806a72a709267677a1a3e5e63499c95e30bb8"
+    },
+    "quartet_keys": {
+      "shape": [
+        692
+      ],
+      "dtype": "<U64",
+      "sha256": "c7934fa28bac19beb6e08c88aee06a88d65135fe52aea380ea24c65cd66d9965"
+    },
+    "quartet_labels": {
+      "shape": [
+        692,
+        4
+      ],
+      "dtype": "uint8",
+      "sha256": "7293a538205eab9c29e650aa26a54ba518a05c871a2053aad85409e712c5c8bd"
+    },
+    "quartet_margins": {
+      "shape": [
+        692,
+        4
+      ],
+      "dtype": "float32",
+      "sha256": "32fc07b9d3539958d2e21e8319524b488555dd6c753df96bbb1f7bee05b7a732"
+    },
+    "quartet_parents": {
+      "shape": [
+        692
+      ],
+      "dtype": "int32",
+      "sha256": "fdb5b5e493878b518d160f0f416c1dd651baa3e998abc2785293997f63c597a1"
+    },
+    "quartet_radii_a": {
+      "shape": [
+        692
+      ],
+      "dtype": "float32",
+      "sha256": "816c6786bc2b45b9097aef105d8c299a7590ae76ff68ad0ec97d6e63631f5466"
+    },
+    "quartet_radii_b": {
+      "shape": [
+        692
+      ],
+      "dtype": "float32",
+      "sha256": "ecd93f50f469b02202049f00c82b1e58512fe2b1983124abf8a3b86eee60717a"
+    },
+    "test_changed_pixels": {
+      "shape": [
+        946
+      ],
+      "dtype": "int32",
+      "sha256": "c2da3a0b10275ddfbfeab7e3886098d29cf61885738989ae799215d51f4349c1"
+    },
+    "test_clean": {
+      "shape": [
+        946
+      ],
+      "dtype": "bool",
+      "sha256": "2c01cade5b9bd3c0300efdf905d3ec02dfffb5e27f6839b5e4e9329114821fbb"
+    },
+    "test_edit_families": {
+      "shape": [
+        946
+      ],
+      "dtype": "<U32",
+      "sha256": "a98c593dfad9013dac425d1e2d2514594b6fc6aeef4090b36d68076c13c6c42b"
+    },
+    "test_edit_radii": {
+      "shape": [
+        946
+      ],
+      "dtype": "float32",
+      "sha256": "0a64cf02a1733ad7ffeff0308e699feff8ea8c6428d0026afde44f907a207e90"
+    },
+    "test_edit_vectors": {
+      "shape": [
+        946,
+        4,
+        2
+      ],
+      "dtype": "float32",
+      "sha256": "5b9fb148ecbb62a7360368a4d9d791f3b71efb5208160cb63b0d34569c7aa170"
+    },
+    "test_images": {
+      "shape": [
+        946,
+        3,
+        64,
+        64
+      ],
+      "dtype": "uint8",
+      "sha256": "075efa6326c463506acf9ce093f7f773ec4cedcbee92bc9f7be606eea1d0a428"
+    },
+    "test_labels": {
+      "shape": [
+        946
+      ],
+      "dtype": "uint8",
+      "sha256": "988681c93da99f8c5a96caee463dfde9dc843ce6748f0f75901b6359608aa7bf"
+    },
+    "test_oracle_margins": {
+      "shape": [
+        946
+      ],
+      "dtype": "float32",
+      "sha256": "87d60eb5b09282511d077d0b7745e8d83d2923dc09b0e076665a5d5ebf7ff22d"
+    },
+    "test_parent_coords": {
+      "shape": [
+        384,
+        4,
+        2
+      ],
+      "dtype": "float64",
+      "sha256": "74feeec2ae332d6e18939b204621ef243b9f10859d55677ec5d40e910728b653"
+    },
+    "test_parent_keys": {
+      "shape": [
+        384
+      ],
+      "dtype": "<U64",
+      "sha256": "854daf90c0d773cac273859320d7908194806939b78ee3c58b3bd450074094df"
+    },
+    "test_parents": {
+      "shape": [
+        946
+      ],
+      "dtype": "int32",
+      "sha256": "024ed0ba75dd530548745829f2d854bc3652d8534afc511f6c6b0baacc8613a0"
+    },
+    "test_state_index": {
+      "shape": [
+        946
+      ],
+      "dtype": "int16",
+      "sha256": "a96e68d2cb581a5cada7a96371c1dd69981a5a4bdc0b5dd878db23129d80e081"
+    },
+    "train_changed_pixels": {
+      "shape": [
+        2532
+      ],
+      "dtype": "int32",
+      "sha256": "b5f9b1e593786e6da10621ecc5224d47616fa15f2eacf405d700854dbce14ac6"
+    },
+    "train_clean": {
+      "shape": [
+        2532
+      ],
+      "dtype": "bool",
+      "sha256": "6b30fad2515f1a30dff11635c6dedc0f2a845be1672da78127497e476ebf5aa7"
+    },
+    "train_edit_families": {
+      "shape": [
+        2532
+      ],
+      "dtype": "<U32",
+      "sha256": "186640e4f93433b4c0df150f77fa7c3db5e788f78ff113f432dc1098f14c5c8e"
+    },
+    "train_edit_radii": {
+      "shape": [
+        2532
+      ],
+      "dtype": "float32",
+      "sha256": "2add19cfe1c66d0e5b0d71fd03d6ccdfaafde63aed96e1cdc8aa2e3bc8387bc1"
+    },
+    "train_edit_vectors": {
+      "shape": [
+        2532,
+        4,
+        2
+      ],
+      "dtype": "float32",
+      "sha256": "e7e161368e1cb96afc4ca18f9b68a04a93f56aa65e128d759edb13c248f106c9"
+    },
+    "train_images": {
+      "shape": [
+        2532,
+        3,
+        64,
+        64
+      ],
+      "dtype": "uint8",
+      "sha256": "bb4bd3acad3c5bafcdd7991a349b5c4b011f8c0fd6f5b88b01d24f2c4b342798"
+    },
+    "train_labels": {
+      "shape": [
+        2532
+      ],
+      "dtype": "uint8",
+      "sha256": "f78ccaea30814ffef0a38c24ee88f06c78bc4a5b00f59eb991d8e763f21f94f5"
+    },
+    "train_oracle_margins": {
+      "shape": [
+        2532
+      ],
+      "dtype": "float32",
+      "sha256": "13012c6bbcd3f29134b1b3908dec9a3bd8c485555bfd576be154e820dc078c1f"
+    },
+    "train_parent_coords": {
+      "shape": [
+        1024,
+        4,
+        2
+      ],
+      "dtype": "float64",
+      "sha256": "89e35eb05a0a114064e1c4d4da38e7fe8505dd5bb366d151efcbbe609f53f88a"
+    },
+    "train_parent_keys": {
+      "shape": [
+        1024
+      ],
+      "dtype": "<U64",
+      "sha256": "18523067083c73889b82f2c243efc69d0e0ca28d71e04945ea18820ca5a0b891"
+    },
+    "train_parents": {
+      "shape": [
+        2532
+      ],
+      "dtype": "int32",
+      "sha256": "baaec9235eaafd7b16ac1351049b81a8ffcb5ff55bdfedc09b2743f22e3deaf7"
+    },
+    "train_state_index": {
+      "shape": [
+        2532
+      ],
+      "dtype": "int16",
+      "sha256": "8c6acbc81eafd8ec0b71b66b7186af33a39cdf6aae59f02df4e9016196227ee5"
+    }
+  },
+  "archive": {
+    "path": "data.npz",
+    "sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+    "size_bytes": 1729142
+  },
+  "determinism": {
+    "determinism_check": "passed",
+    "arrays_compared": 48,
+    "array_sha256_all_equal": true,
+    "archive_sha256_equal": true,
+    "first_archive_sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+    "second_archive_sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342"
+  },
+  "seconds": 54.043155908584595
+}
