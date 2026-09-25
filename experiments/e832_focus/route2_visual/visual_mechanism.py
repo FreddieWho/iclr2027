@@ -52,8 +52,13 @@ def prep(images, input_size: int = 224) -> torch.Tensor:
     return (raw - mean) / std
 
 
-def visible_segment_features(model, images):
-    """Return global, red and blue features from one shared image forward."""
+def visible_segment_features(model, images, mask_pool: str = "nearest"):
+    """Return global, red and blue features from one shared image forward.
+
+    mask_pool='nearest' preserves the legacy contract exactly. 'area' uses
+    area-weighted downsampling so natively visible segments keep nonzero
+    probability mass instead of being silently erased to a zero vector.
+    """
     raw, _ = _image_nchw(images)
     device = next(model.parameters()).device
     x = prep(images).to(device)
@@ -65,10 +70,12 @@ def visible_segment_features(model, images):
         "red": (raw[:, 0] > .15) & (raw[:, 1] < .35) & (raw[:, 2] < .35),
         "blue": (raw[:, 2] > .15) & (raw[:, 0] < .35) & (raw[:, 1] < .35),
     }
+    if mask_pool not in ("nearest", "area"):
+        raise ValueError(f"unknown mask_pool {mask_pool}")
     out = {"global": z}
     for name, mask in masks.items():
         # Missing color is a zero mask, never an oracle/coordinate fallback.
-        weights = F.interpolate(mask.to(z.dtype).unsqueeze(1), size=zmap.shape[-2:], mode="nearest")
+        weights = F.interpolate(mask.to(z.dtype).unsqueeze(1), size=zmap.shape[-2:], mode=mask_pool)
         out[name] = (zmap * weights).sum((2, 3)) / weights.sum((2, 3)).clamp_min(1.0)
     return out
 
@@ -76,7 +83,8 @@ def visible_segment_features(model, images):
 class Mechanism(nn.Module):
     """Predeclared direct/additive/representation/interaction arms."""
 
-    def __init__(self, mode: str = "interaction", input_size: int = 224, pretrained: bool = False):
+    def __init__(self, mode: str = "interaction", input_size: int = 224, pretrained: bool = False,
+                 mask_pool: str = "nearest"):
         super().__init__()
         if mode not in {"direct", "additive", "representation", "interaction"}:
             raise ValueError(mode)
@@ -86,6 +94,7 @@ class Mechanism(nn.Module):
         self.backbone = nn.Sequential(*list(self.encoder.children())[:-2])
         self.mode = mode
         self.input_size = input_size
+        self.mask_pool = mask_pool
         if mode in {"direct", "additive"}:
             self.head = nn.Linear(512, 1)
         elif mode == "representation":
@@ -94,7 +103,7 @@ class Mechanism(nn.Module):
             self.head = nn.Sequential(nn.Linear(1024, 128), nn.GELU(), nn.Linear(128, 1))
 
     def forward(self, images):
-        features = visible_segment_features(self, images)
+        features = visible_segment_features(self, images, self.mask_pool)
         if self.mode == "direct":
             return self.head(features["global"]).reshape(-1)
         if self.mode == "additive":

@@ -70,6 +70,23 @@ interaction相对direct的seed差为 +0.179、−0.143、0.000，方向不稳定
 
 结果与flow：`artifacts/e832_focus/route2/gpu_run_v2_remote_20260925/corrected_results/`。原始v1结果保留但标为合同错误，不进入科学结论。没有继续优化，因为没有发现新的可修复合同或实现因素。
 
+## GPU追加第1轮 v3 area池化（2026-09-25，用户新批3轮预算中的第1轮）
+
+动因（单因素，有证据）：本地审计发现v2的nearest 7×7池化把18/112 quartet红通道、24/319测试红、19/319测试蓝静默擦成零向量；训练曲线显示12臂训练BCE均已压到0.01–0.06，不存在欠拟合，故不烧加轮/调参轮。改动：`mask_pool` nearest→area（`visual_mechanism.py`新增参数，默认nearest锁定legacy行为；`gpu_run.py`新增`--mask-pool`），同数据hash、同seed/epoch/指标，输出`gpu_run_v3`。direct臂只用全局池化，数学上不受影响（v3 direct与v2逐seed完全一致，可作对照）。
+
+12臂预测独立重算全部一致。结果：
+
+| arm | J3 seed 803/805/806 | mean | vs direct delta |
+|---|---|---:|---:|
+| direct | 0.571 / 0.607 / 0.536 | 0.571 | — |
+| additive | 0.429 / 0.500 / 0.464 | 0.464 | −0.143 / −0.107 / −0.071（稳定负） |
+| representation | 0.536 / 0.643 / 0.679 | 0.619 | −0.036 / +0.036 / +0.143（混合） |
+| interaction | 0.321 / 0.571 / 0.536 | 0.476 | −0.250 / −0.036 / +0.000（不稳定） |
+
+结论：mask擦除确实压制了representation（0.274→0.619）；additive转为稳定小负；interaction优势方向仍不稳定。v3训练曲线12臂拟合良好、无NaN/OOM/崩溃，无剩余可修复优化因素，按停止规则不再消耗第2、3轮预算（保留未用）。总体结论维持**有界阴性**：interaction结构优势不成立。
+
+结果路径：`artifacts/e832_focus/route2/gpu_run_v3_remote_20260925/gpu_run_v3/`。
+
 ## Release status
 
 用户要求停止后通过AI Galaxy退租。AI Galaxy MCP显示账户有1台running instance，但`plan_release(instance_name=223.109.239.36)`返回“instance is not owned by this MCP state store”。因此当前无法通过该MCP执行退租；需要作者/账户所有者从AI Galaxy控制台释放，或提供该MCP-owned instance name。未使用SSH shutdown替代退租。

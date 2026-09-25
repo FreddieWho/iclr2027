@@ -1,0 +1,5 @@
+{
+  "mask_pool": "area",
+  "manifest": "artifacts/e832_focus/route2/gpu_bundle/manifest.json",
+  "data": "artifacts/e832_focus/route2/data"
+}

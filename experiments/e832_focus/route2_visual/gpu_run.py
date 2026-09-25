@@ -83,7 +83,8 @@ def _train(data, arm: str, seed: int, config: dict, out: Path) -> dict:
     torch.cuda.manual_seed_all(seed)
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
-    model = Mechanism(arm, input_size=config["resolution"], pretrained=True).to(device)
+    model = Mechanism(arm, input_size=config["resolution"], pretrained=True,
+                      mask_pool=config.get("mask_pool", "nearest")).to(device)
     initial_backbone_sha256 = _backbone_hash(model)
     exposure = {
         "train_indices": np.arange(len(data["train_images"]), dtype=np.int64),
@@ -214,6 +215,8 @@ def main() -> None:
     parser.add_argument("--data", required=True, type=Path, help="explicit attached data directory or data.npz")
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--mask-pool", default="nearest", choices=["nearest", "area"],
+                        help="color-mask downsampling contract; nearest preserves legacy behavior")
     args = parser.parse_args()
 
     bundle = json.loads(args.manifest.read_text())
@@ -221,7 +224,11 @@ def main() -> None:
         raise ValueError("manifest arms/seeds do not match the frozen runner contract")
     data_manifest = validate(args.data, args.manifest)
     archive = args.data if args.data.is_file() else args.data / "data.npz"
+    config = dict(bundle.get("config", {}))
+    config["mask_pool"] = args.mask_pool
     args.out.mkdir(parents=True, exist_ok=True)
+    (args.out / "run_config.json").write_text(json.dumps(
+        {"mask_pool": args.mask_pool, "manifest": str(args.manifest), "data": str(args.data)}, indent=2) + "\n")
     exposure = {
         "train_singleton_indices": list(range(data_manifest["counts"]["train_singleton_images"])),
         "dev_singleton_indices": list(range(data_manifest["counts"]["dev_singleton_images"])),
@@ -250,6 +257,7 @@ def main() -> None:
     with np.load(archive, allow_pickle=False) as loaded:
         data = {name: loaded[name] for name in loaded.files}
     config = {key: bundle[key] for key in ("resolution", "batch_gpu", "epochs")}
+    config["mask_pool"] = args.mask_pool
     results = []
     for arm in ARMS:
         for seed in SEEDS:

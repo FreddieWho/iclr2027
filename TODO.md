@@ -40,6 +40,7 @@
     - [x] Round 1 clean-only baseline完成
     - [x] Round 2合同修复矩阵完成：v2 direct J3=.571、interaction=.583但seed差不稳定；有界阴性，停止训练
     - [ ] AI Galaxy退租：MCP显示1台running但当前实例不属于该MCP state store，需账户所有者/控制台处理
+    - [x] GPU追加第1轮完成：mask池化area修正，representation 0.274→0.619，interaction仍不稳定；12臂拟合良好无剩余可修复因素，第2、3轮按停止规则保留未用（2026-09-25）
 - [x] 路线3：解析、集合、关系、容量匹配与有限群轨道强基线（2026-09-25；解析器J3=1.0，source学习结果收窄为parser-bounded诊断）
     - [x] 三轮证据驱动尝试完成：R1排除简单欠拟合、R2规范表示J3约0.34、R3新银行确认parser-bounded间隔（2026-09-25；报告见`reports/e832_focus/route3/REPORT.md`）
 - [x] 路线4：新 parent、刚体坐标条件与预设观测变化的独立稳健性确认（2026-09-25；noise/visual未运行）

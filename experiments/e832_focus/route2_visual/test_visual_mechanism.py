@@ -69,7 +69,20 @@ class Tests(unittest.TestCase):
         for forbidden in ("coord", "index", "oracle", "answer", "combination"):
             self.assertNotIn(forbidden, source)
         signature = inspect.signature(v.visible_segment_features)
-        self.assertEqual(list(signature.parameters), ["model", "images"])
+        self.assertEqual(list(signature.parameters), ["model", "images", "mask_pool"])
+        self.assertEqual(signature.parameters["mask_pool"].default, "nearest")
+
+    def test_area_pool_preserves_visible_mass(self):
+        thin = np.zeros((1, 3, 64, 64), np.float32)
+        thin[:, :, 4:9, 8:57] = np.asarray([.9, .1, .1])[:, None, None]
+        fake = ConstantBackbone().eval()
+        with torch.no_grad():
+            near = v.visible_segment_features(fake, thin, "nearest")
+            area = v.visible_segment_features(fake, thin, "area")
+        self.assertTrue(bool((near["red"] == 0).all()))
+        self.assertGreater(float(area["red"].abs().sum()), 0.0)
+        with self.assertRaises(ValueError):
+            v.visible_segment_features(fake, thin, "bogus")
 
     def test_missing_visible_color_uses_zero_mask(self):
         blank = np.zeros_like(self.images)
