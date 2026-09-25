@@ -1,0 +1,92 @@
+{
+  "bank": "canonical224_159",
+  "n_quartets": 159,
+  "n_parents": 74,
+  "parent_quartet_count_histogram": {
+    "1": 31,
+    "2": 15,
+    "3": 14,
+    "4": 14
+  },
+  "endpoint_gains": [
+    {
+      "init": "pretrained",
+      "seed": 803,
+      "baseline110_n": 43,
+      "full_repair_n": 20,
+      "migration_n": 8,
+      "endpoint_gain_n": 28,
+      "full_among_endpoint": "20/28",
+      "full_exceeds_migration": true,
+      "regression111_n": 8,
+      "baseline111_n": 82
+    },
+    {
+      "init": "pretrained",
+      "seed": 805,
+      "baseline110_n": 34,
+      "full_repair_n": 19,
+      "migration_n": 4,
+      "endpoint_gain_n": 23,
+      "full_among_endpoint": "19/23",
+      "full_exceeds_migration": true,
+      "regression111_n": 6,
+      "baseline111_n": 96
+    },
+    {
+      "init": "pretrained",
+      "seed": 806,
+      "baseline110_n": 44,
+      "full_repair_n": 28,
+      "migration_n": 4,
+      "endpoint_gain_n": 32,
+      "full_among_endpoint": "28/32",
+      "full_exceeds_migration": true,
+      "regression111_n": 7,
+      "baseline111_n": 79
+    },
+    {
+      "init": "random",
+      "seed": 803,
+      "baseline110_n": 51,
+      "full_repair_n": 34,
+      "migration_n": 6,
+      "endpoint_gain_n": 40,
+      "full_among_endpoint": "34/40",
+      "full_exceeds_migration": true,
+      "regression111_n": 5,
+      "baseline111_n": 68
+    },
+    {
+      "init": "random",
+      "seed": 805,
+      "baseline110_n": 34,
+      "full_repair_n": 23,
+      "migration_n": 2,
+      "endpoint_gain_n": 25,
+      "full_among_endpoint": "23/25",
+      "full_exceeds_migration": true,
+      "regression111_n": 11,
+      "baseline111_n": 77
+    },
+    {
+      "init": "random",
+      "seed": 806,
+      "baseline110_n": 34,
+      "full_repair_n": 21,
+      "migration_n": 1,
+      "endpoint_gain_n": 22,
+      "full_among_endpoint": "21/22",
+      "full_exceeds_migration": true,
+      "regression111_n": 12,
+      "baseline111_n": 77
+    }
+  ],
+  "all_six_seeds_full_repair_exceeds_migration": true,
+  "J_seed_means": {
+    "pretrained_static": 0.5387840670859538,
+    "pretrained_flip": 0.6834381551362684,
+    "random_static": 0.4654088050314466,
+    "random_flip": 0.6687631027253668
+  }
+}

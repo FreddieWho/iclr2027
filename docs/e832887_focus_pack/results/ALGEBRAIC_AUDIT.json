@@ -1,0 +1,50 @@
+{
+  "audit_type": "standalone algebraic witness; no repository model reproduction",
+  "source_commit": "e832887c938948b23e8783719d493f2b9b8c3a17",
+  "source_files": [
+    "experiments/f095_campaign/u01_models.py",
+    "experiments/e1a933_review/leads_l014_l015_l006.py"
+  ],
+  "oracle_matrix": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "additive_mixed_residual_max": 8.326672684688674e-17,
+  "additive_group_error_max": 5.551115123125783e-17,
+  "random_weight_witness_accuracies": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "nonlinear_after_sum_witness_logits": [
+    [
+      0.4,
+      -0.4
+    ],
+    [
+      -0.4,
+      0.4
+    ]
+  ],
+  "nonlinear_after_sum_witness_accuracy": 1.0,
+  "handcrafted_feature_dimension": 8,
+  "handcrafted_feature_g8_error": 1.1102230246251565e-16,
+  "limitations": [
+    "No inference about corrected-model performance on the project bank.",
+    "No inference about target-task TypedTriMLP/TypedDiskMLP; their fusion differs.",
+    "The nonlinear witness is not a general segment-intersection solver."
+  ]
+}

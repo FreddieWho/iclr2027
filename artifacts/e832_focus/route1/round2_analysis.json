@@ -1,0 +1,743 @@
+{
+  "kind": "post-run execution/results manifest; the immutable precommit remains round2_manifest.json",
+  "parent_bootstrap": "equal-weight parent-cluster bootstrap, 1000 resamples, percentile 95% CI; estimand matches resampling unit",
+  "precommit_manifest": "round2_manifest.json",
+  "precommit_manifest_sha256": "82d93712449a76fc89fdfe78376fc363c4a1cc3cab05315cd66d14f668659976",
+  "primary_predeclared_interaction": "rich_sorted - rich_unsorted in J3",
+  "round": 2,
+  "status_rule": "E=0 is NOT_FEASIBLE; E>0 receives the predeclared three-seed arms. No success threshold is used.",
+  "tasks": {
+    "T1": {
+      "arm_summary": {
+        "additive": {
+          "clean": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.0,
+            "per_seed_J3": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.004796163069544364,
+            "per_seed_J3": [
+              0.004796163069544364,
+              0.0,
+              0.009592326139088728
+            ],
+            "test_parents": 8192
+          }
+        },
+        "raw": {
+          "clean": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.0031974420463629096,
+            "per_seed_J3": [
+              0.0,
+              0.002398081534772182,
+              0.007194244604316547
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.013589128697042365,
+            "per_seed_J3": [
+              0.007194244604316547,
+              0.019184652278177457,
+              0.014388489208633094
+            ],
+            "test_parents": 8192
+          }
+        },
+        "repaired": {
+          "clean": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.005595523581135092,
+            "per_seed_J3": [
+              0.007194244604316547,
+              0.004796163069544364,
+              0.004796163069544364
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.010391686650679457,
+            "per_seed_J3": [
+              0.009592326139088728,
+              0.014388489208633094,
+              0.007194244604316547
+            ],
+            "test_parents": 8192
+          }
+        },
+        "rich_sorted": {
+          "clean": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.019984012789768184,
+            "per_seed_J3": [
+              0.02158273381294964,
+              0.011990407673860911,
+              0.026378896882494004
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.03357314148681055,
+            "per_seed_J3": [
+              0.03117505995203837,
+              0.023980815347721823,
+              0.045563549160671464
+            ],
+            "test_parents": 8192
+          }
+        },
+        "rich_unsorted": {
+          "clean": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.019184652278177457,
+            "per_seed_J3": [
+              0.023980815347721823,
+              0.011990407673860911,
+              0.02158273381294964
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.04156674660271782,
+            "per_seed_J3": [
+              0.03117505995203837,
+              0.05515587529976019,
+              0.03836930455635491
+            ],
+            "test_parents": 8192
+          }
+        },
+        "six": {
+          "clean": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.032773780975219824,
+            "per_seed_J3": [
+              0.023980815347721823,
+              0.06235011990407674,
+              0.011990407673860911
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 170,
+            "denominator_E": 417,
+            "mean_J3": 0.05595523581135092,
+            "per_seed_J3": [
+              0.06235011990407674,
+              0.06474820143884892,
+              0.0407673860911271
+            ],
+            "test_parents": 8192
+          }
+        }
+      },
+      "counts": {
+        "candidate_draws": 3,
+        "dev_parents": 64,
+        "edit_cap": 8,
+        "epochs": 300,
+        "test_parents": 8192,
+        "train_parents": 256
+      },
+      "interaction_assessment": "UNINFORMATIVE",
+      "official_denominator": {
+        "E": 417,
+        "E_parents": 170,
+        "test_parents": 8192
+      },
+      "primary_interaction": [
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.028725490196078427,
+            0.023254901960784297
+          ],
+          "delta_J3": -0.002450980392156863,
+          "pair_denominator": 417,
+          "parent_denominator": 170,
+          "seed": 11,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.03275,
+            0.03315231092436975
+          ],
+          "delta_J3": 0.001918767507002801,
+          "pair_denominator": 417,
+          "parent_denominator": 170,
+          "seed": 11,
+          "supervision": "flip"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.024522058823529414,
+            0.018627450980392153
+          ],
+          "delta_J3": -0.0034313725490196087,
+          "pair_denominator": 417,
+          "parent_denominator": 170,
+          "seed": 23,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.06649964985994397,
+            0.017143207282913166
+          ],
+          "delta_J3": -0.025504201680672266,
+          "pair_denominator": 417,
+          "parent_denominator": 170,
+          "seed": 23,
+          "supervision": "flip"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.029087885154061625,
+            0.029163515406162462
+          ],
+          "delta_J3": 0.0008263305322128848,
+          "pair_denominator": 417,
+          "parent_denominator": 170,
+          "seed": 47,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.036822829131652655,
+            0.04785609243697477
+          ],
+          "delta_J3": 0.005616246498599437,
+          "pair_denominator": 417,
+          "parent_denominator": 170,
+          "seed": 47,
+          "supervision": "flip"
+        }
+      ],
+      "result_file": "round2_T1.json",
+      "seeds": {
+        "dev": 832512,
+        "edit": 932514,
+        "test": 932513,
+        "train": 832511
+      },
+      "status": "COMPLETE"
+    },
+    "T2": {
+      "arm_summary": {
+        "additive": {
+          "clean": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.0029239766081871343,
+            "per_seed_J3": [
+              0.0043859649122807015,
+              0.0043859649122807015,
+              0.0
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.0043859649122807015,
+            "per_seed_J3": [
+              0.010964912280701754,
+              0.0,
+              0.0021929824561403508
+            ],
+            "test_parents": 8192
+          }
+        },
+        "raw": {
+          "clean": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.02266081871345029,
+            "per_seed_J3": [
+              0.027412280701754384,
+              0.03070175438596491,
+              0.009868421052631578
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.04824561403508772,
+            "per_seed_J3": [
+              0.0537280701754386,
+              0.04824561403508772,
+              0.04276315789473684
+            ],
+            "test_parents": 8192
+          }
+        },
+        "repaired": {
+          "clean": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.01608187134502924,
+            "per_seed_J3": [
+              0.021929824561403508,
+              0.01644736842105263,
+              0.009868421052631578
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.03216374269005848,
+            "per_seed_J3": [
+              0.021929824561403508,
+              0.047149122807017545,
+              0.027412280701754384
+            ],
+            "test_parents": 8192
+          }
+        },
+        "rich_sorted": {
+          "clean": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.04788011695906433,
+            "per_seed_J3": [
+              0.05921052631578947,
+              0.051535087719298246,
+              0.03289473684210526
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.07419590643274854,
+            "per_seed_J3": [
+              0.08881578947368421,
+              0.06907894736842106,
+              0.06469298245614036
+            ],
+            "test_parents": 8192
+          }
+        },
+        "rich_unsorted": {
+          "clean": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.0577485380116959,
+            "per_seed_J3": [
+              0.05263157894736842,
+              0.05482456140350877,
+              0.06578947368421052
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.06980994152046784,
+            "per_seed_J3": [
+              0.07456140350877193,
+              0.0712719298245614,
+              0.06359649122807018
+            ],
+            "test_parents": 8192
+          }
+        },
+        "six": {
+          "clean": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.20394736842105263,
+            "per_seed_J3": [
+              0.20942982456140352,
+              0.17982456140350878,
+              0.2225877192982456
+            ],
+            "test_parents": 8192
+          },
+          "flip": {
+            "E_parents": 361,
+            "denominator_E": 912,
+            "mean_J3": 0.4696637426900585,
+            "per_seed_J3": [
+              0.5153508771929824,
+              0.4067982456140351,
+              0.4868421052631579
+            ],
+            "test_parents": 8192
+          }
+        }
+      },
+      "counts": {
+        "candidate_draws": 3,
+        "dev_parents": 64,
+        "edit_cap": 8,
+        "epochs": 300,
+        "test_parents": 8192,
+        "train_parents": 256
+      },
+      "interaction_assessment": "NEGATIVE_UNSTABLE",
+      "official_denominator": {
+        "E": 912,
+        "E_parents": 361,
+        "test_parents": 8192
+      },
+      "primary_interaction": [
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.019725300092336105,
+            0.022746257090093654
+          ],
+          "delta_J3": 0.0026612584091808464,
+          "pair_denominator": 912,
+          "parent_denominator": 361,
+          "seed": 11,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.005301328980345601,
+            0.048612814932067004
+          ],
+          "delta_J3": 0.021619839071362616,
+          "pair_denominator": 912,
+          "parent_denominator": 361,
+          "seed": 11,
+          "supervision": "flip"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.016390235457063713,
+            0.023654201292705433
+          ],
+          "delta_J3": 0.002746999076638965,
+          "pair_denominator": 912,
+          "parent_denominator": 361,
+          "seed": 23,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.029552169898430285,
+            0.02423995844875346
+          ],
+          "delta_J3": -0.0021237303785780256,
+          "pair_denominator": 912,
+          "parent_denominator": 361,
+          "seed": 23,
+          "supervision": "flip"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.048259876665347576,
+            -0.008686024271204329
+          ],
+          "delta_J3": -0.027608494921514314,
+          "pair_denominator": 912,
+          "parent_denominator": 361,
+          "seed": 47,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            -0.017684672206832872,
+            0.02636599722991689
+          ],
+          "delta_J3": 0.003993536472760848,
+          "pair_denominator": 912,
+          "parent_denominator": 361,
+          "seed": 47,
+          "supervision": "flip"
+        }
+      ],
+      "result_file": "round2_T2.json",
+      "seeds": {
+        "dev": 832522,
+        "edit": 932524,
+        "test": 932523,
+        "train": 832521
+      },
+      "status": "COMPLETE"
+    },
+    "source": {
+      "arm_summary": {
+        "additive": {
+          "clean": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.0,
+            "per_seed_J3": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "test_parents": 1536
+          },
+          "flip": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.011315417256011316,
+            "per_seed_J3": [
+              0.012022630834512023,
+              0.010608203677510608,
+              0.011315417256011316
+            ],
+            "test_parents": 1536
+          }
+        },
+        "raw": {
+          "clean": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.03536067892503536,
+            "per_seed_J3": [
+              0.03182461103253183,
+              0.03606789250353607,
+              0.03818953323903819
+            ],
+            "test_parents": 1536
+          },
+          "flip": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.04314002828854314,
+            "per_seed_J3": [
+              0.04314002828854314,
+              0.05304101838755304,
+              0.03323903818953324
+            ],
+            "test_parents": 1536
+          }
+        },
+        "repaired": {
+          "clean": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.0,
+            "per_seed_J3": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "test_parents": 1536
+          },
+          "flip": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.012494106553512494,
+            "per_seed_J3": [
+              0.013437057991513438,
+              0.007779349363507779,
+              0.016265912305516265
+            ],
+            "test_parents": 1536
+          }
+        },
+        "rich_sorted": {
+          "clean": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.22112211221122113,
+            "per_seed_J3": [
+              0.21216407355021216,
+              0.21287128712871287,
+              0.23833097595473834
+            ],
+            "test_parents": 1536
+          },
+          "flip": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.2913719943422914,
+            "per_seed_J3": [
+              0.28642149929278643,
+              0.3118811881188119,
+              0.2758132956152758
+            ],
+            "test_parents": 1536
+          }
+        },
+        "rich_unsorted": {
+          "clean": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.1643092880716643,
+            "per_seed_J3": [
+              0.16902404526166903,
+              0.14992927864214992,
+              0.173974540311174
+            ],
+            "test_parents": 1536
+          },
+          "flip": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.20084865629420084,
+            "per_seed_J3": [
+              0.21287128712871287,
+              0.19519094766619519,
+              0.19448373408769448
+            ],
+            "test_parents": 1536
+          }
+        },
+        "six": {
+          "clean": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.18081093823668082,
+            "per_seed_J3": [
+              0.19943422913719944,
+              0.17185289957567185,
+              0.17114568599717114
+            ],
+            "test_parents": 1536
+          },
+          "flip": {
+            "E_parents": 389,
+            "denominator_E": 1414,
+            "mean_J3": 0.2079207920792079,
+            "per_seed_J3": [
+              0.22206506364922207,
+              0.2079207920792079,
+              0.19377652050919378
+            ],
+            "test_parents": 1536
+          }
+        }
+      },
+      "counts": {
+        "candidate_draws": 3,
+        "dev_parents": 128,
+        "edit_cap": 8,
+        "epochs": 300,
+        "test_parents": 1536,
+        "train_parents": 512
+      },
+      "interaction_assessment": "STABLE_POSITIVE",
+      "official_denominator": {
+        "E": 1414,
+        "E_parents": 389,
+        "test_parents": 1536
+      },
+      "primary_interaction": [
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            0.004148151548537152,
+            0.08126392459297342
+          ],
+          "delta_J3": 0.042447055943199904,
+          "pair_denominator": 1414,
+          "parent_denominator": 389,
+          "seed": 11,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            0.020109943077488073,
+            0.1137278889704982
+          ],
+          "delta_J3": 0.06941180071000122,
+          "pair_denominator": 1414,
+          "parent_denominator": 389,
+          "seed": 11,
+          "supervision": "flip"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            0.03457461133553679,
+            0.11994185334802301
+          ],
+          "delta_J3": 0.07742685763251317,
+          "pair_denominator": 1414,
+          "parent_denominator": 389,
+          "seed": 23,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            0.06040855673889094,
+            0.1518587036356959
+          ],
+          "delta_J3": 0.1055178112376056,
+          "pair_denominator": 1414,
+          "parent_denominator": 389,
+          "seed": 23,
+          "supervision": "flip"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            0.027341856408373118,
+            0.11081229342636795
+          ],
+          "delta_J3": 0.0684967560288897,
+          "pair_denominator": 1414,
+          "parent_denominator": 389,
+          "seed": 47,
+          "supervision": "clean"
+        },
+        {
+          "bootstrap_unit": "test parent (equal weight)",
+          "ci95": [
+            0.030031980658587348,
+            0.11775668686497737
+          ],
+          "delta_J3": 0.07340555759578896,
+          "pair_denominator": 1414,
+          "parent_denominator": 389,
+          "seed": 47,
+          "supervision": "flip"
+        }
+      ],
+      "result_file": "round2_source.json",
+      "seeds": {
+        "dev": 832502,
+        "edit": 932504,
+        "test": 932503,
+        "train": 832501
+      },
+      "status": "COMPLETE"
+    }
+  }
+}

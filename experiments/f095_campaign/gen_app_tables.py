@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Generate appendix section app_f095.tex from f095 result JSONs (no hand fill).
+"""Generate the numeric F095 appendix from f095 result JSONs.
 
-Reads: U03/U01/D02/D01 eval summaries + D06 probe/roles JSONs.
-Writes: paper/sections/app_f095.tex (tables + figure pointer + verdict lines).
-All numbers are formatted from the JSON fields; provenance SHAs are carried.
+Writes paper/sections/app_f095_generated.tex (tables + figure pointer +
+verdict lines). The manuscript includes the separately maintained
+paper/sections/app_f095.tex, which preserves audited wording; this output is
+kept as a reproducible reference and must not be used to overwrite it.
+All numbers are formatted from JSON fields; provenance SHAs are carried.
 """
 import json
 import re
@@ -641,7 +643,7 @@ if analytic_file.exists():
              "the denominator with a fixed negative prediction. Neural superiority is not established; "
              "the separate N03 bottleneck experiment must retain this baseline.")
 
-out = ROOT / "paper" / "sections" / "app_f095.tex"
+out = ROOT / "paper" / "sections" / "app_f095_generated.tex"
 L = [line if line.startswith("%") else re.sub(r"(?<!\\)%", r"\\%", line) for line in L]
 out.write_text("\n".join(L) + "\n", encoding="utf-8")
 print("wrote", out)

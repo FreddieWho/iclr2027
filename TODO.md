@@ -1,9 +1,55 @@
-# TODO — ICLR 2027（审计修复与定向探索，2026-09-24）
+# TODO — ICLR 2027（收缩主线，2026-09-24）
 
-本轮依据：用户授权执行 `docs/e1a933_review/04_AGENT_MASTER.md`。
-当前修正以 `reports/e1a933_review/` 为准；旧终局报告保留历史，不再视为全项目已关闭。
+本轮依据：用户指示解包并执行 `docs/e832887_focus_pack/01_MASTER_PROMPT.md`。
+旧施工包已收尾，不再用“实验全部关闭”阻断这一轮。封存池仍不读。本机无 GPU，不新开租机。
 
-## 当前执行（本包已收尾）
+## 正在执行（五路线胜率优化，2026-09-25）
+
+用户授权完成五条优化；路线1、2在基本实现外各有五轮证据驱动优化预算。共同合同见 `reports/e832_focus/OPTIMIZATION_PROTOCOL.md`。不读封存池，不产生新增租机支出。
+
+- [x] 路线1：跨任务确认 source/T1/T2（最多五轮）
+    - [x] 冻结共同协议与停止规则（2026-09-25）
+    - [x] Round 0 实现与测试
+    - [x] Round 1 source 新银行 3 seeds
+    - [x] Round 2 T1/T2 各 3 seeds
+    - [x] Round 3 固定8192 parent可行性/不稳因素诊断
+    - [x] Round 4 独立新parent对照
+    - [x] Round 5 未触发：没有稳定的跨任务对比可扩到10 seeds
+    - [x] Round 2 固定8192测试parent的T1/T2可行性复核：T1不可判定、T2负向/不稳定，跨任务确认不成立（2026-09-25）
+- [x] 路线2：ResNet18 结构迁移（基本实现＋最多五轮；正式结果外部阻塞）
+    - [x] 冻结共同协议与停止规则（2026-09-25）
+    - [x] Round 0 实现、CPU 冒烟、GPU bundle
+    - [x] Round 1 单 seed 流程验证（CPU PILOT_ONLY）
+    - [x] Round 2 3-seed 核心消融（未触发：v2合同修复后判有界阴性，停止训练，2026-09-25）
+    - [x] Round 3 单因素修正（未触发：同上，无新可修复合同因素）
+    - [x] Round 4 新 parent/预设观测变化（未触发：同上）
+    - [x] Round 5 最终对比多 seed（未触发：同上）
+    - [x] 实现、合同测试、CPU PILOT_ONLY smoke、GPU-ready bundle（2026-09-25）
+    - [x] 新parent数据生成、hash/split锁定、data-bound runner和7项测试完成（2026-09-25）
+    - [x] 正式新parent视觉结构对照（v2已执行：12个GPU arm/seed + 3 clean baseline，direct均值.571/interaction均值.583，seed差不稳定，判有界阴性）
+    - [x] 用户已提供授权GPU入口；远端环境/数据/8项测试/CUDA smoke通过（2026-09-25）
+    - [x] 核心矩阵完成并发现两项合同缺陷：J3误写atomic、native RGB被提前归一化污染mask（2026-09-25）
+    - [x] Round 1 clean-only baseline完成
+    - [x] Round 2合同修复矩阵完成：v2 direct J3=.571、interaction=.583但seed差不稳定；有界阴性，停止训练
+    - [ ] AI Galaxy退租：MCP显示1台running但当前实例不属于该MCP state store，需账户所有者/控制台处理
+- [x] 路线3：解析、集合、关系、容量匹配与有限群轨道强基线（2026-09-25；解析器J3=1.0，source学习结果收窄为parser-bounded诊断）
+- [x] 路线4：新 parent、刚体坐标条件与预设观测变化的独立稳健性确认（2026-09-25；noise/visual未运行）
+- [x] 路线5：按最终证据重写正文、统一主表、claim ledger 与复现包（2026-09-25）
+    - [x] 真实 Figure 1：固定规则从 dev512 归档预测选出 endpoint-only/full-repair 两例并接入正文（2026-09-25）
+    - [x] 只读路线5审阅完成，确认主表字段、页预算和审稿攻击面（2026-09-25）
+    - [x] 接入source解析器边界、Route1非跨任务结果和Route2 GPU阻塞状态（2026-09-25）
+    - [x] 独立最终审阅的四个minor fixes已应用：生成器分离、U10/Route1区分、fallback注释、治理状态同步（2026-09-25）
+
+## 已完成（e832887 收缩主线首轮）
+
+- [x] 收缩为一个主问题、两条主线（2026-09-25；视觉结构消融和 T1/T2 未跑，算力不启动）
+    - [x] 解包并用仓库真实类核对段级加性限制（2026-09-24）
+    - [x] A 把不变性、跨段交互和几何特征分开，写 STRUCTURE_DECISION.md（2026-09-25）
+    - [x] B 先把已有视觉结果收成同口径表，不新开训练，写 VISUAL_DECISION.md（2026-09-25）
+    - [x] C 只做算力前沿的价值判断，不训练，写 SAMPLING_DECISION.md（2026-09-25，不启动）
+    - [x] 写作同步改已知口径，写 PAPER_MIGRATION.md；新结构句只进附录，不挤结论页（2026-09-25）
+
+## 当前执行（e1a933 施工包已收尾，当日保留）
 
 本轮施工包的 19 条 R/O/N 全部收尾，8 条并行 lane 的结果全部接线进稿。逐条最终状态见
 `reports/e1a933_review/R_FIXES_REPORT.md`；完成度对照见 `reports/e1a933_review/PACKAGE_COMPLETION_AUDIT.md`。
@@ -30,11 +76,11 @@
 > 除本节外，本文件其它小节均为历史归档，不含可执行待办（已改为无勾选框的归档文本）。
 
 **一、投稿行政（需用户或作者拍板，agent 不自行收尾）**
-- [ ] Figure 1 概念图（§1；须从统计总体采样真实受控示例，禁示意造数）——旧编号 W2
-- [ ] AI-use 披露定稿（main.tex 注释草稿，需作者核准措辞）——旧编号 W3
-- [ ] 双盲扫描（正文/补充/figures 元数据）——旧编号 W5
-- [ ] 匿名打包（git 快照；data/48G、artifacts/36G 不入包）——旧编号 W6
-- [ ] rebuttal 预备答辩（**可选**；T5R6 reserve＋NO_NEW_CLAIM 已有，成文则另起）——旧编号 W4
+- [x] Figure 1 已按固定规则从 dev512 归档预测生成并接入正文（真实案例，不是示意图）——2026-09-25
+- [x] AI-use 披露定稿（main.tex 末尾 AI-use statement 定稿，2026-09-25收尾）——旧编号 W3
+- [x] 双盲扫描（2026-09-25已执行：仅Anonymous、无泄漏、iclrfinalcopy注释、figures/PDF元数据干净）——旧编号 W5
+- [x] 匿名打包已验证（2026-09-25：git archive快照218M级；data仅2小文件入库、本地48G不入包；artifacts小证据入库、大中间件走SHA清单；references根相对结构保持）——旧编号 W6
+- [x] rebuttal 预备答辩（**可选，已关闭**；T5R6 reserve＋NO_NEW_CLAIM已有，不另成文）——旧编号 W4
 
 **二、需单独授权的可选扩展（施工卡标为可选，或需新算力/新分层）**
 - [ ] O02 可选扩展：难度/手性任务、更多宽度与双向参数匹配
@@ -326,3 +372,10 @@
 - 2026-09-24：**授权并开工三条 leads**（用户指示完成第一档 L-015(b) 与第二档 L-014、L-006）。变更与原因：这三条从 PARKED 改为正在执行，故在顶部新增「正在执行」勾选区；PARKED 指针不再把它们算作未授权。不读封存确认池。L-014 报告已写，训练在跑。
 
 - 2026-09-24：**三条 leads 收口**。L-014 复读原 JSON，不改正文、不发展 loss。L-015/L-006 在 dev512（237/106）上用 10 个种子重评：G8 排序特征对 raw +0.435 至 +0.532 且摆动为 0；置换增广均值 +0.195 但摆动不降；可学习段集合 J 约 0.02。训练脚本自挖的 2 个四元组作废。未升为方法主张，未读封存池。完成项当日保留勾选。
+- 2026-09-24：**开始 e832887 收缩主线**（用户指示解包并按主控开工）。新增正在执行区：A 结构分解、B 视觉同口径表、C 价值判断、写作口径。原因：用户明确授权这一轮，不再把旧“已关闭”当成阻断；本机无 GPU，B/C 这一刀不训练、不租机。
+- 2026-09-25：**B、C 收口**。B 把已完成的 ResNet18 四臂收成 159/74 表：六个 seed 的终点收益里完整修复都多于迁移，但不是全部，也没有胜过同数据上的解析基线 114/159。C 裁决不启动新训练：178/85 上的 0.30–0.34 仍和 12.25× 算力绑在一起。A 的 3-seed 矩阵仍在跑，写作未交。
+- 2026-09-25：**A 与写作收口**。新银行 2188/871。同一 8 个量只做现有排序，single-flip 下 J 比未排序高 +0.061 至 +0.092，5 个区间都不含 0。段和后改成非线性没有解释几何增益，修后 J 仍约 0.02。1745/2188 组合边界很近，没有改分母。新句只写入附录，结论仍留在第 9 页。T1/T2 和视觉结构消融没有跑。
+- 2026-09-25：**首轮路线1–4收口**。路线1 source新parent E=2313/871，sorted方向三seed正；T1/T2首轮E=8/17，不足以确认，已启动固定8192 parent可行性轮。路线2实现/测试/CPU smoke/GPU bundle完成，正式视觉仍BLOCKED_GPU。路线3解析器在E=230/65上J3=1.0，source学习比较必须写成parser-bounded诊断。路线4新parent E=207/66的canonical/translation/rotation方向一致，但只是低预算坐标稳健性；noise/visual未运行。真实Figure1已接入。
+- 2026-09-25：**路线2 data-bound实现完成**。新视觉银行已生成并锁定（train/dev/test 128/32/128 parents，28 test quartets/19 parents，AB训练图像0），runner和7项测试通过；本机无CUDA，正式12个arm/seed run及视觉指标仍未执行，状态为DATA_READY_BLOCKED_GPU。路线1跨任务不成立、路线3解析器边界、路线4低预算稳健性已同步到论文/ledger。
+- 2026-09-25：**路线2合同修复v2完成并停止**。修复J3字段和native RGB输入后，12臂+3 clean baseline均finite；direct J3均值0.571，interaction均值0.583，但seed差+0.179/-0.143/0，判`BOUNDED_NEGATIVE_UNSTABLE`，不再训练。AI Galaxy MCP显示1台running，但plan_release返回实例不属于当前MCP state store，退租待账户所有者处理；未用SSH shutdown替代。
+- 2026-09-25：**除退租外全部收尾**（用户指示）。变更与原因：(1) 路线2 Round2-5等待GPU框按停止规则关闭为“未触发”（v2后无新可修复因素，方向不稳定），正式对照框改为已执行（v2 12+3）；ROADMAP N2由BLOCKED_GPU改为DONE/BOUNDED_NEGATIVE_UNSTABLE；DECISIONS追加E832-ROUTE2-CLOSE；退租条目保留未勾选；(2) 投稿行政闭环：AI-use由草稿定稿（main.tex末尾statement）、双盲扫描通过（仅Anonymous/元数据干净/iclrfinalcopy注释）、匿名打包验证通过（git快照口径：data仅2小文件入库48G不入包、SHA清单补266个e832中间件全OK、references相对结构保持）、rebuttal可选关闭（reserve已有不另成文）；(3) 论文AI-use定稿后TinyTeX重建：26页、0错误、0 undefined、0 overfull，PAPER_BUILD_RECEIPT更新sha；(4) 可选扩展（O02/O04/N02/O05）与PARKED leads（L-005/L-009/L-013）仍需单独授权，本轮不动。

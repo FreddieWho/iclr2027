@@ -1,0 +1,20 @@
+{
+  "status": "NOT_RUN",
+  "trained": false,
+  "gpu_rented": false,
+  "new_architecture_claimed": false,
+  "protocol": "experiments/e832_focus/vision/PROTOCOL_A_ALIGNED_ABLATION.md",
+  "requires": [
+    "same ResNet18 encoder as the finished canonical224 baseline",
+    "interaction readout that sees both segments nonlinearly",
+    "additive ablation with that cross-segment nonlinearity removed",
+    "visible red/blue segments as roles",
+    "no hidden A/B indices, coordinates, AB truth, single-edit answers, or combo IDs at inference"
+  ],
+  "forbidden": [
+    "calling this file a result",
+    "filling J4 or paper CCM from another bank",
+    "calling a 159-versus-178 difference an improvement",
+    "renaming the old N03 free bottleneck as this ablation"
+  ]
+}

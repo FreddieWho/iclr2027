@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "DATA_READY",
+  "formal_claim": "none",
+  "scientific_result": "NOT_RUN",
+  "provenance": {
+    "fresh_generator_only": true,
+    "loaded_existing_scene_or_image_artifacts": false,
+    "old_exposed_159_bank_used": false,
+    "sealed_or_dev512_pool_read": false,
+    "freezing_statement": "all parent, observation, mining, and renderer seeds were fixed in SEEDS before generation"
+  },
+  "frozen_seeds": {
+    "train_parent": 832701,
+    "dev_parent": 832702,
+    "test_parent": 832703,
+    "train_observation": 832711,
+    "dev_observation": 832712,
+    "test_observation": 832713,
+    "quartet_mining": 832721,
+    "quartet_observation": 832722
+  },
+  "split_sizes": {
+    "train": 128,
+    "dev": 32,
+    "test": 128
+  },
+  "splits": {
+    "train": {
+      "parent_seed": 832701,
+      "observation_seed": 832711,
+      "parent_count": 128,
+      "singleton_image_count": 323,
+      "clean_singleton_count": 128,
+      "edited_singleton_count": 195,
+      "parent_ids_equal_contiguous_split_ids": true
+    },
+    "dev": {
+      "parent_seed": 832702,
+      "observation_seed": 832712,
+      "parent_count": 32,
+      "singleton_image_count": 81,
+      "clean_singleton_count": 32,
+      "edited_singleton_count": 49,
+      "parent_ids_equal_contiguous_split_ids": true
+    },
+    "test": {
+      "parent_seed": 832703,
+      "observation_seed": 832713,
+      "parent_count": 128,
+      "singleton_image_count": 319,
+      "clean_singleton_count": 128,
+      "edited_singleton_count": 191,
+      "parent_ids_equal_contiguous_split_ids": true
+    }
+  },
+  "counts": {
+    "train_singleton_images": 323,
+    "dev_singleton_images": 81,
+    "test_singleton_images": 319,
+    "quartets": 28,
+    "quartet_images": 112,
+    "quartet_parents": 19,
+    "ab_training_images": 0
+  },
+  "split_disjointness": {
+    "parent_overlap_counts": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "parent_sets_pairwise_disjoint": true,
+    "train_dev_test_image_hash_overlaps": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "image_sets_pairwise_disjoint": true
+  },
+  "training_contract": "singleton train images only; clean + atomic single-edit states; no AB or quartet training labels",
+  "selection_contract": "singleton dev BCE only",
+  "evaluation_contract": "new test singletons plus test-only quartets in P,A,B,AB state order",
+  "observation_recipe": {
+    "native_resolution": [
+      3,
+      64,
+      64
+    ],
+    "model_input": "bilinear resize native64 to configured 224, align_corners=False",
+    "renderer": "n08_visual render after lexicographic endpoint sorting within each visible color",
+    "background": "per-image uniform gray noise in [0.45,0.55)",
+    "colors": {
+      "P_A": "red",
+      "P_B": "blue"
+    },
+    "single_edit_recipe": "up to 2 valid atomic single flips/parent from 16 fixed draws; radii .10/.20/.35/.50; oracle margin >= .02; >=20 changed pixels",
+    "quartet_recipe": "mine_quartets(test parents only); retain at most 2 quartets/parent in stable miner order"
+  },
+  "inference_contract": "Mechanism.forward(images) only; no coordinates, parent IDs, oracle labels, edit answers, AB truth, or combination IDs",
+  "array_sha256": {
+    "dev_clean": "3de60022b9b529b8770478aba8d7f4a164c7c555c619ff6c068d50548574a456",
+    "dev_edit_families": "83696c4278b7d2d072936a6213e9f70a87945319e335e490d4c7ad08f57dc3a8",
+    "dev_images": "e8d305292e3f5fceeab001a0faa78c8222955bd3ebf8c6fbda20c66ecd4f5752",
+    "dev_labels": "1f667c86b6be6be2590e95a23aaea3960238d544ac48b794236777b754ae74ed",
+    "dev_parent_keys": "421630f7430b8f92af47b25e7da82314dd6f24ee4f874f7a63fa9468d17c740b",
+    "dev_parents": "bee992bcf091c907d50356aec3060a07060729577126f9e0fb25d73d1b9ea5a7",
+    "quartet_images": "bb3e1bf6f6827797dcfaafd57de9fb88e91a05102851116426b3ec7d989346c1",
+    "quartet_labels": "e772f5d3b9fabaed7f4d0f668a892e55c989d22034f0fbf9e19f458ce7d42768",
+    "quartet_parents": "4999c44404d6497fcf7d4a96ff8f057beed1b9cdae067ba13d14d1afde9ef583",
+    "test_clean": "34f4a87135176d58ff58625ddfd68edd3654a0cbfd689d0765bdba275b97f27f",
+    "test_edit_families": "d9b2613357c1181656013b6ecee1fa8ada57f0ffd8d23bf44bb60277e4926571",
+    "test_images": "0c83f108b5036a7492a5a7f7c43fa34d3cbc72b7228513d95d319078612e4289",
+    "test_labels": "e2f8175e45d4cd736c2ec3425b7daec96adaa182511944b4937ebfebcb49bdfe",
+    "test_parent_keys": "188073d1f58bb827cd222d8ff0567e086783e3d64dab51f12d51212dce528cc4",
+    "test_parents": "c7e52963875baab94d8c1d9c7d167c8161ef7e1cb292436213cfec9d34bd4382",
+    "train_clean": "3e0028881a353829c56e3724247613a4269721e87a45b18f8d895575b3576c46",
+    "train_edit_families": "aa1acb329f8a0e1411fc0850816a09908ff466edbf96849dd1b9c873688e02f6",
+    "train_images": "c73c7a7f170a07a811030e853b7ea783bd81856b6be2c638080b0ac58ff254ff",
+    "train_labels": "40c163e249274c224b8635a86f3d301a0cacef2e62f8ef8931f07e15bf1f8e67",
+    "train_parent_keys": "a481078da849932f61194493454925cdfc1f91e91a64675b8ac248e6f31673fe",
+    "train_parents": "db24abcfe7182e70542df3071f641c29385b5bac5227fdd6bc31c5d63602a8be"
+  },
+  "archive": {
+    "path": "data.npz",
+    "sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee"
+  }
+}

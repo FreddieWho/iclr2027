@@ -4,13 +4,12 @@
 % (https://media.iclr.cc/Conferences/ICLR2027/iclr-2027-style-files.zip,
 %  linked from https://iclr.cc/Conferences/2027/AuthorGuidelines).
 % Page limit: 9 pages main text at submission; references unlimited;
-% AI-use statement required, excluded from the page limit (see draft below).
+% AI-use statement required, excluded from the page limit (finalized below).
 % Strict double-blind: \iclrfinalcopy stays commented out.
-% TODO-FIG1: no Figure-1 environment exists yet — must be REAL controlled
-%   quartet/path examples (oracle vs model prediction) sampled from the
-%   statistical population; do not claim it before generation.
-% Compilation: existing TinyTeX toolchain; current build receipt is
-% reports/e1a933_review/PAPER_PATCH_AUDIT.md.
+% Figure 1 uses archived real quartet predictions selected by
+% reports/e832_focus/FIGURE1_SELECTION_RECEIPT.json; the confidence
+% side-result panel is moved to the appendix.
+% Compilation: TinyTeX if present; do not claim a PDF that was not built.
 % ============================================================================
 \documentclass{article} % For LaTeX2e
 \usepackage{iclr2027_conference,times}
@@ -59,33 +58,16 @@ Compositional and Transitional Blind Spots in Learned Representations}
 \input{sections/app_l015}                 % App. labeling-symmetry training check (sec:l015)
 \input{sections/appendix}                 % App. audit history & estimand map (sec:audit)
 
-% ----------------------------------------------------------------------------
-% DRAFT — AI-USE STATEMENT (for owner approval; NOT final wording).
-% Required by the ICLR 2027 AI Policy for Authors; excluded from page limit.
-% Reflects the project's actual usage across exploration, code, analysis,
-% audit, and writing (never default to "language polish only"):
-%
-%   "AI systems were used in this work as research assistants, not as authors.
-%   Their roles included: (i) exploratory literature scanning and
-%   brainstorming of experimental routes; (ii) drafting and refactoring
-%   analysis/training code, with human review of every merged change;
-%   (iii) running predefined statistical analyses and formatting results;
-%   (iv) independent audit passes that checked numbers against archived
-%   artifacts and flagged discrepancies (all findings were human-verified);
-%   and (v) drafting and iteratively editing manuscript text, which the
-%   authors reviewed, corrected, and take full responsibility for. All
-%   experimental claims, numbers, and scientific judgments were made and
-%   verified by the authors; AI outputs were treated as proposals subject
-%   to the project's frozen-evidence and holdout-discipline protocols."
-%
-% ANONYMIZATION CHECKLIST for the camera-ready/anon supplement package:
-%   [ ] no .git directory or git history in the package
-%   [ ] no author names / emails / affiliations anywhere (tex, bib, logs)
-%   [ ] no repo-owner direct links (github.com/<owner>) in any file
-%   [ ] no absolute machine paths (/home/<user>) in tex/logs/manifests
-%   [ ] no log identity fields (user/host names in .out/.aux/.log if shipped)
-%   [ ] PDF metadata scrubbed (pdftk/pdftk-java or exiftool if available)
-%   [ ] figure binary metadata checked (PNG/PDF producer strings)
-% ----------------------------------------------------------------------------
+% AI-use statement is finalized below. It is excluded from the 9-page limit by
+% policy, but this style file does not enforce that exclusion automatically.
+% Closed 2026-09-25 per author tail instruction (all-but-release tail).
+
+\section*{AI-use statement}
+AI systems were used as research assistants, not as authors. Their use covered
+exploratory literature scanning, drafting and refactoring of analysis and training
+code, running predefined analyses, audit passes comparing manuscript text against
+archived artifacts, and drafting and editing manuscript text. All scientific claims
+remain grounded in archived artifacts and receipts cited in the paper; the author
+takes responsibility for the reported results.
 
 \end{document}

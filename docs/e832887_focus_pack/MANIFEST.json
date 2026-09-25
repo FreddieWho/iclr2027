@@ -1,0 +1,76 @@
+{
+  "basis_commit": "e832887c938948b23e8783719d493f2b9b8c3a17",
+  "scope": "two primary lanes, one conditional lane; standalone algebraic audit, not empirical reproduction",
+  "files": [
+    {
+      "path": "00_REVIEW_AND_CLAIMS.md",
+      "bytes": 5655,
+      "sha256": "b9041d31330bb2173e8dcd02c27e86ff71ba982188432acc82f09e122e0f1383"
+    },
+    {
+      "path": "01_MASTER_PROMPT.md",
+      "bytes": 4902,
+      "sha256": "0e411a236c10eac42cf91655631579e4f7656a7a430b0add8cf242cd750e0ec6"
+    },
+    {
+      "path": "02_A_RELATIONAL_STRUCTURE.md",
+      "bytes": 5915,
+      "sha256": "cd5f791a3b4a2686fa67c89a36fcb73c4c680219d01aa4a03e75d4a9f0175224"
+    },
+    {
+      "path": "03_B_VISUAL_TRANSFER.md",
+      "bytes": 5096,
+      "sha256": "2353bccc57dfbfbd7c95fadbc5534f58e4dc6dbc3cc98433559592b9924679ff"
+    },
+    {
+      "path": "04_C_COMPUTE_FRONTIER_OPTIONAL.md",
+      "bytes": 2653,
+      "sha256": "18b1c959650e53f86730f81c80d67a5126d1e4ef0e3182533c3318d26dc95570"
+    },
+    {
+      "path": "05_PAPER_RESTRUCTURING.md",
+      "bytes": 5169,
+      "sha256": "c2371b5071be0256ef3944989b92a22d8b3108dfb2f1db67a42d368571b5d28c"
+    },
+    {
+      "path": "06_CRITICAL_EXPRESSIVITY_AUDIT.md",
+      "bytes": 2452,
+      "sha256": "ed5c0e3b3f889a363e8066dae8a1043474f877d6da86241972dc262efb909124"
+    },
+    {
+      "path": "07_SOURCE_REGISTER.md",
+      "bytes": 4239,
+      "sha256": "ec72aad20441f7304de20eeb0f1c6b12941243aa7180e0687417a8acc18eb501"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1752,
+      "sha256": "e0579de29c63242c23e2adc3617eaa68663d60a3a069bdc6cf7935664b09f60e"
+    },
+    {
+      "path": "checks/interaction_witness.py",
+      "bytes": 5512,
+      "sha256": "433b74d83c62c18993925793a703e0dbd1b3489e556326b5a5efaf1a20886e1a"
+    },
+    {
+      "path": "checks/test_interaction_witness.py",
+      "bytes": 2332,
+      "sha256": "f9b499f22a5be6687f10ce7e005621a6ed4bb791152fc6deede5910f5ddf853c"
+    },
+    {
+      "path": "results/ALGEBRAIC_AUDIT.json",
+      "bytes": 1122,
+      "sha256": "fc377572d52775904f284b7c6ee09089e04a4de5e76089ef2fda19cf17fc15c8"
+    },
+    {
+      "path": "results/AUDIT_STDOUT.txt",
+      "bytes": 1122,
+      "sha256": "fc377572d52775904f284b7c6ee09089e04a4de5e76089ef2fda19cf17fc15c8"
+    },
+    {
+      "path": "results/TEST_LOG.txt",
+      "bytes": 1052,
+      "sha256": "ea488749c4087f3853b7e1f0d559affb69b4c27dc0345973aa35fa1dbe452101"
+    }
+  ]
+}

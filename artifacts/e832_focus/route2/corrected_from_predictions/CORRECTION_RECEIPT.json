@@ -1,0 +1,8 @@
+{
+  "status": "METRIC_CORRECTED_FROM_PREDICTIONS",
+  "retraining": false,
+  "source_prediction_root": "artifacts/e832_focus/route2/gpu_run_remote_20260925",
+  "mismatch_count": 12,
+  "reason": "archived predictions were correct; result J3 field used atomic_joint",
+  "claims": "none until independent review"
+}

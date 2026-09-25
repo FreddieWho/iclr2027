@@ -1,61 +1,42 @@
 \section{Introduction}
 \label{sec:intro}
 
-Static correctness is not the same as reliable updating. Real systems must
-maintain correct judgments as states change: a scene correctly classified
-now must still be classified correctly after the world moves. This paper
-studies correctness under controlled change, where scenes have oracle
-labels, edits have known atomic effects, and composed edits have known
-joint effects that may differ from either part.
+Static correctness is not reliable updating. This paper asks when
+supervision of a single change improves full compositional correctness,
+rather than only moving the error, and what role input representation and
+cross-object interaction play.
 
-Three failure modes recur. (i)~Transition blindness: paths crossing a
-semantic boundary are missed---$28/64 = 43.8\%$ on directly targeted fresh
-paths, $108/128 = 84.4\%$ among single-turn paths found by a random-edit
-screen (different path populations; Sec.~\ref{sec:setting} states our
-reporting convention once). (ii)~Compositional blindness: when both atomic
-edits of a scene are judged correctly, their joint change is still missed
-in $151/176 = 85.8\%$ of fresh-holdout cases (discovery $62/66 = 93.9\%$,
-same direction); path decomposition shows compositional misses unfold as
-missed semantic updates along $A \to AB$ and $B \to AB$ ($111/111$ AB-miss
-quartets contain a zero-transition path). (iii)~Consequential blindness:
-the misses co-occur with downstream failures---hard action selections are
-invalid in $75.0\%$ of fresh cases ($n{=}144$, $\lambda{=}2$)---and we
-keep this association descriptive rather than causal
+An endpoint rate does not answer it. On oracle-known edits, both atomic
+edits can be judged correctly while the joint change is still missed in
+$151/176 = 85.8\%$ of fresh-holdout cases (Sec.~\ref{sec:phenomenon}).
+On the historical development bank, raw flip coverage mostly migrates that
+error on the baseline-broken subset (full repair $0.03$--$0.10$, migration
+$0.36$--$0.40$; Sec.~\ref{sec:repair}). That is not every repair. A
+ResNet-18 on a separate rendered bank is a boundary: full repair exceeds
+migration on every fixed baseline-110 subset (Sec.~\ref{sec:pixel}).
+Matched total exposure is not matched per-parent exposure.
+
+The comparison in hand is an input comparison, not a new architecture.
+Relational features with the same flip coverage move joint consistency
+toward full repair. A fresh-source analytic segment-intersection parser
+solves its E bank, so these learned source comparisons are parser-bounded
+diagnostics rather than evidence that a complex relation architecture is
+required. The $237$- and $509$-quartet banks stay separate. Input
+advantage transfers to point-in-triangle and segment--disk; positive
+interaction does not, and the segment--disk joint-scale interaction stays
+negative. The source-task typed negative does not exclude learnable
+relational ability: segment-sum plus a linear readout cannot represent a
+general crossing (Sec.~\ref{sec:repair}). A repaired model is not claimed
+to succeed.
+
+Coordinate confidence is a scoped side result. It ranks current-state error
+classically and update error in reverse on coordinate scenes, and the
+reversal is not reproduced on natural football turns
 (Sec.~\ref{sec:phenomenon}).
 
-Our central descriptive finding concerns confidence. A score that is
-reassuring for current-state correctness becomes misleading for true
-semantic transitions: pre-change confidence predicts current-state error in
-the classical direction, yet predicts update error in reverse---endpoint
-error after a true semantic flip rises $0.36$--$0.61 \to 0.98$--$1.00$
-across confidence quartiles (six trained models on dev and parent-disjoint
-confirmation banks; coordinate scenes). The finding is domain-limited:
-natural football turns show floor/null effects after correction, and the
-pixel arm does not evaluate confidence.
-
-Repair tells a subtler story. Targeted flip coverage improves several
-component and downstream metrics on the fresh holdout, but paired quartet
-analysis on frozen banks shows endpoint repair substantially overstates
-recovery of full compositional consistency: full repair is $0.03$--$0.10$
-while error migration---AB correct \emph{but} an atomic newly wrong---is
-$0.36$--$0.40$. One intervention changes this picture within its stated
-bounds: label-free relational input features combined with the same flip
-coverage move joint consistency to $0.38$--$0.47$ across banks, with full
-repair exceeding migration on the confirmation bank. The combination is
-super-additive on the joint scale ($+17$--$+25$pp over the additive
-expectation on dev, directionally confirmed on a second bank); ordering
-analysis attributes the gain split---representation improves state
-separability, flip coverage mainly realizes it at a fixed threshold.
-
-\paragraph{Contributions.} (C1)~A controlled-change evaluation separating
-static correctness from update reliability: transition, compositional, and
-consequential failure rates with oracle-known edits, re-tested on a
-freshly minted pre-registered holdout. (C2)~A confidence--update
-reliability separation in coordinate scenes, confirmed on parent-disjoint
-data, with explicit domain limits. (C3)~A paired quartet analysis
-distinguishing endpoint repair, full repair, and error migration, plus a
-bounded positive instance---relational input $\times$ flip coverage---that
-moves joint consistency toward full repair on both banks without claiming a
-general architecture. Football and pixel observations provide
-cross-observation behavior checks; the decision-interface analysis
-supports, rather than anchors, the repair claims.
+\paragraph{Contributions.} (C1)~Paired full-repair, migration, and joint
+consistency measurement, with historical banks on their own denominators.
+(C2)~An input comparison that separates input advantage from positive
+interaction transfer, with a parser-bounded source diagnostic rather than a
+new-architecture claim. (C3)~The same accounting on a competent ResNet-18,
+where full repair exceeds migration. Confidence inversion is not the center.

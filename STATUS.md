@@ -1,10 +1,29 @@
 # Current Status
 
-更新时间：2026-09-24（施工包已收尾；用户随后授权的三条线索也已跑完）
+更新时间：2026-09-25（五路线收尾：除退租外全部闭环；投稿行政已验证）
 
 ## 给人读的进展
 
-**这一轮做完了什么。** 按用户指定的施工包 `docs/e1a933_review/`，把审计方指出的问题逐条修完并补上了缺口：修了归一化对称性、置信度取端点、冻结探针、公平续训、足球事件构造、策略前沿保序回归这些实现错误；补跑了原来没做的对照，包括匹配参数与优化预算后的 typed 对照、warm-start 因子、前瞻干预验证、采样机制 48 臂矩阵、自然 E 发生率、全场景部署估计。全部 87 个 GPU 训练臂和 272 次原生多模态请求都已回收并逐文件校验，机器可以释放。
+**这一轮要问什么。** 不再新开二十条路线。问题收成一句：什么样的表示和关系计算，能让“只看过单次变化”的训练提高完整组合正确性，而不是只把错误搬到别处。
+
+**已经核对了什么。** 旧的段级网络把两段加起来再做线性判断，从函数类上就不能表示一般的两段相交。这一点已用仓库里的真实模型类复核，不是只看包里的副本。新的强基线还发现，source 的经典解析 crossing 在新E银行上 J3=1.0；因此 source 的学习式排序/交互结果只能写成“解析器之外的学习诊断”，不能写成复杂关系模型解决了任务。
+
+**卡在哪里。** 本机没有可用显卡，所以没有新开视觉训练，也没有租机。新银行里有 1745/2188 个组合离决策边界很近，这个边界还在，没有靠换分母把它藏掉。
+
+**接下来怎么走。** 路线3已经揭示source存在J3=1.0的解析基线；路线1 Round 2显示source排序稳定但T1/T2不确认。路线2 v2合同修复后direct J3均值0.571、interaction0.583，seed差+0.179/-0.143/0，判有界阴性/不稳定，停止继续训练，Round2-5优化轮按规则关闭（未触发）。AI Galaxy退租仍待账户所有者/控制台处理（本轮不收）。投稿行政已闭环：AI-use定稿、双盲扫描通过、匿名打包已验证（git快照口径）、rebuttal维持reserve不另成文。路线5已把v2结果写入附录，仍不升格视觉interaction主张。
+
+```
+ROADMAP  [######----] 5/9 节点
+本轮投入  共同协议 ██████████ 100%   路线实现 █████████░ 90%   新确认 █████░░░░░ 45%
+
+偏离程度  高
+偏离位置  source解析器直接解决E；T1/T2跨任务排序不稳定；路线2 v2有界阴性关闭（退租仍外部阻塞）。
+建议      论文以parser-bounded repair-flow audit为主，不把cross-object interaction写进标题；视觉路线保持data-ready/blocked，不伪造结果。
+```
+
+## 上一轮已完成（保留，不再当成本轮阻断）
+
+**上一轮做完了什么。** 按用户指定的施工包 `docs/e1a933_review/`，把审计方指出的问题逐条修完并补上了缺口：修了归一化对称性、置信度取端点、冻结探针、公平续训、足球事件构造、策略前沿保序回归这些实现错误；补跑了原来没做的对照，包括匹配参数与优化预算后的 typed 对照、warm-start 因子、前瞻干预验证、采样机制 48 臂矩阵、自然 E 发生率、全场景部署估计。全部 87 个 GPU 训练臂和 272 次原生多模态请求都已回收并逐文件校验，机器可以释放。
 
 **最值得记住的几个结论。** 距离类几何输入的优势很硬：在一个被充分搜索的原始坐标基线之上仍然成立（等配方差 +0.43~+0.56），而且两个分布完全不重叠；但这个优势与"变化监督"的交互是**依任务**的，不是普遍规律（T2 上为负）。视觉方面，同样的像素信息只把输入网格放大，完整联合正确率就能差 0.30~0.34，但机制**没有查清**——因为放大同时把算力提高了 12.25 倍，不能归因于"信息更容易拿到"。足球上严格组合事件在 0.2 秒自然运动包络内确实稀有（0.55%），但**不是零**，所以只能说它是稀有压力测试，不能说足球不可行。
 
@@ -24,13 +43,14 @@ ROADMAP  [##########] 9/9 节点
 
 ## Agent 接手信息
 
-- 当前合同：`docs/e1a933_review/04_AGENT_MASTER.md`；待办唯一入口 `TODO.md`。
-- 本轮状态总报告：`reports/e1a933_review/R_FIXES_REPORT.md`（R/O/N 逐条最终状态）。
-- 核心文件：`experiments/e1a933_review/`、`paper/sections/app_f095.tex`、`reports/final_closure/MASTER_CLAIM_LEDGER.md`。
-- 复现入口：`reports/e1a933_review/REPRODUCE.md`；论文构建与回执：`experiments/e1a933_review/paper_build_receipt.py`。
-- 论文：`reports/e1a933_review/paper_revised.pdf`（24 页，主文仍 8 页/结论第 9 页，0 overfull、0 未定义引用）；回执 `PAPER_BUILD_RECEIPT.json`。
-- GPU：`artifacts/e1a933_review/gpu_finish_20260924/GPU_RELEASE_STATUS.json` = SAFE_TO_SHUTDOWN，未执行关机。
-- 本机：**无项目训练进程在跑**。CPU 兜底训练已按用户指示于 2026-09-24 14:53Z 停止（完成 19/21 臂、产物保留、receipt 改 `STOPPED_BY_USER`）；停止记录见该目录 `TERMINATION_RECEIPT.json`。
-- 最近决策：三条线索已收口（`E1A933-LEADS-L014-L015-L006`）。G8 排序特征对 raw 的联合正确率差为 +0.435 至 +0.532，摆动为 0；未升为方法主张，未读封存池。
-- 必须披露：`d09fresh665` 单编辑子集与增广训练输入有 0.13%/0.60% 逐位重复；附录 U10 表 typed 列是 2 线程口径，不可与 4 线程数字比较。
-- PLAN 影响：H1 距离优势保留但交互依任务；H2 有 regimen 级效应、机制未决；H3 自然 E 稀有但非零；H4 的 S 与分段归属依赖 readout。
+- 当前合同：`docs/e832887_focus_pack/01_MASTER_PROMPT.md`。待办入口 `TODO.md`。
+- A0 已完成：`artifacts/e832_focus/structure/EXPRESSIVITY_REPO_AUDIT.json`。不要改 `experiments/f095_campaign/` 与 `experiments/e1a933_review/` 的旧脚本字节。
+- 新代码只写 `experiments/e832_focus/`；新结果只写 `artifacts/e832_focus/` 与 `reports/e832_focus/`。
+- 本机无 CUDA。旧 GPU 回执 `artifacts/e1a933_review/gpu_finish_20260924/GPU_RELEASE_STATUS.json` = SAFE_TO_SHUTDOWN。不新开租机。
+- 封存池不读：holdout_909 / confirm_1007 / bridge holdout_895 / J03WQQ / SoccerTrack-v2。
+- 最近决策：`E832-ROUTE2-CLOSE`（五轮优化预算关闭）。旧决策 `E1A933-LEADS-L014-L015-L006` 仍有效：dev512 不能当确认银行。
+- 路线1 Round 2已完成：source-specific排序稳定；T1不可判定、T2负向/不稳定，跨任务确认不成立。
+- 路线2：v2合同修复完成并关闭（12+3 runs全finite，有界阴性，Round2-5未触发）；退租待账户所有者处理，本轮不收。
+- 路线3解析器J3=1.0，路线4仅刚体坐标稳健性；两者不承担主方法claim。
+- 路线5：真实Figure 1和统一fallback表已接入，parser-bounded正文和最终构建完成（含AI-use定稿后重建26页0错）；独立最终审阅为FINAL_WITH_MINOR_FIXES，四个交付修复已处理。投稿行政（AI-use/双盲/匿名包验证/rebuttal关闭）已闭环。
+- 路线2远端状态：v2训练已终态；结果回收到本地并经独立重算；停止训练。AI Galaxy退租被MCP ownership阻塞。

@@ -1,0 +1,63 @@
+{
+  "round": 2,
+  "frozen_at_utc": "2026-09-24T19:08:01Z",
+  "purpose": "Precommitted targeted feasibility and stronger source comparison; not an indefinite parent search.",
+  "runner_sha256": "94530cd6df658f1efbe12178b0423a8225daebe9a9834930c9232b6772822c6b",
+  "test_sha256": "c8565b3bb618f02484551a547e30a1aa8f11b7217825435a4ecd2ffe92eb4033",
+  "precommit": {
+    "training_model_seeds": [11, 23, 47],
+    "epochs": 300,
+    "candidate_draws_per_parent": 3,
+    "random_candidates_per_legal_family": 24,
+    "legal_candidate_families": {
+      "source": "atomic_edits radius 0.10 (unchanged)",
+      "T1": "candidates_for_scene n_random=24 (unchanged)",
+      "T2": "candidates_3pt n_random=24 (unchanged)"
+    },
+    "official_E_rule": "unordered legal pairs for which both individual edits preserve the label and their sum flips the label",
+    "metric": "J3 plus unchanged A/B/AB, atomic_joint, and CCM fields; J4 remains null",
+    "arms": ["raw", "additive", "repaired", "six", "rich_unsorted", "rich_sorted"],
+    "supervision_arms": ["clean", "flip"],
+    "inference_arms": ["ungrouped", "legal_group_average"],
+    "bootstrap": "1000 parent-cluster resamples; equal-weight parent estimand; 95% percentile interval",
+    "selection_rule": "No test-J checkpoint or hyperparameter selection. No success threshold. For T1/T2, mine exactly one predeclared test pool; E=0 yields NOT_FEASIBLE without arm training, while E>0 runs the predeclared three seeds. No further parent draw is allowed within this round."
+  },
+  "tasks": {
+    "source": {
+      "train_parents": 512,
+      "dev_parents": 128,
+      "test_parents": 1536,
+      "edit_cap": 8,
+      "candidate_draws": 3,
+      "epochs": 300,
+      "seeds": {"train": 832501, "dev": 832502, "test": 932503, "edit": 932504},
+      "output": "artifacts/e832_focus/route1/round2_source.json"
+    },
+    "T1": {
+      "train_parents": 256,
+      "dev_parents": 64,
+      "test_parents": 8192,
+      "edit_cap": 8,
+      "candidate_draws": 3,
+      "epochs": 300,
+      "seeds": {"train": 832511, "dev": 832512, "test": 932513, "edit": 932514},
+      "output": "artifacts/e832_focus/route1/round2_T1.json"
+    },
+    "T2": {
+      "train_parents": 256,
+      "dev_parents": 64,
+      "test_parents": 8192,
+      "edit_cap": 8,
+      "candidate_draws": 3,
+      "epochs": 300,
+      "seeds": {"train": 832521, "dev": 832522, "test": 932523, "edit": 932524},
+      "output": "artifacts/e832_focus/route1/round2_T2.json"
+    }
+  },
+  "commands": [
+    "python experiments/e832_focus/route1_cross_task/common_runner.py --tasks source --out artifacts/e832_focus/route1 --task-prefix round2_ --train-parents 512 --dev-parents 128 --test-parents 1536 --edit-cap 8 --candidate-draws 3 --epochs 300 --train-seed 832501 --dev-seed 832502 --test-seed 932503 --edit-seed 932504",
+    "python experiments/e832_focus/route1_cross_task/common_runner.py --tasks T1 --out artifacts/e832_focus/route1 --task-prefix round2_ --train-parents 256 --dev-parents 64 --test-parents 8192 --edit-cap 8 --candidate-draws 3 --epochs 300 --train-seed 832511 --dev-seed 832512 --test-seed 932513 --edit-seed 932514",
+    "python experiments/e832_focus/route1_cross_task/common_runner.py --tasks T2 --out artifacts/e832_focus/route1 --task-prefix round2_ --train-parents 256 --dev-parents 64 --test-parents 8192 --edit-cap 8 --candidate-draws 3 --epochs 300 --train-seed 832521 --dev-seed 832522 --test-seed 932523 --edit-seed 932524"
+  ],
+  "interpretation": "T1/T2 remain diagnostic unless the predeclared E bank supports their comparison. A nonzero E count is not by itself a success claim."
+}

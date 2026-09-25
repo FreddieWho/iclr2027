@@ -1,0 +1,162 @@
+{
+  "audit_type": "repository-class algebraic witness; no bank, no checkpoint, no sealed pool",
+  "basis_commit": "e832887c938948b23e8783719d493f2b9b8c3a17",
+  "threads": 1,
+  "oracle_matrix": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "coordinates": [
+    [
+      [
+        -0.7,
+        0.4
+      ],
+      [
+        0.7,
+        0.4
+      ],
+      [
+        0.1,
+        0.2
+      ],
+      [
+        0.1,
+        0.6
+      ]
+    ],
+    [
+      [
+        -0.7,
+        0.4
+      ],
+      [
+        0.7,
+        0.4
+      ],
+      [
+        0.1,
+        -0.6
+      ],
+      [
+        0.1,
+        -0.2
+      ]
+    ],
+    [
+      [
+        -0.7,
+        -0.4
+      ],
+      [
+        0.7,
+        -0.4
+      ],
+      [
+        0.1,
+        0.2
+      ],
+      [
+        0.1,
+        0.6
+      ]
+    ],
+    [
+      [
+        -0.7,
+        -0.4
+      ],
+      [
+        0.7,
+        -0.4
+      ],
+      [
+        0.1,
+        -0.6
+      ],
+      [
+        0.1,
+        -0.2
+      ]
+    ]
+  ],
+  "random_init_mixed_residual_max": {
+    "TypedPairMLP": 5.551115123125783e-17,
+    "G8SetMLP": 4.163336342344337e-17
+  },
+  "random_init_mixed_residual_max_raw": {
+    "TypedPairMLP": 5.551115123125783e-17,
+    "G8SetMLP": 4.163336342344337e-17
+  },
+  "fit_demonstration": {
+    "TypedPairMLP_linear_rho": {
+      "steps": 800,
+      "lr": 0.01,
+      "loss": "bce_with_logits",
+      "final_bce": 0.6931471805599454,
+      "mixed_residual": 0.0,
+      "best_threshold_accuracy": 0.5,
+      "logits": [
+        -5.880712583561376e-16,
+        -6.019490461639521e-16,
+        -5.672545766444159e-16,
+        -5.811323644522304e-16
+      ]
+    },
+    "G8SetMLP_linear_rho": {
+      "steps": 800,
+      "lr": 0.01,
+      "loss": "bce_with_logits",
+      "final_bce": 0.6931471809298169,
+      "mixed_residual": 1.3877787807814457e-17,
+      "best_threshold_accuracy": 0.5,
+      "logits": [
+        -2.076697197248012e-06,
+        7.689452328628332e-05,
+        -7.674571946544861e-05,
+        2.2255010180965984e-06
+      ]
+    },
+    "TypedPairMLP_nonlinear_rho": {
+      "steps": 800,
+      "lr": 0.01,
+      "loss": "bce_with_logits",
+      "final_bce": 2.4404790675839093e-22,
+      "mixed_residual": 230.2909255771088,
+      "best_threshold_accuracy": 1.0,
+      "logits": [
+        61.5240052294372,
+        -61.37379256755166,
+        -59.01474250055598,
+        48.37838527956393
+      ]
+    }
+  },
+  "fusion": {
+    "TypedPairMLP": "psi(h_ab)+psi(h_cd), then linear rho",
+    "G8SetMLP": "psi(h_ab)+psi(h_cd), then linear rho",
+    "TypedTriMLP": "psi(cat(sum_vertices, h_q)), then linear rho",
+    "TypedDiskMLP": "psi(cat(sum_ab, h_c)), then linear rho"
+  },
+  "not_implicated": [
+    "TypedTriMLP",
+    "TypedDiskMLP"
+  ],
+  "class_objects_instantiated": [
+    "u01_models.TypedPairMLP",
+    "leads_l014_l015_l006.G8SetMLP",
+    "u10_models.TypedTriMLP",
+    "u10_models.TypedDiskMLP"
+  ],
+  "limitations": [
+    "Four-case success of nonlinear rho is expressivity, not bank generalization.",
+    "Identity does not prove every historical miss came from this restriction.",
+    "TypedTri/TypedDisk concatenate roles before a nonlinearity; this witness does not apply."
+  ]
+}

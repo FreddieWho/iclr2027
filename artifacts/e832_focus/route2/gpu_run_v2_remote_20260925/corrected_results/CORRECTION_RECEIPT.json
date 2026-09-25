@@ -1,0 +1,7 @@
+{
+  "status": "METRIC_CORRECTED",
+  "retraining": false,
+  "source": "/home/huyudi/012_conference/iclr2027/artifacts/e832_focus/route2/gpu_run_v2_remote_20260925",
+  "mismatch_count": 0,
+  "input_contract": "v2 native RGB raw images passed to model; model internal prep"
+}

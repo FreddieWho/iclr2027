@@ -1,0 +1,9 @@
+{
+  "status": "DATA_READY_BLOCKED_GPU",
+  "cuda_available": false,
+  "manifest": "artifacts/e832_focus/route2/gpu_bundle/manifest.json",
+  "data_archive_sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee",
+  "data_manifest_sha256": "fd148616753df82d607c68ead94c867a44a1c95af5bf1a746117223fc64e63c9",
+  "resume_command": "CUDA_VISIBLE_DEVICES=0 python experiments/e832_focus/route2_visual/gpu_run.py --manifest artifacts/e832_focus/route2/gpu_bundle/manifest.json --data artifacts/e832_focus/route2/data --out artifacts/e832_focus/route2/gpu_run",
+  "formal_claim": "none"
+}

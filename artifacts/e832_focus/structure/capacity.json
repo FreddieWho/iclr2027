@@ -1,0 +1,8 @@
+{
+  "repaired_rho_params": 8001,
+  "additive_params": 7249,
+  "raw_params": 6849,
+  "raw_matched_hidden": 71,
+  "raw_matched_params": 8088,
+  "note": "raw_matched is a capacity control, not a new method; the interaction layer was not removed"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "DATA_READY_BLOCKED_GPU",
+  "scientific_result": "NOT_RUN",
+  "formal_claim": "none",
+  "cuda_available": false,
+  "data_path": "artifacts/e832_focus/route2/data",
+  "data_archive_sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee",
+  "data_manifest_sha256": "fd148616753df82d607c68ead94c867a44a1c95af5bf1a746117223fc64e63c9",
+  "unrun": [
+    "train/select/evaluate arm=direct seed=803",
+    "train/select/evaluate arm=direct seed=805",
+    "train/select/evaluate arm=direct seed=806",
+    "train/select/evaluate arm=additive seed=803",
+    "train/select/evaluate arm=additive seed=805",
+    "train/select/evaluate arm=additive seed=806",
+    "train/select/evaluate arm=representation seed=803",
+    "train/select/evaluate arm=representation seed=805",
+    "train/select/evaluate arm=representation seed=806",
+    "train/select/evaluate arm=interaction seed=803",
+    "train/select/evaluate arm=interaction seed=805",
+    "train/select/evaluate arm=interaction seed=806",
+    "aggregate J3/J4/A/B/AB/atomic/full-repair/migration/111-regression report"
+  ],
+  "statement": "the image-only route is executable/data-ready and GPU-blocked; no visual effect is claimed"
+}

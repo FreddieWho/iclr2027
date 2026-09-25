@@ -1,0 +1,29 @@
+% Fallback unified measurement table. The data and bare tabular are regenerated
+% by experiments/e832_focus/route5_table/build_fallback_table.py; this
+% manuscript wrapper and its denominator/missing-field caption are maintained
+% here and must be synchronized when the schema changes.
+\begin{table}[t]
+\centering
+\footnotesize
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Arm & $J_3$ & atomic & A & B & AB & $R_{\rm full}$ & M & 111 regress\\
+\midrule
+raw & .053 & .532 & .572 & .574 & .505 & missing & missing & missing\\
+raw+flip & .068 & .411 & .463 & .477 & .633 & .025--.100 & .364--.400 & .692--.917\\
+relational & .170 & .693 & .738 & .761 & .471 & .136--.233 & .167--.255 & .385--1.000\\
+relational+flip & .401 & .623 & .695 & .707 & .767 & .364--.442 & .317--.418 & .333--.385\\
+\bottomrule
+\end{tabular}
+\caption{Unified fallback measurement on the historical development bank
+(237 E quartets, 106 parents; three training seeds). $J_3$ is conditional
+joint correctness on A, B and AB; atomic is the two-atomics joint rate.
+$R_{\rm full}$, migration $M$ and 111 regression use the same-seed
+raw-clean baseline-110/111 subsets. The archived per-quartet file does not
+contain $J_4$, a base-state column, parent-bootstrap intervals for every
+field, parameters, or MACs; these are recorded as \texttt{missing} in
+\texttt{reports/e832\_focus/MAIN\_TABLE\_FALLBACK.csv}, not filled from a
+different bank. This table is a measurement fallback, not a new method
+claim.}
+\label{tab:fourarmunified}
+\end{table}

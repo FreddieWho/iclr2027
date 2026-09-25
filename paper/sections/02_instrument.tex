@@ -13,9 +13,15 @@ E \;=\; \{\, (x, e_A, e_B) \;:\; y(x_A) = y(x_B) = y(x), \;\; y(x_{AB})
 \neq y(x) \,\}.
 \]
 On $E$, the conditional composition miss (CCM) is the error of the joint
-prediction given both atomic predictions correct; joint consistency is
+prediction given both atomic predictions correct. CCM always means a miss.
+Figure~\ref{fig:repair_examples} shows two archived examples selected by
+the fixed rule in \texttt{reports/e832\_focus/FIGURE1\_SELECTION\_RECEIPT.json};
+they illustrate repair flow and are not used to estimate an effect.
+Joint consistency
 $J = P(\hat y(x_A) = y(x_A),\; \hat y(x_B) = y(x_B),\; \hat y(x_{AB}) =
-y(x_{AB}) \mid E)$. For repair evaluation we fix the baseline-broken subset
+y(x_{AB}) \mid E)$
+and atomic-joint accuracy are conditional joint accuracy. Neither is
+abbreviated CCM, and a rising conditional joint success rate is not a CCM. For repair evaluation we fix the baseline-broken subset
 $H = \{ \hat y_{\mathrm{clean}}(x_A) = y(x_A),\; \hat y_{\mathrm{clean}}(x_B)
 = y(x_B),\; \hat y_{\mathrm{clean}}(x_{AB}) \neq y(x_{AB}) \}$ (both
 atomics correct, AB wrong under the clean model) and decompose endpoint
@@ -28,6 +34,17 @@ where $R_{\mathrm{full}}$ is the fraction of $H$ made fully correct
 correct while at least one atomic becomes wrong. We also report whether the
 base state $x$ itself is correctly classified as an audit column; headline
 denominators ($151/176$) are unchanged by this audit.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.96\linewidth]{figures/fig1_real_quartets.pdf}
+\caption{Two real archived examples from the historical \texttt{bank\_dev512}
+(seed 11), selected by the precommitted parent-id/quartet-id rule: an
+endpoint-only repair (top) and a full repair (bottom). Red and blue segments
+are the actual task roles; oracle labels and archived predictions are shown.
+The examples illustrate state transitions and are not an effect estimate.}
+\label{fig:repair_examples}
+\end{figure}
 
 \paragraph{What ``updating'' means here.} All models in this study are
 feed-forward classifiers that re-compute a decision independently for each
@@ -47,7 +64,10 @@ then archived as used. Mechanism analyses read frozen sample banks
 (\texttt{bank\_dev512} of 237 quartets, plus parent-disjoint
 \texttt{bank\_confirm1007} of 509 quartets) in which every model reads
 identical edits; thresholds and analysis settings are frozen on dev before
-confirmation. \emph{Football} uses IDSSE real tracking data with two edit
+confirmation. These are separate banks and are not pooled.
+\texttt{bank\_dev512} is a repeatedly analyzed historical bank, not a
+sealed confirmation bank. This paper does not repeat an integer-ID leakage
+charge against it. Seeds are training replicates, not datasets. \emph{Football} uses IDSSE real tracking data with two edit
 types, labeled explicitly throughout: controlled single-turn zone
 crossings constructed on real coordinates (E2 protocol), and natural-match
 turns (actual events). There is no pristine football holdout (the reserve

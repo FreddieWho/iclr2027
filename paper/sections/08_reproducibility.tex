@@ -20,7 +20,11 @@ priority for conditional measurement itself.
 \paragraph{Sample banks and confirmation usage.} Mechanism analyses read
 frozen sample banks (\texttt{bank\_dev512}, \texttt{bank\_confirm1007};
 every model reads identical edits) with settings frozen on dev before
-confirmation. The confirmation bank's per-claim first-read status is
+confirmation. \texttt{bank\_dev512} is a repeatedly analyzed historical
+bank, not a sealed confirmation bank. Coordinate lineage does not support
+an integer-ID leakage charge against it, and this paper does not repeat
+that charge. Absence from the recorded training lists is not the same as
+unseen by the investigators. The confirmation bank's per-claim first-read status is
 recorded in the claim-source map
 (\texttt{reports/caea817\_review/CONFIRMATION\_USAGE.md}): P1 analyses
 first, relational-arm evaluation later; reading archived outputs is

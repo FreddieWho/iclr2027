@@ -1,0 +1,74 @@
+{
+  "claim_denominator": "unique unordered atomic pairs, not build_bank directed-path doubling and not mine_eval",
+  "quartet_rule": "two label-preserving atomic_edits whose sum flips the label; ValueError skipped; ambiguous flag recorded, not used as a drop rule",
+  "atomic_edits": "experiments/last15h/shared/paths.py:atomic_edits default radius 0.10",
+  "generator": "core.relations.make_relational_scenes min_margin=0.02",
+  "scene_seed_initial": 832025,
+  "edit_seed": 832028,
+  "chunks": [
+    {
+      "seed": 832025,
+      "n": 4352,
+      "role": "initial"
+    }
+  ],
+  "dedup": "raw coordinates, L-inf, not integer ids",
+  "dedup_linf": 0.0001,
+  "dropped_near_train": 0,
+  "dropped_within_pool": 0,
+  "train_path": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+  "train_sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+  "n_train": 512,
+  "dev_parents": 256,
+  "test_parents_drawn": 4096,
+  "n_quartets": 2188,
+  "n_eligible_parents": 871,
+  "yield_quartets_per_drawn": 0.5341796875,
+  "min_parent_train_linf": 0.1194465733098562,
+  "min_dev_train_linf": 0.1788900990933257,
+  "min_test_to_dev_linf": 0.14850430385756164,
+  "min_quartet_state_train_linf": 0.14249927642027505,
+  "ambiguous_quartets": 0,
+  "low_margin_quartets_min_ma_mb_mab_lt_0.02": 1745,
+  "atomic_margin_quantiles": {
+    "mA": [
+      0.005694298693854595,
+      0.03232900655306803,
+      0.08021427614743314
+    ],
+    "mB": [
+      0.005875185773543519,
+      0.030006648510934708,
+      0.07598015970295964
+    ],
+    "mAB": [
+      0.002734849061107926,
+      0.016600953490689893,
+      0.05336997804317681
+    ]
+  },
+  "margin_slice_note": "subset min(mA,mB,mAB)>=0.02 is a pre-stated descriptor, not a replacement denominator",
+  "oracle_calls_quartets": 141818,
+  "dev_flip_oracle_calls": 74123,
+  "train_flip_oracle_calls": 147514,
+  "n_train_flips": 1534,
+  "n_dev_flips": 721,
+  "threads": 4,
+  "sealed_pools": "not read",
+  "dev512": "not read; historical only; not confirmation",
+  "yield_probe_not_denominator": {
+    "n": 200,
+    "seed": 832025,
+    "quartets": 92,
+    "eligible_parents": 33,
+    "low_margin_quartets": 82,
+    "use": "chose TEST_PARENTS=4096 before scores because 200 parents yielded 33 eligible"
+  },
+  "selection_rule": "argmin pooled static+single dev BCE over Adam lr 0.01/0.003/0.001; ties take the smaller lr; never test J",
+  "additive_budget": "same 3 Adam lrs, then stop; do not add optimizers if the negative control fails",
+  "optimizer_fail_rule": "if repaired_rho mean train BCE stays above 0.60 in a majority of seed x supervision cells, the first repair did not optimize; train symmetric_q and use it as the repaired arm. Dev BCE is not this trigger.",
+  "continuation_rule": "after 3 seeds, add seeds 71 and 83 only for a pre-stated contrast whose seed-wise parent intervals do not all lie strictly on the same side of 0",
+  "flow_baseline": "raw clean, same seed, dev-selected lr; within-arm clean-to-flip is secondary and labeled",
+  "decision_threshold": "none; logit>0 is the training decision rule, not a tuned test threshold",
+  "bank_sha256": "15f5bf181b37dc9b4309582490f7fc11dfca8b03491251c3724fcb2e1bdd804c"
+}

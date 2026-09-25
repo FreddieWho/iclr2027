@@ -1,0 +1,20 @@
+{
+  "statement": "total exposure match is not per-parent exposure match",
+  "source_data": "artifacts/e1a933_review/vision_canonical224_v2/data.npz",
+  "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+  "index_rule": "experiments/e1a933_review/vision_cuda_protocol.py train_arm: static uses np.resize(clean_indices, n_images); flip uses every training image once per epoch",
+  "n_train_images": 2816,
+  "n_clean_images": 2048,
+  "n_single_flip_images": 768,
+  "slots_per_epoch_static": 2816,
+  "slots_per_epoch_flip": 2816,
+  "optimizer_steps_per_epoch": 88,
+  "epochs": 20,
+  "optimizer_steps_total": 1760,
+  "n_train_parents": 512,
+  "n_train_parents_with_unequal_static_flip_slots": 441,
+  "max_abs_slot_difference": 4,
+  "n_dev_images": 707,
+  "n_dev_parents": 128,
+  "note": "Same total slots and same step count. Static repeats clean images and never shows single-flip images; flip shows each training image once. Parent integer IDs restart inside each split, so they are not cross-split scene IDs."
+}

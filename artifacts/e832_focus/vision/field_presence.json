@@ -1,0 +1,11 @@
+{
+  "J3": "stored field is J. All 159 prediction rows match paper E (base label preserved by both atomics, flipped by AB), so this J is paper J3. Denominator 159.",
+  "J4": "missing. No J4 field in result.json, per_run, or paired_analysis.json. Base-state marginal P is not J4 and was not substituted. J4 was not derived from logits.",
+  "atomic_accuracy": "stored field atomic_joint: both atomic states correct. Marginal A and B exist but are not this column.",
+  "AB_accuracy": "stored field AB, quartet state 3.",
+  "full_repair": "contrast field only, paired_analysis.json full_repair_n over baseline110_n. Absent on a single arm; those cells are missing.",
+  "migration": "contrast field only, paired_analysis.json migration_n over baseline110_n. Absent on a single arm; those cells are missing.",
+  "baseline111_regression": "contrast field only, paired_analysis.json 111_regression_n over baseline111_n. Absent on a single arm; those cells are missing.",
+  "paper_CCM": "missing. The paper CCM is a conditional composition miss rate. The stored field named CCM is joint_count / atomic_count, which is conditional joint accuracy. It was not renamed CCM and was not inverted to fill the miss rate.",
+  "per_parent": "not stored as rows. Disaggregated from the same predictions.npz files. Seed sums are locked to result.json and paired_analysis.json. This is the 159 bank, not the 178 bank."
+}

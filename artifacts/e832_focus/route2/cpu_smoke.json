@@ -1,0 +1,51 @@
+{
+  "status": "PILOT_ONLY",
+  "purpose": "CPU execution smoke, not a visual or performance result",
+  "threads": 4,
+  "encoder": "torchvision resnet18 weights=None",
+  "n": 16,
+  "steps": 4,
+  "records": [
+    {
+      "mode": "direct",
+      "loss": 0.6828258037567139,
+      "logit_shape": [
+        16
+      ],
+      "finite": true
+    },
+    {
+      "mode": "additive",
+      "loss": 0.5832700729370117,
+      "logit_shape": [
+        16
+      ],
+      "finite": true
+    },
+    {
+      "mode": "interaction",
+      "loss": 0.6203792095184326,
+      "logit_shape": [
+        16
+      ],
+      "finite": true
+    },
+    {
+      "mode": "representation",
+      "loss": 0.579134464263916,
+      "logit_shape": [
+        16
+      ],
+      "finite": true
+    }
+  ],
+  "seconds": 2.20681095123291,
+  "no_inference_hidden_fields": [
+    "A/B index",
+    "coordinates",
+    "oracle labels",
+    "AB truth",
+    "single-edit answer",
+    "combination ID"
+  ]
+}

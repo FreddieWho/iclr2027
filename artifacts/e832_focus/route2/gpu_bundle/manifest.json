@@ -1,0 +1,103 @@
+{
+  "status": "DATA_READY_BLOCKED_GPU",
+  "scientific_result": "NOT_RUN",
+  "formal_claim": "none",
+  "checkpoint_files": [],
+  "data": {
+    "data_path": "artifacts/e832_focus/route2/data",
+    "archive_path": "artifacts/e832_focus/route2/data/data.npz",
+    "archive_sha256": "8e5128e51499b32bc5082a010a27d0e19542a1979325c31969780594f1e221ee",
+    "data_manifest_path": "artifacts/e832_focus/route2/data/data_manifest.json",
+    "data_manifest_sha256": "fd148616753df82d607c68ead94c867a44a1c95af5bf1a746117223fc64e63c9",
+    "split_parent_disjoint": true
+  },
+  "encoder": "torchvision.models.resnet18(weights=IMAGENET1K_V1); one shared spatial backbone per arm/run",
+  "renderer": {
+    "native_resolution": [
+      3,
+      64,
+      64
+    ],
+    "model_input": "bilinear resize native64 to configured 224, align_corners=False",
+    "renderer": "n08_visual render after lexicographic endpoint sorting within each visible color",
+    "background": "per-image uniform gray noise in [0.45,0.55)",
+    "colors": {
+      "P_A": "red",
+      "P_B": "blue"
+    },
+    "single_edit_recipe": "up to 2 valid atomic single flips/parent from 16 fixed draws; radii .10/.20/.35/.50; oracle margin >= .02; >=20 changed pixels",
+    "quartet_recipe": "mine_quartets(test parents only); retain at most 2 quartets/parent in stable miner order"
+  },
+  "fresh_bank": {
+    "parent_seeds": {
+      "train": 832701,
+      "dev": 832702,
+      "test": 832703
+    },
+    "old_exposed_159_bank_used": false,
+    "loaded_existing_scene_or_image_artifacts": false
+  },
+  "arms": [
+    "direct",
+    "additive",
+    "representation",
+    "interaction"
+  ],
+  "arm_contracts": {
+    "direct": "global mean-pooled visible image feature; linear head",
+    "additive": "red/blue masked pools passed separately through one shared linear head; outputs summed",
+    "representation": "concatenated red/blue masked pools; linear head",
+    "interaction": "concatenated red/blue masked pools; nonlinear 1024->128->1 head"
+  },
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "train_contract": "singleton train images only (clean + single-edit); no AB/quartet labels; identical exposure for all arms",
+  "selection_contract": "singleton dev BCE only",
+  "evaluation_contract": "new test quartets; P,A,B,AB plus J3/J4 and paired full-repair/migration/111 regression",
+  "metrics": [
+    "P",
+    "A",
+    "B",
+    "AB",
+    "J3",
+    "J4",
+    "atomic_joint",
+    "full_repair",
+    "migration",
+    "111_regression"
+  ],
+  "counts": {
+    "train_singleton_images": 323,
+    "dev_singleton_images": 81,
+    "test_singleton_images": 319,
+    "quartets": 28,
+    "quartet_images": 112,
+    "quartet_parents": 19,
+    "ab_training_images": 0
+  },
+  "exposure_contract": {
+    "train_indices": "all 0..322; saved per run",
+    "dev_indices": "all 0..80; selection only",
+    "test_indices": "all 0..318; never used for training/selection",
+    "quartet_indices": "all 0..111; test only"
+  },
+  "parameter_counts": {
+    "direct_additive_head": 513,
+    "representation_head": 1025,
+    "interaction_head": 131329,
+    "backbone": "computed and recorded per completed run"
+  },
+  "macs": {
+    "status": "MISSING_REASON",
+    "reason": "no validated MAC profiler is pinned; completed runs record train/inference runtime, exact parameter counts, and the fixed shared-backbone architecture"
+  },
+  "batch_gpu": 32,
+  "resolution": 224,
+  "epochs": 20,
+  "local_torch_cuda": false,
+  "resume_command": "CUDA_VISIBLE_DEVICES=0 python experiments/e832_focus/route2_visual/gpu_run.py --manifest artifacts/e832_focus/route2/gpu_bundle/manifest.json --data artifacts/e832_focus/route2/data --out artifacts/e832_focus/route2/gpu_run",
+  "current_statement": "the image-only route is executable/data-ready and GPU-blocked; no visual effect is claimed"
+}

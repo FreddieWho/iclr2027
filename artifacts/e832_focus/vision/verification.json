@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "e_rows": 159,
+  "e_denominator": 159,
+  "n_parents": 74,
+  "arm_checks": [
+    {
+      "arm": "pretrained_static",
+      "seed": 803,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 82,
+      "atomic_count": 125,
+      "AB_count": 116,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/pretrained_static_s803/result.json"
+    },
+    {
+      "arm": "pretrained_static",
+      "seed": 805,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 96,
+      "atomic_count": 130,
+      "AB_count": 123,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/pretrained_static_s805/result.json"
+    },
+    {
+      "arm": "pretrained_static",
+      "seed": 806,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 79,
+      "atomic_count": 123,
+      "AB_count": 112,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/pretrained_static_s806/result.json"
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 803,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 102,
+      "atomic_count": 118,
+      "AB_count": 142,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/pretrained_flip_s803/result.json"
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 805,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 111,
+      "atomic_count": 123,
+      "AB_count": 144,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/pretrained_flip_s805/result.json"
+    },
+    {
+      "arm": "pretrained_flip",
+      "seed": 806,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 113,
+      "atomic_count": 125,
+      "AB_count": 145,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/pretrained_flip_s806/result.json"
+    },
+    {
+      "arm": "random_static",
+      "seed": 803,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 68,
+      "atomic_count": 119,
+      "AB_count": 106,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/random_static_s803/result.json"
+    },
+    {
+      "arm": "random_static",
+      "seed": 805,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 77,
+      "atomic_count": 111,
+      "AB_count": 121,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/random_static_s805/result.json"
+    },
+    {
+      "arm": "random_static",
+      "seed": 806,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 77,
+      "atomic_count": 111,
+      "AB_count": 121,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/random_static_s806/result.json"
+    },
+    {
+      "arm": "random_flip",
+      "seed": 803,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 112,
+      "atomic_count": 125,
+      "AB_count": 146,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/random_flip_s803/result.json"
+    },
+    {
+      "arm": "random_flip",
+      "seed": 805,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 104,
+      "atomic_count": 119,
+      "AB_count": 144,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/random_flip_s805/result.json"
+    },
+    {
+      "arm": "random_flip",
+      "seed": 806,
+      "matches_result_json": true,
+      "matches_per_run": true,
+      "J_count": 103,
+      "atomic_count": 118,
+      "AB_count": 142,
+      "source_result": "artifacts/e1a933_review/vision_gpu_interpretation/cuda_matrix/random_flip_s806/result.json"
+    }
+  ],
+  "paired_counts_match": true,
+  "h_partition_identity": "full_repair_n + migration_n + H_neither_endpoint_n = baseline110_n",
+  "prediction_sha256": {
+    "pretrained_static_s803": "df540c43e9f23925d23da88e48321daf8eea573842ef79a249f311a463ff6ed9",
+    "pretrained_static_s805": "5166fd8beba0b865a6e3a39071a900c588cb340288d6a32fa63e7704d17b832f",
+    "pretrained_static_s806": "3e1e34031ec1e8b7dc29ec2903ce09e61b8830bbd11b668eb8e8e4551832a308",
+    "pretrained_flip_s803": "08ad9f9f57f98a238b50e62ad669d4289212d723551ba80d8ee97a311b65e811",
+    "pretrained_flip_s805": "12263ec74f5a74a972314aa4b3b712749eef902c3ff4f53d9d6e3ad36d645ad0",
+    "pretrained_flip_s806": "c5ec0859d89837404082dec9c43cec55dc8c9c5639995a7dd22dc811dde62cbc",
+    "random_static_s803": "30c0983a0b98bd328c44fc2e69a27a35370686bbcb67915acae75b76bc948cbb",
+    "random_static_s805": "63e27fd6b93ddd85a9716a0bd601fbaba15d671c9c43ed85c377904604eccb49",
+    "random_static_s806": "cb62fe2c060605d066bb0e1b616e932874a85a37941d63d6bfe0a23d67c4fc35",
+    "random_flip_s803": "e5e098cdb8577822284ebc363bddda81692b13469f7afd7d3442338821b9d63b",
+    "random_flip_s805": "03b91f8cb0af9abe430dae24278cfeace48cef6eb08dfb3a51e9ffaffc68613a",
+    "random_flip_s806": "f4963886ae13e5ae28496471469285d10d74b596487c1aa320df03a6ceb8acde"
+  }
+}

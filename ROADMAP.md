@@ -1,6 +1,29 @@
-# 本轮执行路径（2026-09-24）
+# 本轮执行路径（2026-09-25 五路线胜率优化）
 
-状态更新于本轮 8 条 lane 全部收尾并完成论文接线之后。旧节点编号保留，便于对照此前状态。
+当前合同：`reports/e832_focus/OPTIMIZATION_PROTOCOL.md`。路线1/2在基本实现外各有五轮证据驱动预算；不按轮数制造阳性。
+
+| 节点 | 服务问题 | 工作与依赖 | 状态 |
+|---|---|---|---|
+| N0 共同协议 | 哪些口径不可混 | 冻结数据、训练、指标、预算、停止规则 | DONE |
+| N1 路线1跨任务 | 输入优势与交互符号是否迁移 | Round 2完成：source稳定正；T1不可判定；T2负向/不稳定 | DONE / CROSS_TASK_NOT_CONFIRMED |
+| N2 路线2视觉结构 | 同encoder下interaction/additive是否改变full repair | v2已执行12+3 runs：direct均值.571/interaction均值.583，seed差+0.179/-0.143/0不稳定 | DONE / BOUNDED_NEGATIVE_UNSTABLE |
+| N3 路线3强基线 | 是否只是特征工程 | 解析器E=230/65上J3=1.0；学习臂parser-bounded | DONE / SCOPE_NARROWED |
+| N4 路线4稳健性 | 新parent/renderer/shift是否保持 | 新parent刚体条件完成；noise/visual未运行 | DONE / LIMITED |
+| N5 路线5论文 | 怎样只让最强证据进正文 | 真实Figure1、统一fallback表、parser边界、最终构建和审阅 | DONE / MINOR_FIXES_APPLIED |
+
+旧路线1–6状态保留在下方历史表，不再作为当前执行入口。
+
+## 首轮路线1–4裁决
+
+- 路线1 Round 2完成：source排序稳定；T1不可判定；T2负向/不稳定，跨任务确认不成立。
+- 路线2 v2合同修复完成并停止：J3与mask修复后12+3 runs全finite，方向不稳定判有界阴性；Round2-5优化轮未触发；退租待账户所有者处理（本轮不收）。
+- 路线3的解析器J3=1.0改变了source论文定位：学习式结果只能是parser-bounded diagnostic。
+- 路线4只支持低预算、刚体坐标条件下的方向稳健性，不能支持renderer或噪声稳健性。
+- 路线5真实Figure1、统一fallback表、生成器漂移修复和最终审阅已完成。
+
+## 本轮执行路径（2026-09-24 首轮收缩）
+
+状态更新于首轮 8 条 lane 全部收尾并完成论文接线之后。旧节点编号保留，便于对照此前状态。
 
 | 节点 | 服务问题 | 工作与依赖 | 状态 |
 |---|---|---|---|

@@ -1,0 +1,13 @@
+test_additive_grid_cannot_fit_checkerboard (test_interaction_witness.WitnessTests.test_additive_grid_cannot_fit_checkerboard) ... ok
+test_additive_identity (test_interaction_witness.WitnessTests.test_additive_identity) ... ok
+test_all_point_permutations_not_allowed (test_interaction_witness.WitnessTests.test_all_point_permutations_not_allowed) ... ok
+test_exact_checkerboard (test_interaction_witness.WitnessTests.test_exact_checkerboard) ... ok
+test_features_eight_and_invariant (test_interaction_witness.WitnessTests.test_features_eight_and_invariant) ... ok
+test_g8_preserves_oracle (test_interaction_witness.WitnessTests.test_g8_preserves_oracle) ... ok
+test_nonlinear_witness_solves_and_is_invariant (test_interaction_witness.WitnessTests.test_nonlinear_witness_solves_and_is_invariant) ... ok
+test_same_target_label_does_not_define_same_features (test_interaction_witness.WitnessTests.test_same_target_label_does_not_define_same_features) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.026s
+
+OK

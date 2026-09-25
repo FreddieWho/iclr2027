@@ -1,0 +1,15 @@
+{
+  "rule": "add seeds 71,83 only if a pre-stated contrast has seed-wise parent intervals that are not all strictly on the same side of 0",
+  "close": [
+    {
+      "contrast": "sorted_minus_unsorted",
+      "supervision": "clean",
+      "n_seed_intervals": 3
+    },
+    {
+      "contrast": "repaired_rho_minus_additive",
+      "supervision": "flip",
+      "n_seed_intervals": 3
+    }
+  ]
+}

@@ -1,24 +1,18 @@
-Static correctness does not guarantee reliable updating under change.
-With oracle-known edits, jointly applying two individually judged-correct
-edits still produces a missed compositional change in 151/176 (85.8\%)
-of fresh-holdout cases. In coordinate scenes, pre-change confidence
-predicts current-state correctness yet orders post-change error in the
-opposite direction. Targeted flip coverage improves endpoint and downstream
-metrics, but paired quartet analysis separates full repair (0.03--0.10)
-from error migration (0.36--0.40). Task-adapted relational inputs with the
-same coverage raise joint correctness to 0.38--0.42 on development and
-0.44--0.47 on confirmation data, with full repair exceeding migration on
-the latter. Two further geometric tasks support the input advantage:
-distance-plus-flip reaches approximately 0.75 on point-in-triangle and
-0.998 on segment--disk. Their original joint-correctness-scale interactions
-have opposite signs, positive on the former and negative on the latter;
-high combined performance does not imply universal super-additivity.
-In a matched-budget rendered-image ResNet-18 experiment, static-to-flip
-training increases joint correctness by 14.47 percentage points with
-pretraining and 20.34 without. Matching auxiliary geometry targets to
-visible information improves their learnability but does not consistently
-add joint repair in the tested recipe.
-Real football tracking supports bounded transition and repair observations,
-but does not reproduce the coordinate confidence inversion. Static accuracy,
-endpoint recovery, full compositional consistency, and downstream success
-therefore require separate measurement.
+When does supervision of a single change improve full compositional
+correctness, rather than only moving the error? On oracle-known coordinate
+edits, two individually judged-correct edits still miss the joint change
+in $151/176$ fresh-holdout cases. On the historical development bank, raw
+flip coverage on the baseline-broken subset mostly relocates that error
+(full repair $0.03$--$0.10$, migration $0.36$--$0.40$). That pattern is
+not every repair. The same coverage with task-adapted relational inputs
+raises joint consistency, and on the separate $509$-quartet confirmation
+bank full repair exceeds migration. Input advantage is not positive
+interaction transfer: the segment--disk joint-scale interaction is
+negative. A standard ResNet-18 on a separate rendered bank is a boundary.
+Under matched total exposure, static-to-flip training increases joint
+correctness, and full repair exceeds migration on each fixed baseline-110
+subset. Matched total exposure is not matched per-parent exposure.
+A fresh-source analytic segment-intersection parser solves the coordinate
+E bank, so the learned source comparisons are parser-bounded diagnostics
+rather than a claim that a complex relation architecture is required.
+Coordinate confidence inversion is a scoped side result, not the question.

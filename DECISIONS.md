@@ -506,3 +506,76 @@
 - **不把可学习池化的失败写成普遍否定**：宽 32 与一次参数量匹配的宽 48 都没学会，但这是这条配方的阴性，不是“等变架构不可能”。
 - **不改写四臂主结果**：这里的 raw 用共享 xy 归一化，绝对 J 不能和论文四臂表相减。
 - 复查触发：若要把 G8 特征的增益写成确认级主张，必须换一个未用过的银行，并且不能把构造出来的零摆动说成经验发现。
+
+## E832-FOCUS-START（2026-09-24）— 按用户包收缩为两条主线
+用户指示解包 `docs/e832887_focus_upgrade_package.zip` 并按 `01_MASTER_PROMPT.md` 开工。
+
+- **不用旧“已关闭”阻断本轮**。旧 PLAN 仍不改。本轮科学问题以用户包为准：哪些表示与关系计算条件，让单次变化监督改善完整组合正确性，而不只是搬移错误。
+- **A0 已用仓库真实类核对**，不是只跑包内镜像。`TypedPairMLP` 与 `G8SetMLP` 在 4 例棋盘上的混合差分残差最大约 1e-16；线性 rho 短拟合阈值准确率 0.5；只把 rho 改成带非线性的包装后，同 4 例可拟合（准确率 1.0）。这是表达能力，不是银行泛化。`TypedTriMLP`/`TypedDiskMLP` 先拼接再非线性融合，不连坐。记录：`artifacts/e832_focus/structure/EXPRESSIVITY_REPO_AUDIT.json`。
+- **这一刀不租 GPU**。本机 `torch.cuda.is_available()` 为假，旧实例状态是 SAFE_TO_SHUTDOWN。B 先复用已有视觉结果；C 不训练。新增付费租机单独报告。
+- **旧脚本不改字节**。新代码只进 `experiments/e832_focus/`，新结果只进 `artifacts/e832_focus/` 与 `reports/e832_focus/`。
+- 复查触发：若修后交互网络在新父场景上仍不能区分竞争解释，不把“加了一层”写成方法主张；若要启动 C 的长训练，必须先有 A/B 的解释缺口或更强独立主张。
+
+## E832-FOCUS-A-RESULT（2026-09-25）— 新银行分开了排序，没有分开“加一层”
+结构线在新生成的父场景上完成预先指定的比较。总控核对了 `metrics_continued.json` 与报告中的差值，没有重训。
+
+- **分母锁定**：2188 个无序 E、871 个 parent，`bank_sha256` `15f5bf181b37dc9b4309582490f7fc11dfca8b03491251c3724fcb2e1bdd804c`。到训练名单的最小 L-inf 是 0.119。不读封存池，不读 dev512。
+- **被分开的解释**：同一 8 个连续量，只做现有 G8 排序。single-flip 下相对未排序的 J 差为 +0.061 至 +0.092，5 个 parent 区间都不含 0。这是一次具体不变处理，不是信息完全相同的证明，也不是学出来的集合网络。
+- **没有被分开的解释**：中点和绝对正弦本身相对 6 个有序距离，区间大多含 0，没有加 seed，没有改分母。
+- **加一层不是几何增益的解释**：段和后的线性读出改成非线性后，训练损失下降，但 single-flip 的 J 仍约 0.017–0.046。相对加性负控，flip 差最多约 +0.015，5 个区间里 3 个含 0。旧加性限制解释棋盘反例，不解释这份银行的几何优势。
+- **边界**：1745/2188 的组合 margin 低于 0.02。这是报告过的切片，不是替换后的分母。
+- **不升方法，不进结论页**。附录写了范围句。T1/T2 未跑。C 维持不启动。视觉结构消融未跑。
+- 复查触发：若要把排序优势写成确认级主张，需要在边界不那么近的新父场景上同向复现，并且不能把构造出来的零摆动说成经验发现。
+
+## E832-FIVE-ROUTE-OPTIMIZATION（2026-09-25）— 五条路线并行收束，路线1/2各五轮
+用户授权完成五条胜率优化方案；路线1、2除基本实现外各给五轮按实际证据优化和挖掘。
+
+- **共同协议**：`reports/e832_focus/OPTIMIZATION_PROTOCOL.md`。五条路线只服务一个主问题，不按轮数制造阳性。
+- **五轮是上限与决策门，不是必须跑满**：Round 0 实现；后续先3 seeds；只对最强1–2个对比扩到10 seeds。阴性、反例和标准基线解决任务都算完成。
+- **路线1**：source/T1/T2跨任务，分开输入优势与交互符号。
+- **路线2**：同一ResNet18 encoder的可观测段表示＋interaction/additive消融，新parent。当前本机无CUDA、旧授权实例端口拒绝连接；先做实现、CPU冒烟和GPU bundle，正式结果不得用CPU小样本冒充。
+- **路线3**：解析、标准集合/关系、容量匹配和有限群轨道强基线。
+- **路线4**：新parent、新renderer、预设观测变化，失败时缩窄claim。
+- **路线5**：只接最强1–2项结果；真实Figure 1、统一主表、ledger和复现入口。
+- **资源边界**：不产生新增租机支出，不改旧冻结脚本字节，不读封存池。
+- 复查触发：任何路线若只剩“工程跑完”而没有区分竞争解释，不进入正文；GPU不可用时路线2标记BLOCKED_GPU，不用弱结论填充。
+
+## E832-ROUTE1-4-FIRST-PASS（2026-09-25）— 先收窄主张，再继续优化
+父核验路线1–4的首轮实现和结果。
+
+- **路线1**：source新parent E=2313/871；rich_sorted相对rich_unsorted在single-flip三seed为+0.037/+0.024/+0.057，方向支持source范围句。T1/T2仅E=8/17，全部低预算且不可解释；不作跨任务确认，追加固定8192测试parent的可行性轮。
+- **路线2**：4项接口测试和16-parent/4-step CPU smoke通过；正式结果`BLOCKED_GPU`，不将CPU smoke写成视觉结论。旧授权实例端口拒绝连接，未产生新租机。
+- **路线3**：source E=230/65 的解析segment-intersection J3=1.0；学习式capacity/relational J3约0–0.052。故source学习比较明确改写为“解析器之外的学习诊断”，不再暗示任务需要复杂关系模型。
+- **路线4**：新parent E=207/66；canonical/translation/rotation是严格坐标不变量，sorted方向三条件同号但训练只有60 epochs、效应低；noise和visual renderer均未运行，不升级为renderer稳健性。
+- **论文影响**：在路线1跨任务和路线2视觉正式结果到来前，主文中心不写“cross-object interaction已解决”；当前最强可防守贡献是repair-flow测量、手工表示的范围性差异和视觉full-repair边界。真实Figure 1已按固定dev512规则接入，路线5审阅为PARTIAL。
+- 复查触发：若解析器在扩展任务上同样解决问题，论文必须接受“廉价解析基线足够”的结论，不能继续把学习式排序写成方法优势。
+
+## E832-ROUTE1-ROUND2（2026-09-25）— 跨任务确认不成立，主张收窄
+路线1按预先写入的 Round 2 manifest 完成唯一一次新parent扩展，未改 E 规则、指标或候选族。
+
+- source：E=1414、389 parents；rich_sorted−rich_unsorted 在3个seed×clean/flip全部为正，parent区间均排除0。
+- T1：E=417、170 parents；所有排序差区间跨0，判 `UNINFORMATIVE`。
+- T2：E=912、361 parents；方向随seed/监督变化，仅一个clean seed区间排除0且为负，判 `NEGATIVE_UNSTABLE`。
+- 首轮 source 的可审计 parent 数是513而非早期 prose 的871；新结果使用 Round 2 manifest 的1414/389，旧结果保留并在报告中标明。
+- 允许：source-specific sorted representation effect；T1/T2边界/不稳定性。禁止：跨任务确认、普遍interaction、修复普遍有效。
+- 复查触发：只有新的任务协议或真正不同的关系结构干预，才能重新提出跨任务机制问题；不继续抽取更多parent直到出现阳性。
+
+## E832-ROUTE2-DATA-READY（2026-09-25）— 正式视觉结果仍不写
+路线2审计发现原`gpu_run.py`只是状态stub。已补齐fresh data generator、hash/split锁定、data-bound runner和7项测试。
+
+- 新视觉银行：train/dev/test parents=128/32/128；singleton images=323/81/319；test-only quartets=28/112 images/19 parents；AB训练图像=0；parent/image split两两不交。
+- 四臂合同固定：同一ResNet18与输入，direct global linear、additive shared red/blue linear、representation concat linear、interaction concat nonlinear。推理只接受图像。
+- CPU只做PILOT_ONLY；本机无CUDA，12个arm/seed run、J3/J4/full repair/migration/111 regression全部未运行。状态为`DATA_READY_BLOCKED_GPU`，不是视觉阴性。
+- 复查触发：只有GPU结果和独立review完成后，才允许更新路线2 claim；没有GPU时正文不写视觉interaction方向。
+
+## E832-ROUTE2-WAITING-LOGIN（2026-09-25）— 远程执行暂停等待授权入口
+用户要求等待其提供登录方式。路线2本地代码、fresh data、manifest和GPU runner均已准备并通过7项测试；不主动连接远程主机、不保存凭据、不创建新租机。恢复入口：`reports/e832_focus/route2/REMOTE_RUNBOOK.md`。在用户提供入口前，正式视觉状态保持 `DATA_READY_BLOCKED_GPU`，正文不写视觉方向。
+
+## E832-ROUTE2-ITERATION-BUDGET（2026-09-25）— 可持续至04:55
+用户将原“最多3轮优化”改为可继续迭代至04:55。仍保留提前停止条件：结果满意、确认失败、没有新的可修复因素或数据/实现合同失效时立即停止；不为耗尽时间制造新训练。发现J3字段和native RGB mask输入合同缺陷时，先修合同再重跑，不把旧结果解释成科学结论。
+
+## E832-ROUTE2-FINAL-V2（2026-09-25）— 合同修复后有界阴性，退租外部阻塞
+Round 2修复了J3定义和native RGB输入合同；v2 12臂+3 clean baseline均完成。direct J3均值0.571，interaction均值0.583，但interaction-direct seed差+0.179/-0.143/0，不能声称稳定视觉交互优势；状态为`BOUNDED_NEGATIVE_UNSTABLE`，停止训练。AI Galaxy MCP账户显示1台running，但`plan_release`返回该实例不属于当前MCP state store；退租需账户所有者通过控制台或提供正确MCP instance name，未用SSH shutdown代替。
+
+## E832-ROUTE2-CLOSE（2026-09-25）— 五轮优化预算关闭，退租除外
+用户指示除退租外全部收尾。Round2-5优化轮按停止规则关闭：v2之后无新的可修复合同/实现因素，方向不稳定，无继续训练理由，故四轮均记“未触发”，不是“等待GPU”。原DATA_READY_BLOCKED_GPU状态由v2正式结果取代（12+3已执行）。退租条目保留未勾选，待账户所有者处理，本轮不收。

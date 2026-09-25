@@ -1,0 +1,21 @@
+{
+  "canonical224": {
+    "n_quartets": 159,
+    "n_parents": 74,
+    "quartets_per_parent_min": 1,
+    "quartets_per_parent_max": 4,
+    "data_sha256": "63151a7670d2cadcab34d7f52b88f488e27ea0fb04ff4fcdd421d064efca0de6",
+    "renderer": "canonical endpoint order, visible red/blue segments, native 64 bilinear to 224",
+    "backend": "cuda",
+    "dtype": "FP32",
+    "used_for_table": true
+  },
+  "N02": {
+    "n_quartets": 178,
+    "n_parents_one_arm_seed_stratum_all": 85,
+    "identity_only_source": "artifacts/e1a933_review/N02_interpretation/arm_parent_values.csv",
+    "data_sha256": "5f773e0b8fc906ce287e0aa1b1161b4aa5a036d0c48d2a485187264e3ec75032",
+    "used_for_table": false,
+    "note": "Different observation matrix and different data file. No N02 number was copied into the four-arm table. A difference from the 159 bank is not an improvement."
+  }
+}

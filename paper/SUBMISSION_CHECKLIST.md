@@ -18,11 +18,11 @@
 - [x] 1. OpenReview 行政：机构邮箱 profile、作者名单、互审资格、摘要注册——用户已完成 ✅
 - [x] 2. 官方 ICLR 2027 样式包已装（`paper/iclr2027_conference.sty/.bst`，官方站下载；`main.tex` 已接线）。本机TinyTeX可用
 - [x] 9. **重标号稳健性（2026-09-22 新增）**：§4 写入交互对称群稳健性（dev 24/24 ＋ confirm 24/24，预注册 `e7f9850`）；§7 新增限制 (xi) 披露所有绝对率均为单一标号约定下的值；摘要补一句。oracle 不变性经重算（5688 dev ＋ 12216 confirm，零 mismatch）。编译后正文仍 8 页。
-- [ ] 3. **AI-use 披露为草稿**（`main.tex` 注释块，覆盖探索/代码/分析/审计/写作，需作者核准；不计页）
+- [x] 3. **AI-use 披露已定稿**（`main.tex` 末尾 AI-use statement，覆盖探索/代码/分析/审计/写作；2026-09-25按收尾指示定稿，不计页）
 - [x] 4. `references.bib` 39 条入库（全部官方出处核验，见 `paper/refs_research/VERIFIED_REFS.md`），30 条正文接线渲染（40 为软目标）
-- [ ] 5. Figure 1 概念图（§1）未生成（槽位空留，无虚假完成声明）；fig2/fig3 已重生成验证，fig4 四臂图已切 U1/U2 数据源并加 J/H panel（c）
+- [x] 5. Figure 1 已按固定 parent/qid 规则从 dev512 归档预测生成并接入正文（`reports/e832_focus/FIGURE1_SELECTION_RECEIPT.json`）；fig2/fig3 已重生成验证，fig4 四臂图已切 U1/U2 数据源并加 J/H panel（c）
 - [x] 6. 页数核验：主文 9 页 ≤9 页 ✓（2026-09-23 本机 TinyTeX 实测，f095 机制句 +4 行后 8→9；参考文献+附录另 4 页不计入；零错误零未定义引用零 overfull）
-- [ ] 7. 双盲扫描：正文/补充/figures 元数据无作者身份痕迹（当前 Anonymous ✓，换样式后复查）
+- [x] 7. 双盲扫描已执行（2026-09-25）：正文仅Anonymous、无邮箱/机构/致谢/路径泄漏；iclrfinalcopy保持注释；figures元数据仅Matplotlib；main.pdf Author为空。fancyhdr内Utrecht行为模板自带，非作者信息
 - [x] 8. ~~sha256 锁重新部署~~ **已取消**（用户指示 09-24）：分区后时代锁现场可复验性不可恢复，重锁边际价值低；审计路径 = scripts/INDEX.md（bc3b169 检出）＋ SHA256SUMS_UNTRACKED.txt
 
 ## 投稿打包注意
@@ -38,4 +38,6 @@
 
 - [x] R10即时措辞与附录生成器修正，保留未受影响数值；T2负交互进入摘要/正文。
 - [x] 新增任务与模型证据同步：T1/T2输入优势、ResNet18 J及其上采样/初始化边界。
-- [x] 已完成结果同步与本轮PDF构建：主文9页、全稿20页；`reports/e1a933_review/paper_revised.pdf`。视觉O03/N01已完成并入稿；追加GPU实验的科学结果待独立解读，状态以各R/O/N报告为准。
+- [x] 五路线最终同步（2026-09-25）：source解析器J3=1.0的边界、Route1非跨任务结果、Route2 v2有界阴性关闭（原DATA_READY_BLOCKED_GPU由12+3正式结果取代）、Route3/4范围、真实Figure1和统一fallback表已写入；最终构建26页，结论第9页，0 overfull/0 undefined。
+- [x] 收尾验证（2026-09-25，除退租外）：AI-use定稿后重建26页0错；双盲扫描通过；匿名打包验证通过（HEAD快照218M级，data仅2小文件入库，SHA清单e832段266/266 OK）；退租仍待账户所有者处理。
+- [x] 维护/生成附录已分离：`experiments/f095_campaign/gen_app_tables.py` 写 `app_f095_generated.tex`，人工审计措辞保留在 `app_f095.tex`。

@@ -1,0 +1,44 @@
+{
+  "failed": false,
+  "bad_cells": 0,
+  "cells": 6,
+  "detail": [
+    {
+      "seed": 11,
+      "supervision": "clean",
+      "best_mean_train_bce": 0.00480929110199213,
+      "failed": false
+    },
+    {
+      "seed": 11,
+      "supervision": "flip",
+      "best_mean_train_bce": 0.39764103293418884,
+      "failed": false
+    },
+    {
+      "seed": 23,
+      "supervision": "clean",
+      "best_mean_train_bce": 0.02150527946650982,
+      "failed": false
+    },
+    {
+      "seed": 23,
+      "supervision": "flip",
+      "best_mean_train_bce": 0.35544347763061523,
+      "failed": false
+    },
+    {
+      "seed": 47,
+      "supervision": "clean",
+      "best_mean_train_bce": 0.06657368689775467,
+      "failed": false
+    },
+    {
+      "seed": 47,
+      "supervision": "flip",
+      "best_mean_train_bce": 0.27360114455223083,
+      "failed": false
+    }
+  ],
+  "rule": "majority of cells have best mean train BCE > 0.60; flip loss is the sum of two means so it is halved here"
+}
