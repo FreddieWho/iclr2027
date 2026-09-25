@@ -40,7 +40,7 @@
     - [x] Round 1 clean-only baseline完成
     - [x] Round 2合同修复矩阵完成：v2 direct J3=.571、interaction=.583但seed差不稳定；有界阴性，停止训练
     - [ ] AI Galaxy退租：MCP显示1台running但当前实例不属于该MCP state store，需账户所有者/控制台处理
-    - [x] GPU追加第1轮完成：mask池化area修正，representation 0.274→0.619，interaction仍不稳定；12臂拟合良好无剩余可修复因素，第2、3轮按停止规则保留未用（2026-09-25）
+    - [x] GPU追加第1轮完成：mask池化area修正，representation 0.274→0.619，interaction仍不稳定；12臂拟合良好无剩余可修复因素，第2、3轮按停止规则保留未用（2026-09-25，commit 8719031）
 - [x] 路线3：解析、集合、关系、容量匹配与有限群轨道强基线（2026-09-25；解析器J3=1.0，source学习结果收窄为parser-bounded诊断）
     - [x] 三轮证据驱动尝试完成：R1排除简单欠拟合、R2规范表示J3约0.34、R3新银行确认parser-bounded间隔（2026-09-25；报告见`reports/e832_focus/route3/REPORT.md`）
 - [x] 路线4：新 parent、刚体坐标条件与预设观测变化的独立稳健性确认（2026-09-25；noise/visual未运行）
@@ -391,3 +391,5 @@
 - 2026-09-25：**除退租外全部收尾**（用户指示）。变更与原因：(1) 路线2 Round2-5等待GPU框按停止规则关闭为“未触发”（v2后无新可修复因素，方向不稳定），正式对照框改为已执行（v2 12+3）；ROADMAP N2由BLOCKED_GPU改为DONE/BOUNDED_NEGATIVE_UNSTABLE；DECISIONS追加E832-ROUTE2-CLOSE；退租条目保留未勾选；(2) 投稿行政闭环：AI-use由草稿定稿（main.tex末尾statement）、双盲扫描通过（仅Anonymous/元数据干净/iclrfinalcopy注释）、匿名打包验证通过（git快照口径：data仅2小文件入库48G不入包、SHA清单补266个e832中间件全OK、references相对结构保持）、rebuttal可选关闭（reserve已有不另成文）；(3) 论文AI-use定稿后TinyTeX重建：26页、0错误、0 undefined、0 overfull，PAPER_BUILD_RECEIPT更新sha；(4) 可选扩展（O02/O04/N02/O05）与PARKED leads（L-005/L-009/L-013）仍需单独授权，本轮不动。
 - 2026-09-25：**N02升级开工**（用户授权GPU入口后启动）。范围：算力匹配对照（A-wide×4通道，random-init主判据）＋small-edit新分层（≥60/≥30，response-blind过滤）＋预注册P0/P1/P2冻结于reports/n02_upgrade/PROTOCOL.md；单矩阵36臂，无迭代调参。CPU挖掘已后台启动；GPU矩阵待bundle就绪后在已驗證2080Ti上执行（后端内对比，不拼旧数）。
 - 2026-09-25：**N02升级完成**。30臂新后端矩阵MATRIX_COMPLETE（2080Ti）；P0复现通过；P1算力-or-容量约一半（f=0.62/0.55/0.43，均值0.54）；P2维持UNRESOLVED（small-edit方向被拒＋原命中新后端未复现，降级单后端观测）。独立numpy重算一致。论文附录N02段已接线，重建26页0错。判读见reports/n02_upgrade/REPORT.md。
+
+- 2026-09-25：**治理收尾同步**（v3/M2证据与三文件对齐）。变更与原因：(1) 路线2 GPU追加第1轮（v3 area池化）确认为完成，补记验证提交8719031，第2、3轮按停止规则保留未用；退租条目保持未勾选（需账户所有者/控制台处理，非本轮任务）；(2) M2判M2.5阴性为最终结论（`reports/mechanism_transfer_v3/M2_TRANSFER.md`），M3维持默认不跑；(3) STATUS同步v3结果（representation 0.274→0.619、interaction仍不稳定、有界阴性维持）与27页构建回执（`reports/e832_focus/PAPER_BUILD_RECEIPT.json`）；(4) DECISIONS追加E832-ROUTE2-V3-STOP。本次除补记外不改任何勾选状态。

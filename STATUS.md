@@ -1,6 +1,6 @@
 # Current Status
 
-更新时间：2026-09-25（五路线收尾：除退租外全部闭环；投稿行政已验证）
+更新时间：2026-09-25（五路线收尾＋v3/M2治理同步：除退租外全部闭环；投稿行政已验证）
 
 ## 给人读的进展
 
@@ -10,14 +10,14 @@
 
 **卡在哪里。** 本机没有可用显卡，所以没有新开视觉训练，也没有租机。新银行里有 1745/2188 个组合离决策边界很近，这个边界还在，没有靠换分母把它藏掉。
 
-**接下来怎么走。** 路线3已经揭示source存在J3=1.0的解析基线；路线1 Round 2显示source排序稳定但T1/T2不确认。路线2 v2合同修复后direct J3均值0.571、interaction0.583，seed差+0.179/-0.143/0，判有界阴性/不稳定，停止继续训练，Round2-5优化轮按规则关闭（未触发）。AI Galaxy退租仍待账户所有者/控制台处理（本轮不收）。投稿行政已闭环：AI-use定稿、双盲扫描通过、匿名打包已验证（git快照口径）、rebuttal维持reserve不另成文。路线5已把v2结果写入附录，仍不升格视觉interaction主张。
+**接下来怎么走。** 路线3已经揭示source存在J3=1.0的解析基线；路线1 Round 2显示source排序稳定但T1/T2不确认。路线2 v2合同修复后direct J3均值0.571、interaction0.583，seed差+0.179/-0.143/0，判有界阴性/不稳定；用户新批3轮预算的第1轮（v3 area池化，commit 8719031）已完成：representation 0.274→0.619，interaction相对direct为−0.250/−0.036/+0.000仍不稳定，有界阴性维持，第2、3轮按停止规则保留未用。AI Galaxy退租仍待账户所有者/控制台处理（本轮不收）。投稿行政已闭环：AI-use定稿、双盲扫描通过、匿名打包已验证（git快照口径）、rebuttal维持reserve不另成文。路线5已把v2/v3结果写入附录，仍不升格视觉interaction主张。
 
 ```
 ROADMAP  [######----] 5/9 节点
 本轮投入  共同协议 ██████████ 100%   路线实现 █████████░ 90%   新确认 █████░░░░░ 45%
 
 偏离程度  高
-偏离位置  source解析器直接解决E；T1/T2跨任务排序不稳定；路线2 v2有界阴性关闭（退租仍外部阻塞）。
+偏离位置  source解析器直接解决E；T1/T2跨任务排序不稳定；路线2 v3有界阴性维持（退租仍外部阻塞）。
 建议      论文以parser-bounded repair-flow audit为主，不把cross-object interaction写进标题；视觉路线保持data-ready/blocked，不伪造结果。
 ```
 
@@ -50,7 +50,7 @@ ROADMAP  [##########] 9/9 节点
 - 封存池不读：holdout_909 / confirm_1007 / bridge holdout_895 / J03WQQ / SoccerTrack-v2。
 - 最近决策：`E832-ROUTE2-CLOSE`（五轮优化预算关闭）。旧决策 `E1A933-LEADS-L014-L015-L006` 仍有效：dev512 不能当确认银行。
 - 路线1 Round 2已完成：source-specific排序稳定；T1不可判定、T2负向/不稳定，跨任务确认不成立。
-- 路线2：v2合同修复完成并关闭（12+3 runs全finite，有界阴性，Round2-5未触发）；退租待账户所有者处理，本轮不收。
+- 路线2：v2合同修复完成并关闭（12+3 runs全finite，有界阴性）；v3 area池化第1轮完成（representation 0.274→0.619，interaction仍不稳定，有界阴性维持，第2、3轮按停止规则保留未用，commit 8719031）；退租待账户所有者处理，本轮不收。
 - 路线3解析器J3=1.0，路线4仅刚体坐标稳健性；两者不承担主方法claim。
-- 路线5：真实Figure 1和统一fallback表已接入，parser-bounded正文和最终构建完成（含AI-use定稿后重建26页0错）；独立最终审阅为FINAL_WITH_MINOR_FIXES，四个交付修复已处理。投稿行政（AI-use/双盲/匿名包验证/rebuttal关闭）已闭环。
+- 路线5：真实Figure 1和统一fallback表已接入，parser-bounded正文和最终构建完成（含v3附录接线后重建27页0错）；独立最终审阅为FINAL_WITH_MINOR_FIXES，四个交付修复已处理。投稿行政（AI-use/双盲/匿名包验证/rebuttal关闭）已闭环。
 - 路线2远端状态：v2训练已终态；结果回收到本地并经独立重算；停止训练。AI Galaxy退租被MCP ownership阻塞。

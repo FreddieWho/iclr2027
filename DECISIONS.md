@@ -599,3 +599,7 @@ P0通过（新后端B−A两init皆正）。P1：A-wide（×4通道，2.25G≥B 
 机制维持UNRESOLVED且aliasing路更窄。工程事故两起（smaledit整批插值OOM→分块修复；
 残留cache目录撞exist_ok→清理重跑），判据未动。模型.pt留远端（W臂约700MB/个），
 hash已在result.json登记。
+
+## E832-ROUTE2-V3-STOP（2026-09-25）— area池化追加第1轮后停止，第2、3轮保留未用
+用户新批3轮预算中的第1轮（单因素area池化修正，commit 8719031）：v2的nearest 7×7池化把18/112 quartet红通道静默擦成零向量，而12臂训练BCE已压到0.01–0.06故只修合同、不加轮不调参。v3结果（12臂预测独立重算全一致；direct臂与v2逐seed完全一致，对照有效）：representation 0.274→0.619（mask擦除确为压制因素），additive转稳定小负（−0.143/−0.107/−0.071），interaction相对direct为−0.250/−0.036/+0.000方向仍不稳定。12臂拟合良好、无NaN/OOM/崩溃，无剩余可修复合同或实现因素，故第2、3轮按停止规则保留未用，不再消耗预算。总体结论维持`BOUNDED_NEGATIVE_UNSTABLE`（`reports/e832_focus/route2/REPORT.md` v3节；ledger行`route2_visual_mechanism`已同步v3）。
+复查触发：只有新的、可修复的合同/实现因素证据，才能重开追加轮；不为耗尽预算制造训练。
