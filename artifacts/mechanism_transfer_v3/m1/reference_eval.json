@@ -1,0 +1,30 @@
+{
+  "schema": "mechanism_transfer_v3.m1.reference_eval/1",
+  "seed": 832303,
+  "torch_threads": 4,
+  "model_card": {
+    "class": "RepairedSegmentRho",
+    "width": 64,
+    "rho_hidden": 16,
+    "n_parameters": 8001,
+    "architecture_digest": "97d32812107b455d759db80b18e9041d0e62569d07b2853742470ea6e9bdba05",
+    "lineage": {
+      "backbone": "experiments/f095_campaign/u01_models.py::TypedPairMLP",
+      "repaired_rho": "experiments/e832_focus/structure/a_source_compare.py::RepairedRho"
+    }
+  },
+  "t1_pair": {
+    "whole_orbit_gap": 0.37191685226462534,
+    "group_mean_a": 0.11830187340577443,
+    "group_mean_b": 0.11794804036617279,
+    "group_mean_gap": 0.00035383303960163925,
+    "per_perm_std_a": 0.00035312078609571934,
+    "per_perm_std_b": 0.00024584108077030777,
+    "forwards_per_eval": 6
+  },
+  "source_regroup_witness": {
+    "orbit_gap": 0.4970562748477141,
+    "separated": true
+  },
+  "non_claim": "Zero-train group-mean invariance is constructed, and random-weight output gaps are not task evidence. The informative zero-train fact is that the whole-orbit references spare the T1 pair and the source regroup witness before any fitting."
+}

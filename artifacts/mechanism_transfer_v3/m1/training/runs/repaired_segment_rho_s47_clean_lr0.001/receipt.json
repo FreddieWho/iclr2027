@@ -1,0 +1,66 @@
+{
+  "arm": "repaired_segment_rho",
+  "seed": 47,
+  "supervision": "clean",
+  "lr": 0.001,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 1.7429969310760498,
+  "dev_bce_clean": 0.42889246344566345,
+  "dev_bce_flip": 2.209585666656494,
+  "final_train_loss": 0.1409214735031128,
+  "mean_train_loss": 0.3395620407660802,
+  "first_train_loss": 0.6931374669075012,
+  "final_train_error": 0.068359375,
+  "n_parameters": 8001,
+  "macs_per_example": 19600,
+  "train_state_forwards": 153600,
+  "train_forward_macs": 3010560000,
+  "seconds": 0.8472051620483398,
+  "init_state_digest": "302655689a1e05ba613f8425d08753e25359970f23b041f8db5baac454bcca59",
+  "checkpoint_sha256": "352a2094f6b3d6c8361a3535254638961ad43ce7c3560cbcd307e9d1d17b64a8",
+  "model_card": {
+    "arm": "repaired_segment_rho",
+    "class": "RepairedSegmentRho",
+    "in_dim": 8,
+    "n_parameters": 8001,
+    "macs_per_example": 19600,
+    "architecture_digest": "97d32812107b455d759db80b18e9041d0e62569d07b2853742470ea6e9bdba05",
+    "lineage": {
+      "backbone": "experiments/f095_campaign/u01_models.py::TypedPairMLP",
+      "repaired_rho": "experiments/e832_focus/structure/a_source_compare.py::RepairedRho"
+    },
+    "symmetry": "segment_preserving_psi_plus_nonlinear_rho"
+  },
+  "feature_schema": {
+    "arm": "repaired_segment_rho",
+    "columns": [
+      "x0",
+      "y0",
+      "x1",
+      "y1",
+      "x2",
+      "y2",
+      "x3",
+      "y3"
+    ],
+    "in_dim": 8,
+    "construction": "standardized_coordinates_segment_preserving_head",
+    "role_preserving_reference": false,
+    "statistics": "train shared xy mean/std"
+  },
+  "stats_kind": "shared_xy",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 0,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/repaired_segment_rho_s47_clean_lr0.001/model.pt"
+}

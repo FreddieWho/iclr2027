@@ -1,0 +1,56 @@
+{
+  "schema": "mechanism_transfer_v3.m1.source_search/1",
+  "seed": 832302,
+  "bank": "artifacts/e832_focus/structure/bank_quartets.npz",
+  "bank_sha256": "15f5bf181b37dc9b4309582490f7fc11dfca8b03491251c3724fcb2e1bdd804c",
+  "n_bank_scenes": 4096,
+  "n_positive_margin_scenes": 4096,
+  "nearest_opposite_label": {
+    "g8_feature_distance": 0.04710996150970459,
+    "scene_a": 1229,
+    "scene_b": 1431,
+    "bank_label_a": 1,
+    "bank_label_b": 0,
+    "bank_margin_a": 0.025395937263965607,
+    "bank_margin_b": 0.03283771499991417,
+    "crossing_label_a": true,
+    "crossing_label_b": false,
+    "crossing_margin_a": 0.04314283131811663,
+    "crossing_margin_b": 0.05100233054709349
+  },
+  "nearest_equal_label_control": {
+    "g8_feature_distance": 0.021252155303955078,
+    "scene_a": 1318,
+    "scene_b": 2433
+  },
+  "bounded_local_search": {
+    "steps": 3000,
+    "start_scale": 0.05,
+    "end_scale": 0.002,
+    "coordinate_bound": 1.0,
+    "start_distance": 0.04710996150970459,
+    "best_distance": 0.033521294593811035,
+    "best_margin": 0.01984489655545838,
+    "best_movement_linf": 0.03197534048326134,
+    "best_step": 1943,
+    "exact_merge_found": false
+  },
+  "provenance": {
+    "schema": "mechanism_transfer_v3.bank/1",
+    "name": "source_g8_search",
+    "seed": 832302,
+    "inputs": {
+      "bank": "artifacts/e832_focus/structure/bank_quartets.npz"
+    },
+    "parameters": {
+      "query_chunk": 512,
+      "local_steps": 3000,
+      "coordinate_bound": 1.0
+    },
+    "outputs": {
+      "n_positive_margin_scenes": 4096
+    },
+    "code_module": "common.bank"
+  },
+  "non_claim": "A zero local-search distance would be one constructed opposite-label merge. A positive minimum is only a bounded-search lower bound, not proof that source G8 is complete, and small near-neighbor distance alone is not indistinguishability."
+}

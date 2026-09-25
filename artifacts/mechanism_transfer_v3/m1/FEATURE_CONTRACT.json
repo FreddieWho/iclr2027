@@ -1,0 +1,62 @@
+{
+  "schema": "mechanism_transfer_v3.m1.collision/1",
+  "seed": 832301,
+  "inside_coordinates": [
+    [
+      -0.75,
+      0.0
+    ],
+    [
+      0.75,
+      0.0
+    ],
+    [
+      -0.375,
+      0.75
+    ],
+    [
+      0.1875,
+      0.09375
+    ]
+  ],
+  "outside_coordinates": [
+    [
+      -0.75,
+      0.0
+    ],
+    [
+      0.75,
+      0.0
+    ],
+    [
+      -0.375,
+      0.75
+    ],
+    [
+      -0.1875,
+      -0.09375
+    ]
+  ],
+  "oracle": {
+    "inside": {
+      "label": 1,
+      "margin": 0.09375,
+      "ambiguous_at_0": false,
+      "ambiguous_at_0.02": false
+    },
+    "outside": {
+      "label": 0,
+      "margin": 0.09375,
+      "ambiguous_at_0": false,
+      "ambiguous_at_0.02": false
+    }
+  },
+  "legacy_sorted_gap_float64": 0.0,
+  "legacy_sorted_gap_float32": 0.0,
+  "legacy_sorted_bitwise_equal_float32": true,
+  "legacy_unsorted_gap_float64": 0.37191685226462534,
+  "legacy_unsorted_gap_float32": 0.37191685226462534,
+  "whole_orbit_gap": 0.37191685226462534,
+  "standardization_note": "Any fixed per-feature affine standardization preserves exact equality: the sorted float32/float64 gap is 0 before scaling, so it remains 0 after scaling.",
+  "non_claim": "This is one constructed opposite-label merge under the legacy T1 sorted bags. It does not estimate collision prevalence in any random bank and does not transfer to source G8 by itself."
+}

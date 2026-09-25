@@ -1,0 +1,64 @@
+{
+  "arm": "orbit_distance",
+  "seed": 11,
+  "supervision": "clean",
+  "lr": 0.01,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 1.1973395347595215,
+  "dev_bce_clean": 0.030757371336221695,
+  "dev_bce_flip": 1.6115492582321167,
+  "final_train_loss": 2.9607135729747824e-05,
+  "mean_train_loss": 0.018212401777418563,
+  "first_train_loss": 0.690741777420044,
+  "final_train_error": 0.0,
+  "n_parameters": 6721,
+  "macs_per_example": 6560,
+  "train_state_forwards": 153600,
+  "train_forward_macs": 1007616000,
+  "seconds": 0.5354280471801758,
+  "init_state_digest": "c09126808533f4d5feb0cb47a181bd171b8e40b8f1a2130544fbe9027c57b20a",
+  "checkpoint_sha256": "68489d3145f5e98b2be170e8bfdcf125f4af00b592aecd3c69ba455d8b5bc5a1",
+  "model_card": {
+    "arm": "orbit_distance",
+    "class": "CoordMLP",
+    "in_dim": 6,
+    "n_parameters": 6721,
+    "macs_per_example": 6560,
+    "architecture_digest": "c09126808533f4d5feb0cb47a181bd171b8e40b8f1a2130544fbe9027c57b20a",
+    "lineage": {
+      "backbone": "experiments/discovery_campaign/coord_mlp.py::CoordMLP",
+      "source_sha256": "3623de068807af3467d085aa890bc85afe87f07ebe484511f61822a2c369fa7a"
+    },
+    "symmetry": "none_by_construction"
+  },
+  "feature_schema": {
+    "arm": "orbit_distance",
+    "columns": [
+      "d01",
+      "d02",
+      "d03",
+      "d12",
+      "d13",
+      "d23"
+    ],
+    "in_dim": 6,
+    "construction": "whole_orbit_lexicographic_distance_representative",
+    "role_preserving_reference": true,
+    "statistics": "train per-column mean/std"
+  },
+  "stats_kind": "train_feature",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 0,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/orbit_distance_s11_clean_lr0.01/model.pt"
+}

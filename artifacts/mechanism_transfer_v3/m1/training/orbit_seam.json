@@ -1,0 +1,19 @@
+{
+  "schema": "mechanism_transfer_v3.m1.orbit_seam/1",
+  "atol": 1e-09,
+  "populations": {
+    "train_scenes": {
+      "n_scenes": 512,
+      "tie_fraction": 0.0
+    },
+    "bank_A_states": {
+      "n_scenes": 2188,
+      "tie_fraction": 0.0
+    },
+    "bank_P_states": {
+      "n_scenes": 2188,
+      "tie_fraction": 0.0
+    }
+  },
+  "note": "the lexicographic whole-orbit representative is discontinuous where the minimum is not unique; the rate has to be reported next to the arm's numbers because the arm is only piecewise smooth"
+}

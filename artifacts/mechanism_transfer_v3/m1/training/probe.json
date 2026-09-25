@@ -1,0 +1,35 @@
+{
+  "schema": "mechanism_transfer_v3.m1.training_probe/1",
+  "threads": 4,
+  "epochs": 300,
+  "timings": [
+    {
+      "arm": "repaired_segment_rho",
+      "supervision": "flip",
+      "seconds": 3.2277660369873047,
+      "epochs": 300,
+      "n_train": 2046,
+      "macs_per_example": 19600
+    },
+    {
+      "arm": "segment_moment",
+      "supervision": "flip",
+      "seconds": 1.1076836585998535,
+      "epochs": 300,
+      "n_train": 2046,
+      "macs_per_example": 11552
+    },
+    {
+      "arm": "rich8_sorted",
+      "supervision": "flip",
+      "seconds": 0.7340297698974609,
+      "epochs": 300,
+      "n_train": 2046,
+      "macs_per_example": 6688
+    }
+  ],
+  "mean_cell_seconds": 1.689826488494873,
+  "n_grid_cells": 108,
+  "projected_grid_seconds": 182.5012607574463,
+  "projected_grid_hours": 0.05069479465484619
+}

@@ -1,0 +1,66 @@
+{
+  "arm": "raw",
+  "seed": 11,
+  "supervision": "clean",
+  "lr": 0.01,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 5.1661057472229,
+  "dev_bce_clean": 1.2381486892700195,
+  "dev_bce_flip": 6.560775279998779,
+  "final_train_loss": 3.3697913750074804e-05,
+  "mean_train_loss": 0.028564759014055502,
+  "first_train_loss": 0.6932641267776489,
+  "final_train_error": 0.0,
+  "n_parameters": 6849,
+  "macs_per_example": 6688,
+  "train_state_forwards": 153600,
+  "train_forward_macs": 1027276800,
+  "seconds": 0.5653879642486572,
+  "init_state_digest": "0677ebebb7839a2c06385640a9b5f6896758a3d6a038bebdb00999792be5906c",
+  "checkpoint_sha256": "549a2504e8ae9947f17594a12097cff511f0838ebd13e7b8d8a0c31637339022",
+  "model_card": {
+    "arm": "raw",
+    "class": "CoordMLP",
+    "in_dim": 8,
+    "n_parameters": 6849,
+    "macs_per_example": 6688,
+    "architecture_digest": "0677ebebb7839a2c06385640a9b5f6896758a3d6a038bebdb00999792be5906c",
+    "lineage": {
+      "backbone": "experiments/discovery_campaign/coord_mlp.py::CoordMLP",
+      "source_sha256": "3623de068807af3467d085aa890bc85afe87f07ebe484511f61822a2c369fa7a"
+    },
+    "symmetry": "none_by_construction"
+  },
+  "feature_schema": {
+    "arm": "raw",
+    "columns": [
+      "x0",
+      "y0",
+      "x1",
+      "y1",
+      "x2",
+      "y2",
+      "x3",
+      "y3"
+    ],
+    "in_dim": 8,
+    "construction": "standardized_coordinates",
+    "role_preserving_reference": false,
+    "statistics": "train shared xy mean/std"
+  },
+  "stats_kind": "shared_xy",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 0,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/raw_s11_clean_lr0.01/model.pt"
+}

@@ -1,0 +1,68 @@
+{
+  "arm": "segment_moment",
+  "seed": 23,
+  "supervision": "clean",
+  "lr": 0.01,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 3.7368814945220947,
+  "dev_bce_clean": 0.4463373124599457,
+  "dev_bce_flip": 4.9052300453186035,
+  "final_train_loss": 2.134473470505327e-05,
+  "mean_train_loss": 0.026435057599495243,
+  "first_train_loss": 0.6936671733856201,
+  "final_train_error": 0.0,
+  "n_parameters": 6977,
+  "macs_per_example": 11552,
+  "train_state_forwards": 153600,
+  "train_forward_macs": 1774387200,
+  "seconds": 0.6481420993804932,
+  "init_state_digest": "d8433187e9e574b1d781cf150ab1b54cd9fc44c546572c643be6e202f13d6772",
+  "checkpoint_sha256": "5ddc0ccc18f0871c9a57b86c410b8d12ca116a4ca095a10dbce50790c38838d3",
+  "model_card": {
+    "arm": "segment_moment",
+    "class": "SegmentMomentInteraction",
+    "in_dim": 10,
+    "n_parameters": 6977,
+    "macs_per_example": 11552,
+    "architecture_digest": "d8433187e9e574b1d781cf150ab1b54cd9fc44c546572c643be6e202f13d6772",
+    "lineage": {
+      "descriptor": "midpoint and direction outer product (m, Q)",
+      "fusion": "shared nonlinear q, symmetrized over the two orders"
+    },
+    "symmetry": "endpoint_swap_and_segment_swap_exact"
+  },
+  "feature_schema": {
+    "arm": "segment_moment",
+    "columns": [
+      "mid0_x",
+      "mid0_y",
+      "q0_xx",
+      "q0_xy",
+      "q0_yy",
+      "mid1_x",
+      "mid1_y",
+      "q1_xx",
+      "q1_xy",
+      "q1_yy"
+    ],
+    "in_dim": 10,
+    "construction": "centered_midpoint_and_direction_outer_product",
+    "role_preserving_reference": true,
+    "statistics": "train global coordinate scale, then train per-column mean/std"
+  },
+  "stats_kind": "train_feature",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 0,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/segment_moment_s23_clean_lr0.01/model.pt"
+}

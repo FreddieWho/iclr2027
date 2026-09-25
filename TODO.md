@@ -3,6 +3,14 @@
 本轮依据：用户指示解包并执行 `docs/e832887_focus_pack/01_MASTER_PROMPT.md`。
 旧施工包已收尾，不再用“实验全部关闭”阻断这一轮。封存池仍不读。本机无 GPU，不新开租机。
 
+## 当前执行（2c3e2d9 机制迁移，2026-09-25）
+
+- [x] 解包 `docs/2c3e2d9_mechanism_transfer_package.zip`，自带12项合同测试全过，实时仓库审计确认R1–R5
+- [x] R1–R6共享原语：`experiments/mechanism_transfer_v3/common/` + 13项fail-closed测试，不动旧文件
+- [x] M1源端：T1碰撞形式化、source有界搜索、6臂×clean/flip×3 seeds训练矩阵（orbit去风险排序无精度代价，flip侧增益不稳定；T1/T2未跑）
+- [x] M2 CPU准备：扩展盲bank（692 quartets/351 parents）、mask审计、解析基线J3=0.886；M3默认不跑
+- [x] M2 GPU主格完成（2026-09-25）：16格全部独立验证；direct_full J3≈0.92最优，真几何+冻结head 0.796，随机head≈0，纯几何前端≈0.20（冻结/微调backbone无差，MSE≈0.51）；判M2.5阴性，停止加head；报告`reports/mechanism_transfer_v3/M2_TRANSFER.md`，附录已接线
+
 ## 正在执行（五路线胜率优化，2026-09-25）
 
 用户授权完成五条优化；路线1、2在基本实现外各有五轮证据驱动优化预算。共同合同见 `reports/e832_focus/OPTIMIZATION_PROTOCOL.md`。不读封存池，不产生新增租机支出。

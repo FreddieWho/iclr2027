@@ -1,0 +1,54 @@
+{
+  "base_commit": "2c3e2d9640607c32aacf86c8758cd1e2f8ef317b",
+  "scope": "Minimal transcribed function-contract reproductions; not a repository checkout, model rerun or original-bank prevalence estimate",
+  "tests_run": 12,
+  "failures": 0,
+  "errors": 0,
+  "all_passed": true,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "torch": "2.10.0+cpu",
+  "cuda_used": false,
+  "t1_collision": {
+    "inside_coordinates": [
+      [
+        -0.75,
+        0.0
+      ],
+      [
+        0.75,
+        0.0
+      ],
+      [
+        -0.375,
+        0.75
+      ],
+      [
+        0.1875,
+        0.09375
+      ]
+    ],
+    "outside_coordinates": [
+      [
+        -0.75,
+        0.0
+      ],
+      [
+        0.75,
+        0.0
+      ],
+      [
+        -0.375,
+        0.75
+      ],
+      [
+        -0.1875,
+        -0.09375
+      ]
+    ],
+    "inside_label": true,
+    "outside_label": false,
+    "legacy_feature_max_abs_difference": 0.0,
+    "whole_orbit_feature_max_abs_difference": 0.37191685226462534
+  }
+}

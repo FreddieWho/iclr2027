@@ -1,13 +1,9 @@
 {
- "conclusion_page": 9,
- "double_blind_scan": "2026-09-25: tex identity clean (only Anonymous; no emails/institutions/acks/paths); iclrfinalcopy stays commented; PNG Software=Matplotlib only; PDF Author empty, Creator=LaTeX with hyperref; fancyhdr Utrecht line is stock package template, not author info",
- "engine": "TinyTeX pdflatex",
- "figure1_page": 2,
- "overfull": 0,
- "pages": 26,
- "pdf_sha256": "6f3721842529ba7793758a3be9f72c78c38ae7259ca2553ff084716ba1da4400",
- "rebuild": "2026-09-25 N02 upgrade appendix wiring: 0 errors, 0 undefined, 0 overfull",
- "route2_claim": "BOUNDED_NEGATIVE_UNSTABLE; route2 v2 result in appendix, no main-text promotion",
- "table_page": 6,
- "n02_upgrade": "P1 compute-or-capacity ~half (f 0.62/0.55/0.43); P2 stays UNRESOLVED; orig hit downgraded single-backend"
+  "pages": 27,
+  "conclusion_page": 9,
+  "overfull": 0,
+  "undefined": 0,
+  "pdf_sha256": "8582e85b4472321a1d78d5f643df0806839a44d96254ecaa64a2d36a75131c61",
+  "engine": "TinyTeX pdflatex",
+  "v3_migration": "appendix-only route1/route2/M2-frozenmodule notes; no main-text promotion"
 }

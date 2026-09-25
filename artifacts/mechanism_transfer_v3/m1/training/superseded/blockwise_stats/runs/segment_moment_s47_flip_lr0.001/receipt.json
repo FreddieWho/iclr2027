@@ -1,0 +1,68 @@
+{
+  "arm": "segment_moment",
+  "seed": 47,
+  "supervision": "flip",
+  "lr": 0.001,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 0.7413030862808228,
+  "dev_bce_clean": 0.12766039371490479,
+  "dev_bce_flip": 0.959184467792511,
+  "final_train_loss": 0.04831107333302498,
+  "mean_train_loss": 0.47613191517690817,
+  "first_train_loss": 1.3774844408035278,
+  "final_train_error": 0.0,
+  "n_parameters": 6977,
+  "macs_per_example": 11552,
+  "train_state_forwards": 613800,
+  "train_forward_macs": 7090617600,
+  "seconds": 1.0862765312194824,
+  "init_state_digest": "4a03c1021828008a787bffb017ef8c78f3c602c9304ac9ef7c5b2d5bae874e79",
+  "checkpoint_sha256": "08880862e288fae50602cc93b3b63aa9e9155ced6e49ef83830c24efb86682ed",
+  "model_card": {
+    "arm": "segment_moment",
+    "class": "SegmentMomentInteraction",
+    "in_dim": 10,
+    "n_parameters": 6977,
+    "macs_per_example": 11552,
+    "architecture_digest": "4a03c1021828008a787bffb017ef8c78f3c602c9304ac9ef7c5b2d5bae874e79",
+    "lineage": {
+      "descriptor": "midpoint and direction outer product (m, Q)",
+      "fusion": "shared nonlinear q, symmetrized over the two orders"
+    },
+    "symmetry": "endpoint_swap_and_segment_swap_exact"
+  },
+  "feature_schema": {
+    "arm": "segment_moment",
+    "columns": [
+      "mid0_x",
+      "mid0_y",
+      "q0_xx",
+      "q0_xy",
+      "q0_yy",
+      "mid1_x",
+      "mid1_y",
+      "q1_xx",
+      "q1_xy",
+      "q1_yy"
+    ],
+    "in_dim": 10,
+    "construction": "centered_midpoint_and_direction_outer_product",
+    "role_preserving_reference": true,
+    "statistics": "train global coordinate scale, then train per-column mean/std"
+  },
+  "stats_kind": "train_feature",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 1534,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/segment_moment_s47_flip_lr0.001/model.pt"
+}

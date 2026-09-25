@@ -1,0 +1,66 @@
+{
+  "arm": "rich8_unsorted",
+  "seed": 11,
+  "supervision": "flip",
+  "lr": 0.003,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 0.5613503456115723,
+  "dev_bce_clean": 0.048702411353588104,
+  "dev_bce_flip": 0.7433723211288452,
+  "final_train_loss": 0.0020683431066572666,
+  "mean_train_loss": 0.17062371916292857,
+  "first_train_loss": 1.4009264707565308,
+  "final_train_error": 0.0,
+  "n_parameters": 6849,
+  "macs_per_example": 6688,
+  "train_state_forwards": 613800,
+  "train_forward_macs": 4105094400,
+  "seconds": 0.7839956283569336,
+  "init_state_digest": "0677ebebb7839a2c06385640a9b5f6896758a3d6a038bebdb00999792be5906c",
+  "checkpoint_sha256": "890445482385b64665fe15b4005aad81c4b289bd472931188ffd07bc970ea114",
+  "model_card": {
+    "arm": "rich8_unsorted",
+    "class": "CoordMLP",
+    "in_dim": 8,
+    "n_parameters": 6849,
+    "macs_per_example": 6688,
+    "architecture_digest": "0677ebebb7839a2c06385640a9b5f6896758a3d6a038bebdb00999792be5906c",
+    "lineage": {
+      "backbone": "experiments/discovery_campaign/coord_mlp.py::CoordMLP",
+      "source_sha256": "3623de068807af3467d085aa890bc85afe87f07ebe484511f61822a2c369fa7a"
+    },
+    "symmetry": "none_by_construction"
+  },
+  "feature_schema": {
+    "arm": "rich8_unsorted",
+    "columns": [
+      "length_ab",
+      "length_cd",
+      "cross_ac",
+      "cross_ad",
+      "cross_bc",
+      "cross_bd",
+      "midpoint_distance",
+      "direction_sine"
+    ],
+    "in_dim": 8,
+    "construction": "legacy_quantities_fixed_order",
+    "role_preserving_reference": false,
+    "statistics": "train per-column mean/std"
+  },
+  "stats_kind": "train_feature",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 1534,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/rich8_unsorted_s11_flip_lr0.003/model.pt"
+}

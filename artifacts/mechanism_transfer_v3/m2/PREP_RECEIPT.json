@@ -1,0 +1,515 @@
+{
+  "schema": "mechanism_transfer_v3.m2.prep_receipt/1",
+  "scope": "M2 CPU prep step 0-3: expanded blinded bank, mask/pooling audit, analytic image baseline. No frozen relation head required, no neural training, no GPU, no sealed pool.",
+  "code": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_v3common.py": "91de6007b8c03c774d6ebb504263621a60e393064bf7a4f8dad64a831a95e5b7",
+    "analytic_image_baseline.py": "4a90311dab7d2868f223364a0e8df18e51a044570345b924acb930694e9cca83",
+    "bank_contract.py": "3ed75dee35a58caa6feca29f64d613f17eae74c98f6b89f7c72b2c7e9d93f1aa",
+    "generate_bank.py": "d04a803f06c12dfa8e43b46a79b792609afaded2b859aefa4cb895ba9a1e71a4",
+    "mask_audit.py": "e8e9a13d1a722e6f3609c0a0c29ce4fa4229667f9482f2640f1b2ebb0873352a",
+    "miners.py": "528b3ebe4e0c1c4a30fa19a324dd9417ede41f9cbb6188cfd455c15364f3111d",
+    "scene_primitives.py": "864a6bda96fc80fec176096f6f698749adcbe3878419fda6d345e8d12710f0e8",
+    "test_m2_prep.py": "0df2ef34c4eb2afec77c571c90937fafd64a86f624ba33613d5e0a77ea53699c"
+  },
+  "bank": {
+    "archive": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/bank/data.npz",
+    "archive_sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+    "manifest": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/bank/data_manifest.json",
+    "manifest_sha256": "50060815bfe5f4eab48fe04c1ccdf60f1208aea1a87c15f45b63fc3d390e6667",
+    "size_bytes": 1729142,
+    "image_dtype": "uint8",
+    "counts": {
+      "train_singleton_images": 2532,
+      "dev_singleton_images": 333,
+      "test_singleton_images": 946,
+      "train_parents": 1024,
+      "dev_parents": 128,
+      "test_parents": 384,
+      "quartets": 692,
+      "quartet_images": 2768,
+      "quartet_eligible_parents": 384,
+      "quartet_sampled_parents": 351,
+      "ab_training_images": 0
+    },
+    "split_disjointness": {
+      "parent_overlap_counts": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "parent_sets_pairwise_disjoint": true,
+      "singleton_image_hash_overlaps": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "singleton_image_sets_pairwise_disjoint": true
+    },
+    "separations": {
+      "min_pairwise_parent_linf_train": 0.1436847148697824,
+      "min_pairwise_parent_linf_dev": 0.18630564707649466,
+      "min_pairwise_parent_linf_test": 0.16520896268743224,
+      "min_test_to_train_parent_linf": 0.1831715330683571,
+      "min_test_to_dev_parent_linf": 0.18679909113212345,
+      "min_train_to_dev_parent_linf": 0.15941208923376937,
+      "min_quartet_state_to_train_parent_linf": 0.15139752117599647,
+      "min_quartet_state_to_dev_parent_linf": 0.17759836156403375,
+      "dedup_linf": 0.0001
+    },
+    "determinism": {
+      "determinism_check": "passed",
+      "arrays_compared": 48,
+      "array_sha256_all_equal": true,
+      "archive_sha256_equal": true,
+      "first_archive_sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+      "second_archive_sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342"
+    },
+    "yields_singleton_test": {
+      "oracle_valueerror": 0,
+      "ambiguous": 0,
+      "label_not_flipped": 21555,
+      "label_not_preserved": 0,
+      "below_margin": 205,
+      "below_pixel_threshold": 6,
+      "single_kept": 562,
+      "pair_oracle_valueerror": 0,
+      "pair_combo_preserved": 0,
+      "pair_below_margin": 0,
+      "pair_below_pixel_threshold": 0,
+      "pair_drawn": 0,
+      "stage": "singleton",
+      "drawn": 22328,
+      "accepted": 562,
+      "parents_at_edit_cap": 278,
+      "parents_with_zero_edits": 100
+    },
+    "yields_quartet": {
+      "oracle_valueerror": 0,
+      "ambiguous": 0,
+      "label_not_flipped": 0,
+      "label_not_preserved": 6119,
+      "below_margin": 3609,
+      "below_pixel_threshold": 0,
+      "single_kept": 39424,
+      "pair_oracle_valueerror": 0,
+      "pair_combo_preserved": 539778,
+      "pair_below_margin": 968,
+      "pair_below_pixel_threshold": 5,
+      "pair_drawn": 541443,
+      "stage": "quartet",
+      "drawn": 49152,
+      "accepted": 692,
+      "parents_rejected_margin": 0,
+      "eligible_parents": 384,
+      "parents_at_quartet_cap": 341,
+      "quartets_per_eligible_parent": 1.8020833333333333,
+      "quartet_count": 692,
+      "parents_with_quartets": 351
+    },
+    "provenance": {
+      "fresh_generator_only": true,
+      "loaded_existing_scene_or_image_artifacts": false,
+      "pilot_route2_bank_reused_as_data": false,
+      "sealed_or_dev512_pool_read": false,
+      "freezing_statement": "seeds, split sizes, caps, margin floor, radius schedule and pixel threshold were fixed in bank_contract.FROZEN before generation"
+    },
+    "coverage_test": {
+      "schema": "mechanism_transfer_v3.bank/1",
+      "n_scenes": 946,
+      "n_parents": 384,
+      "scenes_sha256": "075efa6326c463506acf9ce093f7f773ec4cedcbee92bc9f7be606eea1d0a428",
+      "parents_sha256": "024ed0ba75dd530548745829f2d854bc3652d8534afc511f6c6b0baacc8613a0",
+      "min_scenes_per_parent": 1,
+      "max_scenes_per_parent": 3,
+      "families": {
+        "clean": 384,
+        "move_node0": 80,
+        "move_node1": 72,
+        "move_node2": 82,
+        "move_node3": 67,
+        "rot_AB": 6,
+        "rot_CD": 4,
+        "shift_AB": 132,
+        "shift_CD": 119
+      },
+      "radii": {
+        "min": 0.0,
+        "mean": 0.2033298088761389,
+        "max": 0.5
+      },
+      "margins": {
+        "min": 0.020088287070393562,
+        "mean": 0.11907752203788553,
+        "max": 1.029929757118225
+      }
+    },
+    "edit_count_histogram": {
+      "train": {
+        "0": 250,
+        "1": 40,
+        "2": 734
+      },
+      "dev": {
+        "0": 24,
+        "1": 3,
+        "2": 101
+      },
+      "test": {
+        "0": 100,
+        "1": 6,
+        "2": 278
+      }
+    }
+  },
+  "mask_audit": {
+    "output": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/mask_audit.json",
+    "output_size_7": {
+      "train": {
+        "nearest": {
+          "red": {
+            "erased_native_visible": 218,
+            "native_visible": 2532,
+            "rate": 0.08609794628751975,
+            "mean_pooled_cells": 2.248815165876777,
+            "missing_color": 0
+          },
+          "blue": {
+            "erased_native_visible": 134,
+            "native_visible": 2532,
+            "rate": 0.05292259083728278,
+            "mean_pooled_cells": 2.721563981042654,
+            "missing_color": 0
+          }
+        },
+        "area": {
+          "red": {
+            "erased_native_visible": 0,
+            "native_visible": 2532,
+            "rate": 0.0,
+            "mean_pooled_cells": 8.723538704581358,
+            "missing_color": 0
+          },
+          "blue": {
+            "erased_native_visible": 0,
+            "native_visible": 2532,
+            "rate": 0.0,
+            "mean_pooled_cells": 9.209320695102686,
+            "missing_color": 0
+          }
+        }
+      },
+      "dev": {
+        "nearest": {
+          "red": {
+            "erased_native_visible": 30,
+            "native_visible": 333,
+            "rate": 0.09009009009009009,
+            "mean_pooled_cells": 2.2462462462462462,
+            "missing_color": 0
+          },
+          "blue": {
+            "erased_native_visible": 15,
+            "native_visible": 333,
+            "rate": 0.04504504504504504,
+            "mean_pooled_cells": 2.6816816816816815,
+            "missing_color": 0
+          }
+        },
+        "area": {
+          "red": {
+            "erased_native_visible": 0,
+            "native_visible": 333,
+            "rate": 0.0,
+            "mean_pooled_cells": 8.747747747747749,
+            "missing_color": 0
+          },
+          "blue": {
+            "erased_native_visible": 0,
+            "native_visible": 333,
+            "rate": 0.0,
+            "mean_pooled_cells": 9.087087087087086,
+            "missing_color": 0
+          }
+        }
+      },
+      "test": {
+        "nearest": {
+          "red": {
+            "erased_native_visible": 77,
+            "native_visible": 946,
+            "rate": 0.08139534883720931,
+            "mean_pooled_cells": 2.2494714587737845,
+            "missing_color": 0
+          },
+          "blue": {
+            "erased_native_visible": 71,
+            "native_visible": 946,
+            "rate": 0.07505285412262157,
+            "mean_pooled_cells": 2.5845665961945032,
+            "missing_color": 0
+          }
+        },
+        "area": {
+          "red": {
+            "erased_native_visible": 0,
+            "native_visible": 946,
+            "rate": 0.0,
+            "mean_pooled_cells": 8.673361522198732,
+            "missing_color": 0
+          },
+          "blue": {
+            "erased_native_visible": 0,
+            "native_visible": 946,
+            "rate": 0.0,
+            "mean_pooled_cells": 8.947145877378436,
+            "missing_color": 0
+          }
+        }
+      }
+    },
+    "output_size_14_nearest_erased": {
+      "train": {
+        "red": 14,
+        "blue": 0
+      },
+      "dev": {
+        "red": 1,
+        "blue": 0
+      },
+      "test": {
+        "red": 1,
+        "blue": 0
+      }
+    },
+    "quartets_with_any_erased_state_7x7": 191,
+    "quartet_count": 692,
+    "palette_ambiguity": {
+      "n_pixels": 3874816,
+      "green_in_0.30_0.40": 0,
+      "red_and_blue_both": 0,
+      "neither_mask_nor_near_background": 0,
+      "unique_values_red": 28,
+      "note": "a nonzero red/blue overlap or a populated green gray zone would mean the frozen thresholds are ambiguous on this renderer; zero is expected"
+    },
+    "pilot_error_correlation": {
+      "n_quartets": 28,
+      "n_erased_quartets": 7,
+      "erased_indices": [
+        7,
+        8,
+        9,
+        15,
+        20,
+        22,
+        23
+      ],
+      "catch": "descriptive audit on the 28-quartet / 19-parent archived pilot bank only; the erased subset has 7 quartets, so no effect is estimable and none is claimed"
+    },
+    "quartet_pixel_filter_audit": {
+      "output": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/mask_audit.json",
+      "rule": "max over RGB channels of |state - P| > 0.2, counted",
+      "threshold": 20,
+      "pilot_quartets_below_threshold": 3,
+      "pilot_quartet_count": 28,
+      "pilot_below_indices": [
+        4,
+        5,
+        20
+      ],
+      "pilot_per_state_minimum": [
+        2,
+        43,
+        76
+      ],
+      "expanded_quartets_below_threshold": 0,
+      "expanded_quartet_count": 692,
+      "expanded_per_state_minimum": [
+        21,
+        20,
+        36
+      ]
+    }
+  },
+  "analytic_baseline": {
+    "output": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/analytic_baseline.json",
+    "pilot_bank": "/home/huyudi/012_conference/iclr2027/artifacts/e832_focus/route2/data/data.npz",
+    "pilot_test_singleton_accuracy": 0.9780564263322884,
+    "pilot_quartet_metrics": {
+      "n_quartets": 28,
+      "P": 1.0,
+      "A": 0.9285714285714286,
+      "B": 0.8571428571428571,
+      "AB": 0.9285714285714286,
+      "atomic_joint": 0.8214285714285714,
+      "J3": 0.75,
+      "J4": 0.75,
+      "p_available": true
+    },
+    "pilot_quartet_flow": {
+      "n_quartets": 28,
+      "n_P_correct": 28,
+      "n_A_B_correct": 23,
+      "n_A_B_correct_AB_wrong": 2,
+      "n_full_repair_J3": 21
+    },
+    "pilot_quartet_parent_ci": {
+      "estimate": 0.7105263157894737,
+      "ci95": [
+        0.5,
+        0.8947368421052632
+      ],
+      "n": 28,
+      "parents": 19,
+      "unit": "test parent (equal weight)"
+    },
+    "expanded_test_singleton_accuracy": 0.9799154334038055,
+    "expanded_quartet_metrics": {
+      "n_quartets": 685,
+      "P": 0.997080291970803,
+      "A": 0.9868613138686131,
+      "B": 0.945985401459854,
+      "AB": 0.9445255474452555,
+      "atomic_joint": 0.9416058394160584,
+      "J3": 0.8861313868613139,
+      "J4": 0.8861313868613139,
+      "p_available": true
+    },
+    "expanded_quartet_flow": {
+      "n_quartets": 685,
+      "n_P_correct": 683,
+      "n_A_B_correct": 645,
+      "n_A_B_correct_AB_wrong": 38,
+      "n_full_repair_J3": 607
+    },
+    "expanded_quartet_parent_ci": {
+      "estimate": 0.8882521489971347,
+      "ci95": [
+        0.8567335243553008,
+        0.9169054441260746
+      ],
+      "n": 685,
+      "parents": 349,
+      "unit": "test parent (equal weight)"
+    },
+    "expanded_endpoint_recovery": {
+      "n": 943,
+      "n_border_contact": 62,
+      "mean_endpoint_error": 0.028597488273174407,
+      "median_endpoint_error": 0.026366244845664355,
+      "p90_endpoint_error": 0.041611993587156886,
+      "note": "per-segment mean endpoint distance in scene units; within-segment order is free"
+    },
+    "quartet_endpoint_recovery": {
+      "n": 2760,
+      "n_border_contact": 202,
+      "mean_endpoint_error": 0.029452154243383676,
+      "median_endpoint_error": 0.025995120504076027,
+      "p90_endpoint_error": 0.046961969008243634,
+      "note": "per-segment mean endpoint distance in scene units; within-segment order is free"
+    }
+  },
+  "archived_pilot_comparison": {
+    "note": "same 28-quartet / 19-parent archived pilot bank, corrected v2 predictions; descriptive point-estimate comparison, not a paired test",
+    "v2_arm_mean_J3": {
+      "direct": 0.5714,
+      "additive": 0.4167,
+      "representation": 0.2738,
+      "interaction": 0.5833
+    },
+    "v2_clean_only_direct_mean_J3": {
+      "803": {
+        "P": 0.9285714285714286,
+        "A": 0.75,
+        "B": 0.8214285714285714,
+        "AB": 0.42857142857142855,
+        "atomic_joint": 0.6785714285714286,
+        "J3": 0.10714285714285714,
+        "J4": 0.10714285714285714,
+        "n": 28
+      },
+      "805": {
+        "P": 0.8928571428571429,
+        "A": 0.75,
+        "B": 0.75,
+        "AB": 0.5357142857142857,
+        "atomic_joint": 0.6785714285714286,
+        "J3": 0.25,
+        "J4": 0.25,
+        "n": 28
+      },
+      "806": {
+        "P": 0.75,
+        "A": 0.6428571428571429,
+        "B": 0.6785714285714286,
+        "AB": 0.5,
+        "atomic_joint": 0.5714285714285714,
+        "J3": 0.10714285714285714,
+        "J4": 0.10714285714285714,
+        "n": 28
+      }
+    },
+    "analytic_J3_on_same_bank": 0.75
+  },
+  "tests": {
+    "m2_prep": {
+      "command": "python3 -m unittest discover -s experiments/mechanism_transfer_v3/m2 -p 'test_*.py' -v",
+      "result": "22 passed"
+    },
+    "v3_shared": {
+      "command": "python3 -m unittest discover -s experiments/mechanism_transfer_v3/tests -p 'test_*.py'",
+      "result": "13 passed"
+    },
+    "m1_collision": {
+      "command": "python3 -m unittest discover -s experiments/mechanism_transfer_v3/m1 -p 'test_*.py'",
+      "result": "26 passed"
+    },
+    "m1_training": {
+      "command": "python3 -m unittest discover -s experiments/mechanism_transfer_v3/m1/training -p 'test_*.py'",
+      "result": "20 passed"
+    },
+    "package_contracts": {
+      "command": "python3 -m unittest discover -s docs/2c3e2d9_mechanism_transfer_pack/checks -p 'test_contracts.py'",
+      "result": "12 passed"
+    },
+    "bank_validate_only": {
+      "command": "python3 experiments/mechanism_transfer_v3/m2/generate_bank.py --validate-only",
+      "result": "passed"
+    }
+  },
+  "non_claims": [
+    "No learned front, no frozen head, no transfer result; the analytic baseline is an oracle-free reference, not a method contribution.",
+    "The analytic baseline is not a proposed method and does not receive coordinates, oracle masks, parent ids, edit answers or combination ids.",
+    "The archived 28-quartet pilot bank is reused as development evidence only and is never pooled with the expanded bank.",
+    "No sealed pool (holdout_909 / confirm_1007 / holdout_895 / J03WQQ / SoccerTrack-v2) was read.",
+    "Mask erasure statistics are input-contract measurements, not performance results; the 7-erased-quartet pilot correlation has no estimable effect.",
+    "No claim that the expanded bank's analytic ceiling transfers to the learned front; step 4 must measure that."
+  ],
+  "not_run": [
+    "M2.1 frozen relation head (no M1 checkpoint was available to this worker; M1.2 produced one afterwards - re-check before step 4)",
+    "M2.2 layered/transparent isolation renderer variant and its pre-fusion invariance test",
+    "M2.3 interventions (true/predicted/perturbed geometry, object-block swap)",
+    "M2.4 external renderer validation",
+    "M2 steps 1-3 GPU training of direct/aux/geometry-front baselines"
+  ],
+  "blockers": [
+    "No CUDA on this host (torch.cuda.is_available() == False); GPU steps are not runnable here.",
+    "AI Galaxy instance ownership/release is still unresolved per STATUS.md, so no remote GPU spend was started."
+  ],
+  "artifacts": {
+    "analytic_baseline.json": {
+      "path": "artifacts/mechanism_transfer_v3/m2/analytic_baseline.json",
+      "sha256": "426d7b0195f4b1c214cd77326f62b816d28f21beb5a5f284f8d6a15b8d86444c"
+    },
+    "mask_audit.json": {
+      "path": "artifacts/mechanism_transfer_v3/m2/mask_audit.json",
+      "sha256": "f96dad52e1954e229ff22083df39e4a9cc18144f0f47202fd5ea6478da1c1752"
+    }
+  },
+  "reports": {
+    "M2_PREP_REPORT.md": {
+      "path": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/M2_PREP_REPORT.md",
+      "sha256": "02bd813899c9ac3da53871bf098282cec7cb71fc0bbd0fca56ddfc1eda5fd181"
+    }
+  }
+}

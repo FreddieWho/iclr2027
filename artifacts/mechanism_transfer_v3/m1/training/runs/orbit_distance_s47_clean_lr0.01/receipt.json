@@ -1,0 +1,64 @@
+{
+  "arm": "orbit_distance",
+  "seed": 47,
+  "supervision": "clean",
+  "lr": 0.01,
+  "epochs": 300,
+  "threads": 4,
+  "dev_bce": 1.812180995941162,
+  "dev_bce_clean": 0.09258218854665756,
+  "dev_bce_flip": 2.4227454662323,
+  "final_train_loss": 2.9175998861319385e-05,
+  "mean_train_loss": 0.017717512267263372,
+  "first_train_loss": 0.6900115013122559,
+  "final_train_error": 0.0,
+  "n_parameters": 6721,
+  "macs_per_example": 6560,
+  "train_state_forwards": 153600,
+  "train_forward_macs": 1007616000,
+  "seconds": 0.4534931182861328,
+  "init_state_digest": "81bdc2436d4378cf145aaf4f4bb4a560c6960cfdd4261ba2925ded420dd05485",
+  "checkpoint_sha256": "4de52d10dbae60d16ee78243f11fc7715ef4176f33137c083774017c7dd63fcc",
+  "model_card": {
+    "arm": "orbit_distance",
+    "class": "CoordMLP",
+    "in_dim": 6,
+    "n_parameters": 6721,
+    "macs_per_example": 6560,
+    "architecture_digest": "81bdc2436d4378cf145aaf4f4bb4a560c6960cfdd4261ba2925ded420dd05485",
+    "lineage": {
+      "backbone": "experiments/discovery_campaign/coord_mlp.py::CoordMLP",
+      "source_sha256": "3623de068807af3467d085aa890bc85afe87f07ebe484511f61822a2c369fa7a"
+    },
+    "symmetry": "none_by_construction"
+  },
+  "feature_schema": {
+    "arm": "orbit_distance",
+    "columns": [
+      "d01",
+      "d02",
+      "d03",
+      "d12",
+      "d13",
+      "d23"
+    ],
+    "in_dim": 6,
+    "construction": "whole_orbit_lexicographic_distance_representative",
+    "role_preserving_reference": true,
+    "statistics": "train per-column mean/std"
+  },
+  "stats_kind": "train_feature",
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "n_train_clean": 512,
+  "n_train_flip": 0,
+  "n_dev_clean": 256,
+  "n_dev_flip": 721,
+  "selection": "final pooled static+single dev BCE; smaller lr wins ties; test J is never read",
+  "checkpoint": "artifacts/mechanism_transfer_v3/m1/training/runs/orbit_distance_s47_clean_lr0.01/model.pt"
+}

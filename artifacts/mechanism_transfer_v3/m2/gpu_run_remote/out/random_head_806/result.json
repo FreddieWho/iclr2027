@@ -1,0 +1,35 @@
+{
+  "mode": "random_head",
+  "seed": 806,
+  "epochs": 20,
+  "train": {
+    "loss": "none: no training in this cell"
+  },
+  "quartet_table": {
+    "n_quartets": 692,
+    "n_eligible_parents": 351,
+    "n_sampled_parents": 351,
+    "row_mean": 0.01300578034682081,
+    "parent_mean": 0.014245014245014245,
+    "P": 0.4508670520231214,
+    "A": 0.4479768786127168,
+    "B": 0.45375722543352603,
+    "AB": 0.5592485549132948,
+    "atomic_joint": 0.3916184971098266,
+    "J3": 0.01300578034682081,
+    "J4": 0.01300578034682081,
+    "p_available": true,
+    "J3_parent_cluster_ci": {
+      "estimate": 0.014245014245014245,
+      "ci95": [
+        0.005698005698005698,
+        0.02564102564102564
+      ],
+      "n": 692,
+      "parents": 351,
+      "unit": "test parent (equal weight)"
+    },
+    "n_parents": 351
+  },
+  "seconds": 2.080920934677124
+}

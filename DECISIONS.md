@@ -574,6 +574,15 @@
 ## E832-ROUTE2-ITERATION-BUDGET（2026-09-25）— 可持续至04:55
 用户将原“最多3轮优化”改为可继续迭代至04:55。仍保留提前停止条件：结果满意、确认失败、没有新的可修复因素或数据/实现合同失效时立即停止；不为耗尽时间制造新训练。发现J3字段和native RGB mask输入合同缺陷时，先修合同再重跑，不把旧结果解释成科学结论。
 
+## V3-M1-D1（2026-09-25）— 接受segment_moment块共享统计
+`segment_moment`两block独立统计在合法segment swap下破坏不变性（swing~12），改为跨block共享统计后swing为0。旧run保留在`superseded/blockwise_stats/`并排除出结果；bank/seed/supervision/selection未动。接受该修复。
+
+## V3-M2-VERDICT（2026-09-25）— 冻结模块迁移阴性，归因精确
+16格GPU矩阵（2080 Ti，692/351 bank，冻结M1 orbit head seed11）：direct_full J3≈0.92为最优；真几何+冻结head 0.796，随机head≈0，head competent且特异；纯几何loss前端（冻结/微调backbone）J3≈0.20，dev几何MSE≈0.51不变。失败在规范化orbit接口不可微回归，不在探针容量。按M2.5阴性分支停止加head；M1源表示结论不受影响。用户提供的GPU入口全程可用，凭据未落盘。
+
+## V3-M1-VERDICT（2026-09-25）— 源端有界结论，T1/T2暂缓
+M1.2源矩阵确认：whole-orbit参照去掉高风险独立排序且不付精度代价，但flip侧相对sorted的增益方向不稳定；segment_moment不足；repaired head复现阴性；source未找到精确碰撞。不携带任何跨任务结论。T1/T2移植暂缓，优先M2接口工作。
+
 ## E832-ROUTE2-FINAL-V2（2026-09-25）— 合同修复后有界阴性，退租外部阻塞
 Round 2修复了J3定义和native RGB输入合同；v2 12臂+3 clean baseline均完成。direct J3均值0.571，interaction均值0.583，但interaction-direct seed差+0.179/-0.143/0，不能声称稳定视觉交互优势；状态为`BOUNDED_NEGATIVE_UNSTABLE`，停止训练。AI Galaxy MCP账户显示1台running，但`plan_release`返回该实例不属于当前MCP state store；退租需账户所有者通过控制台或提供正确MCP instance name，未用SSH shutdown代替。
 

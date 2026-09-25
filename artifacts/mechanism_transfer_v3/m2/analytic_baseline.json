@@ -1,0 +1,202 @@
+{
+  "schema": "mechanism_transfer_v3.m2.analytic_baseline/1",
+  "method": "native RGB -> frozen color masks -> per-color principal-axis line fit with the known stamp offset removed -> oracle crossing rule on the four recovered endpoints",
+  "mask_thresholds": {
+    "red": {
+      "red_min": 0.15,
+      "green_max": 0.35,
+      "blue_max": 0.35
+    },
+    "blue": {
+      "blue_min": 0.15,
+      "red_max": 0.35,
+      "green_max": 0.35
+    }
+  },
+  "stamp_half_width": 2,
+  "min_mask_pixels": 25,
+  "reads_oracle": false,
+  "trains_nothing": true,
+  "claim": "none: analytic reference ceiling, not a method contribution",
+  "pilot": {
+    "bank": "/home/huyudi/012_conference/iclr2027/artifacts/e832_focus/route2/data/data.npz",
+    "note": "archived 28-quartet / 19-parent Route-2 pilot bank, development evidence only",
+    "test_singletons": {
+      "n_images": 319,
+      "accuracy_all_images": 0.9780564263322884,
+      "accuracy_on_fitted": 0.9842271293375394,
+      "n_fitted": 317,
+      "failure_decomposition": {
+        "n": 319,
+        "both_segments_fit": 317,
+        "red_degenerate": 2,
+        "blue_degenerate": 0,
+        "border_contact": 26,
+        "red_reasons": {
+          "too_few_pixels": 2
+        },
+        "blue_reasons": {}
+      },
+      "predictive_accuracy_note": "an unfittable image is counted as a miss in accuracy_all_images; the fitted-only number is reported separately so the two are never conflated"
+    },
+    "test_quartets": {
+      "n_quartets": 28,
+      "n_quartets_all_states_fitted": 28,
+      "failure_decomposition": {
+        "n": 112,
+        "both_segments_fit": 112,
+        "red_degenerate": 0,
+        "blue_degenerate": 0,
+        "border_contact": 0,
+        "red_reasons": {},
+        "blue_reasons": {}
+      },
+      "metrics": {
+        "n_quartets": 28,
+        "P": 1.0,
+        "A": 0.9285714285714286,
+        "B": 0.8571428571428571,
+        "AB": 0.9285714285714286,
+        "atomic_joint": 0.8214285714285714,
+        "J3": 0.75,
+        "J4": 0.75,
+        "p_available": true
+      },
+      "flow": {
+        "n_quartets": 28,
+        "n_P_correct": 28,
+        "n_A_B_correct": 23,
+        "n_A_B_correct_AB_wrong": 2,
+        "n_full_repair_J3": 21
+      },
+      "baseline110": {
+        "n_quartets": 28,
+        "n_P_correct": 28,
+        "n_A_B_correct": 23,
+        "n_A_B_correct_AB_wrong": 2,
+        "n_full_repair_J3": 21
+      },
+      "baseline110_note": "n_A_B_correct_AB_wrong is the paired baseline-110 denominator; the same object is exposed under flow and baseline110 so no caller has to recompute it",
+      "J3_parent_cluster_ci": {
+        "estimate": 0.7105263157894737,
+        "ci95": [
+          0.5,
+          0.8947368421052632
+        ],
+        "n": 28,
+        "parents": 19,
+        "unit": "test parent (equal weight)"
+      },
+      "n_parents": 19
+    }
+  },
+  "expanded": {
+    "bank": "/home/huyudi/012_conference/iclr2027/artifacts/mechanism_transfer_v3/m2/bank",
+    "bank_archive_sha256": "69c4bb5c0986701ee1ab7a20e6b50a3a8ae22e2aa959fb57906947fbe6184342",
+    "train_singletons": {
+      "n_images": 2532,
+      "accuracy_all_images": 0.9766982622432859,
+      "accuracy_on_fitted": 0.983300198807157,
+      "n_fitted": 2515,
+      "failure_decomposition": {
+        "n": 2532,
+        "both_segments_fit": 2515,
+        "red_degenerate": 17,
+        "blue_degenerate": 0,
+        "border_contact": 170,
+        "red_reasons": {
+          "too_few_pixels": 17
+        },
+        "blue_reasons": {}
+      },
+      "predictive_accuracy_note": "an unfittable image is counted as a miss in accuracy_all_images; the fitted-only number is reported separately so the two are never conflated"
+    },
+    "test_singletons": {
+      "n_images": 946,
+      "accuracy_all_images": 0.9799154334038055,
+      "accuracy_on_fitted": 0.9830328738069989,
+      "n_fitted": 943,
+      "failure_decomposition": {
+        "n": 946,
+        "both_segments_fit": 943,
+        "red_degenerate": 3,
+        "blue_degenerate": 0,
+        "border_contact": 63,
+        "red_reasons": {
+          "too_few_pixels": 3
+        },
+        "blue_reasons": {}
+      },
+      "predictive_accuracy_note": "an unfittable image is counted as a miss in accuracy_all_images; the fitted-only number is reported separately so the two are never conflated"
+    },
+    "test_quartets": {
+      "n_quartets": 692,
+      "n_quartets_all_states_fitted": 685,
+      "failure_decomposition": {
+        "n": 2768,
+        "both_segments_fit": 2760,
+        "red_degenerate": 8,
+        "blue_degenerate": 0,
+        "border_contact": 203,
+        "red_reasons": {
+          "too_few_pixels": 7,
+          "zero_length_after_cap": 1
+        },
+        "blue_reasons": {}
+      },
+      "metrics": {
+        "n_quartets": 685,
+        "P": 0.997080291970803,
+        "A": 0.9868613138686131,
+        "B": 0.945985401459854,
+        "AB": 0.9445255474452555,
+        "atomic_joint": 0.9416058394160584,
+        "J3": 0.8861313868613139,
+        "J4": 0.8861313868613139,
+        "p_available": true
+      },
+      "flow": {
+        "n_quartets": 685,
+        "n_P_correct": 683,
+        "n_A_B_correct": 645,
+        "n_A_B_correct_AB_wrong": 38,
+        "n_full_repair_J3": 607
+      },
+      "baseline110": {
+        "n_quartets": 685,
+        "n_P_correct": 683,
+        "n_A_B_correct": 645,
+        "n_A_B_correct_AB_wrong": 38,
+        "n_full_repair_J3": 607
+      },
+      "baseline110_note": "n_A_B_correct_AB_wrong is the paired baseline-110 denominator; the same object is exposed under flow and baseline110 so no caller has to recompute it",
+      "J3_parent_cluster_ci": {
+        "estimate": 0.8882521489971347,
+        "ci95": [
+          0.8567335243553008,
+          0.9169054441260746
+        ],
+        "n": 685,
+        "parents": 349,
+        "unit": "test parent (equal weight)"
+      },
+      "n_parents": 349
+    },
+    "test_singleton_endpoint_recovery": {
+      "n": 943,
+      "n_border_contact": 62,
+      "mean_endpoint_error": 0.028597488273174407,
+      "median_endpoint_error": 0.026366244845664355,
+      "p90_endpoint_error": 0.041611993587156886,
+      "note": "per-segment mean endpoint distance in scene units; within-segment order is free"
+    },
+    "quartet_state_endpoint_recovery": {
+      "n": 2760,
+      "n_border_contact": 202,
+      "mean_endpoint_error": 0.029452154243383676,
+      "median_endpoint_error": 0.025995120504076027,
+      "p90_endpoint_error": 0.046961969008243634,
+      "note": "per-segment mean endpoint distance in scene units; within-segment order is free"
+    }
+  }
+}

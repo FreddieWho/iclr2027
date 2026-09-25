@@ -1,0 +1,122 @@
+{
+  "schema": "mechanism_transfer_v3.m1.training_manifest/1",
+  "queue": "EXPERIMENTS.md Queue 2 (M1 role-preserving invariance, source contract)",
+  "recipe": {
+    "epochs": 300,
+    "lrs": [
+      0.01,
+      0.003,
+      0.001
+    ],
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "supervisions": [
+      "clean",
+      "flip"
+    ],
+    "threads": 4,
+    "optimizer": "Adam, full batch, one step per epoch",
+    "loss": "BCEWithLogits (clean only, or clean + all mined single flips)",
+    "selection": "min final pooled static+single dev BCE; smaller lr wins ties",
+    "decision_rule": "logit > 0",
+    "frozen_origin": "reports/e832_focus/STRUCTURE_DECISION.md training contract"
+  },
+  "arms": [
+    "raw",
+    "rich8_unsorted",
+    "rich8_sorted",
+    "orbit_distance",
+    "segment_moment",
+    "repaired_segment_rho"
+  ],
+  "role_preserving_references": [
+    "orbit_distance",
+    "segment_moment"
+  ],
+  "zero_train_control_not_trained": {
+    "name": "group_mean",
+    "reference": "artifacts/mechanism_transfer_v3/m1/reference_eval.json",
+    "why": "finite-group mean invariance is constructed; it is only a budgeted zero-train control"
+  },
+  "sources": {
+    "train_scenes": {
+      "path": "artifacts/f095_campaign/D01/scenes_N/scenes.npz",
+      "sha256": "620ea1dc1e443dc6c238317463dc64ab3a9ae05fb592743f3a7d67d7ce17262c",
+      "n_scenes": 512
+    },
+    "dev_single": {
+      "path": "artifacts/e832_focus/structure/dev_single.npz",
+      "sha256": "283a4a7c484b6f43cca683b7e197f6b3e1aed1b086ce94d38c85c4dbcd21ba23",
+      "n_clean": 256,
+      "n_single_flip": 721
+    },
+    "train_flips": {
+      "path": "artifacts/e832_focus/structure/train_flips.npz",
+      "sha256": "820b10a99cddbaaf2d33eeaf3b8852bd670f88086e1571f1d442afbf7a52686d",
+      "n_flips": 1534
+    },
+    "bank_quartets": {
+      "path": "artifacts/e832_focus/structure/bank_quartets.npz",
+      "sha256": "15f5bf181b37dc9b4309582490f7fc11dfca8b03491251c3724fcb2e1bdd804c",
+      "n_quartets": 2188,
+      "n_eligible_parents": 871
+    }
+  },
+  "capacity": {
+    "raw": {
+      "in_dim": 8,
+      "n_parameters": 6849,
+      "macs_per_example": 6688
+    },
+    "rich8_unsorted": {
+      "in_dim": 8,
+      "n_parameters": 6849,
+      "macs_per_example": 6688
+    },
+    "rich8_sorted": {
+      "in_dim": 8,
+      "n_parameters": 6849,
+      "macs_per_example": 6688
+    },
+    "orbit_distance": {
+      "in_dim": 6,
+      "n_parameters": 6721,
+      "macs_per_example": 6560
+    },
+    "segment_moment": {
+      "in_dim": 10,
+      "n_parameters": 6977,
+      "macs_per_example": 11552
+    },
+    "repaired_segment_rho": {
+      "in_dim": 8,
+      "n_parameters": 8001,
+      "macs_per_example": 19600
+    }
+  },
+  "batch_contract": {
+    "regime": "full_batch",
+    "shuffle": false,
+    "optimizer_steps_per_epoch": 1,
+    "train_row_order_sha256": "ff0219b780704b35913114c736b50e95b021a36b42a450bbac2792c535a47bfc",
+    "flip_row_order_sha256": "fa2b162c6e16ecc6f1f40460efb79414426aaf7a39af82dac783623cd5b1b4c5"
+  },
+  "code_sha256": {
+    "features.py": "80dfe3a9642d4e99498e652cdb5b30cc34124a47fd39efe01c52f3a06cbfa5e0",
+    "models.py": "ea64d1bf43f8ab5bdb295afc9f2352d353b3200217884c94e89bdbb161e4e465",
+    "recipe.py": "563af99fb84041de8103ea0552fe56335314ab61a20ae6d156dd0a0f4fd15a95",
+    "evaluate.py": "24cf17f7973da0482d12d584863a0f4c53c07690082292b7a47ac6d08ddf758d",
+    "run_matrix.py": "d1c394169fcef17e81590f2d77550a1ecaa59e9af6a887a90a6b7c77a845a630"
+  },
+  "group_elements_are_not_replicates": true,
+  "seeds_are_not_datasets": true,
+  "non_claims": [
+    "This matrix is the source task only. Nothing here licenses cross-task transfer; the T1/T2 comparison of any of these representations is a separate experiment that has not been run in v3.",
+    "The group-mean reference in artifacts/mechanism_transfer_v3/m1/reference_eval.json is a zero-train control. It is not trained here and its exact invariance is constructed.",
+    "Seeds are training replicates, not independent datasets; per-seed parent intervals are reported and never pooled into one interval.",
+    "The frozen bank is a development bank already used by earlier reports; this is a representation comparison on it, not a fresh confirmation."
+  ]
+}

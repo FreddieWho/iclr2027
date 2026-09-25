@@ -1,0 +1,38 @@
+{
+  "schema": "mechanism_transfer_v3.m1.training_capacity/1",
+  "arms": {
+    "raw": {
+      "in_dim": 8,
+      "n_parameters": 6849,
+      "macs_per_example": 6688
+    },
+    "rich8_unsorted": {
+      "in_dim": 8,
+      "n_parameters": 6849,
+      "macs_per_example": 6688
+    },
+    "rich8_sorted": {
+      "in_dim": 8,
+      "n_parameters": 6849,
+      "macs_per_example": 6688
+    },
+    "orbit_distance": {
+      "in_dim": 6,
+      "n_parameters": 6721,
+      "macs_per_example": 6560
+    },
+    "segment_moment": {
+      "in_dim": 10,
+      "n_parameters": 6977,
+      "macs_per_example": 11552
+    },
+    "repaired_segment_rho": {
+      "in_dim": 8,
+      "n_parameters": 8001,
+      "macs_per_example": 19600
+    }
+  },
+  "coord_mlp_source": "experiments/discovery_campaign/coord_mlp.py",
+  "coord_mlp_sha256": "3623de068807af3467d085aa890bc85afe87f07ebe484511f61822a2c369fa7a",
+  "note": "raw, rich8_*, and orbit_distance share CoordMLP(64, 32); segment_moment counts its symmetric double evaluation; macs are counted from actual Linear calls, not estimated"
+}
