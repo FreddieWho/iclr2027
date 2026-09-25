@@ -1,0 +1,29 @@
+{
+  "seeds": [
+    962101
+  ],
+  "chunks": 1,
+  "rows": 564,
+  "parents": 146,
+  "coords_sha256": "ecd8f48c029a75232417b668622ce8033a450091bc5902e34fe396136b1b830c",
+  "overlap_checks": {
+    "n02_train_coords": {
+      "min_parent_linf": 0.12038981914520264,
+      "matches_within_1e6": 0
+    },
+    "n02_dev_coords": {
+      "min_parent_linf": 0.15854549407958984,
+      "matches_within_1e6": 0
+    },
+    "n02_test_coords": {
+      "min_parent_linf": 0.1333647072315216,
+      "matches_within_1e6": 0
+    },
+    "n02_quartet_coords": {
+      "min_parent_linf": 0.16668801009655,
+      "matches_within_1e6": 0
+    }
+  },
+  "source_commit": "2c3e2d9640607c32aacf86c8758cd1e2f8ef317b",
+  "created_utc": "2026-09-25T03:48:17Z"
+}

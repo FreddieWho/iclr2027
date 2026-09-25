@@ -1,0 +1,80 @@
+{
+  "seeds": [
+    803,
+    805,
+    806
+  ],
+  "epochs": 20,
+  "batch": 32,
+  "optimizer": "Adam",
+  "lr": 0.0003,
+  "arms": [
+    {
+      "observation": "A",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "lowstride",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "A",
+      "stem": "lowstride",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "standard",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "lowstride",
+      "init": "pretrained",
+      "supervision": "flip"
+    },
+    {
+      "observation": "B",
+      "stem": "lowstride",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "W",
+      "stem": "standard",
+      "init": "random",
+      "supervision": "flip"
+    },
+    {
+      "observation": "W",
+      "stem": "lowstride",
+      "init": "random",
+      "supervision": "flip"
+    }
+  ],
+  "expected_completed": 30,
+  "dtype": "FP32",
+  "TF32": false,
+  "AMP": false,
+  "selection": "minimum single-dev BCE; no target AB selection",
+  "W_contract": "wide ResNet18 x4 channels, random-init only, MACs 2.25G>=B 1.81G",
+  "smaledit": "564 quartets / 146 parents, filtered stratum, sha ecd8f48c029a7523"
+}

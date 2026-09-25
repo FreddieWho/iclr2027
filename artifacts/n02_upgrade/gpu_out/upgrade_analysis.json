@@ -1,0 +1,269 @@
+{
+  "P0_B_minus_A_standard_oldbank": {
+    "pretrained": [
+      {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.33707865168539325,
+        "delta_J_parent": 0.33039215686274503,
+        "parent_bootstrap95": [
+          0.2215686274509804,
+          0.4411764705882352
+        ],
+        "baseline110_n": 30,
+        "full_repair_n": 27,
+        "migration_n": 0,
+        "baseline111_n": 95,
+        "regression111_n": 10
+      },
+      {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.42134831460674155,
+        "delta_J_parent": 0.4088235294117647,
+        "parent_bootstrap95": [
+          0.3009558823529412,
+          0.5205882352941176
+        ],
+        "baseline110_n": 31,
+        "full_repair_n": 21,
+        "migration_n": 2,
+        "baseline111_n": 77,
+        "regression111_n": 5
+      },
+      {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.2640449438202247,
+        "delta_J_parent": 0.2509803921568628,
+        "parent_bootstrap95": [
+          0.15,
+          0.3549019607843137
+        ],
+        "baseline110_n": 22,
+        "full_repair_n": 14,
+        "migration_n": 0,
+        "baseline111_n": 90,
+        "regression111_n": 10
+      }
+    ],
+    "random": [
+      {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3089887640449438,
+        "delta_J_parent": 0.2833333333333333,
+        "parent_bootstrap95": [
+          0.1950735294117647,
+          0.37549019607843137
+        ],
+        "baseline110_n": 36,
+        "full_repair_n": 22,
+        "migration_n": 0,
+        "baseline111_n": 89,
+        "regression111_n": 3
+      },
+      {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.3146067415730337,
+        "delta_J_parent": 0.33039215686274515,
+        "parent_bootstrap95": [
+          0.23627450980392156,
+          0.4245098039215687
+        ],
+        "baseline110_n": 33,
+        "full_repair_n": 26,
+        "migration_n": 0,
+        "baseline111_n": 93,
+        "regression111_n": 5
+      },
+      {
+        "n": 178,
+        "parent_n": 85,
+        "delta_J_row": 0.33707865168539325,
+        "delta_J_parent": 0.29607843137254897,
+        "parent_bootstrap95": [
+          0.18627450980392155,
+          0.40686274509803916
+        ],
+        "baseline110_n": 38,
+        "full_repair_n": 31,
+        "migration_n": 2,
+        "baseline111_n": 85,
+        "regression111_n": 7
+      }
+    ]
+  },
+  "P1_compute_fraction_random_standard_oldbank": [
+    {
+      "seed": 803,
+      "J_A": 0.5,
+      "J_W": 0.702247191011236,
+      "J_B": 0.8089887640449438,
+      "f_WA_over_BA": 0.6193771626297577
+    },
+    {
+      "seed": 805,
+      "J_A": 0.5224719101123596,
+      "J_W": 0.7078651685393258,
+      "J_B": 0.8370786516853933,
+      "f_WA_over_BA": 0.5519287833827892
+    },
+    {
+      "seed": 806,
+      "J_A": 0.47752808988764045,
+      "J_W": 0.6292134831460674,
+      "J_B": 0.8146067415730337,
+      "f_WA_over_BA": 0.43377483443708614
+    }
+  ],
+  "P2_lowstride_interaction_smaledit": [
+    {
+      "init": "pretrained",
+      "seed": 803,
+      "n": 564,
+      "parent_n": 146,
+      "interaction_row": 0.16843971631205673,
+      "interaction_parent": 0.182648401826484,
+      "parent_bootstrap95": [
+        0.08503139269406393,
+        0.2796803652968036
+      ]
+    },
+    {
+      "init": "pretrained",
+      "seed": 805,
+      "n": 564,
+      "parent_n": 146,
+      "interaction_row": -0.10460992907801418,
+      "interaction_parent": -0.11872146118721463,
+      "parent_bootstrap95": [
+        -0.21748002283105022,
+        -0.018821347031963417
+      ]
+    },
+    {
+      "init": "pretrained",
+      "seed": 806,
+      "n": 564,
+      "parent_n": 146,
+      "interaction_row": -0.010638297872340425,
+      "interaction_parent": -0.01426940639269406,
+      "parent_bootstrap95": [
+        -0.09531963470319635,
+        0.06678082191780822
+      ]
+    },
+    {
+      "init": "random",
+      "seed": 803,
+      "n": 564,
+      "parent_n": 146,
+      "interaction_row": 0.14361702127659576,
+      "interaction_parent": 0.13641552511415522,
+      "parent_bootstrap95": [
+        0.046232876712328765,
+        0.22661244292237445
+      ]
+    },
+    {
+      "init": "random",
+      "seed": 805,
+      "n": 564,
+      "parent_n": 146,
+      "interaction_row": 0.11524822695035461,
+      "interaction_parent": 0.11358447488584474,
+      "parent_bootstrap95": [
+        0.03824200913242009,
+        0.18778538812785386
+      ]
+    },
+    {
+      "init": "random",
+      "seed": 806,
+      "n": 564,
+      "parent_n": 146,
+      "interaction_row": 0.04609929078014184,
+      "interaction_parent": 0.050228310502283095,
+      "parent_bootstrap95": [
+        -0.042237442922374434,
+        0.14098173515981735
+      ]
+    }
+  ],
+  "P2_lowstride_interaction_oldbank": [
+    {
+      "init": "pretrained",
+      "seed": 803,
+      "n": 178,
+      "parent_n": 85,
+      "interaction_row": -0.03932584269662921,
+      "interaction_parent": -0.0019607843137254854,
+      "parent_bootstrap95": [
+        -0.12549019607843134,
+        0.12941176470588237
+      ]
+    },
+    {
+      "init": "pretrained",
+      "seed": 805,
+      "n": 178,
+      "parent_n": 85,
+      "interaction_row": -0.0898876404494382,
+      "interaction_parent": -0.10294117647058823,
+      "parent_bootstrap95": [
+        -0.21862745098039219,
+        0.009803921568627444
+      ]
+    },
+    {
+      "init": "pretrained",
+      "seed": 806,
+      "n": 178,
+      "parent_n": 85,
+      "interaction_row": -0.10674157303370786,
+      "interaction_parent": -0.09509803921568628,
+      "parent_bootstrap95": [
+        -0.20098039215686272,
+        0.008823529411764706
+      ]
+    },
+    {
+      "init": "random",
+      "seed": 803,
+      "n": 178,
+      "parent_n": 85,
+      "interaction_row": -0.12359550561797752,
+      "interaction_parent": -0.11666666666666664,
+      "parent_bootstrap95": [
+        -0.23629901960784314,
+        0.001985294117647146
+      ]
+    },
+    {
+      "init": "random",
+      "seed": 805,
+      "n": 178,
+      "parent_n": 85,
+      "interaction_row": 0.028089887640449437,
+      "interaction_parent": 0.030392156862745105,
+      "parent_bootstrap95": [
+        -0.07745098039215687,
+        0.14215686274509803
+      ]
+    },
+    {
+      "init": "random",
+      "seed": 806,
+      "n": 178,
+      "parent_n": 85,
+      "interaction_row": -0.028089887640449437,
+      "interaction_parent": 0.03823529411764706,
+      "parent_bootstrap95": [
+        -0.0892156862745098,
+        0.16470588235294115
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "status": "MATRIX_COMPLETE",
+  "command": [
+    "upgrade_run.py",
+    "--bundle",
+    ".",
+    "--out",
+    "/home/vipuser/n02_upgrade_out",
+    "--execute"
+  ],
+  "started_utc": "2026-09-25T04:25:22Z",
+  "pid": 4585,
+  "completed": [
+    {
+      "arm": "A_standard_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_lowstride_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_lowstride_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_standard_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_lowstride_pretrained_flip",
+      "seed": 803
+    },
+    {
+      "arm": "B_lowstride_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "W_standard_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "W_lowstride_random_flip",
+      "seed": 803
+    },
+    {
+      "arm": "A_standard_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_lowstride_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_lowstride_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_standard_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_lowstride_pretrained_flip",
+      "seed": 805
+    },
+    {
+      "arm": "B_lowstride_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "W_standard_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "W_lowstride_random_flip",
+      "seed": 805
+    },
+    {
+      "arm": "A_standard_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_lowstride_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "A_lowstride_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_standard_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_lowstride_pretrained_flip",
+      "seed": 806
+    },
+    {
+      "arm": "B_lowstride_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "W_standard_random_flip",
+      "seed": 806
+    },
+    {
+      "arm": "W_lowstride_random_flip",
+      "seed": 806
+    }
+  ],
+  "expected_completed": 30,
+  "scientific_decision": "PENDING_INDEPENDENT_INTERPRETATION",
+  "source_sha256": {
+    "upgrade_run.py": "7895dddc8f86bf012884961e8e0aeadf233a9a9621ae97cea97eb3690b768675",
+    "upgrade_protocol.py": "0191b919290313412e0849d8c222280912aadc584fe9acaf9279028e1bbc835b"
+  },
+  "torch": "2.5.1+cu121",
+  "torchvision": "0.20.1+cu121",
+  "config": {
+    "seeds": [
+      803,
+      805,
+      806
+    ],
+    "epochs": 20,
+    "batch": 32,
+    "optimizer": "Adam",
+    "lr": 0.0003,
+    "arms": [
+      {
+        "observation": "A",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "lowstride",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "A",
+        "stem": "lowstride",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "standard",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "lowstride",
+        "init": "pretrained",
+        "supervision": "flip"
+      },
+      {
+        "observation": "B",
+        "stem": "lowstride",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "W",
+        "stem": "standard",
+        "init": "random",
+        "supervision": "flip"
+      },
+      {
+        "observation": "W",
+        "stem": "lowstride",
+        "init": "random",
+        "supervision": "flip"
+      }
+    ],
+    "expected_completed": 30,
+    "dtype": "FP32",
+    "TF32": false,
+    "AMP": false,
+    "selection": "minimum single-dev BCE; no target AB selection",
+    "W_contract": "wide ResNet18 x4 channels, random-init only, MACs 2.25G>=B 1.81G",
+    "smaledit": "564 quartets / 146 parents, filtered stratum, sha ecd8f48c029a7523"
+  },
+  "bundle_manifest_sha256": "52f8867161dc568830bddd2a435a581ceb4037c6a8850a32d9f5323f11fb1783",
+  "data_sha256": "9bec983324b31eee180e6bb360e2162fe673b2fc015e54f18b595f2c9fbe60de",
+  "device_name": "NVIDIA GeForce RTX 2080 Ti",
+  "device_total_bytes": 11539054592,
+  "cuda_version": "12.1",
+  "cudnn_version": 90100,
+  "tf32": false,
+  "amp": false,
+  "preflight": [
+    {
+      "stem": "standard",
+      "res": 64,
+      "batch": 32,
+      "step_seconds": [
+        0.7612214760010829,
+        0.018196885001088958,
+        0.016744117998314323
+      ],
+      "steady_step_seconds": 0.01747050149970164,
+      "peak_allocated_bytes": 324940800,
+      "peak_reserved_bytes": 360710144
+    },
+    {
+      "stem": "standard",
+      "res": 224,
+      "batch": 32,
+      "step_seconds": [
+        0.1467088320023322,
+        0.05302455100172665,
+        0.0531413339995197
+      ],
+      "steady_step_seconds": 0.053082942500623176,
+      "peak_allocated_bytes": 1009993728,
+      "peak_reserved_bytes": 1314914304
+    },
+    {
+      "stem": "lowstride",
+      "res": 64,
+      "batch": 32,
+      "step_seconds": [
+        0.03206577099990682,
+        0.01914471299824072,
+        0.018736011999862967
+      ],
+      "steady_step_seconds": 0.018940362499051844,
+      "peak_allocated_bytes": 429279232,
+      "peak_reserved_bytes": 482344960
+    },
+    {
+      "stem": "lowstride",
+      "res": 224,
+      "batch": 32,
+      "step_seconds": [
+        0.16697568200106616,
+        0.14434168799925828,
+        0.14298322499962524
+      ],
+      "steady_step_seconds": 0.14366245649944176,
+      "peak_allocated_bytes": 2217494528,
+      "peak_reserved_bytes": 2770337792
+    }
+  ],
+  "wide_preflight": {
+    "peak_allocated_bytes": 3646846976,
+    "peak_reserved_bytes": 3693084672,
+    "params": 178598145
+  },
+  "renderer_numeric_checks": [
+    {
+      "res": 64,
+      "cpu_gpu_max_abs": 0.0,
+      "cpu_gpu_mean_abs": 0.0,
+      "cpu_sha256": "81f663e7e3d50e6be714e904d257f5eda64af3406bc31336b26d0fddd6c08c14",
+      "gpu_sha256": "81f663e7e3d50e6be714e904d257f5eda64af3406bc31336b26d0fddd6c08c14"
+    },
+    {
+      "res": 224,
+      "cpu_gpu_max_abs": 0.0,
+      "cpu_gpu_mean_abs": 0.0,
+      "cpu_sha256": "82313cb097df0ab820ce882f057c944b2410c67e6f095aebd1a6fc410089d3c1",
+      "gpu_sha256": "82313cb097df0ab820ce882f057c944b2410c67e6f095aebd1a6fc410089d3c1"
+    }
+  ],
+  "estimated_training_step_seconds_without_dev_eval_cache_io": 2654.379499180941,
+  "image_cache_path": "/home/vipuser/n02_upgrade_out_image_cache",
+  "cache_total_bytes": 4580340736,
+  "current": {
+    "arm": "W_lowstride_random_flip",
+    "seed": 806
+  },
+  "finished_utc": "2026-09-25T05:50:05Z"
+}

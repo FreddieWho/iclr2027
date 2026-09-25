@@ -1,0 +1,27 @@
+{
+  "n": 178,
+  "P": 1.0,
+  "A": 0.9550561797752809,
+  "B": 0.9719101123595506,
+  "AB": 0.9325842696629213,
+  "atomic_joint": 0.9382022471910112,
+  "J": 0.8707865168539326,
+  "CCM_denominator": 167,
+  "CCM": 0.9281437125748503,
+  "arm": {
+    "observation": "B",
+    "stem": "standard",
+    "init": "pretrained",
+    "supervision": "flip"
+  },
+  "seed": 803,
+  "best_epoch": 10,
+  "selection": "single-dev BCE only",
+  "checkpoint_sha256": "c2e1f9f1009196cf4c935a831b628b84c33832a939e6a1986a49c1d150d45062",
+  "train_exposure_indices_sha256": "0305deec83f1daf5b1577616a11bcb60486b77a068837fb8ec89b4a7d39c9c11",
+  "train_updates": 1760,
+  "train_exposure_count": 56120,
+  "static_single_acc": 1.0,
+  "flip_single_acc": 1.0,
+  "training_seconds": 109.24857283799793
+}

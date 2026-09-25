@@ -579,3 +579,14 @@ Round 2修复了J3定义和native RGB输入合同；v2 12臂+3 clean baseline均
 
 ## E832-ROUTE2-CLOSE（2026-09-25）— 五轮优化预算关闭，退租除外
 用户指示除退租外全部收尾。Round2-5优化轮按停止规则关闭：v2之后无新的可修复合同/实现因素，方向不稳定，无继续训练理由，故四轮均记“未触发”，不是“等待GPU”。原DATA_READY_BLOCKED_GPU状态由v2正式结果取代（12+3已执行）。退租条目保留未勾选，待账户所有者处理，本轮不收。
+
+## N02-UPGRADE-START（2026-09-25）— 算力匹配＋小编辑分层
+用户提供已授权GPU入口并指示开工。连通性已验证（RTX 2080 Ti 11GB，torch 2.5.1+cu121，双IP同机同host key，指纹已固定 pin，后续 StrictHostKeyChecking=yes）。凭据只用内存、不存文件。协议冻结先于训练（P0复现/P1算力比例/P2小编辑机制升级判据）。旧48臂字节不动；新产物只写 experiments/artifacts/reports/n02_upgrade/。新后端与旧3080Ti/cu124数字不拼因果差值。
+
+## N02-UPGRADE-VERDICT（2026-09-25）— 算力一半量化，机制仍未决
+P0通过（新后端B−A两init皆正）。P1：A-wide（×4通道，2.25G≥B 1.81G）关掉约一半差距，
+判COMPUTE_OR_CAPACITY_MAJORITY_BY_MEAN（s806的0.43异质性如实保留）。P2：small-edit
+564/146上预测方向被拒（random正向两seed显著），原−0.133命中在新后端未复现，
+机制维持UNRESOLVED且aliasing路更窄。工程事故两起（smaledit整批插值OOM→分块修复；
+残留cache目录撞exist_ok→清理重跑），判据未动。模型.pt留远端（W臂约700MB/个），
+hash已在result.json登记。

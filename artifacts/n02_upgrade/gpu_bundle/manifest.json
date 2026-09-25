@@ -1,0 +1,38 @@
+{
+  "files": [
+    {
+      "path": "config.json",
+      "sha256": "d7d46fa4ba61c3d1e579203e5c74bf8e970e03aa57366b54517e7e9adcac6744"
+    },
+    {
+      "path": "data.npz",
+      "sha256": "9bec983324b31eee180e6bb360e2162fe673b2fc015e54f18b595f2c9fbe60de"
+    },
+    {
+      "path": "data_manifest.json",
+      "sha256": "7f808f97f75e777bd217145d8de83cf8f42464d0cb11f72537840122efac7289"
+    },
+    {
+      "path": "resnet18-f37072fd.pth",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    },
+    {
+      "path": "smaledit_manifest.json",
+      "sha256": "1538ef25e4569e3987f77d3262f1a6b2c2ef1c94a7b236b4d17cbd8b8a2ac399"
+    },
+    {
+      "path": "upgrade_protocol.py",
+      "sha256": "0191b919290313412e0849d8c222280912aadc584fe9acaf9279028e1bbc835b"
+    },
+    {
+      "path": "upgrade_run.py",
+      "sha256": "7895dddc8f86bf012884961e8e0aeadf233a9a9621ae97cea97eb3690b768675"
+    },
+    {
+      "path": "wide_protocol.py",
+      "sha256": "9ae3351d1e52d75766b706e92387f284941acd783e080f1042b89e25b936a84c"
+    }
+  ],
+  "expected_completed": 30,
+  "frozen_protocol": "reports/n02_upgrade/PROTOCOL.md"
+}
